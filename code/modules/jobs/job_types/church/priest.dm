@@ -9,7 +9,7 @@
 	department_flag = CHURCHMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_PRIEST
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 1
 	spawn_positions = 1
 	min_pq = 20
@@ -84,7 +84,7 @@
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK)
 	flag = PRIEST
 	department_flag = CHURCHMEN
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 0
 	spawn_positions = 0
 
@@ -94,7 +94,7 @@
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK)
 	flag = PRIEST
 	department_flag = CHURCHMEN
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 0
 	spawn_positions = 0
 
@@ -169,8 +169,12 @@
 		if(length(GLOB.tennite_schisms))
 			to_chat(src, span_warning("I cannot excommunicate anyone during the schism!"))
 			return FALSE
+
 		var/found = FALSE
 		for(var/mob/living/carbon/human/H in GLOB.player_list)
+			if(H.advjob == "Faceless One")
+				to_chat(src, span_danger("I wasn't able to do that!"))
+				return FALSE
 			if(H.real_name == inputty)
 				found = TRUE
 				H.cleric?.excommunicate()
@@ -201,7 +205,10 @@
 			to_chat(src, span_warning("I cannot curse anyone during the schism!"))
 			return FALSE
 		var/found = FALSE
-		for(var/mob/living/carbon/H in GLOB.player_list)
+		for(var/mob/living/carbon/human/H in GLOB.player_list)
+			if(H.advjob == "Faceless One")
+				to_chat(src, span_danger("I wasn't able to do that!"))
+				return FALSE
 			if(H.real_name == inputty)
 				found = TRUE
 				H.add_stress(/datum/stressevent/psycurse)

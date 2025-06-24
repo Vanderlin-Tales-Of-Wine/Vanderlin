@@ -28,7 +28,7 @@
 	action_cooldown = 0
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT | AI_BEHAVIOR_CAN_PLAN_DURING_EXECUTION
 	/// How far do we try to run? Further makes for smoother running, but potentially weirder pathfinding
-	var/run_distance = 9
+	var/run_distance = 8
 	var/until_destination = FALSE
 	/// Clear target if we finish the action unsuccessfully
 	var/clear_failed_targets = TRUE
@@ -41,7 +41,7 @@
 	if(!controller.pawn)
 		return FALSE //the fuck how?
 	pawn?.emote("retreat")
-	plot_path_away_from(controller, target)
+	set_movement_target(controller, get_turf(controller.pawn))
 	return ..()
 
 /datum/ai_behavior/run_away_from_target/perform(delta_time, datum/ai_controller/controller, target_key, hiding_location_key)
@@ -51,6 +51,7 @@
 	var/mob/living/living_pawn = controller.pawn
 	if(SHOULD_RESIST(living_pawn))
 		living_pawn.execute_resist()
+		return
 
 	if (!controller.blackboard[BB_BASIC_MOB_FLEEING])
 		finish_action(controller, succeeded = TRUE)
@@ -65,9 +66,11 @@
 	plot_path_away_from(controller, target)
 
 /datum/ai_behavior/run_away_from_target/proc/plot_path_away_from(datum/ai_controller/controller, atom/target)
-	var/turf/target_destination = get_turf(controller.pawn)
+	var/turf/target_destination = controller.current_movement_target
 	var/static/list/offset_angles = list(45, 90, 135, 180, 225, 270)
 	for(var/angle in offset_angles)
+		if(get_dist(target, target_destination) > run_distance) //we already got the max running distance
+			break
 		var/turf/test_turf = get_furthest_turf(controller.pawn, angle, target)
 		if(isnull(test_turf))
 			continue
@@ -75,7 +78,7 @@
 		if(distance_from_target <= get_dist(target, target_destination))
 			continue
 		target_destination = test_turf
-		if(distance_from_target == run_distance) //we already got the max running distance
+		if(distance_from_target > run_distance) //we already got the max running distance
 			break
 	if (target_destination == get_turf(controller.pawn))
 		return FALSE
@@ -86,8 +89,15 @@
 	var/turf/return_turf
 	for(var/i in 1 to run_distance)
 		var/turf/test_destination = get_ranged_target_turf_direct(source, target, range = i, offset = angle)
-		if(is_blocked_turf(test_destination, exclude_mobs = !source.density))
-			break
+		if(isopenspace(test_destination) || is_blocked_turf(test_destination, exclude_mobs = !source.density))
+			var/origin = return_turf || get_turf(source)
+			var/obj/structure/stairs/found_stairs = locate() in origin
+			if(!found_stairs)
+				break
+			var/stairs_destination = found_stairs.get_transit_destination(get_dir(origin, test_destination))
+			if(isopenspace(stairs_destination) || is_blocked_turf(stairs_destination, exclude_mobs = !source.density))
+				break
+			return stairs_destination
 		return_turf = test_destination
 	return return_turf
 
@@ -98,11 +108,11 @@
 
 /datum/ai_behavior/run_away_from_target/until_destination
 	until_destination = TRUE
-	run_distance = 4
+	run_distance = 6
 
 /datum/ai_behavior/run_away_from_target/until_destination/finish_action(datum/ai_controller/controller, succeeded, ...)
 	. = ..()
 	controller.set_blackboard_key(BB_BASIC_MOB_RUN_WITH_ITEM, FALSE)
 
 /datum/ai_behavior/run_away_from_target/saiga
-	run_distance = 3
+	run_distance = 4

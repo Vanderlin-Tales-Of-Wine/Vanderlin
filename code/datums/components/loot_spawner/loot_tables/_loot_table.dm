@@ -373,8 +373,8 @@
 	user << browse(html, "window=simulation_results;size=600x500")
 	to_chat(user, "<span class='notice'>Simulation complete! Check the results window.</span>")
 
-// Global verb to select a loot table to debug
-/client/verb/debug_loot_tables()
+// Global proc to select a loot table to debug
+/client/proc/debug_loot_tables()
 	set name = "Debug Loot Tables"
 	set category = "Debug"
 	set desc = "Select and debug loot tables"

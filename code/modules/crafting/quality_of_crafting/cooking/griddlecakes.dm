@@ -16,7 +16,7 @@
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/eggbreak.ogg'
 	sound_volume = 100
-	crafting_message = "Working egg into the dough..."
+	crafting_message = "work egg into the dough"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raw
@@ -35,7 +35,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Adding lemon to the griddlecake..."
+	crafting_message = "add lemon to the griddlecake"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/unbaked_griddlecake_apple
@@ -52,7 +52,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Adding apple to the griddlecake..."
+	crafting_message = "add apple to the griddlecake"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/unbaked_griddlecake_apple_alt
@@ -69,7 +69,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Adding dried apple to the griddlecake..."
+	crafting_message = "add dried apple to the griddlecake"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/unbaked_griddlecake_berry
@@ -86,7 +86,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Adding jacksberry to the griddlecake..."
+	crafting_message = "add jacksberry to the griddlecake"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/unbaked_griddlecake_berry_alt
@@ -103,7 +103,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Adding raisins to the griddlecake..."
+	crafting_message = "add raisins to the griddlecake"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/unbaked_griddlecake_berry_poison
@@ -121,5 +121,5 @@
 	uses_attacked_atom = TRUE
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Adding jacksberry to the griddlecake..."
+	crafting_message = "add jacksberry to the griddlecake"
 	extra_chance = 100

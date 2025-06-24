@@ -22,37 +22,55 @@
 	THIS IS AN <I>EXTREMELY</I> DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. <B>NOBLES EVEN MORE SO.</B> PLAY AT YOUR OWN RISK."
 
 	skin_tone_wording = "Clan"
-	nutrition_mod = 2 // 200% higher hunger rate. Hungry, hungry horcs
 
-	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY)
+	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, STUBBLE, OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_NOSTINK)
+
 	// horcs are STINKY
 	components_to_add = list(/datum/component/rot/stinky_person)
+
 	use_skintones = 1
-	disliked_food = NONE
-	liked_food = NONE
-	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
-	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
+
+	possible_ages = NORMAL_AGES_LIST_CHILD
+	changesource_flags = WABBAJACK
+
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mt_muscular.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/ft_muscular.dmi'
-	dam_icon = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
+
+	dam_icon_m = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
 	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
-	use_m = TRUE
+
+	swap_female_clothes = TRUE
+
 	soundpack_m = /datum/voicepack/male/elf
 	soundpack_f = /datum/voicepack/female/elf
-	offset_features = list(OFFSET_RING = list(0,1), OFFSET_GLOVES = list(0,1), OFFSET_WRISTS = list(0,1),\
-	OFFSET_CLOAK = list(0,1), OFFSET_FACEMASK = list(0,1), OFFSET_HEAD = list(0,1), \
-	OFFSET_FACE = list(0,1), OFFSET_BELT = list(0,1), OFFSET_BACK = list(0,1), \
-	OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,1), \
-	OFFSET_SHIRT = list(0,1), OFFSET_ARMOR = list(0,1), OFFSET_HANDS = list(0,1), OFFSET_UNDIES = list(0,1), \
-	OFFSET_RING_F = list(0,1), OFFSET_GLOVES_F = list(0,1), OFFSET_WRISTS_F = list(0,1), OFFSET_HANDS_F = list(0,1), \
-	OFFSET_CLOAK_F = list(0,1), OFFSET_FACEMASK_F = list(0,1), OFFSET_HEAD_F = list(0,1), \
-	OFFSET_FACE_F = list(0,1), OFFSET_BELT_F = list(0,1), OFFSET_BACK_F = list(0,1), \
-	OFFSET_NECK_F = list(0,1), OFFSET_MOUTH_F = list(0,1), OFFSET_PANTS_F = list(0,0), \
-	OFFSET_SHIRT_F = list(0,1), OFFSET_ARMOR_F = list(0,1), OFFSET_UNDIES_F = list(0,1))
-	specstats = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = 2, STATKEY_END = 1, STATKEY_SPD = 0, STATKEY_LCK = 0)
+
+	offset_features_m = list(
+		OFFSET_RING = list(0,1),\
+		OFFSET_GLOVES = list(0,1),\
+		OFFSET_WRISTS = list(0,1),\
+		OFFSET_HANDS = list(0,1),\
+		OFFSET_CLOAK = list(0,1),\
+		OFFSET_FACEMASK = list(0,1),\
+		OFFSET_HEAD = list(0,1),\
+		OFFSET_FACE = list(0,1),\
+		OFFSET_BELT = list(0,1),\
+		OFFSET_BACK = list(0,1),\
+		OFFSET_NECK = list(0,1),\
+		OFFSET_MOUTH = list(0,1),\
+		OFFSET_PANTS = list(0,1),\
+		OFFSET_SHIRT = list(0,1),\
+		OFFSET_ARMOR = list(0,1),\
+		OFFSET_UNDIES = list(0,1),\
+	)
+
+	offset_features_f = list()
+
+	specstats_m = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = 2, STATKEY_END = 1, STATKEY_SPD = 0, STATKEY_LCK = 0)
 	specstats_f = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = -1, STATKEY_CON = 1, STATKEY_END = 1, STATKEY_SPD = 0, STATKEY_LCK = 0)
+
 	enflamed_icon = "widefire"
+
 	exotic_bloodtype = /datum/blood_type/human/horc
 	meat = /obj/item/reagent_containers/food/snacks/meat/strange
 
@@ -64,10 +82,12 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 	)
+
 	bodypart_features = list(
 		/datum/bodypart_feature/hair/head,
 		/datum/bodypart_feature/hair/facial,
 	)
+
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
 		ORGAN_SLOT_HEART = /obj/item/organ/heart,
@@ -80,6 +100,8 @@
 		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
 		ORGAN_SLOT_GUTS = /obj/item/organ/guts,
 	)
+
+	nutrition_mod = 2 // 200% higher hunger rate. Hungry, hungry horcs
 
 /datum/species/halforc/check_roundstart_eligible()
 	return TRUE

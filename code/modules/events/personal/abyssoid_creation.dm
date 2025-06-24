@@ -5,7 +5,7 @@
 	weight = 7
 	earliest_start = 5 MINUTES
 	max_occurrences = 1
-	min_players = 15
+	min_players = 20
 
 	tags = list(
 		TAG_WATER,
@@ -47,7 +47,7 @@
 	var/obj/effect/proc_holder/spell/self/create_abyssoid/abyssoid_spell = new()
 	chosen_one.mind.AddSpell(abyssoid_spell)
 
-	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE ABYSSOR'S CHOSEN!"))
 	to_chat(chosen_one, span_blue("Abyssor wants everyone to remember him! Create an army of holy abyssoid leeches and distribute them among the ingrates!"))
 	chosen_one.playsound_local(chosen_one, 'sound/items/bucket_transfer (2).ogg', 100)
 

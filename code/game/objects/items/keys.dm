@@ -693,7 +693,7 @@
 	icon_state = "brownkey"
 	lockids = list("luxroomv")
 
-/obj/item/key/luxroomiv
+/obj/item/key/luxroomvi
 	name = "luxury room VI key"
 	desc = "The key to the sixth luxury room."
 	icon_state = "brownkey"

@@ -3,9 +3,9 @@
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/eora_marriage
 	weight = 5
-	earliest_start = 10 MINUTES
+	earliest_start = 15 MINUTES
 	max_occurrences = 1
-	min_players = 30
+	min_players = 40
 
 	tags = list(
 		TAG_BOON,
@@ -44,7 +44,7 @@
 	var/datum/objective/marriage_broker/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE EORA'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Eora wishes to see love blossom! Arrange a marriage between any two people to earn Eora's favor!"))
 	chosen_one.playsound_local(chosen_one, 'sound/vo/female/gen/giggle (1).ogg', 100)
 

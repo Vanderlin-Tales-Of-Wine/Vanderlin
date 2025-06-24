@@ -1948,7 +1948,7 @@ GLOBAL_LIST_INIT(bounty_rep, list())  // ckey -> reputation score
 			coin_list += coin
 
 	// Sort coins by sellprice (descending)
-	coin_list = sortTim(coin_list, /proc/cmp_coin_value_desc)
+	sortTim(coin_list, GLOBAL_PROC_REF(cmp_coin_value_desc))
 
 	// Remove from coins starting with highest value
 	for(var/obj/item/coin/coin in coin_list)
