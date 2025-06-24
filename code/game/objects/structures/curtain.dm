@@ -7,7 +7,6 @@
 	color = "#ACD1E9" //Default color, didn't bother hardcoding other colors, mappers can and should easily change it.
 	alpha = 200 //Mappers can also just set this to 255 if they want curtains that can't be seen through
 	plane = GAME_PLANE_UPPER
-	layer = ABOVE_MOB_LAYER
 	anchored = TRUE
 	opacity = FALSE
 	density = FALSE
@@ -20,14 +19,12 @@
 /obj/structure/curtain/update_icon()
 	if(!open)
 		icon_state = "[icon_type]-closed"
-		layer = WALL_OBJ_LAYER
-		opacity = TRUE
+		set_opacity(TRUE)
 		open = FALSE
 
 	else
 		icon_state = "[icon_type]-open"
-		layer = SIGN_LAYER
-		opacity = FALSE
+		set_opacity(FALSE)
 		open = TRUE
 
 /obj/structure/curtain/wrench_act(mob/living/user, obj/item/I)
