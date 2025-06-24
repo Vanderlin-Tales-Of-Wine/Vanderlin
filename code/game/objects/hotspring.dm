@@ -185,6 +185,7 @@
 	icon = 'icons/obj/structures/hotspring.dmi'
 	buildstackamount = 1
 	item_chair = null
+	anchored = TRUE
 
 /obj/structure/chair/hotspring_bench/left
 	icon_state = "parkbench_sofaend_left"
