@@ -74,7 +74,7 @@
 /obj/item/clothing/shirt/undershirt/puritan
 	name = "formal silks"
 	icon_state = "puritan_shirt"
-	allowed_race = list("human", "tiefling", "elf", "dwarf", "aasimar")
+	allowed_race = list(RACE_HUMEN, RACE_TIEFLING, RACE_ELF, RACE_AASIMAR, RACE_DWARF)
 	salvage_result = /obj/item/natural/silk
 
 /obj/item/clothing/shirt/undershirt/artificer

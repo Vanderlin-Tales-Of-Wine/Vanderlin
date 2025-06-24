@@ -11,7 +11,7 @@
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
 	inhand_mod = TRUE
-	allowed_race = list("human", "tiefling", "elf", "aasimar")
+	allowed_race = list(RACE_HUMEN, RACE_TIEFLING, RACE_ELF, RACE_AASIMAR)
 	detail_tag = "_det"
 	detail_color = CLOTHING_PLUM_PURPLE
 
@@ -67,6 +67,6 @@
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
-	allowed_race = list("human", "tiefling", "elf", "aasimar", "dwarf", "halforc")
+	allowed_race = list(RACE_HUMEN, RACE_TIEFLING, RACE_ELF, RACE_AASIMAR, RACE_DWARF, RACE_HALF_ORC)
 	detail_tag = "_detail"
 	detail_color = CLOTHING_SOOT_BLACK

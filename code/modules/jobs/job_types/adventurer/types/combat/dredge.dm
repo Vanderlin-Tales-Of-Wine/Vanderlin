@@ -3,7 +3,6 @@
 	tutorial = "Peasants and nobles. Saints, sinners, madmen and thieves - who you once were is now irrelevant. \
 	Cast from your home for what is undoubtedly a heinous act of violence, your travels have washed you up upon this \
 	shiteheap. All you have are your possessions from your former life. Make some coin for yourself, lest you end up dead and gone."
-	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/adventurer/dredge
 	category_tags = list(CTAG_ADVENTURER)
 	maximum_possible_slots = 7
@@ -30,23 +29,23 @@
 	pants = /obj/item/clothing/pants/tights/black
 	backl = /obj/item/storage/backpack/satchel
 
-	if(H.dna.species.id == "human") // This statblock serves to smooth out racial stat-bonuses slightly. Makes room for the RNG to do its shitty work.
+	if(ishumanspecies(H)) // This statblock serves to smooth out racial stat-bonuses slightly. Makes room for the RNG to do its shitty work.
 		H.change_stat(STATKEY_END, -1)
-	if(H.dna.species.id == "dwarf")
+	else if(isdwarf(H))
 		H.change_stat(STATKEY_CON, -1)
 		H.change_stat(STATKEY_END, -1)
-	if(H.dna.species.id == "elf")
+	else if(iself(H))
 		H.change_stat(STATKEY_SPD, -1)
-	if(H.dna.species.id == "aasimar")
+	else if(isaasimar(H))
 		H.change_stat(STATKEY_INT, -1)
-	if(H.dna.species.id == "tiefling")
+	else if(istiefling(H))
 		H.change_stat(STATKEY_PER, -1)
-	if(H.dna.species.id == "halforc") // Get Fucked.
+	else if(ishalforc(H)) // Get Fucked.
 		H.change_stat(STATKEY_STR, -1)
 		H.change_stat(STATKEY_CON, -1)
-	if(H.dna.species.id == "rakshari")
+	else if(israkshari(H))
 		H.change_stat(STATKEY_SPD, -1)
-	if(H.dna.species.id == "kobold") // They have it bad enough as is... Oh my sweet lord do they have it bad.
+	else if(iskobold(H)) // They have it bad enough as is... Oh my sweet lord do they have it bad.
 		H.change_stat(STATKEY_CON, 1)
 		H.change_stat(STATKEY_STR, 1)
 

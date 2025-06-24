@@ -1,6 +1,5 @@
 /datum/advclass/combat/monk
 	name = "Monk"
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONHERETICAL
 	tutorial = "A traveling monk of the God Ravox, unmatched in unarmed combat and with an unwavering devotion to Justice."
 

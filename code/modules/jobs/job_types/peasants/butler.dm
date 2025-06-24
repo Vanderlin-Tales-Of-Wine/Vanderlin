@@ -17,15 +17,16 @@
 	bypass_lastclass = TRUE
 
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Dark Elf",
-		"Tiefling",
-		"Aasimar",
-		"Harpy"
+	allowed_races = list(\
+		RACE_HUMEN,\
+		RACE_ELF,\
+		RACE_HALF_ELF,\
+		RACE_DWARF,\
+		RACE_DROW,\
+		RACE_HALF_DROW,\
+		RACE_TIEFLING,\
+		RACE_AASIMAR,\
+		RACE_HARPY,\
 	)
 
 	outfit = /datum/outfit/job/butler

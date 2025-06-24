@@ -14,7 +14,6 @@
 	bypass_lastclass = TRUE
 
 	advclass_cat_rolls = list(CTAG_TOWNER = 20)
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ALL
 
 	outfit = null

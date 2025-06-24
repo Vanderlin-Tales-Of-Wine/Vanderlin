@@ -6,7 +6,7 @@
 	r_sleeve_status = SLEEVE_TORN
 	l_sleeve_status = SLEEVE_TORN
 	body_parts_covered = CHEST|VITALS
-	allowed_race = list("elf", "dark elf")
+	allowed_race = list(RACE_ELF, RACE_DROW)
 	salvage_result = /obj/item/natural/silk
 
 /obj/item/clothing/shirt/apothshirt

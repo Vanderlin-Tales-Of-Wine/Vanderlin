@@ -17,7 +17,6 @@
 	bypass_lastclass = TRUE
 	selection_color = "#553e01"
 
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/farmer
@@ -108,7 +107,6 @@
 	bypass_lastclass = TRUE
 	selection_color = "#553e01"
 
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/soilchild

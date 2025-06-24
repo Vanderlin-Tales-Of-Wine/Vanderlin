@@ -12,18 +12,11 @@
 	faction = FACTION_TOWN
 	total_positions = 2
 	spawn_positions = 2
-	allowed_races = list(
-		"Humen",
-		"Half-Elf",
-		"Elf",
-		"Dwarf"
-	)
-
+	allowed_races = RACES_PLAYER_ROYALTY
 	spells = list(
 		/obj/effect/proc_holder/spell/self/grant_title,
 	)
 
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT, AGE_CHILD)
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 	advclass_cat_rolls = list(CTAG_HEIR = 20)

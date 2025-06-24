@@ -15,7 +15,6 @@
 	min_pq = 10 // Requires knowledge and good rp for the classes.
 	bypass_lastclass = TRUE
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/town_militia)
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 

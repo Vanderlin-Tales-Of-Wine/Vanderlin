@@ -283,7 +283,7 @@ SUBSYSTEM_DEF(migrants)
 		return FALSE
 	if(is_migrant_banned(player.ckey, role.name))
 		return FALSE
-	if(role.allowed_races && !(prefs.pref_species.name in role.allowed_races))
+	if(role.allowed_races && !(prefs.pref_species.id in role.allowed_races))
 		if(!(player.triumph_ids.Find("race_all")))
 			return FALSE
 	if(role.allowed_sexes && !(prefs.gender in role.allowed_sexes))

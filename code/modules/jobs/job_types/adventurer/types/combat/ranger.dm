@@ -2,16 +2,15 @@
 	name = "Ranger"
 	tutorial = "Humen and elf rangers often live among each other, as these bow-wielding \
 	adventurers are often scouting the lands for the same purpose."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Rakshari"
+	allowed_races = list(\
+		RACE_HUMEN,\
+		RACE_ELF,\
+		RACE_HALF_ELF,\
+		RACE_TIEFLING,\
+		RACE_DROW,\
+		RACE_AASIMAR,\
+		RACE_HALF_ORC,\
+		RACE_RAKSHARI,\
 	)
 	outfit = /datum/outfit/job/adventurer/ranger
 	min_pq = 0

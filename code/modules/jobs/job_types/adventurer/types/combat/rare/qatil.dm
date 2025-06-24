@@ -1,14 +1,13 @@
 /datum/advclass/adventurer/qatil
 	name = "Qatil"
 	tutorial = "Hailing from Zybantine lands, you are a killer for hire that is trained both in murdering unseen and seen with your trusty knife."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Tiefling",
-		"Dark Elf",
-		"Rakshari"
+	allowed_races = list(\
+		RACE_HUMEN,\
+		RACE_ELF,\
+		RACE_RAKSHARI,\
+		RACE_HALF_ELF,\
+		RACE_TIEFLING,\
+		RACE_DROW,\
 	)
 	outfit = /datum/outfit/job/adventurer/qatil
 	maximum_possible_slots = 1

@@ -13,7 +13,6 @@
 	spawn_positions = 2
 
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_CHILD)
 
 	outfit = /datum/outfit/job/squire

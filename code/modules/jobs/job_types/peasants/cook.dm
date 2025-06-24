@@ -12,16 +12,16 @@
 	min_pq = -20
 	bypass_lastclass = TRUE
 
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Harpy"
+	allowed_races = list(\
+		RACE_HUMEN,\
+		RACE_ELF,\
+		RACE_HALF_ELF,\
+		RACE_DWARF,\
+		RACE_DROW,\
+		RACE_HALF_DROW,\
+		RACE_TIEFLING,\
+		RACE_AASIMAR,\
+		RACE_HARPY,\
 	)
 
 	outfit = /datum/outfit/job/cook
