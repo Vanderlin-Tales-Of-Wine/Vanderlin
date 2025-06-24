@@ -2504,6 +2504,7 @@
 /area/rogue/outdoors/town)
 "buP" = (
 /obj/structure/closet/crate/drawer,
+/obj/item/storage/belt/pouch/coins/mid,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/manor)
 "buS" = (
