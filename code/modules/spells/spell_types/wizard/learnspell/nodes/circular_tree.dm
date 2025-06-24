@@ -354,9 +354,9 @@
 /datum/spell_node/fetch
 	name = "Fetch"
 	desc = "Magically retrieve distant objects."
-	node_x = DOWN_X_LEFT
-	node_y = DOWN_Y_TIER_2
-	prerequisites = list(/datum/spell_node/arcyne_affinity)
+	node_x = 0
+	node_y = 100
+	prerequisites = list(/datum/spell_node/arcyne_eye)
 	spell_type = /obj/effect/proc_holder/spell/invoked/projectile/fetch
 
 /datum/spell_node/arcane_bolt
@@ -372,7 +372,7 @@
 	desc = "Unleash a devastating storm of magical energy."
 	node_x = DOWN_X_LEFT -25
 	node_y = DOWN_Y_TIER_3
-	prerequisites = list(/datum/spell_node/arcane_bolt, /datum/spell_node/fetch)
+	prerequisites = list(/datum/spell_node/arcane_bolt, /datum/spell_node/blade_burst)
 	spell_type = /obj/effect/proc_holder/spell/invoked/arcyne_storm
 
 
@@ -496,9 +496,9 @@
 /datum/spell_node/blade_burst
 	name = "Blade Burst"
 	desc = "Create a burst of spectral blades around you."
-	node_x = LEFT_X_TIER_3
-	node_y = LEFT_Y_LEFT
-	prerequisites = list(/datum/spell_node/guidance)
+	node_x = DOWN_X_LEFT
+	node_y = DOWN_Y_TIER_2
+	prerequisites = list(/datum/spell_node/arcyne_affinity)
 	spell_type = /obj/effect/proc_holder/spell/invoked/blade_burst
 
 
@@ -508,6 +508,7 @@
 #define UP_X_RIGHT 50
 #define UP_X_LEFT -50
 
+/*
 /datum/spell_node/prestidigitation
 	name = "Prestidigitation"
 	desc = "Simple magical tricks and minor illusions."
@@ -515,6 +516,7 @@
 	node_y = 100
 	prerequisites = list(/datum/spell_node/arcyne_eye)
 	spell_type = /obj/effect/proc_holder/spell/targeted/touch/prestidigitation
+*/
 
 /datum/spell_node/frost_affinity
 	name = "Frost Affinity"
@@ -522,7 +524,7 @@
 	cost = 3
 	node_x = UP_X_RIGHT
 	node_y = UP_Y_TIER_1
-	prerequisites = list(/datum/spell_node/prestidigitation)
+	prerequisites = list(/datum/spell_node/fetch)
 	is_passive = TRUE
 
 /datum/spell_node/frost_affinity/on_node_buy(mob/user)
@@ -543,7 +545,7 @@
 	cost = 3
 	node_x = UP_X_LEFT
 	node_y = UP_Y_TIER_1
-	prerequisites = list(/datum/spell_node/prestidigitation)
+	prerequisites = list(/datum/spell_node/fetch)
 	is_passive = TRUE
 
 /datum/spell_node/death_affinity/on_node_buy(mob/user)

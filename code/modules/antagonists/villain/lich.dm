@@ -127,6 +127,7 @@
 	H.change_stat(STATKEY_END, -1)
 	H.change_stat(STATKEY_SPD, -1)
 
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/command_undead)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/strengthen_undead)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/raise_undead)
