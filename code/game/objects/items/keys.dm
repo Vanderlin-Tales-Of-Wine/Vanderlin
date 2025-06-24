@@ -706,9 +706,10 @@
 	lockids = list("roomhunt")
 
 /obj/item/key/thatchwood
-	name = "NOT USABLE WITHOUT VAREDIT"
+	name = "ABSTRACT THATCHWOOD KEY CALL CODERS"
 	desc = "Contact a dev on the discord, or make a bug report"
 	icon_state = "brownkey"
+	abstract_type = /obj/item/key/thatchwood
 
 /obj/item/key/thatchwood/farm
 	name = "old farmhouse key"
