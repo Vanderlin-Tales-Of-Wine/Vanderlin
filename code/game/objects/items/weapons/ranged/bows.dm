@@ -25,7 +25,6 @@
 	metalizer_result = /obj/item/restraints/legcuffs/beartrap/armed
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/getonmobprop(tag)
-	. = ..()
 	if(tag)
 		switch(tag)
 			if("gen")
