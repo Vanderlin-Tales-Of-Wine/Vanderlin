@@ -129,7 +129,7 @@
 /datum/outfit/job/watchman/ranger/pre_equip(mob/living/carbon/human/H)
 	..()
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-	hipr = /obj/item/ammo_holder/quiver/bolts
+	beltr = /obj/item/ammo_holder/quiver/bolts
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
