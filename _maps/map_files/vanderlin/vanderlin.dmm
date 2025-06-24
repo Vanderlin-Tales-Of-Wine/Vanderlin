@@ -35991,6 +35991,15 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/rtfield/safe)
+"wWG" = (
+/obj/structure/table/wood/plain_alt,
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/item/coin/copper/pile,
+/turf/open/floor/wood,
+/area/rogue/indoors/town)
 "wWL" = (
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/town/basement)
@@ -135848,7 +135857,7 @@ acx
 ewS
 ewS
 qEb
-vMj
+dce
 iGx
 iGx
 gRB
@@ -140492,7 +140501,7 @@ bAj
 wXO
 jqP
 erd
-lIK
+wWG
 wXO
 iyY
 erd
@@ -141311,7 +141320,7 @@ erd
 nDY
 nDY
 aJu
-ett
+vaZ
 iGx
 iGx
 aJu
