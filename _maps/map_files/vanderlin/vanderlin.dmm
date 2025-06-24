@@ -13699,7 +13699,6 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
 "iDG" = (
-/obj/structure/flora/grass,
 /obj/structure/fake_machine/scomm{
 	pixel_x = -32;
 	pixel_y = 0
@@ -13709,7 +13708,7 @@
 	layer = 2.7;
 	pixel_y = 7
 	},
-/turf/open/floor/grass,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "iDH" = (
 /obj/structure/roguerock{
