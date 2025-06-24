@@ -508,15 +508,6 @@
 #define UP_X_RIGHT 50
 #define UP_X_LEFT -50
 
-/*
-/datum/spell_node/prestidigitation
-	name = "Prestidigitation"
-	desc = "Simple magical tricks and minor illusions."
-	node_x = 0
-	node_y = 100
-	prerequisites = list(/datum/spell_node/arcyne_eye)
-	spell_type = /obj/effect/proc_holder/spell/targeted/touch/prestidigitation
-*/
 
 /datum/spell_node/frost_affinity
 	name = "Frost Affinity"
