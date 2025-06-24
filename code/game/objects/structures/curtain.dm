@@ -6,9 +6,9 @@
 	var/icon_type = "bathroom"//used in making the icon state
 	color = "#ACD1E9" //Default color, didn't bother hardcoding other colors, mappers can and should easily change it.
 	alpha = 200 //Mappers can also just set this to 255 if they want curtains that can't be seen through
-	layer = SIGN_LAYER
+	plane = GAME_PLANE_UPPER
 	anchored = TRUE
-	opacity = 0
+	opacity = FALSE
 	density = FALSE
 	var/open = TRUE
 
@@ -19,14 +19,12 @@
 /obj/structure/curtain/update_icon()
 	if(!open)
 		icon_state = "[icon_type]-closed"
-		layer = WALL_OBJ_LAYER
-		density = TRUE
+		set_opacity(TRUE)
 		open = FALSE
 
 	else
 		icon_state = "[icon_type]-open"
-		layer = SIGN_LAYER
-		density = FALSE
+		set_opacity(FALSE)
 		open = TRUE
 
 /obj/structure/curtain/wrench_act(mob/living/user, obj/item/I)
