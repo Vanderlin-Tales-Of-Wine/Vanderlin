@@ -3,7 +3,7 @@
 
 /datum/species/halforc
 	name = "Half-Orc"
-	id = RACE_HALF_ORC
+	id = RACE_ID_HALF_ORC
 	desc = "The bastards of Graggar. \
 	\n\n\
 	Half-Orcs are the offspring of orcs and another race, \

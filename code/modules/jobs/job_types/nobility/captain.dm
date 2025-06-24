@@ -83,7 +83,7 @@
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.verbs |= /mob/proc/haltyell
 
-	if(H.dna?.species?.id == RACE_HUMEN)
+	if(H.dna?.species?.id == RACE_ID_HUMEN)
 		H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
 /obj/effect/proc_holder/spell/self/convertrole

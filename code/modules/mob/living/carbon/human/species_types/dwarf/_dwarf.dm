@@ -3,7 +3,7 @@
 
 /datum/species/dwarf
 	name = "Dwarfb"
-	id = RACE_DWARF
+	id = RACE_ID_DWARF
 	changesource_flags = WABBAJACK
 	bodypart_features = list(
 		/datum/bodypart_feature/hair/head,

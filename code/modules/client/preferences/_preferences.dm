@@ -1405,7 +1405,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		pref_species = new /datum/species/human/northern
 		save_character()
 
-	if(CONFIG_GET(flag/humans_need_surnames) && (pref_species.id == RACE_HUMEN))
+	if(CONFIG_GET(flag/humans_need_surnames) && (pref_species.id == RACE_ID_HUMEN))
 		var/firstspace = findtext(real_name, " ")
 		var/name_length = length(real_name)
 		if(!firstspace)	//we need a surname

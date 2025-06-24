@@ -2,10 +2,10 @@
 	name = "Kern"
 	tutorial = "A mercanary hailing from Kaledon, you fight under your Gallowglass or for your own coin, you fled with your fellow countrymen to escape the Grenzelhoftian Occupation of your homeland."
 	allowed_races = list(\
-		RACE_HUMEN,\
-		RACE_ELF,\
-		RACE_HALF_ELF,\
-		RACE_DWARF,\
+		RACE_ID_HUMEN,\
+		RACE_ID_ELF,\
+		RACE_ID_HALF_ELF,\
+		RACE_ID_DWARF,\
 	)
 	outfit = /datum/outfit/job/mercenary/kern
 	category_tags = list(CTAG_MERCENARY)

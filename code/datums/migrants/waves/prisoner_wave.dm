@@ -5,15 +5,15 @@
 	outfit = /datum/outfit/job/gaoler
 	is_foreigner = FALSE
 	allowed_races = list(\
-		RACE_HUMEN,\
-		RACE_ELF,\
-		RACE_HALF_ELF,\
-		RACE_DWARF,\
-		RACE_TIEFLING,\
-		RACE_DROW,\
-		RACE_HALF_DROW,\
-		RACE_AASIMAR,\
-		RACE_HALF_ORC,\
+		RACE_ID_HUMEN,\
+		RACE_ID_ELF,\
+		RACE_ID_HALF_ELF,\
+		RACE_ID_DWARF,\
+		RACE_ID_TIEFLING,\
+		RACE_ID_DROW,\
+		RACE_ID_HALF_DROW,\
+		RACE_ID_AASIMAR,\
+		RACE_ID_HALF_ORC,\
 	)
 
 /datum/outfit/job/gaoler/pre_equip(mob/living/carbon/human/H)
@@ -48,7 +48,7 @@
 		H.change_stat(STATKEY_SPD, -1)
 		H.change_stat(STATKEY_PER, -1)
 	if(H.dna?.species)
-		if(H.dna.species.id == RACE_HUMEN)
+		if(H.dna.species.id == RACE_ID_HUMEN)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
 	H.cmode_music = 'sound/music/cmode/nobility/CombatDungeoneer.ogg'
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
@@ -87,15 +87,15 @@
 	greet_text = "You are apart of a convoy returning prisoners to Vanderlin. Obey the gaoler and ensure the prisoners get back to the dungeons."
 	outfit = /datum/outfit/job/mig_guard
 	allowed_races = list(\
-		RACE_HUMEN,\
-		RACE_ELF,\
-		RACE_HALF_ELF,\
-		RACE_DWARF,\
-		RACE_TIEFLING,\
-		RACE_DROW,\
-		RACE_HALF_DROW,\
-		RACE_AASIMAR,\
-		RACE_HALF_ORC,\
+		RACE_ID_HUMEN,\
+		RACE_ID_ELF,\
+		RACE_ID_HALF_ELF,\
+		RACE_ID_DWARF,\
+		RACE_ID_TIEFLING,\
+		RACE_ID_DROW,\
+		RACE_ID_HALF_DROW,\
+		RACE_ID_AASIMAR,\
+		RACE_ID_HALF_ORC,\
 	)
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE

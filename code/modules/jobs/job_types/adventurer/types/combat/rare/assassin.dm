@@ -285,7 +285,7 @@
 
 	H.change_stat(STATKEY_PER, 2)
 	H.change_stat(STATKEY_SPD, 2)
-	if(H.dna.species.id == RACE_HUMEN)
+	if(H.dna.species.id == RACE_ID_HUMEN)
 		if(H.gender == "male")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/assassin()
 		else

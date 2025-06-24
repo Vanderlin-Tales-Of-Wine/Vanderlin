@@ -12,7 +12,7 @@
 
 /datum/species/elf/snow
 	name = "Elf"
-	id = RACE_ELF
+	id = RACE_ID_ELF
 	desc = "Psydonia's first.\
 	\n\n\
 	Elves, the first species of Psydonia, are characterized by lengthened age, \

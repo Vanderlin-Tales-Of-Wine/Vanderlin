@@ -42,7 +42,7 @@
 	desc = "The Langobards are a cult of personality that are tasked by the Dwarven Kings to issue judgement, \
 			justice and order around the realms for dwarvenkind. This helmet is a respected symbol of authority."
 	icon_state = "dwarfhead"
-	allowed_race = list(RACE_DWARF)
+	allowed_race = list(RACE_ID_DWARF)
 	flags_inv = HIDEEARS
 	clothing_flags = CANT_SLEEP_IN
 	body_parts_covered = HEAD_EXCEPT_MOUTH
@@ -55,7 +55,7 @@
 			It has been proven with severe battle-testing that a wearer's head would crack before the helmet chips."
 	icon_state = "human_swordhead"
 	allowed_sex = list(MALE)
-	allowed_race = list(RACE_HUMEN, RACE_AASIMAR)
+	allowed_race = list(RACE_ID_HUMEN, RACE_ID_AASIMAR)
 	flags_inv = HIDEEARS
 	clothing_flags = CANT_SLEEP_IN
 	body_parts_covered = HEAD|EARS|HAIR
@@ -70,7 +70,7 @@
 	icon_state = "human_spearhead"
 	item_state = "human_spearplate"
 	allowed_sex = list(MALE)
-	allowed_race = list(RACE_HUMEN)
+	allowed_race = list(RACE_ID_HUMEN)
 	flags_inv = HIDEEARS|HIDEFACE
 	clothing_flags = CANT_SLEEP_IN
 	body_parts_covered = HEAD|EARS|HAIR|NOSE|MOUTH
@@ -85,7 +85,7 @@
 	icon_state = "aasimarhead"
 	worn_x_dimension = 64
 	worn_y_dimension = 64
-	allowed_race = list(RACE_AASIMAR)
+	allowed_race = list(RACE_ID_AASIMAR)
 	flags_inv = HIDEEARS
 	clothing_flags = CANT_SLEEP_IN
 	body_parts_covered = HEAD|EARS|HAIR

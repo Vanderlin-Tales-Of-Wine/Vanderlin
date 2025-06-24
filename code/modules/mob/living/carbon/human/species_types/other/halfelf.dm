@@ -9,7 +9,7 @@
 
 /datum/species/human/halfelf
 	name = "Half-Elf"
-	id = RACE_HALF_ELF
+	id = RACE_ID_HALF_ELF
 	desc = "The child of Elf and Humen. \
 	\n\n\
 	Half-Elves are generally frowned upon by more conservative peoples, \

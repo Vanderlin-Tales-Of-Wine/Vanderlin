@@ -70,7 +70,7 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	if(H.dna?.species)
-		if(H.dna.species.id == RACE_HUMEN)
+		if(H.dna.species.id == RACE_ID_HUMEN)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
 	// Females are crossbow and dagger based

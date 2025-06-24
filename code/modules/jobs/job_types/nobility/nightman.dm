@@ -49,5 +49,5 @@
 
 	if(H.gender == MALE)
 		if(H.dna?.species)
-			if(H.dna.species.id == RACE_HUMEN)
+			if(H.dna.species.id == RACE_ID_HUMEN)
 				H.dna.species.soundpack_m = new /datum/voicepack/male/zeth()

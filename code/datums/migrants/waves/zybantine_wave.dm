@@ -221,13 +221,13 @@
 	name = "Qatil"
 	greet_text = "You are the Amirah's confident and most loyal protector, you shan't let them die in these wretched lands."
 	allowed_races = list(\
-		RACE_HUMEN,\
-		RACE_ELF,\
-		RACE_RAKSHARI,\
-		RACE_HALF_ELF,\
-		RACE_TIEFLING,\
-		RACE_DROW,\
-		RACE_HALF_DROW,\
+		RACE_ID_HUMEN,\
+		RACE_ID_ELF,\
+		RACE_ID_RAKSHARI,\
+		RACE_ID_HALF_ELF,\
+		RACE_ID_TIEFLING,\
+		RACE_ID_DROW,\
+		RACE_ID_HALF_DROW,\
 	)
 	outfit = /datum/outfit/job/zybantine_migration/qatil
 

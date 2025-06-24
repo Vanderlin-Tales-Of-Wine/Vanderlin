@@ -58,6 +58,6 @@
 	H.change_stat(STATKEY_CON, 1)
 	H.change_stat(STATKEY_SPD, -1)
 
-	if(H.dna.species.id == RACE_DWARF)
+	if(H.dna.species.id == RACE_ID_DWARF)
 		head = /obj/item/clothing/head/helmet/leather/minershelm
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'

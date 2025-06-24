@@ -4,7 +4,7 @@
 	name = "Master Miner"
 	tutorial = "Hardy dwarves who dedicated their entire life to a singular purpose: \
 	the acquisition of ore, precious stones, and anything deep below the mines."
-	allowed_races = list(RACE_DWARF)
+	allowed_races = list(RACE_ID_DWARF)
 	outfit = /datum/outfit/job/adventurer/minermaster
 	maximum_possible_slots = 1
 	pickprob = 15

@@ -36,7 +36,7 @@
 	name = "dwarvish plate gauntlets"
 	desc = "Plated gauntlets of masterwork dwarven smithing, the pinnacle of protection for one's hands."
 	icon_state = "dwarfhand"
-	allowed_race = list(RACE_DWARF)
+	allowed_race = list(RACE_ID_DWARF)
 	allowed_sex = list(MALE, FEMALE)
 	item_weight = 7 * STEEL_MULTIPLIER
 
@@ -44,7 +44,7 @@
 	name = "grenzelhoftian plate gauntlets"
 	desc = "Battling the Zybantus led to the exchange of military ideas. The Grenzelhoft adopted refined chain and plate armaments to better allow their knights unmatchable resilience against the enemies of their Empire."
 	icon_state = "human_swordhand"
-	allowed_race = list(RACE_HUMEN, RACE_AASIMAR)
+	allowed_race = list(RACE_ID_HUMEN, RACE_ID_AASIMAR)
 	allowed_sex = list(MALE)
 	item_weight = 7 * STEEL_MULTIPLIER
 
@@ -52,6 +52,6 @@
 	name = "kataphractoe claw gauntlets"
 	desc = "Interwoven beautifully with layers of silk, chain and plate, these gauntlets grant unmatched coverage while allowing maximum mobility. Both useful to the Zybantu's ever-growing slave-empire."
 	icon_state = "human_spearhand"
-	allowed_race = list(RACE_HUMEN)
+	allowed_race = list(RACE_ID_HUMEN)
 	allowed_sex = list(MALE)
 	item_weight = 6 * STEEL_MULTIPLIER

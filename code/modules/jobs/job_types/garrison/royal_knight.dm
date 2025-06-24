@@ -74,7 +74,7 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	if(H.dna?.species?.id == RACE_HUMEN)
+	if(H.dna?.species?.id == RACE_ID_HUMEN)
 		H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
 /datum/outfit/job/royalknight/post_equip(mob/living/carbon/human/H, visualsOnly)
