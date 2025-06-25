@@ -15,18 +15,15 @@
 	mask_y_offset = _mask_y_offset
 	effect_alpha = _effect_alpha
 
-	RegisterSignal(get_turf(target), COMSIG_TURF_EXITED, TYPE_PROC_REF(/datum/element/mob_overlay_effect, on_remove), override = TRUE)
-	RegisterSignal(get_turf(target), COMSIG_TURF_ENTERED, TYPE_PROC_REF(/datum/element/mob_overlay_effect, on_add), override = TRUE)
-	RegisterSignal(target, COMSIG_MOB_OVERLAY_FORCE_REMOVE, TYPE_PROC_REF(/datum/element/mob_overlay_effect, on_remove), override = TRUE)
-	RegisterSignal(target, COMSIG_MOB_OVERLAY_FORCE_UPDATE, TYPE_PROC_REF(/datum/element/mob_overlay_effect, on_add), override = TRUE)
+	RegisterSignal(get_turf(target), COMSIG_TURF_EXITED, PROC_REF(on_remove), override = TRUE)
+	RegisterSignal(get_turf(target), COMSIG_TURF_ENTERED, PROC_REF(on_add), override = TRUE)
+	RegisterSignal(target, COMSIG_MOB_OVERLAY_FORCE_REMOVE, PROC_REF(on_remove), override = TRUE)
+	RegisterSignal(target, COMSIG_MOB_OVERLAY_FORCE_UPDATE, PROC_REF(on_add), override = TRUE)
+	RegisterSignal(target, COMSIG_PARENT_QDELETING, PROC_REF(remove_all), override = TRUE)
 
 /datum/element/mob_overlay_effect/Detach(datum/source)
 	. = ..()
-	var/turf/ours = get_turf(source)
-	// We REALLY don't want to have half humans walking around without legs
-	for(var/atom/movable/AM in ours)
-		on_remove(src, AM)
-	UnregisterSignal(ours, list(
+	UnregisterSignal(get_turf(source), list(
 		COMSIG_TURF_EXITED,
 		COMSIG_TURF_ENTERED,
 		COMSIG_MOB_OVERLAY_FORCE_REMOVE,
@@ -39,6 +36,11 @@
 		var/atom/movable/AM = target
 		AM.remove_filter(MOB_MOVING_EFFECT_MASK)
 	UnregisterSignal(target, COMSIG_ITEM_PICKUP)
+
+/datum/element/mob_overlay_effect/proc/remove_all(datum/source)
+	SIGNAL_HANDLER
+	for(var/atom/movable/AM in get_turf(source))
+		on_remove(src, AM)
 
 /datum/element/mob_overlay_effect/proc/on_add(datum/source, datum/target)
 	SIGNAL_HANDLER
