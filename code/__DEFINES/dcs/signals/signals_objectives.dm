@@ -24,6 +24,7 @@
 #define COMSIG_BATH_TAKEN "bath_taken" // From bathing (mob/user)
 #define COMSIG_MOB_ENERGY_SPENT "mob_energy_spent" //from /mob/living/adjust_energy() (mob/user, amount_spent)
 #define COMSIG_MOB_BUTCHERED "mob_butchered" //from /mob/living/simple_animal/butcher() (mob/user, mob/animal)
+#define COMSIG_MOB_KICK "mob_kick" //from /datum/species/proc/kicked() (mob/user, mob/target, zone_hit, damage_blocked)
 
 // Globals
 #define COMSIG_GLOBAL_MARRIAGE "global_marriage" // from base of /obj/structure/fluff/psycross/attackby() (bride, groom)
