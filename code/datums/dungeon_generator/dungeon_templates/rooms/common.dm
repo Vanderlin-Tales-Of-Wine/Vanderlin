@@ -417,3 +417,12 @@
 	east_offset = 20
 	north_offset = 20
 	south_offset = 20
+
+/datum/map_template/dungeon/room/infernalbridge
+	mappath = "_maps/matthios_tomb/room/infernalbridge.dmm"
+	id = "infernalbridge"
+	width = 14
+	height = 30
+
+	north_offset = 7
+	south_offset = 7
