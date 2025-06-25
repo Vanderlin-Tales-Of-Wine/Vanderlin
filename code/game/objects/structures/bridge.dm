@@ -64,7 +64,7 @@
 	if(istype(O, /mob/camera))
 		return TRUE
 	var/direction = get_dir(loc, target)
-	if(direction != dir && direction != GLOB.reverse_dir[dir])
+	if(direction != dir && direction != REVERSE_DIR(dir))
 		return FALSE
 	return TRUE
 
@@ -78,7 +78,7 @@
 		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/bridge/CanAStarPass(ID, to_dir, requester)
-	if(to_dir != dir && to_dir != GLOB.reverse_dir[dir])
+	if(to_dir != dir && to_dir != REVERSE_DIR(dir))
 		return FALSE
 	return TRUE
 

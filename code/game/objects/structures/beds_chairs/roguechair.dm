@@ -10,6 +10,7 @@
 //	pixel_y = 10
 	layer = OBJ_LAYER
 	metalizer_result = /obj/item/statue/iron/deformed
+	anchored = TRUE
 
 /obj/structure/chair/bench/church
 	icon_state = "church_benchleft"
@@ -25,14 +26,6 @@
 	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
 	AddElement(/datum/element/connect_loc, loc_connections)
 	handle_layer()
-
-/obj/structure/chair/bench/handle_layer()
-	if(dir == NORTH)
-		layer = ABOVE_MOB_LAYER
-		plane = GAME_PLANE_UPPER
-	else
-		layer = OBJ_LAYER
-		plane = GAME_PLANE
 
 /obj/structure/chair/bench/post_buckle_mob(mob/living/M)
 	..()

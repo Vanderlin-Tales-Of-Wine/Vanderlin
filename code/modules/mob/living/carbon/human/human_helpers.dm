@@ -16,7 +16,6 @@
 		if(has_flaw(/datum/charflaw/paranoid))
 			V.add_stress(/datum/stressevent/paratalk)
 
-
 /mob/living/carbon/human/canBeHandcuffed()
 	if(num_hands < 2)
 		return FALSE

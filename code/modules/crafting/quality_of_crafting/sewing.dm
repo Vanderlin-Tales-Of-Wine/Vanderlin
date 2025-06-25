@@ -378,6 +378,14 @@
 	craftdiff = 3
 	category = "Hat"
 
+/datum/repeatable_crafting_recipe/sewing/witchhat
+	name = "witch hat"
+	output = /obj/item/clothing/head/wizhat/witch
+	requirements = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 3
+	category = "Hat"
+
 /datum/repeatable_crafting_recipe/sewing/wizardrobes
 	name = "wizard robes"
 	output = /obj/item/clothing/shirt/robe/wizard

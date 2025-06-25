@@ -255,7 +255,7 @@
 
 /obj/structure/fake_machine/mail/examine(mob/user)
 	. = ..()
-	. += "<a href='byond://?src=[REF(src)];directory=1'>Directory:</a> [mailtag]"
+	. += "<a href='byond://?src=[REF(src)];directory=1'>Directory:</a> [mailtag || capitalize(get_area_name(src))]"
 
 /obj/structure/fake_machine/mail/Topic(href, href_list)
 	..()

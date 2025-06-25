@@ -63,8 +63,7 @@
 		var/turf/open/water/river/creatable/W = source_turf.PlaceOnTop(/turf/open/water/river/creatable)
 		W.water_reagent = water.water_reagent
 		W.try_set_parent(water)
-		W.update_appearance()
-		W.dir = GLOB.reverse_dir[direction]
+		W.update_appearance(UPDATE_OVERLAYS)
+		W.dir = REVERSE_DIR(direction)
 		playsound(W, 'sound/foley/waterenter.ogg', 100, FALSE)
 		qdel(src)
-		return

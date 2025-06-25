@@ -119,7 +119,7 @@
 
 /obj/item/bait/forestdelight
 	name = "meat wrapped in strange herbs"
-	icon_state = "baitbriar"
 	desc = "a piece of rotten and rancid meat wrapped in several herbs. The aroma induces both vomit and a nice herbal odor"
+	icon_state = "baitbriar"
 	attracted_types = list (/mob/living/simple_animal/hostile/retaliate/mole/briars = 50,
 						/mob/living/simple_animal/pet/cat/cabbit = 5) // cause get rabbited

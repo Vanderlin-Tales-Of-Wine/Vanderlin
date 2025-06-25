@@ -345,7 +345,7 @@
 /obj/structure/snow/Crossed(atom/movable/arrived)
 	. = ..()
 	if(isliving(arrived))
-		set_diged_ways(GLOB.reverse_dir[arrived.dir])
+		set_diged_ways(REVERSE_DIR(arrived.dir))
 
 /obj/structure/snow/Uncrossed(atom/movable/gone)
 	. = ..()
