@@ -1680,7 +1680,7 @@
 "aTN" = (
 /obj/structure/fake_machine/camera,
 /obj/structure/fake_machine/mail{
-	mailtag = "Orphanage"
+	mailtag = "Orphanage Upper"
 	},
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/orphanage)
@@ -5644,7 +5644,9 @@
 /area/rogue/indoors/town/manor)
 "dzu" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/obj/structure/fake_machine/mail/l,
+/obj/structure/fake_machine/mail/l{
+	mailtag = "Merchant Main"
+	},
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/shop)
 "dzB" = (
@@ -6698,7 +6700,7 @@
 /area/rogue/indoors/town/smithy)
 "edD" = (
 /obj/structure/fake_machine/mail{
-	mailtag = "Blacksmith"
+	mailtag = "Armorsmith"
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/smithy)
@@ -6719,7 +6721,7 @@
 /area/rogue/under/town/sewer)
 "efh" = (
 /obj/structure/fake_machine/mail{
-	mailtag = "Merchant"
+	mailtag = "Merchant private"
 	},
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/shop)
@@ -12207,7 +12209,9 @@
 /turf/closed/wall/mineral/wooddark/horizontal,
 /area/rogue/under/town/basement)
 "hLc" = (
-/obj/structure/fake_machine/mail/r,
+/obj/structure/fake_machine/mail/r{
+	mailtag = "Town garrison captain"
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/garrison)
 "hLN" = (
@@ -13331,7 +13335,9 @@
 /area/rogue/indoors/town)
 "izz" = (
 /obj/structure/table/wood/plain_alt,
-/obj/structure/fake_machine/mail/r,
+/obj/structure/fake_machine/mail/r{
+	mailtag = "Keep gate"
+	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manorgate)
 "izE" = (
@@ -17594,7 +17600,7 @@
 /obj/structure/fake_machine/mail{
 	pixel_x = 32;
 	pixel_y = 0;
-	mailtag = "Captain"
+	mailtag = "Keep captain"
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
@@ -23610,7 +23616,9 @@
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/town)
 "peS" = (
-/obj/structure/fake_machine/mail/r,
+/obj/structure/fake_machine/mail/r{
+	mailtag = "Orphanage lower1"
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
 "pfx" = (
@@ -34215,7 +34223,9 @@
 	},
 /area/rogue/under/town/basement)
 "wgK" = (
-/obj/structure/fake_machine/mail/l,
+/obj/structure/fake_machine/mail/l{
+	mailtag = "Weaponsmith"
+	},
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/smithy)
 "wgL" = (
@@ -35838,7 +35848,9 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church)
 "xgB" = (
-/obj/structure/fake_machine/mail/r,
+/obj/structure/fake_machine/mail/r{
+	mailtag = "Theatre"
+	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/theatre)
 "xgK" = (
