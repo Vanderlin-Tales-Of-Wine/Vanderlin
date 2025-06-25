@@ -2,24 +2,21 @@
 "a" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb/cave/lava)
-"b" = (
-/turf/closed/mineral/bedrock,
-/area/rogue)
 "c" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "h" = (
 /obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "i" = (
 /mob/living/simple_animal/hostile/retaliate/infernal/hellhound,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "m" = (
 /obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "n" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
@@ -30,11 +27,11 @@
 /area/rogue/under/tomb/cave/lava)
 "r" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "u" = (
 /obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "w" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -43,14 +40,14 @@
 	pixel_y = -32
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "y" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "A" = (
 /mob/living/simple_animal/hostile/retaliate/infernal/fiend{
 	name = "Balrog";
@@ -58,16 +55,13 @@
 	maxHealth = 1000
 	},
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "D" = (
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "F" = (
 /turf/open/lava,
 /area/rogue/under/tomb/cave/lava)
-"I" = (
-/turf/closed/wall/mineral/craftstone,
-/area/rogue)
 "J" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -75,18 +69,18 @@
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "K" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
 	pixel_x = -24
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "O" = (
 /obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "R" = (
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/under/tomb/cave/lava)
@@ -95,7 +89,7 @@
 	dir = 4
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "U" = (
 /obj/item/weapon/polearm/woodstaff{
 	name = "Old Wizard's Staff";
@@ -104,10 +98,10 @@
 	wparryspeed = 2
 	},
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "V" = (
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 "Y" = (
 /turf/open/floor/volcanic,
 /area/rogue/under/tomb/cave/lava)
@@ -120,7 +114,7 @@
 	pixel_y = -32
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/tomb/cave/lava)
 
 (1,1,1) = {"
 a
@@ -572,39 +566,39 @@ a
 "}
 
 (1,1,2) = {"
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
 "}
 (2,1,2) = {"
-b
+a
 r
 r
 r
@@ -633,10 +627,10 @@ r
 r
 r
 r
-b
+a
 "}
 (3,1,2) = {"
-b
+a
 r
 r
 r
@@ -665,10 +659,10 @@ r
 r
 r
 r
-b
+a
 "}
 (4,1,2) = {"
-b
+a
 r
 r
 r
@@ -697,19 +691,19 @@ r
 r
 r
 r
-b
+a
 "}
 (5,1,2) = {"
-I
-I
+R
+R
 y
 T
 T
 T
 T
 w
-I
-I
+R
+R
 y
 T
 T
@@ -720,28 +714,28 @@ T
 T
 T
 w
-I
-I
+R
+R
 y
 T
 T
 T
 T
 w
-I
-I
+R
+R
 "}
 (6,1,2) = {"
-I
-I
+R
+R
 D
 V
 D
 V
 D
 D
-I
-I
+R
+R
 D
 D
 V
@@ -752,16 +746,16 @@ V
 V
 h
 D
-I
-I
+R
+R
 D
 V
 V
 D
 D
 D
-I
-I
+R
+R
 "}
 (7,1,2) = {"
 V
@@ -828,16 +822,16 @@ D
 D
 "}
 (9,1,2) = {"
-I
-I
+R
+R
 V
 D
 D
 D
 V
 V
-I
-I
+R
+R
 D
 D
 D
@@ -848,28 +842,28 @@ V
 V
 O
 i
-I
-I
+R
+R
 D
 D
 V
 V
 V
 D
-I
-I
+R
+R
 "}
 (10,1,2) = {"
-I
-I
+R
+R
 J
 K
 K
 K
 K
 Z
-I
-I
+R
+R
 J
 K
 K
@@ -880,19 +874,19 @@ K
 K
 K
 Z
-I
-I
+R
+R
 J
 K
 K
 K
 K
 Z
-I
-I
+R
+R
 "}
 (11,1,2) = {"
-b
+a
 r
 r
 r
@@ -921,10 +915,10 @@ r
 r
 r
 r
-b
+a
 "}
 (12,1,2) = {"
-b
+a
 r
 r
 r
@@ -953,10 +947,10 @@ r
 r
 r
 r
-b
+a
 "}
 (13,1,2) = {"
-b
+a
 r
 r
 r
@@ -985,37 +979,37 @@ r
 r
 r
 r
-b
+a
 "}
 (14,1,2) = {"
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
-b
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
 "}
