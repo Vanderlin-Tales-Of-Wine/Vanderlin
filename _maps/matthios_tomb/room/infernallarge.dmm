@@ -1,16 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"an" = (
-/turf/open/floor/snow/patchy,
-/area/rogue)
 "aY" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
 	},
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/magic)
-"ba" = (
-/turf/open/floor/church,
-/area/rogue)
 "bl" = (
 /obj/structure/flora/grass/bush_meagre/tundra,
 /turf/open/floor/snow/patchy,
@@ -27,11 +21,7 @@
 "bV" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/church,
-/area/rogue)
-"cc" = (
-/obj/structure/flora/grass/tundra,
-/turf/open/floor/snow,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "cI" = (
 /obj/structure/flora/grass/tundra,
 /obj/structure/flora/grass/tundra,
@@ -47,26 +37,10 @@
 	},
 /turf/open/floor/snow,
 /area/rogue/under/tomb/indoors/magic)
-"dJ" = (
-/turf/open/floor/grass/cold,
-/area/rogue)
-"ea" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 1
-	},
-/obj/structure/fluff/walldeco/church/line{
-	dir = 4
-	},
-/turf/open/floor/churchmarble,
-/area/rogue)
 "eS" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/cobblerock/snow,
 /area/rogue/under/tomb/indoors/magic)
-"eU" = (
-/obj/structure/flora/grass/bush_meagre/tundra,
-/turf/open/floor/snow,
-/area/rogue)
 "ff" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fluff/walldeco/church/line{
@@ -74,11 +48,7 @@
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/churchmarble,
-/area/rogue)
-"fk" = (
-/obj/structure/flora/newtree/snow,
-/turf/open/floor/snow/patchy,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "fw" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/item/clothing/shirt/robe/magus{
@@ -89,35 +59,17 @@
 /obj/item/weapon/polearm/woodstaff/quarterstaff/steel,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/magic)
-"fF" = (
-/obj/structure/fluff/walldeco/church/line,
-/turf/open/floor/churchmarble,
-/area/rogue)
-"fG" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 4
-	},
-/turf/open/floor/churchmarble,
-/area/rogue)
 "gK" = (
 /turf/closed/wall/mineral/craftstone{
 	color = "#555D50";
 	name = "Hellstone Wall"
 	},
 /area/rogue/under/tomb/indoors/magic)
-"gU" = (
-/obj/structure/flora/grass/tundra,
-/obj/structure/flora/grass/tundra,
-/turf/open/floor/grass/cold,
-/area/rogue)
 "hf" = (
 /obj/structure/table/stone_small,
 /obj/structure/lootable_structure/powder_sack,
 /turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors/magic)
-"iF" = (
-/turf/open/floor/snow,
-/area/rogue)
 "iG" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/weapon/sword/sabre/noc,
@@ -126,7 +78,7 @@
 	pixel_y = 8
 	},
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "jU" = (
 /turf/open/floor/cobble/snow,
 /area/rogue/under/tomb/indoors/magic)
@@ -163,15 +115,6 @@
 /obj/structure/ladder,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors/magic)
-"pJ" = (
-/obj/structure/flora/grass/bush_meagre/tundra,
-/turf/open/floor/grass/cold,
-/area/rogue)
-"pL" = (
-/obj/structure/flora/grass/tundra,
-/obj/structure/flora/grass/tundra,
-/turf/open/floor/snow,
-/area/rogue)
 "pY" = (
 /turf/open/water/cleanshallow,
 /area/rogue/under/tomb/indoors/magic)
@@ -185,7 +128,7 @@
 	pixel_y = 3
 	},
 /turf/open/floor/church,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "qv" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fluff/walldeco/church/line{
@@ -193,7 +136,7 @@
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/churchmarble,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "qO" = (
 /obj/structure/rack/shelf/biggest,
 /obj/effect/spawner/map_spawner/loot/potion_vitals{
@@ -218,15 +161,11 @@
 /obj/item/statue/steel,
 /obj/item/natural/melded/t4,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "rw" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/churchrough,
-/area/rogue)
-"rU" = (
-/obj/structure/flora/grass/bush_meagre/tundra,
-/turf/open/floor/snow/patchy,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "sb" = (
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors/magic)
@@ -254,7 +193,7 @@
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/polearm/woodstaff/quarterstaff/steel,
 /turf/open/floor/churchmarble,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "tK" = (
 /obj/structure/flora/newtree/snow,
 /turf/open/floor/snow/patchy,
@@ -310,18 +249,10 @@
 "xL" = (
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/magic)
-"xS" = (
-/obj/structure/flora/newtree/snow,
-/turf/open/floor/grass/cold,
-/area/rogue)
 "yj" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobble/snow,
 /area/rogue/under/tomb/indoors/magic)
-"yM" = (
-/obj/structure/flora/grass/tundra,
-/turf/open/floor/grass/cold,
-/area/rogue)
 "zE" = (
 /obj/structure/rack/shelf/biggest,
 /obj/effect/spawner/map_spawner/loot/potion_poisons{
@@ -336,7 +267,7 @@
 /area/rogue/under/tomb/indoors/magic)
 "zN" = (
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "zW" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -352,17 +283,7 @@
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/churchmarble,
-/area/rogue)
-"AK" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
-/obj/item/clothing/shirt/robe/magus{
-	color = "#20c3d0";
-	name = "Cold Hell Robes"
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/weapon/polearm/woodstaff/quarterstaff/steel,
-/turf/open/floor/churchmarble,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "AQ" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/reagent_containers/glass/cup/golden{
@@ -378,26 +299,7 @@
 	pixel_y = 5
 	},
 /turf/open/floor/churchrough,
-/area/rogue)
-"Bu" = (
-/turf/closed/mineral/bedrock/cold,
-/area/rogue)
-"BB" = (
-/turf/closed/wall/mineral/craftstone{
-	color = "#555D50";
-	name = "Hellstone Wall"
-	},
-/area/rogue)
-"Cq" = (
-/obj/structure/flora/grass/tundra,
-/turf/open/floor/snow/patchy,
-/area/rogue)
-"CB" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 1
-	},
-/turf/open/floor/churchmarble,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "Dw" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/snow,
@@ -405,14 +307,7 @@
 "DA" = (
 /obj/structure/bookcase,
 /turf/open/floor/churchrough,
-/area/rogue)
-"Ef" = (
-/obj/structure/fluff/walldeco/church/line,
-/obj/structure/fluff/walldeco/church/line{
-	dir = 8
-	},
-/turf/open/floor/churchmarble,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "Ek" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/churchrough,
@@ -423,7 +318,7 @@
 	dir = 4
 	},
 /turf/open/floor/churchmarble,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "EC" = (
 /obj/structure/flora/grass/tundra,
 /mob/living/simple_animal/hostile/retaliate/infernal/imp{
@@ -446,7 +341,7 @@
 	color = "#20c3d0"
 	},
 /turf/open/floor/churchmarble,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "Ge" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -463,18 +358,12 @@
 "Gf" = (
 /obj/structure/bookcase,
 /turf/open/floor/church,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "GX" = (
 /obj/structure/flora/grass/bush_meagre/tundra,
 /obj/structure/flora/grass/tundra,
 /turf/open/floor/snow,
 /area/rogue/under/tomb/indoors/magic)
-"Hh" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 8
-	},
-/turf/open/floor/churchmarble,
-/area/rogue)
 "HS" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -488,7 +377,7 @@
 /obj/item/weapon/polearm/woodstaff/quarterstaff/steel,
 /obj/item/clothing/ring/gold/ravox,
 /turf/open/floor/churchmarble,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "Ib" = (
 /obj/effect/portal{
 	color = "#20c3d0";
@@ -501,9 +390,6 @@
 /obj/structure/door/violet,
 /turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors/magic)
-"Jk" = (
-/turf/open/floor/churchrough,
-/area/rogue)
 "JZ" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/natural/artifact{
@@ -519,22 +405,13 @@
 	pixel_y = 13
 	},
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "Ma" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
 	},
 /turf/open/floor/snow/patchy,
 /area/rogue/under/tomb/indoors/magic)
-"MB" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 1
-	},
-/obj/structure/fluff/walldeco/church/line{
-	dir = 8
-	},
-/turf/open/floor/churchmarble,
-/area/rogue)
 "MF" = (
 /obj/structure/flora/newtree/snow,
 /turf/open/floor/grass/cold,
@@ -548,18 +425,13 @@
 "NX" = (
 /obj/structure/flora/grass/tundra,
 /turf/closed/mineral/bedrock/cold,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "Pl" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "PY" = (
 /turf/open/floor/church,
 /area/rogue/under/tomb/indoors/magic)
-"Qb" = (
-/obj/structure/flora/grass/bush_meagre/tundra,
-/obj/structure/flora/grass/tundra,
-/turf/open/floor/snow,
-/area/rogue)
 "Qh" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/ingot/silver,
@@ -572,7 +444,7 @@
 	pixel_y = 10
 	},
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "Qp" = (
 /obj/structure/table/stone_small,
 /obj/structure/lootable_structure/mining_cache,
@@ -589,10 +461,7 @@
 "SE" = (
 /obj/structure/flora/grass/tundra,
 /turf/open/floor/naturalstone,
-/area/rogue)
-"SM" = (
-/turf/open/floor/churchmarble,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "SQ" = (
 /obj/structure/flora/grass/bush_meagre/tundra,
 /turf/open/floor/snow,
@@ -601,10 +470,6 @@
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors/magic)
-"Ty" = (
-/obj/structure/flora/newtree/snow,
-/turf/open/floor/snow,
-/area/rogue)
 "Ub" = (
 /obj/structure/fluff/walldeco/church/line,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
@@ -615,7 +480,7 @@
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/polearm/woodstaff/quarterstaff/steel,
 /turf/open/floor/churchmarble,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "Un" = (
 /obj/structure/flora/grass/tundra,
 /obj/machinery/light/fueled/wallfire/candle/blue,
@@ -642,11 +507,6 @@
 /obj/structure/flora/grass/tundra,
 /turf/open/floor/snow,
 /area/rogue/under/tomb/indoors/magic)
-"VK" = (
-/obj/structure/flora/grass/tundra,
-/obj/structure/flora/grass/tundra,
-/turf/open/floor/snow/patchy,
-/area/rogue)
 "Wi" = (
 /obj/structure/flora/newtree/snow,
 /obj/structure/flora/grass/tundra,
@@ -670,7 +530,7 @@
 "XS" = (
 /obj/structure/ladder,
 /turf/open/floor/church,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 "YV" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -680,7 +540,7 @@
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/churchmarble,
-/area/rogue)
+/area/rogue/under/tomb/indoors/magic)
 
 (1,1,1) = {"
 sW
@@ -2364,145 +2224,145 @@ sW
 "}
 
 (1,1,2) = {"
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-cc
-Qb
-cc
-iF
-iF
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+uu
+GX
+uu
+wT
+wT
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
 "}
 (2,1,2) = {"
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-cc
-iF
-Bu
-Bu
-Bu
-cc
-cc
-iF
-iF
-Ty
-cc
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+uu
+wT
+sW
+sW
+sW
+uu
+uu
+wT
+wT
+WF
+uu
+sW
+sW
+sW
+sW
+sW
+sW
+sW
 Pl
 Pl
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
 "}
 (3,1,2) = {"
-Bu
-Bu
-Bu
-Bu
-Bu
-dJ
-Bu
-Bu
-Bu
-Bu
-iF
-eU
-iF
-cc
-iF
-iF
-iF
-iF
-cc
-cc
-iF
+sW
+sW
+sW
+sW
+sW
+rb
+sW
+sW
+sW
+sW
+wT
+SQ
+wT
+uu
+wT
+wT
+wT
+wT
+uu
+uu
+wT
 zN
 zN
-Bu
-Bu
-Bu
+sW
+sW
+sW
 Pl
 Pl
 Pl
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
 "}
 (4,1,2) = {"
-Bu
-Bu
-Bu
-Bu
-Bu
-xS
-dJ
-yM
-an
-iF
-cc
-cc
-iF
+sW
+sW
+sW
+sW
+sW
+MF
+rb
+QV
+sg
+wT
+uu
+uu
+wT
 zN
 zN
 zN
@@ -2524,27 +2384,27 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
+sW
+sW
 "}
 (5,1,2) = {"
-Bu
-Bu
-Bu
-Bu
-dJ
-dJ
-dJ
-dJ
-an
-cc
-cc
-cc
-Ty
+sW
+sW
+sW
+sW
+rb
+rb
+rb
+rb
+sg
+uu
+uu
+uu
+WF
 zN
 Pl
 Pl
@@ -2568,25 +2428,25 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
 "}
 (6,1,2) = {"
-Bu
-Bu
-Bu
-dJ
-gU
-yM
-dJ
-dJ
-dJ
-an
-cc
-cc
-cc
+sW
+sW
+sW
+rb
+Vn
+QV
+rb
+rb
+rb
+sg
+uu
+uu
+uu
 zN
 Pl
 Pl
@@ -2611,23 +2471,23 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
+sW
+sW
+sW
 "}
 (7,1,2) = {"
-Bu
-Bu
-Bu
-dJ
-dJ
-yM
-gU
-dJ
-xS
-dJ
-an
-iF
+sW
+sW
+sW
+rb
+rb
+QV
+Vn
+rb
+MF
+rb
+sg
+wT
 zN
 zN
 Pl
@@ -2654,21 +2514,21 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
+sW
+sW
 "}
 (8,1,2) = {"
-Bu
-Bu
-dJ
-pJ
-dJ
-yM
-yM
-dJ
-dJ
-dJ
-an
+sW
+sW
+rb
+vw
+rb
+QV
+QV
+rb
+rb
+rb
+sg
 zN
 zN
 Pl
@@ -2696,20 +2556,20 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
+sW
+sW
 "}
 (9,1,2) = {"
-Bu
-Bu
-xS
-dJ
-dJ
-dJ
-xS
-dJ
-pJ
-dJ
+sW
+sW
+MF
+rb
+rb
+rb
+MF
+rb
+vw
+rb
 zN
 zN
 Pl
@@ -2739,18 +2599,18 @@ Pl
 Pl
 Pl
 Pl
-Bu
+sW
 "}
 (10,1,2) = {"
-Bu
-Bu
-an
-Cq
-yM
-dJ
-dJ
-dJ
-dJ
+sW
+sW
+sg
+Wn
+QV
+rb
+rb
+rb
+rb
 zN
 zN
 Pl
@@ -2781,17 +2641,17 @@ Pl
 Pl
 Pl
 Pl
-Bu
+sW
 "}
 (11,1,2) = {"
-Bu
-Bu
-Bu
-Ty
-an
-gU
-gU
-dJ
+sW
+sW
+sW
+WF
+sg
+Vn
+Vn
+rb
 zN
 zN
 Pl
@@ -2822,17 +2682,17 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
+sW
+sW
 "}
 (12,1,2) = {"
-Bu
-Bu
-Bu
-iF
-cc
-VK
-dJ
+sW
+sW
+sW
+wT
+uu
+cI
+rb
 zN
 zN
 Pl
@@ -2863,16 +2723,16 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
+sW
+sW
+sW
 "}
 (13,1,2) = {"
-Bu
-Bu
-Bu
-iF
-cc
+sW
+sW
+sW
+wT
+uu
 zN
 zN
 zN
@@ -2905,15 +2765,15 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
+sW
+sW
+sW
 "}
 (14,1,2) = {"
-Bu
-Bu
-iF
-iF
+sW
+sW
+wT
+wT
 zN
 zN
 Pl
@@ -2946,15 +2806,15 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
 "}
 (15,1,2) = {"
-Bu
-Bu
-iF
+sW
+sW
+wT
 zN
 zN
 Pl
@@ -2967,14 +2827,14 @@ Pl
 Pl
 Pl
 Pl
-BB
-BB
-BB
-BB
-BB
-BB
-BB
-BB
+gK
+gK
+gK
+gK
+gK
+gK
+gK
+gK
 Pl
 Pl
 Pl
@@ -2988,15 +2848,15 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
 "}
 (16,1,2) = {"
-Bu
-Bu
-cc
+sW
+sW
+uu
 zN
 Pl
 Pl
@@ -3008,16 +2868,16 @@ Pl
 Pl
 Pl
 Pl
-BB
-BB
-BB
-BB
+gK
+gK
+gK
+gK
 Gf
 bV
-BB
-BB
-BB
-BB
+gK
+gK
+gK
+gK
 Pl
 Pl
 Pl
@@ -3030,15 +2890,15 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
 "}
 (17,1,2) = {"
-Bu
-cc
-cc
+sW
+uu
+uu
 zN
 zN
 Pl
@@ -3049,18 +2909,18 @@ Pl
 Pl
 Pl
 Pl
-BB
-BB
-BB
-BB
+gK
+gK
+gK
+gK
 DA
 XS
 XS
 bV
-BB
-BB
-BB
-BB
+gK
+gK
+gK
+gK
 Pl
 Pl
 Pl
@@ -3072,16 +2932,16 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
 "}
 (18,1,2) = {"
-Bu
-cc
-Ty
-cc
+sW
+uu
+WF
+uu
 zN
 Pl
 Pl
@@ -3090,20 +2950,20 @@ Pl
 Pl
 Pl
 Pl
-BB
-BB
-BB
-BB
-Jk
-Jk
-Jk
-ba
-ba
-ba
-BB
-BB
-BB
-BB
+gK
+gK
+gK
+gK
+wE
+wE
+wE
+PY
+PY
+PY
+gK
+gK
+gK
+gK
 Pl
 Pl
 Pl
@@ -3115,14 +2975,14 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
+sW
+sW
+sW
 "}
 (19,1,2) = {"
-iF
-iF
-eU
+wT
+wT
+SQ
 SE
 zN
 Pl
@@ -3132,20 +2992,20 @@ Pl
 Pl
 Pl
 Pl
-BB
-BB
-BB
-BB
-MB
-Hh
-Hh
+gK
+gK
+gK
+gK
+lS
+le
+le
 tx
-Hh
-Ef
-BB
-BB
-BB
-BB
+le
+Xn
+gK
+gK
+gK
+gK
 Pl
 Pl
 Pl
@@ -3158,13 +3018,13 @@ Pl
 Pl
 Pl
 zN
-cc
-iF
+uu
+wT
 "}
 (20,1,2) = {"
-iF
-iF
-iF
+wT
+wT
+wT
 zN
 Pl
 Pl
@@ -3174,20 +3034,20 @@ Pl
 Pl
 Pl
 Pl
-BB
-BB
-BB
+gK
+gK
+gK
 YV
-SM
-SM
-SM
-SM
-SM
-SM
+xL
+xL
+xL
+xL
+xL
+xL
 qv
-BB
-BB
-BB
+gK
+gK
+gK
 Pl
 Pl
 Pl
@@ -3200,13 +3060,13 @@ Pl
 Pl
 zN
 zN
-cc
-Qb
+uu
+GX
 "}
 (21,1,2) = {"
-iF
-Ty
-iF
+wT
+WF
+wT
 zN
 Pl
 Pl
@@ -3216,20 +3076,20 @@ Pl
 Pl
 Pl
 Pl
-BB
-BB
+gK
+gK
 Gf
-CB
-SM
-SM
-SM
-SM
-SM
-SM
-fF
+aY
+xL
+xL
+xL
+xL
+xL
+xL
+VB
 rw
-BB
-BB
+gK
+gK
 Pl
 Pl
 Pl
@@ -3241,14 +3101,14 @@ Pl
 Pl
 Pl
 zN
-Ty
-iF
-cc
+WF
+wT
+uu
 "}
 (22,1,2) = {"
-pL
-cc
-iF
+VG
+uu
+wT
 zN
 Pl
 Pl
@@ -3258,20 +3118,20 @@ Pl
 Pl
 Pl
 Pl
-BB
-BB
+gK
+gK
 DA
-CB
-AK
-SM
-SM
+aY
+fw
+xL
+xL
 ES
-SM
-SM
+xL
+xL
 Ub
 DA
-BB
-BB
+gK
+gK
 Pl
 Pl
 Pl
@@ -3283,14 +3143,14 @@ Pl
 Pl
 zN
 zN
-iF
-cc
-cc
+wT
+uu
+uu
 "}
 (23,1,2) = {"
-Bu
-cc
-cc
+sW
+uu
+uu
 zN
 Pl
 Pl
@@ -3300,20 +3160,20 @@ Pl
 Pl
 Pl
 Pl
-BB
-BB
+gK
+gK
 bV
-CB
-SM
-SM
-SM
-SM
-SM
-SM
-fF
+aY
+xL
+xL
+xL
+xL
+xL
+xL
+VB
 rw
-BB
-BB
+gK
+gK
 Pl
 Pl
 Pl
@@ -3324,14 +3184,14 @@ Pl
 Pl
 Pl
 zN
-iF
-eU
-iF
-Bu
+wT
+SQ
+wT
+sW
 "}
 (24,1,2) = {"
-Bu
-Bu
+sW
+sW
 zN
 zN
 Pl
@@ -3342,20 +3202,20 @@ Pl
 Pl
 Pl
 Pl
-BB
-BB
-BB
+gK
+gK
+gK
 Ag
-SM
-SM
-SM
-SM
-SM
-SM
+xL
+xL
+xL
+xL
+xL
+xL
 ff
-BB
-BB
-BB
+gK
+gK
+gK
 Pl
 Pl
 Pl
@@ -3366,14 +3226,14 @@ Pl
 Pl
 zN
 zN
-cc
-pL
-Bu
-Bu
+uu
+VG
+sW
+sW
 "}
 (25,1,2) = {"
-Bu
-Bu
+sW
+sW
 zN
 Pl
 Pl
@@ -3384,20 +3244,20 @@ Pl
 Pl
 Pl
 Pl
-BB
-BB
-BB
-BB
-ea
-fG
-fG
+gK
+gK
+gK
+gK
+bE
+zW
+zW
 HS
-fG
+zW
 Et
-BB
-BB
-BB
-BB
+gK
+gK
+gK
+gK
 Pl
 Pl
 Pl
@@ -3407,16 +3267,16 @@ Pl
 Pl
 Pl
 zN
-cc
-cc
-Bu
-Bu
-Bu
+uu
+uu
+sW
+sW
+sW
 "}
 (26,1,2) = {"
-Bu
-Bu
-Bu
+sW
+sW
+sW
 Pl
 Pl
 Pl
@@ -3427,18 +3287,18 @@ Pl
 Pl
 Pl
 Pl
-BB
-BB
-BB
+gK
+gK
+gK
 JZ
 iG
 ql
 Qh
 AQ
 rj
-BB
-BB
-BB
+gK
+gK
+gK
 Pl
 Pl
 Pl
@@ -3449,16 +3309,16 @@ Pl
 Pl
 Pl
 zN
-cc
+uu
 NX
-Bu
-Bu
-Bu
+sW
+sW
+sW
 "}
 (27,1,2) = {"
-Bu
-Bu
-Bu
+sW
+sW
+sW
 Pl
 Pl
 Pl
@@ -3470,16 +3330,16 @@ Pl
 Pl
 Pl
 Pl
-BB
-BB
-BB
-BB
-BB
-BB
-BB
-BB
-BB
-BB
+gK
+gK
+gK
+gK
+gK
+gK
+gK
+gK
+gK
+gK
 Pl
 Pl
 Pl
@@ -3491,16 +3351,16 @@ Pl
 Pl
 zN
 zN
-iF
-iF
-Bu
-Bu
-Bu
+wT
+wT
+sW
+sW
+sW
 "}
 (28,1,2) = {"
-Bu
-Bu
-Bu
+sW
+sW
+sW
 Pl
 Pl
 Pl
@@ -3532,17 +3392,17 @@ Pl
 zN
 zN
 zN
-iF
-cc
-iF
-iF
-Bu
-Bu
+wT
+uu
+wT
+wT
+sW
+sW
 "}
 (29,1,2) = {"
-Bu
-Bu
-Bu
+sW
+sW
+sW
 Pl
 Pl
 Pl
@@ -3572,18 +3432,18 @@ Pl
 Pl
 zN
 zN
-iF
-iF
-iF
-cc
-cc
-eU
-Bu
-Bu
+wT
+wT
+wT
+uu
+uu
+SQ
+sW
+sW
 "}
 (30,1,2) = {"
-Bu
-Bu
+sW
+sW
 Pl
 Pl
 Pl
@@ -3613,18 +3473,18 @@ Pl
 Pl
 zN
 zN
-dJ
-an
-fk
-iF
-cc
-Ty
-cc
-Bu
-Bu
+rb
+sg
+tK
+wT
+uu
+WF
+uu
+sW
+sW
 "}
 (31,1,2) = {"
-Bu
+sW
 Pl
 Pl
 Pl
@@ -3654,20 +3514,20 @@ Pl
 Pl
 zN
 zN
-yM
-yM
-dJ
-rU
-iF
-cc
-pL
-cc
-Bu
-Bu
+QV
+QV
+rb
+bl
+wT
+uu
+VG
+uu
+sW
+sW
 "}
 (32,1,2) = {"
-Bu
-Bu
+sW
+sW
 Pl
 Pl
 Pl
@@ -3695,21 +3555,21 @@ Pl
 Pl
 Pl
 zN
-dJ
-dJ
-yM
-yM
-yM
-an
-iF
-iF
-Bu
-Bu
-Bu
+rb
+rb
+QV
+QV
+QV
+sg
+wT
+wT
+sW
+sW
+sW
 "}
 (33,1,2) = {"
-Bu
-Bu
+sW
+sW
 Pl
 Pl
 Pl
@@ -3737,21 +3597,21 @@ Pl
 Pl
 zN
 zN
-dJ
-xS
-dJ
-dJ
-yM
-yM
-an
-an
-Bu
-Bu
-Bu
+rb
+MF
+rb
+rb
+QV
+QV
+sg
+sg
+sW
+sW
+sW
 "}
 (34,1,2) = {"
-Bu
-Bu
+sW
+sW
 Pl
 Pl
 Pl
@@ -3778,23 +3638,23 @@ Pl
 Pl
 zN
 zN
-dJ
-dJ
-dJ
-dJ
-yM
-yM
-yM
-xS
-Bu
-Bu
-Bu
-Bu
+rb
+rb
+rb
+rb
+QV
+QV
+QV
+MF
+sW
+sW
+sW
+sW
 "}
 (35,1,2) = {"
-Bu
-Bu
-Bu
+sW
+sW
+sW
 Pl
 Pl
 Pl
@@ -3819,24 +3679,24 @@ Pl
 Pl
 Pl
 zN
-rU
-xS
-dJ
-yM
-dJ
-dJ
-dJ
-dJ
-Bu
-Bu
-Bu
-Bu
-Bu
+bl
+MF
+rb
+QV
+rb
+rb
+rb
+rb
+sW
+sW
+sW
+sW
+sW
 "}
 (36,1,2) = {"
-Bu
-Bu
-Bu
+sW
+sW
+sW
 Pl
 Pl
 Pl
@@ -3861,25 +3721,25 @@ Pl
 Pl
 zN
 zN
-an
-Cq
-yM
-yM
-dJ
-xS
-dJ
-dJ
-Bu
-Bu
-Bu
-Bu
-Bu
+sg
+Wn
+QV
+QV
+rb
+MF
+rb
+rb
+sW
+sW
+sW
+sW
+sW
 "}
 (37,1,2) = {"
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
 Pl
 Pl
 Pl
@@ -3887,9 +3747,9 @@ Pl
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
+sW
+sW
+sW
 Pl
 Pl
 Pl
@@ -3902,144 +3762,144 @@ zN
 zN
 zN
 zN
-iF
-iF
-cc
-Cq
-yM
-yM
-pJ
-dJ
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+wT
+wT
+uu
+Wn
+QV
+QV
+vw
+rb
+sW
+sW
+sW
+sW
+sW
+sW
 "}
 (38,1,2) = {"
-Bu
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
+sW
 Pl
 Pl
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
+sW
+sW
 Pl
 Pl
 zN
 zN
 zN
-iF
-iF
-cc
-cc
-cc
-cc
-iF
-Bu
-Bu
-dJ
-yM
-yM
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+wT
+wT
+uu
+uu
+uu
+uu
+wT
+sW
+sW
+rb
+QV
+QV
+sW
+sW
+sW
+sW
+sW
+sW
+sW
 "}
 (39,1,2) = {"
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
+sW
+sW
 Pl
 Pl
 Pl
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-pL
-iF
-Ty
-eU
-iF
-Bu
-cc
-Ty
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+VG
+wT
+WF
+SQ
+wT
+sW
+uu
+WF
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
 "}
 (40,1,2) = {"
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-cc
-eU
-cc
-iF
-cc
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+uu
+SQ
+uu
+wT
+uu
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
+sW
 "}
