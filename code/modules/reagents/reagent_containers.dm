@@ -180,8 +180,8 @@
 
 	filling.color = mix_color_from_reagents(reagents.reagent_list)
 	filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
+	. += filling
 
 	var/datum/reagent/master = reagents.get_master_reagent()
 	if(master?.glows)
-		. += emissive_appearance(filling.icon, filling.icon_state)
-	. += filling
+		. += emissive_appearance(filling.icon, filling.icon_state, alpha = filling.alpha)
