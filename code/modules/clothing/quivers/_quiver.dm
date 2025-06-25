@@ -29,7 +29,7 @@
 		for(var/i in 1 to to_fill)
 			var/obj/item/ammo = new fill_type(src)
 			ammo_list += ammo
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/ammo_holder/attackby(obj/A, loc, params)
 	for(var/i in ammo_type)
