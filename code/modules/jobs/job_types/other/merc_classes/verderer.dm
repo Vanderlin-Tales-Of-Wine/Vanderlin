@@ -1,8 +1,11 @@
 /datum/advclass/mercenary/verderer
 	name = "Hollow Verderer"
-	tutorial = "A Hollow-Kin halberd-master that has for one reason or another, forsaken Amber Hollow in favor of pursuing coin and glory in wider parts of Psydonia."
+	tutorial = "A halberd-master that has for one reason or another, forsaken Amber Hollow in favor of pursuing coin and glory in wider parts of Psydonia."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list("Hollow-Kin")
+	allowed_races = list(
+		"Hollow-Kin",
+		"Humen"
+	)
 	outfit = /datum/outfit/job/mercenary/verderer
 	category_tags = list(CTAG_MERCENARY)
 	maximum_possible_slots = 5
@@ -49,6 +52,7 @@
 		H.change_stat(STATKEY_CON, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_STR, 1)
+
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 
