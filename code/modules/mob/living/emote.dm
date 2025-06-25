@@ -929,6 +929,7 @@
 		var/mob/living/carbon/human/H = user
 		var/mob/living/carbon/human/E = target
 		if(H.zone_selected == BODY_ZONE_PRECISE_GROIN)
+			SEND_SIGNAL(user, COMSIG_ASS_SLAPPED, target)
 		// anti pedophile logging
 			var/log_msg
 			if(E.age == AGE_CHILD)
