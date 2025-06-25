@@ -6107,7 +6107,9 @@
 /area/rogue/under/town/sewer)
 "gcv" = (
 /obj/structure/table/wood/plain_alt,
-/obj/structure/fake_machine/mail/r,
+/obj/structure/fake_machine/mail/r{
+	mailtag = "Keep gate"
+	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/outdoors/town/roofs)
 "gcB" = (
@@ -9422,7 +9424,9 @@
 /area/rogue/indoors/town/cell)
 "jja" = (
 /obj/structure/table/wood/plain_alt,
-/obj/structure/fake_machine/mail/l,
+/obj/structure/fake_machine/mail/l{
+	mailtag = "Soilson"
+	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/soilsons)
 "jjh" = (
@@ -9447,7 +9451,9 @@
 /obj/item/reagent_containers/glass/bottle/beer/blackgoat{
 	pixel_y = 12
 	},
-/obj/structure/fake_machine/mail/r,
+/obj/structure/fake_machine/mail/r{
+	mailtag = "Matron"
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/orphanage)
 "jkv" = (
