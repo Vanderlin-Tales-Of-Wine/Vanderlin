@@ -23617,7 +23617,7 @@
 /area/rogue/outdoors/town)
 "peS" = (
 /obj/structure/fake_machine/mail/r{
-	mailtag = "Orphanage lower1"
+	mailtag = "Orphanage lower"
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
