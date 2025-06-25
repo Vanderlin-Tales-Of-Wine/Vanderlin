@@ -29163,6 +29163,14 @@
 /obj/structure/chair/stool,
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/sewer)
+"sEv" = (
+/obj/structure/closet/crate/chest/neu_iron,
+/obj/item/key/forrestgarrison,
+/obj/item/key/forrestgarrison,
+/obj/item/key/forrestgarrison,
+/obj/item/key/forrestgarrison,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/villagegarrison)
 "sEy" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -95128,7 +95136,7 @@ gTY
 vYi
 ozO
 odc
-vBA
+sEv
 odc
 aWD
 mAU
