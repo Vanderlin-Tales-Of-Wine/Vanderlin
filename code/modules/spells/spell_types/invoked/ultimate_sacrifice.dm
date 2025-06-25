@@ -14,7 +14,7 @@
 
 	var/list/possible_targets = list()
 	for(var/mob/living/carbon/human/H in view(7, user))
-		if(H.stat == DEAD) // Removed child check here - can be used on anyone
+		if(H.stat == DEAD)
 			possible_targets += H
 
 	if(!possible_targets.len)
@@ -40,7 +40,6 @@
 	if(confirm != "Give My Life")
 		return FALSE
 
-	// Perform the sacrifice
 	user.say("RAVOX, I GIVE MY LIFE FOR THEIRS!", forced = "ravox_ritual")
 	playsound(user, 'sound/magic/churn.ogg', 100)
 
@@ -51,7 +50,6 @@
 	target.visible_message(span_mind_control("[target] gasps as they return to life!"))
 	to_chat(target, span_notice("You feel life returning to your body as someone's sacrifice revives you!"))
 
-	// Kill the user
 	user.death()
 
 	if(user.mind)

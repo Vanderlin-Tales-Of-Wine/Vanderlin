@@ -1,6 +1,5 @@
 /obj/effect/proc_holder/spell/invoked/transform_tree
 	name = "Transform Tree"
-	desc = "Transform a normal tree into a wise tree of Dendor."
 	invocation_type = "whisper"
 	overlay_state = "entangle"
 	range = 1
@@ -32,6 +31,11 @@
 
 	if(!target)
 		to_chat(H, span_warning("You must target a normal, living tree adjacent to you!"))
+		return
+
+	var/turf/below = get_step_multiz(target, DOWN)
+	if(below && !istype(below, /turf/open/transparent/openspace))
+		to_chat(H, span_warning("You must target the base of the tree!"))
 		return
 
 	if(uses <= 0)
