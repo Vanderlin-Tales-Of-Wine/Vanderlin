@@ -33,18 +33,14 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/cave/lava)
 "w" = (
-/obj/structure/fluff/railing/border{
-	dir = 4
-	},
+/obj/structure/bars,
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
 	},
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/lava)
 "y" = (
-/obj/structure/fluff/railing/border{
-	dir = 4
-	},
+/obj/structure/bars,
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/lava)
@@ -62,19 +58,8 @@
 "F" = (
 /turf/open/lava,
 /area/rogue/under/tomb/cave/lava)
-"J" = (
-/obj/structure/fluff/railing/border{
-	dir = 4;
-	pixel_x = -24
-	},
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/transparent/openspace,
-/area/rogue/under/tomb/cave/lava)
 "K" = (
-/obj/structure/fluff/railing/border{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/structure/bars,
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/lava)
 "O" = (
@@ -83,12 +68,6 @@
 /area/rogue/under/tomb/cave/lava)
 "R" = (
 /turf/closed/wall/mineral/craftstone,
-/area/rogue/under/tomb/cave/lava)
-"T" = (
-/obj/structure/fluff/railing/border{
-	dir = 4
-	},
-/turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/lava)
 "U" = (
 /obj/item/weapon/polearm/woodstaff{
@@ -104,16 +83,6 @@
 /area/rogue/under/tomb/cave/lava)
 "Y" = (
 /turf/open/floor/volcanic,
-/area/rogue/under/tomb/cave/lava)
-"Z" = (
-/obj/structure/fluff/railing/border{
-	dir = 4;
-	pixel_x = -24
-	},
-/obj/machinery/light/fueled/wallfire/candle/blue{
-	pixel_y = -32
-	},
-/turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/lava)
 
 (1,1,1) = {"
@@ -697,30 +666,30 @@ a
 R
 R
 y
-T
-T
-T
-T
+K
+K
+K
+K
 w
 R
 R
 y
-T
-T
-T
-T
-T
-T
-T
-T
+K
+K
+K
+K
+K
+K
+K
+K
 w
 R
 R
 y
-T
-T
-T
-T
+K
+K
+K
+K
 w
 R
 R
@@ -856,15 +825,15 @@ R
 (10,1,2) = {"
 R
 R
-J
+y
 K
 K
 K
 K
-Z
+w
 R
 R
-J
+y
 K
 K
 K
@@ -873,15 +842,15 @@ K
 K
 K
 K
-Z
+w
 R
 R
-J
+y
 K
 K
 K
 K
-Z
+w
 R
 R
 "}

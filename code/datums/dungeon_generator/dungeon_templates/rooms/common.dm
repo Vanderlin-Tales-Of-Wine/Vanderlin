@@ -421,6 +421,7 @@
 /datum/map_template/dungeon/room/infernalbridge
 	mappath = "_maps/matthios_tomb/room/infernalbridge.dmm"
 	id = "infernalbridge"
+	rarity = 75
 	width = 14
 	height = 30
 
