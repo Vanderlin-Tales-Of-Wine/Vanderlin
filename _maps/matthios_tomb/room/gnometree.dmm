@@ -206,7 +206,7 @@
 	desc = "A very small door fit for only gnomes it seems"
 	},
 /obj/effect/mapping_helpers/access/locker,
-/turf/closed/mineral/bedrock,
+/turf/open/floor/dirt,
 /area/rogue/under/dungeon)
 "Kl" = (
 /obj/structure/flora/grass/thorn_bush,
