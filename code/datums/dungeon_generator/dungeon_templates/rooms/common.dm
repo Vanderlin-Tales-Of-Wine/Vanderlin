@@ -374,3 +374,13 @@
 	height = 50
 
 	south_offset = 24
+
+/datum/map_template/dungeon/room/OBwarehouse
+	mappath = "_maps/matthios_tomb/room/OBwarehouse.dmm"
+	id = "OBwarehouse"
+	rarity = 75
+	width = 20
+	height = 18
+
+	west_offset = 13
+	east_offset = 13

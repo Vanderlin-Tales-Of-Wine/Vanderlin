@@ -1,0 +1,1144 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ad" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/grass,
+/area/rogue/under/dungeon)
+"dT" = (
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/under/dungeon)
+"hd" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/machinery/light/fueled/wallfire/candle/skull/r,
+/obj/effect/spawner/map_spawner/loot/food,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"hJ" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/machinery/light/fueled/wallfire/candle/skull/l,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"kf" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"kO" = (
+/obj/structure/closet/crate/coffin,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"lp" = (
+/obj/structure/closet/crate/chest/crate,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"lE" = (
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/dungeon)
+"oh" = (
+/obj/machinery/light/fueled/wallfire/candle/skull/r,
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/dungeon)
+"pb" = (
+/obj/structure/closet/crate/chest/crate,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"pC" = (
+/obj/machinery/light/fueled/wallfire/candle/skull/l,
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/dungeon)
+"pF" = (
+/obj/structure/trap/mine,
+/turf/open/floor/dirt,
+/area/rogue/under/dungeon)
+"pV" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"qQ" = (
+/obj/structure/closet/crate/chest/neu_iron,
+/obj/effect/spawner/map_spawner/loot/food,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"ru" = (
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"rM" = (
+/obj/effect/decal/cleanable/blood/gibs/up,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"rN" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"sZ" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 9
+	},
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"tb" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1
+	},
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"ty" = (
+/obj/structure/flora/grass/bush_meagre,
+/turf/open/floor/grass,
+/area/rogue/under/dungeon)
+"tB" = (
+/mob/living/simple_animal/hostile/retaliate/voidstoneobelisk,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"tY" = (
+/obj/structure/voidstoneobelisk,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"wt" = (
+/obj/structure/closet/crate/chest/crate,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"wY" = (
+/obj/structure/closet/crate/chest/crafted,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"xD" = (
+/obj/structure/door/stone,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1
+	},
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"zd" = (
+/obj/effect/decal/cleanable/blood/gibs/torso,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"zs" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/effect/spawner/map_spawner/loot,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"zG" = (
+/obj/machinery/light/fueled/wallfire/candle/skull,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"zX" = (
+/obj/structure/closet/crate/chest/neu_fancy,
+/obj/effect/spawner/map_spawner/loot/rare,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"Aa" = (
+/turf/open/floor/naturalstone,
+/area/rogue/under/dungeon)
+"Ac" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/effect/spawner/map_spawner/loot,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"Ar" = (
+/obj/structure/closet/crate/chest/neu_iron,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"AH" = (
+/obj/structure/closet/crate/chest/crate,
+/obj/effect/spawner/map_spawner/loot/food,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"AL" = (
+/obj/structure/closet/crate/chest/wicker,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"AP" = (
+/obj/structure/trap/mine,
+/turf/open/floor/grass,
+/area/rogue/under/dungeon)
+"Bm" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1
+	},
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"Cr" = (
+/obj/structure/closet/crate/chest/crafted,
+/obj/effect/spawner/map_spawner/loot,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"CJ" = (
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"EE" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/effect/spawner/map_spawner/loot/food,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"Ff" = (
+/turf/open/floor/grass,
+/area/rogue/under/dungeon)
+"Fk" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"FP" = (
+/turf/open/floor/dirt,
+/area/rogue/under/dungeon)
+"Ha" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 6
+	},
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"Hr" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/naturalstone,
+/area/rogue/under/dungeon)
+"HM" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"HW" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/gibs/old,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"Ie" = (
+/obj/structure/closet/crate/chest/crate,
+/obj/effect/spawner/map_spawner/loot,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"Iq" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"IE" = (
+/obj/structure/closet/crate/coffin,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"IT" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"IX" = (
+/obj/structure/closet/crate/chest/crafted,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"Lz" = (
+/obj/structure/trap/mine,
+/turf/open/floor/naturalstone,
+/area/rogue/under/dungeon)
+"LM" = (
+/obj/structure/closet/crate/chest/crafted,
+/obj/effect/spawner/map_spawner/loot/food,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"Ne" = (
+/obj/effect/decal/cleanable/blood/gibs,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"Nx" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/bush_meagre,
+/turf/open/floor/dirt,
+/area/rogue/under/dungeon)
+"Oa" = (
+/obj/structure/closet/crate/crafted_closet/dark,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"Oh" = (
+/obj/structure/flora/grass,
+/turf/open/floor/dirt,
+/area/rogue/under/dungeon)
+"OV" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"OY" = (
+/obj/structure/closet/crate/chest/crafted,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"Pd" = (
+/obj/structure/trap/mine,
+/obj/structure/flora/grass,
+/turf/open/floor/dirt,
+/area/rogue/under/dungeon)
+"Sa" = (
+/obj/structure/closet/crate/chest/old_crate,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"Sf" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1
+	},
+/turf/open/floor/dirt,
+/area/rogue/under/dungeon)
+"TP" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/dungeon)
+"Ur" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/dungeon)
+"Ux" = (
+/obj/structure/voidstoneobelisk,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"UW" = (
+/obj/effect/decal/cleanable/blood/gibs/torso,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"Wi" = (
+/obj/structure/closet/crate/chest/old_crate,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"Wo" = (
+/obj/effect/decal/cleanable/blood/gibs/down,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"Xc" = (
+/obj/structure/trap/mine,
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/under/dungeon)
+"Xs" = (
+/obj/structure/closet/crate/chest/neu_iron,
+/obj/effect/spawner/map_spawner/loot,
+/turf/open/floor/cobble,
+/area/rogue/under/dungeon)
+"Xv" = (
+/obj/structure/flora/grass/bush_meagre,
+/turf/open/floor/dirt,
+/area/rogue/under/dungeon)
+"XC" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/bush_meagre,
+/turf/open/floor/grass,
+/area/rogue/under/dungeon)
+"XR" = (
+/obj/structure/door/stone,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"Zt" = (
+/obj/structure/closet/crate/chest/neu_iron,
+/obj/machinery/light/fueled/wallfire/candle/skull/r,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+
+(1,1,1) = {"
+TP
+TP
+TP
+Xv
+Hr
+Aa
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(2,1,1) = {"
+TP
+TP
+TP
+Oh
+FP
+Nx
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(3,1,1) = {"
+TP
+TP
+Ff
+FP
+pF
+Aa
+Aa
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(4,1,1) = {"
+TP
+TP
+ty
+FP
+Aa
+Aa
+Aa
+TP
+TP
+TP
+TP
+TP
+lE
+lE
+lE
+lE
+lE
+TP
+"}
+(5,1,1) = {"
+TP
+ty
+XC
+dT
+Aa
+Aa
+TP
+TP
+TP
+TP
+TP
+TP
+Xs
+hJ
+pb
+zX
+lE
+TP
+"}
+(6,1,1) = {"
+TP
+Ff
+AP
+Ff
+Aa
+TP
+TP
+TP
+TP
+TP
+IX
+Fk
+tY
+kf
+Cr
+lp
+lE
+TP
+"}
+(7,1,1) = {"
+TP
+dT
+Ff
+Aa
+Aa
+TP
+TP
+TP
+TP
+AH
+zs
+pV
+ru
+Wo
+Ie
+Sa
+lE
+lE
+"}
+(8,1,1) = {"
+TP
+TP
+Aa
+Aa
+FP
+ty
+oh
+lE
+qQ
+Ac
+CJ
+Iq
+ru
+ru
+kf
+lE
+lE
+lE
+"}
+(9,1,1) = {"
+TP
+TP
+TP
+Oh
+ty
+ty
+lE
+Ie
+wt
+rM
+ru
+ru
+rN
+kf
+ru
+LM
+lE
+lE
+"}
+(10,1,1) = {"
+TP
+TP
+TP
+FP
+Ff
+XC
+XR
+pV
+ru
+rN
+kf
+ru
+ru
+ru
+CJ
+Ux
+hJ
+lE
+"}
+(11,1,1) = {"
+TP
+TP
+TP
+Aa
+Pd
+Ff
+lE
+zG
+sZ
+tb
+tb
+HW
+ru
+tB
+CJ
+Ne
+kO
+lE
+"}
+(12,1,1) = {"
+TP
+TP
+Aa
+Aa
+Ur
+Sf
+xD
+Bm
+Ha
+ru
+Fk
+CJ
+rN
+ru
+Iq
+Cr
+Zt
+lE
+"}
+(13,1,1) = {"
+TP
+Nx
+Aa
+Aa
+Aa
+Aa
+lE
+UW
+IT
+ru
+CJ
+pV
+CJ
+zd
+OV
+Wi
+lE
+lE
+"}
+(14,1,1) = {"
+TP
+TP
+Lz
+Aa
+Aa
+FP
+pC
+lE
+wt
+kf
+Iq
+ru
+EE
+AL
+HM
+lE
+TP
+TP
+"}
+(15,1,1) = {"
+TP
+TP
+Aa
+Aa
+FP
+dT
+Ff
+lE
+Sa
+wY
+CJ
+zd
+ru
+EE
+IX
+TP
+TP
+TP
+"}
+(16,1,1) = {"
+TP
+TP
+Aa
+Aa
+FP
+Ff
+TP
+lE
+lE
+lp
+pb
+tY
+pV
+IE
+TP
+TP
+TP
+TP
+"}
+(17,1,1) = {"
+TP
+TP
+Nx
+Aa
+FP
+Xc
+ty
+TP
+lE
+Ar
+hd
+OY
+Oa
+TP
+TP
+TP
+TP
+TP
+"}
+(18,1,1) = {"
+TP
+TP
+dT
+FP
+Ff
+Ff
+TP
+TP
+lE
+lE
+lE
+lE
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(19,1,1) = {"
+TP
+TP
+AP
+dT
+ty
+Ff
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(20,1,1) = {"
+TP
+TP
+TP
+Ff
+ad
+dT
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+
+(1,1,2) = {"
+TP
+TP
+TP
+Oh
+FP
+FP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(2,1,2) = {"
+TP
+TP
+TP
+Ff
+Oh
+Oh
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(3,1,2) = {"
+TP
+TP
+dT
+Ff
+Aa
+FP
+Xv
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(4,1,2) = {"
+TP
+TP
+ty
+Aa
+FP
+dT
+Ff
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(5,1,2) = {"
+TP
+Oh
+FP
+FP
+Ff
+dT
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(6,1,2) = {"
+TP
+Aa
+FP
+Oh
+Ff
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(7,1,2) = {"
+TP
+ty
+dT
+FP
+Aa
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(8,1,2) = {"
+TP
+TP
+Ff
+Ff
+Aa
+Aa
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(9,1,2) = {"
+TP
+TP
+TP
+dT
+ty
+Aa
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(10,1,2) = {"
+TP
+TP
+TP
+Ff
+Ff
+dT
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(11,1,2) = {"
+TP
+TP
+TP
+Ff
+dT
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(12,1,2) = {"
+TP
+TP
+ty
+Ff
+Ff
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(13,1,2) = {"
+TP
+FP
+Oh
+FP
+Aa
+Aa
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(14,1,2) = {"
+TP
+TP
+FP
+FP
+FP
+Ff
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(15,1,2) = {"
+TP
+TP
+Oh
+FP
+Ff
+Ff
+dT
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(16,1,2) = {"
+TP
+TP
+FP
+FP
+Ff
+XC
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(17,1,2) = {"
+TP
+TP
+ty
+FP
+Ff
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(18,1,2) = {"
+TP
+TP
+Aa
+dT
+Ff
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(19,1,2) = {"
+TP
+TP
+Aa
+Aa
+Ff
+Oh
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(20,1,2) = {"
+TP
+TP
+TP
+FP
+Xv
+FP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
