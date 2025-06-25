@@ -1906,7 +1906,9 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/rtfield/safe)
 "bOd" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Butcher"
+	},
 /turf/open/floor/woodturned,
 /area/rogue/indoors/butchershop)
 "bOi" = (
@@ -4583,7 +4585,9 @@
 	redstone_id = "stewardshutter";
 	pixel_x = -10
 	},
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Steward"
+	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/steward)
 "ezm" = (
@@ -5542,7 +5546,9 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Inn"
+	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "fzM" = (
@@ -13371,7 +13377,9 @@
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/church/inquisition)
 "mZQ" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Merchant"
+	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/shop)
 "nac" = (
@@ -20201,7 +20209,8 @@
 /area/rogue/indoors/town/church)
 "tJz" = (
 /obj/structure/fake_machine/mail{
-	pixel_y = -32
+	pixel_y = -32;
+	mailtag = "Mercenary Hideout"
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/merc_guild)
@@ -21774,7 +21783,9 @@
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Inquisitor"
+	},
 /obj/structure/table/wood/plain_alt,
 /obj/item/storage/keyring/inquisitor,
 /turf/open/floor/church,
@@ -22011,7 +22022,9 @@
 /turf/open/floor/wood,
 /area/rogue/under/town/basement)
 "vqj" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Wizard tower"
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "vqB" = (
@@ -22494,7 +22507,8 @@
 "vNq" = (
 /obj/structure/fake_machine/mail{
 	pixel_y = 0;
-	pixel_x = 32
+	pixel_x = 32;
+	mailtag = "Priest"
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/church)
@@ -23641,7 +23655,8 @@
 	},
 /obj/structure/fake_machine/mail{
 	pixel_y = 0;
-	pixel_x = 32
+	pixel_x = 32;
+	mailtag = "Captain"
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
@@ -24680,7 +24695,9 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "xQN" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Throne room"
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "xRy" = (
