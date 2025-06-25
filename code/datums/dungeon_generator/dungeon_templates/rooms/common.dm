@@ -365,3 +365,12 @@
 	east_offset = 12
 	north_offset = 12
 	south_offset = 12
+
+/datum/map_template/dungeon/room/minotaur
+	mappath = "_maps/matthios_tomb/room/minotaur.dmm"
+	id = "minotaur"
+	rarity = 50
+	width = 50
+	height = 50
+
+	south_offset = 24
