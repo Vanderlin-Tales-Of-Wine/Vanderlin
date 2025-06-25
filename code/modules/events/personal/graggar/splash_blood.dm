@@ -21,8 +21,6 @@
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/inhumen/graggar))
 			continue
-		if(H.is_noble())
-			continue
 		return TRUE
 
 	return FALSE
@@ -34,8 +32,6 @@
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhumen/graggar))
-			continue
-		if(human_mob.is_noble())
 			continue
 		valid_targets += human_mob
 

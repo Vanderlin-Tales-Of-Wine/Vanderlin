@@ -160,6 +160,7 @@
 			for(var/obj/structure/gravemarker/G in loc)
 				record_featured_stat(FEATURED_STATS_CRIMINALS, user)
 				GLOB.vanderlin_round_stats[STATS_GRAVES_ROBBED]++
+				SEND_SIGNAL(user, COMSIG_GRAVE_ROBBED, user)
 				qdel(G)
 				if(isliving(user))
 					var/mob/living/L = user
