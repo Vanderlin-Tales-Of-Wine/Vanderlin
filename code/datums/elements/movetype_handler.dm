@@ -72,8 +72,9 @@
 	var/flag = GLOB.movement_type_trait_to_flag[trait]
 	if(initial(source.movement_type) & flag)
 		return
-	source.movement_type &= ~flag
 	var/old_state = source.movement_type
+	source.movement_type &= ~flag
+
 	if((old_state & (FLOATING|FLYING)) && !(source.movement_type & (FLOATING|FLYING)))
 		STOP_FLOATING_ANIM(source)
 	SEND_SIGNAL(source, COMSIG_MOVETYPE_FLAG_DISABLED, flag, old_state)
