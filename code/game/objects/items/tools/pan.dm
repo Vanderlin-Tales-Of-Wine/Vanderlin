@@ -60,6 +60,6 @@
 	var/generator/scatter_gen = generator(GEN_CIRCLE, 0, 48, NORMAL_RAND)
 	for(var/obj/item/scattered_item as anything in oldContents)
 		var/list/scatter_vector = scatter_gen.Rand()
-		scattered_item.pixel_x = scatter_vector[1]
-		scattered_item.pixel_y = scatter_vector[2]
+		scattered_item.pixel_x = scattered_item.base_pixel_x + scatter_vector[1]
+		scattered_item.pixel_y = scattered_item.base_pixel_y + scatter_vector[2]
 		scattered_item.throw_impact(hit_atom, throwingdatum)

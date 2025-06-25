@@ -14,7 +14,7 @@
 		else //if(lying != 0)
 			if(lying_prev == 0) //Standing to lying
 				pixel_y = get_standard_pixel_y_offset()
-				final_pixel_y = get_standard_pixel_y_offset(lying_angle)
+				final_pixel_y = get_standard_pixel_y_offset()
 				if(dir & (EAST|WEST)) //Facing east or west
 //					final_dir = pick(NORTH, SOUTH) //So you fall on your side rather than your face or ass
 					final_dir = SOUTH
@@ -24,7 +24,7 @@
 		resize = RESIZE_DEFAULT_SIZE
 
 	if(changed)
-		halt_floating_anim(animate = FALSE)
+		SEND_SIGNAL(src, COMSIG_PAUSE_FLOATING_ANIM, 0.3 SECONDS)
 //		animate(src, transform = ntransform, time = (lying_prev == 0 || !lying) ? 2 : 0, pixel_y = final_pixel_y, dir = final_dir, easing = (EASE_IN|EASE_OUT))
 		transform = ntransform
 		pixel_x = get_standard_pixel_x_offset()
@@ -35,7 +35,7 @@
 		update_vision_cone()
 	else
 		pixel_x = get_standard_pixel_x_offset()
-		pixel_y = get_standard_pixel_y_offset(lying_angle)
+		pixel_y = get_standard_pixel_y_offset()
 		client?.pixel_x = pixel_x
 		client?.pixel_y = pixel_y
 

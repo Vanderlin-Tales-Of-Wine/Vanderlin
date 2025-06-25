@@ -172,7 +172,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	var/list/req_items = list()		//required worn items to cast
 	var/req_inhand = null			//required inhand to cast
-	var/base_icon_state = "spell"
+	base_icon_state = "spell"
 	var/associated_skill = /datum/skill/magic/arcane
 	var/miracle = FALSE
 	var/healing_miracle = FALSE

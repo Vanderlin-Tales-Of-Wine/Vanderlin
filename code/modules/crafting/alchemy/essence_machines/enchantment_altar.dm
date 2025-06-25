@@ -414,8 +414,8 @@
 	if(T)
 		for(var/i = 1 to 5)
 			var/obj/effect/temp_visual/sparkle/S = new(T)
-			S.pixel_x = rand(-16, 16)
-			S.pixel_y = rand(-8, 24)
+			S.pixel_x = S.base_pixel_x + rand(-16, 16)
+			S.pixel_y = S.base_pixel_y + rand(-8, 24)
 		//playsound(T, 'sound/magic/enchant_start.ogg', 50, TRUE)
 
 /obj/machinery/essence/enchantment_altar/proc/complete_enchantment(enchantment_path, mob/user)
@@ -435,8 +435,8 @@
 	if(T)
 		for(var/i = 1 to 8)
 			var/obj/effect/temp_visual/sparkle/S = new(T)
-			S.pixel_x = rand(-24, 24)
-			S.pixel_y = rand(-12, 32)
+			S.pixel_x = S.base_pixel_x + rand(-24, 24)
+			S.pixel_y = S.base_pixel_y + rand(-12, 32)
 		//playsound(T, 'sound/magic/enchant_complete.ogg', 60, TRUE)
 
 	if(selected_recipe)

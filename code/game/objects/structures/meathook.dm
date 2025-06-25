@@ -64,7 +64,7 @@
 			m90.Turn(90)
 			m90.Translate(12,12)
 			animate(L, transform = m90, time = 3)
-			L.pixel_y = L.get_standard_pixel_x_offset(180)
+			L.pixel_y = L.get_standard_pixel_x_offset()
 			draining_blood = FALSE
 	else if (has_buckled_mobs())
 		for(var/mob/living/L in buckled_mobs)
@@ -137,7 +137,7 @@
 	m270.Turn(270)
 	m270.Translate(-12,-12)
 	animate(M, transform = m270, time = 3)
-	M.pixel_y = M.get_standard_pixel_y_offset(180)
+	M.pixel_y = M.get_standard_pixel_y_offset()
 	M.adjustBruteLoss(30)
 	src.visible_message(span_danger("[M] falls free of [src]!"))
 	unbuckle_mob(M,force=1)

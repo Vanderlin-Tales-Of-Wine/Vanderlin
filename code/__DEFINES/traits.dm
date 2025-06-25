@@ -295,38 +295,18 @@ GLOBAL_LIST_INIT(roguetraits, list(
 #define HAS_TRAIT_FROM(target, trait, source) (target.status_traits ? (target.status_traits[trait] ? (source in target.status_traits[trait]) : FALSE) : FALSE)
 #define HAS_TRAIT_NOT_FROM(target, trait, source) (HAS_TRAIT(target, trait) && (length(target.status_traits[trait] - source) > 0))
 
-///Movement type traits for movables.
+/*
+Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
+*/
 
-/**
- * Registers movement trait signals on the movable the first time the macro is used on it,
- * These are necessary to add and remove bit flags, as well as the floating animation.
- * Overall it's a better alternative than doing so on init for every movable.
- */
-#define ADD_MOVE_TRAIT(AM, trait, source)\
-	if(!AM.has_movement_type_signals){\
-		if(!GLOB.movement_type_trait_add_signals){\
-			GLOB.movement_type_trait_add_signals = list();\
-			GLOB.movement_type_trait_remove_signals = list();\
-			for(var/_trait in GLOB.movement_type_trait_to_flag){\
-				GLOB.movement_type_trait_add_signals += SIGNAL_ADDTRAIT(_trait);\
-				GLOB.movement_type_trait_remove_signals += SIGNAL_REMOVETRAIT(_trait)\
-			};\
-		};\
-		AM.RegisterSignal(AM, GLOB.movement_type_trait_add_signals, TYPE_PROC_REF(/atom/movable, on_movement_type_trait_gain));\
-		AM.RegisterSignal(AM, GLOB.movement_type_trait_remove_signals, TYPE_PROC_REF(/atom/movable, on_movement_type_trait_loss));\
-		AM.has_movement_type_signals = TRUE\
-	};\
-	ADD_TRAIT(AM, trait, source)
-
+///Movement type traits for movables. See elements/movetype_handler.dm
 #define TRAIT_MOVE_GROUND		"move_ground"
 #define TRAIT_MOVE_FLYING		"move_flying"
 #define TRAIT_MOVE_VENTCRAWLING	"move_ventcrawling"
 #define TRAIT_MOVE_FLOATING		"move_floating"
-#define TRAIT_MOVE_UNSTOPPABLE	"move_unstoppable"
-
-/*
-Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
-*/
+#define TRAIT_MOVE_PHASING "move_phasing"
+/// Disables the floating animation. See above.
+#define TRAIT_NO_FLOATING_ANIM		"no-floating-animation"
 
 //mob traits
 #define TRAIT_IMMOBILIZED		"immobilized" //! Prevents voluntary movement.

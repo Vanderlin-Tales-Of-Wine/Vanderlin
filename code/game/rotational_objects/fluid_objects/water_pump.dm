@@ -147,7 +147,7 @@
 /obj/structure/water_pump/proc/spray_water()
 	if(!water_spray)
 		water_spray = mutable_appearance(icon, "water_spray")
-		water_spray.pixel_y = -32
+		water_spray.pixel_y = 32
 		water_spray.layer = 5
 	cut_overlay(water_spray)
 	water_spray.color = initial(pumping_from.water_reagent.color)

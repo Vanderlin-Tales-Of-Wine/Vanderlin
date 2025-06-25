@@ -84,8 +84,8 @@
 	if(!..()) //was it caught by a mob?
 		var/turf/T = get_turf(hit_atom)
 		var/obj/O = new /obj/effect/decal/cleanable/food/egg_smudge(T)
-		O.pixel_x = rand(-8,8)
-		O.pixel_y = rand(-8,8)
+		O.pixel_x = O.base_pixel_x + rand(-8,8)
+		O.pixel_y = O.base_pixel_y + rand(-8,8)
 		O.color = "#9794be"
 		qdel(src)
 

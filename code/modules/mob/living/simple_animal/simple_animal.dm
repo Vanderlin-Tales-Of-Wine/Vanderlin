@@ -120,6 +120,9 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	var/dextrous = FALSE
 	var/dextrous_hud_type = /datum/hud/dextrous
 
+	///If the creature should have an innate TRAIT_MOVE_FLYING trait added on init that is also toggled off/on on death/revival.
+	var/is_flying_animal = FALSE
+
 	///Domestication.
 	var/tame = FALSE
 	///What the mob eats, typically used for taming or animal husbandry.
@@ -155,7 +158,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 /mob/living/simple_animal/Initialize()
 	. = ..()
 	if(gender == PLURAL)
-		gender = pick(MALE,FEMALE)
+		gender = pick(MALE, FEMALE)
 	if(!real_name)
 		real_name = name
 	if(!loc)
@@ -165,6 +168,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		ai_controller.set_blackboard_key(BB_BASIC_FOODS, typecacheof(food_type))
 	if(footstep_type)
 		AddElement(/datum/element/footstep, footstep_type, 1, -6)
+	if(is_flying_animal)
+		ADD_TRAIT(src, TRAIT_MOVE_FLYING, ROUNDSTART_TRAIT)
 
 /mob/living/simple_animal/Destroy()
 	if(nest)
@@ -448,9 +453,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			new i(loc)
 
 /mob/living/simple_animal/death(gibbed)
-	if(!HAS_TRAIT(src, TRAIT_MOVE_FLYING)) //Has no extrinsic source of flight
-		movement_type &= ~FLYING
-		halt_floating_anim(NO_FLOATING_ANIM)
 	if(nest)
 		nest.spawned_mobs -= src
 		nest = null
@@ -467,6 +469,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		del_on_death = FALSE
 		qdel(src)
 	else
+		if(is_flying_animal)
+			REMOVE_TRAIT(src, TRAIT_MOVE_FLYING, ROUNDSTART_TRAIT)
 		health = 0
 		icon_state = icon_dead
 		if(flip_on_death)
@@ -491,9 +495,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	icon = initial(icon)
 	icon_state = icon_living
 	density = initial(density)
-	if(initial(movement_type) & (FLYING)) //regain its intrisic flight
-		movement_type |= FLYING
-		floating_anim_check()
+	if(is_flying_animal)
+		ADD_TRAIT(src, TRAIT_MOVE_FLYING, ROUNDSTART_TRAIT)
 
 /mob/living/simple_animal/stripPanelUnequip(obj/item/what, mob/who, where)
 	if(!can_perform_action(who, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))

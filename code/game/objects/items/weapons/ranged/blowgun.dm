@@ -69,8 +69,8 @@
 	cut_overlays()
 	if(chambered)
 		var/obj/item/I = chambered
-		I.pixel_x = 0
-		I.pixel_y = 0
+		I.pixel_x = I.base_pixel_x
+		I.pixel_y = I.base_pixel_y
 		add_overlay(new /mutable_appearance(I))
 	if(ismob(loc))
 		var/mob/M = loc

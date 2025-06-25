@@ -80,7 +80,9 @@
 
 	M.buckling = null
 	if(anchored)
-		M.halt_floating_anim(NO_FLOATING_ANIM)
+		ADD_TRAIT(M, TRAIT_NO_FLOATING_ANIM, BUCKLED_TRAIT)
+	if(!length(buckled_mobs))
+		RegisterSignal(src, COMSIG_MOVABLE_SET_ANCHORED, PROC_REF(on_set_anchored))
 	M.set_buckled(src)
 	M.setDir(dir)
 	buckled_mobs |= M
@@ -112,9 +114,22 @@
 	buckled_mob.set_glide_size(DELAY_TO_GLIDE_SIZE(buckled_mob.total_multiplicative_slowdown()))
 	buckled_mobs -= buckled_mob
 	if(anchored)
-		buckled_mob.floating_anim_check()
+		REMOVE_TRAIT(buckled_mob, TRAIT_NO_FLOATING_ANIM, BUCKLED_TRAIT)
+	if(!length(buckled_mobs))
+		UnregisterSignal(src, COMSIG_MOVABLE_SET_ANCHORED, PROC_REF(on_set_anchored))
 	SEND_SIGNAL(src, COMSIG_MOVABLE_UNBUCKLE, buckled_mob, force)
 	post_unbuckle_mob(.)
+
+/atom/movable/proc/on_set_anchored(atom/movable/source, anchorvalue)
+	SIGNAL_HANDLER
+	for(var/_buckled_mob in buckled_mobs)
+		if(!_buckled_mob)
+			continue
+		var/mob/living/buckled_mob = _buckled_mob
+		if(anchored)
+			ADD_TRAIT(buckled_mob, TRAIT_NO_FLOATING_ANIM, BUCKLED_TRAIT)
+		else
+			REMOVE_TRAIT(buckled_mob, TRAIT_NO_FLOATING_ANIM, BUCKLED_TRAIT)
 
 /atom/movable/proc/unbuckle_all_mobs(force=FALSE)
 	if(!has_buckled_mobs())

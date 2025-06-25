@@ -21,6 +21,7 @@
 /obj/structure/fluff/walldeco/wantedposter/r
 	pixel_y = 0
 	pixel_x = 32
+
 /obj/structure/fluff/walldeco/wantedposter/l
 	pixel_y = 0
 	pixel_x = -32

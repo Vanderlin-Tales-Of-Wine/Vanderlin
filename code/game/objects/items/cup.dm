@@ -129,8 +129,8 @@
 	playsound(location, "glassbreak", 100, TRUE)
 	new /obj/effect/decal/cleanable/debris/glass (location)
 	var/obj/item/natural/glass/shard/bottleshard = new(location)
-	bottleshard.pixel_x = rand(-6,6)
-	bottleshard.pixel_y = rand(-6,6)
+	bottleshard.pixel_x = bottleshard.base_pixel_x + rand(-6,6)
+	bottleshard.pixel_y = bottleshard.base_pixel_y + rand(-6,6)
 	// If someone got hit- wound them with the glass shard
 	if(ishuman(target))
 		var/mob/living/carbon/victim = target

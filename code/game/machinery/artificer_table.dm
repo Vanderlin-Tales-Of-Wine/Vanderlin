@@ -108,14 +108,14 @@
 	I.loc = user.loc
 	user.put_in_active_hand(I)
 	update_icon()
-
+//
 /obj/machinery/artificer_table/update_icon()
 	cut_overlays()
 	if(!material)
 		return
 	var/obj/item/I = material
-	I.pixel_x = 0
-	I.pixel_y = 0
+	I.pixel_x = I.base_pixel_x
+	I.pixel_y = I.base_pixel_y
 	var/mutable_appearance/M = new /mutable_appearance(I)
 	M.transform *= 0.8
 	M.pixel_y = 6

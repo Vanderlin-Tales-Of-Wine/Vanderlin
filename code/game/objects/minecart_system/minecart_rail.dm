@@ -86,7 +86,7 @@
 				if(!(REVERSE_DIR(direction) & rail.minecart_dirs))
 					continue
 				if(dir == WEST || dir == EAST)
-					rail.pixel_y = 7
+					rail.pixel_y = rail.base_pixel_y + 7
 				rail.icon_state = "vertical_track"
 				break
 

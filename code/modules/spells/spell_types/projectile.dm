@@ -31,8 +31,8 @@
 		return
 	var/datum/point/vector/previous = trajectory.return_vector_after_increments(1,-1)
 	var/obj/effect/overlay/trail = new /obj/effect/overlay(previous.return_turf())
-	trail.pixel_x = previous.return_px()
-	trail.pixel_y = previous.return_py()
+	trail.pixel_x = trail.base_pixel_x + previous.return_px()
+	trail.pixel_y = trail.base_pixel_y + previous.return_py()
 	trail.icon = trail_icon
 	trail.icon_state = trail_icon_state
 	//might be changed to temp overlay
@@ -91,7 +91,7 @@
 		projectile.icon_state = proj_icon_state
 		projectile.name = proj_name
 		if(proj_insubstantial)
-			projectile.movement_type |= UNSTOPPABLE
+			projectile.movement_type |= PHASING
 		if(proj_homing)
 			projectile.homing = TRUE
 			projectile.homing_turn_speed = 360 //Perfect tracking

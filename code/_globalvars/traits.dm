@@ -168,7 +168,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"TRAIT_MOVE_FLYING" = TRAIT_MOVE_FLYING,
 		"TRAIT_MOVE_VENTCRAWLING" = TRAIT_MOVE_VENTCRAWLING,
 		"TRAIT_MOVE_FLOATING" = TRAIT_MOVE_FLOATING,
-		"TRAIT_MOVE_UNSTOPPABLE" = TRAIT_MOVE_UNSTOPPABLE
+		"TRAIT_MOVE_PHASING" = TRAIT_MOVE_PHASING
 		),
 	))
 
@@ -187,8 +187,18 @@ GLOBAL_LIST_INIT(movement_type_trait_to_flag, list(
 	TRAIT_MOVE_FLYING = FLYING,
 	TRAIT_MOVE_VENTCRAWLING = VENTCRAWLING,
 	TRAIT_MOVE_FLOATING = FLOATING,
-	TRAIT_MOVE_UNSTOPPABLE = UNSTOPPABLE
+	TRAIT_MOVE_PHASING = PHASING
 	))
 
-GLOBAL_LIST(movement_type_trait_add_signals)
-GLOBAL_LIST(movement_type_trait_remove_signals)
+GLOBAL_LIST_INIT(movement_type_addtrait_signals, set_movement_type_addtrait_signals())
+GLOBAL_LIST_INIT(movement_type_removetrait_signals, set_movement_type_removetrait_signals())
+
+/proc/set_movement_type_addtrait_signals(signal_prefix)
+	. = list()
+	for(var/trait in GLOB.movement_type_trait_to_flag)
+		. += SIGNAL_ADDTRAIT(trait)
+
+/proc/set_movement_type_removetrait_signals(signal_prefix)
+	. = list()
+	for(var/trait in GLOB.movement_type_trait_to_flag)
+		. += SIGNAL_REMOVETRAIT(trait)

@@ -78,9 +78,9 @@
 	cut_overlays()
 	if(hide)
 		var/obj/item/I = hide
-		I.pixel_x = 0
-		I.pixel_y = 0
+		I.pixel_x = I.base_pixel_x
+		I.pixel_y = I.base_pixel_y
 		var/mutable_appearance/M = new /mutable_appearance(I)
-		M.pixel_y = 0
-		M.pixel_x = 0
+		M.pixel_y = I.base_pixel_x
+		M.pixel_x = I.base_pixel_y
 		add_overlay(M)

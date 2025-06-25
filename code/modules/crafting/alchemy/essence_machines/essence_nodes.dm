@@ -16,7 +16,7 @@
 	var/last_recharge = 0
 
 	// Visual states
-	var/base_icon_state = "node"
+	base_icon_state = "node"
 
 /obj/structure/essence_node/update_icon()
 	. = ..()
@@ -217,7 +217,7 @@
 	var/stamina_drain = 5
 	var/last_stamina_drain = 0
 
-	var/base_icon_state = "essence_node_item"
+	base_icon_state = "essence_node_item"
 
 /obj/item/essence_node_portable/Initialize()
 	. = ..()

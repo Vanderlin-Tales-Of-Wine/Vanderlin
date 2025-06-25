@@ -8,7 +8,7 @@
 	icon_living = "dragger"
 	icon_dead = "dragger_dead"
 	mob_biotypes = MOB_UNDEAD|MOB_HUMANOID
-	movement_type = FLYING
+	is_flying_animal = TRUE
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	pass_flags = PASSTABLE|PASSGRILLE
 	base_intents = list(/datum/intent/simple/slash)

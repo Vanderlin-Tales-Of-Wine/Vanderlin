@@ -199,8 +199,8 @@
 	cut_overlays()
 	if(baited)
 		var/obj/item/I = baited
-		I.pixel_x = 6
-		I.pixel_y = -6
+		I.pixel_x = I.base_pixel_x + 6
+		I.pixel_y = I.base_pixel_y - 6
 		add_overlay(new /mutable_appearance(I))
 	if(ismob(loc))
 		var/mob/M = loc

@@ -72,8 +72,8 @@
 	. = ..()
 	underlays.Cut()
 	for(var/obj/item/I in contents)
-		I.pixel_x = 0
-		I.pixel_y = 0
+		I.pixel_x = I.base_pixel_x
+		I.pixel_y = I.base_pixel_y
 		var/mutable_appearance/M = mutable_appearance(I.icon, I.icon_state)
 		M.color = I.color
 		M.transform *= 0.5

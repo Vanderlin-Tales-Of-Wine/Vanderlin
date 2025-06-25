@@ -17,13 +17,13 @@
 			var/obj/structure/S = new deployed_structure(user.loc)
 			switch(get_dir(T,user))
 				if(NORTH)
-					S.pixel_y = -32
+					S.pixel_y = S.base_pixel_y - 32
 				if(SOUTH)
-					S.pixel_y = 32
+					S.pixel_y = S.base_pixel_y + 32
 				if(WEST)
-					S.pixel_x = 32
+					S.pixel_x = S.base_pixel_x + 32
 				if(EAST)
-					S.pixel_x = -32
+					S.pixel_x = S.base_pixel_x - 32
 			qdel(src)
 			return
 	..()

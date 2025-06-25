@@ -463,13 +463,13 @@
 	if(attachment)
 		if(istype(attachment, /obj/item/cooking/pan) || istype(attachment, /obj/item/reagent_containers/glass/bucket/pot) || istype(attachment, /obj/item/reagent_containers/glass/bottle/teapot))
 			var/obj/item/I = attachment
-			I.pixel_x = 0
-			I.pixel_y = 0
+			I.pixel_x = I.base_pixel_x
+			I.pixel_y = I.base_pixel_y
 			add_overlay(new /mutable_appearance(I))
 			if(food)
 				I = food
-				I.pixel_x = 0
-				I.pixel_y = 0
+				I.pixel_x = I.base_pixel_x
+				I.pixel_y = I.base_pixel_y
 				add_overlay(new /mutable_appearance(I))
 
 /obj/machinery/light/fueled/hearth/attack_hand(mob/user)

@@ -718,7 +718,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(item_flags & DROPDEL)
 		qdel(src)
 		return
-	pixel_x = initial(pixel_x)
+	pixel_x = base_pixel_x
 	pixel_y = initial(pixel_y)
 	if(isturf(loc))
 		if(!ontable())
@@ -1082,8 +1082,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(!QDELETED(src))
 		var/turf/T = get_turf(src)
 		var/obj/effect/decal/cleanable/molten_object/MO = new(T)
-		MO.pixel_x = rand(-16,16)
-		MO.pixel_y = rand(-16,16)
+		MO.pixel_x = MO.base_pixel_x + rand(-16,16)
+		MO.pixel_y = MO.base_pixel_y + rand(-16,16)
 		MO.desc = ""
 		..()
 

@@ -18,7 +18,7 @@
 	open_sound_volume = 35
 	close_sound_volume = 50
 	drag_slowdown = 0
-	var/base_icon_state
+	base_icon_state
 
 /obj/structure/closet/crate/Initialize()
 	. = ..()
