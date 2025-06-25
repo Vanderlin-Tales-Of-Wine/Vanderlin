@@ -20,6 +20,8 @@
 #define COMSIG_ORPHAN_ADOPTED "orphan_adopted" // from base of /obj/effect/proc_holder/spell/invoked/adopt_child/cast() (mob/adoptee)
 #define COMSIG_PAIN_TRANSFERRED "pain_transferred" // from base of /obj/effect/proc_holder/spell/invoked/transfer_pain/cast() (amount)
 #define COMSIG_COIN_FLIPPED "coin_flipped" // from base of /obj/item/coin/attack_self() (mob/user, obj/item/coin/coin, outcome)
+#define COMSIG_SPLASHED_MOB "splashed_mob" // From splash attack (mob/user, mob/target, list/reagents_splashed)
+#define COMSIG_BATH_TAKEN "bath_taken" // From bathing (mob/user)
 
 // Globals
 #define COMSIG_GLOBAL_MARRIAGE "global_marriage" // from base of /obj/structure/fluff/psycross/attackby() (bride, groom)
