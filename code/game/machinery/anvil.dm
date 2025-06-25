@@ -29,15 +29,15 @@
 					hingot.currecipe.item_added(user)
 					qdel(T.held_item)
 					T.held_item = null
-					T.update_icon()
-					update_icon()
+					T.update_appearance(UPDATE_ICON_STATE)
+					update_appearance(UPDATE_OVERLAYS)
 				return
 			else
 				hingot.forceMove(T)
 				T.held_item = hingot
 				hingot = null
-				T.update_icon()
-				update_icon()
+				T.update_appearance(UPDATE_ICON_STATE)
+				update_appearance(UPDATE_OVERLAYS)
 				return
 		else
 			if(T.held_item && istype(T.held_item, /obj/item/ingot))
@@ -47,8 +47,8 @@
 				hott = T.hott
 				if(hott)
 					START_PROCESSING(SSmachines, src)
-				T.update_icon()
-				update_icon()
+				T.update_appearance(UPDATE_ICON_STATE)
+				update_appearance(UPDATE_OVERLAYS)
 				return
 
 	if(istype(W, /obj/item/ingot))
@@ -56,7 +56,7 @@
 			W.forceMove(src)
 			hingot = W
 			hott = 0
-			update_icon()
+			update_appearance(UPDATE_OVERLAYS)
 			return
 
 	if(istype(W, /obj/item/weapon/hammer))
@@ -182,7 +182,7 @@
 			hingot = null
 			I.loc = user.loc
 			user.put_in_active_hand(I)
-			update_icon()
+			update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/anvil/process()
 	if(hott)
@@ -191,18 +191,19 @@
 			STOP_PROCESSING(SSmachines, src)
 	else
 		STOP_PROCESSING(SSmachines, src)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
-/obj/machinery/anvil/update_icon()
-	cut_overlays()
-	if(hingot)
-		var/obj/item/I = hingot
-		I.pixel_x = 0
-		I.pixel_y = 0
-		var/mutable_appearance/M = new /mutable_appearance(I)
-		if(hott)
-			M.filters += filter(type="color", color = list(3,0,0,1, 0,2.7,0,0.4, 0,0,1,0, 0,0,0,1))
-		M.transform *= 0.5
-		M.pixel_y = 5
-		M.pixel_x = 3
-		add_overlay(M)
+/obj/machinery/anvil/update_overlays()
+	. = ..()
+	if(!hingot)
+		return
+	var/obj/item/I = hingot
+	I.pixel_x = 0
+	I.pixel_y = 0
+	var/mutable_appearance/M = new /mutable_appearance(I)
+	if(hott)
+		M.filters += filter(type="color", color = list(3,0,0,1, 0,2.7,0,0.4, 0,0,1,0, 0,0,0,1))
+	M.transform *= 0.5
+	M.pixel_y = 5
+	M.pixel_x = 3
+	. += M

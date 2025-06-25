@@ -106,15 +106,11 @@
 			contact_poison = null
 	..()
 
-/obj/item/paper/update_icon()
-	. = ..()
-	update_icon_state()
-
 /obj/item/paper/Initialize()
 	. = ..()
 	pixel_y = rand(-8, 8)
 	pixel_x = rand(-9, 9)
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 	updateinfolinks()
 
 /obj/item/paper/Destroy()
@@ -127,15 +123,21 @@
 /obj/item/paper/update_icon_state()
 	if(mailer)
 		icon_state = "paper_prep"
-		name = "letter"
 		throw_range = 7
-		return
-	name = initial(name)
+		return ..()
 	throw_range = initial(throw_range)
 	if(info)
 		icon_state = "paperwrite"
-		return
+		return ..()
 	icon_state = "paper"
+	return ..()
+
+/obj/item/paper/update_name()
+	if(mailer)
+		name = "letter"
+		return ..()
+	name = initial(name)
+	return ..()
 
 /obj/item/paper/examine(mob/user)
 	. = ..()
@@ -222,7 +224,7 @@
 		cached_mailedto = mailedto
 		mailer = null
 		mailedto = null
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 		return
 	if(trapped)
 		var/mob/living/victim = user
@@ -290,8 +292,7 @@
 	LAZYCLEARLIST(stamped)
 	cut_overlays()
 	updateinfolinks()
-	update_icon_state()
-
+	update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 
 /obj/item/paper/proc/parsepencode(t, obj/item/P, mob/user, iscrayon = 0)
 	if(length(t) < 1)		//No input means nothing needs to be parsed
@@ -406,7 +407,7 @@
 				updateinfolinks()
 			playsound(src, 'sound/items/write.ogg', 100, FALSE)
 			format_browse(info_links, usr)
-			update_icon_state()
+			update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 
 /obj/item/paper/attackby(obj/item/P, mob/living/user, params)
 	if(resistance_flags & ON_FIRE)
@@ -454,7 +455,7 @@
 			return
 		if(user.can_read(src))
 			format_browse(info_links, user)
-			update_icon_state()
+			update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 			return
 		else
 			to_chat(user, "<span class='warning'>I can't write.</span>")
@@ -496,9 +497,6 @@
 	name = "paper scrap"
 	icon_state = "scrap"
 	slot_flags = null
-
-/obj/item/paper/crumpled/update_icon_state()
-	return
 
 /obj/item/paper/crumpled/bloody
 	icon_state = "scrap_bloodied"

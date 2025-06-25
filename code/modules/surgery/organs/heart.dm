@@ -74,11 +74,9 @@
 				if(wonder_code == 4)
 					message_admins("Maniac [ADMIN_LOOKUPFLW(user)] has obtained the fourth and final heart code.")
 
-/obj/item/organ/heart/update_icon()
-	if(beating)
-		icon_state = "[icon_base]-on"
-	else
-		icon_state = "[icon_base]-off"
+/obj/item/organ/heart/update_icon_state()
+	. = ..()
+	icon_state = "[icon_base][beating ? "-on" : "-off"]"
 
 /obj/item/organ/heart/Remove(mob/living/carbon/M, special = 0)
 	..()
@@ -99,12 +97,12 @@
 
 /obj/item/organ/heart/proc/Stop()
 	beating = 0
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	return 1
 
 /obj/item/organ/heart/proc/Restart()
 	beating = 1
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	return 1
 
 /obj/item/organ/heart/prepare_eat(mob/living/carbon/human/user)

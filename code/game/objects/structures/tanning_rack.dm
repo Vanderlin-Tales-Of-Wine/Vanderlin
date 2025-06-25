@@ -25,14 +25,14 @@
 		hide = null
 		I.loc = user.loc
 		user.put_in_active_hand(I)
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/tanningrack/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/natural/hide) && !istype(I, /obj/item/natural/hide/cured))
 		if(!hide)
 			I.forceMove(src)
 			hide = I
-			update_icon()
+			update_appearance(UPDATE_OVERLAYS)
 			return
 		else
 			to_chat(user, span_warning("The rack is already occupied!"))
@@ -49,7 +49,7 @@
 			playsound(src,pick('sound/items/book_open.ogg','sound/items/book_page.ogg'), 100, FALSE)
 			QDEL_NULL(hide)
 			user.mind.add_sleep_experience(/datum/skill/craft/tanning, user.STAINT * 2) //these numbers may need some revision
-			update_icon()
+			update_appearance(UPDATE_OVERLAYS)
 			for(var/i = 0; i < pieces_to_spawn; i++)
 				if(prob(skill_level + CLAMP((user.STALUC - 10)*2,0,100)))
 					new /obj/item/natural/cured/essence(get_turf(user))
@@ -74,13 +74,14 @@
 		return
 	. = ..()
 
-/obj/machinery/tanningrack/update_icon()
-	cut_overlays()
+/obj/machinery/tanningrack/update_overlays()
+	. = ..()
 	if(hide)
-		var/obj/item/I = hide
-		I.pixel_x = 0
-		I.pixel_y = 0
-		var/mutable_appearance/M = new /mutable_appearance(I)
-		M.pixel_y = 0
-		M.pixel_x = 0
-		add_overlay(M)
+		return
+	var/obj/item/I = hide
+	I.pixel_x = 0
+	I.pixel_y = 0
+	var/mutable_appearance/M = new /mutable_appearance(I)
+	M.pixel_y = 0
+	M.pixel_x = 0
+	. += M
