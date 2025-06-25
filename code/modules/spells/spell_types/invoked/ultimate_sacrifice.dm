@@ -1,0 +1,65 @@
+/obj/effect/proc_holder/spell/self/ultimate_sacrifice
+	name = "Ultimate Sacrifice"
+	overlay_state = "ravox"
+	antimagic_allowed = TRUE
+	recharge_time = 0
+	invocation = "RAVOX, TAKE MY LIFE!"
+	invocation_type = "shout"
+	sound = 'sound/ambience/noises/genspooky (1).ogg'
+
+/obj/effect/proc_holder/spell/self/ultimate_sacrifice/cast(mob/living/carbon/human/user)
+	if(user.stat == DEAD)
+		to_chat(user, span_warning("You're already dead!"))
+		return FALSE
+
+	var/list/possible_targets = list()
+	for(var/mob/living/carbon/human/H in view(7, user))
+		if(H.stat == DEAD) // Removed child check here - can be used on anyone
+			possible_targets += H
+
+	if(!possible_targets.len)
+		to_chat(user, span_warning("No valid corpses nearby to revive!"))
+		return FALSE
+
+	var/mob/living/carbon/human/target = input(user, "Choose who to revive (this will kill you permanently)", "Ultimate Sacrifice") as null|anything in possible_targets
+	if(!target)
+		return FALSE
+
+	var/confirm = alert(user, "This will KILL YOU PERMANENTLY to revive [target]. You CANNOT be revived after this. Are you absolutely sure?", "Ultimate Sacrifice", "Sacrifice Myself", "Cancel")
+	if(confirm != "Sacrifice Myself")
+		return FALSE
+
+	user.visible_message(span_userdanger("[user] begins chanting Ravox's sacrificial rites!"), \
+						span_userdanger("You feel Ravox's presence as you prepare to give your life..."))
+
+	if(!do_after(user, 10 SECONDS, target = user))
+		to_chat(user, span_warning("The ritual was interrupted!"))
+		return FALSE
+
+	confirm = alert(user, "LAST WARNING: This will KILL YOU PERMANENTLY and you CANNOT be revived. Proceed?", "Final Sacrifice", "Give My Life", "Cancel")
+	if(confirm != "Give My Life")
+		return FALSE
+
+	// Perform the sacrifice
+	user.say("RAVOX, I GIVE MY LIFE FOR THEIRS!", forced = "ravox_ritual")
+	playsound(user, 'sound/magic/churn.ogg', 100)
+
+	ADD_TRAIT(user, TRAIT_NECRA_CURSE, "ravox_ritual")
+	ADD_TRAIT(user, TRAIT_BURIED_COIN_GIVEN, "ravox_ritual")
+
+	target.revive(full_heal = TRUE, admin_revive = FALSE)
+	target.visible_message(span_mind_control("[target] gasps as they return to life!"))
+	to_chat(target, span_notice("You feel life returning to your body as someone's sacrifice revives you!"))
+
+	// Kill the user
+	user.death()
+
+	if(user.mind)
+		var/datum/objective/ultimate_sacrifice/objective = locate() in user.mind.get_all_objectives()
+		if(objective && !objective.completed)
+			objective.completed = TRUE
+			user.adjust_triumphs(3)
+			adjust_storyteller_influence("Ravox", 25)
+			objective.escalate_objective()
+
+	return ..()
