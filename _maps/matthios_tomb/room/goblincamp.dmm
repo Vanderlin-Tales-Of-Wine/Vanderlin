@@ -40,10 +40,7 @@
 /area/rogue/under/tomb/cave)
 "eU" = (
 /obj/effect/decal/cleanable/blood/drip,
-/obj/item/clothing/head/crown/circlet/sleepless,
-/obj/effect/spawner/map_spawner/loot/coin/absurd,
 /obj/effect/spawner/map_spawner/loot/potion_vitals,
-/obj/effect/mapping_helpers/floor_clothing_equipper,
 /mob/living/carbon/human/species/goblin/npc{
 	base_constitution = 20;
 	base_endurance = 20;
@@ -51,9 +48,10 @@
 	base_fortune = 20;
 	base_perception = 20;
 	base_speed = 20;
-	name = "Level 1 Goblin"
+	name = "Level 1 Goblin";
+	health = 1000;
+	maxHealth = 1000
 	},
-/obj/item/weapon/knife/scissors/steel,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
 "ff" = (

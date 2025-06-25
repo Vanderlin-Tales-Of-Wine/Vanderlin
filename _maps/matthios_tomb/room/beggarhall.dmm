@@ -1,0 +1,3370 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aI" = (
+/obj/machinery/light/fueled/wallfire/candle/weak/l,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"bz" = (
+/obj/item/clothing/face/cigarette/rollie/cannabis,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"bA" = (
+/obj/structure/chair/hotspring_bench/right,
+/turf/open/floor/carpet/purple,
+/area/rogue/under/dungeon)
+"bT" = (
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"cq" = (
+/obj/structure/table/wood/crafted,
+/obj/item/ingot/silver,
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"dm" = (
+/obj/structure/table/wood/crafted,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"dA" = (
+/obj/structure/table/wood/crafted,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"dL" = (
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/dungeon)
+"dQ" = (
+/obj/structure/window/openclose/reinforced,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"dW" = (
+/obj/structure/bookcase/random,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"dZ" = (
+/obj/structure/table/wood/crafted,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/reagent_containers/glass/cup/wooden,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"eh" = (
+/obj/structure/bookcase,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"ek" = (
+/obj/structure/table/wood/crafted,
+/obj/item/reagent_containers/glass/cup/wooden,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"er" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/paper,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"et" = (
+/obj/structure/table/wood/crafted,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"eZ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"fo" = (
+/obj/item/paper,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"fB" = (
+/obj/structure/chair/stool,
+/mob/living/carbon/human/species/human/northern/bum/ambush,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"fZ" = (
+/obj/structure/circle_protection,
+/mob/living/simple_animal/hostile/retaliate/infernal/watcher,
+/turf/open/floor/carpet/purple,
+/area/rogue/under/dungeon)
+"gK" = (
+/obj/structure/bookcase,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"gN" = (
+/mob/living/carbon/human/species/human/northern/bum,
+/turf/open/floor/herringbone,
+/area/rogue/under/dungeon)
+"gY" = (
+/obj/structure/door/swing,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"gZ" = (
+/mob/living/carbon/human/species/human/northern/bum/ambush,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"hs" = (
+/turf/open/floor/herringbone,
+/area/rogue/under/dungeon)
+"hF" = (
+/obj/item/chair/stool/bar,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"hO" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"hW" = (
+/obj/machinery/light/fueled/wallfire/candle/weak/r,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"iI" = (
+/obj/structure/table/wood/crafted,
+/mob/living/simple_animal/hostile/retaliate/infernal/imp,
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"iL" = (
+/obj/structure/table/wood/counter{
+	dir = 1
+	},
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"iU" = (
+/obj/structure/ladder,
+/obj/machinery/light/fueled/wallfire/candle/weak,
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"jq" = (
+/obj/structure/bookcase,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"jz" = (
+/obj/structure/chair/wood/alt/chair3{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"jN" = (
+/obj/structure/table/wood/counter{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"jQ" = (
+/obj/item/clothing/face/cigarette/rollie/cannabis,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"kc" = (
+/mob/living/carbon/human/species/human/northern/bum/ambush,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"ke" = (
+/obj/structure/table/wood/counter{
+	dir = 8
+	},
+/obj/item/clothing/face/cigarette/rollie/cannabis,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"kt" = (
+/obj/structure/table/wood/crafted,
+/obj/item/reagent_containers/food/snacks/biscuit_poison,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"kv" = (
+/mob/living/carbon/human/species/human/northern/bum/ambush,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"kY" = (
+/obj/structure/chair/wood/alt/chair3{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"lh" = (
+/obj/structure/table/wood/reinforced_alter,
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = 12;
+	pixel_y = 4
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"lj" = (
+/obj/structure/bookcase,
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"lv" = (
+/obj/structure/stairs{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"ly" = (
+/obj/structure/chair/wood/alt/chair3{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"lJ" = (
+/obj/structure/table/wood/crafted,
+/obj/item/clothing/face/cigarette/rollie/nicotine,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"lT" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = -2;
+	pixel_y = -8
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = -5;
+	pixel_y = 7
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"ma" = (
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"mv" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/bottle/elfred,
+/turf/open/floor/herringbone,
+/area/rogue/under/dungeon)
+"mD" = (
+/obj/item/chair/chair3,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"mL" = (
+/obj/structure/chair/stool,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"mY" = (
+/obj/structure/table/wood/counter{
+	dir = 4
+	},
+/obj/item/clothing/face/cigarette/rollie/nicotine,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"nk" = (
+/obj/structure/table/wood/counter{
+	dir = 1
+	},
+/obj/item/natural/feather,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"nl" = (
+/obj/item/clothing/face/cigarette/rollie/cannabis,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"nq" = (
+/obj/structure/door/weak,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"ns" = (
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"nu" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"og" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/face/cigarette/rollie/nicotine,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"oB" = (
+/obj/structure/table/wood/crafted,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"oE" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/fueled/wallfire/candle/weak/r,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"pa" = (
+/obj/item/clothing/face/cigarette/rollie/trippy,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"pd" = (
+/turf/open/floor/rooftop/green{
+	dir = 1
+	},
+/area/rogue/under/dungeon)
+"pq" = (
+/obj/machinery/light/fueled/torchholder/metal_torch/north,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"pz" = (
+/obj/item/chair/stool/bar,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"pN" = (
+/obj/structure/chair/stool,
+/obj/machinery/light/fueled/wallfire/candle/weak/l,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"pO" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"qh" = (
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/dungeon)
+"qp" = (
+/obj/structure/table/wood/plain,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"qs" = (
+/obj/structure/table/wood/crafted,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/reagent_containers/glass/cup/wooden,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"qu" = (
+/obj/structure/table/wood/counter{
+	dir = 1
+	},
+/obj/item/reagent_containers/glass/cup/wooden,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"qM" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"rd" = (
+/obj/structure/stairs{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"rn" = (
+/obj/structure/table/wood/counter{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"rv" = (
+/obj/structure/table/wood/crafted,
+/obj/item/clothing/face/cigarette/rollie/nicotine,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"sz" = (
+/obj/structure/table/wood/crafted,
+/obj/item/clothing/face/cigarette/rollie/nicotine,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"td" = (
+/obj/structure/bookcase,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"ts" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = -4;
+	pixel_y = -6
+	},
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"tt" = (
+/obj/structure/window/openclose/reinforced{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"tu" = (
+/turf/open/floor/rooftop/green,
+/area/rogue/under/dungeon)
+"tx" = (
+/obj/structure/table/wood/crafted,
+/obj/item/reagent_containers/glass/cup/silver,
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"tG" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"tI" = (
+/obj/structure/chair/stool,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"tQ" = (
+/obj/structure/door/weak,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"un" = (
+/obj/structure/chair/wood/alt/chair3,
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"uO" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/fueled/wallfire/candle/weak/r,
+/obj/effect/spawner/map_spawner/loot/medium,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"vo" = (
+/obj/structure/chair/wood/alt/chair3,
+/obj/machinery/light/fueled/wallfire/candle/weak/l,
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"vw" = (
+/obj/item/clothing/face/cigarette/rollie/nicotine,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"wu" = (
+/obj/structure/table/wood/plain_alt,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"wF" = (
+/obj/structure/fermentation_keg/random/beer,
+/turf/open/floor/herringbone,
+/area/rogue/under/dungeon)
+"wM" = (
+/obj/structure/chair/stool,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"xy" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/face/cigarette/rollie/cannabis,
+/obj/item/clothing/face/cigarette/rollie/cannabis{
+	pixel_x = 10;
+	pixel_y = -8
+	},
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"xA" = (
+/obj/structure/chair/stool,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"xI" = (
+/obj/item/natural/glass/shard,
+/turf/open/floor/herringbone,
+/area/rogue/under/dungeon)
+"xO" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"yw" = (
+/obj/structure/chair/stool,
+/mob/living/carbon/human/species/human/northern/bum/ambush,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"yT" = (
+/mob/living/carbon/human/species/human/northern/bum/ambush,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"zC" = (
+/turf/open/transparent/openspace,
+/area/rogue/under/dungeon)
+"Ac" = (
+/obj/structure/bed/hay,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"Ae" = (
+/obj/structure/table/wood/crafted,
+/obj/effect/spawner/map_spawner/loot/food,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"Au" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"AR" = (
+/obj/structure/fluff/nest,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"AW" = (
+/obj/structure/table/wood/crafted,
+/obj/item/reagent_containers/food/snacks/breadslice/raisin_poison,
+/obj/machinery/light/fueled/wallfire/candle/weak/r,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"AY" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"Ba" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"Bc" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"BA" = (
+/obj/structure/door/swing,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"BU" = (
+/obj/machinery/light/fueled/campfire/densefire,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"BV" = (
+/obj/machinery/light/fueled/wallfire/candle/weak,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"Cd" = (
+/obj/structure/table/wood/counter{
+	dir = 1
+	},
+/obj/item/paper,
+/obj/item/paper,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"Ch" = (
+/obj/structure/door/weak,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"Ck" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"CE" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"Dp" = (
+/obj/item/paper,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/purple,
+/area/rogue/under/dungeon)
+"Du" = (
+/obj/structure/chair/wood/alt/chair3,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = -8;
+	pixel_y = -9
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"DG" = (
+/obj/structure/bookcase/random,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"DV" = (
+/obj/structure/closet/crate/crafted_closet/inn/south,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"DW" = (
+/obj/structure/table/wood/crafted,
+/obj/item/reagent_containers/glass/cup/wooden,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"Eq" = (
+/obj/structure/door/swing,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"Ey" = (
+/obj/structure/bookcase,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"EE" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/effect/spawner/map_spawner/loot/medium,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"ES" = (
+/obj/structure/bookcase/random,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"FL" = (
+/obj/structure/bed/wool/double,
+/obj/item/bedsheet/double_pelt,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"FS" = (
+/obj/structure/ladder,
+/obj/item/natural/glass/shard,
+/turf/open/floor/herringbone,
+/area/rogue/under/dungeon)
+"FU" = (
+/obj/structure/table/wood/crafted,
+/obj/item/book/secret/xylix,
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"Go" = (
+/mob/living/carbon/human/species/human/northern/bum/ambush,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"GQ" = (
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"GS" = (
+/obj/structure/table/wood/crafted,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/reagent_containers/glass/cup/glassware,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"GZ" = (
+/obj/structure/fermentation_keg,
+/turf/open/floor/herringbone,
+/area/rogue/under/dungeon)
+"Ha" = (
+/obj/structure/ladder,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"HK" = (
+/obj/structure/bed/hay,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"HP" = (
+/obj/structure/table/wood/crafted,
+/obj/effect/spawner/map_spawner/loot/food,
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"HT" = (
+/turf/open/floor/cobble/alt,
+/area/rogue/under/dungeon)
+"IA" = (
+/obj/structure/chair/wood/alt/chair3{
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/retaliate/infernal/imp,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"IG" = (
+/obj/machinery/light/fueled/torchholder/metal_torch/west,
+/turf/open/floor/cobblerock,
+/area/rogue/under/dungeon)
+"IN" = (
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"IQ" = (
+/obj/structure/chair/wood/alt/chair3{
+	dir = 1
+	},
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"IZ" = (
+/obj/structure/closet/crate/crafted_closet/inn,
+/obj/effect/spawner/map_spawner/loot/medium,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"Jy" = (
+/mob/living/carbon/human/species/human/northern/bum,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"JO" = (
+/obj/machinery/light/fueled/wallfire/candle/weak/r,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"JU" = (
+/obj/machinery/light/fueled/wallfire/candle/weak/l,
+/turf/open/floor/herringbone,
+/area/rogue/under/dungeon)
+"Ky" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/dungeon)
+"KT" = (
+/obj/structure/chair/hotspring_bench,
+/mob/living/carbon/human/species/human/northern/bum/ambush,
+/turf/open/floor/carpet/purple,
+/area/rogue/under/dungeon)
+"KV" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/clothing/face/cigarette/rollie/trippy,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"Ld" = (
+/obj/structure/closet/crate/drawer,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/map_spawner/loot,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"Lh" = (
+/obj/structure/table/wood/crafted,
+/obj/item/clothing/face/cigarette/rollie/nicotine,
+/obj/machinery/light/fueled/wallfire/candle/weak/l,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"Lk" = (
+/obj/machinery/light/fueled/wallfire/big_fireplace{
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/obj/effect/decal/carpet{
+	pixel_x = 12;
+	pixel_y = -2
+	},
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"Ln" = (
+/mob/living/carbon/human/species/human/northern/bum/ambush,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"Lq" = (
+/obj/structure/bookcase,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"LF" = (
+/obj/structure/chair/wood/alt/chair3{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"LS" = (
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"LV" = (
+/obj/structure/table/wood/plain,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"Mz" = (
+/obj/structure/chair/stool,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"MB" = (
+/obj/structure/chair/wood/alt/chair3{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"MN" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/fueled/wallfire/candle/weak,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"MR" = (
+/obj/machinery/light/fueled/wallfire/candle/weak/r,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"MU" = (
+/obj/structure/rack/shelf/biggest,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"NN" = (
+/obj/structure/table/wood/reinforced,
+/obj/item/clothing/face/cigarette/rollie/trippy,
+/turf/open/floor/carpet/purple,
+/area/rogue/under/dungeon)
+"Oa" = (
+/obj/structure/table/wood/crafted,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/ring/silver/makers_guild,
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"Od" = (
+/obj/structure/table/wood/reinforced,
+/obj/item/alch/runedust,
+/obj/machinery/light/fueled/wallfire/candle/weak/l,
+/turf/open/floor/carpet/purple,
+/area/rogue/under/dungeon)
+"OB" = (
+/obj/structure/chair/wood/alt/chair3,
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"OR" = (
+/obj/structure/table/wood/crafted,
+/obj/item/reagent_containers/food/snacks/breadslice/raisin_poison{
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/food/snacks/breadslice/raisin_poison{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"Pa" = (
+/mob/living/carbon/human/species/human/northern/bum/ambush,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"Pb" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"Pe" = (
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"PL" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"PP" = (
+/obj/structure/chair/hotspring_bench/left,
+/turf/open/floor/carpet/purple,
+/area/rogue/under/dungeon)
+"PX" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/imp,
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"PY" = (
+/mob/living/carbon/human/species/human/northern/bum,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"Qa" = (
+/obj/structure/ladder,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"Qx" = (
+/obj/structure/table/wood/crafted,
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"QL" = (
+/obj/structure/chair/stool,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"QN" = (
+/obj/item/chair/stool/bar,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"QP" = (
+/obj/item/chair/stool/bar,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"QW" = (
+/obj/structure/bookcase/random,
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"QY" = (
+/obj/structure/table/wood/crafted,
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"Rp" = (
+/obj/structure/table/wood/counter{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"Rv" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/cobble/alt,
+/area/rogue/under/dungeon)
+"RH" = (
+/obj/structure/table/wood/plain,
+/obj/item/clothing/face/cigarette/rollie/trippy,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"RK" = (
+/obj/item/reagent_containers/glass/bottle,
+/turf/open/floor/herringbone,
+/area/rogue/under/dungeon)
+"RQ" = (
+/obj/item/paper,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/purple,
+/area/rogue/under/dungeon)
+"Sh" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"Sk" = (
+/obj/machinery/light/fueled/wallfire/candle/weak,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"Sn" = (
+/obj/structure/door/weak,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"Sr" = (
+/obj/structure/chair/wood/alt/chair3,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"SW" = (
+/obj/item/clothing/face/cigarette/rollie/cannabis,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/fueled/wallfire/candle/weak/r,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"SY" = (
+/obj/item/clothing/face/cigarette/rollie/cannabis,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"TB" = (
+/obj/structure/fluff/nest,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"TD" = (
+/obj/structure/fluff/nest,
+/obj/item/clothing/face/cigarette/rollie/trippy,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"TH" = (
+/turf/closed/wall/window,
+/area/rogue/under/dungeon)
+"Ub" = (
+/obj/structure/chair/stool,
+/obj/machinery/light/fueled/wallfire/candle/weak/r,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"Un" = (
+/obj/item/statue/silver,
+/turf/open/floor/carpet/purple,
+/area/rogue/under/dungeon)
+"UB" = (
+/obj/structure/table/wood/reinforced_alter,
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = 8;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"Vb" = (
+/obj/structure/fluff/nest,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"Vw" = (
+/obj/structure/chair/stool,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"VG" = (
+/obj/structure/stairs{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"VM" = (
+/obj/structure/closet/crate/drawer,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"Wp" = (
+/obj/item/chair/chair3,
+/turf/open/floor/ruinedwood/turned/alt,
+/area/rogue/under/dungeon)
+"WG" = (
+/turf/open/floor/carpet/purple,
+/area/rogue/under/dungeon)
+"WK" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/clothing/cloak/raincloak/random{
+	pixel_x = 4;
+	pixel_y = 1
+	},
+/obj/item/clothing/cloak/raincloak/random{
+	pixel_x = 2;
+	pixel_y = -8
+	},
+/obj/item/clothing/cloak/raincloak/random{
+	pixel_x = -8;
+	pixel_y = 0
+	},
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"Xq" = (
+/obj/structure/bed/hay,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+"Xx" = (
+/obj/structure/chair/wood/alt/chair3,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"XV" = (
+/obj/structure/table/wood/crafted,
+/obj/item/reagent_containers/food/snacks/breadslice/raisin_poison,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/dungeon)
+"Ye" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/purple,
+/area/rogue/under/dungeon)
+"Yg" = (
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"Yx" = (
+/obj/structure/table/wood/plain_alt,
+/obj/machinery/light/fueled/wallfire/candle/weak/l,
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/dungeon)
+"YM" = (
+/mob/living/carbon/human/species/human/northern/bum/ambush,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/dungeon)
+"YR" = (
+/obj/structure/chair/wood/alt/chair3{
+	dir = 4
+	},
+/turf/open/floor/carpet/red,
+/area/rogue/under/dungeon)
+"Zy" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/cobble/alt,
+/area/rogue/under/dungeon)
+"ZB" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/dungeon)
+"ZI" = (
+/obj/structure/bookcase,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/dungeon)
+
+(1,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+qh
+HT
+Rv
+ma
+qh
+qh
+dL
+TH
+TH
+dL
+TH
+dL
+TH
+TH
+dL
+qh
+qh
+"}
+(2,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+HT
+ma
+ma
+ma
+qh
+qh
+dm
+pz
+IN
+pN
+et
+tI
+IN
+YM
+IN
+qh
+qh
+"}
+(3,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+HT
+ma
+HT
+ma
+dL
+ek
+dm
+tI
+ZB
+ZB
+Sh
+ZB
+Pe
+Pe
+IN
+Pe
+dL
+"}
+(4,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+TH
+HT
+HT
+ma
+HT
+TH
+fB
+tI
+IN
+dL
+rn
+mY
+Rp
+dL
+Pe
+Vw
+dZ
+TH
+"}
+(5,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+TH
+ma
+HT
+ma
+ma
+TH
+mL
+Pe
+Pe
+ke
+IN
+IN
+IN
+qu
+IN
+xA
+et
+TH
+"}
+(6,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+ma
+HT
+HT
+ma
+dL
+lJ
+CE
+Pe
+jN
+Sh
+BU
+Pe
+qu
+IN
+kv
+CE
+dL
+"}
+(7,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+ma
+ma
+HT
+ma
+TH
+hF
+Pb
+CE
+dL
+eZ
+kc
+Pe
+dL
+Pe
+IN
+Pe
+dL
+"}
+(8,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+TH
+HT
+ma
+HT
+HT
+dL
+ZB
+ZB
+CE
+Eq
+Pe
+Sh
+CE
+gY
+IN
+pz
+sz
+TH
+"}
+(9,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+TH
+ma
+HT
+ma
+ma
+nq
+Pe
+IN
+IN
+qh
+VG
+rd
+VG
+qh
+Pe
+Vw
+qs
+TH
+"}
+(10,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+HT
+HT
+ma
+HT
+dL
+BV
+ZB
+yw
+qh
+dL
+dL
+dL
+qh
+Vw
+IN
+Pe
+dL
+"}
+(11,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+ma
+ma
+HT
+HT
+qh
+qh
+mL
+GS
+qh
+dL
+dL
+dL
+qh
+dA
+Ub
+qh
+qh
+"}
+(12,1,1) = {"
+qh
+qh
+dL
+dL
+dL
+dL
+dL
+qh
+qh
+HT
+HT
+HT
+pq
+qh
+qh
+dL
+TH
+dL
+dL
+dL
+dL
+dL
+TH
+dL
+qh
+qh
+"}
+(13,1,1) = {"
+qh
+qh
+dL
+dL
+dL
+dL
+dL
+dL
+qh
+qh
+HT
+ma
+ma
+HT
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(14,1,1) = {"
+qh
+qh
+td
+ES
+td
+ZI
+DG
+td
+qh
+qh
+ma
+HT
+HT
+ma
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(15,1,1) = {"
+dL
+ZI
+fo
+bT
+nu
+fo
+bT
+bT
+td
+dL
+HT
+ma
+HT
+ma
+dL
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(16,1,1) = {"
+dL
+ZI
+uO
+qM
+bT
+GQ
+nu
+WG
+Un
+TH
+ma
+HT
+ma
+ma
+TH
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(17,1,1) = {"
+dL
+dL
+dL
+BA
+dL
+Sk
+fZ
+WG
+RQ
+TH
+HT
+ma
+HT
+HT
+TH
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(18,1,1) = {"
+dL
+Qa
+GQ
+GQ
+iL
+Mz
+Ye
+WG
+Ye
+dL
+HT
+HT
+HT
+ma
+dL
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(19,1,1) = {"
+dL
+er
+bT
+GQ
+nk
+QL
+qM
+Dp
+WG
+TH
+ma
+HT
+ma
+ma
+TH
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(20,1,1) = {"
+dL
+MU
+qM
+qM
+Cd
+QP
+pO
+Bc
+td
+dL
+ma
+ma
+HT
+HT
+TH
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(21,1,1) = {"
+qh
+qh
+Lq
+ZI
+dL
+ZI
+ZI
+td
+qh
+qh
+ma
+ma
+HT
+ma
+dL
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(22,1,1) = {"
+qh
+qh
+dL
+dL
+dL
+dL
+dL
+dL
+qh
+qh
+HT
+ma
+HT
+ma
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(23,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+qh
+ma
+HT
+HT
+ma
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(24,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+ma
+ma
+ma
+qh
+qh
+dL
+dL
+dL
+dL
+dL
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+"}
+(25,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+ma
+ma
+HT
+qh
+qh
+dL
+dL
+dL
+dL
+dL
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+"}
+(26,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+TH
+HT
+HT
+ma
+dL
+dL
+dL
+GZ
+dL
+wF
+dL
+dL
+dL
+Ky
+Ky
+Ky
+Ky
+"}
+(27,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+HT
+ma
+ma
+dL
+dL
+GZ
+RK
+JU
+hs
+xI
+dL
+dL
+Ky
+Ky
+Ky
+Ky
+"}
+(28,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+ma
+HT
+HT
+dL
+dL
+dL
+hs
+mv
+hs
+gN
+FS
+dL
+Ky
+Ky
+Ky
+Ky
+"}
+(29,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+TH
+ma
+HT
+ma
+dL
+dL
+GZ
+gN
+xI
+hs
+hs
+dL
+dL
+Ky
+Ky
+Ky
+Ky
+"}
+(30,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+HT
+ma
+HT
+dL
+dL
+dL
+wF
+dL
+GZ
+dL
+dL
+dL
+Ky
+Ky
+Ky
+Ky
+"}
+(31,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+HT
+HT
+ma
+qh
+qh
+dL
+dL
+dL
+dL
+dL
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+"}
+(32,1,1) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+qh
+qh
+ma
+HT
+ma
+qh
+qh
+dL
+dL
+dL
+dL
+dL
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+"}
+(33,1,1) = {"
+Ky
+qh
+qh
+dL
+TH
+dL
+TH
+dL
+qh
+qh
+ma
+ma
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(34,1,1) = {"
+Ky
+qh
+qh
+CE
+Sr
+UB
+jz
+aI
+qh
+qh
+ma
+HT
+qh
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(35,1,1) = {"
+Ky
+dL
+Pa
+eZ
+Du
+lh
+kY
+IN
+WK
+dL
+HT
+ma
+HT
+HT
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(36,1,1) = {"
+Ky
+TH
+eZ
+Pe
+IN
+CE
+Pe
+Pe
+IN
+TH
+ma
+HT
+ma
+ma
+dL
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(37,1,1) = {"
+Ky
+dL
+IN
+hW
+ZB
+ZB
+CE
+Pe
+ZB
+dL
+ma
+ma
+HT
+ma
+TH
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(38,1,1) = {"
+Ky
+TH
+rd
+dL
+Pe
+IN
+ZB
+Pe
+Sh
+Sn
+HT
+HT
+HT
+HT
+TH
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(39,1,1) = {"
+Ky
+dL
+dL
+dL
+Lk
+YM
+IN
+ZB
+ZB
+dL
+HT
+ma
+HT
+ma
+dL
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(40,1,1) = {"
+Ky
+qh
+dL
+dL
+IN
+IN
+Pe
+EE
+qh
+qh
+ma
+ma
+HT
+IG
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(41,1,1) = {"
+Ky
+qh
+qh
+dL
+TH
+TH
+TH
+dL
+qh
+qh
+ma
+Zy
+HT
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+
+(1,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+qh
+dL
+dL
+dL
+dL
+qh
+qh
+dL
+TH
+TH
+dL
+dL
+dL
+TH
+TH
+dL
+qh
+qh
+"}
+(2,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+qh
+zC
+zC
+zC
+pd
+qh
+qh
+DV
+bT
+KV
+Yx
+qh
+Od
+gZ
+bT
+LV
+qh
+qh
+"}
+(3,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+zC
+zC
+zC
+pd
+dL
+bz
+AR
+GQ
+nu
+wu
+qh
+bA
+WG
+TD
+qp
+RH
+dL
+"}
+(4,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+TH
+zC
+zC
+zC
+pd
+dQ
+GQ
+Ln
+qM
+nu
+Vb
+qh
+KT
+WG
+Ba
+Ln
+GQ
+TH
+"}
+(5,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+TH
+zC
+zC
+zC
+pd
+dQ
+GQ
+pa
+bT
+qM
+jQ
+qh
+PP
+WG
+pO
+pa
+qM
+TH
+"}
+(6,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+zC
+zC
+zC
+pd
+dL
+AR
+MR
+GQ
+VM
+FL
+qh
+NN
+qM
+nu
+JO
+AR
+dL
+"}
+(7,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+zC
+zC
+zC
+pd
+dL
+qh
+qh
+tQ
+dL
+qh
+dL
+qh
+dL
+Ch
+qh
+qh
+dL
+"}
+(8,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+TH
+zC
+zC
+zC
+pd
+dQ
+GQ
+nu
+GQ
+qh
+zC
+zC
+zC
+qh
+GQ
+bT
+nu
+TH
+"}
+(9,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+TH
+zC
+zC
+zC
+pd
+dQ
+nu
+bT
+Go
+qh
+zC
+zC
+zC
+qh
+GQ
+qM
+nl
+TH
+"}
+(10,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+zC
+zC
+zC
+pd
+dL
+td
+TB
+bT
+dL
+lv
+lv
+lv
+dL
+gZ
+TB
+jq
+dL
+"}
+(11,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+qh
+zC
+zC
+zC
+pd
+qh
+qh
+GQ
+SY
+tQ
+bT
+bT
+SW
+tQ
+qM
+nu
+qh
+qh
+"}
+(12,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+qh
+zC
+zC
+zC
+pd
+qh
+qh
+dL
+TH
+dL
+dL
+TH
+dL
+dL
+TH
+dL
+qh
+qh
+"}
+(13,1,2) = {"
+qh
+qh
+dL
+dL
+TH
+TH
+dL
+dL
+qh
+qh
+tu
+zC
+zC
+zC
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(14,1,2) = {"
+qh
+qh
+lj
+vo
+QY
+QY
+IQ
+dW
+qh
+qh
+tu
+zC
+zC
+zC
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(15,1,2) = {"
+dL
+Ey
+lj
+OB
+cq
+iI
+IQ
+Ey
+Ey
+dL
+tu
+zC
+zC
+zC
+dL
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(16,1,2) = {"
+TH
+ns
+xO
+ns
+Yg
+tG
+LS
+YR
+YR
+tt
+tu
+zC
+zC
+zC
+TH
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(17,1,2) = {"
+dL
+lj
+eh
+LS
+hO
+Ck
+tG
+QY
+Oa
+dL
+tu
+zC
+zC
+zC
+TH
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(18,1,2) = {"
+dL
+iU
+hO
+LS
+ns
+ns
+AY
+FU
+oB
+dL
+tu
+zC
+zC
+zC
+dL
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(19,1,2) = {"
+TH
+PL
+hO
+PL
+lj
+QW
+LS
+ly
+IA
+tt
+tu
+zC
+zC
+zC
+TH
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(20,1,2) = {"
+dL
+Ey
+Ey
+PX
+QW
+Ey
+PL
+gK
+dW
+dL
+tu
+zC
+zC
+zC
+TH
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(21,1,2) = {"
+qh
+qh
+Ey
+ns
+lj
+lj
+hO
+QW
+qh
+qh
+tu
+zC
+zC
+zC
+dL
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(22,1,2) = {"
+qh
+qh
+dL
+TH
+TH
+dL
+TH
+dL
+qh
+qh
+tu
+zC
+zC
+zC
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(23,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+qh
+zC
+zC
+zC
+zC
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(24,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+qh
+zC
+zC
+pd
+qh
+qh
+dL
+TH
+dL
+TH
+dL
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+"}
+(25,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+zC
+zC
+pd
+qh
+qh
+MN
+Xx
+kt
+LF
+hO
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+"}
+(26,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+TH
+zC
+zC
+pd
+dL
+ns
+LS
+hO
+Jy
+ns
+LS
+ts
+dL
+Ky
+Ky
+Ky
+Ky
+"}
+(27,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+zC
+zC
+pd
+dQ
+mD
+ns
+tx
+Ae
+DW
+ns
+hO
+TH
+Ky
+Ky
+Ky
+Ky
+"}
+(28,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+zC
+zC
+pd
+dL
+OR
+LS
+HP
+dL
+Ae
+LS
+Ha
+dL
+Ky
+Ky
+Ky
+Ky
+"}
+(29,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+TH
+zC
+zC
+pd
+dQ
+MB
+PL
+XV
+tx
+HP
+hO
+PY
+TH
+Ky
+Ky
+Ky
+Ky
+"}
+(30,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+dL
+zC
+zC
+pd
+dL
+PL
+Au
+hO
+ns
+ns
+ns
+lT
+dL
+Ky
+Ky
+Ky
+Ky
+"}
+(31,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+qh
+zC
+zC
+pd
+qh
+qh
+PY
+un
+AW
+Wp
+LS
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+"}
+(32,1,2) = {"
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+qh
+qh
+qh
+qh
+tu
+zC
+pd
+qh
+qh
+dL
+TH
+dL
+TH
+dL
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+"}
+(33,1,2) = {"
+Ky
+qh
+qh
+dL
+TH
+dL
+TH
+dL
+qh
+qh
+tu
+zC
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(34,1,2) = {"
+Ky
+qh
+qh
+GQ
+QN
+Lh
+Mz
+pO
+qh
+qh
+tu
+zC
+qh
+qh
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(35,1,2) = {"
+Ky
+dL
+Qx
+wM
+yT
+nu
+bT
+qM
+Xq
+dL
+tu
+zC
+zC
+zC
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(36,1,2) = {"
+Ky
+dL
+rv
+QN
+nu
+xy
+qM
+bT
+nu
+tt
+tu
+zC
+zC
+zC
+dL
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(37,1,2) = {"
+Ky
+dL
+qh
+qh
+qh
+dL
+qM
+vw
+HK
+dL
+tu
+zC
+zC
+zC
+TH
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(38,1,2) = {"
+Ky
+TH
+zC
+GQ
+bT
+qh
+bT
+bT
+og
+tt
+tu
+zC
+zC
+zC
+TH
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(39,1,2) = {"
+Ky
+dL
+lv
+qM
+bT
+Ch
+GQ
+Go
+Ac
+dL
+tu
+zC
+zC
+zC
+dL
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(40,1,2) = {"
+Ky
+qh
+nu
+oE
+Ba
+qh
+IZ
+Ld
+qh
+qh
+tu
+zC
+zC
+zC
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}
+(41,1,2) = {"
+Ky
+qh
+qh
+dL
+TH
+dL
+dL
+dL
+qh
+qh
+dL
+dL
+dL
+dL
+qh
+qh
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+Ky
+"}

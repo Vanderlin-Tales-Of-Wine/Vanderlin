@@ -328,3 +328,40 @@
 	west_offset = 18
 	east_offset = 18
 	south_offset = 26
+
+/datum/map_template/dungeon/room/beggarhall
+	mappath = "_maps/matthios_tomb/room/beggarhall.dmm"
+	id = "beggarhall"
+	width = 41
+	height = 26
+
+	west_offset = 15
+	east_offset = 15
+
+/datum/map_template/dungeon/room/golemlab
+	mappath = "_maps/matthios_tomb/room/golemlab.dmm"
+	id = "golemlab"
+	width = 27
+	height = 27
+
+	south_offset = 14
+
+/datum/map_template/dungeon/room/IQCAMP
+	mappath = "_maps/matthios_tomb/room/IQCAMP.dmm"
+	id = "IQCAMP"
+	width = 25
+	height = 25
+
+	east_offset = 13
+	south_offset = 12
+
+/datum/map_template/dungeon/room/gnometree
+	mappath = "_maps/matthios_tomb/room/gnometree.dmm"
+	id = "gnometree"
+	width = 25
+	height = 25
+
+	west_offset = 12
+	east_offset = 12
+	north_offset = 12
+	south_offset = 12
