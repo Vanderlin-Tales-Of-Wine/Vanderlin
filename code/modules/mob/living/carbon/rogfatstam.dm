@@ -48,6 +48,8 @@
 			energy = 0
 			if(m_intent == MOVE_INTENT_RUN) //can't sprint at zero stamina
 				toggle_rogmove_intent(MOVE_INTENT_WALK)
+		if(added < 0)
+			SEND_SIGNAL(src, COMSIG_MOB_ENERGY_SPENT, abs(added))
 		update_health_hud(TRUE)
 		return TRUE
 

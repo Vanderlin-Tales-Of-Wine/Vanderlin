@@ -22,6 +22,7 @@
 #define COMSIG_COIN_FLIPPED "coin_flipped" // from base of /obj/item/coin/attack_self() (mob/user, obj/item/coin/coin, outcome)
 #define COMSIG_SPLASHED_MOB "splashed_mob" // From splash attack (mob/user, mob/target, list/reagents_splashed)
 #define COMSIG_BATH_TAKEN "bath_taken" // From bathing (mob/user)
+#define COMSIG_MOB_ENERGY_SPENT "mob_energy_spent" //from /mob/living/adjust_energy() (mob/user, amount_spent)
 
 // Globals
 #define COMSIG_GLOBAL_MARRIAGE "global_marriage" // from base of /obj/structure/fluff/psycross/attackby() (bride, groom)
