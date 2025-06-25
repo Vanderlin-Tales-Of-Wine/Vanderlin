@@ -7,7 +7,6 @@ GLOBAL_VAR(lordsecondary)
 /// Uses lordprimary as the main color
 #define LORD_PRIMARY (1<<0)
 /// Uses lordsecondary as the main color
-
 #define LORD_SECONDARY (1<<2)
 /// Clothing only, updates detail color and handles the rest by updating overlays
 #define LORD_DETAIL_AND_COLOR (1<<3)
