@@ -18,7 +18,7 @@
 	. = ..()
 	main_material = pick(typesof(/datum/material/clay))
 	set_material_information()
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/mould/set_material_information()
 	. = ..()
@@ -78,28 +78,28 @@
 		metal.find_largest_metal()
 
 	fufilled_metal += metal_amount
-	update_overlays()
-	crucible.update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
+	crucible.update_appearance(UPDATE_OVERLAYS)
 	if(fufilled_metal >= required_metal)
 		start_cooling()
 
 /obj/item/mould/update_overlays()
 	. = ..()
-
-	if(fufilled_metal)
-		. += mutable_appearance(
-			icon,
-			filling_icon_state,
-			color = initial(filling_metal.color),
-			alpha = (255 * (fufilled_metal / required_metal)),
-			appearance_flags = RESET_COLOR | KEEP_APART,
-		)
-		var/mutable_appearance/MA = emissive_appearance(icon, filling_icon_state)
-		if(cooling)
-			MA.alpha = 255 * round((1 - (cooling_progress / 100)),0.1)
-		else
-			MA.alpha = 255 * (fufilled_metal / required_metal)
-		. += MA
+	if(!fufilled_metal)
+		return
+	. += mutable_appearance(
+		icon,
+		filling_icon_state,
+		color = initial(filling_metal.color),
+		alpha = (255 * (fufilled_metal / required_metal)),
+		appearance_flags = RESET_COLOR | KEEP_APART,
+	)
+	var/mutable_appearance/MA = emissive_appearance(icon, filling_icon_state)
+	if(cooling)
+		MA.alpha = 255 * round((1 - (cooling_progress / 100)),0.1)
+	else
+		MA.alpha = 255 * (fufilled_metal / required_metal)
+	. += MA
 
 /obj/item/mould/proc/start_cooling()
 	cooling = TRUE
@@ -107,7 +107,7 @@
 
 /obj/item/mould/process()
 	cooling_progress += 2.5
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 	if(cooling_progress >= 100)
 		STOP_PROCESSING(SSobj, src)
 		create_item()
@@ -119,7 +119,7 @@
 	filling_metal = null
 	cooling = FALSE
 	cooling_progress = 0
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 
 /obj/item/mould/ingot
@@ -142,4 +142,4 @@
 	fufilled_metal = 0
 	filling_metal = null
 	cooling = FALSE
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)

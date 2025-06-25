@@ -93,21 +93,19 @@
 	if(prob(33))
 		gender = FEMALE
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /mob/living/simple_animal/hostile/retaliate/wolf/death(gibbed)
 	..()
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
-
-/mob/living/simple_animal/hostile/retaliate/wolf/update_icon()
-	cut_overlays()
-	..()
+/mob/living/simple_animal/hostile/retaliate/wolf/update_overlays()
+	. = ..()
 	if(stat != DEAD)
 		var/mutable_appearance/eye_lights = mutable_appearance(icon, "vve")
 		eye_lights.plane = 19
 		eye_lights.layer = 19
-		add_overlay(eye_lights)
+		. += eye_lights
 
 /mob/living/simple_animal/hostile/retaliate/wolf/get_sound(input)
 	switch(input)

@@ -11,7 +11,7 @@
 
 /obj/item/essence_vial/Initialize()
 	. = ..()
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/essence_vial/attack_self(mob/user)
 	if(extract_amount == 10)
@@ -24,16 +24,13 @@
 /obj/item/essence_vial/proc/check_vial_menu_validity(mob/user)
 	return user && (src in user.contents)
 
-/obj/item/essence_vial/update_icon()
-	..()
-	cut_overlays()
-	if(contained_essence && essence_amount > 0)
-		icon_state = "essence_vial"
-		var/used_alpha = min(255, 100 + (essence_amount * 15))
-		add_overlay(mutable_appearance(icon, "essence_liquid", alpha = used_alpha, color = contained_essence.color))
-		add_overlay(mutable_appearance(icon, "essence_liquid", alpha = used_alpha))
-	else
-		icon_state = "essence_vial"
+/obj/item/essence_vial/update_overlays()
+	. = ..()
+	if(!contained_essence || essence_amount < 0)
+		return
+	var/used_alpha = min(255, 100 + (essence_amount * 15))
+	. += mutable_appearance(icon, "essence_liquid", alpha = used_alpha, color = contained_essence.color)
+	. += emissive_appearance(icon, "essence_liquid", alpha = used_alpha)
 
 /obj/item/essence_vial/examine(mob/user)
 	. = ..()

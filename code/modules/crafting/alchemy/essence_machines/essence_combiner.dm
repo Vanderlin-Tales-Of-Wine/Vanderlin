@@ -55,7 +55,7 @@
 	. += emissive_appearance(icon, "liquid_[level]", alpha = src.alpha)
 
 	if(processing)
-		. += mutable_appearance(icon, "combining", ABOVE_MOB_LAYER)
+		. += mutable_appearance(icon, "combining", layer = src.layer + 0.01)
 
 /obj/machinery/essence/combiner/examine(mob/user)
 	. = ..()
@@ -135,7 +135,7 @@
 			if(extracted > 0)
 				vial.contained_essence = new essence_type
 				vial.essence_amount = extracted
-				vial.update_icon()
+				vial.update_appearance(UPDATE_OVERLAYS)
 				to_chat(user, span_info("You extract [extracted] units of essence from the [storage_choice == "output" ? "output" : "input"]."))
 				update_overlays()
 			return
@@ -150,7 +150,7 @@
 		to_chat(user, span_info("You pour the [vial.contained_essence.name] into the combiner's input."))
 		vial.contained_essence = null
 		vial.essence_amount = 0
-		vial.update_icon()
+		vial.update_appearance(UPDATE_OVERLAYS)
 		update_overlays()
 		return TRUE
 	..()
@@ -208,7 +208,7 @@
 		var/obj/item/essence_vial/new_vial = new(get_turf(src))
 		new_vial.contained_essence = new essence_type
 		new_vial.essence_amount = amount
-		new_vial.update_icon()
+		new_vial.update_appearance(UPDATE_OVERLAYS)
 
 	input_storage.stored_essences = list()
 	to_chat(user, span_info("You clear the input storage, creating vials for each essence."))

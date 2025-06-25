@@ -15,7 +15,7 @@
 /obj/item/essence_node_jar/Initialize()
 	. = ..()
 	last_drain = world.time
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	START_PROCESSING(SSobj, src)
 
 /obj/item/essence_node_jar/Destroy()
@@ -39,15 +39,16 @@
 
 /obj/item/essence_node_jar/update_overlays()
 	. = ..()
-	if(contained_node)
-		var/datum/thaumaturgical_essence/essence = contained_node.essence_type
-		. += mutable_appearance(
-			contained_node.icon,
-			contained_node.icon_state,
-			layer - 0.1,
-			color = initial(essence.color),
-		)
-		. += emissive_appearance(contained_node.icon, contained_node.icon_state, alpha = contained_node.alpha)
+	if(!contained_node)
+		return
+	var/datum/thaumaturgical_essence/essence = contained_node.essence_type
+	. += mutable_appearance(
+		contained_node.icon,
+		contained_node.icon_state,
+		layer = src.layer - 0.1,
+		color = initial(essence.color),
+	)
+	. += emissive_appearance(contained_node.icon, contained_node.icon_state, alpha = contained_node.alpha)
 
 /obj/item/essence_node_jar/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(!proximity_flag)
@@ -78,7 +79,7 @@
 	deployed_node.max_essence = contained_node.max_essence
 	deployed_node.current_essence = contained_node.current_essence
 	deployed_node.recharge_rate = contained_node.recharge_rate
-	deployed_node.update_icon()
+	deployed_node.update_appearance(UPDATE_ICON)
 
 	var/datum/thaumaturgical_essence/temp = new contained_node.essence_type.type
 	to_chat(user, span_info("You carefully deploy the [contained_node.name] from the jar. The [temp.name] node is now active."))
@@ -86,7 +87,7 @@
 
 	qdel(contained_node)
 	contained_node = null
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/essence_node_jar/examine(mob/user)
 	. = ..()

@@ -52,6 +52,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	set_light(5)
 
 /obj/structure/fake_machine/titan/Destroy()
+	lose_hearing_sensitivity()
 	set_light(0)
 	return ..()
 
@@ -163,13 +164,6 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		change_position(user)
 	if(findtext(message, "appoint regent") && perform_check(user))
 		appoint_regent(user)
-
-/obj/structure/fake_machine/titan/obj_break(damage_flag, silent)
-	..()
-	cut_overlays()
-//	icon_state = "[icon_state]-br"
-	set_light(0)
-	return
 
 // COMMANDS BELOW
 
@@ -309,6 +303,11 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	for(var/mob/living/carbon/human/to_be_outlawed in GLOB.player_list)
 		if(to_be_outlawed.real_name == message)
 			found = TRUE
+		if(to_be_outlawed.advjob == "Faceless One")
+			say("Who? That person doesn't exist!")
+			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
+			reset_mode()
+			return FALSE
 	if(!found)
 		say("That person doesn't exist!")
 		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)

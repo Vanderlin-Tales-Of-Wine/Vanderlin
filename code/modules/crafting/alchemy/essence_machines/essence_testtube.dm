@@ -102,7 +102,7 @@
 	addtimer(CALLBACK(src, PROC_REF(create_gnome), user), grow_time)
 	addtimer(CALLBACK(src, PROC_REF(growth_sound_feedback)), sound_time)
 	addtimer(CALLBACK(src, PROC_REF(growth_sound_feedback)), sound_time)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/essence/test_tube/proc/growth_sound_feedback()
 	if(gnome_progress)
@@ -113,12 +113,12 @@
 	if(!storage.has_essence(/datum/thaumaturgical_essence/life, essence_amount))
 		to_chat(user, span_warning("Insufficient life essence! The process fails..."))
 		gnome_progress = FALSE
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 		return
 
 	storage.remove_essence(/datum/thaumaturgical_essence/life, essence_amount)
 	gnome_progress = FALSE
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 	// Success sounds and effects
 	visible_message(span_info("The crystalline tube glows brightly as the homunculus reaches maturity!"))
@@ -179,7 +179,7 @@
 			if(extracted > 0)
 				vial.contained_essence = new essence_type
 				vial.essence_amount = extracted
-				vial.update_icon()
+				vial.update_appearance(UPDATE_OVERLAYS)
 				to_chat(user, span_info("You extract [extracted] units of essence from the test tube."))
 			return
 		var/essence_type = vial.contained_essence.type
@@ -193,7 +193,7 @@
 		to_chat(user, span_info("You pour the [vial.contained_essence.name] into the test tube."))
 		vial.contained_essence = null
 		vial.essence_amount = 0
-		vial.update_icon()
+		vial.update_appearance(UPDATE_OVERLAYS)
 		return TRUE
 	..()
 

@@ -34,7 +34,7 @@
 
 /obj/item/needle/Initialize()
 	. = ..()
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/needle/update_overlays()
 	. = ..()
@@ -46,7 +46,7 @@
 	if(infinite)
 		return TRUE
 	stringamt = stringamt - used
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 //	if(stringamt <= 0)
 //		qdel(src)
 
@@ -64,7 +64,7 @@
 				stringamt += 5
 				to_chat(user, "I replenish the needle's thread!")
 				qdel(I)
-				update_icon()
+				update_appearance(UPDATE_OVERLAYS)
 			return
 	return ..()
 

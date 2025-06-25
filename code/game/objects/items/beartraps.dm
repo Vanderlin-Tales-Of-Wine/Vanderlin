@@ -58,7 +58,7 @@
 			if(do_after(user, used_time, src))
 				armed = FALSE
 				anchored = FALSE
-				update_icon()
+				update_appearance(UPDATE_ICON_STATE)
 				src.alpha = 255
 				C.visible_message("<span class='notice'>[C] disarms \the [src].</span>", \
 						"<span class='notice'>I disarm \the [src].</span>")
@@ -104,9 +104,9 @@
 
 /obj/item/restraints/legcuffs/beartrap/Initialize()
 	. = ..()
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
-/obj/item/restraints/legcuffs/beartrap/update_icon()
+/obj/item/restraints/legcuffs/beartrap/update_icon_state()
 	. = ..()
 	icon_state = "[initial(icon_state)][armed]"
 
@@ -128,7 +128,7 @@
 				L.log_message("has armed the [src]!", LOG_ATTACK)
 				L.dropItemToGround(src) // We drop it instantly on the floor beneath us
 				anchored = TRUE // And anchor it so that it can't be carried inside chests (prevents exploit)
-				update_icon()
+				update_appearance(UPDATE_ICON_STATE)
 				src.alpha = 80 // Set lower visibility for everyone
 				L.adjust_experience(/datum/skill/craft/traps, L.STAINT * boon, FALSE) // We learn how to set them better, little by little.
 				to_chat(user, "<span class='notice'>I arm \the [src].</span>")
@@ -146,7 +146,7 @@
 	armed = FALSE
 	anchored = FALSE // Take it off the ground
 	alpha = 255
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	playsound(src.loc, 'sound/items/beartrap.ogg', 300, TRUE, -1)
 	triggerer.log_message("has triggered the [src][item ? " with [item]" : ""]!", LOG_ATTACK)
 

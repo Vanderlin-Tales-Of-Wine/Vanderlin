@@ -65,7 +65,7 @@
 					essence_types_to_void -= essence_type
 
 			if(total_voided > 0)
-				update_icon()
+				update_appearance(UPDATE_OVERLAYS)
 				// Create void effect
 				var/datum/effect_system/spark_spread/quantum/void_effect = new
 				void_effect.set_up(3, 0, src)
@@ -276,7 +276,7 @@
 			if(extracted > 0)
 				vial.contained_essence = new essence_type
 				vial.essence_amount = extracted
-				vial.update_icon()
+				vial.update_appearance(UPDATE_OVERLAYS)
 				to_chat(user, span_info("You extract [extracted] units of essence from the reservoir."))
 			return
 		var/essence_type = vial.contained_essence.type
@@ -293,7 +293,7 @@
 		to_chat(user, span_info("You pour the [vial.contained_essence.name] into the reservoir."))
 		vial.contained_essence = null
 		vial.essence_amount = 0
-		vial.update_icon()
+		vial.update_appearance(UPDATE_OVERLAYS)
 		return TRUE
 	..()
 
@@ -340,7 +340,7 @@
 	else
 		to_chat(user, span_info("Void mode disabled. Normal operation resumed."))
 
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	return TRUE
 
 /obj/machinery/essence/reservoir/proc/adjust_void_rate(mob/user)

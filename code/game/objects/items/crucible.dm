@@ -71,7 +71,7 @@
 		melting_pot[item] += 5
 		if(melting_pot[item] >= item.melt_amount)
 			melt_item(item)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/storage/crucible/get_temperature()
 	return crucible_temperature
@@ -83,8 +83,6 @@
 
 /obj/item/storage/crucible/update_overlays()
 	. = ..()
-	if(overlays)
-		overlays.Cut()
 
 	if(!reagents.total_volume)
 		return
@@ -110,7 +108,7 @@
 	reagents.add_reagent(/datum/reagent/molten_metal, item.melt_amount, data, crucible_temperature)
 	melting_pot -= item
 	qdel(item)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/storage/crucible/random/Initialize()
 	. = ..()
@@ -128,7 +126,7 @@
 /obj/item/storage/crucible/test_crucible/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/molten_metal, 20, data = material_data_to_add, reagtemp = 4000)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/storage/crucible/test_crucible/bar
 	material_data_to_add = list(
