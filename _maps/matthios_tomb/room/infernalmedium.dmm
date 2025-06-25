@@ -1,0 +1,2333 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ai" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"bi" = (
+/turf/open/floor/naturalstone,
+/area/rogue/under/tomb/indoors/magic)
+"bm" = (
+/turf/closed/mineral/bedrock/cold,
+/area/rogue/under/tomb/indoors/magic)
+"bs" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/tundra,
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"dx" = (
+/turf/open/floor/grass/cold,
+/area/rogue/under/tomb/indoors/magic)
+"gn" = (
+/obj/structure/flora/newtree/snow,
+/turf/open/floor/snow/patchy,
+/area/rogue/under/tomb/indoors/magic)
+"gv" = (
+/obj/structure/flora/newtree/snow,
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"gB" = (
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"hL" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/cobblerock/snow,
+/area/rogue/under/tomb/indoors/magic)
+"iv" = (
+/obj/structure/lootable_structure/fish_barrel,
+/turf/open/floor/blocks/snow,
+/area/rogue/under/tomb/indoors/magic)
+"iH" = (
+/turf/closed/wall/mineral/craftstone{
+	color = "#555D50";
+	name = "Hellstone Wall"
+	},
+/area/rogue/under/tomb/indoors/magic)
+"jj" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/cobble/snow,
+/area/rogue/under/tomb/indoors/magic)
+"jG" = (
+/obj/structure/flora/grass/bush_meagre/tundra,
+/obj/structure/flora/grass,
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"lz" = (
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = 11;
+	pixel_y = 5
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = -9;
+	pixel_y = -8
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = 3;
+	pixel_y = 6
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = 9;
+	pixel_y = -3
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = -1;
+	pixel_y = -7
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = -12;
+	pixel_y = 6
+	},
+/turf/open/floor/cobblerock/snow,
+/area/rogue/under/tomb/indoors/magic)
+"lD" = (
+/obj/structure/stairs/stone/church,
+/turf/open/floor/grass/cold,
+/area/rogue/under/tomb/indoors/magic)
+"lJ" = (
+/obj/structure/table/church/m,
+/obj/item/weapon/sword/long/greatsword/gutsclaymore,
+/mob/living/simple_animal/hostile/retaliate/infernal/watcher{
+	color = "#20c3d0"
+	},
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"mc" = (
+/obj/structure/flora/grass/bush_meagre/tundra,
+/turf/open/floor/grass/cold,
+/area/rogue/under/tomb/indoors/magic)
+"mw" = (
+/obj/structure/table/church{
+	dir = 1
+	},
+/obj/item/natural/melded/t3{
+	pixel_x = -12;
+	pixel_y = 0
+	},
+/obj/item/natural/artifact{
+	pixel_x = 1;
+	pixel_y = 10
+	},
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"mF" = (
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/snow/patchy,
+/area/rogue/under/tomb/indoors/magic)
+"ng" = (
+/obj/structure/flora/grass,
+/turf/open/floor/grass/cold,
+/area/rogue/under/tomb/indoors/magic)
+"nx" = (
+/obj/structure/flora/grass,
+/mob/living/simple_animal/hostile/retaliate/infernal/imp{
+	color = "#20c3d0"
+	},
+/turf/open/floor/grass/cold,
+/area/rogue/under/tomb/indoors/magic)
+"nO" = (
+/turf/open/floor/blocks/snow,
+/area/rogue/under/tomb/indoors/magic)
+"pC" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/cobble/snow,
+/area/rogue/under/tomb/indoors/magic)
+"pO" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass,
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"qa" = (
+/obj/structure/flora/newtree/snow,
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/snow/patchy,
+/area/rogue/under/tomb/indoors/magic)
+"qB" = (
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = -2;
+	pixel_y = -7
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = 6;
+	pixel_y = -9
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = 10;
+	pixel_y = -2
+	},
+/turf/open/floor/cobblerock/snow,
+/area/rogue/under/tomb/indoors/magic)
+"qK" = (
+/obj/structure/fluff/walldeco/vinez/blue,
+/turf/closed/wall/mineral/craftstone{
+	color = "#555D50";
+	name = "Hellstone Wall"
+	},
+/area/rogue/under/tomb/indoors/magic)
+"ry" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/imp{
+	color = "#20c3d0"
+	},
+/turf/open/floor/cobble/snow,
+/area/rogue/under/tomb/indoors/magic)
+"so" = (
+/obj/structure/stairs/stone/church{
+	dir = 1
+	},
+/turf/open/floor/snow/patchy,
+/area/rogue/under/tomb/indoors/magic)
+"tu" = (
+/obj/structure/flora/grass,
+/turf/open/floor/snow/patchy,
+/area/rogue/under/tomb/indoors/magic)
+"tw" = (
+/turf/open/water/cleanshallow,
+/area/rogue/under/tomb/indoors/magic)
+"tZ" = (
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/grass/cold,
+/area/rogue/under/tomb/indoors/magic)
+"uI" = (
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"vq" = (
+/obj/structure/flora/grass/bush_meagre/tundra,
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"wd" = (
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = 4;
+	pixel_y = 1
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = 0;
+	pixel_y = -10
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = -10;
+	pixel_y = 6
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = 7;
+	pixel_y = -7
+	},
+/turf/open/floor/cobble/snow,
+/area/rogue/under/tomb/indoors/magic)
+"wG" = (
+/turf/open/floor/cobblerock/snow,
+/area/rogue/under/tomb/indoors/magic)
+"wU" = (
+/obj/structure/stairs/stone/church,
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"xG" = (
+/obj/structure/flora/grass,
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"yq" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/snow/patchy,
+/area/rogue/under/tomb/indoors/magic)
+"zj" = (
+/obj/structure/flora/grass/tundra,
+/mob/living/simple_animal/hostile/retaliate/infernal/imp{
+	color = "#20c3d0"
+	},
+/turf/open/floor/grass/cold,
+/area/rogue/under/tomb/indoors/magic)
+"zu" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/shirt/robe/magus{
+	color = "#20c3d0";
+	name = "Cold Hell Robes"
+	},
+/obj/item/weapon/polearm/spear,
+/turf/open/floor/cobblerock/snow,
+/area/rogue/under/tomb/indoors/magic)
+"Aj" = (
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/indoors/magic)
+"Bg" = (
+/obj/structure/flora/grass/bush_meagre/tundra,
+/turf/open/floor/snow/patchy,
+/area/rogue/under/tomb/indoors/magic)
+"Bm" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"Cn" = (
+/obj/structure/flora/newtree/snow,
+/turf/open/floor/grass/cold,
+/area/rogue/under/tomb/indoors/magic)
+"DJ" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/imp{
+	color = "#20c3d0"
+	},
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"Ed" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/grass/cold,
+/area/rogue/under/tomb/indoors/magic)
+"Fj" = (
+/obj/structure/flora/grass/bush_meagre/tundra,
+/obj/structure/flora/grass/tundra,
+/mob/living/simple_animal/hostile/retaliate/infernal/imp{
+	color = "#20c3d0"
+	},
+/turf/open/floor/grass/cold,
+/area/rogue/under/tomb/indoors/magic)
+"HG" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/shirt/robe/magus{
+	color = "#20c3d0";
+	name = "Cold Hell Robes"
+	},
+/obj/item/weapon/polearm/woodstaff/quarterstaff/steel,
+/turf/open/floor/cobble/snow,
+/area/rogue/under/tomb/indoors/magic)
+"IU" = (
+/turf/open/floor/snow/patchy,
+/area/rogue/under/tomb/indoors/magic)
+"Jp" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/imp{
+	color = "#20c3d0"
+	},
+/turf/open/floor/grass/cold,
+/area/rogue/under/tomb/indoors/magic)
+"JV" = (
+/obj/structure/flora/grass/bush_meagre/tundra,
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"MV" = (
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = 8;
+	pixel_y = -6
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = 9;
+	pixel_y = 6
+	},
+/obj/item/candle/yellow/lit/infinite{
+	pixel_x = -4;
+	pixel_y = -3
+	},
+/turf/open/floor/cobble/snow,
+/area/rogue/under/tomb/indoors/magic)
+"NL" = (
+/obj/effect/portal{
+	color = "#20c3d0";
+	name = "Hell Portal"
+	},
+/obj/effect/decal/cleanable/roguerune/arcyne/summoning/mid,
+/turf/open/floor/cobblerock/snow,
+/area/rogue/under/tomb/indoors/magic)
+"OH" = (
+/obj/structure/table/church,
+/obj/item/natural/leyline{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/natural/leyline{
+	pixel_x = -11;
+	pixel_y = 15
+	},
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"OT" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass,
+/turf/open/floor/grass/cold,
+/area/rogue/under/tomb/indoors/magic)
+"Ra" = (
+/turf/open/floor/cobble/snow,
+/area/rogue/under/tomb/indoors/magic)
+"Su" = (
+/obj/structure/flora/newtree/snow,
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"TP" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/cobble/snow,
+/area/rogue/under/tomb/indoors/magic)
+"UB" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound{
+	color = "#20c3d0"
+	},
+/turf/open/floor/cobblerock/snow,
+/area/rogue/under/tomb/indoors/magic)
+"Xx" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/shirt/robe/magus{
+	color = "#20c3d0";
+	name = "Cold Hell Robes"
+	},
+/obj/item/weapon/polearm/spear,
+/turf/open/floor/blocks/snow,
+/area/rogue/under/tomb/indoors/magic)
+"XV" = (
+/obj/structure/stairs/stone/church{
+	dir = 1
+	},
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+"Zn" = (
+/obj/structure/flora/grass,
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound{
+	color = "#20c3d0"
+	},
+/turf/open/floor/snow,
+/area/rogue/under/tomb/indoors/magic)
+
+(1,1,1) = {"
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+Ra
+hL
+wG
+Ra
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+"}
+(2,1,1) = {"
+bm
+bm
+bm
+bm
+bm
+bm
+uI
+uI
+bm
+bm
+bm
+bm
+bm
+Ra
+wG
+wG
+Ra
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+dx
+dx
+bm
+bm
+bm
+"}
+(3,1,1) = {"
+bm
+bm
+bm
+bm
+uI
+uI
+gv
+uI
+uI
+bm
+bm
+bm
+bm
+wG
+wG
+Ra
+Ra
+Ra
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+ng
+dx
+mc
+bm
+bm
+"}
+(4,1,1) = {"
+bm
+bm
+uI
+JV
+uI
+xG
+tu
+mF
+uI
+gv
+uI
+bm
+wG
+Ra
+Ra
+Ra
+Ra
+wG
+wG
+bm
+bm
+bm
+bm
+IU
+dx
+Cn
+ng
+dx
+bm
+bm
+"}
+(5,1,1) = {"
+bm
+bm
+bm
+uI
+xG
+IU
+dx
+ng
+mF
+IU
+uI
+wG
+uI
+wG
+UB
+Ra
+wG
+gv
+uI
+uI
+bm
+uI
+uI
+IU
+tZ
+dx
+dx
+bm
+bm
+bm
+"}
+(6,1,1) = {"
+bm
+bm
+bm
+gB
+qa
+ng
+tZ
+Jp
+nx
+dx
+Bg
+IU
+gv
+uI
+wG
+JV
+gB
+uI
+uI
+xG
+xG
+uI
+gn
+dx
+ng
+tZ
+bm
+bm
+bm
+bm
+"}
+(7,1,1) = {"
+bm
+bm
+uI
+xG
+IU
+dx
+ng
+dx
+dx
+dx
+IU
+uI
+xG
+uI
+uI
+xG
+uI
+xG
+uI
+uI
+uI
+IU
+dx
+mc
+dx
+dx
+IU
+bm
+bm
+bm
+"}
+(8,1,1) = {"
+bm
+uI
+uI
+Bg
+ng
+dx
+dx
+tZ
+Cn
+tZ
+ng
+IU
+IU
+Bm
+uI
+gv
+uI
+uI
+uI
+qa
+IU
+ng
+tZ
+dx
+dx
+dx
+tu
+uI
+bm
+bm
+"}
+(9,1,1) = {"
+bm
+uI
+gv
+mF
+dx
+dx
+mc
+dx
+tZ
+tZ
+dx
+dx
+bm
+bm
+uI
+bm
+bm
+uI
+uI
+IU
+tZ
+ng
+zj
+tZ
+Ed
+IU
+gB
+gv
+bm
+bm
+"}
+(10,1,1) = {"
+bm
+bm
+uI
+uI
+tu
+dx
+ng
+dx
+dx
+dx
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+xG
+uI
+Bg
+dx
+ng
+dx
+tu
+xG
+uI
+JV
+bm
+bm
+"}
+(11,1,1) = {"
+bm
+bm
+uI
+uI
+tu
+gn
+dx
+ng
+Cn
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+uI
+xG
+IU
+IU
+IU
+uI
+uI
+uI
+uI
+bm
+bm
+"}
+(12,1,1) = {"
+bm
+bm
+bm
+xG
+Bm
+uI
+mF
+dx
+dx
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+uI
+uI
+gv
+uI
+xG
+uI
+xG
+bm
+bm
+bm
+"}
+(13,1,1) = {"
+bm
+bm
+bm
+wG
+uI
+uI
+yq
+dx
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+uI
+uI
+xG
+uI
+Ra
+bm
+bm
+bm
+bm
+"}
+(14,1,1) = {"
+Ra
+wG
+Ra
+Ra
+uI
+IU
+dx
+dx
+lD
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+XV
+xG
+xG
+JV
+Ra
+wG
+Ra
+wG
+wG
+"}
+(15,1,1) = {"
+Ra
+wG
+Ra
+uI
+uI
+tu
+ng
+dx
+lD
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+XV
+gB
+uI
+Ra
+ry
+Ra
+wG
+wG
+Ra
+"}
+(16,1,1) = {"
+TP
+Ra
+wG
+Ra
+uI
+DJ
+mF
+dx
+lD
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+so
+xG
+uI
+wG
+wG
+wG
+wG
+Ra
+jj
+"}
+(17,1,1) = {"
+wG
+Ra
+wG
+Ra
+wG
+xG
+Bg
+dx
+dx
+dx
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+dx
+IU
+uI
+xG
+wG
+wG
+Ra
+wG
+Ra
+"}
+(18,1,1) = {"
+bm
+wG
+wG
+uI
+uI
+IU
+ng
+dx
+Cn
+dx
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+Cn
+dx
+IU
+xG
+uI
+Ra
+Ra
+wG
+bm
+bm
+"}
+(19,1,1) = {"
+bm
+bm
+gv
+uI
+uI
+mF
+dx
+dx
+OT
+ng
+dx
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+dx
+IU
+uI
+Bm
+gB
+uI
+Ra
+wG
+bm
+bm
+"}
+(20,1,1) = {"
+bm
+bm
+uI
+vq
+uI
+uI
+mF
+tZ
+dx
+tZ
+mc
+dx
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+dx
+IU
+xG
+JV
+uI
+gv
+xG
+uI
+bm
+bm
+bm
+"}
+(21,1,1) = {"
+bm
+bm
+bm
+xG
+uI
+Su
+yq
+tZ
+dx
+dx
+dx
+tZ
+dx
+bm
+bm
+bm
+bm
+uI
+IU
+IU
+uI
+gB
+xG
+uI
+uI
+uI
+bm
+bm
+bm
+bm
+"}
+(22,1,1) = {"
+bm
+bm
+bm
+uI
+xG
+xG
+IU
+tZ
+dx
+Fj
+tZ
+dx
+tZ
+dx
+mF
+bm
+uI
+uI
+pO
+xG
+DJ
+uI
+uI
+uI
+uI
+JV
+tw
+bm
+bm
+bm
+"}
+(23,1,1) = {"
+bm
+bm
+bm
+tw
+gB
+uI
+Bm
+tu
+IU
+ng
+tZ
+dx
+Cn
+tu
+gB
+uI
+gv
+gB
+JV
+xG
+gv
+uI
+xG
+xG
+xG
+uI
+tw
+bm
+bm
+bm
+"}
+(24,1,1) = {"
+bm
+bm
+bm
+tw
+tw
+uI
+uI
+Bm
+xG
+IU
+dx
+tu
+IU
+uI
+xG
+uI
+uI
+uI
+gB
+uI
+uI
+xG
+uI
+gB
+gv
+tw
+tw
+tw
+bm
+bm
+"}
+(25,1,1) = {"
+bm
+bm
+tw
+tw
+tw
+JV
+uI
+gB
+bs
+gB
+IU
+xG
+xG
+uI
+uI
+uI
+uI
+Bm
+gB
+xG
+Bm
+xG
+mF
+xG
+tw
+tw
+tw
+tw
+bm
+bm
+"}
+(26,1,1) = {"
+bm
+tw
+tw
+tw
+tw
+tw
+uI
+gv
+gB
+uI
+bm
+bm
+gB
+uI
+JV
+Zn
+uI
+uI
+gB
+gB
+xG
+IU
+dx
+IU
+tw
+tw
+tw
+tw
+bm
+bm
+"}
+(27,1,1) = {"
+bm
+bm
+bm
+tw
+tw
+tw
+tw
+tw
+tw
+bm
+bm
+bm
+wG
+uI
+JV
+ai
+Ra
+wG
+xG
+gv
+IU
+mc
+dx
+bm
+tw
+tw
+tw
+tw
+tw
+bm
+"}
+(28,1,1) = {"
+bm
+bm
+bm
+bm
+tw
+tw
+tw
+tw
+bm
+bm
+bm
+bm
+Ra
+wG
+gB
+wG
+Ra
+wG
+wG
+gB
+uI
+bm
+bm
+bm
+bm
+bm
+tw
+tw
+tw
+bm
+"}
+(29,1,1) = {"
+bm
+bm
+bm
+bm
+bm
+tw
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+Ra
+wG
+Ra
+Ra
+Ra
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+"}
+(30,1,1) = {"
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+Ra
+pC
+wG
+Ra
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+"}
+
+(1,1,2) = {"
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+uI
+uI
+uI
+uI
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+"}
+(2,1,2) = {"
+bm
+bm
+bm
+bm
+bm
+bm
+Aj
+Aj
+bm
+bm
+bm
+bm
+bm
+uI
+uI
+bi
+bi
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+Aj
+Aj
+bm
+bm
+bm
+"}
+(3,1,2) = {"
+bm
+bm
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+bm
+bm
+bi
+bi
+bi
+bi
+bi
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+Aj
+Aj
+Aj
+bm
+bm
+"}
+(4,1,2) = {"
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+"}
+(5,1,2) = {"
+bm
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+bm
+"}
+(6,1,2) = {"
+bm
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+bm
+bm
+"}
+(7,1,2) = {"
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+bm
+"}
+(8,1,2) = {"
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+"}
+(9,1,2) = {"
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+uI
+uI
+Aj
+JV
+IU
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+"}
+(10,1,2) = {"
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+dx
+IU
+JV
+xG
+gB
+IU
+Cn
+ng
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+"}
+(11,1,2) = {"
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+ng
+Cn
+tZ
+yq
+uI
+IU
+Ed
+ng
+mc
+ng
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+"}
+(12,1,2) = {"
+bm
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+tu
+ng
+qK
+qK
+iv
+nO
+wG
+wG
+iH
+qK
+xG
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+bm
+"}
+(13,1,2) = {"
+bm
+bm
+bm
+bi
+Aj
+Aj
+Aj
+Aj
+JV
+Ra
+IU
+qK
+lz
+nO
+wG
+zu
+nO
+wd
+qK
+wG
+wG
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+bm
+bm
+"}
+(14,1,2) = {"
+uI
+uI
+uI
+bi
+Aj
+Aj
+Aj
+Aj
+Aj
+wU
+Ra
+nO
+Ra
+nO
+OH
+wG
+wG
+nO
+wG
+Ra
+XV
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bi
+bi
+uI
+"}
+(15,1,2) = {"
+uI
+uI
+bi
+bi
+Aj
+Aj
+Aj
+Aj
+Aj
+wU
+nO
+nO
+HG
+wG
+lJ
+Ra
+NL
+Ra
+Ra
+Ra
+XV
+Aj
+Aj
+Aj
+Aj
+Aj
+bi
+bi
+uI
+uI
+"}
+(16,1,2) = {"
+uI
+bi
+bi
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+wU
+wG
+wG
+nO
+wG
+mw
+Ra
+wG
+nO
+nO
+nO
+XV
+Aj
+Aj
+Aj
+Aj
+Aj
+bi
+uI
+uI
+uI
+"}
+(17,1,2) = {"
+uI
+uI
+bi
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+wG
+qK
+MV
+Ra
+nO
+Xx
+Ra
+qB
+iH
+dx
+wG
+Aj
+Aj
+Aj
+Aj
+Aj
+bi
+uI
+uI
+uI
+"}
+(18,1,2) = {"
+bm
+uI
+bi
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+xG
+qK
+qK
+wG
+nO
+Ra
+wG
+qK
+iH
+mc
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bi
+bi
+bm
+bm
+"}
+(19,1,2) = {"
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+JV
+Bm
+xG
+IU
+xG
+uI
+IU
+Cn
+ng
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bi
+bm
+bm
+"}
+(20,1,2) = {"
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+gB
+yq
+ng
+IU
+jG
+uI
+IU
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+bm
+"}
+(21,1,2) = {"
+bm
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+dx
+Cn
+dx
+IU
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+bm
+bm
+"}
+(22,1,2) = {"
+bm
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+dx
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+bm
+"}
+(23,1,2) = {"
+bm
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+bm
+"}
+(24,1,2) = {"
+bm
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+"}
+(25,1,2) = {"
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+"}
+(26,1,2) = {"
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+"}
+(27,1,2) = {"
+bm
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+Aj
+Aj
+Aj
+Aj
+Aj
+bm
+"}
+(28,1,2) = {"
+bm
+bm
+bm
+bm
+Aj
+Aj
+Aj
+Aj
+bm
+bm
+bm
+bm
+bi
+bi
+bi
+bi
+bi
+bi
+bi
+Aj
+Aj
+bm
+bm
+bm
+bm
+bm
+Aj
+Aj
+Aj
+bm
+"}
+(29,1,2) = {"
+bm
+bm
+bm
+bm
+bm
+Aj
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+uI
+bi
+bi
+uI
+uI
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+"}
+(30,1,2) = {"
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+uI
+uI
+uI
+uI
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+"}

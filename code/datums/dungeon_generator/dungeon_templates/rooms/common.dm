@@ -384,3 +384,36 @@
 
 	west_offset = 13
 	east_offset = 13
+
+/datum/map_template/dungeon/room/infernalsmall
+	mappath = "_maps/matthios_tomb/room/infernalsmall.dmm"
+	id = "infernalsmall"
+	width = 20
+	height = 20
+
+	west_offset = 10
+	east_offset = 10
+	north_offset = 10
+	south_offset = 10
+
+/datum/map_template/dungeon/room/infernalmedium
+	mappath = "_maps/matthios_tomb/room/infernalmedium.dmm"
+	id = "infernalmedium"
+	width = 30
+	height = 30
+
+	west_offset = 15
+	east_offset = 15
+	north_offset = 15
+	south_offset = 15
+
+/datum/map_template/dungeon/room/infernallarge
+	mappath = "_maps/matthios_tomb/room/infernallarge.dmm"
+	id = "infernallarge"
+	width = 40
+	height = 40
+
+	west_offset = 20
+	east_offset = 20
+	north_offset = 20
+	south_offset = 20
