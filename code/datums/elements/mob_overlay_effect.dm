@@ -22,20 +22,22 @@
 
 /datum/element/mob_overlay_effect/Detach(datum/source)
 	. = ..()
-	UnregisterSignal(get_turf(source), COMSIG_TURF_EXITED)
-	UnregisterSignal(get_turf(source), COMSIG_TURF_ENTERED)
-	UnregisterSignal(source, COMSIG_MOB_OVERLAY_FORCE_REMOVE)
-	UnregisterSignal(source, COMSIG_MOB_OVERLAY_FORCE_UPDATE)
+	var/turf/ours = get_turf(source)
+	// We REALLY don't want to have half humans walking around without legs
+	for(var/atom/movable/AM in ours)
+		on_remove(src, AM)
+	UnregisterSignal(ours, list(
+		COMSIG_TURF_EXITED,
+		COMSIG_TURF_ENTERED,
+		COMSIG_MOB_OVERLAY_FORCE_REMOVE,
+		COMSIG_MOB_OVERLAY_FORCE_UPDATE
+	))
 
 /datum/element/mob_overlay_effect/proc/on_remove(datum/source, datum/target)
 	SIGNAL_HANDLER
-	var/mob/mob = target
-	if(mob.get_filter(MOB_MOVING_EFFECT_MASK))
-		animate(mob.get_filter(MOB_MOVING_EFFECT_MASK), y = -32, time = 0)
-		if(ismob(mob))
-			mob.update_vision_cone()
-		for(var/mob/living/carbon/human/human in view(mob, 7))
-			human.update_vision_cone()
+	if(ismovable(target))
+		var/atom/movable/AM = target
+		AM.remove_filter(MOB_MOVING_EFFECT_MASK)
 	UnregisterSignal(target, COMSIG_ITEM_PICKUP)
 
 /datum/element/mob_overlay_effect/proc/on_add(datum/source, datum/target)
@@ -57,25 +59,13 @@
 
 	var/offset = 0
 	if(istype(target, /obj/structure/flora/tree))
-		offset = -24
+		offset -= 24
 	if(isitem(target))
 		offset += 7
-	var/mob/arrived_mob = target
-	if(arrived_mob.get_filter(MOB_MOVING_EFFECT_MASK))
-		arrived_mob.remove_filter(MOB_MOVING_EFFECT_MASK)
-		arrived_mob.add_filter(MOB_MOVING_EFFECT_MASK, 1, alpha_mask_filter(0, mask_y_offset + offset, icon('icons/effects/icon_cutter.dmi', "icon_cutter"), null, MASK_INVERSE))
-		if(isliving(arrived_mob))
-			arrived_mob.update_vision_cone()
-		for(var/mob/living/carbon/human/human in view(arrived_mob, 7))
-			human.update_vision_cone()
-	else
-		if(effect_alpha)
-			arrived_mob.add_filter(MOB_MOVING_EFFECT_MASK, 1, alpha_mask_filter(0, mask_y_offset + offset, icon('icons/effects/icon_cutter.dmi', "icon_cutter"), null, MASK_INVERSE))
-			if(isliving(arrived_mob))
-				arrived_mob.update_vision_cone()
-			for(var/mob/living/carbon/human/human in view(arrived_mob, 7))
-				human.update_vision_cone()
-		RegisterSignal(arrived_mob, COMSIG_ITEM_PICKUP, TYPE_PROC_REF(/datum/element/mob_overlay_effect, on_remove_proxy), override = TRUE)
+	var/atom/movable/arrived = target
+	if(effect_alpha)
+		arrived.add_filter(MOB_MOVING_EFFECT_MASK, 1, alpha_mask_filter(0, mask_y_offset + offset, icon('icons/effects/icon_cutter.dmi', "icon_cutter"), null, MASK_INVERSE))
+	RegisterSignal(arrived, COMSIG_ITEM_PICKUP, TYPE_PROC_REF(/datum/element/mob_overlay_effect, on_remove_proxy), override = TRUE)
 
 /datum/element/mob_overlay_effect/proc/on_remove_proxy(atom/source)
 	SIGNAL_HANDLER

@@ -54,17 +54,16 @@
 			ADD_TRAIT(src, TRAIT_IMMOBILIZED, LACKING_LOCOMOTION_APPENDAGES_TRAIT)
 
 /// Called when movement_type trait is added to the mob.
-/mob/living/carbon/on_movement_type_flag_enabled(datum/source, flag)
-	var/old_movetype = movement_type
+/mob/living/carbon/on_movement_type_flag_enabled(datum/source, flag, old_movement_type)
 	. = ..()
-	if(flag & (FLYING | FLOATING) && !(old_movetype & (FLYING | FLOATING)))
+	if(movement_type & (FLYING | FLOATING) && !(old_movement_type & (FLYING | FLOATING)))
 		remove_movespeed_modifier(MOVESPEED_ID_LIVING_LIMBLESS, TRUE)
 		REMOVE_TRAIT(src, TRAIT_FLOORED, LACKING_LOCOMOTION_APPENDAGES_TRAIT)
 		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, LACKING_LOCOMOTION_APPENDAGES_TRAIT)
 
-/mob/living/carbon/on_movement_type_flag_disabled(datum/source, flag)
+/mob/living/carbon/on_movement_type_flag_disabled(datum/source, flag, old_movement_type)
 	. = ..()
-	if(flag & (FLYING | FLOATING) && !(movement_type & (FLYING | FLOATING)))
+	if(old_movement_type & (FLYING | FLOATING) && !(movement_type & (FLYING | FLOATING)))
 		var/limbless_slowdown = 0
 		if(usable_legs < default_num_legs)
 			limbless_slowdown += (default_num_legs - usable_legs) * 3

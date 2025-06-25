@@ -536,3 +536,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// makes your footsteps completely silent
 #define TRAIT_SILENT_FOOTSTEPS "silent_footsteps"
+
+/// Trait from mob/living/update_transform()
+#define UPDATE_TRANSFORM_TRAIT "update_transform"
+
+/// Trait from ai attacks
+#define AI_ATTACK_TRAIT "ai_attack_trait"
