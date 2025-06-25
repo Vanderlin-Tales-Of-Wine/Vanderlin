@@ -396,8 +396,7 @@
 			bloodstep_overlay.alpha = alpha
 			. += bloodstep_overlay
 			if(glows)
-				bloodstep_overlay.plane = EMISSIVE_PLANE
-				. += bloodstep_overlay
+				. += mutable_appearance(bloodstep_overlay.icon, bloodstep_overlay.icon_state, plane = EMISSIVE_PLANE)
 		if(exited_dirs & Ddir)
 			var/image/bloodstep_overlay = GLOB.bloody_footprints_cache["exited-[blood_state]-[Ddir]"]
 			if(!bloodstep_overlay)
@@ -405,9 +404,7 @@
 			bloodstep_overlay.alpha = alpha
 			. += bloodstep_overlay
 			if(glows)
-				bloodstep_overlay.plane = EMISSIVE_PLANE
-				. += bloodstep_overlay
-
+				. += mutable_appearance(bloodstep_overlay.icon, bloodstep_overlay.icon_state, plane = EMISSIVE_PLANE)
 
 /obj/effect/decal/cleanable/blood/footprints/examine(mob/user)
 	. = ..()

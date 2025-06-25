@@ -82,8 +82,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	. += filling
 	var/datum/reagent/master = reagents.get_master_reagent()
 	if(master?.glows)
-		filling.plane = EMISSIVE_PLANE
-		. += filling
+		. += mutable_appearance(filling.icon, filling.icon_state, plane = EMISSIVE_PLANE)
 
 /obj/structure/fermentation_keg/attack_right(mob/user)
 	. = ..()

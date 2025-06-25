@@ -48,8 +48,7 @@
 	node.color = initial(essence.color)
 	. += node
 
-	node.plane = EMISSIVE_PLANE
-	. += node
+	. += mutable_appearance(node.icon, node.icon_state, plane = EMISSIVE_PLANE)
 
 /obj/item/essence_node_jar/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(!proximity_flag)
