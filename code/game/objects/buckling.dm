@@ -79,6 +79,8 @@
 		M.forceMove(loc)
 
 	M.buckling = null
+	if(anchored)
+		M.halt_floating_anim(NO_FLOATING_ANIM)
 	M.set_buckled(src)
 	M.setDir(dir)
 	buckled_mobs |= M
@@ -109,9 +111,9 @@
 	buckled_mob.clear_alert("buckled")
 	buckled_mob.set_glide_size(DELAY_TO_GLIDE_SIZE(buckled_mob.total_multiplicative_slowdown()))
 	buckled_mobs -= buckled_mob
+	if(anchored)
+		buckled_mob.floating_anim_check()
 	SEND_SIGNAL(src, COMSIG_MOVABLE_UNBUCKLE, buckled_mob, force)
-//		if(buckle_lying)
-//			buckled_mob.set_resting(FALSE)
 	post_unbuckle_mob(.)
 
 /atom/movable/proc/unbuckle_all_mobs(force=FALSE)

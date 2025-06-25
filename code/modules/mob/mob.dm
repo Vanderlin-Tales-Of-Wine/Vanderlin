@@ -1303,11 +1303,12 @@ GLOBAL_VAR_INIT(mobids, 1)
 	if(hydration > HYDRATION_LEVEL_FULL)
 		hydration = HYDRATION_LEVEL_FULL
 
-///Set the movement type of the mob and update it's movespeed
-/mob/setMovetype(newval)
+/mob/on_movement_type_trait_gain(datum/source, trait)
 	. = ..()
-	if(isnull(.))
-		return
+	update_movespeed(FALSE)
+
+/mob/on_movement_type_trait_loss(datum/source, trait)
+	. = ..()
 	update_movespeed(FALSE)
 
 /mob/proc/update_equipment_speed_mods()

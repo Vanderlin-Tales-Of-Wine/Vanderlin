@@ -33,8 +33,24 @@
 	var/datum/forced_movement/force_moving = null	//handled soley by forced_movement.dm
 	///Holds information about any movement loops currently running/waiting to run on the movable. Lazy, will be null if nothing's going on
 	var/datum/movement_packet/move_packet
-	/// Incase you have multiple types, you automatically use the most useful one. IE: Skating on ice, flippers on water, flying over chasm/space, etc.
+	/**
+	  * In case you have multiple types, you automatically use the most useful one.
+	  * IE: Skating on ice, flippers on water, flying over chasm/space, etc.
+	  * Should be added/removed through the ADD_MOVE_TRAIT and REMOVE_TRAIT (and variant) macros.
+	  */
 	var/movement_type = GROUND
+	/// Whether the movable has movement_type signals registered or not. See the ADD_MOVE_TRAIT macro on __DEFINES/traits.dm
+	var/has_movement_type_signals = FALSE
+	/// Whether the movable is floating, not floating or is queued for update.
+	var/floating_anim_status = NO_FLOATING_ANIM
+	/**
+	  * Stores the timer id for the floating anim update.
+	  * Used to avoid the timed event from being overridden by others that would run sooner.
+	  */
+	var/floating_halt_timerid
+	/// Stores the timer id for the next half of the floating anim loop
+	var/floating_anim_timerid
+
 	var/atom/movable/pulling
 	var/atom_flags = NONE
 	var/grab_state = 0
@@ -243,39 +259,54 @@
 		return TRUE
 
 /atom/movable/vv_edit_var(var_name, var_value)
-	var/static/list/banned_edits = list("step_x", "step_y", "step_size", "bounds")
-	var/static/list/careful_edits = list("bound_x", "bound_y", "bound_width", "bound_height")
-	if(var_name in banned_edits)
+	var/static/list/banned_edits = list("step_x" = TRUE, "step_y" = TRUE, "step_size" = TRUE, "bounds" = TRUE)
+	var/static/list/careful_edits = list("bound_x" = TRUE, "bound_y" = TRUE, "bound_width" = TRUE, "bound_height" = TRUE)
+	if(banned_edits[var_name])
 		return FALSE	//PLEASE no.
-	if((var_name in careful_edits) && (var_value % world.icon_size) != 0)
+	if((careful_edits[var_name]) && (var_value % world.icon_size) != 0)
 		return FALSE
 	switch(var_name)
-		if("x")
+		if(NAMEOF(src, x))
 			var/turf/T = locate(var_value, y, z)
 			if(T)
 				forceMove(T)
 				return TRUE
 			return FALSE
-		if("y")
+		if(NAMEOF(src, y))
 			var/turf/T = locate(x, var_value, z)
 			if(T)
 				forceMove(T)
 				return TRUE
 			return FALSE
-		if("z")
+		if(NAMEOF(src, z))
 			var/turf/T = locate(x, y, var_value)
 			if(T)
-				forceMove(T)
+				admin_teleport(T)
 				return TRUE
 			return FALSE
-		if("loc")
-			if(istype(var_value, /atom))
-				forceMove(var_value)
-				return TRUE
-			else if(isnull(var_value))
-				moveToNullspace()
+		if(NAMEOF(src, loc))
+			if(isatom(var_value) || isnull(var_value))
+				admin_teleport(var_value)
 				return TRUE
 			return FALSE
+		// if(NAMEOF(src, anchored))
+		// 	set_anchored(var_value)
+		// 	. = TRUE
+		if(NAMEOF(src, pulledby))
+			set_pulledby(var_value)
+			. = TRUE
+		if(NAMEOF(src, glide_size))
+			set_glide_size(var_value)
+			. = TRUE
+		if(NAMEOF(src, floating_anim_status))
+			if(var_value != floating_anim_status)
+				switch(var_value)
+					if(HAS_FLOATING_ANIM)
+						floating_anim_status = HAS_FLOATING_ANIM
+						do_floating_anim()
+					else
+						halt_floating_anim(var_value)
+			. = TRUE
 	return ..()
 
 /atom/movable/proc/start_pulling(atom/movable/AM, state, force = move_force, suppress_message = FALSE, obj/item/item_override)
@@ -760,12 +791,22 @@
 		var/atom/movable/AM = item
 		AM.onTransitZ(old_z,new_z)
 
-///Proc to modify the movement_type and hook behavior associated with it changing.
-/atom/movable/proc/setMovetype(newval)
-	if(movement_type == newval)
-		return
-	. = movement_type
-	movement_type = newval
+/// Called when movement_type trait is added to the mob.
+/atom/movable/proc/on_movement_type_trait_gain(datum/source, trait)
+	SIGNAL_HANDLER
+	var/old_movement_type = movement_type
+	movement_type |= GLOB.movement_type_trait_to_flag[trait]
+	if(!(old_movement_type & (FLOATING|FLYING)) && (trait == TRAIT_MOVE_FLYING || trait == TRAIT_MOVE_FLOATING))
+		floating_anim_check()
+
+/// Called when a movement_type trait is removed from the mob.
+/atom/movable/proc/on_movement_type_trait_loss(datum/source, trait)
+	SIGNAL_HANDLER
+	var/flag = GLOB.movement_type_trait_to_flag[trait]
+	if(!(initial(movement_type) & flag))
+		movement_type &= ~(GLOB.movement_type_trait_to_flag[trait])
+		if(trait == TRAIT_MOVE_FLYING || trait == TRAIT_MOVE_FLOATING && !(movement_type & (FLOATING|FLYING)))
+			halt_floating_anim(NO_FLOATING_ANIM)
 
 //Called whenever an object moves and by mobs when they attempt to move themselves through space
 //And when an object or action applies a force on src, see newtonian_move() below
@@ -817,6 +858,10 @@
 
 /atom/movable/proc/throw_at(atom/target, range, speed, mob/thrower, spin = FALSE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, extra = FALSE) //If this returns FALSE then callback will not be called.
 	. = FALSE
+
+	if(QDELETED(src))
+		CRASH("Qdeleted thing being thrown around.")
+
 	if (!target || speed <= 0)
 		return
 
@@ -852,20 +897,13 @@
 
 	. = TRUE // No failure conditions past this point.
 
-	var/datum/thrownthing/TT = new()
-	TT.thrownthing = src
-	TT.target = target
-	TT.target_turf = get_turf(target)
-	TT.init_dir = get_dir(src, target)
-	TT.maxrange = range
-	TT.speed = speed
-	TT.thrower = thrower
-	TT.diagonals_first = diagonals_first
-	TT.force = force
-	TT.callback = callback
-	TT.extra = extra
-	if(!QDELETED(thrower))
-		TT.target_zone = thrower.zone_selected
+	var/target_zone
+	if(QDELETED(thrower))
+		thrower = null //Let's not pass a qdeleting reference if any.
+	else
+		target_zone = thrower.zone_selected
+
+	var/datum/thrownthing/TT = new(src, target, get_turf(target), get_dir(src, target), range, speed, thrower, diagonals_first, force, callback, thrower, target_zone)
 
 	var/dist_x = abs(target.x - src.x)
 	var/dist_y = abs(target.y - src.y)
@@ -892,6 +930,7 @@
 	if(pulledby)
 		pulledby.stop_pulling()
 
+	halt_floating_anim(NO_FLOATING_ANIM, animate = !spin)
 	throwing = TT
 	var/turf/curloc = get_turf(src)
 	if(TT.target_turf && curloc)
@@ -988,6 +1027,7 @@ GLOBAL_VAR_INIT(pixel_diff_time, 1)
 
 	if(attacked_atom == src)
 		return //don't do an animation if attacking self
+	halt_floating_anim(animate = FALSE)
 	var/pixel_x_diff = 0
 	var/pixel_y_diff = 0
 	var/turn_dir = 1
@@ -1210,17 +1250,40 @@ GLOBAL_VAR_INIT(pixel_diff_time, 1)
 	acted_explosions += ex_id
 	return TRUE
 
-//TODO: Better floating
-/atom/movable/proc/float(on)
-	if(throwing)
+///The bouncing animation loop that stops once halt_floating_anim is called.
+/atom/movable/proc/do_floating_anim(shift = 2)
+	if(floating_anim_status == HAS_FLOATING_ANIM)
+		animate(src, pixel_y = pixel_y + shift, time = 1 SECONDS)
+		floating_anim_timerid = addtimer(CALLBACK(src, .proc/do_floating_anim, -shift), 1.1 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)
+
+///Restarts the floating animation if conditions are met.
+/atom/movable/proc/floating_anim_check(timed = FALSE)
+	if(timed)
+		floating_halt_timerid = null
+	if(floating_anim_status == HAS_FLOATING_ANIM || floating_anim_status == NEVER_FLOATING_ANIM || floating_halt_timerid)
 		return
-	if(on && !(movement_type & FLOATING))
-		animate(src, pixel_y = pixel_y + 2, time = 1 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
-		animate(pixel_y = pixel_y - 2, time = 1 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
-		setMovetype(movement_type | FLOATING)
-	else if (!on && (movement_type & FLOATING))
-		animate(src, pixel_y = initial(pixel_y), time = 1 SECONDS)
-		setMovetype(movement_type & ~FLOATING)
+	if(throwing || !(movement_type & (FLOATING|FLYING)))
+		floating_anim_status = NO_FLOATING_ANIM
+	else
+		floating_anim_status = HAS_FLOATING_ANIM
+		do_floating_anim()
+
+/// Stops the floating anim. If the update arg is TRUE, floating_anim_check(TRUE) will be a invoked after a set time indicated by the timer arg.
+/atom/movable/proc/halt_floating_anim(new_status = UPDATE_FLOATING_ANIM, timer = 1 SECONDS, animate = TRUE)
+	if(floating_anim_status == HAS_FLOATING_ANIM)
+		if(animate)
+			animate(src, pixel_y = base_pixel_y, time = 1 SECONDS)
+		else
+			pixel_y = base_pixel_y
+	if(new_status == UPDATE_FLOATING_ANIM)
+		if(!floating_halt_timerid || timeleft(floating_halt_timerid) < timer)
+			floating_halt_timerid = addtimer(CALLBACK(src, .proc/floating_anim_check, TRUE), timer, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE|TIMER_NO_HASH_WAIT)
+	else if(floating_anim_timerid)
+		deltimer(floating_anim_timerid)
+		floating_anim_timerid = null
+
+	if(floating_anim_status != NEVER_FLOATING_ANIM)
+		floating_anim_status = new_status
 
 /* Language procs */
 /atom/movable/proc/get_language_holder(shadow=TRUE)

@@ -19,6 +19,8 @@
 		real_name = name
 	faction += "[REF(src)]"
 	GLOB.mob_living_list += src
+	if(movement_type & (FLYING|FLOATING) && floating_anim_status != NEVER_FLOATING_ANIM)
+		floating_anim_check()
 	init_faith()
 	if(has_reflection)
 		create_reflection()
@@ -1525,20 +1527,25 @@
 /mob/living/proc/get_visible_name()
 	return name
 
-/mob/living/float(on)
-	if(throwing)
+/mob/living/floating_anim_check(timed = FALSE)
+	if(timed)
+		floating_halt_timerid = null
+	if(floating_anim_status == HAS_FLOATING_ANIM || floating_anim_status == NEVER_FLOATING_ANIM || floating_halt_timerid)
 		return
-	var/fixed = 0
-	if(anchored || (buckled && buckled.anchored))
-		fixed = 1
-	if(on && !(movement_type & FLOATING) && !fixed)
-		animate(src, pixel_y = pixel_y + 2, time = 10, loop = -1)
-		sleep(10)
-		animate(src, pixel_y = pixel_y - 2, time = 10, loop = -1)
-		setMovetype(movement_type | FLOATING)
-	else if(((!on || fixed) && (movement_type & FLOATING)))
-		animate(src, pixel_y = get_standard_pixel_y_offset(lying_angle), time = 10)
-		setMovetype(movement_type & ~FLOATING)
+	if(throwing || !(movement_type & (FLOATING|FLYING)) || buckled?.anchored)
+		floating_anim_status = NO_FLOATING_ANIM
+	else
+		floating_anim_status = HAS_FLOATING_ANIM
+		do_floating_anim()
+
+/mob/living/halt_floating_anim(new_status = UPDATE_FLOATING_ANIM, timer = 1 SECONDS, animate = TRUE)
+	if(floating_anim_status == HAS_FLOATING_ANIM)
+		if(animate)
+			animate(src, pixel_y = base_pixel_y + body_position_pixel_y_offset, time = 1 SECONDS)
+		else
+			pixel_y = base_pixel_y + body_position_pixel_y_offset
+		floating_anim_status = NO_FLOATING_ANIM //only stops the parent call from affecting nullifying our pixel y offset.
+	..()
 
 // The src mob is trying to strip an item from someone
 // Override if a certain type of mob should be behave differently when stripping items (can't, for example)
@@ -1627,6 +1634,7 @@
 			src << browse(null,"window=mob[REF(who)]")
 
 /mob/living/proc/do_jitter_animation(jitteriness)
+	halt_floating_anim(TRUE, 1.5 SECONDS, FALSE) //the time of the jitter animation plus 0.1
 	var/amplitude = min(4, (jitteriness/100) + 1)
 	var/pixel_x_diff = rand(-amplitude, amplitude)
 	var/pixel_y_diff = rand(-amplitude/3, amplitude/3)
@@ -1634,7 +1642,6 @@
 	var/final_pixel_y = get_standard_pixel_y_offset(lying_angle)
 	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff , time = 2, loop = 6)
 	animate(pixel_x = final_pixel_x , pixel_y = final_pixel_y , time = 2)
-	setMovetype(movement_type & ~FLOATING) // If we were without gravity, the bouncing animation got stopped, so we make sure to restart it in next life().
 
 /mob/living/proc/get_standard_pixel_x_offset(lying = 0)
 	var/_x = initial(pixel_x)

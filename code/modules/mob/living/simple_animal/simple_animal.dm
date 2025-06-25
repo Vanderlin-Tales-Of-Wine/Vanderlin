@@ -448,7 +448,9 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			new i(loc)
 
 /mob/living/simple_animal/death(gibbed)
-	movement_type &= ~FLYING
+	if(!HAS_TRAIT(src, TRAIT_MOVE_FLYING)) //Has no extrinsic source of flight
+		movement_type &= ~FLYING
+		halt_floating_anim(NO_FLOATING_ANIM)
 	if(nest)
 		nest.spawned_mobs -= src
 		nest = null
@@ -489,7 +491,9 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	icon = initial(icon)
 	icon_state = icon_living
 	density = initial(density)
-	setMovetype(initial(movement_type))
+	if(initial(movement_type) & (FLYING)) //regain its intrisic flight
+		movement_type |= FLYING
+		floating_anim_check()
 
 /mob/living/simple_animal/stripPanelUnequip(obj/item/what, mob/who, where)
 	if(!can_perform_action(who, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
