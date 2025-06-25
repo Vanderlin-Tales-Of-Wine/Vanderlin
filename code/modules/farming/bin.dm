@@ -25,8 +25,6 @@
 		create_reagents(600, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE | OPENCONTAINER)
 		base_state = icon_state
 	AddComponent(/datum/component/storage/concrete/grid/bin)
-	pixel_x = 0
-	pixel_y = 0
 	update_icon()
 
 /obj/item/bin/Destroy()

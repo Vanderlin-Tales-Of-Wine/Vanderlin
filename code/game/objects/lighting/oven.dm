@@ -27,10 +27,18 @@
 
 /obj/machinery/light/fueled/oven/OnCrafted(dirin, mob/user)
 	dir = turn(dirin, 180)
-	. = ..()
-	update_icon()
-	update_overlays()
-
+	pixel_x = base_pixel_x
+	pixel_y = base_pixel_y
+	switch(dir)
+		if(SOUTH)
+			pixel_y += 32
+		if(NORTH)
+			pixel_y -= 32
+		if(WEST)
+			pixel_x += 32
+		if(EAST)
+			pixel_x -= 32
+	return ..()
 
 /obj/machinery/light/fueled/oven/Crossed(atom/movable/AM, oldLoc)
 	return
@@ -49,23 +57,10 @@
 
 /obj/machinery/light/fueled/oven/Initialize()
 	. = ..()
-	update_icon()
 	update_overlays()
 
 /obj/machinery/light/fueled/oven/update_icon()
-	pixel_x = base_pixel_x
-	pixel_y = base_pixel_y
-	switch(dir)
-		if(SOUTH)
-			pixel_y += 32
-		if(NORTH)
-			pixel_y -= 32
-		if(WEST)
-			pixel_x += 32
-		if(EAST)
-			pixel_x -= 32
 	icon_state = "[base_state][on]"
-	update_overlays()
 
 /obj/machinery/light/fueled/oven/update_overlays()
 	. = ..()
