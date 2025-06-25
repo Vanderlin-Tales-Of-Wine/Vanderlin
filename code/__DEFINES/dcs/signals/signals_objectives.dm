@@ -19,6 +19,7 @@
 #define COMSIG_APPRENTICE_MADE "apprentice_made" // from base of /mob/living/attack_right() (mob/new_apprentice)
 #define COMSIG_ORPHAN_ADOPTED "orphan_adopted" // from base of /obj/effect/proc_holder/spell/invoked/adopt_child/cast() (mob/adoptee)
 #define COMSIG_PAIN_TRANSFERRED "pain_transferred" // from base of /obj/effect/proc_holder/spell/invoked/transfer_pain/cast() (amount)
+#define COMSIG_COIN_FLIPPED "coin_flipped" // from base of /obj/item/coin/attack_self() (mob/user, obj/item/coin/coin, outcome)
 
 // Globals
 #define COMSIG_GLOBAL_MARRIAGE "global_marriage" // from base of /obj/structure/fluff/psycross/attackby() (bride, groom)
