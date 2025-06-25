@@ -226,8 +226,10 @@
 	charging_slowdown = 2
 
 /datum/intent/shoot/neant/prewarning()
-	if(masteritem && mastermob)
-		mastermob.visible_message(span_warning("[mastermob] aims [masteritem]!"), span_notice("I aim [masteritem]."))
+	var/mob/master_mob = get_master_mob()
+	var/obj/item/master_item = get_master_item()
+	if(master_item && master_mob)
+		master_mob.visible_message("<span class='warning'>[master_mob] aims [master_item]!</span>")
 
 //┌─────────────── TURBULENTA ───────────────┐//
 
@@ -237,14 +239,68 @@
 	icon = 'icons/roguetown/weapons/godweapons.dmi'
 	icon_state = "turbulenta"
 	base_icon = "turbulenta"
+	slot_flags = ITEM_SLOT_BACK
 	pixel_y = -16
 	pixel_x = -16
 	bigboy = TRUE
 	dropshrink = 0.75
+	fire_sound = 'sound/combat/Ranged/turbulentafire.ogg'
 	possible_item_intents = list(/datum/intent/shoot/bow/turbulenta, /datum/intent/arc/bow/turbulenta)
 	force = 12
 	damfactor = 1.1
 	var/obj/item/instrument/harp/turbulenta/FUCK
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/getonmobprop(tag)
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list(
+					"shrink" = 0.5,
+					"sx" = -3,
+					"sy" = -1,
+					"nx" = 2,
+					"ny" = 1,
+					"wx" = -3,
+					"wy" = 0,
+					"ex" = -2,
+					"ey" = -2,
+					"nturn" = 99,
+					"sturn" = -100,
+					"wturn" = -102,
+					"eturn" = 100,
+					"nflip" = NONE,
+					"sflip" = EAST,
+					"wflip" = EAST,
+					"eflip" = NONE,
+					"northabove" = FALSE,
+					"southabove" = TRUE,
+					"eastabove" = TRUE,
+					"westabove" = FALSE,
+				)
+			if("onback")
+				return list(
+					"shrink" = 0.55,
+					"sx" = 1,
+					"sy" = -1,
+					"nx" = 1,
+					"ny" = -1,
+					"wx" = 2,
+					"wy" = -1,
+					"ex" = -2,
+					"ey" = -1,
+					"nturn" = 0,
+					"sturn" = 0,
+					"wturn" = 0,
+					"eturn" = 0,
+					"nflip" = NONE,
+					"sflip" = EAST,
+					"wflip" = EAST,
+					"eflip" = NONE,
+					"northabove" = TRUE,
+					"southabove" = FALSE,
+					"eastabove" = FALSE,
+					"westabove" = FALSE,
+				)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/Initialize(mapload, ...)
 	. = ..()
@@ -272,9 +328,26 @@
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/before_firing(atom/target, mob/user)
 	if(!HAS_TRAIT(user, TRAIT_CRACKHEAD))
 		return
-	var/obj/projectile/P = chambered?.BB
-	if(P?.reagents)
-		P.reagents.add_reagent(/datum/reagent/druqks, 20)
+	var/obj/projectile/arrow = chambered?.BB
+	var/old_dam
+	var/old_pen
+	if(arrow)
+		old_dam = arrow.damage
+		old_pen = arrow.armor_penetration
+		qdel(arrow)
+	arrow = new /obj/projectile/bullet/reusable/arrow/spiced(chambered)
+	arrow.damage = old_dam || arrow.damage
+	arrow.armor_penetration = old_pen || arrow.armor_penetration
+
+/obj/projectile/bullet/reusable/arrow/spiced
+	name = "spiced arrow"
+	desc = "A profane arrow infused with spice."
+	icon_state = "arrowspice_proj"
+	ammo_type = /obj/item/ammo_casing/caseless/arrow
+
+/obj/projectile/bullet/reusable/arrow/spiced/Initialize(mapload, ...)
+	. = ..()
+	reagents.add_reagent(/datum/reagent/druqks, 20)
 
 /datum/intent/shoot/bow/turbulenta
 	chargetime = 1
