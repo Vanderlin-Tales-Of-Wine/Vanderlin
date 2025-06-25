@@ -3,7 +3,17 @@
 	desc = "Create an invisible, magical eye."
 	node_x = 0
 	node_y = 0
+	cost = 0
 	spell_type = /obj/effect/proc_holder/spell/self/arcyne_eye
+
+/datum/spell_node/prestidigitation
+	name = "Prestidigitation"
+	desc = "Perform minor magical tricks."
+	node_x = 0
+	node_y = 50
+	cost = 0
+	prerequisites = list(/datum/spell_node/arcyne_eye)
+	spell_type = /obj/effect/proc_holder/spell/targeted/touch/prestidigitation
 
 /datum/spell_node/illusionist
 	name = "Illusionist"
@@ -23,16 +33,16 @@
 /datum/spell_node/nondetection
 	name = "Nondetection"
 	desc = "Hide a target from divination magic."
-	node_x = 90
-	node_y = -110
+	node_x = 80
+	node_y = -120
 	prerequisites = list(/datum/spell_node/illusionist)
 	spell_type = /obj/effect/proc_holder/spell/targeted/touch/nondetection
 
 /datum/spell_node/forcewall_weak
 	name = "Weak Force Wall"
 	desc = "Create a weak barrier of magical force."
-	node_x = 110
-	node_y = -90
+	node_x = 120
+	node_y = -80
 	prerequisites = list(/datum/spell_node/illusionist)
 	spell_type = /obj/effect/proc_holder/spell/invoked/forcewall_weak
 
@@ -294,7 +304,7 @@
 	name = "Booming Blade"
 	desc = "Evoke thunderous energy around your weapon."
 	node_x = 0
-	node_y = DOWN_Y_TIER_1 - 30
+	node_y = DOWN_Y_TIER_1
 	prerequisites = list(/datum/spell_node/air_affinity, /datum/spell_node/arcyne_affinity)
 	spell_type = /obj/effect/proc_holder/spell/invoked/boomingblade5e
 
@@ -302,7 +312,7 @@
 	name = "Blade Ward"
 	desc = "Extend your hand and trace a sigil of warding."
 	node_x = 0
-	node_y = DOWN_Y_TIER_1 - 70
+	node_y = DOWN_Y_TIER_2
 	prerequisites = list(/datum/spell_node/air_affinity, /datum/spell_node/arcyne_affinity)
 	spell_type = /obj/effect/proc_holder/spell/self/bladeward5e
 	is_passive = TRUE
@@ -356,7 +366,7 @@
 	desc = "Magically retrieve distant objects."
 	node_x = 0
 	node_y = 100
-	prerequisites = list(/datum/spell_node/arcyne_eye)
+	prerequisites = list(/datum/spell_node/prestidigitation)
 	spell_type = /obj/effect/proc_holder/spell/invoked/projectile/fetch
 
 /datum/spell_node/arcane_bolt
