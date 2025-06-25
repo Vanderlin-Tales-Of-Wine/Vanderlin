@@ -110,6 +110,7 @@
 		chem_splash(M.loc, 2, list(reagents))
 		playsound(M.loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
 		log_combat(user, M, "splashed", R)
+		SEND_SIGNAL(user, COMSIG_SPLASHED_MOB, M, reagents.reagent_list)
 		return
 	if(user.used_intent.type == INTENT_POUR)
 		if(!canconsume(M, user))
@@ -135,56 +136,6 @@
 			to_chat(user, span_notice("I swallow a gulp of [src]."))
 		addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), M, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
 		playsound(M.loc, pick(drinksounds), 100, TRUE)
-
-			if(!spillable)
-				return
-
-			if(!reagents || !reagents.total_volume)
-				to_chat(user, "<span class='warning'>[src] is empty!</span>")
-				return
-			if(user.used_intent.type == INTENT_SPLASH)
-				var/R
-				M.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [M]!</span>", \
-								"<span class='danger'>[user] splashes the contents of [src] onto you!</span>")
-				if(reagents)
-					for(var/datum/reagent/A in reagents.reagent_list)
-						R += "[A] ([num2text(A.volume)]),"
-
-				if(isturf(target) && reagents.reagent_list.len && thrownby)
-					log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]")
-					message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] at [ADMIN_VERBOSEJMP(target)].")
-				reagents.reaction(M, TOUCH)
-				chem_splash(M.loc, 2, list(reagents))
-				playsound(M.loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
-				log_combat(user, M, "splashed", R)
-				SEND_SIGNAL(user, COMSIG_SPLASHED_MOB, M, reagents.reagent_list)
-				return
-
-			else if(user.used_intent.type == INTENT_POUR)
-				if(!canconsume(M, user))
-					return
-				if(M != user)
-					M.visible_message("<span class='danger'>[user] attempts to feed [M] something.</span>", \
-								"<span class='danger'>[user] attempts to feed you something.</span>")
-					if(!do_after(user, 3 SECONDS, M))
-						return
-					if(!reagents?.total_volume)
-						return // The drink might be empty after the delay, such as by spam-feeding
-					M.visible_message(span_danger("[user] feeds [M] something."), \
-								span_danger("[user] feeds you something."))
-					log_combat(user, M, "fed", reagents.log_list())
-				else
-					// check to see if we're a noble drinking soup
-					if (ishuman(user) && istype(src, /obj/item/reagent_containers/glass/bowl))
-						var/mob/living/carbon/human/human_user = user
-						if (human_user.is_noble()) // egads we're an unmannered SLOB
-							human_user.add_stress(/datum/stressevent/noble_bad_manners)
-							if (prob(25))
-								to_chat(human_user, span_red("I've got better manners than this..."))
-					to_chat(user, span_notice("I swallow a gulp of [src]."))
-				addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), M, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
-				playsound(M.loc,pick(drinksounds), 100, TRUE)
-				return
 
 /obj/item/reagent_containers/glass/attack_obj(obj/target, mob/living/user)
 	if(user.used_intent.type == INTENT_GENERIC)
