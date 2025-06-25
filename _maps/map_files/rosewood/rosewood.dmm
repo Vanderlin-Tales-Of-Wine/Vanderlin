@@ -11441,7 +11441,7 @@
 /area/rogue/indoors/town/dwarfin)
 "gmc" = (
 /obj/structure/fake_machine/mail{
-	mailtag = "Orphanage #2"
+	mailtag = "Orphanage basement"
 	},
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/orphanage)
@@ -12085,7 +12085,7 @@
 /area/rogue/indoors/town)
 "gDU" = (
 /obj/structure/fake_machine/mail/r{
-	mailtag = "Clinic #2"
+	mailtag = "Clinic upper"
 	},
 /obj/structure/fluff/walldeco/med{
 	pixel_y = 32
@@ -18938,7 +18938,7 @@
 	dir = 1
 	},
 /obj/structure/fake_machine/mail/r{
-	mailtag = "Orphanage #1"
+	mailtag = "Orphanage upper"
 	},
 /obj/item/candle/skull,
 /turf/open/floor/carpet/royalblack,
@@ -29642,7 +29642,7 @@
 /area/rogue/indoors/town/magician)
 "qpj" = (
 /obj/structure/fake_machine/mail/r{
-	mailtag = "Clinic #1"
+	mailtag = "Clinic lower"
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/clinic_large)
