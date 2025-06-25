@@ -168,8 +168,8 @@
 	var/fill_name = fill_icon_state ? fill_icon_state : icon_state
 	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[fill_name][fill_icon_thresholds[1]]")
 
-	// if(fill_icon_under_override || reagent_flags & TRANSPARENT)
-	// 	filling.layer = layer - 0.01
+	if(fill_icon_under_override || reagent_flags & TRANSPARENT)
+		filling.layer = layer - 0.01
 
 	var/percent = round((reagents.total_volume / volume) * 100)
 	for(var/i in 1 to length(fill_icon_thresholds))
@@ -183,5 +183,5 @@
 
 	var/datum/reagent/master = reagents.get_master_reagent()
 	if(master?.glows)
-		. += mutable_appearance(filling.icon, filling.icon_state, plane = EMISSIVE_PLANE)
+		. += emissive_appearance(filling.icon, filling.icon_state)
 	. += filling
