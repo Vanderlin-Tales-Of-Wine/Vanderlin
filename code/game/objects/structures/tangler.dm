@@ -3,10 +3,8 @@
 	desc = "Green, spiky and....I think I saw it move!"
 	icon = 'icons/roguetown/mob/monster/tangler.dmi'
 	icon_state = "tangler_hidden"
+	num_random_icons = 0
 	var/faction = list(FACTION_PLANTS)
-
-/obj/structure/flora/grass/tangler/update_icon()
-	return
 
 /obj/structure/flora/grass/tangler/real
 	max_integrity = 40
@@ -35,15 +33,12 @@
 	QDEL_NULL(proximity_monitor)
 	unbuckle_all_mobs()
 	STOP_PROCESSING(SSobj, src)
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 
 /obj/structure/flora/grass/tangler/real/process()
 	if(!has_buckled_mobs())
 		if(world.time > last_eat + 5)
 			var/list/around = view(1, src)
-			for(var/mob/living/M in around)
-				HasProximity(M)
-				return
 			for(var/obj/item/F in around)
 				if(is_type_in_list(F, eatablez))
 					aggroed = world.time
@@ -53,23 +48,32 @@
 					return
 		if(world.time > aggroed + 10 SECONDS)
 			aggroed = 0
-			update_icon()
+			update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 			STOP_PROCESSING(SSobj, src)
 			return TRUE
 
-/obj/structure/flora/grass/tangler/real/update_icon()
+/obj/structure/flora/grass/tangler/real/update_icon_state()
+	. = ..()
+	if(obj_broken)
+		icon_state = "tangler-dead"
+	else if(aggroed)
+		icon_state = pick("tangler_1", "tangler_2", "tangler_3")
+	else
+		icon_state = "tangler-hidden"
+
+/obj/structure/flora/grass/tangler/real/update_name()
+	. = ..()
 	if(obj_broken)
 		name = "dry vine"
-		desc = ""
-		icon_state = "tangler-dead"
-		return
-	if(aggroed)
+	else if(aggroed)
 		name = "twisting vine"
-		var/list/icon_states = list("tangler_1", "tangler_2", "tangler_3")
-		icon_state = pick(icon_states)
 	else
 		name = "twisting shrub"
-		icon_state = "tangler-hidden"
+
+/obj/structure/flora/grass/tangler/real/update_desc()
+	. = ..()
+	if(obj_broken)
+		desc = ""
 
 /obj/structure/flora/grass/tangler/real/user_unbuckle_mob(mob/living/M, mob/user)
 	if(obj_broken)
@@ -96,33 +100,31 @@
 /obj/structure/flora/grass/tangler/real/HasProximity(atom/movable/AM)
 	if(has_buckled_mobs())
 		return
-	if(world.time > last_eat + 5)
-		var/list/around = view(src, 1)
-		if(!(AM in around))
+	if(!(world.time > last_eat + 5 SECONDS))
+		return
+	if(istype(AM, /mob/living))
+		var/mob/living/L = AM
+		if(FACTION_PLANTS in L.faction)
 			return
-		if(istype(AM, /mob/living))
-			var/mob/living/L = AM
-			if(FACTION_PLANTS in L.faction)
+		if(!aggroed)
+			if(L.m_intent != MOVE_INTENT_RUN)
 				return
-			if(!aggroed)
-				if(L.m_intent != MOVE_INTENT_RUN)
-					return
+		aggroed = world.time
+		last_eat = world.time
+		update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
+		buckle_mob(L, TRUE, check_loc = FALSE)
+		START_PROCESSING(SSobj, src)
+		if(!HAS_TRAIT(L, TRAIT_NOPAIN))
+			L.emote("painscream", forced = FALSE)
+		src.visible_message("<span class='danger'>[src] snatches [L]!</span>")
+		playsound(src.loc, "plantcross", 100, FALSE, -1)
+	else if(istype(AM, /obj/item))
+		if(is_type_in_list(AM, eatablez))
 			aggroed = world.time
 			last_eat = world.time
-			update_icon()
-			buckle_mob(L, TRUE, check_loc = FALSE)
 			START_PROCESSING(SSobj, src)
-			if(!HAS_TRAIT(L, TRAIT_NOPAIN))
-				L.emote("painscream", forced = FALSE)
-			src.visible_message("<span class='danger'>[src] snatches [L]!</span>")
-			playsound(src.loc, "plantcross", 100, FALSE, -1)
-		if(istype(AM, /obj/item))
-			if(is_type_in_list(AM, eatablez))
-				aggroed = world.time
-				last_eat = world.time
-				START_PROCESSING(SSobj, src)
-				update_icon()
-				playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
-				qdel(AM)
-				return
-			aggroed = world.time
+			update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
+			playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
+			qdel(AM)
+			return
+		aggroed = world.time
