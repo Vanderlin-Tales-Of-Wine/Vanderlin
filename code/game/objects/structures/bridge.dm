@@ -19,7 +19,7 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 	// Shift sprite down when going east/west so that people properly walk on the bridge
 	if(dir == EAST || dir == WEST)
-		pixel_y = -7
+		pixel_y = base_pixel_y - 7
 	// Choosing one of the sprite variants
 	base_icon = "planks_1"
 	icon_state = base_icon
@@ -108,7 +108,7 @@
 	// Stakes will be displayed with overlays to handle the layering
 	icon_state = ""
 	if(dir == EAST || dir == WEST)
-		pixel_y = -7
+		pixel_y = base_pixel_y - 7
 	update_icon()
 
 /obj/structure/bridge_stakes/update_overlays()

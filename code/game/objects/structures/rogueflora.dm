@@ -10,7 +10,7 @@
 	density = 1
 	max_integrity = 200
 	blade_dulling = DULLING_CUT
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, 0)
 	layer = 4.81
 	plane = GAME_PLANE_UPPER
 	attacked_sound = 'sound/misc/woodhit.ogg'
@@ -123,13 +123,12 @@
 	icon = 'icons/roguetown/misc/96x96.dmi'
 	icon_state = "t1"
 	stump_type = /obj/structure/table/wood/treestump/burnt
-	pixel_x = -32
+	SET_BASE_PIXEL(-32, 0)
 	metalizer_result = /obj/machinery/anvil
 
 /obj/structure/flora/tree/burnt/Initialize()
 	. = ..()
 	icon_state = "t[rand(1,4)]"
-
 
 /obj/structure/flora/tree/underworld
 	name = "screaming tree"
@@ -150,7 +149,7 @@
 	icon = 'icons/obj/flora/pines.dmi'
 	static_debris = list(/obj/item/ore/coal/charcoal = 1)
 	stump_type = null
-	pixel_x = -32
+	SET_BASE_PIXEL(-32, 0)
 
 /obj/structure/flora/tree/stump/pine/Initialize()
 	. = ..()
@@ -243,8 +242,7 @@
 	static_debris = list(/obj/item/grown/log/tree = 1)
 	max_integrity = 200
 	sleepy = 0.2
-	pixel_x = -14
-	pixel_y = 7
+	SET_BASE_PIXEL(-14, 7)
 	pass_flags = PASSTABLE
 
 /obj/structure/chair/bench/ancientlog/Initialize()
@@ -332,7 +330,6 @@
 			animate(pixel_x = oldx-1, time = 0.5)
 			animate(pixel_x = oldx, time = 0.5)
 			L.consider_ambush()
-	return
 
 // normal bush. Oldstyle. Kept for the managed palace hedges for now.
 /obj/structure/flora/grass/bush
@@ -475,7 +472,7 @@
 	desc = "A tall bush that has grown into a hedge."
 	icon_state = "tallbush1"
 	opacity = 1
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, 0)
 	debris = null
 	static_debris = null
 
@@ -640,7 +637,7 @@
 	density = 0
 	max_integrity = 120
 	blade_dulling = DULLING_CUT
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, 0)
 	layer = 4.81
 	attacked_sound = 'sound/misc/woodhit.ogg'
 	destroy_sound = 'sound/misc/woodhit.ogg'
@@ -700,7 +697,7 @@
 	opacity = 0
 	icon = 'icons/roguetown/misc/foliagetall.dmi'
 	alpha = 255
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, 0)
 	climb_offset = 14
 	stump_loot = /obj/item/reagent_containers/food/snacks/truffles
 
@@ -963,6 +960,5 @@
 	desc = "These large bushes are known to be well-liked by silkworms who make their nests in their dark depths."
 	icon = 'icons/mob/creacher/trolls/troll.dmi'
 	icon_state = "troll_hide"
-	pixel_x = -16
-	pixel_y = -1
+	SET_BASE_PIXEL(-16, -1)
 	silky = TRUE

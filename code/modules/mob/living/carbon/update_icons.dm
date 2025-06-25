@@ -1,7 +1,7 @@
 
 
 //IMPORTANT: Multiple animate() calls do not stack well, so try to do them all at once if you can.
-/mob/living/carbon/update_transform(forcepixel)
+/mob/living/carbon/update_transform()
 	var/matrix/ntransform = matrix(transform) //aka transform.Copy()
 	var/final_pixel_y = pixel_y
 	var/final_dir = dir
@@ -14,10 +14,9 @@
 		else //if(lying != 0)
 			if(lying_prev == 0) //Standing to lying
 				pixel_y = get_standard_pixel_y_offset()
-				final_pixel_y = get_standard_pixel_y_offset()
+				final_pixel_y =  get_standard_pixel_y_offset()
 				if(dir & (EAST|WEST)) //Facing east or west
-//					final_dir = pick(NORTH, SOUTH) //So you fall on your side rather than your face or ass
-					final_dir = SOUTH
+					final_dir = pick(NORTH, SOUTH) //So you fall on your side rather than your face or ass
 	if(resize != RESIZE_DEFAULT_SIZE)
 		changed++
 		ntransform.Scale(resize)

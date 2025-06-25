@@ -38,8 +38,7 @@
 	icon_state = "cfork"
 	item_state = "cfork"
 	icon = 'icons/roguetown/weapons/64.dmi'
-	pixel_y = -16
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, -16)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	bigboy = TRUE

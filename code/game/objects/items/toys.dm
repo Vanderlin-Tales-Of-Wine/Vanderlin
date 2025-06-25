@@ -373,8 +373,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	var/cardname = null
 	var/flipped = 0
-	pixel_x = -5
-
+	SET_BASE_PIXEL(-5, 0)
 
 /obj/item/toy/cards/singlecard/examine(mob/user)
 	. = ..()

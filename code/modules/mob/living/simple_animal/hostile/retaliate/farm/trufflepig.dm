@@ -299,9 +299,8 @@
 	icon = 'icons/roguetown/mob/trufflesniff.dmi'
 	icon_state = "foundsome"
 	appearance_flags = 0 //to avoid having TILE_BOUND in the flags, so that the 480x480 icon states let you see it no matter where you are
-	duration = 35
-	pixel_x = -224
-	pixel_y = -224
+	duration = 3.5 SECONDS
+	SET_BASE_PIXEL(-224, -224)
 
 /mob/living/simple_animal/hostile/retaliate/trufflepig/piglet
 	gender = FEMALE

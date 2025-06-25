@@ -36,7 +36,7 @@
 	speed = 5
 	move_to_delay = 5
 	ranged = TRUE
-	pixel_x = -32
+	SET_BASE_PIXEL(-32, 0)
 	aggressive = 1
 	deathmessage = "collapses to the floor with a final roar, the impact rocking the ground."
 	footstep_type = FOOTSTEP_MOB_HEAVY
@@ -631,8 +631,7 @@
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "void_blink_in"
 	layer = BELOW_MOB_LAYER
-	pixel_x = -32
-	pixel_y = -32
+	SET_BASE_PIXEL(-32, -32)
 	color = "#FF0000"
 	duration = 10
 
@@ -640,8 +639,7 @@
 	icon = 'icons/mob/96x96/ratwood_dragon.dmi'
 	icon_state = "dragon"
 	layer = ABOVE_ALL_MOB_LAYER
-	pixel_x = -32
-	duration = 10
+	SET_BASE_PIXEL(-32, 10)
 	randomdir = FALSE
 
 /obj/effect/temp_visual/dragon_flight/Initialize(mapload, negative)

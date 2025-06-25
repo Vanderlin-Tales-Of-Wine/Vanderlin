@@ -1628,7 +1628,7 @@
 	return _x + body_position_pixel_x_offset
 
 /mob/living/proc/get_standard_pixel_y_offset()
-	var/_y = initial(pixel_y)
+	var/_y = base_pixel_y
 	for(var/o in mob_offsets)
 		if(mob_offsets[o])
 			if(mob_offsets[o]["y"])

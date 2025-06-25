@@ -53,8 +53,8 @@
 		return
 
 /obj/item/coin/proc/scatter(turf/T)
-	pixel_x = rand(-8, 8)
-	pixel_y = rand(-5, 5)
+	pixel_x = base_pixel_x + rand(-8, 8)
+	pixel_y = base_pixel_y + rand(-5, 5)
 	if(isturf(T) && quantity > 1)
 		for(var/i in 2 to quantity) // exclude the first coin
 			var/spawned_type = type

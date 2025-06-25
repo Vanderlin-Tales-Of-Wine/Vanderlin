@@ -37,15 +37,15 @@
 
 /obj/machinery/light/fueled/oven/south
 	dir = SOUTH
-	pixel_y = 32 //so we see it in mapper
+	SET_BASE_PIXEL(0, 32)
 
 /obj/machinery/light/fueled/oven/west
 	dir = WEST
-	pixel_x = 32
+	SET_BASE_PIXEL(32, 0)
 
 /obj/machinery/light/fueled/oven/east
 	dir = EAST
-	pixel_x = -32
+	SET_BASE_PIXEL(-32, 0)
 
 /obj/machinery/light/fueled/oven/Initialize()
 	. = ..()
@@ -53,20 +53,19 @@
 	update_overlays()
 
 /obj/machinery/light/fueled/oven/update_icon()
-	pixel_x = 0
-	pixel_y = 0
+	pixel_x = base_pixel_x
+	pixel_y = base_pixel_y
 	switch(dir)
 		if(SOUTH)
-			pixel_y = 32
+			pixel_y += 32
 		if(NORTH)
-			pixel_y = -32
+			pixel_y -= 32
 		if(WEST)
-			pixel_x = 32
+			pixel_x += 32
 		if(EAST)
-			pixel_x = -32
+			pixel_x -= 32
 	icon_state = "[base_state][on]"
 	update_overlays()
-
 
 /obj/machinery/light/fueled/oven/update_overlays()
 	. = ..()

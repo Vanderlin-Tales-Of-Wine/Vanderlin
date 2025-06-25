@@ -463,21 +463,21 @@
 	icon_state = "shelf"
 	climbable = FALSE
 	dir = SOUTH
-	pixel_y = 32
+	SET_BASE_PIXEL(0, 32)
 
 /obj/structure/rack/shelf/big
 	icon_state = "shelf_big"
 	climbable = FALSE
 	dir = SOUTH
-	pixel_y = 16
+	SET_BASE_PIXEL(0, 16)
 
 /obj/structure/rack/shelf/biggest
 	icon_state = "shelf_biggest"
-	pixel_y = 0
+	SET_BASE_PIXEL(0, 0)
 
 /obj/structure/rack/shelf/notdense // makes the wall mounted one less weird in a way, got downside of offset when loaded again tho
 	density = FALSE
-	pixel_y = 24
+	SET_BASE_PIXEL(0, 24)
 
 // Necessary to avoid a critical bug with disappearing weapons.
 /obj/structure/rack/attackby(obj/item/W, mob/user, params)

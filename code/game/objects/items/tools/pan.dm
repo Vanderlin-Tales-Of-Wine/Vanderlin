@@ -34,8 +34,8 @@
 /obj/item/cooking/pan/proc/add_to_visible(obj/item/our_item)
 	var/mutable_appearance/MA = mutable_appearance(our_item.icon, our_item.icon_state)
 	MA.color = our_item.color
-	MA.pixel_x = initial(our_item.pixel_x) + rand(-3, 3)
-	MA.pixel_y = initial(our_item.pixel_y) + rand(-3, 3)
+	MA.pixel_x = our_item.base_pixel_x + rand(-3, 3)
+	MA.pixel_y = our_item.base_pixel_y + rand(-3, 3)
 	MA.vis_flags = VIS_INHERIT_LAYER | VIS_INHERIT_PLANE | VIS_INHERIT_ID
 	MA.blend_mode = BLEND_INSET_OVERLAY
 	MA.transform *= 0.6

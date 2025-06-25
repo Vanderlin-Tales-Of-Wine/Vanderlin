@@ -208,7 +208,7 @@
 	name = "noose"
 	desc = "Abandon all hope."
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
-	pixel_y = 10
+	SET_BASE_PIXEL(0, 10)
 	icon_state = "noose"
 	can_buckle = 1
 	layer = 4.26
@@ -228,7 +228,7 @@
 	name = "gallows"
 	desc = "Stranded and hanging, limp and dead."
 	icon_state = "gallows"
-	pixel_y = 0
+	SET_BASE_PIXEL(0, 0)
 	max_integrity = 100
 
 /obj/structure/noose/Destroy()
@@ -334,6 +334,6 @@
 			else
 				buckled_mob.visible_message("<span class='danger'>[buckled_mob] drops from the noose!</span>")
 				buckled_mob.Knockdown(60)
-				buckled_mob.pixel_y = initial(buckled_mob.pixel_y)
-				buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
+				buckled_mob.pixel_y = buckled_mob.base_pixel_y
+				buckled_mob.pixel_x = buckled_mob.base_pixel_x
 				unbuckle_all_mobs(force=1)

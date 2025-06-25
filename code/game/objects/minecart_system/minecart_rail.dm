@@ -76,7 +76,7 @@
 				if(dir == WEST || dir == EAST)
 					dir = direction
 					set_minecart_dirs(initial = TRUE)
-					pixel_y = 7
+					pixel_y = base_pixel_y + 7
 				icon_state = "vertical_track"
 				found = TRUE
 				break

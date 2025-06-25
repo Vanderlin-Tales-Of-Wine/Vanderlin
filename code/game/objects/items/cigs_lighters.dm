@@ -343,8 +343,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/face/cigarette/rollie/Initialize()
 	. = ..()
-	pixel_x = rand(-5, 5)
-	pixel_y = rand(-5, 5)
+	pixel_x = base_pixel_x + rand(-5, 5)
+	pixel_y = base_pixel_y + rand(-5, 5)
 
 /obj/item/clothing/face/cigarette/rollie/nicotine
 	list_reagents = list(/datum/reagent/drug/nicotine = 60)
@@ -364,8 +364,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/cigbutt/Initialize()
 	. = ..()
-	pixel_x = rand(-5, 5)
-	pixel_y = rand(-5, 5)
+	pixel_x = base_pixel_x + rand(-5, 5)
+	pixel_y = base_pixel_y + rand(-5, 5)
 
 /obj/item/cigbutt
 	name = "cigarette butt"

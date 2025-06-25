@@ -5,8 +5,7 @@
 	icon_state = "rat"
 	icon_living = "rat"
 	icon_dead = "rat1"
-	pixel_x = -16
-	pixel_y = -8
+	SET_BASE_PIXEL(-16, -8)
 
 	faction = list(FACTION_RATS)
 	emote_hear = list("squeaks.")
@@ -80,8 +79,7 @@
 	gender = PLURAL
 	icon_state = "ratbones"
 	icon = 'icons/roguetown/mob/monster/bigrat.dmi'
-	pixel_x = -16
-	pixel_y = -8
+	SET_BASE_PIXEL(-16, -8)
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/Initialize()
 	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands

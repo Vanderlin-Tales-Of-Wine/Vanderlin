@@ -283,8 +283,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	. = ..()
 
 	if(!pixel_x && !pixel_y && !bigboy)
-		pixel_x = rand(-5,5)
-		pixel_y = rand(-5,5)
+		pixel_x = base_pixel_x + rand(-5,5)
+		pixel_y = base_pixel_y + rand(-5,5)
 
 	if(twohands_required)
 		has_inspect_verb = TRUE
@@ -719,11 +719,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		qdel(src)
 		return
 	pixel_x = base_pixel_x
-	pixel_y = initial(pixel_y)
+	pixel_y = base_pixel_y
 	if(isturf(loc))
 		if(!ontable())
 			var/oldy = pixel_y
-			pixel_y = pixel_y+5
+			pixel_y += 5
 			animate(src, pixel_y = oldy, time = 0.5)
 	if(altgripped || wielded)
 		ungrip(user, FALSE)
@@ -941,8 +941,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		. = callback.Invoke()
 	item_flags &= ~IN_INVENTORY
 	if(!pixel_y && !pixel_x)
-		pixel_x = rand(-8,8)
-		pixel_y = rand(-8,8)
+		pixel_x = base_pixel_x + rand(-8,8)
+		pixel_y = base_pixel_y + rand(-8,8)
 
 
 /obj/item/proc/remove_item_from_storage(atom/newLoc) //please use this if you're going to snowflake an item out of a obj/item/storage

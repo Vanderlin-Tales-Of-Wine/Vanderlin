@@ -84,9 +84,7 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 	icon_state = "rune"
 	vis_flags = NONE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	pixel_x = -8
-	pixel_y = -8
-
+	SET_BASE_PIXEL(-8, -8)
 	var/datum/weakref/mob
 	var/original_color
 
@@ -113,8 +111,7 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 	plane = GAME_PLANE_UPPER
 	layer = ABOVE_ALL_MOB_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	pixel_x = -8
-	pixel_y = -8
+	SET_BASE_PIXEL(-8, -8)
 	duration = 1.8 SECONDS
 	var/datum/weakref/mob
 
@@ -139,7 +136,7 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 	plane = GAME_PLANE_UPPER
 	layer = ABOVE_ALL_MOB_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	pixel_y = -8
+	SET_BASE_PIXEL(0, -8)
 	duration = 3.8 SECONDS
 	var/datum/weakref/mob
 
