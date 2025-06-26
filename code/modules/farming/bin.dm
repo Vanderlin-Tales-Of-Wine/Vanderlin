@@ -19,15 +19,12 @@
 	blade_dulling = DULLING_BASHCHOP
 	obj_flags = CAN_BE_HIT
 
-/obj/item/bin/alt	// probably unnecessary
-	icon_state = "washbin2"
-
 /obj/item/bin/Initialize()
+	. = ..()
 	if(!base_state)
 		create_reagents(600, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE | OPENCONTAINER)
 		base_state = icon_state
 	AddComponent(/datum/component/storage/concrete/grid/bin)
-	. = ..()
 	pixel_x = 0
 	pixel_y = 0
 	update_icon()

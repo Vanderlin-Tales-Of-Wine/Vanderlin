@@ -12,10 +12,6 @@
 	var/def_zone
 	pass_flags = PASSTABLE
 
-
-/obj/effect/spawner
-	name = "object spawner"
-
 /obj/effect/list_container
 	name = "list container"
 

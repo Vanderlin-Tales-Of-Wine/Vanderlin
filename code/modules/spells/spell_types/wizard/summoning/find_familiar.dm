@@ -11,7 +11,7 @@
 	movement_interrupt = FALSE
 	charging_slowdown = 3
 	sound = 'sound/blank.ogg'
-	overlay_state = "forcewall"
+	overlay_state = "zad"
 	range = -1
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane

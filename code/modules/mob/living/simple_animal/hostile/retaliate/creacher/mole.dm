@@ -15,8 +15,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/mole/Initialize()
 	. = ..()
-	if(tame)
-		tamed(owner)
+
 	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
 
 /mob/living/simple_animal/hostile/retaliate/mole
@@ -30,7 +29,6 @@
 	faction = list(FACTION_ORCS)
 	emote_hear = null
 	emote_see = null
-	turns_per_move = 2
 	move_to_delay = 7
 	vision_range = 7
 	aggro_vision_range = 9
@@ -199,6 +197,5 @@
 
 /mob/living/simple_animal/hostile/retaliate/mole/briars/Initialize()
 	. = ..()
-	if(tame)
-		tamed(owner)
+
 	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)

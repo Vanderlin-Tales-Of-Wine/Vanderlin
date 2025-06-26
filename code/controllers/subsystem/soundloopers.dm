@@ -67,7 +67,7 @@ SUBSYSTEM_DEF(soundloopers)
 		if(!our_sound)
 			continue //something fucked up and the loop has no cursound, wups. this should basically never happen
 
-		mob.playsound_local(parent_turf, PS.cursound, PS.volume, PS.vary, PS.frequency, PS.falloff, PS.channel, FALSE, our_sound, repeat = PS)
+		mob.playsound_local(parent_turf, PS.cursound, PS.volume, PS.vary, PS.frequency, PS.falloff_exponent, PS.channel, FALSE, our_sound, falloff_distance = PS.falloff_distance, repeat = PS)
 
 	//Now we check how far away etc we are
 	for(var/datum/looping_sound/loop as anything in played_loops)

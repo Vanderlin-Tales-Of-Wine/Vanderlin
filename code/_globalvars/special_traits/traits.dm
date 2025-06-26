@@ -115,6 +115,7 @@
 	weight = 100
 
 /datum/special_trait/beautiful/on_apply(mob/living/carbon/human/character, silent)
+	REMOVE_TRAIT(character, TRAIT_UGLY, TRAIT_GENERIC)
 	ADD_TRAIT(character, TRAIT_BEAUTIFUL, "[type]")
 
 //positive
@@ -497,12 +498,12 @@
 	QDEL_NULL(character.beltr)
 	QDEL_NULL(character.backr)
 	QDEL_NULL(character.head)
-	character.equip_to_slot_or_del(new /obj/item/clothing/pants/tights/random(character), SLOT_PANTS)
-	character.equip_to_slot_or_del(new /obj/item/clothing/armor/chainmail(character), SLOT_ARMOR)
-	character.equip_to_slot_or_del(new /obj/item/storage/belt/leather(character), SLOT_BELT)
-	character.equip_to_slot_or_del(new /obj/item/storage/belt/pouch/coins/rich(character), SLOT_BELT_R)
-	character.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(character), SLOT_BACK_R)
-	character.equip_to_slot_or_del(new /obj/item/clothing/shoes/nobleboot(character), SLOT_SHOES)
+	character.equip_to_slot_or_del(new /obj/item/clothing/pants/tights/random(character), ITEM_SLOT_PANTS)
+	character.equip_to_slot_or_del(new /obj/item/clothing/armor/chainmail(character), ITEM_SLOT_ARMOR)
+	character.equip_to_slot_or_del(new /obj/item/storage/belt/leather(character), ITEM_SLOT_BELT)
+	character.equip_to_slot_or_del(new /obj/item/storage/belt/pouch/coins/rich(character), ITEM_SLOT_BELT_R)
+	character.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(character), ITEM_SLOT_BACK_R)
+	character.equip_to_slot_or_del(new /obj/item/clothing/shoes/nobleboot(character), ITEM_SLOT_SHOES)
 	character.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 	character.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 	character.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
@@ -599,3 +600,22 @@
 	ADD_TRAIT(character, TRAIT_NOPAIN, "[type]")
 	ADD_TRAIT(character, TRAIT_TOXIMMUNE, "[type]")
 	character.update_body()
+
+/datum/special_trait/overcompensating
+	name = "Overcompensating"
+	greet_text = span_boldwarning("I have an enormous sword on my back, I had it crafted specially for me, it left me peniless, but now nobody will mention my small pintle!.")
+	allowed_jobs = list(/datum/job/vagrant)
+	req_text = "Be a Beggar"
+	weight = 10
+
+/datum/special_trait/overcompensating/on_apply(mob/living/carbon/human/character, silent)
+	QDEL_NULL(character.wear_pants)
+	QDEL_NULL(character.wear_shirt)
+	QDEL_NULL(character.wear_armor)
+	QDEL_NULL(character.shoes)
+	QDEL_NULL(character.belt)
+	QDEL_NULL(character.beltl)
+	QDEL_NULL(character.beltr)
+	QDEL_NULL(character.backr)
+	QDEL_NULL(character.head)
+	character.equip_to_slot_or_del(new /obj/item/weapon/sword/long/greatsword/gutsclaymore(character), ITEM_SLOT_BACK_R)

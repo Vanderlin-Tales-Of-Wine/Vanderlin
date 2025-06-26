@@ -55,4 +55,4 @@
 						span_red("The leech transforms into a holy abyssoid leech!"))
 	SEND_SIGNAL(user, COMSIG_ABYSSOID_CREATED)
 
-	return TRUE
+	return ..()

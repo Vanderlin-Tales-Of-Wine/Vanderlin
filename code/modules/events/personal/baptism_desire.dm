@@ -5,7 +5,7 @@
 	weight = 7
 	earliest_start = 10 MINUTES
 	max_occurrences = 1
-	min_players = 30
+	min_players = 35
 
 	tags = list(
 		TAG_MAGIC,
@@ -22,6 +22,8 @@
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/divine/noc))
 			continue
+		if(!H.is_noble())
+			continue
 		if(H.mana_pool && H.mana_pool.intrinsic_recharge_sources == NONE)
 			return TRUE
 	return FALSE
@@ -34,6 +36,8 @@
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/noc))
 			continue
+		if(!human_mob.is_noble())
+			continue
 		if(human_mob.mana_pool && human_mob.mana_pool.intrinsic_recharge_sources == NONE)
 			valid_targets += human_mob
 
@@ -45,7 +49,7 @@
 	var/datum/objective/baptism/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE NOC'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Noc demands that you learn the ways of the arcane! Seek baptism in the mana fountain to earn Noc's favor!"))
 	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/mystical (4).ogg', 100)
 

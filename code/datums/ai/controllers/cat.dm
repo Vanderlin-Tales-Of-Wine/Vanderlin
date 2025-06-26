@@ -12,10 +12,6 @@
 		BB_CAT_SIT_CHANCE = 1,
 		BB_CAT_GET_UP_CHANCE = 2,
 		BB_CAT_GROOM_CHANCE = 1,
-
-		BB_BABIES_PARTNER_TYPES = list(/mob/living/simple_animal/pet/cat),
-		BB_BABIES_CHILD_TYPES = list(/mob/living/simple_animal/pet/cat/kitten = 100),
-
 	)
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/pet_planning,

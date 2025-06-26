@@ -26,6 +26,7 @@
 
 	miracle = FALSE
 
+	overlay_state = "wolf_head"
 	invocation = "Teeth of a serpent."
 	invocation_type = "whisper" //can be none, whisper, emote and shout
 // Notes: Bard, Sorcerer, Warlock, Wizard
@@ -45,7 +46,7 @@
 			ADD_TRAIT(extra_target, TRAIT_POISONBITE, TRAIT_GENERIC)
 			extra_target.visible_message(span_info("[extra_target] looks more primal!"), span_info("You feel more primal."))
 
-	return TRUE
+	return ..()
 
 /datum/status_effect/buff/duration_increase/primalsavagery5e
 	id = "primal savagery"

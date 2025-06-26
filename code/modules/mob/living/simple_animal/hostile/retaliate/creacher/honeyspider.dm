@@ -7,7 +7,6 @@
 	icon_dead = "honeys-dead"
 
 	faction = list("bugs")
-	turns_per_move = 4
 	move_to_delay = 2
 	vision_range = 5
 	aggro_vision_range = 5
@@ -52,7 +51,7 @@
 
 	ai_controller = /datum/ai_controller/spider
 
-
+	var/production = 0
 
 	var/static/list/pet_commands = list(
 		/datum/pet_command/idle,
@@ -82,13 +81,13 @@
 	base_intents = list(/datum/intent/simple/bite)
 
 /mob/living/simple_animal/hostile/retaliate/spider/Initialize()
+	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands // due to signal overridings from pet commands
 	. = ..()
 	gender = MALE
 	if(prob(33))
 		gender = FEMALE
 	update_icon()
 
-	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
 
 	ADD_TRAIT(src, TRAIT_WEBWALK, TRAIT_GENERIC)

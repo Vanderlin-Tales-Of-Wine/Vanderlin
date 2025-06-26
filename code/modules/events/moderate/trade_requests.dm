@@ -75,6 +75,8 @@
 	info += "<h2 style='color:#06080F;font-family:\"Segoe Script\"'>Trade Request</h2>"
 	info += "<hr/>"
 
+	if(!requests)
+		return
 	if(requests.len)
 		info += "<ul>"
 		for(var/datum/trade_request/request in requests)
