@@ -3353,9 +3353,6 @@
 	dir = 1;
 	icon_state = "longtable"
 	},
-/obj/item/chalk,
-/obj/item/chalk,
-/obj/item/chalk,
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician)
 "bWD" = (
@@ -27732,9 +27729,6 @@
 	dir = 10;
 	icon_state = "tablewood2"
 	},
-/obj/item/storage/magebag,
-/obj/item/storage/magebag,
-/obj/item/storage/magebag,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/magician)
 "rJi" = (
