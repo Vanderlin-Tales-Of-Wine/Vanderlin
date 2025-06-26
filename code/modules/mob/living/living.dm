@@ -63,6 +63,8 @@
 /mob/living/proc/create_reflection()
 	//Add custom reflection image
 	reflective_icon = copy_appearance_filter_overlays(appearance)
+	if(render_target)
+		reflective_icon.render_source = render_target
 	reflective_icon.plane = REFLECTION_PLANE
 	reflective_icon.pixel_y = -32
 	reflective_icon.transform = matrix().Scale(1, -1)
@@ -86,6 +88,8 @@
 		create_reflection()
 	cut_overlay(reflective_icon)
 	reflective_icon = copy_appearance_filter_overlays(appearance)
+	if(render_target)
+		reflective_icon.render_source = render_target
 	reflective_icon.plane = REFLECTION_PLANE
 	reflective_icon.pixel_y = -32
 	reflective_icon.transform = matrix().Scale(1, -1)
