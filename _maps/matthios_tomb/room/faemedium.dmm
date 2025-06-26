@@ -34,12 +34,6 @@
 /obj/structure/wild_plant/nospread/manabloom,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
-"m" = (
-/mob/living/simple_animal/hostile/retaliate/mole{
-	faction = list("fae")
-	},
-/turf/open/floor/grass,
-/area/rogue/under/tomb/wilds)
 "n" = (
 /obj/structure/flora/grass,
 /obj/structure/wild_plant/nospread/manabloom,
@@ -469,7 +463,7 @@ a
 x
 x
 v
-m
+Q
 x
 d
 d
