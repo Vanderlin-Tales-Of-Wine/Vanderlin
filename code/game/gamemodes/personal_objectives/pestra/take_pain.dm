@@ -32,7 +32,7 @@
 		to_chat(owner.current, span_notice("The pain is nearly overwhelming, but you can sense you're close to completing Pestra's task."))
 
 	if(total_pain_taken >= target_pain)
-		to_chat(owner.current, span_greentext("You have taken enough pain from others, completing Pestra's objective! Your sacrifice is honored."))
+		to_chat(owner.current, span_greentext("You have taken enough pain from others, completing Pestra's objective! Your sacrifice is rewarded."))
 		owner.current.adjust_triumphs(2)
 		completed = TRUE
 		adjust_storyteller_influence("Pestra", 15)
@@ -40,4 +40,4 @@
 		UnregisterSignal(owner.current, COMSIG_PAIN_TRANSFERRED)
 
 /datum/objective/take_pain/update_explanation_text()
-	explanation_text = "Transfer enough pain from others to yourself as an act of mercy and devotion to Pestra."
+	explanation_text = "Take enough pain from others upon yourself as an act of mercy and devotion to Pestra."

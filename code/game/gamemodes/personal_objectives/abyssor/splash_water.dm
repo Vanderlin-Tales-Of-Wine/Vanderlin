@@ -1,5 +1,5 @@
 /datum/objective/abyssor_splash
-	name = "Abyssor's Rage"
+	name = "Splash Water"
 	triumph_count = 0
 
 /datum/objective/abyssor_splash/on_creation()
@@ -18,7 +18,6 @@
 	if(completed)
 		return
 
-	// Calculate total water volume (including subtypes)
 	var/water_volume = 0
 	for(var/reagent_type in reagents_splashed)
 		if(ispath(reagent_type, /datum/reagent/water))
@@ -26,8 +25,6 @@
 
 	if(water_volume >= 10)
 		complete_objective(target)
-	else
-		to_chat(owner.current, span_warning("You need at least 10 units of water to satisfy Abyssor's rage!"))
 
 /datum/objective/abyssor_splash/proc/complete_objective(mob/target)
 	to_chat(owner.current, span_greentext("You've unleashed Abyssor's rage upon [target]!"))
@@ -38,4 +35,4 @@
 	UnregisterSignal(owner.current, COMSIG_SPLASHED_MOB)
 
 /datum/objective/abyssor_splash/update_explanation_text()
-	explanation_text = "Splash someone with water to unleash Abyssor's rage."
+	explanation_text = "Abyssor is RAGING! Splash an ingrate who forgot his name with a bucket full of water!"

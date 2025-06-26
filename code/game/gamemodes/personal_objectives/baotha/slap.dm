@@ -1,5 +1,5 @@
 /datum/objective/ass_slap
-	name = "Baotha's Desire"
+	name = "Slap Asses"
 	triumph_count = 0
 	var/slaps_completed = 0
 	var/slaps_required = 3
@@ -24,10 +24,10 @@
 	if(slaps_completed >= slaps_required)
 		complete_objective()
 	else
-		to_chat(owner.current, span_notice("Ass slapped! [slaps_required - slaps_completed] more to go!"))
+		to_chat(owner.current, span_notice("Ass slapped! [slaps_required - slaps_completed] more complete Baotha's will!"))
 
 /datum/objective/ass_slap/proc/complete_objective()
-	to_chat(owner.current, span_greentext("You've satisfied Baotha's desires with your slaps!"))
+	to_chat(owner.current, span_greentext("You've satisfied Baotha's desires with your ass slaps!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Baotha", 15)

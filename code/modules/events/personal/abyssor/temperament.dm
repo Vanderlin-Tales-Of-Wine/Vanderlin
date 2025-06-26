@@ -54,7 +54,7 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE ABYSSOR'S CHOSEN!"))
 	if(calm)
-		to_chat(chosen_one, span_notice("Sea takes and sea gives. Abyssor is calm at the moment, take a relaxing bath to share his mood!"))
+		to_chat(chosen_one, span_notice("Abyssor is calm at the moment. Take a relaxing bath while wearing his amulet to honor him!"))
 	else
 		to_chat(chosen_one, span_notice("Abyssor is RAGING like a storm! Splash an ingrate who forgot his name with a bucket full of water!"))
 	chosen_one.playsound_local(chosen_one, 'sound/items/bucket_transfer (2).ogg', 100)

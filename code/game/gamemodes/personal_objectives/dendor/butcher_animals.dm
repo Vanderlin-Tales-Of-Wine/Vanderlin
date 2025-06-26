@@ -1,8 +1,8 @@
 /datum/objective/butcher_animals
-	name = "Dendor's Hunt"
+	name = "Butcher Animals"
 	triumph_count = 0
-	var/animals_required = 2
 	var/animals_butchered = 0
+	var/animals_required = 2
 
 /datum/objective/butcher_animals/on_creation()
 	. = ..()
@@ -24,7 +24,7 @@
 	if(animals_butchered >= animals_required)
 		complete_objective()
 	else
-		to_chat(owner.current, span_notice("Animal butchered! Butcher [animals_required - animals_butchered] more to complete Dendor's trial."))
+		to_chat(owner.current, span_notice("Animal butchered! Butcher [animals_required - animals_butchered] more to complete Dendor's will."))
 
 /datum/objective/butcher_animals/proc/complete_objective()
 	to_chat(owner.current, span_greentext("You've butchered enough animals to satisfy Dendor!"))

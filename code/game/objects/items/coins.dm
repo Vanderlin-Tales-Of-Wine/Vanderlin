@@ -281,6 +281,9 @@
 	flip_cd = world.time
 	playsound(user, 'sound/foley/coinphy (1).ogg', 100, FALSE)
 	var/flip_outcome = rigged_outcome ? rigged_outcome : prob(50)
+	if(rigged_outcome)
+		record_featured_stat(FEATURED_STATS_CRIMINALS, user)
+		GLOB.vanderlin_round_stats[STATS_GAMES_RIGGED]++
 	var/outcome_text
 	switch(flip_outcome)
 		if(1)

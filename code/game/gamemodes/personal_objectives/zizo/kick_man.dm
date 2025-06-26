@@ -1,5 +1,5 @@
 /datum/objective/kick_groin
-	name = "Zizo's Sacred Kick"
+	name = "Kick Groin"
 	triumph_count = 0
 
 /datum/objective/kick_groin/on_creation()
@@ -18,12 +18,12 @@
 	if(completed || zone_hit != BODY_ZONE_PRECISE_GROIN)
 		return
 	if(damage_blocked)
-		to_chat(owner.current, span_warning("Your kick to [target]'s groin was blocked by armor!"))
+		to_chat(owner.current, span_warning("The kick must inflict actual PAIN to please Zizo!"))
 	else
 		complete_objective(target)
 
 /datum/objective/kick_groin/proc/complete_objective(mob/living/target)
-	to_chat(owner.current, span_greentext("You've delivered Zizo's sacred kick to [target]'s groin!"))
+	to_chat(owner.current, span_greentext("You've established dominance over this man and completed Zizo's objective!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Zizo", 15)
@@ -31,4 +31,4 @@
 	UnregisterSignal(owner.current, COMSIG_MOB_KICK)
 
 /datum/objective/kick_groin/update_explanation_text()
-	explanation_text = "Kick someone in the groin to honor Zizo's divine will."
+	explanation_text = "Kick a man in the balls to show your dominance and earn Zizo's approval!"

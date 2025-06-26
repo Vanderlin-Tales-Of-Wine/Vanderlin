@@ -15,7 +15,7 @@
 
 /datum/objective/retainer/proc/on_retainer_recruited(datum/source, mob/living/carbon/human/recruiter, mob/living/carbon/human/recruit, new_role)
 	SIGNAL_HANDLER
-	if(recruiter != owner.current || new_role != "Retainer of [recruiter.real_name]")
+	if(completed || recruiter != owner.current || new_role != "Retainer of [recruiter.real_name]")
 		return
 
 	retainers_recruited++
@@ -26,11 +26,11 @@
 	to_chat(owner.current, span_greentext("You have recruited a retainer and completed Astrata's objective!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
-	adjust_storyteller_influence("Astrata", 10)
+	adjust_storyteller_influence("Astrata", 15)
 	escalate_objective()
 
 /datum/objective/retainer/update_explanation_text()
-	explanation_text = "Recruit atleast one retainer to serve you and to demonstrate your ability to lead to Astrata."
+	explanation_text = "Recruit at least one retainer to serve you and to demonstrate your ability to lead to Astrata."
 
 /obj/effect/proc_holder/spell/self/convertrole/retainer
 	name = "Recruit Retainer"

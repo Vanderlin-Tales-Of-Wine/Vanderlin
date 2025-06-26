@@ -23,10 +23,10 @@
 	spits_done++
 
 	if(spits_done < spits_required)
-		to_chat(owner.current, span_notice("Inhumen scorned! Scorn [spits_required - spits_done] more to complete the task!"))
+		to_chat(owner.current, span_notice("Inhumen scorned! Scorn [spits_required - spits_done] more to complete the objective!"))
 
 	if(spits_done >= spits_required)
-		to_chat(owner.current, span_greentext("You have scorned the inhumen and completed Astrata's objective!"))
+		to_chat(owner.current, span_greentext("You have scorned enough inhumen and completed Astrata's objective!"))
 		owner.current.adjust_triumphs(1)
 		completed = TRUE
 		adjust_storyteller_influence("Astrata", 10)

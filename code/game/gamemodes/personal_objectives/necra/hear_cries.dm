@@ -30,13 +30,20 @@
 		return
 
 	if(!istype(get_area(user), church_area))
-		return // Not in church area
+		return
+
+	var/amulet_found = FALSE
+	for(var/obj/item/clothing/neck/current_item in user.get_equipped_items(TRUE))
+		if(current_item.type in list(/obj/item/clothing/neck/psycross/silver/necra))
+			amulet_found = TRUE
+
+	if(!amulet_found)
+		return
 
 	time_spent += check_interval
 
-	// Occasionally play a whisper from the dead
-	if(prob(10) && GLOB.last_messages.len)
-		var/message = pick(GLOB.last_messages)
+	if(prob(20) && GLOB.last_messages.len)
+		var/message = pick(GLOB.last_messages - heard_messages)
 		to_chat(user, span_warning("[message]"))
 		heard_messages += message
 		user.playsound_local(user, 'sound/effects/ghost.ogg', 25)
@@ -53,4 +60,4 @@
 	STOP_PROCESSING(SSprocessing, src)
 
 /datum/objective/listen_whispers/update_explanation_text()
-	explanation_text = "Spend at least [time_required / (1 MINUTES)] minutes in the church area to listen to the whispers of the dead and commune with Necra."
+	explanation_text = "Necra wants you to understand death better. Spend at least [time_required / (1 MINUTES)] minutes in the church listening to the whispers of the dead while wearing amulet of Necra."

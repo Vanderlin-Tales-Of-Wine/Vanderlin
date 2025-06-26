@@ -1,5 +1,5 @@
 /datum/objective/ultimate_sacrifice
-	name = "Ravox's Ultimate Sacrifice"
+	name = "Ultimate Sacrifice"
 	triumph_count = 0
 
 /datum/objective/ultimate_sacrifice/on_creation()
@@ -9,4 +9,4 @@
 	update_explanation_text()
 
 /datum/objective/ultimate_sacrifice/update_explanation_text()
-	explanation_text = "Use Ravox's gift of Ultimate Sacrifice to revive another at the cost of your own life. You cannot be revived after using this power."
+	explanation_text = "Make the highest sacrifice by giving your own life to save another in the name of Ravox."

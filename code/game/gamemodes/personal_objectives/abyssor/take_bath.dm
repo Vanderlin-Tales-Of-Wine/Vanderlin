@@ -1,5 +1,5 @@
 /datum/objective/abyssor_bath
-	name = "Abyssor's Calm"
+	name = "Take Bath"
 	triumph_count = 0
 
 /datum/objective/abyssor_bath/on_creation()
@@ -17,16 +17,26 @@
 	SIGNAL_HANDLER
 	if(completed)
 		return
+	if(!owner.current)
+		return
+
+	var/amulet_found = FALSE
+	for(var/obj/item/clothing/neck/current_item in owner.current.get_equipped_items(TRUE))
+		if(current_item.type in list(/obj/item/clothing/neck/psycross/silver/abyssor))
+			amulet_found = TRUE
+
+	if(!amulet_found)
+		return
 
 	complete_objective()
 
 /datum/objective/abyssor_bath/proc/complete_objective()
-	to_chat(owner.current, span_greentext("The calming waters have pleased Abyssor!"))
+	to_chat(owner.current, span_greentext("You have honored Abyssor by taking a relaxing bath while wearing his amulet!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
-	adjust_storyteller_influence("Abyssor", 15)
+	adjust_storyteller_influence("Abyssor", 10)
 	escalate_objective()
 	UnregisterSignal(owner.current, COMSIG_BATH_TAKEN)
 
 /datum/objective/abyssor_bath/update_explanation_text()
-	explanation_text = "Abyssor is calm at the moment, and so is the sea. Take a relaxing bath to honor him!"
+	explanation_text = "Abyssor is calm at the moment. Take a relaxing bath while wearing his amulet to honor him!"
