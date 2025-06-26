@@ -15,10 +15,10 @@
 	AddComponent(/datum/component/ai_aggro_system)
 	AddComponent(/datum/component/combat_noise, list("rage" = 1, "scream" = 1))
 
-/mob/living/carbon/human/species/species/triton/no_equipment
+/mob/living/carbon/human/species/triton/no_equipment
 	ai_controller = /datum/ai_controller/human_npc
 
-/mob/living/carbon/human/species/species/triton/no_equipment/Initialize()
+/mob/living/carbon/human/species/triton/no_equipment/Initialize()
 	. = ..()
 	set_species(/datum/species/triton)
 	AddComponent(/datum/component/ai_aggro_system)
@@ -34,7 +34,7 @@
 	adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 
-/mob/living/carbon/human/species/species/triton/no_equipment/after_creation()
+/mob/living/carbon/human/species/triton/no_equipment/after_creation()
 	..()
 	job = "Beggar"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)

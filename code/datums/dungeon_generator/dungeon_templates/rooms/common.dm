@@ -512,3 +512,33 @@
 	east_offset = 22
 	north_offset = 20
 	south_offset = 21
+
+/datum/map_template/dungeon/room/deepsmall
+	mappath = "_maps/matthios_tomb/room/deepsmall.dmm"
+	id = "deepsmall"
+	width = 20
+	height = 20
+
+	west_offset = 10
+	east_offset = 10
+	north_offset = 10
+	south_offset = 10
+
+/datum/map_template/dungeon/room/deepmedium
+	mappath = "_maps/matthios_tomb/room/deepmedium.dmm"
+	id = "deepmedium"
+	width = 30
+	height = 30
+
+	west_offset = 16
+	east_offset = 16
+
+/datum/map_template/dungeon/room/deeplarge
+	mappath = "_maps/matthios_tomb/room/deeplarge.dmm"
+	id = "deeplarge"
+	width = 40
+	height = 40
+
+	west_offset = 19
+	east_offset = 19
+	south_offset = 20
