@@ -251,7 +251,7 @@
 	T.hott = tyme
 	addtimer(CALLBACK(T, TYPE_PROC_REF(/obj/item/weapon/tongs, make_unhot), tyme), 30 SECONDS)
 	T.proxy_heat(150)
-	T.update_icon()
+	T.update_appearance()
 	T.visible_message("<font color='yellow'>After [user]'s incantation, [T.held_item] inside [T] starts glowing from divine heat.</font>")
 	return TRUE
 
@@ -261,7 +261,7 @@
 		START_PROCESSING(SSmachines, A)
 	A.cool_time = 30 SECONDS
 	addtimer(VARSET_CALLBACK(A, cool_time, 10 SECONDS), 30 SECONDS)
-	A.update_icon()
+	A.update_appearance()
 	A.visible_message("<font color='yellow'>After [user]'s incantation, [A] begins to glow from divine heat.</font>")
 	return TRUE
 
@@ -315,8 +315,8 @@
 		filtered_zones |= check_zone(body_zone)
 	if(BODY_ZONE_CHEST in filtered_zones)
 		var/chest_damage = damage_to_apply
-		var/obj/item/armor = target.get_item_by_slot(SLOT_ARMOR)
-		var/obj/item/shirt = target.get_item_by_slot(SLOT_SHIRT)
+		var/obj/item/armor = target.get_item_by_slot(ITEM_SLOT_ARMOR)
+		var/obj/item/shirt = target.get_item_by_slot(ITEM_SLOT_SHIRT)
 		var/armor_can_heat = armor && armor.smeltresult && armor.smeltresult != /obj/item/ash
 		var/shirt_can_heat = shirt && shirt.smeltresult && shirt.smeltresult != /obj/item/ash //Full damage if no shirt
 		if(armor_can_heat && (shirt && !shirt_can_heat))
@@ -344,37 +344,37 @@
 		if(BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_R_INHAND)
 			target_item = target.held_items[2]
 			if(!target_item)
-				target_item = target.get_item_by_slot(SLOT_GLOVES)
+				target_item = target.get_item_by_slot(ITEM_SLOT_GLOVES)
 		if(BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_L_INHAND)
 			target_item = target.held_items[1]
 			if(!target_item)
-				target_item = target.get_item_by_slot(SLOT_GLOVES)
+				target_item = target.get_item_by_slot(ITEM_SLOT_GLOVES)
 		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_EARS)
-			target_item = target.get_item_by_slot(SLOT_HEAD)
+			target_item = target.get_item_by_slot(ITEM_SLOT_HEAD)
 		if(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_STOMACH)
-			target_item = target.get_item_by_slot(SLOT_ARMOR)
+			target_item = target.get_item_by_slot(ITEM_SLOT_ARMOR)
 			if(!target_item)
-				target_item = target.get_item_by_slot(SLOT_SHIRT)
+				target_item = target.get_item_by_slot(ITEM_SLOT_SHIRT)
 		if(BODY_ZONE_PRECISE_NECK)
-			target_item = target.get_item_by_slot(SLOT_NECK)
+			target_item = target.get_item_by_slot(ITEM_SLOT_NECK)
 		if(BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_NOSE)
-			target_item = target.get_item_by_slot(SLOT_WEAR_MASK)
+			target_item = target.get_item_by_slot(ITEM_SLOT_MASK)
 			if(!target_item)
-				target_item = target.get_item_by_slot(SLOT_HEAD)
+				target_item = target.get_item_by_slot(ITEM_SLOT_HEAD)
 		if(BODY_ZONE_PRECISE_MOUTH)
-			target_item = target.get_item_by_slot(SLOT_MOUTH)
+			target_item = target.get_item_by_slot(ITEM_SLOT_MOUTH)
 			if(!target_item)
-				target_item = target.get_item_by_slot(SLOT_HEAD)
+				target_item = target.get_item_by_slot(ITEM_SLOT_HEAD)
 		if(BODY_ZONE_R_ARM)
-			target_item = target.get_item_by_slot(SLOT_WRISTS)
+			target_item = target.get_item_by_slot(ITEM_SLOT_WRISTS)
 			if(!target_item)
 				target_item = target.held_items[2]
 		if(BODY_ZONE_L_ARM)
-			target_item = target.get_item_by_slot(SLOT_WRISTS)
+			target_item = target.get_item_by_slot(ITEM_SLOT_WRISTS)
 			if(!target_item)
 				target_item = target.held_items[1]
 		if(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_PRECISE_GROIN)
-			target_item = target.get_item_by_slot(SLOT_PANTS)
+			target_item = target.get_item_by_slot(ITEM_SLOT_PANTS)
 		if(BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT)
-			target_item = target.get_item_by_slot(SLOT_SHOES)
+			target_item = target.get_item_by_slot(ITEM_SLOT_SHOES)
 	return target_item

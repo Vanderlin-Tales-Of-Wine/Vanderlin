@@ -10,7 +10,6 @@
 	emote_hear = null
 	emote_see = null
 	speak_chance = 1
-	turns_per_move = 6
 	see_in_dark = 6
 	move_to_delay = 6
 	base_intents = list(/datum/intent/simple/bite)
@@ -65,6 +64,6 @@
 	new /obj/item/natural/fairydust(deathspot)
 	new /obj/item/natural/fairydust(deathspot)
 	new /obj/item/natural/fairydust(deathspot)
-	update_icon()
+	update_appearance()
 	spill_embedded_objects()
 	qdel(src)

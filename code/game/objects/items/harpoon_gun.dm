@@ -57,8 +57,20 @@
 /obj/item/harpoon_gun/Initialize(mapload)
 	. = ..()
 	harpoon_sound = new(src)
-	update_overlays()
+	update_appearance(UPDATE_ICON_STATE)
+
 	AddComponent(/datum/component/steam_storage, 300, 0)
+
+/obj/item/harpoon_gun/Destroy()
+	leash_target = null
+	if(leash)
+		QDEL_NULL(leash)
+	if(harpoon_sound)
+		QDEL_NULL(harpoon_sound)
+	if(zipline)
+		zipline.End(TRUE)
+		zipline = null
+	return ..()
 
 /obj/item/harpoon_gun/afterattack(atom/target, mob/living/user, proximity)
 	. = ..()
@@ -96,7 +108,8 @@
 	RegisterSignal(bullet, COMSIG_PROJECTILE_SELF_ON_HIT, PROC_REF(on_grapple_hit))
 	RegisterSignal(bullet, COMSIG_PARENT_PREQDELETED, PROC_REF(on_grapple_fail))
 	harpooner = WEAKREF(user)
-	update_overlays()
+	update_appearance(UPDATE_ICON_STATE)
+
 
 
 /obj/item/harpoon_gun/proc/setup_leash(mob/living/target, mob/firer)
@@ -247,7 +260,7 @@
 	harpooner = null
 	retracted_hook = TRUE
 	harpoon_sound.stop()
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/harpoon_gun/update_icon_state()
 	. = ..()

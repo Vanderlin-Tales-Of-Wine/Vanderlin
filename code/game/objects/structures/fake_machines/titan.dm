@@ -37,13 +37,24 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		"Make Decree",
 		"Make Law",
 		"Remove Law",
+		"Remove Decree",
 		"Purge Laws",
 		"Declare Outlaw",
 		"Set Taxes",
 		"Change Position",
-		"Appoint regent",
+		"Appoint Regent",
 		"Cancel",
 	)
+
+/obj/structure/fake_machine/titan/Initialize()
+	. = ..()
+	become_hearing_sensitive()
+	set_light(5)
+
+/obj/structure/fake_machine/titan/Destroy()
+	lose_hearing_sensitivity()
+	set_light(0)
+	return ..()
 
 /// Destroys the current crown with a cool message and returns a new crown.
 /obj/structure/fake_machine/titan/proc/recreate_crown()
@@ -143,6 +154,8 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		summon_key(user)
 	if(findtext(message, "remove law") && perform_check(user))
 		remove_law(message)
+	if(findtext(message, "remove decree") && perform_check(user))
+		remove_decree(message)
 	if(findtext(message, "purge laws") && perform_check(user))
 		purge_laws()
 	if(findtext(message, "set taxes") && perform_check(user))
@@ -151,30 +164,6 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		change_position(user)
 	if(findtext(message, "appoint regent") && perform_check(user))
 		appoint_regent(user)
-
-/obj/structure/fake_machine/titan/Initialize()
-	. = ..()
-	become_hearing_sensitive()
-
-/obj/structure/fake_machine/titan/obj_break(damage_flag, silent)
-	..()
-	cut_overlays()
-//	icon_state = "[icon_state]-br"
-	set_light(0)
-	return
-
-/obj/structure/fake_machine/titan/Destroy()
-	set_light(0)
-	..()
-
-/obj/structure/fake_machine/titan/Initialize()
-	. = ..()
-	icon_state = null
-//	var/mutable_appearance/eye_lights = mutable_appearance(icon, "titan-eyes")
-//	eye_lights.plane = ABOVE_LIGHTING_PLANE //glowy eyes
-//	eye_lights.layer = ABOVE_LIGHTING_LAYER
-//	add_overlay(eye_lights)
-	set_light(5)
 
 // COMMANDS BELOW
 
@@ -256,6 +245,22 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	SScommunications.make_announcement(user, TRUE, message)
 	reset_mode()
 
+/// Removes a decree
+/obj/structure/fake_machine/titan/proc/remove_decree(message)
+	var/clean_message = replacetext(message, "remove decree", "")
+	var/decree_index = text2num(clean_message) || 0
+	if(!decree_index || !GLOB.lord_decrees[decree_index])
+		say("That decree doesn't exist!")
+		reset_mode()
+		return FALSE
+	say("That decree shall be gone!")
+	playsound(src, 'sound/misc/machineyes.ogg', 100, FALSE, -1)
+	var/decree_text = GLOB.lord_decrees[decree_index]
+	GLOB.lord_decrees -= decree_text
+	priority_announce("[decree_index]. [decree_text]", "A DECREE IS ABOLISHED", 'sound/misc/lawdeclaration.ogg', "Captain")
+	reset_mode()
+	return TRUE
+
 /obj/structure/fake_machine/titan/proc/make_law(mob/living/carbon/human/user, message)
 	if(!SScommunications.can_announce(user))
 		return
@@ -298,6 +303,11 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	for(var/mob/living/carbon/human/to_be_outlawed in GLOB.player_list)
 		if(to_be_outlawed.real_name == message)
 			found = TRUE
+		if(to_be_outlawed.advjob == "Faceless One")
+			say("Who? That person doesn't exist!")
+			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
+			reset_mode()
+			return FALSE
 	if(!found)
 		say("That person doesn't exist!")
 		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)

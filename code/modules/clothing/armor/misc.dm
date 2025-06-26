@@ -27,7 +27,8 @@
 	sewrepair = TRUE
 	smeltresult = /obj/item/ingot/iron
 	sellprice = VALUE_IRON_ARMOR_UNUSUAL
-
+	// It looks better without these
+	flags_inv = HIDEUNDIES
 	armor_class = AC_LIGHT
 	armor = ARMOR_LEATHER_GOOD
 	body_parts_covered = COVERAGE_TORSO
@@ -52,17 +53,11 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL_EXCEPT_BLUNT
-	do_sound_plate = TRUE
 	item_weight = 3.2 * IRON_MULTIPLIER
 
-/obj/item/clothing/armor/brigandine/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
+/obj/item/clothing/armor/brigandine/Initialize()
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = SFX_PLATE_COAT_STEP)
 
 /obj/item/clothing/armor/captain
 	name = "captain's brigandine"
@@ -85,32 +80,12 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL_EXCEPT_BLUNT
-	do_sound_plate = TRUE
 	item_weight = 7 * STEEL_MULTIPLIER
-
-/obj/item/clothing/armor/captain/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
-
-/obj/item/clothing/armor/captain/lordcolor(primary,secondary)
-	detail_color = primary
-	update_icon()
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/armor/captain/Initialize()
 	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/armor/captain/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = SFX_PLATE_COAT_STEP)
 
 //................ Coat of Plate ............... //
 /obj/item/clothing/armor/brigandine/coatplates

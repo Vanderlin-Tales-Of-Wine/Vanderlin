@@ -35,6 +35,8 @@
 /datum/bodypart_feature/proc/set_accessory_type(new_accessory_type, colors, owner)
 	accessory_type = new_accessory_type
 	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(accessory_type)
+	if(accessory?.use_static)
+		return
 	if(!isnull(colors))
 		accessory_colors = colors
 	else
@@ -44,11 +46,13 @@
 /datum/bodypart_feature/proc/build_colors_for_accessory(list/source_key_list, mob/living/carbon/owner)
 	if(!accessory_type)
 		return
+	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(accessory_type)
+	if(accessory?.use_static)
+		return
 	if(!source_key_list)
 		if(!owner)
 			return
 		source_key_list = color_key_source_list_from_carbon(owner)
-	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(accessory_type)
 	accessory_colors = accessory.get_default_colors(source_key_list)
 
 /obj/item/bodypart/proc/add_bodypart_feature(datum/bodypart_feature/feature)
@@ -77,6 +81,9 @@
 /obj/item/bodypart/proc/remove_all_bodypart_features()
 	if(!bodypart_features)
 		return
+	for(var/datum/bodypart_feature/feature as anything in bodypart_features)
+		if(istype(feature))
+			qdel(feature)
 	bodypart_features.Cut()
 	if(owner)
 		owner.update_body()

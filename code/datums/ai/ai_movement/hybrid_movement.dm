@@ -1,4 +1,7 @@
 ///Uses Byond's basic obstacle avoidance movement unless the target is on a z-level different to ours
+/datum/ai_movement/hybrid_pathing/gnome
+	max_path_distance = 100 //gnomes are psydon's smartest genetic freak
+
 /datum/ai_movement/hybrid_pathing
 	requires_processing = TRUE
 	max_pathing_attempts = 12
@@ -106,7 +109,39 @@
 
 				// Move to the next step in the path
 				if(next_step.z != movable_pawn.z)
-					movable_pawn.Move(next_step)
+					// Don't teleport across Z-levels - check if there's a valid transition
+					var/can_transition = FALSE
+
+					// Check for stairs going up
+					if(next_step.z > movable_pawn.z)
+						for(var/obj/structure/stairs/S in current_turf.contents)
+							var/turf/above = get_step_multiz(current_turf, UP)
+							if(above)
+								var/turf/dest = get_step(above, S.dir)
+								if(dest == next_step)
+									can_transition = TRUE
+									break
+
+					// Check for stairs going down or falling
+					else if(next_step.z < movable_pawn.z)
+						var/turf/below = get_step_multiz(current_turf, DOWN)
+						if(below == next_step)
+							can_transition = TRUE
+						else
+							// Check if there are stairs leading down at current position
+							for(var/obj/structure/stairs/S in current_turf.contents)
+								var/turf/dest = get_step(below, turn(S.dir, 180))
+								if(dest == next_step)
+									can_transition = TRUE
+									break
+
+					// Only move if we can legitimately transition, otherwise regenerate path
+					if(can_transition)
+						movable_pawn.Move(next_step)
+					else
+						// Can't reach next step legitimately, need new path
+						generate_path = TRUE
+						controller.clear_blackboard_key(future_path_blackboard_key)
 				else
 					step_to(movable_pawn, next_step, controller.blackboard[BB_CURRENT_MIN_MOVE_DISTANCE], controller.movement_delay)
 

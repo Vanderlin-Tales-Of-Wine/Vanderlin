@@ -3,7 +3,7 @@
 	mid_sounds = list()
 	mid_length = 2400
 	volume = 100
-	falloff = 2
+	falloff_exponent = 2
 	extra_range = 5
 	var/stress2give = /datum/stressevent/music
 	persistent_loop = TRUE
@@ -34,12 +34,17 @@
 	var/curvol = 100
 
 /obj/item/dmusicbox/Initialize()
-	soundloop = new(src, FALSE)
-//	soundloop.start()
-	update_icon()
 	. = ..()
+	soundloop = new(src, FALSE)
+	update_appearance(UPDATE_ICON_STATE)
 
-/obj/item/dmusicbox/update_icon()
+/obj/item/dmusicbox/Destroy()
+	if(soundloop)
+		QDEL_NULL(soundloop)
+	return ..()
+
+/obj/item/dmusicbox/update_icon_state()
+	. = ..()
 	if(playing)
 		icon_state = "mboxon"
 	else
@@ -50,14 +55,13 @@
 		if(istype(P, /obj/item/coin/gold))
 			loaded=TRUE
 			qdel(P)
-			update_icon()
+			update_appearance(UPDATE_ICON_STATE)
 			playsound(loc, 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
 			return
-	. = ..()
+	return ..()
 
 /obj/item/dmusicbox/rmb_self(mob/user)
 	attack_right(user)
-	return
 
 /obj/item/dmusicbox/attack_right(mob/user)
 	. = ..()
@@ -101,8 +105,7 @@
 	curfile = file("data/jukeboxuploads/[user.ckey]/[filename]")
 
 	loaded = FALSE
-	update_icon()
-
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/dmusicbox/attack_self(mob/living/user)
 	. = ..()
@@ -119,4 +122,4 @@
 	else
 		playing = FALSE
 		soundloop.stop()
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)

@@ -50,6 +50,9 @@
 
 	vis_flags = VIS_INHERIT_PLANE|VIS_INHERIT_ID
 
+	/// Uses colours defined by the monarch roundstart see [lordcolor.dm]
+	var/uses_lord_coloring = FALSE
+
 /turf/vv_edit_var(var_name, new_value)
 	var/static/list/banned_edits = list("x", "y", "z")
 	if(var_name in banned_edits)
@@ -104,8 +107,6 @@
 
 	if (opacity)
 		has_opaque_atom = TRUE
-
-	ComponentInitialize()
 
 	QUEUE_SMOOTH_NEIGHBORS(src)
 

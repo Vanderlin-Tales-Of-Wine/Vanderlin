@@ -81,7 +81,7 @@
 	var/atom/AD = object
 
 	if(mob.uses_intents)
-		if(mob.used_intent)
+		if(mob.used_intent && istype(mob.used_intent))
 			mob.used_intent.on_mouse_up()
 
 	if(mob.stat != CONSCIOUS)
@@ -105,7 +105,7 @@
 		mob.atom_flags |= NO_DIR_CHANGE
 
 	for(var/atom/movable/screen/eye_intent/eyet in mob.hud_used.static_inventory)
-		eyet.update_icon(mob) //Update eye icon
+		eyet.update_appearance(UPDATE_ICON_STATE)
 
 	if(delay)
 		selected_target[1] = object
@@ -183,6 +183,7 @@
 		return
 
 /mob
+	var/obj/effect/spell_rune/spell_rune
 	var/datum/intent/curplaying
 	var/accent = ACCENT_DEFAULT
 
@@ -210,7 +211,7 @@
 
 	if(mob.hud_used)
 		for(var/atom/movable/screen/eye_intent/eyet in mob.hud_used.static_inventory)
-			eyet.update_icon(mob) //Update eye icon
+			eyet.update_appearance(UPDATE_ICON_STATE) //Update eye icon
 
 	if(!mob.atkswinging)
 		return

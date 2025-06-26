@@ -12,7 +12,7 @@
 
 /obj/effect/decal/cleanable/Initialize(mapload)
 	. = ..()
-	if (random_icon_states && (icon_state == initial(icon_state)) && length(random_icon_states) > 0)
+	if(random_icon_states && (icon_state == initial(icon_state)) && length(random_icon_states) > 0)
 		icon_state = pick(random_icon_states)
 	create_reagents(300)
 	if(loc && isturf(loc))
@@ -100,7 +100,7 @@
 			S.bloody_shoes[blood_state] = min(MAX_SHOE_BLOODINESS,S.bloody_shoes[blood_state]+add_blood)
 			S.add_blood_DNA(GET_ATOM_BLOOD_DNA(src))
 			S.blood_state = blood_state
-			update_icon()
+			update_appearance()
 			H.update_inv_shoes()
 
 /obj/effect/decal/cleanable/proc/can_bloodcrawl_in()

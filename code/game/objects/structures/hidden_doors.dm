@@ -34,13 +34,21 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	var/list/vip
 	var/vipmessage
 
+/obj/structure/door/secret/Initialize(mapload, ...)
+	AddElement(/datum/element/update_icon_blocker)
+	. = ..()
+	become_hearing_sensitive()
+	open_phrase = open_word() + " " + magic_word()
+
+/obj/structure/door/secret/Destroy(force)
+	lose_hearing_sensitivity()
+	return ..()
+
 /obj/structure/door/secret/redstone_triggered(mob/user)
 	if(!door_opened)
 		force_open()
 	else
 		force_closed()
-
-/obj/structure/door/secret/update_icon()
 
 ///// DOOR TYPES //////
 /obj/structure/door/secret/vault
@@ -64,18 +72,10 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	)
 	//make me look like an arcane door
 
-/obj/structure/door/secret/Initialize()
-	become_hearing_sensitive()
-	open_phrase = open_word() + " " + magic_word()
-	. = ..()
-
 /obj/structure/door/secret/rattle()
 	return
 
 /obj/structure/door/secret/attack_hand(mob/user)
-	. = ..()
-	if(.)
-		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	to_chat(user, span_notice("I start feeling around [src]"))
 	if(!do_after(user, 1.5 SECONDS, src))
@@ -133,7 +133,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
 	air_update_turf(TRUE)
-	update_icon()
 	switching_states = FALSE
 
 	if(close_delay > 0)
@@ -149,7 +148,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
 	air_update_turf(TRUE)
-	update_icon()
 	switching_states = FALSE
 
 	if(close_delay > 0)
@@ -172,7 +170,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	door_opened = FALSE
 	layer = CLOSED_DOOR_LAYER
 	air_update_turf(TRUE)
-	update_icon()
 	switching_states = FALSE
 	lock()
 
@@ -186,7 +183,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	door_opened = FALSE
 	layer = CLOSED_DOOR_LAYER
 	air_update_turf(TRUE)
-	update_icon()
 	switching_states = FALSE
 
 /proc/open_word()
@@ -297,7 +293,11 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	if(length(GLOB.keep_doors) > 0)
 		var/obj/structure/door/secret/D = GLOB.keep_doors[1]
 		open_phrase = D.open_phrase
-	GLOB.keep_doors += src
+	GLOB.keep_doors |= src
+
+/obj/structure/door/secret/keep/Destroy()
+	GLOB.keep_doors -= src
+	return ..()
 
 /obj/structure/door/secret/keep/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	if(!..())
@@ -332,10 +332,14 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 /obj/structure/door/secret/thieves_guild/Initialize()
 	. = ..()
-	if(GLOB.thieves_guild_doors.len > 0)
+	if(length(GLOB.thieves_guild_doors))
 		var/obj/structure/door/secret/D = GLOB.thieves_guild_doors[1]
 		open_phrase = D.open_phrase
-	GLOB.thieves_guild_doors += src
+	GLOB.thieves_guild_doors |= src
+
+/obj/structure/door/secret/thieves_guild/Destroy()
+	GLOB.thieves_guild_doors -= src
+	return ..()
 
 /obj/structure/door/secret/thieves_guild/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	if(!..())

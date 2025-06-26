@@ -8,9 +8,9 @@
 	department_flag = NOBLEMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_APOTHECARY
-	faction = FACTION_STATION
-	total_positions = 1
-	spawn_positions = 1
+	faction = FACTION_TOWN
+	total_positions = 2
+	spawn_positions = 2
 	min_pq = 1
 	bypass_lastclass = TRUE
 
@@ -37,6 +37,7 @@
 	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)

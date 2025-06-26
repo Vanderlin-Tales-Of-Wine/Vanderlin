@@ -59,7 +59,7 @@
 	mid_length = 4 MINUTES
 	volume = 70
 	extra_range = 8
-	falloff = 0
+	falloff_exponent = 0
 	persistent_loop = TRUE
 	var/stress2give = /datum/stressevent/music
 	channel = CHANNEL_JUKEBOX
@@ -100,7 +100,8 @@
 	. = ..()
 	qdel(soundloop)
 
-/obj/structure/fake_machine/musicbox/update_icon()
+/obj/structure/fake_machine/musicbox/update_icon_state()
+	. = ..()
 	icon_state = "music[playing]"
 
 /obj/structure/fake_machine/musicbox/examine(mob/user)
@@ -122,12 +123,12 @@
 	soundloop.cursound = null
 	soundloop.volume = curvol
 	soundloop.start()
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/fake_machine/musicbox/proc/stop_playing()
 	playing = FALSE
 	soundloop.stop()
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/fake_machine/musicbox/attack_hand(mob/user)
 	. = ..()
@@ -219,4 +220,4 @@
 /obj/structure/fake_machine/musicbox/tavern/Initialize()
 	. = ..()
 	soundloop.extra_range = 12
-	soundloop.falloff = 6
+	soundloop.falloff_exponent = 6

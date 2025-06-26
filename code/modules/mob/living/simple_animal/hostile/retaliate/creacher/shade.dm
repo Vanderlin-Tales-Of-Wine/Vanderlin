@@ -21,7 +21,6 @@
 	gender = PLURAL
 	emote_hear = null
 	emote_see = null
-	turns_per_move = 6
 	see_in_dark = 9
 	move_to_delay = 2
 	//Unique intent to avoid wounds.
@@ -89,7 +88,7 @@
 	loot = list(/obj/effect/decal/cleanable/undeadash)
 
 /mob/living/simple_animal/hostile/retaliate/shade/Initialize()
-	..()
+	. = ..()
 	AddComponent(/datum/component/ai_aggro_system)
 	ADD_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)

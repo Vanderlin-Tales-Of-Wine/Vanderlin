@@ -249,6 +249,10 @@
 /obj/item/alch/matricaria
 	name = "matricaria"
 	icon_state = "matricaria"
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	body_parts_covered = NONE
+	w_class = WEIGHT_CLASS_TINY
+	alternate_worn_layer  = 8.9
 
 	major_pot = /datum/alch_cauldron_recipe/berrypoison
 	med_pot = /datum/alch_cauldron_recipe/per_potion
@@ -289,6 +293,10 @@
 /obj/item/alch/calendula
 	name = "calendula"
 	icon_state = "calendula"
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	body_parts_covered = NONE
+	w_class = WEIGHT_CLASS_TINY
+	alternate_worn_layer  = 8.9
 
 	major_pot = /datum/alch_cauldron_recipe/big_health_potion
 	med_pot = /datum/alch_cauldron_recipe/end_potion
@@ -317,7 +325,7 @@
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
 	body_parts_covered = NONE
 	w_class = WEIGHT_CLASS_TINY
-	alternate_worn_layer  = 8.9 //On top of helmet
+	alternate_worn_layer  = 8.9
 
 	major_pot = /datum/alch_cauldron_recipe/con_potion
 	med_pot = /datum/alch_cauldron_recipe/str_potion
@@ -339,12 +347,24 @@
 
 /obj/item/alch/rosa/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
-	if(slot == SLOT_MOUTH)
+	if(slot & ITEM_SLOT_MOUTH)
 		icon_state = "rosa_mouth"
 		user.update_inv_mouth()
 	else
 		icon_state = "rosa"
-		user.update_icon()
+		user.update_appearance()
+
+/obj/item/alch/euphorbia
+	name = "euphorbia"
+	icon_state = "euphorbia"
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	body_parts_covered = NONE
+	w_class = WEIGHT_CLASS_TINY
+	alternate_worn_layer  = 8.9
+// not sure if still relevant considering the alchemy revamp
+	major_pot = /datum/alch_cauldron_recipe/str_potion
+	med_pot = /datum/alch_cauldron_recipe/doompoison
+	minor_pot = /datum/alch_cauldron_recipe/stam_poison
 
 /obj/item/alch/hypericum
 	name = "hypericum"

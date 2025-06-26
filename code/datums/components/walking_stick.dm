@@ -29,7 +29,7 @@
 	SIGNAL_HANDLER
 	if(!istype(equipper))
 		return
-	if(!(slot & SLOT_HANDS)) //If NOT HELD IN HANDS
+	if(!(slot & ITEM_SLOT_HANDS)) //If NOT HELD IN HANDS
 		on_drop(source, equipper)
 		return
 

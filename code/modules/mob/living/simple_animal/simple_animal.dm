@@ -32,11 +32,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	///Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
 	var/list/emote_see = list()
 
-	var/move_skip = FALSE
-	var/action_skip = FALSE
-
-	var/turns_per_move = 1
-
 	///Does the mob wander around when idle?
 	var/wander = 1
 
@@ -94,8 +89,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	///LETS SEE IF I CAN SET SPEEDS FOR SIMPLE MOBS WITHOUT DESTROYING EVERYTHING. Higher speed is slower, negative speed is faster.
 	var/speed = 1
 
-	///Hot simple_animal baby making vars.
-	var/list/childtype = null
 	var/next_scan_time = 0
 	///Sorry, no spider+corgi buttbabies.
 	var/animal_species
@@ -145,7 +138,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 	var/food = 0	//increase to make poop
 	var/food_max = 50
-	var/production = 0
 	var/pooptype = /obj/item/natural/poo/horse
 	var/pooprog = 0
 
@@ -160,9 +152,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	var/botched_butcher_results
 	var/perfect_butcher_results
 
-	var/obj/item/udder/udder = null
-	var/datum/reagent/milk_reagent = null
-
 /mob/living/simple_animal/Initialize()
 	. = ..()
 	if(gender == PLURAL)
@@ -172,11 +161,10 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	if(!loc)
 		stack_trace("Simple animal being instantiated in nullspace")
 	update_simplemob_varspeed()
-	if(milk_reagent)
-		udder = new(src, milk_reagent)
 	if(ai_controller && !length(ai_controller.blackboard[BB_BASIC_FOODS]))
 		ai_controller.set_blackboard_key(BB_BASIC_FOODS, typecacheof(food_type))
-
+	if(footstep_type)
+		AddElement(/datum/element/footstep, footstep_type, 1, -6)
 
 /mob/living/simple_animal/Destroy()
 	if(nest)
@@ -185,23 +173,15 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 	if(ssaddle)
 		QDEL_NULL(ssaddle)
-		ssaddle = null
-
-	qdel(udder)
-	udder = null
 
 	return ..()
 
 /mob/living/simple_animal/attackby(obj/item/O, mob/user, params)
-	if(!stat && istype(O, /obj/item/reagent_containers/glass))
-		if(udder && user.used_intent.type == INTENT_FILL)
-			changeNext_move(20) // milking sound length
-			udder.milkAnimal(O, user)
-			return TRUE
 	if(!is_type_in_list(O, food_type))
 		return ..()
 	else
 		if(try_tame(O, user))
+			SEND_SIGNAL(src, COMSIG_PARENT_ATTACKBY, O, user, params) // for udder functionality
 			return TRUE
 	. = ..()
 
@@ -234,25 +214,25 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 	if(ai_controller)
 		ai_controller.can_idle = FALSE
-		var/static/list/pet_commands = list(
-			/datum/pet_command/idle,
-			/datum/pet_command/free,
-			/datum/pet_command/good_boy,
-			/datum/pet_command/follow,
-			/datum/pet_command/attack,
-			/datum/pet_command/fetch,
-			/datum/pet_command/play_dead,
-			/datum/pet_command/protect_owner,
-			/datum/pet_command/aggressive,
-			/datum/pet_command/calm,
-		)
-		var/datum/component/obeys_commands/commands = GetComponent(/datum/component/obeys_commands)
-		if(!commands)
-			AddComponent(/datum/component/obeys_commands, pet_commands)
+
+		var/datum/ai_planning_subtree/pet_planning/subtree = locate() in ai_controller.planning_subtrees
+		if(subtree)
+			var/static/list/pet_commands = list(
+				/datum/pet_command/idle,
+				/datum/pet_command/free,
+				/datum/pet_command/good_boy,
+				/datum/pet_command/follow,
+				/datum/pet_command/attack,
+				/datum/pet_command/fetch,
+				/datum/pet_command/protect_owner,
+				/datum/pet_command/aggressive,
+				/datum/pet_command/calm,
+			)
+			if(!GetComponent(/datum/component/obeys_commands))
+				AddComponent(/datum/component/obeys_commands, pet_commands)
 
 	if(user)
 		owner = user
-	return
 
 //mob/living/simple_animal/examine(mob/user)
 //	. = ..()
@@ -310,8 +290,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		else
 			set_stat(CONSCIOUS)
 	// SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, stat)
-	if(footstep_type)
-		AddComponent(/datum/component/footstep, footstep_type)
 
 /mob/living/simple_animal/handle_status_effects()
 	..()
@@ -596,10 +574,10 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		var/atom/movable/screen/inventory/hand/H
 		H = hud_used.hand_slots["[hand_index]"]
 		if(H)
-			H.update_icon()
+			H.update_appearance()
 		H = hud_used.hand_slots["[oindex]"]
 		if(H)
-			H.update_icon()
+			H.update_appearance()
 	return TRUE
 
 /mob/living/simple_animal/put_in_hands(obj/item/I, del_on_fail = FALSE, merge_stacks = TRUE)
@@ -648,7 +626,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			return
 	..()
 	M.adjust_experience(/datum/skill/misc/riding, M.STAINT, FALSE)
-	update_icon()
+	update_appearance()
 
 /mob/living/simple_animal/hostile/user_buckle_mob(mob/living/M, mob/user)
 	if(user != M)
@@ -679,7 +657,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		if(ssaddle)
 			playsound(src, 'sound/foley/saddlemount.ogg', 100, TRUE)
 	..()
-	update_icon()
+	update_appearance()
 
 /mob/living/simple_animal/hostile
 	var/do_footstep = FALSE
@@ -776,15 +754,9 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 /mob/living/simple_animal/Life()
 	. = ..()
 	if(.)
+		food = max(food - 0.5, 0)
 		if(food > 0)
-			food--
 			pooprog++
-			production++
-			production = min(production, 100)
-			if(udder)
-				if(production > 0)
-					production--
-					udder.generateMilk()
 			if(pooprog >= 100)
 				pooprog = 0
 				poop()
@@ -794,38 +766,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		if(isturf(loc))
 			playsound(src, "fart", 50, TRUE)
 			new pooptype(loc)
-
-//................. UDDER .......................//
-/obj/item/udder
-	name = "udder"
-	var/datum/reagent/milk_reagent = /datum/reagent/consumable/milk
-
-/obj/item/udder/Initialize(mapload, datum/reagent/reagent)
-	create_reagents(100)
-	if(reagent)
-		milk_reagent = reagent
-	reagents.add_reagent(milk_reagent, rand(0,20))
-	. = ..()
-
-/obj/item/udder/proc/generateMilk()
-	reagents.add_reagent(milk_reagent, 1)
-
-/obj/item/udder/proc/milkAnimal(obj/O, mob/living/user = usr)
-	var/obj/item/reagent_containers/glass/G = O
-	if(G.reagents.total_volume >= G.volume)
-		to_chat(user, span_warning("[O] is full."))
-		return
-	if(!reagents.has_reagent(milk_reagent, 5))
-		to_chat(user, span_warning("[src] is dry. Wait a bit longer..."))
-		user.changeNext_move(10)
-		return
-	if(do_after(user, 1 SECONDS, src))
-		reagents.trans_to(O, rand(5,10))
-		user.visible_message(span_notice("[user] milks [src] using \the [O]"))
-		playsound(O, pick('sound/vo/mobs/cow/milking (1).ogg', 'sound/vo/mobs/cow/milking (2).ogg'), 100, TRUE, -1)
-		user.Immobilize(1 SECONDS)
-		user.changeNext_move(1 SECONDS)
-
 
 /mob/living/simple_animal/proc/handle_habitation(obj/structure/home)
 	SHOULD_CALL_PARENT(TRUE)

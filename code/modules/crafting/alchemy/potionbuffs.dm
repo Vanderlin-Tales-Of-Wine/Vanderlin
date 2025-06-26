@@ -2,6 +2,9 @@
 	desc = "Power rushes through your veins."
 	icon_state = "buff"
 
+/datum/status_effect/buff/alch/strengthpot/weak
+	effectedstats = list(STATKEY_STR = 1)
+
 /datum/status_effect/buff/alch/strengthpot
 	id = "strpot"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/alch/strengthpot
@@ -11,6 +14,9 @@
 /atom/movable/screen/alert/status_effect/buff/alch/strengthpot
 	name = "Strength"
 	icon_state = "buff"
+
+/datum/status_effect/buff/alch/perceptionpot/weak
+	effectedstats = list(STATKEY_PER = 1)
 
 /datum/status_effect/buff/alch/perceptionpot
 	id = "perpot"
@@ -32,6 +38,9 @@
 	name = "Intelligence"
 	icon_state = "buff"
 
+/datum/status_effect/buff/alch/constitutionpot/weak
+	effectedstats = list(STATKEY_CON = 1)
+
 /datum/status_effect/buff/alch/constitutionpot
 	id = "conpot"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/alch/constitutionpot
@@ -42,6 +51,9 @@
 	name = "Constitution"
 	icon_state = "buff"
 
+/datum/status_effect/buff/alch/endurancepot/weak
+	effectedstats = list(STATKEY_END = 1)
+
 /datum/status_effect/buff/alch/endurancepot
 	id = "endpot"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/alch/endurancepot
@@ -51,6 +63,17 @@
 /atom/movable/screen/alert/status_effect/buff/alch/endurancepot
 	name = "Endurance"
 	icon_state = "buff"
+
+
+/atom/movable/screen/alert/status_effect/buff/artemisia_luck
+	name = "Artemisia Fortune"
+	icon_state = "buff"
+
+/datum/status_effect/buff/alch/artemisia_luck
+	id = "artemisia_luck"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/artemisia_luck
+	effectedstats = list(STATKEY_SPD = 1, STATKEY_LCK = 1)
+	duration = 930
 
 /datum/status_effect/buff/alch/speedpot
 	id = "spdpot"

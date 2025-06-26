@@ -62,13 +62,9 @@
 	// THESE OVERRIDE THE HIDEHAIR FLAGS
 	var/dynamic_hair_suffix = ""//head > mask for head hair
 	var/dynamic_fhair_suffix = ""//mask > head for facial hair
-	var/list/allowed_sex = list(MALE,FEMALE)
+	var/list/allowed_sex = list(MALE, FEMALE)
 	var/list/allowed_race = ALL_RACES_LIST
 	var/armor_class = ARMOR_CLASS_NONE
-
-	var/do_sound_chain = FALSE
-	var/do_sound_plate = FALSE
-	var/do_sound_inquisboot = FALSE
 
 	var/obj/item/clothing/head/hooded/hood
 	var/hoodtype
@@ -87,23 +83,26 @@
 	if(armor_class)
 		has_inspect_verb = TRUE
 
-	if(do_sound_chain)
-		AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/chain (1).ogg',\
-													'sound/foley/footsteps/armor/chain (2).ogg',\
-													'sound/foley/footsteps/armor/chain (3).ogg'), 100)
-	else if(do_sound_plate)
-		AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/plate (1).ogg',\
-													'sound/foley/footsteps/armor/plate (2).ogg',\
-													'sound/foley/footsteps/armor/plate (3).ogg'), 100)
-
-	else if(do_sound_inquisboot)
-		AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/inquisitorboot (1).ogg',\
-													'sound/foley/footsteps/armor/inquisitorboot (2).ogg',\
-													'sound/foley/footsteps/armor/inquisitorboot (3).ogg',\
-													'sound/foley/footsteps/armor/inquisitorboot (4).ogg'), 100)
+	if(uses_lord_coloring)
+		if(GLOB.lordprimary && GLOB.lordsecondary)
+			lordcolor()
+		else
+			RegisterSignal(SSdcs, COMSIG_LORD_COLORS_SET, TYPE_PROC_REF(/obj/item/clothing, lordcolor))
 
 	if(hoodtype)
 		MakeHood()
+
+/obj/item/clothing/Initialize(mapload, ...)
+	AddElement(/datum/element/update_icon_updates_onmob, slot_flags)
+	return ..()
+
+/obj/item/clothing/Destroy()
+	user_vars_remembered = null //Oh god somebody put REFERENCES in here? not to worry, we'll clean it up
+	if(hoodtype)
+		QDEL_NULL(hood)
+	if(uses_lord_coloring)
+		UnregisterSignal(SSdcs, COMSIG_LORD_COLORS_SET)
+	return ..()
 
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()
@@ -227,7 +226,7 @@
 /obj/item/clothing/mob_can_equip(mob/M, mob/equipper, slot, disable_warning = 0)
 	if(!..())
 		return FALSE
-	if(slot_flags & slotdefine2slotbit(slot))
+	if(slot_flags & slot)
 		if(M.gender in allowed_sex)
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
@@ -263,13 +262,6 @@
 		if(M.putItemFromInventoryInHandIfPossible(src, H.held_index))
 			add_fingerprint(usr)
 
-/obj/item/clothing/Destroy()
-	user_vars_remembered = null //Oh god somebody put REFERENCES in here? not to worry, we'll clean it up
-	if(hoodtype)
-		qdel(hood)
-		hood = null
-	return ..()
-
 /obj/item/clothing/proc/can_use(mob/user)
 	if(user && ismob(user))
 		if(!user.incapacitated(ignore_grab = TRUE))
@@ -304,8 +296,7 @@
 	..()
 	if (!istype(user))
 		return
-
-	if(slot_flags & slotdefine2slotbit(slot)) //Was equipped to a valid slot for this item?
+	if(slot_flags & slot) //Was equipped to a valid slot for this item?
 		if (LAZYLEN(user_vars_to_edit))
 			for(var/variable in user_vars_to_edit)
 				if(variable in user.vars)
@@ -314,6 +305,16 @@
 
 	for(var/trait in clothing_traits)
 		ADD_CLOTHING_TRAIT(user, trait)
+
+/obj/item/clothing/update_overlays()
+	. = ..()
+	if(!get_detail_tag())
+		return
+	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
+	pic.appearance_flags = RESET_COLOR
+	if(get_detail_color())
+		pic.color = get_detail_color()
+	. += pic
 
 /**
  * Inserts a trait (or multiple traits) into the clothing traits list
@@ -331,15 +332,6 @@
 	if(istype(wearer) && (wearer.get_slot_by_item(src) & slot_flags))
 		for(var/new_trait in trait_or_traits)
 			ADD_CLOTHING_TRAIT(wearer, new_trait)
-
-/obj/item/clothing/update_icon()
-	cut_overlays()
-	if (get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if (get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
 
 /obj/item/clothing/obj_break(damage_flag, silent)
 	if(!damaged_clothes)
@@ -468,7 +460,7 @@ BLIND     // can't see anything
 	gas_transfer_coefficient = initial(gas_transfer_coefficient)
 
 /obj/item/clothing/equipped(mob/user, slot)
-	if(hoodtype && slot != SLOT_ARMOR|SLOT_CLOAK)
+	if(hoodtype && !(slot & (ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK)))
 		RemoveHood()
 	if(adjustable > 0)
 		ResetAdjust(user)
@@ -513,7 +505,8 @@ BLIND     // can't see anything
 			if(H.head)
 				to_chat(H, "<span class='warning'>I'm already wearing something on my head.</span>")
 				return
-			else if(H.equip_to_slot_if_possible(hood,SLOT_HEAD,0,0,1))
+			else if(H.equip_to_slot_if_possible(hood,ITEM_SLOT_HEAD,0,0,1))
+				testing("begintog")
 				hoodtoggled = TRUE
 				if(toggle_icon_state)
 					src.icon_state = "[initial(icon_state)]_t"

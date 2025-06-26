@@ -8,6 +8,8 @@ SUBSYSTEM_DEF(atoms)
 	init_order = INIT_ORDER_ATOMS
 	flags = SS_NO_FIRE
 
+	var/init_start_time
+
 	var/old_initialized
 
 	var/list/late_loaders = list()
@@ -25,45 +27,34 @@ SUBSYSTEM_DEF(atoms)
 		return
 
 	initialized = INITIALIZATION_INNEW_MAPLOAD
-	#ifdef TESTING
-	var/count
-	#endif
 	var/list/mapload_arg = list(TRUE)
 	if(atoms)
-		#ifdef TESTING
-		count = atoms.len
-		#endif
+
 		for(var/atom/A as anything in atoms)
 			if(!(A.flags_1 & INITIALIZED_1))
 				InitAtom(A, mapload_arg)
 				CHECK_TICK
+
 	else
-		#ifdef TESTING
-		count = 0
-		#endif
+
 		for(var/atom/A as anything in world)
 			if(!(A.flags_1 & INITIALIZED_1))
 				InitAtom(A, mapload_arg)
-				#ifdef TESTING
-				++count
-				#endif
 				CHECK_TICK
-	#ifdef TESTING
-	testing("Initialized [count] atoms")
-	#endif
 	initialized = INITIALIZATION_INNEW_REGULAR
 
 	if(late_loaders.len)
 		for(var/I in late_loaders)
 			var/atom/A = I
 			A.LateInitialize()
-		testing("Late initialized [late_loaders.len] atoms")
 		late_loaders.Cut()
 
 /datum/controller/subsystem/atoms/proc/InitAtom(atom/A, list/arguments)
 	var/the_type = A.type
 	if(QDELING(A))
-		BadInitializeCalls[the_type] |= BAD_INIT_QDEL_BEFORE
+		// Check init_start_time to not worry about atoms created before the atoms SS that are cleaned up before this
+		if (A.gc_destroyed > init_start_time)
+			BadInitializeCalls[the_type] |= BAD_INIT_QDEL_BEFORE
 		return TRUE
 
 	#ifdef UNIT_TESTS

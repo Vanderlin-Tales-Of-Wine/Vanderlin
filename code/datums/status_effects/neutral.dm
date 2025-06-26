@@ -12,6 +12,10 @@
 	desc = "I am knocked off balance!"
 	icon_state = "off_balanced"
 
+/datum/status_effect/is_jumping //to differentiate between jumping and thrown mobs
+	id = "is_jumping"
+	alert_type = null
+
 //ENDROGUE
 
 /datum/status_effect/sigil_mark //allows the affected target to always trigger sigils while mindless
@@ -96,7 +100,7 @@
 		for(var/obj/effect/proc_holder/spell/spell in rewarded.mind.spell_list)
 			spell.charge_counter = spell.recharge_time
 			spell.recharging = FALSE
-			spell.update_icon()
+			spell.update_appearance()
 		rewarded.adjustBruteLoss(-25)
 		rewarded.adjustFireLoss(-25)
 		rewarded.adjustToxLoss(-25)

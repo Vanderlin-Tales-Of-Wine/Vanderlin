@@ -16,6 +16,7 @@
 
 /obj/structure/fake_machine/stockpile/Destroy()
 	SSroguemachine.stock_machines -= src
+	QDEL_NULL(withdraw_tab)
 	return ..()
 
 /obj/structure/fake_machine/stockpile/Topic(href, href_list)
@@ -244,7 +245,7 @@
 /datum/withdraw_tab/proc/insert_coins(obj/item/coin/C)
 	budget += C.get_real_price()
 	qdel(C)
-	parent_structure.update_icon()
+	parent_structure.update_appearance()
 	playsound(parent_structure.loc, 'sound/misc/coininsert.ogg', 100, TRUE, -1)
 
 /proc/stock_announce(message)

@@ -15,7 +15,7 @@
 	required_table = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Adding some juicy fruit filling..."
+	crafting_message = "add some juicy fruit filling"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/chescake_poison_raisan
@@ -34,7 +34,7 @@
 	required_table = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Adding some juicy fruit filling..."
+	crafting_message = "add some juicy fruit filling"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/chescake
@@ -52,7 +52,7 @@
 	required_table = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Adding some juicy fruit filling..."
+	crafting_message = "add some juicy fruit filling"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/chescake_raisan
@@ -70,7 +70,7 @@
 	required_table = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Adding some juicy fruit filling..."
+	crafting_message = "add some juicy fruit filling"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/cake_base
@@ -88,7 +88,7 @@
 	required_table = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Working egg into the dough, shaping it into a cake..."
+	crafting_message = "work egg into the dough, shaping it into a cake"
 	minimum_skill_level = 2
 	extra_chance = 100
 
@@ -108,7 +108,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Adding mouth-watering pear filling..."
+	crafting_message = "add mouth-watering pear filling"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/cake_plum
@@ -126,7 +126,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Adding some fine plum filling..."
+	crafting_message = "add some fine plum filling"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/cake_tangerine
@@ -144,7 +144,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Adding some tangy tangerine filling..."
+	crafting_message = "add some tangy tangerine filling"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/cake_strawberry
@@ -162,7 +162,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Adding some tangy tangerine filling..."
+	crafting_message = "add some tangy tangerine filling"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/unbaked_cheesecake
@@ -180,7 +180,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Spreading fresh cheese on the cake..."
+	crafting_message = "spread fresh cheese on the cake"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/unbaked_cheesecake_poison
@@ -199,7 +199,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Spreading fresh cheese on the cake..."
+	crafting_message = "spread fresh cheese on the cake"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/unbaked_zybcake
@@ -217,7 +217,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Spreading spider-honey on the cake..."
+	crafting_message = "spread spider-honey on the cake"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/unbaked_strawberrycake
@@ -235,7 +235,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Spreading sugar frosting on the cake..."
+	crafting_message = "spread sugar frosting on the cake"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/unbaked_crimsoncake
@@ -253,7 +253,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Adding chocolate to the dough..."
+	crafting_message = "add chocolate to the dough"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/unbaked_tangerinecake
@@ -271,5 +271,5 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	crafting_message = "Spreading sugar frosting on the cake..."
+	crafting_message = "spread sugar frosting on the cake"
 	extra_chance = 100

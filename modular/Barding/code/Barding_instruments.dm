@@ -35,7 +35,7 @@
 /datum/looping_sound/instrument
 	mid_length = 2400
 	volume = 100
-	falloff = 2
+	falloff_exponent = 2
 	extra_range = 5
 	var/stress2give = /datum/stressevent/music
 	persistent_loop = TRUE
@@ -69,7 +69,7 @@
 
 /obj/item/instrument/Destroy()
 	terminate_playing(loc)
-	qdel(soundloop)
+	QDEL_NULL(soundloop)
 	. = ..()
 
 /obj/item/instrument/process()
@@ -134,7 +134,7 @@
 		soundloop.stress2give = initial(soundloop.stress2give)
 	if(dynamic_icon)
 		lower_from_mouth()
-		update_icon()
+		update_appearance()
 	// Prevents an exploit
 	for(var/mob/living/carbon/L in hearers(7, loc))
 		var/mob/living/carbon/buffed = L
@@ -145,7 +145,7 @@
 	. = ..()
 	if(!playing)
 		return
-	if(!istype(user) || slot != SLOT_HANDS)
+	if(!istype(user) || !(slot & ITEM_SLOT_HANDS))
 		terminate_playing(user)
 		return
 
@@ -219,7 +219,7 @@
 	GLOB.vanderlin_round_stats[STATS_SONGS_PLAYED]++
 	if(dynamic_icon)
 		lift_to_mouth()
-		update_icon()
+		update_appearance()
 	START_PROCESSING(SSprocessing, src)
 
 	// BARDIC BUFFS CODE START //

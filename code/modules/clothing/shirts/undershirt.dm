@@ -37,39 +37,15 @@
 
 /obj/item/clothing/shirt/undershirt/guard
 	color = CLOTHING_PLUM_PURPLE
-
-/obj/item/clothing/shirt/undershirt/guard/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/shirt/undershirt/guard/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/shirt/undershirt/guardsecond
 	color = CLOTHING_BLOOD_RED
-
-/obj/item/clothing/shirt/undershirt/guardsecond/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/shirt/undershirt/guardsecond/lordcolor(primary,secondary)
-	if(secondary)
-		color = secondary
-
-/obj/item/clothing/shirt/undershirt/guardsecond/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_SECONDARY
 
 /obj/item/clothing/shirt/undershirt/random/Initialize()
 	color = pick_assoc(GLOB.peasant_dyes)
-	..()
+	return ..()
 
 /obj/item/clothing/shirt/undershirt/puritan
 	name = "formal silks"
@@ -113,7 +89,7 @@
 
 /obj/item/clothing/shirt/undershirt/vagrant/Initialize()
 	color = pick(CLOTHING_MUD_BROWN, CLOTHING_OLD_LEATHER, CLOTHING_SPRING_GREEN, CLOTHING_BARK_BROWN, CLOTHING_CANVAS	)
-	..()
+	return ..()
 
 /obj/item/clothing/shirt/undershirt/webs
 	name = "webbed shirt"

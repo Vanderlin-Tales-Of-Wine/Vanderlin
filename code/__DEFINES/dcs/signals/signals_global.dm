@@ -27,5 +27,8 @@
 /// job datum has been called to deal with the aftermath of a latejoin spawn
 #define COMSIG_GLOB_JOB_AFTER_LATEJOIN_SPAWN "!job_after_latejoin_spawn"
 
-///! a sound was played : (sound_player, sound_file)
+/// a sound was played : (sound_player, sound_file)
 #define COMSIG_GLOB_SOUND_PLAYED "!sound_played"
+
+/// The monarch set lord colors, update all things that use it (primary, secondary)
+#define COMSIG_LORD_COLORS_SET "mob_set_lord"

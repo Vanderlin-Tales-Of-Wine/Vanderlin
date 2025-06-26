@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/invoked/frostbite5e
 	name = "Frostbite"
 	desc = "Freeze your enemy with an icy blast that does low damage, but reduces the target's Speed for a considerable length of time."
-	overlay_state = "null"
+	overlay_state = "frostbite"
 	releasedrain = 50
 	chargetime = 3
 	recharge_time = 25 SECONDS
@@ -31,7 +31,7 @@
 		target.apply_status_effect(/datum/status_effect/buff/frostbite5e/) //apply debuff
 		target.adjustFireLoss(12) //damage
 		target.adjustBruteLoss(12)
-		return TRUE
+		return ..()
 	return FALSE
 
 /datum/status_effect/buff/frostbite5e

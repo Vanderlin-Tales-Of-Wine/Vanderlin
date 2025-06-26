@@ -95,13 +95,13 @@
 	stressies.hud = src
 	stressies.screen_loc = rogueui_stress
 	static_inventory += stressies
-	stressies.update_icon()
+	stressies.update_appearance(UPDATE_OVERLAYS)
 
 	rmb_intent = new /atom/movable/screen/rmbintent(owner.client)
 	rmb_intent.hud = src
 	rmb_intent.screen_loc = rogueui_rmbintents
 	static_inventory += rmb_intent
-	rmb_intent.update_icon()
+	rmb_intent.update_appearance(UPDATE_OVERLAYS)
 
 	bloods = new /atom/movable/screen/healths/blood
 	bloods.hud = src
@@ -166,7 +166,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "ring"
 	inv_box.screen_loc = rogueui_ringr
-	inv_box.slot_id = SLOT_RING
+	inv_box.slot_id = ITEM_SLOT_RING
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -175,7 +175,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "wrist"
 	inv_box.screen_loc = rogueui_wrists
-	inv_box.slot_id = SLOT_WRISTS
+	inv_box.slot_id = ITEM_SLOT_WRISTS
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -184,7 +184,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "mask"
 	inv_box.screen_loc = rogueui_mask
-	inv_box.slot_id = SLOT_WEAR_MASK
+	inv_box.slot_id = ITEM_SLOT_MASK
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -193,7 +193,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "neck"
 	inv_box.screen_loc = rogueui_neck
-	inv_box.slot_id = SLOT_NECK
+	inv_box.slot_id = ITEM_SLOT_NECK
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -202,7 +202,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "back"
 	inv_box.screen_loc = rogueui_backl
-	inv_box.slot_id = SLOT_BACK_L
+	inv_box.slot_id = ITEM_SLOT_BACK_L
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -211,7 +211,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "back"
 	inv_box.screen_loc = rogueui_backr
-	inv_box.slot_id = SLOT_BACK_R
+	inv_box.slot_id = ITEM_SLOT_BACK_R
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -220,7 +220,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "gloves"
 	inv_box.screen_loc = rogueui_gloves
-	inv_box.slot_id = SLOT_GLOVES
+	inv_box.slot_id = ITEM_SLOT_GLOVES
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -229,7 +229,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "head"
 	inv_box.screen_loc = rogueui_head
-	inv_box.slot_id = SLOT_HEAD
+	inv_box.slot_id = ITEM_SLOT_HEAD
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -238,7 +238,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "shoes"
 	inv_box.screen_loc = rogueui_shoes
-	inv_box.slot_id = SLOT_SHOES
+	inv_box.slot_id = ITEM_SLOT_SHOES
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -247,7 +247,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "belt"
 	inv_box.screen_loc = rogueui_belt
-	inv_box.slot_id = SLOT_BELT
+	inv_box.slot_id = ITEM_SLOT_BELT
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -256,7 +256,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "hip"
 	inv_box.screen_loc = rogueui_beltr
-	inv_box.slot_id = SLOT_BELT_R
+	inv_box.slot_id = ITEM_SLOT_BELT_R
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -265,7 +265,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "hip"
 	inv_box.screen_loc = rogueui_beltl
-	inv_box.slot_id = SLOT_BELT_L
+	inv_box.slot_id = ITEM_SLOT_BELT_L
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -274,7 +274,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "shirt"
 	inv_box.screen_loc = rogueui_shirt
-	inv_box.slot_id = SLOT_SHIRT
+	inv_box.slot_id = ITEM_SLOT_SHIRT
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -283,7 +283,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "pants"
 	inv_box.screen_loc = rogueui_pants
-	inv_box.slot_id = SLOT_PANTS
+	inv_box.slot_id = ITEM_SLOT_PANTS
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -292,7 +292,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "armor"
 	inv_box.screen_loc = rogueui_armor
-	inv_box.slot_id = SLOT_ARMOR
+	inv_box.slot_id = ITEM_SLOT_ARMOR
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -301,7 +301,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "cloak"
 	inv_box.screen_loc = rogueui_cloak
-	inv_box.slot_id = SLOT_CLOAK
+	inv_box.slot_id = ITEM_SLOT_CLOAK
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -310,7 +310,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "mouth"
 	inv_box.screen_loc = rogueui_mouth
-	inv_box.slot_id = SLOT_MOUTH
+	inv_box.slot_id = ITEM_SLOT_MOUTH
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -360,13 +360,13 @@
 	using.screen_loc = rogueui_moves
 	using.hud = src
 	static_inventory += using
-	using.update_icon_state()
+	using.update_appearance(UPDATE_ICON_STATE)
 //sprint button
 	using = new /atom/movable/screen/rogmove/sprint
 	using.screen_loc = rogueui_moves
 	using.hud = src
 	static_inventory += using
-	using.update_icon_state()
+	using.update_appearance(UPDATE_ICON_STATE)
 
 	using = new /atom/movable/screen/eye_intent
 	using.icon = ui_style
@@ -374,18 +374,18 @@
 	using.screen_loc = rogueui_eye
 	using.hud = src
 	static_inventory += using
-	using.update_overlays()
+	using.update_appearance(UPDATE_OVERLAYS)
 
 	set_advclass()
 
 	zone_select =  new /atom/movable/screen/zone_sel()
 	zone_select.icon = 'icons/mob/roguehud64.dmi'
 	zone_select.screen_loc = rogueui_targetdoll
-	zone_select.update_icon()
+	zone_select.update_appearance()
 	zone_select.hud = src
 	static_inventory += zone_select
 
-	zone_select.update_icon()
+	zone_select.update_appearance()
 
 	stamina = new /atom/movable/screen/stamina()
 	infodisplay += stamina
@@ -400,8 +400,8 @@
 	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory))
 		if(inv.slot_id)
 			inv.hud = src
-			inv_slots[inv.slot_id] = inv
-			inv.update_icon()
+			inv_slots[TOBITSHIFT(inv.slot_id) + 1] = inv
+			inv.update_appearance()
 
 	update_locked_slots()
 	mymob.update_a_intents()

@@ -85,7 +85,7 @@
 
 /obj/item/clothing/armor/leather/vest/random/Initialize()
 	color = pick(CLOTHING_SOOT_BLACK, CLOTHING_BARK_BROWN, CLOTHING_FOREST_GREEN)
-	..()
+	return ..()
 
 //................ Butchers Vest ............... //
 /obj/item/clothing/armor/leather/vest/butcher
@@ -97,16 +97,7 @@
 //................ Other Vests ............... //
 /obj/item/clothing/armor/leather/vest/butler
 	color = CLOTHING_BLOOD_RED
-
-/obj/item/clothing/armor/leather/vest/butler/Initialize()
-	..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-/obj/item/clothing/armor/leather/vest/butler/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/armor/leather/vest/black
 	color = CLOTHING_DARK_INK
@@ -124,30 +115,7 @@
 	detail_tag = "_detail"
 	color = CLOTHING_WHITE
 	detail_color = CLOTHING_SOOT_BLACK
-
-/obj/item/clothing/armor/leather/vest/winterjacket/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
-
-/obj/item/clothing/armor/leather/vest/winterjacket/lordcolor(primary,secondary)
-	detail_color = primary
-	update_icon()
-
-/obj/item/clothing/armor/leather/vest/winterjacket/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/armor/leather/vest/winterjacket/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY
 
 //................ Jacket ............... //	- Has a small storage space
 /obj/item/clothing/armor/leather/jacket
@@ -158,7 +126,7 @@
 	body_parts_covered = COVERAGE_SHIRT
 	item_weight = 2.2
 
-/obj/item/clothing/armor/leather/jacket/ComponentInitialize()
+/obj/item/clothing/armor/leather/jacket/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/grid/cloak)
 
@@ -217,8 +185,8 @@
 	prevent_crits = CUT_AND_MINOR_CRITS
 
 /obj/item/clothing/armor/leather/jacket/silk_coat/Initialize()
-	color = pick(CLOTHING_PLUM_PURPLE, CLOTHING_WHITE,CLOTHING_BLOOD_RED)
-	..()
+	color = pick(CLOTHING_PLUM_PURPLE, CLOTHING_WHITE, CLOTHING_BLOOD_RED)
+	return ..()
 
 //................ Silk Jacket ............... //
 /obj/item/clothing/armor/leather/jacket/apothecary
@@ -247,30 +215,7 @@
 	detail_tag = "_detail"
 	detail_color = CLOTHING_BERRY_BLUE
 	body_parts_covered = COVERAGE_SHIRT
-
-/obj/item/clothing/armor/leather/jacket/handjacket/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
-
-/obj/item/clothing/armor/leather/jacket/handjacket/lordcolor(primary,secondary)
-	detail_color = primary
-	update_icon()
-
-/obj/item/clothing/armor/leather/jacket/handjacket/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/armor/leather/jacket/handjacket/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/armor/leather/jacket/leathercoat
 	name = "leather coat"
@@ -293,3 +238,12 @@
 	boobed = TRUE
 	armor = ARMOR_LEATHER
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
+
+/obj/item/clothing/armor/leather/jacket/leathercoat/duelcoat
+	name = "black leather coat"
+	desc = "A stylish coat worn by Duelists of Valoria. Light and flexible, it doesn't impede the complex movements they are known for, seems to be quite padded.A stylish coat worn by the Duelists of Valoria. Light and flexible, it doesn't impede the complex movements they are known for, Seems to be well-padded."
+	icon_state = "bwleathercoat"
+	boobed = TRUE
+	armor = ARMOR_LEATHER_GOOD
+	body_parts_covered = COVERAGE_ALL_BUT_LEGS
+	prevent_crits = list(BCLASS_CUT, BCLASS_TWIST, BCLASS_STAB)

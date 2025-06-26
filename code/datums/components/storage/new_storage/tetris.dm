@@ -70,10 +70,10 @@
 	var/static/list/mutable_appearance/underlay_appearances_by_size = list()
 	var/list/grid_coordinates_to_item
 	var/list/item_to_grid_coordinates
+	var/list/first_coordinates_item = list()
 	var/maximum_depth = 1
 	var/storage_flags = NONE
 
-	var/list/first_coordinates_item = list()
 
 /datum/component/storage/proc/get_grid_box_size()
 	return world.icon_size
@@ -834,7 +834,7 @@
 	else
 		//Being destroyed, just move to nullspace now (so it's not in contents for the icon update)
 		removed.moveToNullspace()
-	removed.update_icon()
+	removed.update_appearance()
 	SEND_SIGNAL(parent, COMSIG_STORAGE_REMOVED, removed)
 	update_icon()
 	refresh_mob_views()

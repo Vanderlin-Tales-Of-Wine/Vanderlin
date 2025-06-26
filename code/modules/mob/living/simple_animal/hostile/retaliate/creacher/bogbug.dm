@@ -9,7 +9,6 @@
 	faction = list("bugs")
 	emote_hear = null
 	emote_see = null
-	turns_per_move = 6
 	see_in_dark = 9
 	move_to_delay = 1
 	vision_range = 9
@@ -67,16 +66,6 @@
 	. = ..()
 	AddComponent(/datum/component/ai_aggro_system)
 	gender = MALE
-
-
-/mob/living/simple_animal/hostile/retaliate/bogbug/death(gibbed)
-	..()
-	update_icon()
-
-
-/mob/living/simple_animal/hostile/retaliate/bogbug/update_icon()
-	cut_overlays()
-	..()
 
 /mob/living/simple_animal/hostile/retaliate/bogbug/get_sound(input)
 	switch(input)

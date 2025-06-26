@@ -23,6 +23,27 @@
 	if(rotation_structure || accepts_water_input)
 		return INITIALIZE_HINT_LATELOAD
 
+/obj/structure/LateInitialize()
+	. = ..()
+	if(redstone_id)
+		for(var/obj/structure/S in GLOB.redstone_objs)
+			if(S.redstone_id == redstone_id)
+				redstone_attached |= S
+				S.redstone_attached |= src
+
+	if(rotation_structure && !QDELETED(src))
+		set_connection_dir()
+		find_rotation_network()
+	if(accepts_water_input)
+		setup_water()
+
+/obj/structure/Destroy()
+	if(rotation_network)
+		var/datum/rotation_network/old_network = rotation_network
+		rotation_network.remove_connection(src)
+		old_network.reassess_group(src)
+	return ..()
+
 /obj/structure/MiddleClick(mob/user, params)
 	. = ..()
 	if(!user.Adjacent(src))
@@ -44,13 +65,6 @@
 		return
 	new type(get_turf(src))
 	qdel(src)
-
-/obj/structure/Destroy()
-	if(rotation_network)
-		var/datum/rotation_network/old_network = rotation_network
-		rotation_network.remove_connection(src)
-		old_network.reassess_group(src)
-	. = ..()
 
 // You can path over a dense structure if it's climbable.
 /obj/structure/CanAStarPass(ID, to_dir, caller)
@@ -78,20 +92,6 @@
 	else
 		. = ..()
 
-/obj/structure/LateInitialize()
-	. = ..()
-	if(redstone_id)
-		for(var/obj/structure/S in GLOB.redstone_objs)
-			if(S.redstone_id == redstone_id)
-				redstone_attached |= S
-				S.redstone_attached |= src
-
-	if(rotation_structure && !QDELETED(src))
-		set_connection_dir()
-		find_rotation_network()
-	if(accepts_water_input)
-		setup_water()
-
 /obj/structure/proc/set_connection_dir()
 	if(QDELETED(src) || !rotation_structure || !initialize_dirs)
 		return
@@ -116,7 +116,7 @@
 	for(var/direction in GLOB.cardinals)
 		var/turf/cardinal_turf = get_step(src, direction)
 		for(var/obj/structure/water_pipe/structure in cardinal_turf)
-			if(!valid_water_connection(GLOB.reverse_dir[direction], structure))
+			if(!valid_water_connection(REVERSE_DIR(direction), structure))
 				continue
 			structure.set_connection(get_dir(structure, src))
 

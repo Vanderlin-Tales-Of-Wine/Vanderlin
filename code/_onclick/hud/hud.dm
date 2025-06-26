@@ -26,7 +26,7 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 
 	var/atom/movable/screen/devil/soul_counter/devilsouldisplay
 
-	var/atom/movable/screen/act_intent/action_intent
+	var/atom/movable/screen/act_intent/rogintent/action_intent
 	var/atom/movable/screen/scannies
 	var/atom/movable/screen/act_intent/rogintent/magic/spell_intent
 	var/atom/movable/screen/zone_sel/zone_select
@@ -77,6 +77,8 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	var/atom/movable/screen/textl
 	var/atom/movable/screen/textr
 
+	var/atom/movable/screen/vis_holder/vis_holder
+
 /datum/hud/New(mob/owner)
 	mymob = owner
 
@@ -95,6 +97,8 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	textl.hud = src
 	static_inventory += textl
 	reads.textleft = textl
+
+	vis_holder = new(null, src)
 
 //	hide_actions_toggle = new
 //	hide_actions_toggle.InitialiseIcon(src)
@@ -137,6 +141,7 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	QDEL_LIST(hotkeybuttons)
 	throw_icon = null
 	QDEL_LIST(infodisplay)
+	QDEL_NULL(vis_holder)
 
 	healths = null
 	healthdoll = null
@@ -220,6 +225,9 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 				screenmob.client.screen -= hotkeybuttons
 			if(infodisplay.len)
 				screenmob.client.screen -= infodisplay
+
+	if(vis_holder)
+		screenmob.client.screen += vis_holder
 
 	hud_version = display_hud_version
 	persistent_inventory_update(screenmob)
@@ -306,7 +314,7 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 		hand_slots["[i]"] = hand_box
 		hand_box.hud = src
 		static_inventory += hand_box
-		hand_box.update_icon()
+		hand_box.update_appearance()
 
 	var/i = 1
 	for(var/atom/movable/screen/swap_hand/SH in static_inventory)

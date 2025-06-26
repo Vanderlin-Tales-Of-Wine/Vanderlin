@@ -7,7 +7,7 @@
 	department_flag = COMPANY
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE )
 	display_order = JDO_MERCHANT
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 1
 	spawn_positions = 1
 	min_pq = 1
@@ -16,15 +16,18 @@
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
 	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Rakshari",
-		"Hollow-Kin",
+		RACE_HUMEN,
+		RACE_ELF,
+		RACE_HALF_ELF,
+		RACE_DWARF,
+		RACE_TIEFLING,
+		RACE_DROW,
+		RACE_HALF_DROW,
+		RACE_AASIMAR,
+		RACE_RAKSHARI,
+		RACE_HOLLOWKIN,
+		RACE_TRITON,
+		RACE_HARPY,
 	)
 
 	outfit = /datum/outfit/job/merchant

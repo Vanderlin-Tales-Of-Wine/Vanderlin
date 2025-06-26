@@ -171,40 +171,6 @@
 	passcrawl = FALSE
 	climb_offset = 6
 
-/obj/structure/fluff/railing/fence/Initialize()
-	. = ..()
-	smooth_fences()
-
-/obj/structure/fluff/railing/fence/Destroy()
-	..()
-	smooth_fences()
-
-/obj/structure/fluff/railing/fence/OnCrafted(dirin, mob/user)
-	. = ..()
-	smooth_fences()
-
-/obj/structure/fluff/railing/fence/proc/smooth_fences(neighbors)
-	cut_overlays()
-	if((dir == WEST) || (dir == EAST))
-		var/turf/T = get_step(src, NORTH)
-		if(T)
-			for(var/obj/structure/fluff/railing/fence/F in T)
-				if(F.dir == dir)
-					if(!neighbors)
-						F.smooth_fences(TRUE)
-					var/mutable_appearance/MA = mutable_appearance(icon,"fence_smooth_above")
-					MA.dir = dir
-					add_overlay(MA)
-		T = get_step(src, SOUTH)
-		if(T)
-			for(var/obj/structure/fluff/railing/fence/F in T)
-				if(F.dir == dir)
-					if(!neighbors)
-						F.smooth_fences(TRUE)
-					var/mutable_appearance/MA = mutable_appearance(icon,"fence_smooth_below")
-					MA.dir = dir
-					add_overlay(MA)
-
 /obj/structure/fluff/railing/fence/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover, /mob/camera))
 		return TRUE
@@ -313,7 +279,7 @@
 	var/togg = FALSE
 
 /obj/structure/bars/grille/Initialize()
-	AddComponent(/datum/component/squeak, list('sound/foley/footsteps/FTMET_A1.ogg','sound/foley/footsteps/FTMET_A2.ogg','sound/foley/footsteps/FTMET_A3.ogg','sound/foley/footsteps/FTMET_A4.ogg'), 40)
+	AddComponent(/datum/component/squeak, list('sound/foley/footsteps/FTMET_A1.ogg','sound/foley/footsteps/FTMET_A2.ogg','sound/foley/footsteps/FTMET_A3.ogg','sound/foley/footsteps/FTMET_A4.ogg'), 40, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	dir = pick(GLOB.cardinals)
 	return ..()
 
@@ -383,16 +349,16 @@
 	metalizer_result = /obj/item/gear/metal/bronze
 
 /obj/structure/fluff/clock/Initialize()
+	. = ..()
 	soundloop = new(src, FALSE)
 	soundloop.start()
-	. = ..()
 	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/fluff/clock/Destroy()
 	if(soundloop)
-		soundloop.stop()
-	..()
+		QDEL_NULL(soundloop)
+	return ..()
 
 /obj/structure/fluff/clock/obj_break(damage_flag, silent)
 	if(!broke)
@@ -480,8 +446,8 @@
 
 /obj/structure/fluff/wallclock/Destroy()
 	if(soundloop)
-		soundloop.stop()
-	..()
+		QDEL_NULL(soundloop)
+	return ..()
 
 /obj/structure/fluff/wallclock/examine(mob/user)
 	. = ..()
@@ -694,7 +660,7 @@
 	for(var/obj/structure/fluff/statue/carving_block in contents)
 		dir = carving_block.dir
 		qdel(carving_block)
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/fluff/statue/astrata
 	name = "statue of Astrata"
@@ -1043,6 +1009,10 @@
 	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+/obj/structure/fluff/psycross/Destroy()
+	lose_hearing_sensitivity()
+	return ..()
+
 /obj/structure/fluff/psycross/post_buckle_mob(mob/living/M)
 	..()
 	M.set_mob_offsets("bed_buckle", _x = 0, _y = 2)
@@ -1211,7 +1181,7 @@
 
 /obj/structure/fluff/psycross/copper/Destroy()
 	addomen("psycross")
-	..()
+	return ..()
 
 /obj/structure/fluff/psycross/proc/AOE_flash(mob/user, range = 15, power = 5, targeted = FALSE)
 	var/list/mob/targets = get_flash_targets(get_turf(src), range, FALSE)
@@ -1276,9 +1246,10 @@
 	SIGNAL_HANDLER
 	if(ring_destroyed == FALSE)
 		ring_destroyed = TRUE
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
-/obj/structure/fluff/statue/gaffer/update_icon()
+/obj/structure/fluff/statue/gaffer/update_icon_state()
+	. = ..()
 	if(ring_destroyed == TRUE)
 		icon_state = "subduedstatue_hasring"
 	if(ring_destroyed == FALSE)
@@ -1315,28 +1286,28 @@
 		var/obj/item/ring = new /obj/item/clothing/ring/gold/burden(loc)
 		ADD_TRAIT(user, TRAIT_BURDEN, type)
 		user.put_in_hands(ring)
-		user.equip_to_slot_if_possible(ring, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
+		user.equip_to_slot_if_possible(ring, ITEM_SLOT_RING, FALSE, FALSE, TRUE, TRUE)
 		to_chat(user, span_danger("Once your hand is close enough to the ring, it jumps upwards and burrows itself onto your palm"))
 		ring_destroyed = FALSE
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/fluff/statue/knight/interior/gen/update_icon_state()
-	. = ..()
 	if(dir == EAST)
 		icon_state = "oknightstatue_l"
 	else if(dir == WEST)
 		icon_state = "oknightstatue_r"
 	else
 		icon_state = pick("oknightstatue_l", "oknightstatue_r")
+	return ..()
 
 /obj/structure/fluff/statue/knightalt/gen/update_icon_state()
-	. = ..()
 	if(dir == EAST)
 		icon_state = "knightstatue2_l"
 	else if(dir == WEST)
 		icon_state = "knightstatue2_r"
 	else
 		icon_state = pick("knightstatue2_l", "knightstatue2_r")
+	return ..()
 
 /obj/structure/fluff/statue/carving_block
 	name = "carving block"
@@ -1348,7 +1319,7 @@
 	debris = list(/obj/item/natural/stoneblock = 1)
 	drag_slowdown = 3
 
-/obj/structure/fluff/statue/carving_block/ComponentInitialize()
+/obj/structure/fluff/statue/carving_block/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/simple_rotation)
 

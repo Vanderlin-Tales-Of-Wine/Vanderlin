@@ -2,6 +2,212 @@ GLOBAL_LIST_INIT(magic_attunements, create_attunement_list())
 /// List of typepaths - to access the singletons, access magic attunements
 GLOBAL_LIST_INIT(default_attunements, create_default_attunement_list())
 
+// Color definitions for attunements
+GLOBAL_LIST_INIT(attunement_colors, list(
+	/datum/attunement/fire = "#FF4500",        // Orange-red
+	/datum/attunement/ice = "#00BFFF",         // Deep sky blue
+	/datum/attunement/electric = "#FFD700",    // Gold/yellow
+	/datum/attunement/blood = "#8B0000",       // Dark red
+	/datum/attunement/life = "#32CD32",        // Lime green
+	/datum/attunement/death = "#800080",       // Purple
+	/datum/attunement/earth = "#8B4513",       // Saddle brown
+	/datum/attunement/light = "#FFFFFF",       // White
+	/datum/attunement/dark = "#2F2F2F",        // Dark gray
+	/datum/attunement/time = "#C0C0C0",        // Silver
+	/datum/attunement/aeromancy = "#87CEEB",   // Sky blue
+	/datum/attunement/arcyne = "#9932CC",      // Dark orchid
+	/datum/attunement/illusion = "#FF1493",    // Deep pink
+	/datum/attunement/polymorph = "#FF69B4"    // Hot pink
+))
+
+// Proc to get the dominant attunement color from a spell's attunements
+/proc/get_spell_attunement_color(list/attunements)
+	if(!attunements || !length(attunements))
+		return "#FFFFFF" // Default white if no attunements
+
+	var/highest_weight = 0
+	var/dominant_attunement = null
+
+	// Find the attunement with the highest weight
+	for(var/attunement_type in attunements)
+		var/weight = attunements[attunement_type]
+		if(weight > highest_weight)
+			highest_weight = weight
+			dominant_attunement = attunement_type
+
+	// If no dominant attunement found, use the first one
+	if(!dominant_attunement && length(attunements))
+		dominant_attunement = attunements[1]
+
+	return GLOB.attunement_colors[dominant_attunement] || "#FFFFFF"
+
+// Proc to blend multiple attunement colors based on their weights
+/proc/get_blended_attunement_color(list/attunements)
+	if(!attunements || !length(attunements))
+		return "#FFFFFF"
+
+	var/total_weight = 0
+	var/red_sum = 0
+	var/green_sum = 0
+	var/blue_sum = 0
+
+	// Calculate weighted average of RGB values
+	for(var/attunement_type in attunements)
+		var/weight = attunements[attunement_type]
+		var/color = GLOB.attunement_colors[attunement_type]
+		if(!color)
+			continue
+
+		total_weight += weight
+
+		// Extract RGB components (assuming hex format #RRGGBB)
+		var/red = hex2num(copytext(color, 2, 4))
+		var/green = hex2num(copytext(color, 4, 6))
+		var/blue = hex2num(copytext(color, 6, 8))
+
+		red_sum += red * weight
+		green_sum += green * weight
+		blue_sum += blue * weight
+
+	if(total_weight == 0)
+		return "#FFFFFF"
+
+	// Calculate final RGB values
+	var/final_red = round(red_sum / total_weight)
+	var/final_green = round(green_sum / total_weight)
+	var/final_blue = round(blue_sum / total_weight)
+
+	return rgb(final_red, final_green, final_blue)
+
+/obj/effect/spell_rune
+	icon = 'icons/effects/spell_cast.dmi'
+	icon_state = "rune"
+	vis_flags = NONE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	pixel_x = -8
+	pixel_y = -8
+
+	var/datum/weakref/mob
+	var/original_color
+
+/obj/effect/spell_rune/Initialize(mapload, mob/target_mob, spell_color = "#FFFFFF")
+	. = ..()
+	original_color = spell_color
+	color = spell_color
+	mob = target_mob
+	var/mutable_appearance/MA = mutable_appearance(icon, icon_state)
+	MA.plane = EMISSIVE_PLANE
+	overlays += MA
+
+/obj/effect/spell_rune/Destroy(force)
+	if(mob)
+		var/mob/holder = mob.resolve()
+		holder.vis_contents -= src
+		mob = null
+	return ..()
+
+/obj/effect/temp_visual/wave_up
+	icon = 'icons/effects/spell_cast.dmi'
+	icon_state = "wave_up"
+	vis_flags = NONE
+	plane = GAME_PLANE_UPPER
+	layer = ABOVE_ALL_MOB_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	pixel_x = -8
+	pixel_y = -8
+	duration = 1.8 SECONDS
+	var/datum/weakref/mob
+
+/obj/effect/temp_visual/wave_up/Initialize(mapload, mob/target_mob)
+	. = ..()
+	mob = target_mob
+	var/mutable_appearance/MA = mutable_appearance(icon, icon_state)
+	MA.plane = EMISSIVE_PLANE
+	overlays += MA
+
+/obj/effect/temp_visual/wave_up/Destroy(force)
+	if(mob)
+		var/mob/holder = mob.resolve()
+		holder.vis_contents -= src
+		mob = null
+	return ..()
+
+/obj/effect/temp_visual/particle_up
+	icon = 'icons/effects/spell_cast.dmi'
+	icon_state = "particle_up"
+	vis_flags = NONE
+	plane = GAME_PLANE_UPPER
+	layer = ABOVE_ALL_MOB_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	pixel_y = -8
+	duration = 3.8 SECONDS
+	var/datum/weakref/mob
+
+/obj/effect/temp_visual/particle_up/Initialize(mapload, mob/target_mob)
+	. = ..()
+	mob = target_mob
+	var/mutable_appearance/MA = mutable_appearance(icon, icon_state)
+	MA.plane = EMISSIVE_PLANE
+	overlays += MA
+
+/obj/effect/temp_visual/particle_up/Destroy(force)
+	if(mob)
+		var/mob/holder = mob.resolve()
+		holder.vis_contents -= src
+		mob = null
+	return ..()
+
+/proc/start_spell_visual_effects(mob/caster, obj/effect/proc_holder/spell/spell_obj)
+	if(!caster || !spell_obj)
+		return
+
+	var/spell_color = get_blended_attunement_color(spell_obj.attunements)
+
+	// Create the following rune
+	var/obj/effect/spell_rune/rune = new(null, WEAKREF(caster), spell_color)
+	caster.vis_contents |= rune
+	caster.spell_rune = rune
+
+	// Start particle effects
+	start_spell_particles(caster, spell_color)
+
+/proc/start_spell_particles(mob/caster, spell_color = "#FFFFFF")
+	if(!caster)
+		return
+
+	var/obj/effect/temp_visual/particle_up/particles = new(null, WEAKREF(caster))
+	caster.vis_contents |= particles
+	particles.color = spell_color
+
+	spawn(3.6 SECONDS)
+		if(caster && caster.spell_rune)
+			start_spell_particles(caster, spell_color)
+
+/proc/finish_spell_visual_effects(mob/caster, obj/effect/proc_holder/spell/spell_obj)
+	if(!caster || !spell_obj)
+		return
+
+	var/spell_color = get_blended_attunement_color(spell_obj.attunements)
+
+	// Clean up the rune
+	if(caster.spell_rune)
+		qdel(caster.spell_rune)
+		caster.spell_rune = null
+
+	// Create wave_up effect
+	var/obj/effect/temp_visual/wave_up/wave = new(null, WEAKREF(caster))
+	caster.vis_contents |= wave
+	wave.color = spell_color
+
+/proc/cancel_spell_visual_effects(mob/caster)
+	if(!caster)
+		return
+
+	// Clean up the rune
+	if(caster.spell_rune)
+		qdel(caster.spell_rune)
+		caster.spell_rune = null
+
 /proc/create_attunement_list()
 	. = list()
 
