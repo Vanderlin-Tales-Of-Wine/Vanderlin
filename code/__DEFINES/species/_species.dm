@@ -163,6 +163,7 @@
 	RACE_HARPY,\
 	RACE_RAKSHARI,\
 	RACE_TRITON,\
+	RACE_DROW,\
 )
 
 /// Foreigner Nobility Races - No Tiefling (you know why) or hollow-kin
