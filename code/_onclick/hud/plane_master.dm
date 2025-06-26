@@ -119,6 +119,11 @@
 	add_filter("emissives", 1, alpha_mask_filter(render_source = EMISSIVE_RENDER_TARGET, flags = MASK_INVERSE))
 	add_filter("object_lighting", 2, alpha_mask_filter(render_source = O_LIGHTING_VISUAL_RENDER_TARGET, flags = MASK_INVERSE))
 
+/atom/movable/screen/plane_master/lighting/backdrop(mob/mymob)
+	mymob.overlay_fullscreen("lighting_backdrop_lit", /atom/movable/screen/fullscreen/lighting_backdrop/lit)
+	mymob.overlay_fullscreen("lighting_backdrop_unlit", /atom/movable/screen/fullscreen/lighting_backdrop/unlit)
+	mymob.overlay_fullscreen("sunlight_backdrop",  /atom/movable/screen/fullscreen/lighting_backdrop/sunlight)
+
 /**
  * Things placed on this mask the lighting plane. Doesn't render directly.
  *
@@ -145,11 +150,6 @@
 /atom/movable/screen/plane_master/parallax_white
 	name = "parallax whitifier plane master"
 	plane = SPACE_PLANE
-
-/atom/movable/screen/plane_master/lighting/backdrop(mob/mymob)
-	mymob.overlay_fullscreen("lighting_backdrop_lit", /atom/movable/screen/fullscreen/lighting_backdrop/lit)
-	mymob.overlay_fullscreen("lighting_backdrop_unlit", /atom/movable/screen/fullscreen/lighting_backdrop/unlit)
-	mymob.overlay_fullscreen("sunlight_backdrop",  /atom/movable/screen/fullscreen/lighting_backdrop/sunlight)
 
 /atom/movable/screen/plane_master/camera_static
 	name = "camera static plane master"
@@ -247,16 +247,12 @@
 /atom/movable/screen/fullscreen/lighting_backdrop/sunlight
 	icon_state  = ""
 	screen_loc = "CENTER-2:-16, CENTER"
-	transform = null
-	plane = LIGHTING_PLANE
 	blend_mode = BLEND_ADD
-	show_when_dead = TRUE
 
 /atom/movable/screen/fullscreen/lighting_backdrop/sunlight/Initialize()
 	. = ..()
 	add_filter("sunlight", 1, alpha_mask_filter(render_source = SUNLIGHTING_RENDER_TARGET))
 	SSoutdoor_effects.sunlighting_planes |= src
-	color = SSoutdoor_effects.last_color
 	SSoutdoor_effects.transition_sunlight_color(src)
 
 /atom/movable/screen/fullscreen/lighting_backdrop/sunlight/Destroy()

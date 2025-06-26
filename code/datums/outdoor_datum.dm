@@ -24,22 +24,28 @@ Sunlight System
 	return
 
 /atom/movable/outdoor_effect
-	name = ""
-	mouse_opacity = 0
-	anchored = 1
+	name = "outdoor effect"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	anchored = TRUE
 	appearance_flags = RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM
 	plane = WEATHER_EFFECT_PLANE
 
-	/* misc vars */
-	var/state 					 = SKY_VISIBLE	// If we can see the see the sky, are blocked, or we have a blocked neighbour (SKY_BLOCKED/VISIBLE/VISIBLE_BORDER)
-	var/weatherproof			 = FALSE        // If we have a weather overlay
-	var/turf/source_turf
+	var/state = SKY_VISIBLE	// If we can see the see the sky, are blocked, or we have a blocked neighbour (SKY_BLOCKED/VISIBLE/VISIBLE_BORDER)
+	var/weatherproof = FALSE // If we have a weather overlay
 
+	var/turf/source_turf
 	var/mutable_appearance/sunlight_overlay
 	var/list/datum/lighting_corner/affecting_corners
 
+/atom/movable/outdoor_effect/Initialize(mapload, turf/source)
+	. = ..()
+	source_turf = source
+	if(source_turf.outdoor_effect)
+		qdel(source_turf.outdoor_effect, force = TRUE)
+	source_turf.outdoor_effect = src
+
 /atom/movable/outdoor_effect/Destroy(force)
-	if (!force)
+	if(!force)
 		return QDEL_HINT_LETMELIVE
 
 	//If we are a source of light - disable it, to fix out corner refs
@@ -49,28 +55,16 @@ Sunlight System
 	if(source_turf && source_turf.outdoor_effect == src)
 		source_turf.outdoor_effect = null
 
-
 	return ..()
 
-
-
-/atom/movable/outdoor_effect/Initialize(mapload)
-	. = ..()
-	source_turf = loc
-	if (source_turf.outdoor_effect)
-		qdel(source_turf.outdoor_effect, force = TRUE)
-		source_turf.outdoor_effect = null //No qdel_null force
-	source_turf.outdoor_effect = src
-
-
 /atom/movable/outdoor_effect/proc/disable_sunlight()
-	var/turf/T = list()
+	var/list/turf/to_update = list()
 	for(var/datum/lighting_corner/C in affecting_corners)
-		LAZYREMOVE(C.globAffect, src)
+		LAZYREMOVE(C.sunlight_objects, src)
 		C.get_sunlight_falloff()
-		T |= C.masters
-	T |= source_turf /* get our calculated indoor lighting */
-	GLOB.SUNLIGHT_QUEUE_CORNER += T
+		to_update |= C.masters
+	to_update |= source_turf /* get our calculated indoor lighting */
+	GLOB.SUNLIGHT_QUEUE_CORNER |= to_update
 
 	//Empty our affecting_corners list
 	affecting_corners = null
@@ -86,14 +80,11 @@ Sunlight System
 /* calculate the indoor corners we are affecting */
 #define SUN_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 - hardSun) / max(1, GLOB.GLOBAL_LIGHT_RANGE)))
 
-
 /atom/movable/outdoor_effect/proc/calc_sunlight_spread()
-
-	var/list/turf/turfs                    = list()
-	var/datum/lighting_corner/C
+	var/list/turf/turfs = list()
 	var/turf/T
 	var/list/tempMasterList = list() /* to mimimize double ups */
-	var/list/corners  = list() /* corners we are currently affecting */
+	var/list/corners = list() /* corners we are currently affecting */
 
 	//Set lum so we can see things
 	var/oldLum = luminosity
@@ -115,20 +106,18 @@ Sunlight System
 	LAZYINITLIST(affecting_corners)
 	var/list/L = corners - affecting_corners
 	affecting_corners += L
-	for (C in L)
-		LAZYSET(C.globAffect, src, SUN_FALLOFF(C,source_turf))
-		if(C.globAffect[src] > C.sunFalloff) /* if are closer than current dist, update the corner */
-			C.sunFalloff = C.globAffect[src]
+	for(var/datum/lighting_corner/C as anything in L)
+		LAZYSET(C.sunlight_objects, src, SUN_FALLOFF(C, source_turf))
+		if(C.sunlight_objects[src] > C.sunFalloff) /* if are closer than current dist, update the corner */
+			C.sunFalloff = C.sunlight_objects[src]
 			tempMasterList |= C.masters
-
 
 	L = affecting_corners - corners // Now-gone corners, remove us from the affecting.
 	affecting_corners -= L
-	for (C in L)
-		LAZYREMOVE(C.globAffect, src)
+	for(var/datum/lighting_corner/C as anything in L)
+		LAZYREMOVE(C.sunlight_objects, src)
 		C.get_sunlight_falloff()
 		tempMasterList |= C.masters
-
 
 	GLOB.SUNLIGHT_QUEUE_CORNER += tempMasterList /* update the boys */
 
@@ -146,16 +135,15 @@ Sunlight System
 /turf/var/weatherproof = TRUE
 /turf/open/transparent/openspace/weatherproof = FALSE
 
-/datum/lighting_corner/var/list/globAffect = list() /* list of sunlight objects affecting this corner */
+/datum/lighting_corner/var/list/sunlight_objects = list() /* list of sunlight objects affecting this corner */
 /datum/lighting_corner/var/sunFalloff = 0 /* smallest distance to sunlight turf, for sunlight falloff */
 
 /* loop through and find our strongest sunlight value */
 /datum/lighting_corner/proc/get_sunlight_falloff()
 	sunFalloff = 0
 
-	var/atom/movable/outdoor_effect/S
-	for(S in globAffect)
-		sunFalloff = sunFalloff < globAffect[S] ? globAffect[S] : sunFalloff
+	for(var/atom/movable/outdoor_effect/S as anything in sunlight_objects)
+		sunFalloff = sunFalloff < sunlight_objects[S] ? sunlight_objects[S] : sunFalloff
 
 /turf/proc/reassess_stack()
 	if(!SSlighting.initialized)
@@ -198,7 +186,7 @@ Sunlight System
 
 	/* if border or indoor, initialize. Set sunlight state if valid */
 	if(!outdoor_effect && (TempState <> SKY_BLOCKED || !roofStat["WEATHERPROOF"]))
-		outdoor_effect = new /atom/movable/outdoor_effect(src)
+		outdoor_effect = new /atom/movable/outdoor_effect(null, src)
 	if(outdoor_effect)
 		outdoor_effect.state = TempState
 		outdoor_effect.weatherproof = roofStat["WEATHERPROOF"]
@@ -207,7 +195,6 @@ Sunlight System
 		else
 			if(((turf_flags & TURF_EFFECT_AFFECTABLE) && (z in SSoutdoor_effects.turf_weather_affectable_z_levels)))
 				SSParticleWeather.weathered_turfs |= src
-
 
 /* runs up the Z stack for this turf, returns a assoc (SKYVISIBLE, WEATHERPROOF)*/
 /* pass recursionStarted=TRUE when we are checking our ceiling's stats */

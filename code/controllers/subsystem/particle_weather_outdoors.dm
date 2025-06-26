@@ -1,7 +1,7 @@
 /datum/time_of_day
 	var/name = ""
 	var/color = ""
-	var/start = 216000 // 6:00 am
+	var/start = 6 HOURS // 6:00 am
 
 /datum/time_of_day/dawn
 	name = "Dawn"
@@ -83,7 +83,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 	..()
 
 /datum/controller/subsystem/outdoor_effects/stat_entry(msg)
-	msg = "W:[GLOB.SUNLIGHT_QUEUE_WORK.len]|U:[GLOB.SUNLIGHT_QUEUE_UPDATE.len]|C:[GLOB.SUNLIGHT_QUEUE_CORNER.len]"
+	msg = "W:[length(GLOB.SUNLIGHT_QUEUE_WORK)]|U:[length(GLOB.SUNLIGHT_QUEUE_UPDATE)]|C:[length(GLOB.SUNLIGHT_QUEUE_CORNER)]"
 	return ..()
 
 /datum/controller/subsystem/outdoor_effects/proc/InitializeTurfs(list/targets)
@@ -96,7 +96,6 @@ SUBSYSTEM_DEF(outdoor_effects)
 /datum/controller/subsystem/outdoor_effects/proc/init_z_turfs(z)
 	for (var/turf/T in block(locate(1,1,z), locate(world.maxx,world.maxy,z)))
 		GLOB.SUNLIGHT_QUEUE_WORK += T
-
 
 /datum/controller/subsystem/outdoor_effects/proc/check_cycle()
 	if(!next_step_datum)
@@ -114,7 +113,6 @@ SUBSYSTEM_DEF(outdoor_effects)
 	return FALSE
 
 /datum/controller/subsystem/outdoor_effects/proc/get_time_of_day()
-
 	//Set our current color as last_color so newly initialized sunlight screens have a color
 	if(current_step_datum)
 		last_color = picked_color
@@ -154,7 +152,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 
 	//Add our weather particle obj to any new weather screens
 	if(SSParticleWeather.initialized)
-		for (i in 1 to weather_planes_need_vis.len)
+		for(i in 1 to length(weather_planes_need_vis))
 			var/atom/movable/screen/plane_master/weather_effect/W = weather_planes_need_vis[i]
 			if(W)
 				W.vis_contents = list(SSParticleWeather.getweatherEffect())
@@ -162,11 +160,11 @@ SUBSYSTEM_DEF(outdoor_effects)
 				CHECK_TICK
 			else if (MC_TICK_CHECK)
 				break
-		if (i)
+		if(i)
 			weather_planes_need_vis.Cut(1, i+1)
 			i = 0
 
-	for (i in 1 to GLOB.SUNLIGHT_QUEUE_WORK.len)
+	for(i in 1 to length(GLOB.SUNLIGHT_QUEUE_WORK))
 		var/turf/T = GLOB.SUNLIGHT_QUEUE_WORK[i]
 		if(T)
 			T.get_sky_and_weather_states()
@@ -177,15 +175,14 @@ SUBSYSTEM_DEF(outdoor_effects)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
 			break
-	if (i)
+	if(i)
 		GLOB.SUNLIGHT_QUEUE_WORK.Cut(1, i+1)
 		i = 0
-
 
 	if(!init_tick_checks)
 		MC_SPLIT_TICK
 
-	for (i in 1 to GLOB.SUNLIGHT_QUEUE_UPDATE.len)
+	for (i in 1 to length(GLOB.SUNLIGHT_QUEUE_UPDATE))
 		var/atom/movable/outdoor_effect/U = GLOB.SUNLIGHT_QUEUE_UPDATE[i]
 		if(U)
 			U.process_state()
@@ -203,13 +200,13 @@ SUBSYSTEM_DEF(outdoor_effects)
 	if(!init_tick_checks)
 		MC_SPLIT_TICK
 
-	for (i in 1 to GLOB.SUNLIGHT_QUEUE_CORNER.len)
+	for (i in 1 to length(GLOB.SUNLIGHT_QUEUE_CORNER))
 		var/turf/T = GLOB.SUNLIGHT_QUEUE_CORNER[i]
 		var/atom/movable/outdoor_effect/U = T.outdoor_effect
 
 		/* if we haven't initialized but we are affected, create new and check state */
 		if(!U)
-			T.outdoor_effect = new /atom/movable/outdoor_effect(T)
+			T.outdoor_effect = new /atom/movable/outdoor_effect(null, T)
 			T.get_sky_and_weather_states()
 			U = T.outdoor_effect
 
@@ -222,7 +219,6 @@ SUBSYSTEM_DEF(outdoor_effects)
 
 		//This might need to be run more liberally
 		update_outdoor_effect_overlays(U)
-
 
 		if(init_tick_checks)
 			CHECK_TICK
@@ -237,19 +233,17 @@ SUBSYSTEM_DEF(outdoor_effects)
 		for (var/atom/movable/screen/fullscreen/lighting_backdrop/sunlight/SP in sunlighting_planes)
 			transition_sunlight_color(SP)
 
-
 //Transition from our last color to our current color (i.e if it is going from daylight (white) to sunset (red), we transition to red in the first hour of sunset)
 /datum/controller/subsystem/outdoor_effects/proc/transition_sunlight_color(atom/movable/screen/fullscreen/lighting_backdrop/sunlight/SP)
 	/* transistion in an hour or time diff from now to our next step, whichever is smaller */
 	if(!next_step_datum)
 		get_time_of_day()
-
-	var timeDiff = min((1 HOURS / SSticker.station_time_rate_multiplier ),daytimeDiff(station_time(), next_step_datum.start))
+	SP.color = last_color
+	var/timeDiff = min((1 HOURS / SSticker.station_time_rate_multiplier ),daytimeDiff(station_time(), next_step_datum.start))
 	animate(SP,color=picked_color, time = timeDiff)
 
 // Updates overlays and vis_contents for outdoor effects
 /datum/controller/subsystem/outdoor_effects/proc/update_outdoor_effect_overlays(atom/movable/outdoor_effect/OE)
-
 	var/mutable_appearance/MA
 	if (OE.state != SKY_BLOCKED)
 		MA = get_sunlight_overlay(1,1,1,1) /* fully lit */
@@ -280,37 +274,30 @@ SUBSYSTEM_DEF(outdoor_effects)
 
 //Retrieve an overlay from the list - create if necessary
 /datum/controller/subsystem/outdoor_effects/proc/get_sunlight_overlay(fr, fg, fb, fa)
-
 	var/index = "[fr]|[fg]|[fb]|[fa]"
 	LAZYINITLIST(sunlight_overlays)
 	if(!sunlight_overlays[index])
 		sunlight_overlays[index] = create_sunlight_overlay(fr, fg, fb, fa)
 	return sunlight_overlays[index]
 
-
 //get our weather overlay
 /datum/controller/subsystem/outdoor_effects/proc/get_weather_overlay() //TODO VANDERLIN: Restore this to 32x48 for some extra
 	var/mutable_appearance/MA = new /mutable_appearance()
-	MA.icon 			  = 'icons/effects/weather_overlay.dmi'
-	MA.icon_state 		  = "weather_overlay"
-	MA.plane			  = WEATHER_OVERLAY_PLANE
-	MA.blend_mode   	  = BLEND_OVERLAY
-	MA.invisibility 	  = INVISIBILITY_LIGHTING
+	MA.icon = 'icons/effects/weather_overlay.dmi'
+	MA.icon_state = "weather_overlay"
+	MA.plane = WEATHER_OVERLAY_PLANE
+	MA.blend_mode = BLEND_OVERLAY
+	MA.invisibility = INVISIBILITY_LIGHTING
 	return MA
-
-
 
 //Create an overlay appearance from corner values
 /datum/controller/subsystem/outdoor_effects/proc/create_sunlight_overlay(fr, fg, fb, fa)
-
 	var/mutable_appearance/MA = new /mutable_appearance()
-
-	MA.blend_mode   = BLEND_OVERLAY
-	MA.icon		 = LIGHTING_ICON
-	MA.icon_state   = null
-	MA.plane		= SUNLIGHTING_PLANE /* we put this on a lower level than lighting so we dont multiply anything */
+	MA.icon = LIGHTING_ICON
+	MA.icon_state = "lighting_transparent"
+	MA.plane = SUNLIGHTING_PLANE /* we put this on a lower level than lighting so we dont multiply anything */
+	MA.blend_mode = BLEND_OVERLAY
 	MA.invisibility = INVISIBILITY_LIGHTING
-
 
 	//MA gets applied as an overlay, but we pull luminosity out to set our outdoor_effect object's lum
 	#if LIGHTING_SOFT_THRESHOLD != 0
@@ -320,14 +307,18 @@ SUBSYSTEM_DEF(outdoor_effects)
 	#endif
 
 	if((fr & fg & fb & fa) && (fr + fg + fb + fa == 4)) /* this will likely never happen */
-		MA.color = LIGHTING_BASE_MATRIX
+		MA.icon_state = "lighting_transparent"
+		MA.color = null
 	else if(!MA.luminosity)
-		MA.color = SUNLIGHT_DARK_MATRIX
+		MA.icon_state = "lighting_dark"
+		MA.color = null
 	else
+		MA.icon_state = null
 		MA.color = list(
-					fr, fr, fr,  00 ,
-					fg, fg, fg,  00 ,
-					fb, fb, fb,  00 ,
-					fa, fa, fa,  00 ,
-					00, 00, 00,  01 )
+			fr, fr, fr, 00,
+			fg, fg, fg, 00,
+			fb, fb, fb, 00,
+			fa, fa, fa, 00,
+			00, 00, 00, 01
+		)
 	return MA
