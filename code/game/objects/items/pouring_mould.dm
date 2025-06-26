@@ -18,7 +18,7 @@
 	. = ..()
 	main_material = pick(typesof(/datum/material/clay))
 	set_material_information()
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/mould/set_material_information()
 	. = ..()
@@ -78,22 +78,19 @@
 		metal.find_largest_metal()
 
 	fufilled_metal += metal_amount
-	update_overlays()
-	crucible.update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
+	crucible.update_appearance(UPDATE_OVERLAYS)
 	if(fufilled_metal >= required_metal)
 		start_cooling()
 
 /obj/item/mould/update_overlays()
 	. = ..()
-	if(length(overlays))
-		overlays.Cut()
-
 	if(fufilled_metal)
 		var/mutable_appearance/MA = mutable_appearance(icon, filling_icon_state)
 		MA.color = initial(filling_metal.color)
 		MA.alpha = 255 * (fufilled_metal / required_metal)
 		MA.appearance_flags = RESET_COLOR | KEEP_APART
-		overlays += MA
+		. += MA
 
 		var/mutable_appearance/MA2 = mutable_appearance(icon, filling_icon_state)
 		if(cooling)
@@ -101,7 +98,7 @@
 		else
 			MA2.alpha = 255 * (fufilled_metal / required_metal)
 		MA2.plane = EMISSIVE_PLANE
-		overlays += MA2
+		. += MA2
 
 /obj/item/mould/proc/start_cooling()
 	cooling = TRUE
@@ -109,7 +106,7 @@
 
 /obj/item/mould/process()
 	cooling_progress += 2.5
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 	if(cooling_progress >= 100)
 		STOP_PROCESSING(SSobj, src)
 		create_item()
@@ -121,7 +118,7 @@
 	filling_metal = null
 	cooling = FALSE
 	cooling_progress = 0
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 
 /obj/item/mould/ingot
@@ -144,4 +141,4 @@
 	fufilled_metal = 0
 	filling_metal = null
 	cooling = FALSE
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)

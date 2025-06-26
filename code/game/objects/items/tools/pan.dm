@@ -31,7 +31,7 @@
 		return FALSE
 	return TRUE
 
-/obj/item/cooking/pan/proc/add_to_visible(obj/item/our_item)
+/obj/item/cooking/pan/proc/get_item_overlay(obj/item/our_item)
 	var/mutable_appearance/MA = mutable_appearance(our_item.icon, our_item.icon_state)
 	MA.color = our_item.color
 	MA.pixel_x = initial(our_item.pixel_x) + rand(-3, 3)
@@ -39,15 +39,13 @@
 	MA.vis_flags = VIS_INHERIT_LAYER | VIS_INHERIT_PLANE | VIS_INHERIT_ID
 	MA.blend_mode = BLEND_INSET_OVERLAY
 	MA.transform *= 0.6
-	add_overlay(MA)
+	return MA
 
 /obj/item/cooking/pan/update_overlays()
 	. = ..()
-	cut_overlays()
 
-	for(var/i=contents.len, i>=1, i--)
-		var/obj/item/our_item = contents[i]
-		src.add_to_visible(our_item)
+	for(var/obj/item/I as anything in contents)
+		. += get_item_overlay(I)
 
 /obj/item/cooking/pan/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
