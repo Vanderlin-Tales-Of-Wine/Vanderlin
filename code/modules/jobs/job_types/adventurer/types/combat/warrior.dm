@@ -35,8 +35,8 @@
 	gloves = /obj/item/clothing/gloves/leather
 	belt = /obj/item/storage/belt/leather
 	pants = /obj/item/clothing/pants/tights/black
-	backl = /obj/item/storage/backpack/satchel
-	backr = /obj/item/weapon/shield/wood
+	wear_back_left = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/weapon/shield/wood
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 	var/armortype = pickweight(list("Ironmail" = 6, "Ironplate" = 3, "Ironplate&Legs" = 1)) // At best they can get an iron breastplate over mail and iron chainleggings
 	var/weapontype = pickweight(list("Axe" = 2, "Mace" = 2, "Messer" = 2, "Sword" = 3, "Flail" = 1)) // Rolls for various weapons, all of these are iron tier

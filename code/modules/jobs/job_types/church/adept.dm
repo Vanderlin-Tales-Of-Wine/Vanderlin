@@ -54,7 +54,7 @@
 	cloak = /obj/item/clothing/cloak/tabard/adept
 	neck = /obj/item/clothing/neck/chaincoif
 	beltl = /obj/item/weapon/mace/spiked
-	backr = /obj/item/weapon/shield/wood/adept
+	wear_back_right = /obj/item/weapon/shield/wood/adept
 	gloves = /obj/item/clothing/gloves/leather
 	backpack_contents = list(/obj/item/storage/keyring/inquisitor = 1, /obj/item/weapon/knife/dagger/psydon = 1)
 
@@ -98,8 +98,8 @@
 	belt = /obj/item/storage/belt/leather
 	armor = /obj/item/clothing/armor/leather/splint
 	neck = /obj/item/clothing/neck/gorget
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
-	backl = /obj/item/ammo_holder/quiver/arrows
+	wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	wear_back_left = /obj/item/ammo_holder/quiver/arrows
 	beltl = /obj/item/weapon/mace/cudgel
 	pants = /obj/item/clothing/pants/trou/leather
 	cloak = /obj/item/clothing/cloak/raincloak/brown
@@ -150,8 +150,8 @@
 	head = /obj/item/clothing/head/helmet/leather/inquisitor // A nice swashbuckler hat would go hard.
 	neck = /obj/item/clothing/neck/gorget
 	beltl = /obj/item/weapon/whip // Great length, they don't need to be next to a person to help in apprehending them.
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-	backl = /obj/item/ammo_holder/quiver/bolts
+	wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+	wear_back_left = /obj/item/ammo_holder/quiver/bolts
 	pants = /obj/item/clothing/pants/trou/leather
 	backpack_contents = list(/obj/item/lockpick = 1, /obj/item/storage/keyring/inquisitor = 1, /obj/item/weapon/knife/dagger/psydon = 1)
 

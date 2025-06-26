@@ -22,7 +22,7 @@
 		def_zone = CBP.body_zone
 	var/protection = 0
 	var/obj/item/clothing/used
-	var/list/body_parts = list(skin_armor, head, wear_mask, wear_wrists, gloves, wear_neck, cloak, wear_armor, wear_shirt, shoes, wear_pants, backr, backl, belt, wear_ring)
+	var/list/body_parts = list(skin_armor, head, wear_mask, wear_wrists, gloves, wear_neck, cloak, wear_armor, wear_shirt, shoes, wear_pants, wear_back_right, wear_back_left, belt, wear_ring)
 	for(var/bp in body_parts)
 		if(!bp)
 			continue
@@ -72,7 +72,7 @@
 	if(isbodypart(def_zone))
 		var/obj/item/bodypart/CBP = def_zone
 		def_zone = CBP.body_zone
-	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, cloak, wear_armor, wear_pants, backr, backl, gloves, shoes, belt, wear_ring)
+	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, cloak, wear_armor, wear_pants, wear_back_right, wear_back_left, gloves, shoes, belt, wear_ring)
 	for(var/bp in body_parts)
 		if(!bp)
 			continue
@@ -514,10 +514,10 @@
 	//MELTING INVENTORY ITEMS//
 	//these items are all outside of armour visually, so melt regardless.
 	if(!bodyzone_hit)
-		if(backr)
-			inventory_items_to_kill += backr
-		if(backl)
-			inventory_items_to_kill += backl
+		if(wear_back_right)
+			inventory_items_to_kill += wear_back_right
+		if(wear_back_left)
+			inventory_items_to_kill += wear_back_left
 		if(belt)
 			inventory_items_to_kill += belt
 

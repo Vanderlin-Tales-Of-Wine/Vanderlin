@@ -208,7 +208,7 @@
 	name = "noose"
 	desc = "Abandon all hope."
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
-	pixel_y = 10
+	pixel_z = 10
 	icon_state = "noose"
 	can_buckle = 1
 	layer = 4.26
@@ -228,7 +228,7 @@
 	name = "gallows"
 	desc = "Stranded and hanging, limp and dead."
 	icon_state = "gallows"
-	pixel_y = 0
+	pixel_z = 0
 	max_integrity = 100
 
 /obj/structure/noose/Destroy()
@@ -293,12 +293,12 @@
 /obj/structure/noose/post_buckle_mob(mob/living/M)
 	if(has_buckled_mobs())
 		START_PROCESSING(SSobj, src)
-		M.set_mob_offsets("bed_buckle", _x = 0, _y = 10)
+		M.set_mob_offsets("bed_buckle", _w = 0, _z = 10)
 
 /obj/structure/noose/gallows/post_buckle_mob(mob/living/M)
 	if(has_buckled_mobs())
 		START_PROCESSING(SSobj, src)
-		M.set_mob_offsets("bed_buckle", _x = 6, _y = 16)
+		M.set_mob_offsets("bed_buckle", _w = 6, _z = 16)
 
 /obj/structure/noose/post_unbuckle_mob(mob/living/M)
 	STOP_PROCESSING(SSobj, src)
@@ -334,6 +334,6 @@
 			else
 				buckled_mob.visible_message("<span class='danger'>[buckled_mob] drops from the noose!</span>")
 				buckled_mob.Knockdown(60)
-				buckled_mob.pixel_y = initial(buckled_mob.pixel_y)
-				buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
+				buckled_mob.pixel_z = initial(buckled_mob.pixel_z)
+				buckled_mob.pixel_w = initial(buckled_mob.pixel_w)
 				unbuckle_all_mobs(force=1)

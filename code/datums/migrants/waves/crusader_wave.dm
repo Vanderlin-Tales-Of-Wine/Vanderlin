@@ -13,7 +13,7 @@
 	belt = /obj/item/storage/belt/leather/knifebelt/black/psydon
 	shoes = /obj/item/clothing/shoes/otavan/inqboots
 	pants = /obj/item/clothing/pants/trou/leather
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/head/leather/inqhat
 	gloves = /obj/item/clothing/gloves/otavan/inqgloves
 	beltr = /obj/item/storage/belt/pouch/coins/rich

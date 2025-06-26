@@ -69,7 +69,7 @@
 //Classical hand start - same as before, nothing changed.
 /datum/outfit/job/hand/handclassic/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/shirt/undershirt/fancy
-	backr = /obj/item/storage/backpack/satchel/black
+	wear_back_right = /obj/item/storage/backpack/satchel/black
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/storage/keyring/hand = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1)
 	armor = /obj/item/clothing/armor/leather/jacket/handjacket
 	pants = /obj/item/clothing/pants/tights/black
@@ -103,7 +103,7 @@
 
 //Spymaster start. More similar to the rogue adventurer - loses heavy armor and sword skills for more sneaky stuff.
 /datum/outfit/job/hand/spymaster/pre_equip(mob/living/carbon/human/H)
-	backr = /obj/item/storage/backpack/satchel/black
+	wear_back_right = /obj/item/storage/backpack/satchel/black
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special = 1, /obj/item/storage/keyring/hand = 1, /obj/item/lockpickring/mundane = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1)
 	if(!istype(H.dna.species, /datum/species/dwarf))
 		shirt = /obj/item/clothing/armor/gambeson/shadowrobe
@@ -154,7 +154,7 @@
 //Advisor start. Trades combat skills for more knowledge and skills - for older hands, hands that don't do combat - people who wanna play wizened old advisors.
 /datum/outfit/job/hand/advisor/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/shirt/undershirt/fancy
-	backr = /obj/item/storage/backpack/satchel/black
+	wear_back_right = /obj/item/storage/backpack/satchel/black
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/storage/keyring/hand = 1, /obj/item/reagent_containers/glass/bottle/poison = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1) //starts with a vial of poison, like all wizened evil advisors do!
 	armor = /obj/item/clothing/armor/leather/jacket/hand
 	pants = /obj/item/clothing/pants/tights/black

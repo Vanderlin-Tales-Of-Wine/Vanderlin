@@ -99,10 +99,10 @@
 	if(head)
 		burning_items += head
 
-	if(backr)
-		burning_items += backr
-	if(backl)
-		burning_items += backl
+	if(wear_back_right)
+		burning_items += wear_back_right
+	if(wear_back_left)
+		burning_items += wear_back_left
 
 	for(var/X in burning_items)
 		var/obj/item/I = X

@@ -14,7 +14,7 @@
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather/black
 	pants = /obj/item/clothing/pants/trou/shadowpants
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/key/mercenary, /obj/item/storage/belt/pouch/coins/poor, /obj/item/weapon/knife/dagger/steel/dirk)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
@@ -36,7 +36,7 @@
 			wrists = /obj/item/clothing/wrists/bracers/leather
 			mask = /obj/item/clothing/face/facemask/shadowfacemask
 			neck = /obj/item/clothing/neck/gorget
-			backr = /obj/item/weapon/shield/tower/spidershield
+			wear_back_right = /obj/item/weapon/shield/tower/spidershield
 			beltr = /obj/item/weapon/whip/spiderwhip
 
 			H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
@@ -58,7 +58,7 @@
 			gloves = /obj/item/clothing/gloves/fingerless/shadowgloves
 			mask = /obj/item/clothing/face/shepherd/shadowmask
 			neck = /obj/item/clothing/neck/chaincoif/iron
-			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve //Coupled with the racial PER malus, abysmal damage, but good for poison arrows.
+			wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve //Coupled with the racial PER malus, abysmal damage, but good for poison arrows.
 			beltr = /obj/item/ammo_holder/quiver/arrows
 			beltl = /obj/item/weapon/sword/sabre/stalker
 

@@ -45,8 +45,8 @@
 	neck = /obj/item/clothing/neck/gorget
 	shirt = /obj/item/clothing/shirt/undershirt/guard
 	shoes = /obj/item/clothing/shoes/boots
-	backl = /obj/item/storage/backpack/satchel
-	backr = /obj/item/weapon/shield/tower/metal
+	wear_back_left = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/weapon/shield/tower/metal
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltl = /obj/item/weapon/sword/sabre/dec
 	beltr = /obj/item/weapon/mace/cudgel

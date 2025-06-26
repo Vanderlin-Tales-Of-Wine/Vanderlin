@@ -83,15 +83,15 @@
 				remove_status_effect(/datum/status_effect/stress/stressvgood)
 				remove_status_effect(/datum/status_effect/stress/stressbad)
 				remove_status_effect(/datum/status_effect/stress/stressvbad)
-				if(!rogue_sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
+				if(!sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
 					play_mental_break_indicator()
 		if(stress > oldstress)
 			to_chat(src, span_red("I gain stress."))
-			if(!rogue_sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
+			if(!sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
 				play_stress_indicator()
 		else
 			to_chat(src, span_green("I gain peace."))
-			if(!rogue_sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
+			if(!sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
 				play_relief_indicator()
 
 		if(hud_used?.stressies)

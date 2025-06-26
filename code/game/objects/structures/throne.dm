@@ -14,7 +14,7 @@
 /obj/structure/throne/post_buckle_mob(mob/living/M)
 	..()
 	density = TRUE
-	M.set_mob_offsets("bed_buckle", _x = 0, _y = 8)
+	M.set_mob_offsets("bed_buckle", _w = 0, _z = 8)
 
 /obj/structure/throne/post_unbuckle_mob(mob/living/M)
 	. = ..()

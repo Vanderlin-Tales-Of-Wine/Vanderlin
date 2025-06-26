@@ -15,7 +15,7 @@
 	gloves = /obj/item/clothing/gloves/angle
 	belt = /obj/item/storage/belt/leather/mercenary/black
 	armor = /obj/item/clothing/armor/cuirass/elven
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	beltl = /obj/item/weapon/knife/dagger/steel/special
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	pants = /obj/item/clothing/pants/trou/leather
@@ -43,7 +43,7 @@
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	switch(weapon_choice)
 		if("Spear")
-			backr = /obj/item/weapon/polearm/spear
+			wear_back_right = /obj/item/weapon/polearm/spear
 			H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		if("Regal Elven Club")
 			beltr = /obj/item/weapon/mace/elvenclub/steel

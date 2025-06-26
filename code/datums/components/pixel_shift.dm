@@ -73,36 +73,36 @@
 			var/obj/item/pulled_item = pulled_atom
 			switch(direct)
 				if(NORTH)
-					if(pulled_item.pixel_y <= maximum_pixel_shift)
-						pulled_item.pixel_y++
+					if(pulled_item.pixel_z <= maximum_pixel_shift)
+						pulled_item.pixel_z++
 				if(EAST)
-					if(pulled_item.pixel_x <= maximum_pixel_shift)
-						pulled_item.pixel_x++
+					if(pulled_item.pixel_w <= maximum_pixel_shift)
+						pulled_item.pixel_w++
 				if(SOUTH)
-					if(pulled_item.pixel_y >= -maximum_pixel_shift)
-						pulled_item.pixel_y--
+					if(pulled_item.pixel_z >= -maximum_pixel_shift)
+						pulled_item.pixel_z--
 				if(WEST)
-					if(pulled_item.pixel_x >= -maximum_pixel_shift)
-						pulled_item.pixel_x--
+					if(pulled_item.pixel_w >= -maximum_pixel_shift)
+						pulled_item.pixel_w--
 		if(SHIFTING_PARENT)
 			switch(direct)
 				if(NORTH)
-					if(owner.pixelshift_y <= maximum_pixel_shift)
-						owner.pixelshift_y++
+					if(owner.pixelshift_z <= maximum_pixel_shift)
+						owner.pixelshift_z++
 						owner.pixelshifted = TRUE
 				if(EAST)
-					if(owner.pixelshift_x <= maximum_pixel_shift)
-						owner.pixelshift_x++
+					if(owner.pixelshift_w <= maximum_pixel_shift)
+						owner.pixelshift_w++
 						owner.pixelshifted = TRUE
 				if(SOUTH)
-					if(owner.pixelshift_y >= -maximum_pixel_shift)
-						owner.pixelshift_y--
+					if(owner.pixelshift_z >= -maximum_pixel_shift)
+						owner.pixelshift_z--
 						owner.pixelshifted = TRUE
 				if(WEST)
-					if(owner.pixelshift_x >= -maximum_pixel_shift)
-						owner.pixelshift_x--
+					if(owner.pixelshift_w >= -maximum_pixel_shift)
+						owner.pixelshift_w--
 						owner.pixelshifted = TRUE
-			owner.set_mob_offsets("pixel_shift", _x = owner.pixelshift_x, _y = owner.pixelshift_y)
+			owner.set_mob_offsets("pixel_shift", _w = owner.pixelshift_w, _z = owner.pixelshift_z)
 
 #undef SHIFTING_PARENT
 #undef SHIFTING_ITEMS

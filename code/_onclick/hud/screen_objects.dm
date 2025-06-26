@@ -751,7 +751,7 @@
 	if(isliving(hud?.mymob))
 		var/mob/living/L = hud.mymob
 		if(L.eyesclosed)
-			L.eyesclosed = 0
+			L.eyesclosed = FALSE
 			L.cure_blind("eyelids")
 			update_appearance(UPDATE_ICON_STATE)
 			return
@@ -760,7 +760,7 @@
 		if(_y>=29 || _y<=4)
 			if(isliving(hud.mymob))
 				var/mob/living/L = hud.mymob
-				L.eyesclosed = 1
+				L.eyesclosed = TRUE
 				L.become_blind("eyelids")
 		else
 			toggle(usr)

@@ -33,8 +33,8 @@
 	neck = /obj/item/storage/belt/pouch/coins/poor
 	head = /obj/item/clothing/head/brimmed
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
-	backr = /obj/item/storage/backpack/satchel
-	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	wear_back_right = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/ammo_holder/quiver/arrows
 	beltl = /obj/item/storage/meatbag

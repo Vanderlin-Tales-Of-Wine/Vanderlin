@@ -31,11 +31,11 @@
 		if(!(I.item_flags & ABSTRACT))
 			. += "[m1] holding [I.get_examine_string(user)] in [m2] [get_held_index_name(get_held_index_of_item(I))]."
 
-	if (backr)
-		. += "[m3] [backr.get_examine_string(user)] on [m2] back."
+	if (wear_back_right)
+		. += "[m3] [wear_back_right.get_examine_string(user)] on [m2] back."
 
-	if (backl)
-		. += "[m3] [backl.get_examine_string(user)] on [m2] back."
+	if (wear_back_left)
+		. += "[m3] [wear_back_left.get_examine_string(user)] on [m2] back."
 
 	var/appears_dead = 0
 
@@ -65,15 +65,6 @@
 				msg += "[m3] many burns!\n"
 			else
 				msg += "<B>[m1] dragon food!!</B>\n"
-
-		temp = getCloneLoss()
-		if(temp)
-			if(temp < 25)
-				msg += "[t_He] [t_is] slightly deformed.\n"
-			else if (temp < 50)
-				msg += "[t_He] [t_is] <b>moderately</b> deformed!\n"
-			else
-				msg += "<b>[t_He] [t_is] severely deformed!</b>\n"
 
 	if(HAS_TRAIT(src, TRAIT_DUMB))
 		msg += "[t_He] seem[p_s()] to be clumsy and unable to think.\n"

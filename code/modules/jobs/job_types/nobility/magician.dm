@@ -34,14 +34,14 @@
 /datum/outfit/job/magician/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/wizhat/gen
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	armor = /obj/item/clothing/shirt/robe/black
 	cloak = /obj/item/clothing/cloak/black_cloak
 	neck = /obj/item/clothing/neck/mana_star
 	ring = /obj/item/clothing/ring/gold
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltr = /obj/item/storage/magebag
-	backl = /obj/item/weapon/polearm/woodstaff
+	wear_back_left = /obj/item/weapon/polearm/woodstaff
 	shoes = /obj/item/clothing/shoes/shortboots
 	backpack_contents = list(/obj/item/scrying = 1, /obj/item/chalk = 1,/obj/item/reagent_containers/glass/bottle/killersice = 1, /obj/item/book/granter/spellbook/master = 1, /obj/item/weapon/knife/dagger/silver/arcyne = 1, /obj/item/storage/keyring/mage = 1)
 	if(!(H.patron == /datum/patron/divine/noc || /datum/patron/inhumen/zizo))

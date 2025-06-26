@@ -33,9 +33,9 @@
 		neck = /obj/item/storage/belt/pouch/coins/poor
 		head = /obj/item/clothing/head/fisherhat
 		armor = /obj/item/clothing/armor/gambeson/light/striped
-		backl = /obj/item/storage/backpack/satchel
+		wear_back_left = /obj/item/storage/backpack/satchel
 		belt = /obj/item/storage/belt/leather
-		backr = /obj/item/fishingrod/fisher
+		wear_back_right = /obj/item/fishingrod/fisher
 		beltr = /obj/item/cooking/pan
 		beltl = /obj/item/flint
 		backpack_contents = list(/obj/item/weapon/knife/villager = 1, /obj/item/natural/worms = 1, /obj/item/weapon/shovel/small = 1)
@@ -46,8 +46,8 @@
 		shoes = /obj/item/clothing/shoes/boots/leather
 		neck = /obj/item/storage/belt/pouch/coins/poor
 		head = /obj/item/clothing/head/fisherhat
-		backl = /obj/item/storage/backpack/satchel
-		backr = /obj/item/fishingrod/fisher
+		wear_back_left = /obj/item/storage/backpack/satchel
+		wear_back_right = /obj/item/fishingrod/fisher
 		belt = /obj/item/storage/belt/leather
 		beltr = /obj/item/cooking/pan
 		beltl = /obj/item/flint

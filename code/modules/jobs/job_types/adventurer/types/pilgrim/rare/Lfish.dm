@@ -22,10 +22,10 @@
 		shoes = /obj/item/clothing/shoes/boots/leather
 		neck = /obj/item/storage/belt/pouch/coins/mid
 		head = /obj/item/clothing/head/fisherhat
-		backr = /obj/item/storage/backpack/satchel
+		wear_back_right = /obj/item/storage/backpack/satchel
 		armor = /obj/item/clothing/armor/leather/jacket/sea
 		belt = /obj/item/storage/belt/leather
-		backl = /obj/item/fishingrod/fisher
+		wear_back_left = /obj/item/fishingrod/fisher
 		beltr = /obj/item/cooking/pan
 		beltl = /obj/item/weapon/knife/hunting
 		backpack_contents = list(/obj/item/natural/worms = 2,/obj/item/weapon/shovel/small=1)
@@ -51,7 +51,7 @@
 		shirt = /obj/item/clothing/shirt/shortshirt/random
 		neck = /obj/item/storage/belt/pouch/coins/mid
 		head = /obj/item/clothing/head/fisherhat
-		backr = /obj/item/storage/backpack/satchel
+		wear_back_right = /obj/item/storage/backpack/satchel
 		armor = /obj/item/clothing/armor/leather/jacket/sea
 		belt = /obj/item/storage/belt/leather
 		beltr = /obj/item/fishingrod/fisher

@@ -28,7 +28,7 @@
 	head = /obj/item/clothing/head/brimmed
 	neck = /obj/item/clothing/neck/coif
 	shoes = /obj/item/clothing/shoes/boots/leather
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/poor
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	armor = /obj/item/clothing/armor/gambeson/light/striped

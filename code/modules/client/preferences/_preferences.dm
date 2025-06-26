@@ -135,6 +135,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 	var/action_buttons_screen_locs = list()
 
+	/// dominant hand
 	var/domhand = 2
 	var/alignment = ALIGNMENT_TN
 	var/datum/charflaw/charflaw

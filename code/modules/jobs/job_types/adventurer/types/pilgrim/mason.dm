@@ -46,7 +46,7 @@
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/weapon/hammer
 	beltr = /obj/item/weapon/chisel
-	backl = /obj/item/storage/backpack/backpack
+	wear_back_left = /obj/item/storage/backpack/backpack
 
 	H.change_stat(STATKEY_STR, 1)
 	H.change_stat(STATKEY_INT, 2)

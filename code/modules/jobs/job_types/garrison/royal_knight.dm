@@ -43,7 +43,7 @@
 	shirt = /obj/item/clothing/armor/gambeson/arming
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/sword/arming
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1)
 
 	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
@@ -152,7 +152,7 @@
 
 /datum/outfit/job/royalknight/steam/pre_equip(mob/living/carbon/human/H)
 	. = ..()
-	backr = /obj/item/clothing/cloak/boiler
+	wear_back_right = /obj/item/clothing/cloak/boiler
 	armor = /obj/item/clothing/armor/steam
 	shoes = /obj/item/clothing/shoes/boots/armor/steam
 	gloves = /obj/item/clothing/gloves/plate/steam
@@ -170,7 +170,7 @@
 
 /datum/outfit/job/royalknight/steam/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
-	if(H.backr && istype(H.backr, /obj/item/clothing/cloak/boiler))
-		var/obj/item/clothing/cloak/boiler/B = H.backr
+	if(H.wear_back_right && istype(H.wear_back_right, /obj/item/clothing/cloak/boiler))
+		var/obj/item/clothing/cloak/boiler/B = H.wear_back_right
 		SEND_SIGNAL(B, COMSIG_ATOM_STEAM_INCREASE, 1000)
 		B.update_armor()

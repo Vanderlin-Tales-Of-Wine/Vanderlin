@@ -48,7 +48,7 @@
 	armor = /obj/item/clothing/armor/chainmail
 	gloves = /obj/item/clothing/gloves/leather
 	wrists = /obj/item/clothing/wrists/bracers/leather
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor = 1, /obj/item/clothing/neck/chaincoif = 1, /obj/item/weapon/hammer/iron = 1,)
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
@@ -80,7 +80,7 @@
 	armor = /obj/item/clothing/armor/chainmail
 	gloves = /obj/item/clothing/gloves/leather
 	wrists = /obj/item/clothing/wrists/bracers/leather
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	beltr = /obj/item/weapon/sword
 	cloak = /obj/item/clothing/cloak/tabard/knight/guard
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor = 1, /obj/item/clothing/neck/chaincoif = 1, /obj/item/weapon/hammer/iron = 1,)
@@ -112,10 +112,10 @@
 /datum/outfit/job/squire/skirmisher/pre_equip(mob/living/carbon/human/H)
 	beltr = /obj/item/ammo_holder/quiver/arrows
 	armor = /obj/item/clothing/armor/chainmail
-	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
+	wear_back_left = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 	gloves = /obj/item/clothing/gloves/leather
 	wrists = /obj/item/clothing/wrists/bracers/leather
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	cloak = /obj/item/clothing/cloak/stabard/surcoat/guard
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/storage/belt/pouch/coins/poor = 1, /obj/item/clothing/neck/chaincoif = 1, /obj/item/weapon/hammer/iron = 1,)
 	if(H.mind)

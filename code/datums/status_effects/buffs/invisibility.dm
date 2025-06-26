@@ -21,7 +21,7 @@
 	ADD_TRAIT(owner, TRAIT_IMPERCEPTIBLE, id)
 
 	// don't show a message to other people if we're sneaking
-	var/viewing_message = owner.rogue_sneaking ? null : span_warning("[owner] fades into nothing!")
+	var/viewing_message = owner.sneaking ? null : span_warning("[owner] fades into nothing!")
 	owner.visible_message( \
 		viewing_message, \
 		span_notice("My form fades away.") \
@@ -36,7 +36,7 @@
 	REMOVE_TRAIT(owner, TRAIT_IMPERCEPTIBLE, id)
 
 	owner.update_sneak_invis()
-	if(owner.rogue_sneaking)
+	if(owner.sneaking)
 		to_chat(owner, span_notice("I blend into the shadows as my form reveals itself. I remain hidden."))
 	else
 		owner.visible_message( \

@@ -73,7 +73,7 @@
 		if (!targetting_datum.can_attack(living_mob, pot_target))
 			continue
 		// Skip sneaking mobs with a chance to detect them
-		if(pot_target.rogue_sneaking)
+		if(pot_target.sneaking)
 			var/extra_chance = (living_mob.health <= living_mob.maxHealth * 0.5) ? 30 : 0
 			if(!living_mob.npc_detect_sneak(pot_target, extra_chance))
 				continue

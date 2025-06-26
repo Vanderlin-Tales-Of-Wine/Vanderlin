@@ -50,7 +50,7 @@
 /datum/worker_attack_strategy/proc/on_target_selection(mob/living/target)
 	if(!isliving(target))
 		return
-	if(target.alpha == 0 && target.rogue_sneaking)
+	if(target.alpha == 0 && target.sneaking)
 		return worker.npc_detect_sneak(target, simple_detect_bonus)
 
 /datum/worker_attack_strategy/proc/pick_target(list/possible_targets)

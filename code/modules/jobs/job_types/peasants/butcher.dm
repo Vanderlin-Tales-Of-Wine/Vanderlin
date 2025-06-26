@@ -29,7 +29,7 @@
 	belt = /obj/item/storage/belt/leather
 	beltr= /obj/item/storage/meatbag
 	beltl= /obj/item/key/butcher
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	armor = /obj/item/clothing/armor/leather/vest/butcher
 	shoes = /obj/item/clothing/shoes/boots/leather
 	backpack_contents = list(/obj/item/kitchen/spoon, /obj/item/reagent_containers/food/snacks/truffles, /obj/item/weapon/knife/hunting)

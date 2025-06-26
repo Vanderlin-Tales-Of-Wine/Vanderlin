@@ -18,7 +18,7 @@
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	armor = /obj/item/clothing/shirt/robe/mage
 	belt = /obj/item/storage/belt/leather/rope
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	beltr = /obj/item/storage/magebag/poor
 	beltl = /obj/item/reagent_containers/glass/bottle/manapot
 	r_hand = /obj/item/weapon/polearm/woodstaff

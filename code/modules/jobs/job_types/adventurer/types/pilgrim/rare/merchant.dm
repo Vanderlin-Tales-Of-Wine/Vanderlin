@@ -36,7 +36,7 @@
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather/black
 	beltr = /obj/item/flashlight/flare/torch/lantern
-	backl = /obj/item/storage/backpack/backpack
+	wear_back_left = /obj/item/storage/backpack/backpack
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel)
 	neck = /obj/item/storage/belt/pouch/coins/rich
 	ring = /obj/item/clothing/ring/silver

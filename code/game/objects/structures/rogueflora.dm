@@ -240,7 +240,7 @@
 
 /obj/structure/chair/bench/ancientlog/post_buckle_mob(mob/living/M)
 	..()
-	M.set_mob_offsets("bed_buckle", _x = 0, _y = 5)
+	M.set_mob_offsets("bed_buckle", _w = 0, _z = 5)
 
 /obj/structure/chair/bench/ancientlog/post_unbuckle_mob(mob/living/M)
 	..()

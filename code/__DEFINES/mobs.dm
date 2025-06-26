@@ -364,3 +364,7 @@
 #define FORBID_TELEKINESIS_REACH (1<<5)
 /// If resting on the floor is allowed to perform action
 #define ALLOW_RESTING (1<<7)
+
+#define DOMINANT_HAND_NONE 0
+#define DOMINANT_HAND_LEFT 1
+#define DOMINANT_HAND_RIGHT 2

@@ -233,11 +233,11 @@
 	if(cloak && !(obscured & ITEM_SLOT_CLOAK))
 		. += "[m3] [cloak.get_examine_string(user)] on [m2] shoulders."
 
-	if(backr && !(obscured & ITEM_SLOT_BACK_R))
-		. += "[m3] [backr.get_examine_string(user)] on [m2] back."
+	if(wear_back_right && !(obscured & ITEM_SLOT_BACK_R))
+		. += "[m3] [wear_back_right.get_examine_string(user)] on [m2] back."
 
-	if(backl && !(obscured & ITEM_SLOT_BACK_L))
-		. += "[m3] [backl.get_examine_string(user)] on [m2] back."
+	if(wear_back_left && !(obscured & ITEM_SLOT_BACK_L))
+		. += "[m3] [wear_back_left.get_examine_string(user)] on [m2] back."
 
 	//Hands
 	for(var/obj/item/I in held_items)
@@ -300,12 +300,6 @@
 		appears_dead = TRUE
 		if(suiciding)
 			msg += "[t_He] appear[p_s()] to have committed suicide... there is no hope of recovery."
-		if(hellbound)
-			msg += "[capitalize(m2)] soul seems to have been ripped out of [m2] body. Revival is impossible."
-//		if(getorgan(/obj/item/organ/brain) && !key && !get_ghost(FALSE, TRUE))
-//			msg += "<span class='deadsay'>[m1] limp and unresponsive; there are no signs of life and [m2] soul has departed...</span>"
-//		else
-//			msg += "<span class='deadsay'>[m1] limp and unresponsive; there are no signs of life...</span>"
 
 	var/temp = getBruteLoss() + getFireLoss() //no need to calculate each of these twice
 

@@ -175,8 +175,8 @@
 		var/turf/open/T = loc
 		if(reagents&& T.pollution)
 			T.pollution.breathe_act(src)
-			if(next_smell <= world.time)
-				next_smell = world.time + 30 SECONDS
+			if(TIMER_COOLDOWN_FINISHED(src, "next_smell"))
+				TIMER_COOLDOWN_START(src, "next_smell", 30 SECONDS)
 				T.pollution.smell_act(src)
 
 /mob/living/proc/handle_inwater(turf/open/water/W)
@@ -965,32 +965,32 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 	else if(!IsSleeping() && !HAS_TRAIT(src, TRAIT_NOSLEEP))
 		// Resting on a bed or something
 		if(buckled?.sleepy)
-			if(eyesclosed && !cant_fall_asleep || (eyesclosed && !(fallingas >= 10 && cant_fall_asleep)))
-				if(!fallingas)
+			if(eyesclosed && !cant_fall_asleep || (eyesclosed && !(falling_asleep >= 10 && cant_fall_asleep)))
+				if(!falling_asleep)
 					to_chat(src, span_warning("I'll fall asleep soon..."))
-				fallingas++
-				if(fallingas > 15)
+				falling_asleep++
+				if(falling_asleep > 15)
 					Sleeping(300)
-			else if(eyesclosed && fallingas >= 10 && cant_fall_asleep)
-				if(fallingas != 13)
+			else if(eyesclosed && falling_asleep >= 10 && cant_fall_asleep)
+				if(falling_asleep != 13)
 					to_chat(src, span_boldwarning("I can't sleep...[cause]"))
-				fallingas -= 5
+				falling_asleep -= 5
 			else
 				adjust_energy(buckled.sleepy * (max_energy * 0.01))
 		// Resting on the ground (not sleeping or with eyes closed and about to fall asleep)
 		else if(body_position == LYING_DOWN)
-			if(eyesclosed && !cant_fall_asleep || (eyesclosed && !(fallingas >= 10 && cant_fall_asleep)))
-				if(!fallingas)
+			if(eyesclosed && !cant_fall_asleep || (eyesclosed && !(falling_asleep >= 10 && cant_fall_asleep)))
+				if(!falling_asleep)
 					to_chat(src, span_warning("I'll fall asleep soon, although a bed would be more comfortable..."))
-				fallingas++
-				if(fallingas > 25)
+				falling_asleep++
+				if(falling_asleep > 25)
 					Sleeping(300)
-			else if(eyesclosed && fallingas >= 10 && cant_fall_asleep)
-				if(fallingas != 13)
+			else if(eyesclosed && falling_asleep >= 10 && cant_fall_asleep)
+				if(falling_asleep != 13)
 					to_chat(src, span_boldwarning("I can't sleep...[cause]"))
-				fallingas -= 5
+				falling_asleep -= 5
 			else
 				adjust_energy((max_energy * 0.01))
-		else if(fallingas)
-			fallingas = 0
+		else if(falling_asleep)
+			falling_asleep = 0
 		tiredness = min(tiredness + 1, 100)

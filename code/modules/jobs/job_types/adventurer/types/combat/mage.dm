@@ -19,7 +19,7 @@
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	armor = /obj/item/clothing/shirt/robe/mage
 	belt = /obj/item/storage/belt/leather/rope
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	beltr = /obj/item/storage/magebag/poor
 	beltl = /obj/item/reagent_containers/glass/bottle/manapot
 	backpack_contents = list(/obj/item/book/granter/spellbook/apprentice = 1, /obj/item/chalk = 1)
@@ -33,7 +33,7 @@
 		if(H.age == AGE_OLD)
 			head = /obj/item/clothing/head/wizhat/gen
 			armor = /obj/item/clothing/shirt/robe/plain
-			backl = /obj/item/storage/backpack/backpack
+			wear_back_left = /obj/item/storage/backpack/backpack
 			H.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
 			H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_STR, -2)
