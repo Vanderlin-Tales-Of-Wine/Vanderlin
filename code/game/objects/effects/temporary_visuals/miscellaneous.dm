@@ -137,10 +137,6 @@
 /obj/effect/temp_visual/dir_setting/curse/hand
 	icon_state = "cursehand"
 
-/obj/effect/temp_visual/dir_setting/curse/hand/Initialize(mapload, set_dir, handedness)
-	. = ..()
-	update_icon()
-
 /obj/effect/temp_visual/wizard
 	name = "water"
 	icon = 'icons/mob/mob.dmi'

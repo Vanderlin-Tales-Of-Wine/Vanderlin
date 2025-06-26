@@ -78,7 +78,7 @@
 			vial.essence_amount -= transferred
 			if(vial.essence_amount <= 0)
 				vial.contained_essence = null
-			vial.update_icon()
+			vial.update_appearance(UPDATE_OVERLAYS)
 			to_chat(user, span_info("You pour [transferred] units of essence into the matrix."))
 		return
 

@@ -134,7 +134,7 @@
 		soundloop.stress2give = initial(soundloop.stress2give)
 	if(dynamic_icon)
 		lower_from_mouth()
-		update_icon()
+		update_appearance()
 	// Prevents an exploit
 	for(var/mob/living/carbon/L in hearers(7, loc))
 		var/mob/living/carbon/buffed = L
@@ -219,7 +219,7 @@
 	GLOB.vanderlin_round_stats[STATS_SONGS_PLAYED]++
 	if(dynamic_icon)
 		lift_to_mouth()
-		update_icon()
+		update_appearance()
 	START_PROCESSING(SSprocessing, src)
 
 	// BARDIC BUFFS CODE START //

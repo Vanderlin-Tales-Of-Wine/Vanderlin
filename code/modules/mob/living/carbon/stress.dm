@@ -46,13 +46,11 @@
 /mob/living/carbon/update_stress()
 	if(HAS_TRAIT(src, TRAIT_NOMOOD))
 		stress = 0
-		if(hud_used)
-			if(hud_used.stressies)
-				hud_used.stressies.update_icon(stress)
 	for(var/datum/stressevent/D in negative_stressors)
 		if(D.timer)
 			if(world.time > (D.time_added + D.timer))
 				remove_stress(D.type)
+
 	for(var/datum/stressevent/D in positive_stressors)
 		if(D.timer)
 			if(world.time > (D.time_added + D.timer))
@@ -95,11 +93,11 @@
 			to_chat(src, span_green("I gain peace."))
 			if(!rogue_sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
 				play_relief_indicator()
-		if(hud_used)
-			if(hud_used.stressies)
-				hud_used.stressies.update_icon()
-	oldstress = stress
 
+		if(hud_used?.stressies)
+			hud_used.stressies.update_appearance(UPDATE_OVERLAYS)
+
+	oldstress = stress
 
 /mob/living/carbon/get_stress_amount()
 	if(HAS_TRAIT(src, TRAIT_NOMOOD))
