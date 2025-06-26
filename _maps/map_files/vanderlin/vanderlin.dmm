@@ -10530,6 +10530,9 @@
 /area/rogue/under/town/basement)
 "gCP" = (
 /obj/structure/closet/crate/crafted_closet/crafted,
+/obj/item/clothing/cloak/apron/cook,
+/obj/item/clothing/cloak/apron/cook,
+/obj/item/clothing/head/cookhat/chef,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/town/basement)
 "gCS" = (
@@ -27561,7 +27564,10 @@
 /area/rogue/indoors/town/garrison)
 "rDj" = (
 /obj/structure/closet/crate/crafted_closet/crafted,
-/obj/item/clothing/cloak/apron/cook,
+/obj/item/clothing/shirt/dress/gen/random,
+/obj/item/clothing/cloak/apron/waist,
+/obj/item/clothing/shirt/dress/gen/random,
+/obj/item/clothing/cloak/apron/waist,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/town/basement)
 "rDo" = (
@@ -34109,6 +34115,7 @@
 "vLM" = (
 /obj/structure/closet/crate/crafted_closet/crafted,
 /obj/item/clothing/cloak/apron/waist/bar,
+/obj/item/clothing/shirt/dress/silkdress/random,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/town/basement)
 "vLT" = (
@@ -37666,6 +37673,14 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
+"ybE" = (
+/obj/structure/closet/crate/crafted_closet/crafted,
+/obj/item/clothing/shirt/undershirt/random,
+/obj/item/clothing/shirt/undershirt/random,
+/obj/item/clothing/pants/tights/random,
+/obj/item/clothing/pants/tights/random,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/town/basement)
 "ybI" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -66340,7 +66355,7 @@ vgJ
 vgJ
 vgJ
 gEi
-rDj
+ybE
 vJz
 vJz
 vJz
