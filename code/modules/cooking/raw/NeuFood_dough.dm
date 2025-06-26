@@ -175,7 +175,7 @@
 	. = ..()
 	if(. && !QDELETED(src))
 		bitecount++
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/reagent_containers/food/snacks/bread/on_consume(mob/living/eater)
 	..()

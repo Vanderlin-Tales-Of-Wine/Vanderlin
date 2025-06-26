@@ -12,21 +12,11 @@
 	climbable = TRUE
 	climb_time = 10 //real fast, because let's be honest stepping into or onto a crate is easy
 	climb_stun = 0 //climbing onto crates isn't hard, guys
-	delivery_icon = "deliverycrate"
 	open_sound = 'sound/blank.ogg'
 	close_sound = 'sound/blank.ogg'
 	open_sound_volume = 35
 	close_sound_volume = 50
 	drag_slowdown = 0
-	var/base_icon_state
-
-/obj/structure/closet/crate/Initialize()
-	. = ..()
-	if(!base_icon_state)
-		base_icon_state = initial(icon_state)
-	if(icon_state == "[base_icon_state]open")
-		opened = TRUE
-	update_icon()
 
 /obj/structure/closet/crate/CanPass(atom/movable/mover, turf/target)
 	if(!istype(mover, /obj/structure/closet))
@@ -37,9 +27,6 @@
 			if(!locatedcrate.opened) //otherwise, if the located crate is closed, allow entering
 				return TRUE
 	return !density
-
-/obj/structure/closet/crate/update_icon()
-	icon_state = "[base_icon_state][opened ? "open" : ""]"
 
 /obj/structure/closet/crate/attack_hand(mob/user)
 	. = ..()

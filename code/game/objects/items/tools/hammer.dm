@@ -73,7 +73,7 @@
 		else
 			user.visible_message(span_warning("[user] fumbles trying to repair [attacked_prosthetic]!"))
 			attacked_prosthetic.take_damage(attacked_prosthetic.max_integrity * 0.1, BRUTE, "blunt")
-		attacked_prosthetic.update_icon()
+		attacked_prosthetic.update_appearance()
 		return
 
 	if(isitem(O) && !user.cmode)
@@ -103,7 +103,7 @@
 		else
 			user.visible_message("<span class='warning'>[user] damages [attacked_item]!</span>")
 			attacked_item.take_damage(attacked_item.max_integrity * 0.1, BRUTE, "blunt")
-		attacked_item.update_icon()
+		attacked_item.update_appearance()
 		return
 
 	if(isstructure(O) && !user.cmode)
@@ -120,7 +120,7 @@
 		blacksmith_mind.add_sleep_experience(attacked_structure.hammer_repair, amt2raise)
 		playsound(src,'sound/items/bsmithfail.ogg', 100, FALSE)
 		user.visible_message(span_info("[user] repairs [attacked_structure]!"))
-		attacked_structure.update_icon()
+		attacked_structure.update_appearance()
 		return
 
 	. = ..()
