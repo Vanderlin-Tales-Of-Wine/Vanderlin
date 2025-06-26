@@ -37,9 +37,9 @@ Sunlight System
 	var/mutable_appearance/sunlight_overlay
 	var/list/datum/lighting_corner/affecting_corners
 
-/atom/movable/outdoor_effect/Initialize(mapload, turf/source)
+/atom/movable/outdoor_effect/Initialize(mapload)
 	. = ..()
-	source_turf = source
+	source_turf = loc
 	if(source_turf.outdoor_effect)
 		qdel(source_turf.outdoor_effect, force = TRUE)
 	source_turf.outdoor_effect = src
@@ -186,7 +186,7 @@ Sunlight System
 
 	/* if border or indoor, initialize. Set sunlight state if valid */
 	if(!outdoor_effect && (TempState <> SKY_BLOCKED || !roofStat["WEATHERPROOF"]))
-		outdoor_effect = new /atom/movable/outdoor_effect(null, src)
+		outdoor_effect = new /atom/movable/outdoor_effect(src)
 	if(outdoor_effect)
 		outdoor_effect.state = TempState
 		outdoor_effect.weatherproof = roofStat["WEATHERPROOF"]

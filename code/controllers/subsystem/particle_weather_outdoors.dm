@@ -206,7 +206,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 
 		/* if we haven't initialized but we are affected, create new and check state */
 		if(!U)
-			T.outdoor_effect = new /atom/movable/outdoor_effect(null, T)
+			T.outdoor_effect = new /atom/movable/outdoor_effect(T)
 			T.get_sky_and_weather_states()
 			U = T.outdoor_effect
 
