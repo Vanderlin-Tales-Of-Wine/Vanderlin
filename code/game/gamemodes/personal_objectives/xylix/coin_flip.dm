@@ -60,6 +60,7 @@
 	var/obj/item/coin/new_coin_type = pick(coin_types)
 	if(owner?.current)
 		to_chat(owner.current, span_notice("Oops, that wasn't actually the right coin! it was supposed to be a [initial(new_coin_type.name)]!"))
+		required_coin_type = new_coin_type
 	update_explanation_text()
 	if(owner)
 		owner.announce_personal_objectives()
