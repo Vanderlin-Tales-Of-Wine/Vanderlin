@@ -912,6 +912,10 @@
 /obj/structure/rack/shelf/biggest,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church/inquisition)
+"aRa" = (
+/obj/structure/fake_machine/mail/r,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors/town/church/inquisition)
 "aRq" = (
 /obj/structure/closet/crate/crafted_closet/inn,
 /obj/item/clothing/cloak/raincloak/random,
@@ -4559,6 +4563,7 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/landmark/start/fisher,
+/obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town)
 "epR" = (
@@ -6178,6 +6183,10 @@
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/concrete,
 /area/rogue/indoors/soilsons)
+"fWv" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/snow/patchy,
+/area/rogue/outdoors/rtfield/safe)
 "fWT" = (
 /obj/effect/landmark/start/villagerlate,
 /turf/open/floor/cobble,
@@ -6860,10 +6869,6 @@
 /area/rogue/under/town/basement)
 "gAq" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/flashlight/flare/torch/lantern/bronzelamptern,
-/obj/item/flashlight/flare/torch/lantern/bronzelamptern,
-/obj/item/flashlight/flare/torch/lantern/bronzelamptern,
-/obj/item/flashlight/flare/torch/lantern/bronzelamptern,
 /obj/item/flint,
 /obj/item/flint,
 /obj/item/flint,
@@ -6902,6 +6907,10 @@
 	pixel_y = 2
 	},
 /obj/item/flashlight/flare/torch/metal,
+/obj/item/flashlight/flare/torch/lantern,
+/obj/item/flashlight/flare/torch/lantern,
+/obj/item/flashlight/flare/torch/lantern,
+/obj/item/flashlight/flare/torch/lantern,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church/inquisition)
 "gBc" = (
@@ -6934,6 +6943,10 @@
 "gCz" = (
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/tavern)
+"gCD" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/ruinedwood/turned,
+/area/rogue/indoors/town)
 "gCQ" = (
 /obj/machinery/light/fueled/wallfire{
 	pixel_x = 32
@@ -7251,6 +7264,10 @@
 "gQc" = (
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/town/church)
+"gQe" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/snow,
+/area/rogue/outdoors/rtfield/safe)
 "gQg" = (
 /obj/structure/fluff/stonecoffin,
 /obj/structure/spider/stickyweb{
@@ -9226,6 +9243,10 @@
 /obj/structure/easel,
 /obj/item/canvas,
 /turf/open/floor/carpet/purple,
+/area/rogue/indoors/town/orphanage)
+"iJc" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/orphanage)
 "iJe" = (
 /obj/structure/bookcase/random/legends,
@@ -11410,6 +11431,14 @@
 /obj/item/reagent_containers/food/snacks/produce/fruit/apple,
 /obj/item/reagent_containers/food/snacks/produce/fruit/apple,
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
+/obj/item/key/church,
+/obj/item/key/church,
+/obj/item/key/church,
+/obj/item/key/church,
+/obj/item/key/graveyard,
+/obj/item/key/graveyard,
+/obj/item/key/graveyard,
+/obj/item/key/graveyard,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/church)
 "kPe" = (
@@ -17819,6 +17848,10 @@
 /obj/structure/flora/grass/water,
 /turf/open/water/swamp,
 /area/rogue/outdoors/river)
+"qGa" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/rtfield/safe)
 "qGi" = (
 /obj/machinery/light/fueled/torchholder/metal_torch/west,
 /turf/open/floor/ruinedwood/darker,
@@ -20103,6 +20136,11 @@
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town)
+"sNk" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/ruinedwood,
+/area/rogue/indoors/town)
 "sNQ" = (
 /obj/structure/chair/stool,
 /turf/open/floor/cobblerock,
@@ -20124,6 +20162,10 @@
 /mob/living/simple_animal/hostile/retaliate/bat,
 /turf/open/water/blood,
 /area/rogue/under/tomb/indoors/church)
+"sPo" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/cobble/snow,
+/area/rogue/outdoors/rtfield/safe)
 "sPN" = (
 /obj/machinery/light/fueled/wallfire{
 	pixel_y = 31
@@ -20958,6 +21000,10 @@
 /obj/structure/bars/cemetery,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
+"tAq" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/safe)
 "tBb" = (
 /obj/structure/fake_machine/scomm,
 /turf/open/floor/dirt/road,
@@ -24491,6 +24537,10 @@
 /obj/structure/table/wood/plain,
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church)
+"wOC" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/town/orphanage)
 "wOI" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
@@ -25151,6 +25201,11 @@
 /obj/structure/hotspring/border/two,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/rtfield)
+"xAh" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/snow,
+/area/rogue/outdoors/rtfield/safe)
 "xAz" = (
 /obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/peppermill,
@@ -54545,7 +54600,7 @@ aWs
 sXM
 aWs
 tRe
-sXM
+aRa
 sXM
 aWs
 iSU
@@ -76487,8 +76542,8 @@ cib
 iJC
 iJC
 nam
-nam
-kTb
+fWv
+gQe
 swT
 fKb
 kTb
@@ -77712,7 +77767,7 @@ yiy
 kTb
 kTb
 aIO
-orC
+xAh
 orC
 orC
 nam
@@ -78284,7 +78339,7 @@ gbu
 qiK
 qiK
 qiK
-gbu
+qGa
 gbu
 gbu
 gbu
@@ -79545,7 +79600,7 @@ qaH
 rZk
 rZk
 hFJ
-hFJ
+gCD
 gxK
 iJC
 cib
@@ -79942,11 +79997,11 @@ esD
 fHb
 jYz
 iwY
-gbu
+qGa
 mJk
 sSE
 hFJ
-hFJ
+gCD
 hFJ
 vKI
 vKI
@@ -82782,7 +82837,7 @@ vKI
 vKI
 fxR
 rZk
-hFJ
+gCD
 hFJ
 sSE
 kTb
@@ -82959,7 +83014,7 @@ gbu
 gbu
 gbu
 gbu
-gbu
+qGa
 gbu
 gbu
 mJk
@@ -83174,7 +83229,7 @@ gbu
 mJk
 jUg
 gbu
-gbu
+qGa
 mJk
 mVQ
 cGX
@@ -84196,7 +84251,7 @@ mrN
 gbu
 mJk
 mJk
-gbu
+qGa
 gbu
 mJk
 mJk
@@ -88192,7 +88247,7 @@ nJJ
 nJJ
 fKb
 nam
-mJk
+sPo
 mJk
 elb
 mhB
@@ -88394,7 +88449,7 @@ nJJ
 nJJ
 fKb
 nam
-gbu
+qGa
 gbu
 lAE
 vTy
@@ -88838,7 +88893,7 @@ mJk
 gbu
 gbu
 mJk
-mJk
+sPo
 gbu
 mJk
 gbu
@@ -90645,7 +90700,7 @@ mJk
 gbu
 gbu
 gbu
-mJk
+sPo
 gbu
 mJk
 mJk
@@ -90827,7 +90882,7 @@ mJk
 gbu
 gbu
 gbu
-mJk
+sPo
 gbu
 mJk
 gbu
@@ -92648,7 +92703,7 @@ pAf
 vKI
 bEf
 bEf
-rzi
+sNk
 vKI
 vKI
 lEd
@@ -92875,7 +92930,7 @@ jAx
 aTH
 mHD
 gbu
-mJk
+sPo
 nam
 kxC
 kTb
@@ -93044,7 +93099,7 @@ tCK
 kFS
 bEf
 jqD
-mJk
+sPo
 mJk
 swd
 vKI
@@ -96095,7 +96150,7 @@ lUx
 gvt
 uzy
 lUx
-dVA
+wOC
 dVA
 lUx
 yih
@@ -96298,7 +96353,7 @@ lUx
 pKa
 lUx
 lUx
-lUx
+iJc
 dVA
 lUx
 jYS
@@ -97316,7 +97371,7 @@ fHm
 xqF
 nse
 nse
-nfu
+tAq
 nfu
 iJC
 iJC
@@ -98722,7 +98777,7 @@ dVA
 dVA
 lUx
 hwp
-lUx
+iJc
 lUx
 lUx
 gmo
