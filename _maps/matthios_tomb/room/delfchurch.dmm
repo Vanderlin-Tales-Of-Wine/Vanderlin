@@ -1,0 +1,3610 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aJ" = (
+/obj/structure/chair/hotspring_bench/right{
+	dir = 1
+	},
+/turf/open/floor/church{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"bI" = (
+/obj/structure/fluff/psycross/zizocross,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"bO" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"cg" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"cG" = (
+/obj/structure/table/church{
+	dir = 1
+	},
+/obj/item/weapon/sword/long/greatsword/zizo,
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"cH" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"dL" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/spider)
+"dZ" = (
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"eO" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"ff" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"fx" = (
+/obj/item/clothing/cloak/half/shadowcloak,
+/obj/item/clothing/head/helmet/visored/zizo,
+/obj/item/weapon/shield/tower/spidershield,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/pants/trou/shadowpants,
+/obj/item/clothing/shirt/shadowshirt,
+/obj/item/clothing/armor/gambeson/shadowrobe,
+/obj/item/clothing/gloves/chain/iron/shadowgauntlets,
+/mob/living/carbon/human/species/elf/dark/no_equipment,
+/obj/item/weapon/mace/steel,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"fB" = (
+/obj/structure/fluff/railing/border,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"fG" = (
+/obj/machinery/light/fueled/wallfire/candle/skull/r,
+/turf/open/floor/church{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"gP" = (
+/obj/structure/flora/shroom_tree,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"hb" = (
+/obj/structure/fluff/psycross/zizocross,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"he" = (
+/obj/machinery/light/fueled/wallfire/candle/skull,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"ho" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"hp" = (
+/obj/structure/bars/cemetery,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"hs" = (
+/obj/structure/fluff/railing/border,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"hH" = (
+/mob/living/simple_animal/hostile/retaliate/spider/mutated{
+	faction = list("Undead")
+	},
+/turf/open/floor/churchrough{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"hS" = (
+/obj/structure/chair/hotspring_bench/left{
+	dir = 1
+	},
+/turf/open/floor/church{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"hY" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"ic" = (
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"id" = (
+/obj/structure/fluff/railing/border,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"is" = (
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"ix" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"kV" = (
+/obj/structure/chair/wood/alt/chair_noble/purple{
+	dir = 1
+	},
+/turf/open/floor/churchrough{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"ln" = (
+/obj/structure/bookcase/random,
+/turf/open/floor/churchrough{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"mG" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"mQ" = (
+/obj/structure/flora/grass/bush_meagre/tundra,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"ne" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"ni" = (
+/mob/living/carbon/human/species/zizombie/npc/GRENZEL,
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"nj" = (
+/obj/structure/curtain/bounty,
+/turf/closed/wall/window/stained/red,
+/area/rogue/under/tomb/cave/spider)
+"nF" = (
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"oT" = (
+/obj/structure/door/violet{
+	color = "#5b4965"
+	},
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"oV" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/obj/structure/stairs/stone{
+	color = "#5b4965";
+	dir = 1
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"pn" = (
+/obj/machinery/light/fueled/chand,
+/obj/structure/spider/stickyweb,
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/spider)
+"pH" = (
+/obj/effect/decal/carpet/kover_purple,
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"pQ" = (
+/obj/machinery/light/fueled/wallfire/candle/skull,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"pY" = (
+/obj/machinery/light/fueled/chand,
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/spider)
+"qm" = (
+/obj/structure/closet/crate/chest/neu_fancy,
+/obj/item/statue/gold/loot,
+/obj/effect/spawner/map_spawner/loot/common,
+/obj/effect/spawner/map_spawner/loot/common,
+/obj/effect/spawner/map_spawner/loot/rare,
+/turf/open/floor/church{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"qq" = (
+/obj/structure/door/violet{
+	color = "#5b4965"
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"qs" = (
+/obj/machinery/light/fueled/chand,
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/spider)
+"qO" = (
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/spider)
+"rb" = (
+/obj/structure/fluff/clock/zizoclock,
+/turf/open/floor/churchrough{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"rq" = (
+/mob/living/carbon/human/species/zizombie/npc/peasant,
+/obj/structure/closet/dirthole/closed,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"rr" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"rA" = (
+/obj/structure/table/stone_small,
+/obj/effect/spawner/map_spawner/loot,
+/turf/open/floor/churchrough{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"rJ" = (
+/obj/structure/bookcase,
+/turf/open/floor/churchrough{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"rK" = (
+/obj/structure/closet/dirthole/grave,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"sc" = (
+/turf/closed/wall/window/stained/red,
+/area/rogue/under/tomb/cave/spider)
+"sm" = (
+/obj/structure/closet/crate/chest/neu_iron,
+/obj/effect/spawner/map_spawner/loot/common,
+/obj/effect/spawner/map_spawner/loot/common,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/churchrough{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"sr" = (
+/obj/structure/bars,
+/turf/closed/wall/window/stained/red,
+/area/rogue/under/tomb/cave/spider)
+"sO" = (
+/mob/living/carbon/human/species/skeleton/npc/warrior,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"te" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/skeleton/bow,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"ts" = (
+/obj/machinery/light/fueled/wallfire/candle/skull/l,
+/turf/open/floor/church{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"tG" = (
+/obj/structure/chair/hotspring_bench{
+	dir = 1
+	},
+/turf/open/floor/churchrough{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"tT" = (
+/obj/structure/table/church,
+/obj/item/organ/eyes/night_vision/mushroom{
+	pixel_x = -5;
+	pixel_y = -1
+	},
+/obj/item/organ/eyes/night_vision/mushroom{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/organ/eyes/night_vision/mushroom{
+	pixel_x = 4;
+	pixel_y = 15
+	},
+/obj/item/organ/eyes/night_vision/mushroom{
+	pixel_x = -8;
+	pixel_y = 9
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"uj" = (
+/obj/structure/closet/dirthole/closed,
+/mob/living/carbon/human/species/zizombie/npc/peasant,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"uO" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"vr" = (
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"vu" = (
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"vC" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"xQ" = (
+/obj/structure/chair/wood/alt/chair_noble/purple,
+/turf/open/floor/churchrough{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"yj" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"yr" = (
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"yA" = (
+/obj/structure/fluff/railing/border,
+/turf/open/floor/church{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"yP" = (
+/obj/machinery/light/fueled/wallfire/candle/skull,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"zb" = (
+/obj/structure/spider/stickyweb,
+/turf/closed/wall/mineral/craftstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"zE" = (
+/obj/structure/door/violet{
+	color = "#5b4965"
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"zS" = (
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"zY" = (
+/obj/structure/fluff/psycross/zizocross,
+/turf/open/floor/church{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"As" = (
+/obj/structure/fluff/psycross/zizocross,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Ba" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/mob/living/carbon/human/species/skeleton/npc/warrior,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"BJ" = (
+/obj/structure/flora/shroom_tree,
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Cw" = (
+/mob/living/carbon/human/species/skeleton/npc/peasant,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"CD" = (
+/obj/item/clothing/cloak/half/shadowcloak,
+/obj/item/clothing/head/helmet/visored/zizo,
+/obj/item/weapon/shield/tower/spidershield,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/pants/trou/shadowpants,
+/obj/item/clothing/shirt/shadowshirt,
+/obj/item/clothing/armor/gambeson/shadowrobe,
+/obj/item/clothing/gloves/chain/iron/shadowgauntlets,
+/mob/living/carbon/human/species/elf/dark/no_equipment,
+/obj/item/weapon/mace/steel,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"CZ" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"DV" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"DY" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"Ef" = (
+/obj/machinery/light/fueled/wallfire/candle/skull,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 1;
+	icon_state = "churchslate"
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Eo" = (
+/obj/structure/door/violet{
+	color = "#5b4965"
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Ex" = (
+/mob/living/carbon/human/species/elf/dark/no_equipment,
+/obj/item/weapon/mace/steel,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/weapon/shield/tower/spidershield,
+/obj/item/clothing/cloak/half/shadowcloak,
+/obj/item/clothing/armor/plate/full/zizo,
+/obj/item/clothing/gloves/plate/zizo,
+/obj/item/clothing/pants/platelegs/zizo,
+/obj/item/clothing/shoes/boots/armor/zizo,
+/obj/item/clothing/head/crown/circlet/stink,
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Fs" = (
+/obj/structure/fluff/walldeco/church/line,
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"FB" = (
+/obj/structure/table/church/m,
+/obj/item/gem/black{
+	pixel_x = 1;
+	pixel_y = 0
+	},
+/obj/item/gem/black{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/item/gem/black{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"FT" = (
+/obj/structure/spider/stickyweb,
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/spider)
+"Gj" = (
+/obj/structure/flora/grass/bush_meagre/tundra,
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Go" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"Hr" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"HG" = (
+/obj/structure/fluff/railing/border{
+	dir = 9;
+	icon_state = "border"
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"HO" = (
+/turf/closed/wall/mineral/craftstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Ig" = (
+/obj/structure/window/stained/zizo,
+/turf/open/floor/rooftop/green{
+	dir = 4
+	},
+/area/rogue/under/tomb/cave/spider)
+"Iz" = (
+/obj/machinery/light/fueled/wallfire/candle/skull,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"JU" = (
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"Kc" = (
+/obj/structure/window/stained/zizo,
+/turf/open/floor/rooftop/green{
+	dir = 8
+	},
+/area/rogue/under/tomb/cave/spider)
+"Kt" = (
+/turf/open/floor/rooftop/green{
+	dir = 4
+	},
+/area/rogue/under/tomb/cave/spider)
+"KG" = (
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"KT" = (
+/obj/structure/fluff/statue/zizo{
+	pixel_x = -16;
+	pixel_y = 1
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"KY" = (
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Le" = (
+/obj/machinery/light/fueled/chand,
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/spider)
+"Lt" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 1;
+	icon_state = "churchslate"
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"LD" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"LT" = (
+/obj/structure/stairs/stone{
+	color = "#5b4965";
+	dir = 1
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Nk" = (
+/turf/closed/mineral/bedrock/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Nr" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/obj/structure/stairs/stone{
+	color = "#5b4965";
+	dir = 1
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Od" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"Oi" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"OA" = (
+/obj/structure/closet/crate/chest/neu_fancy,
+/obj/effect/spawner/map_spawner/loot/rare,
+/obj/effect/spawner/map_spawner/loot/weapon,
+/obj/effect/spawner/map_spawner/loot/weapon,
+/obj/effect/spawner/map_spawner/loot/armor,
+/obj/effect/spawner/map_spawner/loot/armor,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"OZ" = (
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/spider)
+"Pr" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"Pw" = (
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Qo" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"QT" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/obj/structure/fluff/railing/border{
+	dir = 9;
+	icon_state = "border"
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"Si" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/spider)
+"Sq" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/mob/living/simple_animal/hostile/skeleton/bow,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"Sy" = (
+/obj/structure/flora/grass/tundra,
+/obj/structure/flora/grass/tundra,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"SQ" = (
+/turf/open/floor/church{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Tc" = (
+/turf/open/floor/churchrough{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Tr" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/spider)
+"TO" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/obj/structure/fluff/walldeco/church/line,
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Uc" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Um" = (
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/churchrough{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"UA" = (
+/obj/structure/fluff/railing/border{
+	dir = 9;
+	icon_state = "border"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"UK" = (
+/obj/structure/closet/dirthole/closed,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Va" = (
+/mob/living/carbon/human/species/skeleton/npc/peasant,
+/obj/structure/closet/dirthole/closed,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Vs" = (
+/turf/open/floor/rooftop/green{
+	dir = 8
+	},
+/area/rogue/under/tomb/cave/spider)
+"Vt" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+"Vv" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"VW" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/obj/structure/fluff/walldeco/church/line,
+/turf/open/floor/churchmarble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Wa" = (
+/obj/structure/fluff/railing/border,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"WA" = (
+/obj/structure/closet/dirthole/closed/loot,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"WM" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"XV" = (
+/mob/living/carbon/human/species/skeleton/npc/peasant,
+/turf/open/floor/churchrough{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Yb" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"YR" = (
+/obj/structure/closet/dirthole/closed,
+/mob/living/carbon/human/species/skeleton/npc/peasant,
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"YY" = (
+/obj/structure/flora/grass/tundra,
+/obj/structure/trap/poison{
+	color = "#5b4965"
+	},
+/turf/open/floor/grass/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"ZD" = (
+/obj/structure/fluff/railing/border,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/cave/spider)
+"ZS" = (
+/obj/structure/window/stained/zizo,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/cave/spider)
+
+(1,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Pw
+cH
+yr
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(2,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+dZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+HO
+gP
+dZ
+vu
+Pw
+Pw
+yr
+dZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(3,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+dZ
+vu
+dZ
+dZ
+dZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+vu
+hp
+dZ
+vu
+Pw
+yr
+Pw
+Pw
+vu
+mQ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(4,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+dZ
+dZ
+vu
+UK
+dZ
+vu
+Nk
+Nk
+Nk
+dZ
+dZ
+dZ
+hp
+vu
+mQ
+yr
+Pw
+Pw
+Pw
+gP
+dZ
+dZ
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(5,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+dZ
+dZ
+vu
+vu
+dZ
+dZ
+UK
+dZ
+dZ
+dZ
+vu
+dZ
+dZ
+hp
+dZ
+gP
+yr
+Pw
+yr
+mQ
+dZ
+dZ
+dZ
+dZ
+Nk
+Nk
+Nk
+Nk
+"}
+(6,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+vu
+Va
+dZ
+dZ
+vu
+dZ
+dZ
+dZ
+vu
+dZ
+dZ
+rK
+vu
+HO
+dZ
+yr
+yr
+Pw
+yr
+vu
+dZ
+vu
+dZ
+gP
+Nk
+Nk
+Nk
+Nk
+"}
+(7,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+dZ
+vu
+vu
+dZ
+dZ
+dZ
+dZ
+dZ
+vu
+UK
+vu
+dZ
+dZ
+dZ
+hp
+dZ
+Pw
+Pw
+Pw
+yr
+yr
+mQ
+dZ
+vu
+dZ
+Nk
+Nk
+Nk
+Nk
+"}
+(8,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+vu
+WA
+vu
+dZ
+vu
+rK
+dZ
+rq
+dZ
+dZ
+dZ
+dZ
+dZ
+vu
+dZ
+hp
+mQ
+dZ
+Cw
+Pw
+Pw
+yr
+dZ
+gP
+vu
+vu
+mQ
+Nk
+Nk
+Nk
+"}
+(9,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+vu
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+vu
+dZ
+dZ
+dZ
+vu
+dZ
+WA
+hp
+dZ
+gP
+vr
+yr
+Pw
+dZ
+dZ
+dZ
+dZ
+dZ
+gP
+Nk
+Nk
+Nk
+"}
+(10,1,1) = {"
+Nk
+Nk
+HO
+HO
+nj
+HO
+HO
+HO
+nj
+HO
+HO
+nj
+HO
+qq
+HO
+vu
+dZ
+dZ
+dZ
+dZ
+HO
+vu
+dZ
+mQ
+yr
+Pw
+BJ
+dZ
+dZ
+mQ
+dZ
+dZ
+Nk
+Nk
+Nk
+"}
+(11,1,1) = {"
+Nk
+Nk
+sc
+xQ
+rA
+kV
+Tc
+xQ
+rA
+kV
+Tc
+SQ
+Lt
+Fs
+HO
+dZ
+UK
+dZ
+dZ
+vu
+hp
+dZ
+Gj
+Pw
+Pw
+Pw
+dZ
+dZ
+vu
+dZ
+dZ
+BJ
+dZ
+Nk
+Nk
+"}
+(12,1,1) = {"
+Nk
+Nk
+sc
+Tc
+Tc
+Tc
+Tc
+Um
+Tc
+Tc
+Tc
+SQ
+Lt
+Fs
+nj
+vu
+dZ
+dZ
+Va
+dZ
+hp
+gP
+dZ
+Pw
+Pw
+Pw
+vu
+vu
+gP
+vu
+dZ
+dZ
+dZ
+Nk
+Nk
+"}
+(13,1,1) = {"
+Nk
+Nk
+sc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+XV
+SQ
+Lt
+Fs
+HO
+dZ
+dZ
+vu
+dZ
+vu
+hp
+dZ
+vu
+Pw
+Pw
+Pw
+Pw
+Pw
+dZ
+dZ
+vu
+dZ
+vu
+Nk
+Nk
+"}
+(14,1,1) = {"
+Nk
+Nk
+HO
+HO
+ln
+sm
+HO
+HO
+rJ
+rJ
+HO
+HO
+Ef
+Fs
+HO
+HO
+sr
+HO
+sr
+sr
+HO
+dZ
+vu
+gP
+Pw
+yr
+yr
+Pw
+dZ
+mQ
+vu
+vu
+dZ
+Nk
+Nk
+"}
+(15,1,1) = {"
+Nk
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+Lt
+Fs
+HO
+HO
+Tc
+Tc
+Tc
+Tc
+HO
+vu
+dZ
+vu
+Pw
+yr
+yr
+Pw
+Pw
+yr
+gP
+dZ
+mQ
+dZ
+Nk
+"}
+(16,1,1) = {"
+Nk
+sc
+SQ
+SQ
+ts
+SQ
+SQ
+SQ
+tG
+tG
+tG
+yA
+Lt
+Fs
+sr
+Tc
+hH
+Tc
+Tc
+Tc
+HO
+gP
+mQ
+vu
+Pw
+Pw
+yr
+Pw
+Pw
+yr
+yr
+Pw
+dZ
+BJ
+Nk
+"}
+(17,1,1) = {"
+Nk
+sc
+hb
+fx
+Uc
+Uc
+TO
+SQ
+aJ
+aJ
+aJ
+yA
+Lt
+Fs
+sr
+SQ
+zY
+SQ
+zY
+SQ
+HO
+yP
+Pw
+KG
+yr
+yr
+yr
+yr
+Pw
+Pw
+yr
+yr
+yr
+dZ
+yr
+"}
+(18,1,1) = {"
+Nk
+HO
+KY
+KY
+tT
+KY
+KY
+Uc
+Uc
+Uc
+Uc
+oV
+KY
+KY
+HO
+pQ
+Uc
+Uc
+Uc
+Uc
+Eo
+Pw
+Pw
+Pw
+Pw
+Pw
+Cw
+yr
+Pw
+Pw
+Pw
+Pw
+yr
+yr
+yr
+"}
+(19,1,1) = {"
+Nk
+HO
+KT
+KY
+FB
+pH
+Ex
+KY
+KY
+KY
+KY
+LT
+KY
+KY
+KY
+KY
+KY
+ni
+KY
+KY
+HO
+As
+yr
+Pw
+Pw
+Pw
+Pw
+Pw
+vu
+yr
+yr
+Pw
+yr
+yr
+WM
+"}
+(20,1,1) = {"
+Nk
+HO
+KY
+KY
+cG
+KY
+KY
+ff
+ff
+ff
+ff
+Nr
+KY
+KY
+HO
+he
+ff
+ff
+ff
+ff
+Eo
+yr
+Pw
+Pw
+mQ
+Pw
+dZ
+gP
+dZ
+mQ
+yr
+yr
+Pw
+Pw
+yr
+"}
+(21,1,1) = {"
+Nk
+sc
+bI
+CD
+ff
+ff
+VW
+SQ
+hS
+hS
+hS
+yA
+Lt
+Fs
+sr
+SQ
+zY
+SQ
+zY
+SQ
+HO
+Iz
+Pw
+Pw
+vu
+dZ
+dZ
+dZ
+vu
+dZ
+vu
+dZ
+Pw
+yr
+Nk
+"}
+(22,1,1) = {"
+Nk
+sc
+qm
+SQ
+fG
+SQ
+SQ
+SQ
+tG
+tG
+tG
+yA
+Lt
+Fs
+sr
+Tc
+Tc
+XV
+Tc
+Tc
+HO
+mQ
+dZ
+vu
+dZ
+vu
+vu
+dZ
+gP
+dZ
+dZ
+vu
+dZ
+mQ
+Nk
+"}
+(23,1,1) = {"
+Nk
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+Lt
+Fs
+HO
+HO
+Tc
+Tc
+Tc
+Tc
+HO
+gP
+vu
+gP
+vu
+dZ
+mQ
+vu
+dZ
+vu
+gP
+BJ
+vu
+gP
+Nk
+"}
+(24,1,1) = {"
+Nk
+Nk
+HO
+HO
+rb
+rA
+HO
+HO
+rA
+sm
+HO
+HO
+Ef
+Fs
+HO
+HO
+sr
+HO
+sr
+sr
+HO
+hp
+hp
+hp
+HO
+hp
+hp
+hp
+HO
+hp
+hp
+hp
+HO
+Nk
+Nk
+"}
+(25,1,1) = {"
+Nk
+Nk
+sc
+Tc
+Tc
+Tc
+XV
+Tc
+Tc
+Tc
+Tc
+SQ
+Lt
+Fs
+HO
+dZ
+dZ
+dZ
+vu
+dZ
+dZ
+dZ
+dZ
+mQ
+dZ
+dZ
+dZ
+vu
+dZ
+mQ
+dZ
+dZ
+dZ
+Nk
+Nk
+"}
+(26,1,1) = {"
+Nk
+Nk
+sc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+SQ
+Lt
+Fs
+zE
+dZ
+YY
+gP
+vu
+mQ
+dZ
+BJ
+vu
+vu
+YY
+vu
+gP
+dZ
+dZ
+dZ
+dZ
+dZ
+gP
+Nk
+Nk
+"}
+(27,1,1) = {"
+Nk
+Nk
+sc
+xQ
+rA
+kV
+Tc
+xQ
+rA
+kV
+Tc
+SQ
+Lt
+Fs
+HO
+YY
+mQ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+gP
+vu
+dZ
+mQ
+dZ
+gP
+YY
+dZ
+mQ
+Nk
+Nk
+"}
+(28,1,1) = {"
+Nk
+Nk
+HO
+HO
+nj
+HO
+HO
+HO
+nj
+HO
+HO
+nj
+HO
+oT
+HO
+dZ
+vu
+dZ
+gP
+vu
+dZ
+YY
+dZ
+mQ
+dZ
+dZ
+vu
+dZ
+dZ
+gP
+dZ
+vu
+Nk
+Nk
+Nk
+"}
+(29,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+vu
+dZ
+uj
+dZ
+vu
+dZ
+dZ
+dZ
+dZ
+hp
+dZ
+gP
+YY
+dZ
+dZ
+gP
+dZ
+dZ
+dZ
+vu
+dZ
+dZ
+dZ
+dZ
+dZ
+vu
+gP
+Nk
+Nk
+Nk
+"}
+(30,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+dZ
+dZ
+vu
+vu
+vu
+vu
+WA
+vu
+hp
+dZ
+mQ
+dZ
+vu
+vu
+dZ
+dZ
+dZ
+dZ
+YY
+vu
+mQ
+vu
+dZ
+vu
+dZ
+gP
+Nk
+Nk
+Nk
+"}
+(31,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+vu
+vu
+WA
+dZ
+vu
+vu
+dZ
+hp
+vu
+dZ
+gP
+vu
+YY
+dZ
+gP
+vu
+vu
+dZ
+BJ
+dZ
+dZ
+vu
+gP
+dZ
+Nk
+Nk
+Nk
+Nk
+"}
+(32,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+dZ
+dZ
+dZ
+dZ
+dZ
+YR
+HO
+Nk
+Nk
+Nk
+Nk
+mQ
+vu
+dZ
+dZ
+mQ
+dZ
+dZ
+dZ
+dZ
+dZ
+vu
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(33,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+vu
+vu
+rK
+dZ
+vu
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+dZ
+BJ
+dZ
+dZ
+dZ
+BJ
+vu
+mQ
+dZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(34,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+vu
+Sy
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+dZ
+vu
+Nk
+vu
+YY
+dZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(35,1,1) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+dZ
+Vv
+gP
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+
+(1,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(2,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+HO
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(3,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(4,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+OZ
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(5,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+"}
+(6,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+HO
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+"}
+(7,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+"}
+(8,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+"}
+(9,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+"}
+(10,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+OZ
+OZ
+OZ
+OZ
+OZ
+HO
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+"}
+(11,1,2) = {"
+Nk
+Nk
+Nk
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+"}
+(12,1,2) = {"
+Nk
+Nk
+Nk
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+"}
+(13,1,2) = {"
+Nk
+Nk
+Nk
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+Vs
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+"}
+(14,1,2) = {"
+Nk
+HO
+HO
+HO
+Kc
+Kc
+HO
+HO
+Kc
+Kc
+HO
+HO
+Kc
+Kc
+HO
+sc
+HO
+sc
+HO
+sc
+HO
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+"}
+(15,1,2) = {"
+Nk
+zb
+Vt
+zS
+zS
+yj
+yj
+yj
+zS
+yj
+yj
+zS
+Vt
+Vt
+HO
+is
+id
+OZ
+OZ
+Od
+HO
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+"}
+(16,1,2) = {"
+Nk
+sc
+CZ
+Qo
+hY
+LD
+LD
+bO
+Ba
+bO
+LD
+hY
+cg
+ic
+ZS
+JU
+id
+OZ
+QT
+UA
+sc
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+"}
+(17,1,2) = {"
+Nk
+sc
+OZ
+Tr
+Tr
+OZ
+OZ
+OZ
+OZ
+OZ
+FT
+Tr
+OZ
+ho
+ZS
+Yb
+id
+OZ
+Od
+Oi
+sc
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+OZ
+OZ
+"}
+(18,1,2) = {"
+Nk
+sc
+OZ
+OZ
+qs
+Tr
+OZ
+OZ
+OZ
+pn
+Tr
+qO
+OZ
+Od
+HO
+Yb
+id
+OZ
+rr
+Oi
+HO
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+OZ
+OZ
+"}
+(19,1,2) = {"
+Nk
+HO
+OZ
+Le
+OZ
+qs
+FT
+OZ
+qs
+Tr
+pY
+OZ
+OZ
+Od
+DV
+DV
+hs
+OZ
+Od
+OA
+sc
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+OZ
+OZ
+OZ
+"}
+(20,1,2) = {"
+Nk
+sc
+OZ
+OZ
+Le
+OZ
+Tr
+FT
+FT
+Le
+OZ
+OZ
+OZ
+ho
+HO
+DV
+Wa
+OZ
+Sq
+Yb
+HO
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+OZ
+OZ
+"}
+(21,1,2) = {"
+Nk
+sc
+OZ
+OZ
+OZ
+OZ
+FT
+Tr
+OZ
+OZ
+OZ
+OZ
+OZ
+ho
+ZS
+sO
+hs
+OZ
+Od
+JU
+sc
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+OZ
+Nk
+"}
+(22,1,2) = {"
+Nk
+sc
+eO
+te
+eO
+ix
+ix
+mG
+ne
+ix
+ix
+ix
+ix
+HG
+ZS
+Go
+fB
+OZ
+uO
+nF
+sc
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+"}
+(23,1,2) = {"
+Nk
+HO
+yj
+Pr
+yj
+Pr
+yj
+yj
+DY
+vC
+zS
+yj
+yj
+yj
+HO
+DV
+ZD
+Si
+dL
+Hr
+HO
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+"}
+(24,1,2) = {"
+Nk
+HO
+HO
+HO
+Ig
+Ig
+HO
+HO
+Ig
+Ig
+HO
+HO
+Ig
+Ig
+HO
+sc
+HO
+sc
+HO
+sc
+HO
+OZ
+OZ
+OZ
+HO
+OZ
+OZ
+OZ
+HO
+OZ
+OZ
+OZ
+HO
+Nk
+Nk
+"}
+(25,1,2) = {"
+Nk
+Nk
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+"}
+(26,1,2) = {"
+Nk
+Nk
+Nk
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+"}
+(27,1,2) = {"
+Nk
+Nk
+Nk
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+"}
+(28,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+Kt
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+"}
+(29,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+"}
+(30,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+"}
+(31,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+"}
+(32,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+OZ
+OZ
+HO
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(33,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+Nk
+Nk
+OZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(34,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+"}
+(35,1,2) = {"
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+OZ
+OZ
+OZ
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+Nk
+"}

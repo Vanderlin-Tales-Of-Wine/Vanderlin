@@ -1,0 +1,1103 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"b" = (
+/obj/structure/window/stained/zizo,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"c" = (
+/obj/structure/trap/poison{
+	color = "#5b4965"
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"e" = (
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"f" = (
+/mob/living/simple_animal/hostile/retaliate/spider/mutated{
+	faction = list("Undead")
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"g" = (
+/obj/structure/stairs/stone{
+	color = "#5b4965"
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"h" = (
+/obj/structure/trap/poison{
+	color = "#5b4965"
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"n" = (
+/turf/closed/mineral/bedrock/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"p" = (
+/obj/structure/fluff/psycross/zizocross,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"q" = (
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"t" = (
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"u" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"y" = (
+/obj/machinery/light/fueled/firebowl/blackfire,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"z" = (
+/obj/structure/stairs/stone{
+	color = "#5b4965"
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"A" = (
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"D" = (
+/obj/structure/stairs/stone{
+	color = "#5b4965";
+	dir = 4
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"E" = (
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"H" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"I" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"J" = (
+/obj/machinery/light/fueled/firebowl/blackfire,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"M" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"N" = (
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"O" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"P" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Q" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"R" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"V" = (
+/obj/item/clothing/cloak/half/shadowcloak,
+/obj/item/clothing/head/helmet/visored/zizo,
+/obj/item/weapon/shield/tower/spidershield,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/pants/trou/shadowpants,
+/obj/item/clothing/shirt/shadowshirt,
+/obj/item/clothing/armor/gambeson/shadowrobe,
+/obj/item/clothing/gloves/chain/iron/shadowgauntlets,
+/mob/living/carbon/human/species/elf/dark/no_equipment,
+/obj/item/weapon/mace/steel,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"W" = (
+/turf/closed/wall/mineral/craftstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"X" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Y" = (
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/spider)
+
+(1,1,1) = {"
+n
+n
+n
+n
+n
+n
+n
+n
+n
+u
+e
+n
+n
+n
+n
+n
+n
+n
+n
+n
+"}
+(2,1,1) = {"
+n
+n
+n
+n
+n
+n
+n
+a
+a
+e
+e
+a
+n
+n
+n
+n
+n
+n
+n
+n
+"}
+(3,1,1) = {"
+n
+n
+n
+a
+n
+a
+a
+J
+e
+e
+a
+a
+e
+a
+n
+n
+W
+W
+W
+W
+"}
+(4,1,1) = {"
+n
+W
+W
+N
+a
+a
+f
+a
+a
+e
+e
+e
+e
+a
+n
+n
+n
+a
+a
+W
+"}
+(5,1,1) = {"
+n
+W
+e
+e
+q
+N
+e
+a
+a
+n
+D
+a
+a
+n
+n
+q
+a
+f
+e
+n
+"}
+(6,1,1) = {"
+n
+W
+M
+a
+t
+W
+a
+e
+e
+n
+n
+n
+e
+e
+E
+N
+A
+e
+n
+n
+"}
+(7,1,1) = {"
+n
+W
+a
+Q
+q
+W
+n
+a
+e
+e
+n
+n
+n
+a
+e
+N
+E
+q
+n
+n
+"}
+(8,1,1) = {"
+n
+W
+a
+e
+W
+W
+W
+W
+e
+e
+W
+W
+W
+a
+a
+E
+n
+n
+n
+n
+"}
+(9,1,1) = {"
+n
+a
+e
+e
+n
+n
+W
+a
+a
+a
+a
+a
+W
+a
+e
+W
+W
+W
+n
+n
+"}
+(10,1,1) = {"
+a
+a
+e
+a
+n
+n
+b
+p
+e
+V
+a
+a
+W
+a
+e
+a
+a
+a
+a
+e
+"}
+(11,1,1) = {"
+O
+e
+a
+e
+n
+n
+b
+e
+a
+a
+a
+R
+X
+e
+a
+a
+e
+a
+e
+H
+"}
+(12,1,1) = {"
+n
+e
+a
+e
+n
+n
+W
+e
+f
+a
+M
+X
+e
+e
+a
+a
+e
+e
+e
+n
+"}
+(13,1,1) = {"
+n
+e
+f
+a
+n
+n
+W
+W
+e
+M
+Q
+a
+e
+a
+a
+e
+a
+y
+n
+n
+"}
+(14,1,1) = {"
+n
+e
+a
+e
+a
+a
+n
+n
+n
+Q
+X
+a
+e
+a
+e
+e
+a
+n
+n
+n
+"}
+(15,1,1) = {"
+n
+n
+a
+e
+e
+a
+a
+n
+n
+n
+a
+a
+a
+e
+e
+e
+a
+n
+n
+n
+"}
+(16,1,1) = {"
+n
+n
+a
+e
+e
+e
+e
+a
+a
+a
+a
+e
+a
+e
+a
+f
+e
+n
+n
+n
+"}
+(17,1,1) = {"
+n
+n
+n
+y
+a
+e
+e
+a
+a
+e
+e
+e
+a
+n
+W
+a
+a
+a
+n
+n
+"}
+(18,1,1) = {"
+n
+n
+n
+n
+n
+a
+a
+a
+e
+e
+e
+z
+n
+n
+W
+a
+a
+a
+e
+n
+"}
+(19,1,1) = {"
+n
+n
+n
+n
+n
+n
+n
+e
+e
+a
+e
+n
+n
+n
+W
+n
+a
+e
+e
+n
+"}
+(20,1,1) = {"
+n
+n
+n
+n
+n
+n
+n
+n
+n
+P
+a
+n
+n
+n
+W
+W
+W
+n
+n
+n
+"}
+
+(1,1,2) = {"
+n
+n
+n
+n
+n
+n
+n
+n
+n
+a
+e
+n
+n
+n
+n
+n
+n
+n
+n
+n
+"}
+(2,1,2) = {"
+n
+n
+n
+n
+n
+n
+n
+n
+a
+e
+h
+a
+n
+n
+n
+n
+n
+n
+n
+n
+"}
+(3,1,2) = {"
+n
+n
+n
+n
+n
+n
+a
+a
+e
+e
+a
+a
+a
+n
+n
+n
+n
+n
+n
+n
+"}
+(4,1,2) = {"
+n
+n
+n
+n
+n
+e
+c
+a
+e
+W
+W
+W
+a
+a
+n
+n
+n
+n
+n
+n
+"}
+(5,1,2) = {"
+n
+n
+n
+n
+e
+e
+e
+a
+a
+W
+Y
+W
+h
+a
+a
+e
+n
+n
+n
+n
+"}
+(6,1,2) = {"
+n
+n
+n
+q
+a
+a
+e
+e
+c
+a
+D
+e
+e
+e
+a
+e
+e
+n
+n
+n
+"}
+(7,1,2) = {"
+n
+n
+Q
+Q
+e
+c
+e
+n
+n
+a
+a
+a
+e
+e
+a
+h
+e
+n
+n
+n
+"}
+(8,1,2) = {"
+n
+n
+a
+X
+X
+a
+n
+n
+n
+n
+n
+n
+W
+W
+e
+a
+a
+W
+W
+n
+"}
+(9,1,2) = {"
+n
+a
+e
+e
+I
+X
+n
+n
+n
+n
+n
+n
+W
+a
+e
+e
+a
+a
+W
+n
+"}
+(10,1,2) = {"
+e
+c
+e
+a
+Q
+n
+n
+n
+n
+n
+n
+n
+W
+Q
+Q
+h
+a
+a
+e
+e
+"}
+(11,1,2) = {"
+e
+e
+a
+a
+n
+n
+n
+n
+n
+n
+n
+n
+W
+Q
+Q
+R
+e
+a
+e
+e
+"}
+(12,1,2) = {"
+n
+e
+a
+h
+e
+n
+n
+n
+n
+n
+n
+n
+W
+a
+R
+R
+Q
+a
+c
+n
+"}
+(13,1,2) = {"
+n
+e
+e
+a
+a
+W
+W
+n
+n
+n
+n
+n
+W
+e
+R
+a
+Q
+R
+W
+n
+"}
+(14,1,2) = {"
+n
+W
+e
+e
+a
+a
+W
+n
+n
+n
+n
+n
+e
+e
+a
+e
+W
+W
+W
+n
+"}
+(15,1,2) = {"
+n
+W
+e
+a
+a
+a
+a
+n
+n
+n
+a
+e
+e
+h
+a
+e
+e
+n
+n
+n
+"}
+(16,1,2) = {"
+n
+W
+n
+a
+a
+h
+e
+e
+a
+a
+e
+e
+e
+a
+a
+n
+n
+n
+n
+n
+"}
+(17,1,2) = {"
+n
+W
+W
+W
+W
+a
+e
+e
+a
+a
+W
+W
+a
+a
+e
+n
+n
+n
+n
+n
+"}
+(18,1,2) = {"
+n
+n
+n
+n
+n
+n
+a
+e
+e
+h
+W
+Y
+g
+e
+n
+n
+n
+n
+n
+n
+"}
+(19,1,2) = {"
+n
+n
+n
+n
+n
+n
+n
+a
+e
+e
+W
+W
+n
+n
+n
+n
+n
+n
+n
+n
+"}
+(20,1,2) = {"
+n
+n
+n
+n
+n
+n
+n
+n
+n
+e
+a
+n
+n
+n
+n
+n
+n
+n
+n
+n
+"}

@@ -8,7 +8,7 @@
 	flee_in_pain = TRUE
 	possible_rmb_intents = list()
 
-	wander = TRUE
+	wander = FALSE
 
 /mob/living/carbon/human/species/elf/dark/no_equipment/Initialize()
 	. = ..()

@@ -42,6 +42,7 @@
 /datum/map_template/dungeon/hallway/Malphpiece3
 	mappath = "_maps/matthios_tomb/hallway/Malphpiece3.dmm"
 	id = "Malphpiece3"
+	rarity = 50
 	width = 5
 	height = 8
 
@@ -53,6 +54,7 @@
 /datum/map_template/dungeon/hallway/Malphpiece5
 	mappath = "_maps/matthios_tomb/hallway/Malphpiece5.dmm"
 	id = "Malphpiece5"
+	rarity = 50
 	width = 10
 	height = 4
 
@@ -62,6 +64,7 @@
 /datum/map_template/dungeon/hallway/Malphpiece9
 	mappath = "_maps/matthios_tomb/hallway/Malphpiece9.dmm"
 	id = "Malphpiece9"
+	rarity = 50
 	width = 5
 	height = 9
 
@@ -119,6 +122,7 @@
 /datum/map_template/dungeon/hallway/Malphpiece2
 	mappath = "_maps/matthios_tomb/room/Malphpiece2.dmm"
 	id = "Malphpiece2"
+	rarity = 50
 	width = 6
 	height = 5
 
@@ -259,6 +263,7 @@
 /datum/map_template/dungeon/hallway/puzzle_dungeon_large
 	mappath = "_maps/matthios_tomb/hallway/Puzzle Trap Large.dmm"
 	id = "puzzle_dungeon_large"
+	rarity = 50
 	width = 20
 	height = 20
 
@@ -270,6 +275,7 @@
 /datum/map_template/dungeon/hallway/SmallCubeStone
 	mappath = "_maps/matthios_tomb/hallway/SmallCubeStone.dmm"
 	id = "SmallCubeStone"
+	rarity = 50
 	width = 4
 	height = 4
 
@@ -281,6 +287,7 @@
 /datum/map_template/dungeon/hallway/SmallCubeStone2
 	mappath = "_maps/matthios_tomb/hallway/SmallCubeStone2.dmm"
 	id = "SmallCubeStone2"
+	rarity = 50
 	width = 5
 	height = 5
 
@@ -292,6 +299,7 @@
 /datum/map_template/dungeon/hallway/LongSliverStone
 	mappath = "_maps/matthios_tomb/hallway/LongSliverStone.dmm"
 	id = "LongSliverStone"
+	rarity = 50
 	width = 8
 	height = 1
 
@@ -301,6 +309,7 @@
 /datum/map_template/dungeon/hallway/LongSliverStone2
 	mappath = "_maps/matthios_tomb/hallway/LongSliverStone2.dmm"
 	id = "LongSliverStone2"
+	rarity = 50
 	width = 1
 	height = 8
 
@@ -310,6 +319,7 @@
 /datum/map_template/dungeon/hallway/TinySliverStone
 	mappath = "_maps/matthios_tomb/hallway/TinySliverStone.dmm"
 	id = "TinySliverStone"
+	rarity = 50
 	width = 4
 	height = 1
 
@@ -319,6 +329,7 @@
 /datum/map_template/dungeon/hallway/TinySliverStone2
 	mappath = "_maps/matthios_tomb/hallway/TinySliverStone2.dmm"
 	id = "TinySliverStone2"
+	rarity = 50
 	width = 1
 	height = 4
 
@@ -328,6 +339,7 @@
 /datum/map_template/dungeon/hallway/SmallSliceStone
 	mappath = "_maps/matthios_tomb/hallway/SmallSliceStone.dmm"
 	id = "SmallSliceStone"
+	rarity = 50
 	width = 5
 	height = 1
 
@@ -337,6 +349,7 @@
 /datum/map_template/dungeon/hallway/SmallSliceStone2
 	mappath = "_maps/matthios_tomb/hallway/SmallSliceStone2.dmm"
 	id = "SmallSliceStone2"
+	rarity = 50
 	width = 1
 	height = 5
 
@@ -346,6 +359,7 @@
 /datum/map_template/dungeon/hallway/SliceStone
 	mappath = "_maps/matthios_tomb/hallway/SliceStone.dmm"
 	id = "SliceStone"
+	rarity = 50
 	width = 2
 	height = 5
 
@@ -355,6 +369,7 @@
 /datum/map_template/dungeon/hallway/SliceStone2
 	mappath = "_maps/matthios_tomb/hallway/SliceStone2.dmm"
 	id = "SliceStone2"
+	rarity = 50
 	width = 5
 	height = 2
 
@@ -364,6 +379,7 @@
 /datum/map_template/dungeon/hallway/CaveTEast
 	mappath = "_maps/matthios_tomb/hallway/CaveTEast.dmm"
 	id = "CaveTEast"
+	rarity = 50
 	width = 10
 	height = 15
 
@@ -374,6 +390,7 @@
 /datum/map_template/dungeon/hallway/CaveTWest
 	mappath = "_maps/matthios_tomb/hallway/CaveTWest.dmm"
 	id = "CaveTWest"
+	rarity = 50
 	width = 10
 	height = 15
 
@@ -384,6 +401,7 @@
 /datum/map_template/dungeon/hallway/HolyGrailHall
 	mappath = "_maps/matthios_tomb/hallway/HolyGrailHall.dmm"
 	id = "HolyGrailHall"
+	rarity = 50
 	width = 15
 	height = 25
 
@@ -393,6 +411,7 @@
 /datum/map_template/dungeon/hallway/LongHallStone2
 	mappath = "_maps/matthios_tomb/hallway/LongHallStone2.dmm"
 	id = "LongHallStone2"
+	rarity = 50
 	width = 10
 	height = 5
 
@@ -402,6 +421,7 @@
 /datum/map_template/dungeon/hallway/LongHallStone
 	mappath = "_maps/matthios_tomb/hallway/LongHallStone.dmm"
 	id = "LongHallStone"
+	rarity = 50
 	width = 5
 	height = 10
 

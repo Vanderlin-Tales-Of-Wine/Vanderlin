@@ -71,6 +71,7 @@
 /datum/map_template/dungeon/room/SpiralLibraryIteration2
 	mappath = "_maps/matthios_tomb/room/SpiralLibraryIteration2.dmm"
 	id = "SpiralLibraryIteration2"
+	rarity = 50
 	width = 15
 	height = 15
 
@@ -125,6 +126,7 @@
 /datum/map_template/dungeon/room/lava_small
 	mappath = "_maps/matthios_tomb/room/Lava Small.dmm"
 	id = "lava_small"
+	rarity = 50
 	width = 10
 	height = 10
 
@@ -136,6 +138,7 @@
 /datum/map_template/dungeon/room/lava_medium
 	mappath = "_maps/matthios_tomb/room/Lava Medium.dmm"
 	id = "lava_medium"
+	rarity = 60
 	width = 15
 	height = 15
 
@@ -147,6 +150,7 @@
 /datum/map_template/dungeon/room/lava_large
 	mappath = "_maps/matthios_tomb/room/Lava Large.dmm"
 	id = "lava_large"
+	rarity = 85
 	width = 20
 	height = 20
 
@@ -341,6 +345,7 @@
 /datum/map_template/dungeon/room/golemlab
 	mappath = "_maps/matthios_tomb/room/golemlab.dmm"
 	id = "golemlab"
+	rarity = 75
 	width = 27
 	height = 27
 
@@ -358,6 +363,7 @@
 /datum/map_template/dungeon/room/gnometree
 	mappath = "_maps/matthios_tomb/room/gnometree.dmm"
 	id = "gnometree"
+	rarity = 75
 	width = 25
 	height = 25
 
@@ -369,7 +375,7 @@
 /datum/map_template/dungeon/room/minotaur
 	mappath = "_maps/matthios_tomb/room/minotaur.dmm"
 	id = "minotaur"
-	rarity = 50
+	rarity = 90
 	width = 50
 	height = 50
 
@@ -378,7 +384,7 @@
 /datum/map_template/dungeon/room/OBwarehouse
 	mappath = "_maps/matthios_tomb/room/OBwarehouse.dmm"
 	id = "OBwarehouse"
-	rarity = 75
+	rarity = 60
 	width = 20
 	height = 18
 
@@ -421,9 +427,55 @@
 /datum/map_template/dungeon/room/infernalbridge
 	mappath = "_maps/matthios_tomb/room/infernalbridge.dmm"
 	id = "infernalbridge"
-	rarity = 75
+	rarity = 45
 	width = 14
 	height = 30
 
 	north_offset = 7
 	south_offset = 7
+
+/datum/map_template/dungeon/room/delfsmall
+	mappath = "_maps/matthios_tomb/room/delfsmall.dmm"
+	id = "delfsmall"
+	rarity = 75
+	width = 20
+	height = 20
+
+	west_offset = 10
+	east_offset = 10
+	north_offset = 10
+	south_offset = 10
+
+/datum/map_template/dungeon/room/delfmedium
+	mappath = "_maps/matthios_tomb/room/delfmedium.dmm"
+	id = "delfmedium"
+	rarity = 75
+	width = 30
+	height = 30
+
+	west_offset = 15
+	east_offset = 15
+	north_offset = 15
+	south_offset = 15
+
+/datum/map_template/dungeon/room/delfchurch
+	mappath = "_maps/matthios_tomb/room/delfchurch.dmm"
+	id = "delfchurch"
+	rarity = 75
+	width = 35
+	height = 35
+
+	west_offset = 9
+	east_offset = 9
+	south_offset = 18
+
+/datum/map_template/dungeon/room/delflarge
+	mappath = "_maps/matthios_tomb/room/delflarge.dmm"
+	id = "delflarge"
+	rarity = 75
+	width = 40
+	height = 40
+
+	west_offset = 29
+	east_offset = 29
+	north_offset = 19

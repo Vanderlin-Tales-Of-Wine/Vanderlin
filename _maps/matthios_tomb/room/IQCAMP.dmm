@@ -141,7 +141,6 @@
 /obj/structure/bed/hay,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/gloves/leather/black,
 /obj/item/clothing/shoes/otavan/inqboots,
 /obj/item/clothing/gloves/otavan/inqgloves,
 /obj/item/clothing/face/spectacles/inqglasses,

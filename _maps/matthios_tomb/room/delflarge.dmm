@@ -1,0 +1,4281 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"az" = (
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"ch" = (
+/obj/item/natural/glass/shard,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"cW" = (
+/obj/item/natural/glass/shard,
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"ep" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"eB" = (
+/obj/machinery/light/fueled/wallfire/candle/skull/r,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"fb" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"fk" = (
+/mob/living/carbon/human/species/elf/dark/no_equipment,
+/obj/item/clothing/armor/cuirass/iron/shadowplate,
+/obj/item/clothing/pants/trou/shadowpants,
+/obj/item/clothing/shirt/shadowshirt,
+/obj/item/clothing/gloves/chain/iron/shadowgauntlets,
+/obj/item/clothing/cloak/half/shadowcloak,
+/obj/item/weapon/sword/long/death,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"gH" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"gL" = (
+/obj/structure/table/stone_small,
+/obj/item/statue/silver,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"gU" = (
+/obj/item/clothing/cloak/half/shadowcloak,
+/obj/item/clothing/head/helmet/visored/zizo,
+/obj/item/weapon/shield/tower/spidershield,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/pants/trou/shadowpants,
+/obj/item/clothing/shirt/shadowshirt,
+/obj/item/clothing/armor/gambeson/shadowrobe,
+/obj/item/clothing/gloves/chain/iron/shadowgauntlets,
+/mob/living/carbon/human/species/elf/dark/no_equipment,
+/obj/item/weapon/mace/steel,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"hc" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"hZ" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"jk" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"ka" = (
+/obj/structure/trap/poison{
+	color = "#5b4965"
+	},
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"ks" = (
+/obj/item/clothing/ring/silver,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"kY" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/retaliate/spider/mutated{
+	faction = list("Undead")
+	},
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"la" = (
+/obj/structure/table/wood/fancy/purple,
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"li" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"lC" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"mE" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"ne" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/cocoon,
+/mob/living/simple_animal/hostile/retaliate/spider/mutated,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"nx" = (
+/obj/structure/door/violet{
+	color = "#5b4965"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"nS" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/cocoon,
+/obj/effect/spawner/map_spawner/loot/medium,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"ox" = (
+/obj/structure/trap/poison{
+	color = "#5b4965"
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"oB" = (
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/spider)
+"oP" = (
+/obj/structure/trap/poison{
+	color = "#5b4965"
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"pV" = (
+/obj/item/plate/silver,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"qz" = (
+/obj/item/ingot/gold,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"qU" = (
+/obj/machinery/light/fueled/wallfire/candle/skull/l,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"qZ" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"rG" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/nest,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"rR" = (
+/obj/structure/table/stone_small,
+/obj/item/reagent_containers/glass/bottle/decanter,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"tB" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/spider)
+"ub" = (
+/mob/living/simple_animal/hostile/retaliate/spider/mutated,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"ud" = (
+/obj/structure/table/wood/fancy/purple,
+/obj/item/recipe_book/cooking,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"uf" = (
+/obj/structure/bookcase,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"uk" = (
+/obj/structure/trap/poison{
+	color = "#5b4965"
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"vt" = (
+/obj/structure/table/wood/fancy/purple,
+/obj/item/reagent_containers/glass/cup/glassware/wineglass,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"vy" = (
+/obj/structure/table/wood/fancy/black,
+/obj/item/recipe_book/underworld,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"vJ" = (
+/obj/structure/trap/poison{
+	color = "#5b4965"
+	},
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"wq" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"xg" = (
+/obj/item/clothing/ring/silver/rontz,
+/mob/living/carbon/human/species/elf/dark/no_equipment,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/armor/gambeson/shadowrobe,
+/obj/item/clothing/cloak/half/shadowcloak,
+/obj/item/clothing/face/facemask/shadowfacemask,
+/obj/item/clothing/gloves/fingerless/shadowgloves,
+/obj/item/clothing/pants/trou/shadowpants,
+/obj/item/clothing/shirt/shadowshirt,
+/obj/item/weapon/sword/rapier/silver,
+/obj/item/weapon/shield/tower/buckleriron,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"xA" = (
+/obj/item/clothing/cloak/half/shadowcloak,
+/obj/item/clothing/head/helmet/visored/zizo,
+/obj/item/weapon/shield/tower/spidershield,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/pants/trou/shadowpants,
+/obj/item/clothing/shirt/shadowshirt,
+/obj/item/clothing/armor/gambeson/shadowrobe,
+/obj/item/clothing/gloves/chain/iron/shadowgauntlets,
+/mob/living/carbon/human/species/elf/dark/no_equipment,
+/obj/item/weapon/mace/steel,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"yW" = (
+/obj/structure/chair/wood/alt/chair_noble/purple{
+	dir = 1
+	},
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"zm" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"zT" = (
+/obj/structure/fermentation_keg/distiller,
+/obj/structure/spider/stickyweb/solo,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Ar" = (
+/obj/structure/trap/poison{
+	color = "#5b4965"
+	},
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"AQ" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/cocoon,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"AX" = (
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"BH" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"BX" = (
+/obj/structure/table/wood/fancy/black,
+/obj/item/reagent_containers/glass/cup/glassware/wineglass{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/cup/glassware/wineglass{
+	pixel_x = -3;
+	pixel_y = 6
+	},
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Cb" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/cocoon,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"CW" = (
+/obj/item/ingot/silver,
+/obj/item/ingot/silver,
+/obj/item/clothing/ring/silver,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Dy" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"DR" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"DU" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"EE" = (
+/obj/structure/fluff/walldeco/painting,
+/turf/closed/wall/mineral/craftstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Fg" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Fv" = (
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Ge" = (
+/obj/structure/chair/wood/alt/chair_noble/purple,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Gl" = (
+/obj/machinery/light/fueled/wallfire/candle/skull,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"GS" = (
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"GX" = (
+/mob/living/simple_animal/hostile/retaliate/spider/mutated{
+	faction = list("Undead")
+	},
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"He" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Im" = (
+/obj/structure/spider/stickyweb,
+/mob/living/simple_animal/hostile/retaliate/spider/mutated,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Iy" = (
+/obj/structure/fermentation_keg/random/water{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/obj/structure/fermentation_keg/random/water{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/structure/fermentation_keg/random/water{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/obj/structure/fermentation_keg/random/water{
+	pixel_x = 8;
+	pixel_y = -3
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"II" = (
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Ks" = (
+/obj/structure/closet/crate/chest/neu_fancy,
+/obj/item/reagent_containers/glass/bottle/elfblue{
+	pixel_x = 9;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/glass/bottle/elfblue,
+/obj/item/reagent_containers/glass/bottle/elfblue{
+	pixel_x = -6;
+	pixel_y = 13
+	},
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"KB" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"LJ" = (
+/obj/structure/fluff/walldeco/painting/skull,
+/turf/closed/wall/mineral/craftstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"MD" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Nm" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/cocoon,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"OQ" = (
+/obj/structure/stairs/stone{
+	color = "#5b4965";
+	dir = 4
+	},
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"OX" = (
+/obj/structure/ladder,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Pl" = (
+/obj/structure/fluff/walldeco/painting/castle,
+/turf/closed/wall/mineral/craftstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Pr" = (
+/obj/structure/stairs/stone{
+	color = "#5b4965";
+	dir = 8
+	},
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"PJ" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"PR" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Qs" = (
+/turf/closed/wall/window/stained/red,
+/area/rogue/under/tomb/cave/spider)
+"Qu" = (
+/obj/item/ingot/silver,
+/mob/living/simple_animal/hostile/retaliate/spider/mutated,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Rf" = (
+/obj/structure/trap/poison{
+	color = "#5b4965"
+	},
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Rj" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/bottle/tiefling_wine{
+	pixel_x = 3;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/glass/bottle{
+	pixel_x = 5;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/glass/bottle{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/structure/spider/stickyweb/solo,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Rs" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Rt" = (
+/obj/structure/trap/poison{
+	color = "#5b4965"
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"SY" = (
+/obj/structure/bookcase/random/archive,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Tm" = (
+/obj/structure/table/stone_small,
+/obj/item/ingot/silver{
+	pixel_x = 6;
+	pixel_y = 1
+	},
+/obj/item/ingot/silver{
+	pixel_x = -6;
+	pixel_y = 9
+	},
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"TK" = (
+/turf/closed/wall/mineral/craftstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"TZ" = (
+/obj/structure/fermentation_keg{
+	pixel_x = 3;
+	pixel_y = 7
+	},
+/obj/structure/fermentation_keg{
+	pixel_x = -9;
+	pixel_y = 1
+	},
+/obj/structure/fermentation_keg{
+	pixel_x = 4;
+	pixel_y = -1
+	},
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Uj" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/cobblerock{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Us" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/obj/structure/spider/cocoon,
+/mob/living/simple_animal/hostile/retaliate/spider/mutated,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"VT" = (
+/obj/structure/spider/nest,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Wn" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/retaliate/spider/mutated,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"WE" = (
+/obj/structure/table/wood/fancy/black,
+/obj/item/reagent_containers/glass/carafe/redwine,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"WV" = (
+/obj/structure/fermentation_keg/distiller,
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Xs" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/bottle/tiefling_wine{
+	pixel_x = -3;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/glass/bottle/tiefling_wine{
+	pixel_x = -7;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/glass/bottle{
+	pixel_x = 6;
+	pixel_y = 8
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Xy" = (
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"XT" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/cobble{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Yj" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/cocoon,
+/obj/effect/spawner/map_spawner/loot/medium,
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Zm" = (
+/turf/open/floor/naturalstone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Zr" = (
+/obj/structure/table/stone_small,
+/obj/machinery/light/fueled/wallfire/candle/skull/l,
+/obj/item/reagent_containers/food/snacks/spiderhoney/honey{
+	pixel_x = -1;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/snacks/spiderhoney/honey{
+	pixel_x = 9;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/snacks/spiderhoney/honey{
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/turf/open/floor/herringbone{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+"Zx" = (
+/turf/closed/mineral/bedrock/cold{
+	color = "#5b4965"
+	},
+/area/rogue/under/tomb/cave/spider)
+
+(1,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+GS
+XT
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(2,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+II
+GS
+II
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(3,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+II
+II
+II
+GS
+Ar
+PJ
+KB
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Rs
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(4,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+KB
+GS
+II
+II
+jk
+jk
+KB
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Rs
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+OX
+Rs
+Rs
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(5,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+KB
+Rf
+KB
+GS
+PJ
+jk
+II
+oP
+GS
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+MD
+hZ
+Zx
+Zx
+Zx
+Zx
+MD
+hZ
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(6,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+II
+hc
+PJ
+KB
+hc
+II
+GS
+II
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+hZ
+MD
+kY
+Zm
+Zm
+Zm
+Zm
+hZ
+Nm
+MD
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(7,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+GS
+II
+PJ
+KB
+II
+oP
+GS
+GS
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+MD
+Zm
+Zx
+Zx
+Zx
+Zm
+hZ
+MD
+Zm
+Zm
+Zm
+Zm
+MD
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(8,1,1) = {"
+Zx
+Zx
+Zx
+oP
+GS
+GS
+oP
+jk
+jk
+II
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Nm
+hZ
+MD
+Zm
+Zx
+Zx
+Zx
+Zm
+MD
+MD
+Zx
+Zx
+Zx
+Zm
+xA
+Zm
+Zx
+Zx
+hZ
+Zx
+Zx
+Zx
+"}
+(9,1,1) = {"
+Zx
+Zx
+Zx
+hc
+II
+GS
+II
+II
+PJ
+KB
+hc
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+VT
+MD
+MD
+hZ
+Zm
+Zm
+Zx
+Zm
+Zm
+hZ
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zm
+Zm
+AQ
+MD
+hZ
+Zx
+Zx
+"}
+(10,1,1) = {"
+Zx
+Zx
+Zx
+PJ
+hc
+GS
+II
+II
+II
+KB
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zx
+Zx
+Zm
+Zm
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+GX
+Zm
+Zx
+Zx
+hZ
+MD
+MD
+Zm
+Zx
+Zx
+"}
+(11,1,1) = {"
+Zx
+Zx
+Rt
+jk
+jk
+II
+GS
+II
+oP
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+GX
+Zm
+Zx
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zm
+Zx
+Zx
+Zx
+"}
+(12,1,1) = {"
+Zx
+Zx
+II
+hc
+PJ
+Rf
+hc
+II
+GS
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+OX
+Zm
+Zx
+Zx
+Zx
+hZ
+TK
+TK
+Zx
+Zx
+Zx
+TK
+TK
+Zm
+Zm
+Rs
+TK
+TK
+Zx
+Zx
+Zm
+Zx
+Zx
+Zx
+"}
+(13,1,1) = {"
+Zx
+Zx
+Zx
+II
+jk
+jk
+jk
+jk
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Rs
+Zm
+Zx
+Zx
+hZ
+MD
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+nx
+TK
+TK
+TK
+Zx
+Zm
+Zm
+VT
+Zx
+Zx
+"}
+(14,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+II
+II
+uk
+PJ
+hc
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+AQ
+Rs
+Zm
+MD
+MD
+MD
+hZ
+TK
+Fv
+ch
+Fv
+Fv
+Fv
+Fv
+Xy
+TK
+TK
+Zx
+Zx
+Zm
+GX
+Zx
+Zx
+Zx
+"}
+(15,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+GS
+GS
+II
+hc
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+MD
+MD
+AQ
+Zm
+Zm
+TK
+ch
+Fv
+Fv
+TK
+Fv
+Fg
+cW
+Iy
+TK
+Zx
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+"}
+(16,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+GS
+GS
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+TK
+OQ
+OQ
+TK
+TK
+qZ
+qZ
+Fv
+TK
+TK
+Zx
+Zx
+Zm
+Zm
+Zx
+Zx
+Zx
+"}
+(17,1,1) = {"
+Zx
+Zx
+Zx
+hc
+II
+GS
+II
+GS
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+TK
+TK
+TK
+TK
+TK
+Xs
+Fg
+qZ
+Fg
+zT
+TK
+TK
+Zx
+hZ
+MD
+Zx
+Zx
+Zx
+"}
+(18,1,1) = {"
+Zx
+Zx
+KB
+PJ
+hc
+oP
+II
+GS
+GS
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+TK
+TK
+TK
+TK
+TK
+TK
+Gl
+Fg
+qZ
+TK
+TK
+TK
+Zx
+Zx
+Nm
+hZ
+Zm
+Zx
+"}
+(19,1,1) = {"
+II
+GS
+GS
+PJ
+PJ
+hc
+II
+II
+GS
+GS
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+GS
+GS
+qU
+nx
+Fv
+Fv
+ch
+Fv
+Fv
+Fv
+Fg
+la
+TK
+Zx
+Zx
+MD
+Cb
+MD
+MD
+Zx
+"}
+(20,1,1) = {"
+lC
+oP
+II
+GS
+jk
+jk
+II
+GS
+II
+II
+II
+GS
+KB
+Zx
+Zx
+Zx
+Zx
+GS
+GS
+II
+II
+oP
+II
+TK
+Fv
+ch
+Fv
+gU
+Fv
+ch
+Ge
+vt
+TK
+Zx
+Zm
+Zm
+Zm
+MD
+Zx
+Zx
+"}
+(21,1,1) = {"
+II
+II
+II
+II
+hc
+PJ
+PJ
+GS
+II
+II
+oP
+II
+KB
+PJ
+hc
+II
+II
+oP
+II
+II
+GS
+GS
+II
+nx
+Fv
+Fv
+Fv
+Fv
+Fv
+Fv
+Fv
+ud
+TK
+Zm
+GX
+Zm
+Zx
+Zx
+Zx
+Zx
+"}
+(22,1,1) = {"
+Zx
+GS
+GS
+PJ
+jk
+PJ
+Rf
+KB
+II
+GS
+GS
+II
+II
+jk
+PJ
+hc
+II
+II
+II
+ox
+GS
+Zx
+TK
+TK
+TK
+TK
+TK
+TK
+He
+Fv
+Fg
+TK
+TK
+TK
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(23,1,1) = {"
+Zx
+Zx
+KB
+PJ
+hc
+II
+II
+hc
+jk
+II
+GS
+GS
+GS
+II
+Uj
+jk
+jk
+GS
+II
+II
+Zx
+Zx
+TK
+TK
+TK
+TK
+TK
+Rj
+Xy
+Xy
+ep
+WV
+TK
+TK
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(24,1,1) = {"
+Zx
+Zx
+Zx
+PJ
+GS
+oP
+II
+GS
+jk
+jk
+Zx
+Zx
+Zx
+GS
+oP
+II
+KB
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+TK
+Pr
+Pr
+TK
+TK
+Fv
+He
+Xy
+TK
+TK
+Zm
+hZ
+MD
+Zx
+Zx
+Zx
+Zx
+"}
+(25,1,1) = {"
+Zx
+Zx
+Zx
+GS
+GS
+ox
+II
+GS
+KB
+hc
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+TK
+Fv
+Fv
+Fv
+TK
+ch
+Fv
+He
+TZ
+TK
+Nm
+MD
+hZ
+Zx
+Zx
+Zx
+Zx
+"}
+(26,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+GS
+II
+II
+GS
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Rs
+Zx
+Zx
+Zx
+TK
+Gl
+ch
+Fv
+Fv
+Fv
+eB
+Fv
+TK
+TK
+hZ
+MD
+Zm
+Zx
+Zx
+Zx
+Zx
+"}
+(27,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+II
+GS
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zx
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+nx
+TK
+TK
+TK
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(28,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+II
+II
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+rG
+Zm
+OX
+Zm
+Rs
+TK
+TK
+Zx
+Zx
+Zx
+TK
+TK
+hZ
+Zm
+GX
+TK
+TK
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+"}
+(29,1,1) = {"
+Zx
+Zx
+Zx
+GS
+GS
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+GX
+Zm
+hZ
+Zx
+Zx
+Zx
+Zx
+MD
+MD
+hZ
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+"}
+(30,1,1) = {"
+Zx
+Zx
+Zx
+II
+II
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+hZ
+Nm
+MD
+MD
+hZ
+Zx
+Zx
+Zx
+Cb
+MD
+hZ
+Zm
+Zm
+Zm
+GX
+Zm
+Zm
+Rs
+Zx
+Zx
+"}
+(31,1,1) = {"
+Zx
+Zx
+GS
+II
+II
+II
+KB
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+MD
+hZ
+Zm
+GX
+Zx
+Zx
+Zx
+Zx
+hZ
+MD
+Zx
+Zx
+VT
+Zx
+Zx
+Zm
+Zx
+Zx
+Zx
+"}
+(32,1,1) = {"
+Zx
+Zx
+II
+ox
+II
+Uj
+jk
+PJ
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zm
+MD
+hZ
+Zx
+Zx
+Zx
+Zm
+Zm
+Zx
+Zx
+Zx
+"}
+(33,1,1) = {"
+Zx
+Zx
+II
+II
+GS
+jk
+hc
+jk
+jk
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+AX
+Zx
+Zx
+hZ
+MD
+Zx
+Zx
+Zx
+Zx
+"}
+(34,1,1) = {"
+Zx
+Zx
+Zx
+PJ
+jk
+jk
+GS
+II
+II
+oP
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+hZ
+Zx
+Zm
+Zm
+Zm
+hZ
+Nm
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(35,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+hc
+II
+oP
+GS
+II
+II
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Rs
+Zm
+Zm
+Zx
+Zx
+VT
+hZ
+MD
+hZ
+Zm
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(36,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+II
+II
+II
+II
+GS
+Dy
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+AQ
+Rs
+Zm
+Zm
+Rs
+hZ
+MD
+Zm
+Zm
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(37,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+GS
+II
+fb
+fb
+Uj
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+MD
+Nm
+hZ
+GX
+Zm
+Zm
+OX
+Rs
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(38,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Dy
+li
+vJ
+II
+oP
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Rs
+DU
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(39,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Dy
+II
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(40,1,1) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+GS
+DR
+GS
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+
+(1,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+GS
+GS
+GS
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(2,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+oP
+GS
+II
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(3,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+II
+II
+II
+GS
+GS
+jk
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(4,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+II
+II
+II
+Rf
+jk
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zx
+hZ
+Zm
+Zm
+OX
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+"}
+(5,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+oB
+oB
+Zm
+GS
+KB
+PJ
+jk
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+MD
+nS
+MD
+Zx
+Zm
+Zm
+Zm
+MD
+hZ
+Zx
+Zx
+Zx
+"}
+(6,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+oB
+oB
+Zm
+KB
+KB
+II
+Uj
+Zx
+Zx
+Zx
+Zx
+ub
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zm
+MD
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+ne
+MD
+Zx
+Zx
+"}
+(7,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+oB
+oB
+hZ
+KB
+KB
+II
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+hZ
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+ub
+Zm
+Zx
+Zx
+"}
+(8,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+tB
+MD
+PJ
+jk
+II
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+hZ
+MD
+hZ
+Zm
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+Zx
+hZ
+Zm
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+"}
+(9,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+hZ
+MD
+II
+II
+hc
+KB
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Nm
+hZ
+Zm
+Zm
+Zm
+Zx
+Zx
+hZ
+Zm
+Zm
+Zm
+Zm
+Zm
+hZ
+Nm
+MD
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(10,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+jk
+GS
+II
+II
+GS
+uk
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+hZ
+MD
+hZ
+hZ
+hZ
+Zm
+Zm
+hZ
+Wn
+Zm
+Zm
+Zx
+Zx
+hZ
+MD
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(11,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+II
+GS
+GS
+GS
+GS
+GS
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zx
+Zx
+gH
+gH
+gH
+hZ
+Zm
+Zm
+Zm
+Zx
+Zx
+MD
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(12,1,2) = {"
+Zx
+Zx
+Zx
+GS
+oP
+II
+GS
+GS
+GS
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+OX
+Zm
+Zx
+Zx
+Zx
+hZ
+hZ
+nS
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+hZ
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(13,1,2) = {"
+Zx
+Zx
+Zx
+GS
+GS
+II
+II
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zm
+Zx
+Zx
+Zm
+Zm
+Zm
+MD
+gH
+hZ
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+ub
+MD
+hZ
+Zx
+Zx
+Zx
+Zx
+"}
+(14,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+GS
+II
+Zm
+oB
+Zx
+Zx
+Zx
+Zx
+Zx
+hZ
+Zm
+Zm
+Zm
+Zx
+Zx
+Zm
+Zm
+ub
+Zm
+Rs
+MD
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+hZ
+MD
+MD
+Nm
+hZ
+Zx
+Zx
+Zx
+"}
+(15,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+GS
+Zm
+oB
+oB
+Zx
+Zx
+Zx
+Zx
+nS
+MD
+Zm
+Zm
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Rs
+TK
+TK
+TK
+TK
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+hZ
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+"}
+(16,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Uj
+II
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+MD
+MD
+MD
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+BH
+Rs
+TK
+oB
+oB
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(17,1,2) = {"
+Zx
+Zx
+Zx
+Uj
+PR
+az
+GS
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Rs
+TK
+TK
+OQ
+OQ
+TK
+EE
+uf
+SY
+uf
+SY
+TK
+TK
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(18,1,2) = {"
+Zx
+Zx
+II
+II
+wq
+wq
+hc
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+hZ
+TK
+TK
+Fv
+Fv
+TK
+Fv
+Fv
+Fv
+Fv
+Fv
+Zr
+TK
+TK
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(19,1,2) = {"
+GS
+oP
+II
+II
+PJ
+mE
+jk
+hc
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+MD
+MD
+TK
+Gl
+Fv
+TK
+Fv
+Fv
+WE
+Fv
+Fv
+gL
+Qs
+TK
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(20,1,2) = {"
+GS
+GS
+GS
+PJ
+PJ
+II
+ka
+hc
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Rs
+hZ
+hZ
+Zm
+TK
+Fv
+Fv
+nx
+Fv
+xg
+vy
+yW
+Fv
+Ks
+Qs
+TK
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(21,1,2) = {"
+GS
+GS
+GS
+PJ
+GS
+II
+II
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Nm
+MD
+Zm
+Zm
+TK
+Fv
+Fv
+TK
+Fv
+Fv
+BX
+Fv
+Fv
+Tm
+Qs
+TK
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(22,1,2) = {"
+Zx
+hc
+PJ
+uk
+II
+II
+GS
+Zm
+oB
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+hZ
+Rs
+Rs
+TK
+TK
+Fv
+Fv
+TK
+Fv
+Fv
+Fv
+Fv
+Fv
+rR
+TK
+TK
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(23,1,2) = {"
+Zx
+Zx
+KB
+hc
+II
+II
+Zm
+oB
+oB
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zm
+Rs
+TK
+TK
+Pr
+Pr
+TK
+LJ
+SY
+SY
+uf
+uf
+Pl
+TK
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(24,1,2) = {"
+Zx
+Zx
+Zx
+II
+II
+II
+Zm
+oB
+oB
+oB
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Rs
+Zm
+Zm
+Zm
+Zm
+Rs
+Rs
+TK
+oB
+oB
+TK
+TK
+TK
+TK
+TK
+TK
+TK
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(25,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+oP
+GS
+Zm
+oB
+oB
+oB
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Rs
+zm
+Rs
+Zm
+Zm
+Zm
+Zm
+TK
+TK
+TK
+TK
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(26,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+II
+GS
+Zm
+oB
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Rs
+Zx
+Zm
+Zm
+Zm
+MD
+Cb
+MD
+hZ
+hZ
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+hZ
+Zx
+Zx
+Zx
+Zx
+"}
+(27,1,2) = {"
+Zx
+Zx
+Zx
+GS
+II
+II
+GS
+Zm
+GS
+ox
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zx
+Zx
+Zm
+Zm
+hZ
+hZ
+Nm
+hZ
+Zm
+Zm
+Zm
+Rs
+Zx
+Zx
+Zx
+Zm
+Zx
+Zm
+MD
+hZ
+Zx
+Zx
+Zx
+"}
+(28,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+II
+II
+II
+II
+GS
+Zx
+Zx
+Zx
+Zx
+Zx
+MD
+ub
+Zx
+Zx
+Zx
+OX
+Zm
+hZ
+Zx
+Zx
+Zx
+Zm
+Zx
+Zm
+Rs
+Rs
+Rs
+Zm
+Zm
+Zm
+hZ
+Us
+MD
+hZ
+Zx
+Zx
+"}
+(29,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+oP
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+hZ
+Zm
+Zx
+Zx
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Rs
+ub
+Zm
+Zm
+Zx
+Zx
+hZ
+Zm
+Zm
+Zm
+Zx
+"}
+(30,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+hc
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+MD
+hZ
+MD
+Zx
+Zx
+Zx
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zx
+"}
+(31,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+PJ
+jk
+Zx
+Zx
+Zx
+Zx
+Zx
+hZ
+MD
+MD
+Zx
+Zx
+Zx
+Rs
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+MD
+hZ
+Zm
+Zm
+hZ
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zx
+"}
+(32,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+GS
+PJ
+hc
+Zx
+Zx
+Zx
+Zx
+Zx
+Yj
+hZ
+Zm
+Zx
+Zx
+Rs
+Rs
+Zm
+Zm
+Zx
+Zx
+Zx
+hZ
+MD
+Im
+MD
+hZ
+Zx
+Zx
+Zx
+Zx
+Zx
+Zm
+ub
+Zm
+Zx
+Zx
+"}
+(33,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+II
+GS
+KB
+Zx
+Zx
+Zx
+Zx
+Zx
+hZ
+Zm
+pV
+Zx
+Zx
+Zx
+Rs
+Zm
+Zm
+Zm
+Zx
+Zx
+hZ
+hZ
+nS
+MD
+MD
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+"}
+(34,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+II
+GS
+II
+GS
+Zx
+Zx
+Zx
+Zx
+Zm
+fk
+Zm
+Zx
+Zx
+Zx
+Zm
+Zm
+hZ
+Zx
+Zx
+MD
+hZ
+Zm
+hZ
+Zx
+Zx
+Zx
+hZ
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+"}
+(35,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+oP
+II
+II
+II
+Zx
+Zx
+Zx
+Zx
+Zm
+Zm
+Zm
+Zx
+Zx
+Zm
+Zm
+MD
+hZ
+Zx
+hZ
+Zm
+Zm
+Zm
+Zx
+hZ
+MD
+MD
+MD
+hZ
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(36,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+GS
+II
+ox
+GS
+Zx
+Zx
+Zx
+qz
+Zm
+Qu
+Zm
+pV
+Zm
+hZ
+hZ
+MD
+Zx
+Zx
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+hZ
+Nm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(37,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+GS
+II
+II
+Zx
+Zx
+Zx
+Zx
+CW
+Zm
+Zm
+Zm
+Yj
+MD
+hZ
+MD
+Zm
+Zm
+Zx
+Zm
+Zm
+Zm
+Zm
+OX
+Zm
+Zm
+hZ
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(38,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+II
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+qz
+ks
+MD
+hZ
+MD
+hZ
+Zm
+Zm
+Zm
+Zm
+Zm
+hZ
+MD
+hZ
+Zm
+Zm
+Zm
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(39,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+GS
+GS
+II
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+hZ
+Zm
+Zx
+Zx
+hZ
+MD
+hZ
+Cb
+MD
+MD
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
+(40,1,2) = {"
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+II
+GS
+oP
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+"}
