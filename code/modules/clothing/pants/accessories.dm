@@ -26,7 +26,6 @@
 		detached_pockets = storage
 	U.attached_accessory = src
 	forceMove(U)
-	layer = FLOAT_LAYER
 	plane = FLOAT_PLANE
 	if(minimize_when_attached)
 		transform *= 0.5	//halve the size so it doesn't overpower the under

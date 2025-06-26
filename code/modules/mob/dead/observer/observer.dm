@@ -521,7 +521,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 				A.desc = message
 				var/old_layer = source.layer
 				var/old_plane = source.plane
-				source.layer = FLOAT_LAYER
 				source.plane = FLOAT_PLANE
 				A.add_overlay(source)
 				source.layer = old_layer

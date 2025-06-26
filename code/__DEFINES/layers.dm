@@ -2,7 +2,8 @@
 //KEEP THESE IN A NICE ACSCENDING ORDER, PLEASE
 
 //---------- LAYERS -------------
-
+//#define FLOAT_LAYER -1 // byond record keeping
+//#define DEFAULT_LAYER 0 // byond record keeping
 #define LOWER_LEYLINE_LAYER 1
 #define SPACE_LAYER 1.8
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define
@@ -92,14 +93,15 @@
 #define FLOOR_PLANE_RENDER_TARGET "FLOOR_PLANE_RENDER_TARGET"
 #define REFLECTION_PLANE -8
 
-#define GAME_PLANE -6
+#define GAME_PLANE -7
 #define GAME_PLANE_RENDER_TARGET "GAME_PLANE_RENDER_TARGET"
-#define GAME_PLANE_FOV_HIDDEN -5
-#define GAME_PLANE_UPPER -4
+#define GAME_PLANE_FOV_HIDDEN -6
+#define GAME_PLANE_UPPER -5
 
-#define WEATHER_EFFECT_PLANE -3
-#define STRATEGY_PLANE -2
-#define LEYLINE_PLANE -1
+#define WEATHER_EFFECT_PLANE -4
+#define STRATEGY_PLANE -3
+#define LEYLINE_PLANE -2
+//#define FLOAT_PLANE -1 // byond record keeping
 
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
 #define BLACKNESS_PLANE_RENDER_TARGET "BLACKNESS_RENDER_TARGET"

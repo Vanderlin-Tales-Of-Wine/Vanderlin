@@ -9,8 +9,7 @@
 /atom/movable/emissive_blocker
 	name = "emissive blocker"
 	plane = EMISSIVE_PLANE
-	// Layer above emissives hopefully
-	layer = FLOAT_LAYER + 0.01
+	layer = FLOAT_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	appearance_flags = EMISSIVE_APPEARANCE_FLAGS
 
