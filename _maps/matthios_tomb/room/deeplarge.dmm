@@ -253,7 +253,6 @@
 /area/rogue/under/tomb/lake)
 "Pp" = (
 /mob/living/carbon/human/species/triton/no_equipment,
-/obj/item/clothing/shirt/robe/abyssor,
 /obj/item/clothing/armor/cuirass/iron/rust,
 /obj/item/clothing/shoes/boots/armor/light/rust,
 /obj/item/clothing/pants/platelegs/rust,
@@ -272,7 +271,9 @@
 /area/rogue/under/tomb/lake)
 "Qg" = (
 /obj/structure/flora/grass/water,
-/mob/living/simple_animal/hostile/deepone,
+/mob/living/simple_animal/hostile/retaliate/gator{
+	faction = list("deepone")
+	},
 /turf/open/water,
 /area/rogue/under/tomb/lake)
 "Qi" = (
@@ -305,7 +306,6 @@
 /area/rogue/under/tomb/lake)
 "TE" = (
 /mob/living/carbon/human/species/triton/no_equipment,
-/obj/item/clothing/shirt/robe/abyssor,
 /obj/item/clothing/pants/platelegs/rust,
 /obj/item/clothing/shoes/boots/armor/light/rust,
 /obj/item/clothing/gloves/plate/rust,
@@ -323,7 +323,6 @@
 /area/rogue/under/tomb/lake)
 "TN" = (
 /mob/living/carbon/human/species/triton/no_equipment,
-/obj/item/clothing/shirt/robe/abyssor,
 /obj/item/clothing/armor/cuirass/iron/rust,
 /obj/item/clothing/shoes/boots/armor/light/rust,
 /obj/item/clothing/pants/platelegs/rust,
@@ -344,6 +343,12 @@
 "WR" = (
 /obj/structure/lootable_structure/fish_barrel,
 /turf/open/floor/ruinedwood/turned,
+/area/rogue/under/tomb/lake)
+"Xq" = (
+/mob/living/simple_animal/hostile/retaliate/gator{
+	faction = list("deepone")
+	},
+/turf/open/water,
 /area/rogue/under/tomb/lake)
 "Xv" = (
 /obj/structure/fluff/railing/border{
@@ -657,10 +662,10 @@ Rp
 ox
 vR
 vR
-Kc
-Rp
 vR
 Rp
+vR
+Qg
 vR
 Qv
 Rp
@@ -1031,7 +1036,7 @@ BU
 vR
 vR
 vR
-Qg
+Rp
 vR
 vR
 vR
@@ -1117,7 +1122,7 @@ vR
 Ty
 Qa
 Rp
-Rp
+Qg
 vR
 vR
 Rp
@@ -1285,7 +1290,7 @@ vR
 vR
 Rp
 tD
-Kc
+vR
 vR
 vR
 Rp
@@ -1605,7 +1610,7 @@ BU
 Kp
 vR
 vR
-sx
+vR
 vR
 Kp
 BU
@@ -1648,7 +1653,7 @@ Kp
 Rp
 Qa
 vR
-vR
+Xq
 Kp
 fd
 fd
@@ -1705,7 +1710,7 @@ Kp
 vR
 Rp
 Rp
-sx
+vR
 vR
 Ty
 Kp
@@ -1748,7 +1753,7 @@ vR
 Rp
 Qa
 tD
-Kc
+vR
 vR
 vR
 Rp
@@ -1792,7 +1797,7 @@ Qa
 HB
 vR
 Rp
-vR
+Xq
 Rp
 vR
 fk

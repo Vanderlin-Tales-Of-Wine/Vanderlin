@@ -67,6 +67,9 @@
 /obj/item/clothing/head/padded/abyssor,
 /obj/item/fishingrod/abyssor_trident,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/pants/chainlegs,
+/obj/item/clothing/armor/chainmail,
+/obj/item/clothing/gloves/chain,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/lake)
 "D" = (
@@ -90,6 +93,9 @@
 /obj/item/clothing/shirt/robe/abyssor,
 /obj/item/clothing/head/padded/abyssor,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/gloves/chain,
+/obj/item/clothing/armor/chainmail,
+/obj/item/clothing/pants/chainlegs,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/lake)
 "Q" = (

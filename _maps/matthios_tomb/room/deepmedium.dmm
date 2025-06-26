@@ -15,9 +15,9 @@
 /turf/open/water,
 /area/rogue/under/tomb/lake)
 "bA" = (
-/obj/structure/flora/grass/water,
-/obj/structure/flora/grass/water,
-/mob/living/simple_animal/hostile/deepone,
+/mob/living/simple_animal/hostile/retaliate/gator{
+	faction = list("deepone")
+	},
 /turf/open/water,
 /area/rogue/under/tomb/lake)
 "bG" = (
@@ -101,8 +101,10 @@
 /turf/open/water,
 /area/rogue/under/tomb/lake)
 "jH" = (
-/obj/structure/coral_formation,
-/mob/living/simple_animal/hostile/deepone,
+/obj/structure/flora/ausbushes/reedbush,
+/mob/living/simple_animal/hostile/retaliate/gator{
+	faction = list("deepone")
+	},
 /turf/open/water,
 /area/rogue/under/tomb/lake)
 "jP" = (
@@ -163,11 +165,6 @@
 /area/rogue/under/tomb/lake)
 "uj" = (
 /obj/structure/flora/grass/water/reeds,
-/turf/open/water,
-/area/rogue/under/tomb/lake)
-"uE" = (
-/obj/effect/waterfall,
-/mob/living/simple_animal/hostile/deepone,
 /turf/open/water,
 /area/rogue/under/tomb/lake)
 "vT" = (
@@ -268,6 +265,9 @@
 /obj/item/clothing/shirt/robe/abyssor,
 /obj/item/clothing/head/padded/abyssor,
 /obj/item/fishingrod/abyssor_trident,
+/obj/item/clothing/pants/chainlegs,
+/obj/item/clothing/gloves/chain,
+/obj/item/clothing/armor/chainmail,
 /turf/open/floor/herringbone{
 	color = "#80c2ff"
 	},
@@ -335,6 +335,9 @@
 /obj/item/clothing/shirt/robe/abyssor,
 /obj/item/clothing/head/padded/abyssor,
 /obj/item/fishingrod/abyssor_trident,
+/obj/item/clothing/pants/chainlegs,
+/obj/item/clothing/gloves/chain,
+/obj/item/clothing/armor/chainmail,
 /turf/open/water/bath,
 /area/rogue/under/tomb/lake)
 "XG" = (
@@ -542,7 +545,7 @@ Am
 Pj
 Am
 jW
-bA
+Ra
 Pj
 bx
 uj
@@ -605,7 +608,7 @@ Pj
 Pj
 Pj
 Pj
-Pj
+bA
 Pj
 Pj
 Pj
@@ -821,7 +824,7 @@ QX
 QX
 Pj
 Pj
-IV
+jH
 Am
 jW
 Pj
@@ -890,7 +893,7 @@ Pj
 Am
 Pj
 Pj
-uE
+fG
 Pj
 Am
 Pj
@@ -1030,7 +1033,7 @@ QX
 uj
 Pj
 Am
-Dm
+Pj
 Am
 Pj
 QX
@@ -1116,7 +1119,7 @@ yr
 VU
 Pj
 Am
-jH
+jW
 Pj
 jU
 Am
@@ -1180,7 +1183,7 @@ QX
 uj
 Am
 HX
-Pj
+bA
 Pj
 Pj
 uj

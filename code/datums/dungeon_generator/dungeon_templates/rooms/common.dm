@@ -542,3 +542,11 @@
 	west_offset = 19
 	east_offset = 19
 	south_offset = 20
+
+/datum/map_template/dungeon/room/deepmaw
+	mappath = "_maps/matthios_tomb/room/deepmaw.dmm"
+	id = "deepmaw"
+	width = 50
+	height = 50
+
+	west_offset = 25
