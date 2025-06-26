@@ -48,8 +48,7 @@
 		S.ownerDies(FALSE)
 		qdel(s) //If the owner is destroy()'d, the soullink is destroy()'d
 	ownedSoullinks = null
-	for(var/s in sharedSoullinks)
-		var/datum/soullink/S = s
+	for(var/datum/soullink/S as anything in sharedSoullinks)
 		S.sharerDies(FALSE)
 		S.removeSoulsharer(src) //If a sharer is destroy()'d, they are simply removed
 	sharedSoullinks = null
@@ -63,25 +62,16 @@
 
 /mob/living/proc/create_reflection()
 	//Add custom reflection image
-	var/mutable_appearance/MAM = new()
-	//appearance stuff
-	MAM.appearance = appearance
-	if(render_target)
-		MAM.render_source = render_target
-	MAM.plane = REFLECTION_PLANE
-	//transform stuff
-	var/matrix/n_transform = MAM.transform
-	n_transform.Scale(1, -1)
-	MAM.transform = n_transform
-	MAM.vis_flags = VIS_INHERIT_DIR
+	reflective_icon = copy_appearance_filter_overlays(appearance)
+	reflective_icon.plane = REFLECTION_PLANE
+	reflective_icon.pixel_y = -32
+	reflective_icon.transform = matrix().Scale(1, -1)
+	reflective_icon.vis_flags = VIS_INHERIT_DIR
 	//filters
 	var/icon/I = icon('icons/turf/overlays.dmi', "whiteOverlay")
 	I.Flip(NORTH)
-	MAM.filters += filter(type = "alpha", icon = I)
-	reflective_icon = MAM
-	reflective_icon.pixel_y = -32
+	reflective_icon.filters += filter(type = "alpha", icon = I)
 	add_overlay(reflective_icon)
-	update_vision_cone()
 
 /mob/living/carbon/human/dummy
 	has_reflection = FALSE
@@ -95,22 +85,15 @@
 	if(!reflective_icon)
 		create_reflection()
 	cut_overlay(reflective_icon)
-	reflective_icon.appearance = appearance
-	if(render_target)
-		reflective_icon.render_source = render_target
+	reflective_icon = copy_appearance_filter_overlays(appearance)
 	reflective_icon.plane = REFLECTION_PLANE
 	reflective_icon.pixel_y = -32
-	//transform stuff
-	var/matrix/n_transform = reflective_icon.transform
-	n_transform.Scale(1, -1)
-	reflective_icon.transform = n_transform
+	reflective_icon.transform = matrix().Scale(1, -1)
 	reflective_icon.vis_flags = VIS_INHERIT_DIR
-	//filters
-	var/icon/I = icon('icons/turf/overlays.dmi', "partialOverlay")
+	var/icon/I = icon('icons/turf/overlays.dmi', "whiteOverlay")
 	I.Flip(NORTH)
 	reflective_icon.filters += filter(type = "alpha", icon = I)
 	add_overlay(reflective_icon)
-	update_vision_cone()
 
 /mob/living/onZImpact(turf/T, levels)
 	if(HAS_TRAIT(src, TRAIT_NOFALLDAMAGE2))
