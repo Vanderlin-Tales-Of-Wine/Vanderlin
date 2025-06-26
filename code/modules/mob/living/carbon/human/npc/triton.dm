@@ -1,6 +1,6 @@
 /mob/living/carbon/human/species/triton/no_equipment
 	ai_controller = /datum/ai_controller/human_bum
-	faction = list(FACTION_deepone)
+	faction = list("deepone")
 	ambushable = FALSE
 	dodgetime = 15
 	canparry = TRUE
