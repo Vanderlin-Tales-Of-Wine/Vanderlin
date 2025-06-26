@@ -1,7 +1,7 @@
-/datum/round_event_control/dendors_demand
-	name = "Dendor's Demand"
+/datum/round_event_control/butcher_animals
+	name = "Predator's Duty"
 	track = EVENT_TRACK_PERSONAL
-	typepath = /datum/round_event/dendors_demand
+	typepath = /datum/round_event/butcher_animals
 	weight = 10
 	earliest_start = 5 MINUTES
 	max_occurrences = 1
@@ -11,7 +11,7 @@
 		TAG_NATURE,
 	)
 
-/datum/round_event_control/dendors_demand/canSpawnEvent(players_amt, gamemode, fake_check)
+/datum/round_event_control/butcher_animals/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -25,7 +25,7 @@
 
 	return FALSE
 
-/datum/round_event/dendors_demand/start()
+/datum/round_event/butcher_animals/start()
 	var/list/valid_targets = list()
 
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
@@ -43,8 +43,8 @@
 	var/datum/objective/butcher_animals/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_userdanger("DENDOR DEMANDS YOUR HUNT!"))
-	to_chat(chosen_one, span_notice("Butcher at least 2 animals to satisfy Dendor!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE DENDOR'S CHOSEN!"))
+	to_chat(chosen_one, span_notice("Predators must hunt the weak and old, clearing the way for a new generation. Such is nature. Butcher animals to enforce this order!"))
 	chosen_one.playsound_local(chosen_one, 'sound/magic/barbroar.ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

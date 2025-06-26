@@ -1,17 +1,17 @@
-/datum/round_event_control/matthios_grave_robbery
+/datum/round_event_control/grave_robbery
 	name = "Matthios' Grave Robbery"
 	track = EVENT_TRACK_PERSONAL
-	typepath = /datum/round_event/matthios_grave_robbery
+	typepath = /datum/round_event/grave_robbery
 	weight = 10
-	earliest_start = 5 MINUTES
+	earliest_start = 10 MINUTES
 	max_occurrences = 1
-	min_players = 20
+	min_players = 25
 
 	tags = list(
 		TAG_LOOT,
 	)
 
-/datum/round_event_control/matthios_grave_robbery/canSpawnEvent(players_amt, gamemode, fake_check)
+/datum/round_event_control/grave_robbery/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -25,7 +25,7 @@
 
 	return FALSE
 
-/datum/round_event/matthios_grave_robbery/start()
+/datum/round_event/grave_robbery/start()
 	var/list/valid_targets = list()
 
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
@@ -43,8 +43,8 @@
 	var/datum/objective/grave_robbery/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_userdanger("MATTHIOS DEMANDS YOUR GREED!"))
-	to_chat(chosen_one, span_notice("Rob at least 2 graves to satisfy Matthios' hunger for wealth!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE MATTHIOS' CHOSEN!"))
+	to_chat(chosen_one, span_notice("Dead don't need anything anymore! Rob graves to earn Matthios' approval!"))
 	chosen_one.playsound_local(chosen_one, 'sound/misc/gods/matthios_omen.ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

@@ -3,9 +3,9 @@
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/create_abyssoids
 	weight = 7
-	earliest_start = 5 MINUTES
+	earliest_start = 10 MINUTES
 	max_occurrences = 1
-	min_players = 20
+	min_players = 25
 
 	tags = list(
 		TAG_WATER,

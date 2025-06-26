@@ -3,9 +3,9 @@
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/zizo_torture
 	weight = 7
-	earliest_start = 15 MINUTES
+	earliest_start = 10 MINUTES
 	max_occurrences = 1
-	min_players = 30
+	min_players = 25
 
 	tags = list(
 		TAG_BLOOD,

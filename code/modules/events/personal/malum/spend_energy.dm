@@ -1,7 +1,7 @@
-/datum/round_event_control/malums_demand
+/datum/round_event_control/spend_energy
 	name = "Malum's Demand"
 	track = EVENT_TRACK_PERSONAL
-	typepath = /datum/round_event/malums_demand
+	typepath = /datum/round_event/spend_energy
 	weight = 10
 	earliest_start = 5 MINUTES
 	max_occurrences = 1
@@ -11,7 +11,7 @@
 		TAG_WORK,
 	)
 
-/datum/round_event_control/malums_demand/canSpawnEvent(players_amt, gamemode, fake_check)
+/datum/round_event_control/spend_energy/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -25,7 +25,7 @@
 
 	return FALSE
 
-/datum/round_event/malums_demand/start()
+/datum/round_event/spend_energy/start()
 	var/list/valid_targets = list()
 
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
@@ -43,8 +43,8 @@
 	var/datum/objective/energy_expenditure/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_userdanger("MALUM DEMANDS YOUR LABOR!"))
-	to_chat(chosen_one, span_notice("Spend at least 100 energy points working to satisfy Malum!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE MALUM'S CHOSEN!"))
+	to_chat(chosen_one, span_notice("There is an honor in hard toil! Spend enough energy working to earn Malum's approval!"))
 	chosen_one.playsound_local(chosen_one, 'sound/magic/dwarf_chant01.ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

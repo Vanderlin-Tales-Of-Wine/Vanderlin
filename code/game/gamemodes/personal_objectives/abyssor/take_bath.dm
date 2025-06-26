@@ -29,4 +29,4 @@
 	UnregisterSignal(owner.current, COMSIG_BATH_TAKEN)
 
 /datum/objective/abyssor_bath/update_explanation_text()
-	explanation_text = "Take a bath to honor Abyssor and calm his temperament."
+	explanation_text = "Abyssor is calm at the moment, and so is the sea. Take a relaxing bath to honor him!"

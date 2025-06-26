@@ -5,10 +5,11 @@
 	weight = 10
 	earliest_start = 5 MINUTES
 	max_occurrences = 1
-	min_players = 20
+	min_players = 30
 
 	tags = list(
 		TAG_WATER,
+		TAG_UNEXPECTED,
 	)
 
 /datum/round_event_control/abyssors_temperament/canSpawnEvent(players_amt, gamemode, fake_check)
@@ -41,13 +42,21 @@
 	var/mob/living/carbon/human/chosen_one = pick(valid_targets)
 	var/datum/objective/abyssor_objective
 
-	if(prob(50)) // Calm objective
+	var/calm
+	if(prob(50))
 		abyssor_objective = new /datum/objective/abyssor_bath(owner = chosen_one.mind)
-	else // Rage objective
+		calm = TRUE
+	else
 		abyssor_objective = new /datum/objective/abyssor_splash(owner = chosen_one.mind)
+		calm = FALSE
 
 	chosen_one.mind.add_personal_objective(abyssor_objective)
 
-	to_chat(chosen_one, span_userdanger("ABYSSOR'S TEMPERAMENT CALLS TO YOU!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE ABYSSOR'S CHOSEN!"))
+	if(calm)
+		to_chat(chosen_one, span_notice("Sea takes and sea gives. Abyssor is calm at the moment, take a relaxing bath to share his mood!"))
+	else
+		to_chat(chosen_one, span_notice("Abyssor is RAGING like a storm! Splash an ingrate who forgot his name with a bucket full of water!"))
 	chosen_one.playsound_local(chosen_one, 'sound/items/bucket_transfer (2).ogg', 100)
+
 	chosen_one.mind.announce_personal_objectives()

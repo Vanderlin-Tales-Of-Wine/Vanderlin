@@ -25,8 +25,6 @@
 			continue
 		if(H.age == AGE_CHILD)
 			continue
-		if(!H.family_datum)
-			continue
 		recipient_found = TRUE
 		break
 

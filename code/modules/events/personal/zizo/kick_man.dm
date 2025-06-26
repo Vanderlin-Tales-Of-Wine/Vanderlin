@@ -3,9 +3,9 @@
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/zizos_demand
 	weight = 10
-	earliest_start = 5 MINUTES
+	earliest_start = 10 MINUTES
 	max_occurrences = 1
-	min_players = 20
+	min_players = 25
 
 	tags = list(
 		TAG_BATTLE,
@@ -21,6 +21,8 @@
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/inhumen/zizo))
 			continue
+		if(H.gender == MALE)
+			continue
 		return TRUE
 
 	return FALSE
@@ -33,6 +35,8 @@
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhumen/zizo))
 			continue
+		if(human_mob.gender == MALE)
+			continue
 		valid_targets += human_mob
 
 	if(!valid_targets.len)
@@ -43,8 +47,8 @@
 	var/datum/objective/kick_groin/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_userdanger("ZIZO DEMANDS PAIN!"))
-	to_chat(chosen_one, span_notice("Kick a male in the groin to satisfy Zizo's cruel desires!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE ZIZO'S CHOSEN!"))
+	to_chat(chosen_one, span_notice("Men are weak and must be dominated. Kick a male in the nuts to satisfy Zizo!"))
 	chosen_one.playsound_local(chosen_one, 'sound/misc/gods/zizo_omen.ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()
