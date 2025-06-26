@@ -57,14 +57,9 @@
 		QDEL_NULL(craftingthing)
 	return ..()
 
-/mob/living/update_overlays()
+/mob/living/update_appearance(updates)
 	. = ..()
 	update_reflection()
-
-/mob/living/update_icon()
-	. = ..()
-	update_reflection()
-
 
 /mob/living/proc/create_reflection()
 	//Add custom reflection image
@@ -2517,7 +2512,7 @@
 	if(hud_used)
 		for(var/hand in hud_used.hand_slots)
 			var/atom/movable/screen/inventory/hand/H = hud_used.hand_slots[hand]
-			H?.update_icon()
+			H?.update_appearance()
 	if(. == FALSE) //null is a valid value here, we only want to return if FALSE is explicitly passed.
 		return
 	if(pulledby)

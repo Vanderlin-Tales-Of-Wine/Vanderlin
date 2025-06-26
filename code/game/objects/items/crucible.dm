@@ -71,7 +71,7 @@
 		melting_pot[item] += 5
 		if(melting_pot[item] >= item.melt_amount)
 			melt_item(item)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/storage/crucible/get_temperature()
 	return crucible_temperature
@@ -83,8 +83,6 @@
 
 /obj/item/storage/crucible/update_overlays()
 	. = ..()
-	if(overlays)
-		overlays.Cut()
 
 	if(!reagents.total_volume)
 		return
@@ -97,9 +95,9 @@
 	if(initial(largest?.red_hot) && reagents.chem_temp > initial(largest.melting_point))
 		var/mutable_appearance/MA2 = mutable_appearance(icon, "filling")
 		MA2.plane = EMISSIVE_PLANE
-		overlays += MA2
+		. += MA2
 
-	overlays += MA
+	. += MA
 
 /obj/item/storage/crucible/proc/melt_item(obj/item/item)
 	SEND_SIGNAL(item.loc, COMSIG_TRY_STORAGE_TAKE, item, get_turf(src), TRUE)
@@ -109,7 +107,7 @@
 	reagents.add_reagent(/datum/reagent/molten_metal, item.melt_amount, data, crucible_temperature)
 	melting_pot -= item
 	qdel(item)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/storage/crucible/random/Initialize()
 	. = ..()
@@ -127,7 +125,7 @@
 /obj/item/storage/crucible/test_crucible/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/molten_metal, 20, data = material_data_to_add, reagtemp = 4000)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/storage/crucible/test_crucible/bar
 	material_data_to_add = list(

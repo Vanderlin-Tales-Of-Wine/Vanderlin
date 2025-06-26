@@ -90,7 +90,7 @@
 						FP.entered_dirs |= dir
 						FP.bloodiness = S.bloody_shoes[S.blood_state] - BLOOD_LOSS_IN_SPREAD
 						FP.add_blood_DNA(GET_ATOM_BLOOD_DNA(S))
-						FP.update_icon()
+						FP.update_appearance()
 					update_inv_shoes()
 				//End bloody footprints
 				S.step_action()
