@@ -38,6 +38,10 @@
 	minstr = 12
 	sellprice = 550
 
+/obj/item/weapon/polearm/halberd/bardiche/woodcutter/gorefeast/Initialize(mapload, ...)
+	. = ..()
+	AddElement(/datum/element/divine_intervention, /datum/patron/inhumen/graggar, PUNISHMENT_STRESS, /datum/stressevent/divine_punishment, TRUE)
+
 /obj/item/weapon/polearm/halberd/bardiche/woodcutter/gorefeast/pickup(mob/user)
 	. = ..()
 	var/message
@@ -61,15 +65,6 @@
 	return ..()
 
 /obj/item/weapon/polearm/halberd/bardiche/woodcutter/gorefeast/afterattack(atom/target, mob/living/user, proximity_flag, click_parameters)
-	. = ..()
-	// if(prob(20))
-	// 	if(!HAS_TRAIT(user, TRAIT_ORGAN_EATER))
-	// 		user.playsound_local()
-	// 		to_chat(user)
-	//		return
-	// 	user.playsound_local()
-	// 	to_chat(user)
-
 	if(!ishuman(target))
 		return
 	if(check_zone(user.zone_selected) != BODY_ZONE_CHEST)
@@ -119,6 +114,10 @@
 	sellprice = 550
 
 	COOLDOWN_DECLARE(fire_projectile)
+
+/obj/item/weapon/polearm/neant/Initialize(mapload, ...)
+	. = ..()
+	AddElement(/datum/element/divine_intervention, /datum/patron/inhumen/zizo, PUNISHMENT_BURN, /datum/stressevent/divine_punishment, TRUE)
 
 /obj/item/weapon/polearm/neant/attack(mob/living/M, mob/living/user)
 	if(user.used_intent.tranged)
@@ -180,6 +179,7 @@
 	PJ.firer = user
 	PJ.fired_from = src
 	PJ.original = target
+	playsound(get_turf(user),'sound/effects/neantspecial.ogg', 70)
 
 	if(user.STAPER > 8)
 		PJ.accuracy += (user.STAPER - 8) * 2 //each point of perception above 8 increases standard accuracy by 2.
@@ -249,6 +249,10 @@
 	force = 12
 	damfactor = 1.1
 	var/obj/item/instrument/harp/turbulenta/FUCK
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/Initialize(mapload, ...)
+	. = ..()
+	AddElement(/datum/element/divine_intervention, /datum/patron/inhumen/baotha, PUNISHMENT_STRESS, /datum/stressevent/divine_punishment, TRUE)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/getonmobprop(tag)
 	if(tag)
@@ -373,6 +377,10 @@
 	sellprice = 550
 
 	COOLDOWN_DECLARE(pleonexia_blink)
+
+/obj/item/weapon/sword/long/pleonexia/Initialize(mapload, ...)
+	. = ..()
+	AddElement(/datum/element/divine_intervention, /datum/patron/inhumen/matthios, PUNISHMENT_STRESS, /datum/stressevent/divine_punishment, TRUE)
 
 /obj/item/weapon/sword/long/pleonexia/pre_attack(atom/A, mob/living/user, params)
 	if(!istype(user.used_intent, /datum/intent/plex_dash) || !HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
