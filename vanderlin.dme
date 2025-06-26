@@ -2303,6 +2303,7 @@
 #include "code\modules\mob\living\carbon\human\npc\orc.dm"
 #include "code\modules\mob\living\carbon\human\npc\rousman.dm"
 #include "code\modules\mob\living\carbon\human\npc\skeleton.dm"
+#include "code\modules\mob\living\carbon\human\npc\triton.dm"
 #include "code\modules\mob\living\carbon\human\npc\zizombies.dm"
 #include "code\modules\mob\living\carbon\human\species_types\demihumans\_demihuman.dm"
 #include "code\modules\mob\living\carbon\human\species_types\dwarf\_dwarf.dm"
