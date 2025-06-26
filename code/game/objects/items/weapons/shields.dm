@@ -128,23 +128,15 @@
 
 /obj/item/weapon/shield/wood/adept/Initialize()
 	. = ..()
-	if(!overlays.len)
-		if(!('icons/roguetown/weapons/wood_heraldry.dmi' in GLOB.IconStates_cache))
-			var/icon/J = new('icons/roguetown/weapons/wood_heraldry.dmi')
-			var/list/istates = J.IconStates()
-			GLOB.IconStates_cache |= icon
-			GLOB.IconStates_cache['icons/roguetown/weapons/wood_heraldry.dmi'] = istates
-		if("Psydon" in GLOB.IconStates_cache['icons/roguetown/weapons/wood_heraldry.dmi'])
-			var/picked_name = "Psydon"
-			var/mutable_appearance/M = mutable_appearance('icons/roguetown/weapons/wood_heraldry.dmi', picked_name)
-			M.alpha = 178
-			add_overlay(M)
-			var/mutable_appearance/MU = mutable_appearance(icon, "woodsh_detail")
-			MU.alpha = 114
-			add_overlay(MU)
-			update_icon()
-		else
-			return
+	update_appearance(UPDATE_OVERLAYS)
+
+/obj/item/weapon/shield/wood/adept/update_overlays()
+	. = ..()
+	var/mutable_appearance/M = mutable_appearance('icons/roguetown/weapons/wood_heraldry.dmi', "Psydon")
+	M.alpha = 174
+	. += M
+	M = mutable_appearance(icon, "woodsh_detail")
+	. += M
 
 /obj/item/weapon/shield/tower
 	name = "tower shield"

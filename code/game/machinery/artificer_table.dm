@@ -18,7 +18,7 @@
 		if(!material)
 			I.forceMove(src)
 			material = I
-			update_icon()
+			update_appearance(UPDATE_OVERLAYS)
 			return
 	if(istype(I, /obj/item/weapon/hammer))
 		user.changeNext_move(CLICK_CD_RAPID)
@@ -43,7 +43,7 @@
 			user.mind.add_sleep_experience(material.artrecipe.appro_skill, (user.STAINT * (material.artrecipe.craftdiff + 1)/2) * user.get_learning_boon(material.artrecipe.appro_skill)) //may need to be adjusted
 			qdel(material)
 			material = null
-			update_icon()
+			update_appearance(UPDATE_OVERLAYS)
 			return
 		if(skill < material.artrecipe.craftdiff)
 			if(prob(max(0, 25 - user.goodluck(2) - (skill * 2))))
@@ -107,10 +107,10 @@
 	material = null
 	I.loc = user.loc
 	user.put_in_active_hand(I)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
-/obj/machinery/artificer_table/update_icon()
-	cut_overlays()
+/obj/machinery/artificer_table/update_overlays()
+	. = ..()
 	if(!material)
 		return
 	var/obj/item/I = material
@@ -120,4 +120,4 @@
 	M.transform *= 0.8
 	M.pixel_y = 6
 	M.pixel_x = 0
-	add_overlay(M)
+	. += M

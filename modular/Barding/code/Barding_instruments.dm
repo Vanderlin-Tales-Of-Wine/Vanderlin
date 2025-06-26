@@ -140,7 +140,7 @@
 		soundloop.stress2give = initial(soundloop.stress2give)
 	if(dynamic_icon)
 		lower_from_mouth()
-		update_icon()
+		update_appearance()
 	// Prevents an exploit
 	for(var/mob/living/carbon/L as anything in hearers(7, loc))
 		for(var/datum/status_effect/bardicbuff/b in L.status_effects)
@@ -210,7 +210,25 @@
 			note_color = "#ff8000"
 			stressevent = /datum/stressevent/music/six
 
-	if(HAS_TRAIT(user, TRAIT_BARDIC_TRAINING)) // Non-bards will never get this prompt. Prompt doesn't show if you cancel song selection either.
+	playing = TRUE
+	soundloop.mid_sounds = list(curfile)
+	soundloop.cursound = null
+	soundloop.stress2give = stressevent
+	soundloop.start()
+	if(organ)
+		soundloop.parent = user
+	else
+		soundloop.parent = src
+	user.apply_status_effect(/datum/status_effect/buff/playing_music, stressevent, note_color)
+	GLOB.vanderlin_round_stats[STATS_SONGS_PLAYED]++
+	if(dynamic_icon)
+		lift_to_mouth()
+		update_appearance()
+	START_PROCESSING(SSprocessing, src)
+
+	// BARDIC BUFFS CODE START //
+
+	if(playing && HAS_TRAIT(user, TRAIT_BARDIC_TRAINING)) // Non-bards will never get this prompt. Prompt doesn't show if you cancel song selection either.
 		var/list/buffs2pick = list()
 		switch(music_level) // There has to be a better way to do this, but so far all I've tried doesn't work as intended.
 			if(1) // T1
