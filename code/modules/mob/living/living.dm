@@ -2278,12 +2278,12 @@
 		return
 	changeNext_move(CLICK_CD_EXHAUSTED)
 	if(m_intent != MOVE_INTENT_SNEAK)
-		visible_message("<span class='info'>[src] looks around.</span>")
+		visible_message(span_info("[src] looks around."), span_info("I look around."))
 	var/looktime = 5 SECONDS - (STAPER * 2)
 	if(do_after(src, looktime))
 		// var/huhsneak
-		SEND_GLOBAL_SIGNAL(COMSIG_MOB_ACTIVE_PERCEPTION,src)
-		for(var/mob/living/M in oview(7,src))
+		SEND_GLOBAL_SIGNAL(COMSIG_MOB_ACTIVE_PERCEPTION, src)
+		for(var/mob/living/M in oview(7, src))
 			if(see_invisible < M.invisibility)
 				continue
 			if(HAS_TRAIT(M, TRAIT_IMPERCEPTIBLE)) // Check if the mob is affected by the invisibility spell
@@ -2323,17 +2323,12 @@
 			found_ping(get_turf(potential_track), client, "hidden")
 			potential_track.handle_revealing(src)
 
-
 /proc/found_ping(atom/A, client/C, state)
 	if(!A || !C || !state)
 		return
-	var/image/I = image(icon = 'icons/effects/effects.dmi', loc = A, icon_state = state, layer = 19)
-	I.layer = 19
-	I.plane = 19
-	if(!I)
-		return
-	I.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	flick_overlay(I, list(C), 30)
+	var/image/I = image('icons/effects/effects.dmi', A, state)
+	I.plane = ABOVE_LIGHTING_PLANE
+	flick_overlay(I, list(C), 3 SECONDS)
 
 /**
  * look_up Changes the perspective of the mob to any openspace turf above the mob

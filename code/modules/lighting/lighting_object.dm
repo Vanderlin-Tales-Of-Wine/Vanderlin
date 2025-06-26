@@ -2,7 +2,7 @@
 	name = ""
 	anchored = TRUE
 	icon = LIGHTING_ICON
-	icon_state = "transparent"
+	icon_state = "lighting_transparent"
 	color = null //we manually set color in init instead
 	plane = LIGHTING_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -103,10 +103,10 @@
 
 	if((rr & gr & br & ar) && (rg + gg + bg + ag + rb + gb + bb + ab == 8))
 	//anything that passes the first case is very likely to pass the second, and addition is a little faster in this case
-		icon_state = "transparent"
+		icon_state = "lighting_transparent"
 		color = null
 	else if(!set_luminosity)
-		icon_state = "dark"
+		icon_state = "lighting_dark"
 		color = null
 	else
 		icon_state = null
