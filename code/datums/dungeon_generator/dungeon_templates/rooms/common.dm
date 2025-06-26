@@ -427,7 +427,7 @@
 /datum/map_template/dungeon/room/infernalbridge
 	mappath = "_maps/matthios_tomb/room/infernalbridge.dmm"
 	id = "infernalbridge"
-	rarity = 45
+	rarity = 20
 	width = 14
 	height = 30
 
@@ -479,3 +479,36 @@
 	west_offset = 29
 	east_offset = 29
 	north_offset = 19
+
+/datum/map_template/dungeon/room/faesmall
+	mappath = "_maps/matthios_tomb/room/faesmall.dmm"
+	id = "faesmall"
+	width = 20
+	height = 20
+
+	west_offset = 10
+	east_offset = 10
+	north_offset = 10
+	south_offset = 10
+
+/datum/map_template/dungeon/room/faemedium
+	mappath = "_maps/matthios_tomb/room/faemedium.dmm"
+	id = "faemedium"
+	width = 30
+	height = 30
+
+	west_offset = 15
+	east_offset = 15
+	north_offset = 15
+	south_offset = 15
+
+/datum/map_template/dungeon/room/faelarge
+	mappath = "_maps/matthios_tomb/room/faelarge.dmm"
+	id = "faelarge"
+	width = 40
+	height = 40
+
+	west_offset = 22
+	east_offset = 22
+	north_offset = 20
+	south_offset = 21
