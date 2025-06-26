@@ -98,7 +98,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/blood/death(gibbed)
 	..()
-	update_icon()
+	update_appearance()
 
 /mob/living/simple_animal/hostile/retaliate/blood/get_sound(input)
 	switch(input)

@@ -18,6 +18,10 @@
 	. = ..()
 	become_hearing_sensitive()
 
+/obj/structure/fake_machine/scomm/Destroy()
+	lose_hearing_sensitivity()
+	return ..()
+
 /obj/structure/fake_machine/scomm/r
 	pixel_y = 0
 	pixel_x = 32
@@ -39,6 +43,8 @@
 		. += span_info("[i]. [GLOB.laws_of_the_land[i]]")
 
 /obj/structure/fake_machine/scomm/process()
+	if(obj_broken)
+		return
 	if(world.time > next_decree)
 		next_decree = world.time + rand(3 MINUTES, 8 MINUTES)
 		if(GLOB.lord_decrees.len)
@@ -48,12 +54,14 @@
 	. = ..()
 	if(.)
 		return
+	if(obj_broken)
+		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 	listening = !listening
 	speaking = !speaking
 	to_chat(user, "<span class='info'>I [speaking ? "unmute" : "mute"] the SCOM.</span>")
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/fake_machine/scomm/attack_right(mob/user)
 	if(.)
@@ -74,28 +82,20 @@
 	popup.set_content(contents)
 	popup.open()
 
-/obj/structure/fake_machine/scomm/obj_break(damage_flag, silent)
-	..()
-	speaking = FALSE
-	listening = FALSE
-	update_icon()
-	icon_state = "[icon_state]-br"
-
 /obj/structure/fake_machine/scomm/Initialize()
 	. = ..()
-//	icon_state = "scomm[rand(1,2)]"
 	START_PROCESSING(SSroguemachine, src)
-	update_icon()
 	SSroguemachine.scomm_machines += src
 
-/obj/structure/fake_machine/scomm/update_icon()
-	if(obj_broken)
-		set_light(0)
-		return
-	if(listening)
-		icon_state = "scomm1"
-	else
-		icon_state = "scomm0"
+/obj/structure/fake_machine/scomm/update_icon_state()
+	. = ..()
+	icon_state = "scomm[listening]"
+
+/obj/structure/fake_machine/scomm/obj_break(damage_flag, silent)
+	. = ..()
+	set_light(0)
+	speaking = FALSE
+	listening = FALSE
 
 /obj/structure/fake_machine/scomm/Destroy()
 	SSroguemachine.scomm_machines -= src
@@ -183,6 +183,10 @@
 	. = ..()
 	become_hearing_sensitive()
 
+/obj/item/scomstone/Destroy()
+	lose_hearing_sensitivity()
+	return ..()
+
 //wip
 /obj/item/scomstone/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_MELEE)
@@ -201,7 +205,6 @@
 	listening = !listening
 	speaking = !speaking
 	to_chat(user, "<span class='info'>I [speaking ? "unmute" : "mute"] the scomstone.</span>")
-	update_icon()
 
 /obj/item/scomstone/Destroy()
 	SSroguemachine.scomm_machines -= src
@@ -209,7 +212,6 @@
 
 /obj/item/scomstone/Initialize()
 	. = ..()
-	update_icon()
 	SSroguemachine.scomm_machines += src
 
 /obj/item/scomstone/proc/repeat_message(message, atom/A, tcolor, message_language)

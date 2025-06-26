@@ -17381,7 +17381,9 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town)
 "kZH" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 1
+	},
 /obj/effect/landmark/start/woodsman{
 	dir = 1
 	},
@@ -19050,6 +19052,12 @@
 /obj/structure/closet/crate/crafted_closet,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church)
+"mkP" = (
+/obj/structure/chair/stool{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/rogue/indoors/town/tavern)
 "mlk" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
@@ -24682,7 +24690,9 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
 "pUX" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 1
+	},
 /obj/effect/landmark/start/adventurer{
 	dir = 1
 	},
@@ -36759,7 +36769,9 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/town/basement)
 "xSI" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 1
+	},
 /obj/effect/landmark/start/veteran{
 	dir = 1
 	},
@@ -102299,7 +102311,7 @@ toB
 toB
 toB
 aLy
-aCo
+mkP
 jZz
 jZz
 jZz
@@ -102905,7 +102917,7 @@ vNi
 kII
 toB
 nJP
-aCo
+mkP
 jZz
 kXL
 ifR

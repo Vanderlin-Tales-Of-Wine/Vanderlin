@@ -85,18 +85,17 @@
 	GLOB.farm_animals = max(GLOB.farm_animals - 1, 0)
 	return ..()
 
-/mob/living/simple_animal/hostile/retaliate/goat/update_icon()
-	cut_overlays()
-	..()
+/mob/living/simple_animal/hostile/retaliate/goat/update_overlays()
+	. = ..()
 	if(stat != DEAD)
 		if(ssaddle)
 			var/mutable_appearance/saddlet = mutable_appearance(icon, "saddle-f-above", 4.3)
-			add_overlay(saddlet)
+			. += saddlet
 			saddlet = mutable_appearance(icon, "saddle-f")
-			add_overlay(saddlet)
+			. += saddlet
 		if(has_buckled_mobs())
 			var/mutable_appearance/mounted = mutable_appearance(icon, "goat_mounted", 4.3)
-			add_overlay(mounted)
+			. += mounted
 
 /mob/living/simple_animal/hostile/retaliate/goat/tamed(mob/user)
 	..()
@@ -253,18 +252,17 @@
 		eat_plant(target)
 		return COMPONENT_HOSTILE_NO_ATTACK
 
-/mob/living/simple_animal/hostile/retaliate/goatmale/update_icon()
-	cut_overlays()
-	..()
+/mob/living/simple_animal/hostile/retaliate/goatmale/update_overlays()
+	. = ..()
 	if(stat != DEAD)
 		if(ssaddle)
 			var/mutable_appearance/saddlet = mutable_appearance(icon, "saddle-above", 4.3)
-			add_overlay(saddlet)
+			. += saddlet
 			saddlet = mutable_appearance(icon, "saddle")
-			add_overlay(saddlet)
+			. += saddlet
 		if(has_buckled_mobs())
 			var/mutable_appearance/mounted = mutable_appearance(icon, "goatmale_mounted", 4.3)
-			add_overlay(mounted)
+			. += mounted
 
 /mob/living/simple_animal/hostile/retaliate/goatmale/tamed(mob/user)
 	..()
