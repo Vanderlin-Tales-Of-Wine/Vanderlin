@@ -17,8 +17,8 @@
 	..()
 	H.virginity = TRUE
 
-	armor = /obj/item/clothing/armor/cuirass/iron // Adventurers are not supposed to have fricking steel, at all
 	head = /obj/item/clothing/head/helmet/ironpot
+	armor = /obj/item/clothing/armor/cuirass/iron // Adventurers are not supposed to have fricking steel, at all
 	shirt = /obj/item/clothing/armor/gambeson/light
 	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/boots/leather
