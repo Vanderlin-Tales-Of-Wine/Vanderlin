@@ -2,7 +2,7 @@
 	name = "Ultimate Sacrifice"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/ultimate_sacrifice
-	weight = 7
+	weight = 5
 	earliest_start = 20 MINUTES
 	max_occurrences = 1
 	min_players = 40

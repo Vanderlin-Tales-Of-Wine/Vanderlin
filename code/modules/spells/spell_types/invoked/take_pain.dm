@@ -1,10 +1,10 @@
 /obj/effect/proc_holder/spell/invoked/transfer_pain
-	name = "Transfer Pain"
+	name = "Take Pain"
 	invocation_type = "whisper"
 	overlay_state = "curse"
 	uses_mana = FALSE
 	range = 1
-	recharge_time = 45 SECONDS
+	recharge_time = 1 MINUTES
 
 /obj/effect/proc_holder/spell/invoked/transfer_pain/cast(list/targets, mob/user = usr)
 	var/mob/living/carbon/human/H = user
@@ -29,7 +29,7 @@
 		return FALSE
 
 	H.visible_message(span_notice("[H] begins a solemn prayer to Pestra."), \
-					span_notice("You begin the pain transfer ritual to Pestra..."))
+					span_notice("You begin the pain transfer ritual..."))
 
 	if(!do_after(H, 5 SECONDS, target = target))
 		to_chat(H, span_warning("The ritual was interrupted!"))
@@ -56,7 +56,7 @@
 		affected_wounds += W
 
 	if(total_pain_to_transfer <= 0)
-		to_chat(H, span_warning("[target] is not in enough pain!"))
+		to_chat(H, span_warning("[target] is not in pain!"))
 		return FALSE
 
 	var/pain_percentage = 0
@@ -64,6 +64,8 @@
 		pain_percentage = (total_pain_to_transfer / H.get_complex_pain()) * 100
 	else
 		pain_percentage = 100
+
+	var/wound_severity_mod = clamp(pain_percentage / 50, 0.5, 3.0)
 
 	var/pain_per_wound = total_pain_to_transfer / max(1, H.bodyparts.len)
 	for(var/obj/item/bodypart/BP in H.bodyparts)
@@ -74,17 +76,27 @@
 				break
 
 		if(existing_wound)
-			existing_wound.woundpain += pain_per_wound
-			existing_wound.whp += pain_per_wound/2
+			existing_wound.woundpain += (pain_per_wound * wound_severity_mod) * 3
+			existing_wound.whp += ((pain_per_wound / 2) * wound_severity_mod) * 2
+			if(existing_wound.severity < WOUND_SEVERITY_CRITICAL && wound_severity_mod > 1.5)
+				existing_wound.severity = WOUND_SEVERITY_CRITICAL
 		else
 			var/datum/wound/new_wound = new /datum/wound()
-			new_wound.woundpain = pain_per_wound
-			new_wound.whp += pain_per_wound/2
+			new_wound.woundpain = (pain_per_wound * wound_severity_mod) * 3
+			new_wound.whp += ((pain_per_wound / 2) * wound_severity_mod) * 2
 			new_wound.sewn_woundpain = 0
-			new_wound.name = "transferred agony"
+			new_wound.severity = WOUND_SEVERITY_SEVERE
 			new_wound.can_sew = FALSE
 			new_wound.can_cauterize = FALSE
-			new_wound.passive_healing = 1
+			new_wound.passive_healing = max(1, 3 - wound_severity_mod)
+
+			if(wound_severity_mod > 2.0)
+				new_wound.name = "transferred agony"
+			else if(wound_severity_mod > 1.0)
+				new_wound.name = "transferred serious pain"
+			else
+				new_wound.name = "transferred pain"
+
 			new_wound.apply_to_bodypart(BP)
 
 	playsound(get_turf(H), 'sound/magic/heal.ogg', 50, TRUE)

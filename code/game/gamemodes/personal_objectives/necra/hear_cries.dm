@@ -44,9 +44,10 @@
 
 	if(prob(20) && GLOB.last_messages.len)
 		var/message = pick(GLOB.last_messages - heard_messages)
-		to_chat(user, span_warning("[message]"))
+		to_chat(user, span_red("[message]"))
 		heard_messages += message
-		user.playsound_local(user, 'sound/effects/ghost.ogg', 25)
+		if(prob(25))
+			user.playsound_local(user, 'sound/effects/ghost.ogg', 40)
 
 	if(time_spent >= time_required && !completed)
 		complete_objective()
