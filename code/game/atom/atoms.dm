@@ -1197,7 +1197,7 @@
 	defender.log_message(message, LOG_ATTACK, color="red")
 	attacker.log_message(reverse_message, LOG_ATTACK, "red", FALSE) // log it in the attacker's personal log too, but not log globally because it was already done.
 
-/atom/movable/proc/add_filter(name,priority,list/params)
+/atom/movable/proc/add_filter(name, priority, list/params)
 	if(!filter_data)
 		filter_data = list()
 	var/list/p = params.Copy()

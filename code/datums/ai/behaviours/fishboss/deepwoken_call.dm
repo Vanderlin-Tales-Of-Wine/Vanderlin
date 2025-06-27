@@ -60,7 +60,7 @@
 		H.maxHealth *= 1.5
 		H.health = H.maxHealth
 		H.color = "#66DDFF"
-		H.add_filter("blessing_glow", 2, list("type" = "outline", "color" = "#3366FF", "size" = 1))
+		H.add_filter("blessing_glow", 2, outline_filter(1, "#3366FF"))
 		return TRUE
 	return FALSE
 

@@ -25,6 +25,10 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	smoothing_list = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CLOSED_WALL
 	neighborlay_self = "staticedge"
 
+/turf/open/transparent/openspace/Initialize() // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
+	. = ..()
+	vis_contents += GLOB.openspace_backdrop_one_for_all //Special grey square for projecting backdrop darkness filter on it.
+
 /turf/open/transparent/openspace/can_traverse_safely(atom/movable/traveler)
 	var/turf/destination = GET_TURF_BELOW(src)
 	if(!destination)
@@ -67,11 +71,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 ///No bottom level for openspace.
 /turf/open/transparent/openspace/show_bottom_level()
 	return FALSE
-
-/turf/open/transparent/openspace/Initialize() // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
-	. = ..()
-	dynamic_lighting = 1
-	vis_contents += GLOB.openspace_backdrop_one_for_all //Special grey square for projecting backdrop darkness filter on it.
 
 /turf/open/transparent/openspace/zAirIn()
 	return TRUE

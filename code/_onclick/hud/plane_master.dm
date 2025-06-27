@@ -17,27 +17,21 @@
 /atom/movable/screen/plane_master/proc/backdrop(mob/mymob)
 
 ///Things rendered on "openspace"; holes in multi-z
-/atom/movable/screen/plane_master/openspace
-	name = "open space plane master"
+/atom/movable/screen/plane_master/openspace_backdrop
+	name = "open space backdrop plane master"
 	plane = OPENSPACE_BACKDROP_PLANE
 	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_MULTIPLY
 	alpha = 255
 
-/atom/movable/screen/plane_master/openspace/Initialize()
-	. = ..()
-	add_filter("first_stage_openspace", 1, drop_shadow_filter(color = "#04080FAA", size = -10))
-	add_filter("second_stage_openspace", 2, drop_shadow_filter(color = "#04080FAA", size = -15))
-	add_filter("third_stage_openspace", 2, drop_shadow_filter(color = "#04080FAA", size = -20))
-
-/atom/movable/screen/plane_master/osreal
-	name = "open space plane master real"
+/atom/movable/screen/plane_master/openspace
+	name = "open space plane master"
 	plane = OPENSPACE_PLANE
 	appearance_flags = PLANE_MASTER
 
-// /atom/movable/screen/plane_master/osreal/backdrop(mob/mymob)
-// 	filters = list()
-// 	filters += GAUSSIAN_BLUR(1)
+/atom/movable/screen/plane_master/openspace/Initialize(mapload, ...)
+	. = ..()
+	add_filter("openspace_blur", 1, gauss_blur_filter(1))
 
 /atom/movable/screen/plane_master/floor
 	name = "floor plane master"
@@ -138,7 +132,7 @@
 
 /atom/movable/screen/plane_master/emissive/Initialize()
 	. = ..()
-	add_filter("em_block_masking", 2, color_matrix_filter(GLOB.em_mask_matrix))
+	add_filter("em_block_masking", 1, color_matrix_filter(GLOB.em_mask_matrix))
 
 ///Contains space parallax
 /atom/movable/screen/plane_master/parallax
@@ -190,7 +184,7 @@
 		if(isliving(mymob))
 			var/mob/living/L = mymob
 			if(L.has_status_effect(/datum/status_effect/buff/druqks))
-				add_filter("druqks_ripple", 2, ripple_filter(0, 50, 1, x = 80))
+				add_filter("druqks_ripple", 1, ripple_filter(0, 50, 1, x = 80))
 				animate(filters[length(filters)], 1 SECONDS, -1, radius=480, size=50, flags=ANIMATION_PARALLEL)
 				add_filter("druqks_color", 2, color_matrix_filter(list(0,0,1,0, 0,1,0,0, 1,0,0,0, 0,0,0,1, 0,0,0,0)))
 

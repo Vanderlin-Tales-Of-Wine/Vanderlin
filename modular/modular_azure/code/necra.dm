@@ -147,7 +147,7 @@
 	var/filter = owner.get_filter(CHURN_FILTER)
 	to_chat(owner, span_warning("Wisps leap from the cloying mists to surround me, their chill disrupting my body! FLEE!"))
 	if (!filter)
-		owner.add_filter(CHURN_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 200, "size" = 1))
+		owner.add_filter(CHURN_FILTER, 2, outline_filter(1, outline_colour))
 	return TRUE
 
 /datum/status_effect/churned/refresh()
