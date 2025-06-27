@@ -9,4 +9,4 @@
 	update_explanation_text()
 
 /datum/objective/ultimate_sacrifice/update_explanation_text()
-	explanation_text = "Make the highest sacrifice by giving your own life to save another in the name of Ravox."
+	explanation_text = "Make the highest sacrifice by giving your own life to save truly innocent and worthy soul in the name of Ravox."

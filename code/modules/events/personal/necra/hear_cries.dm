@@ -3,7 +3,7 @@
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/dead_whispers
 	weight = 7
-	earliest_start = 20 MINUTES
+	earliest_start = 15 MINUTES
 	max_occurrences = 1
 	min_players = 20
 
@@ -16,6 +16,9 @@
 	if(!.)
 		return FALSE
 
+	if(GLOB.last_messages.len < 10)
+		return FALSE
+
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client)
 			continue
@@ -26,8 +29,10 @@
 	return FALSE
 
 /datum/round_event/dead_whispers/start()
-	var/list/valid_targets = list()
+	if(GLOB.last_messages.len < 10)
+		return
 
+	var/list/valid_targets = list()
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue

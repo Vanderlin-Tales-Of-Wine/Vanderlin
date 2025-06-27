@@ -45,7 +45,7 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE RAVOX'S CHOSEN!"))
-	to_chat(chosen_one, span_notice("There is an honor in sacrifice. You have been granted a power to sacrifice your own life to revive another. Beware, as you won't be able to ever come back, although your soul will have a secure place in the Cycle."))
+	to_chat(chosen_one, span_notice("There is an honor in sacrifice. You have been granted a power by Ravox to sacrifice your own life to revive another. Beware, as you won't be able to be revived ever again."))
 	chosen_one.playsound_local(chosen_one, 'sound/vo/male/knight/rage (6).ogg', 70)
 
 	chosen_one.mind.announce_personal_objectives()

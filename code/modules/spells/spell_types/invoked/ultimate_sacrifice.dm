@@ -25,7 +25,7 @@
 	if(!target)
 		return FALSE
 
-	var/confirm = alert(user, "This will KILL YOU PERMANENTLY to revive [target]. You CANNOT be revived after this. Are you absolutely sure?", "Ultimate Sacrifice", "Sacrifice Myself", "Cancel")
+	var/confirm = alert(user, "This will KILL YOU PERMANENTLY to revive [target.real_name]. You CANNOT be revived after this. Are you absolutely sure?", "Ultimate Sacrifice", "Sacrifice Myself", "Cancel")
 	if(confirm != "Sacrifice Myself")
 		return FALSE
 
@@ -41,19 +41,19 @@
 		return FALSE
 
 	user.say("RAVOX, I GIVE MY LIFE FOR THEIRS!", forced = "ravox_ritual")
+	user.emote("rage", forced = TRUE)
 	target.revive(full_heal = TRUE, admin_revive = FALSE)
 
 	playsound(user, 'sound/magic/churn.ogg', 100)
 	ADD_TRAIT(user, TRAIT_NECRA_CURSE, "ravox_ritual")
-	ADD_TRAIT(user, TRAIT_BURIED_COIN_GIVEN, "ravox_ritual")
 	user.death()
 
 	if(user.mind)
 		var/datum/objective/ultimate_sacrifice/objective = locate() in user.mind.get_all_objectives()
 		if(objective && !objective.completed)
 			objective.completed = TRUE
-			user.adjust_triumphs(3)
-			adjust_storyteller_influence("Ravox", 25)
+			user.adjust_triumphs(2)
+			adjust_storyteller_influence("Ravox", 20)
 			objective.escalate_objective()
 
 	return ..()
