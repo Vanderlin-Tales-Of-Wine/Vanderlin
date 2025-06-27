@@ -62,7 +62,7 @@
 		if(child.job == "Orphan" && istype(child.mind?.assigned_role, /datum/job/orphan))
 			potential_orphans++
 
-	if(!valid_targets.len || potential_orphans < 2)
+	if(!length(valid_targets) || potential_orphans < 2)
 		return
 
 	var/mob/living/carbon/human/chosen_one = pick(valid_targets)

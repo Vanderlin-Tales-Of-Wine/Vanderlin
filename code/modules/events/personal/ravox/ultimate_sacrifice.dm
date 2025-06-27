@@ -36,7 +36,7 @@
 		if(human_mob.age == AGE_CHILD)
 			continue
 
-	if(!valid_targets.len)
+	if(!length(valid_targets))
 		return
 
 	var/mob/living/carbon/human/chosen_one = pick(valid_targets)

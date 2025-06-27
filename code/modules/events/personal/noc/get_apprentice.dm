@@ -56,7 +56,7 @@
 		if((H.age == AGE_CHILD || (H.job == "Beggar" && istype(H.mind?.assigned_role, /datum/job/vagrant))) && !H.is_apprentice())
 			potential_apprentices++
 
-	if(!valid_targets.len || potential_apprentices < 3)
+	if(!length(valid_targets) || potential_apprentices < 3)
 		return
 
 	var/mob/living/carbon/human/chosen_one = pick(valid_targets)

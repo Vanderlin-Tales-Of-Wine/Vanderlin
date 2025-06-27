@@ -51,7 +51,7 @@
 	if(minor_nobles.len)
 		valid_targets = minor_nobles
 
-	if(!valid_targets.len)
+	if(!length(valid_targets))
 		return
 
 	var/mob/living/carbon/human/noble = pick(valid_targets)

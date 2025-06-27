@@ -32,7 +32,7 @@
 		if(locate(/obj/effect/proc_holder/spell/invoked/mockery) in H.mind.spell_list)
 			valid_targets += H
 
-	if(!valid_targets.len)
+	if(!length(valid_targets))
 		return
 
 	var/mob/living/carbon/human/chosen_one = pick(valid_targets)

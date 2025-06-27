@@ -41,7 +41,7 @@
 		if(human_mob.mana_pool && human_mob.mana_pool.intrinsic_recharge_sources == NONE)
 			valid_targets += human_mob
 
-	if(!valid_targets.len)
+	if(!length(valid_targets))
 		return
 
 	var/mob/living/carbon/human/chosen_one = pick(valid_targets)
