@@ -140,7 +140,7 @@
 		soundloop.stress2give = initial(soundloop.stress2give)
 	if(dynamic_icon)
 		lower_from_mouth()
-		update_icon()
+		update_appearance()
 	// Prevents an exploit
 	for(var/mob/living/carbon/L as anything in hearers(7, loc))
 		for(var/datum/status_effect/bardicbuff/b in L.status_effects)

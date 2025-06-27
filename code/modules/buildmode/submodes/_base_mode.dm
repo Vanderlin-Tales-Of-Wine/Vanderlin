@@ -8,26 +8,31 @@
 /atom/movable/screen/buildmode/categoryswitch/New(datum/buildmode/bm, category)
 	. = ..()
 	category_type = category
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 
-/atom/movable/screen/buildmode/categoryswitch/update_icon()
-	var/category_name = "Unknown"
-
+/atom/movable/screen/buildmode/categoryswitch/update_icon_state()
 	switch(category_type)
 		if(BM_CATEGORY_TURF)
-			category_name = "Turfs"
 			icon_state = "cat_turf"
 		if(BM_CATEGORY_OBJ)
-			category_name = "Objects"
 			icon_state = "cat_obj"
 		if(BM_CATEGORY_MOB)
-			category_name = "Mobs"
 			icon_state = "cat_mob"
 		if(BM_CATEGORY_ITEM)
-			category_name = "Items"
 			icon_state = "cat_item"
+	return ..()
 
-	name = category_name
+/atom/movable/screen/buildmode/categoryswitch/update_name()
+	switch(category_type)
+		if(BM_CATEGORY_TURF)
+			name = "Turfs"
+		if(BM_CATEGORY_OBJ)
+			name = "Objects"
+		if(BM_CATEGORY_MOB)
+			name = "Mobs"
+		if(BM_CATEGORY_ITEM)
+			name = "Items"
+	return ..()
 
 /atom/movable/screen/buildmode/categoryswitch/Click()
 	bd.change_category(category_type)
