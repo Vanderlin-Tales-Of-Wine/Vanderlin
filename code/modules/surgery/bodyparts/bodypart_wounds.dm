@@ -453,7 +453,7 @@
 							LAZYADD(attempted_wounds, /datum/wound/facial/tongue)
 					else if(zone_precise in nosestab_zones)
 						if(has_wound(/datum/wound/facial/disfigurement/nose))
-							attempted_wounds +=/datum/wound/fracture/head/nose
+							LAZYADD(attempted_wounds, /datum/wound/fracture/head/nose)
 						else
 							LAZYADD(attempted_wounds, /datum/wound/facial/disfigurement/nose)
 					else if(zone_precise in knockout_zones)
