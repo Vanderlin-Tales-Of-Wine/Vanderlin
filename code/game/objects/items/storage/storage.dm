@@ -10,9 +10,9 @@
 
 /obj/item/storage/Initialize(mapload, ...)
 	. = ..()
-	PopulateContents()
 	if(component_type)
 		AddComponent(component_type)
+	PopulateContents()
 
 /obj/item/storage/AllowDrop()
 	return FALSE
