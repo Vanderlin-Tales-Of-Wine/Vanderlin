@@ -59,6 +59,13 @@ jobs:
         with:
           path: ~/.cargo
           key: ${{ runner.os }}-rust
+      - name: Install OpenDream
+        uses: robinraju/release-downloader@v1.12
+        with:
+          repository: "OpenDreamProject/OpenDream"
+          tag: "latest"
+          fileName: "DMCompiler_linux-x64.tar.gz"
+          extract: true
       - name: Install Tools
         run: |
           pip3 install setuptools
@@ -83,6 +90,9 @@ jobs:
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         shell: bash
         run: ~/dreamchecker 2>&1 | bash tools/ci/annotate_dm.sh
+      - name: Run OpenDream
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: ./DMCompiler_linux-x64/DMCompiler vanderlin.dme --suppress-unimplemented --define=CIBUILDING | bash tools/ci/annotate_od.sh
       - name: Run Map Checks
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: |
@@ -101,33 +111,6 @@ jobs:
       # - name: Check Miscellaneous Files
       #   if: steps.linter-setup.conclusion == 'success' && !cancelled()
       #   run: bash tools/ci/check_misc.sh
-
-  OpenDream:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Python setup
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-      - name: Setup Cache
-        uses: actions/cache@v4
-        with:
-          path: $HOME/spaceman_dmm/$SPACEMAN_DMM_VERSION
-          key: ${{ runner.os }}-spacemandmm-${{ env.SPACEMAN_DMM_VERSION }}
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v4.2.0
-        with:
-          dotnet-version: 9.x
-      - name: Install OpenDream
-        uses: robinraju/release-downloader@v1.9
-        with:
-          repository: "OpenDreamProject/OpenDream"
-          tag: "latest"
-          fileName: "DMCompiler_linux-x64.tar.gz"
-          extract: true
-      - name: Run OpenDream
-        run: ./DMCompiler_linux-x64/DMCompiler vanderlin.dme --suppress-unimplemented --skip-anything-typecheck --version=${BYOND_MAJOR}.${BYOND_MINOR} | python tools/od_annotator/__main__.py "$@"
 
   compile_all_maps:
     name: Compile Maps
