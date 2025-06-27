@@ -346,7 +346,7 @@
 	var/static/list/tonguestab_zones = list(BODY_ZONE_PRECISE_MOUTH)
 	var/static/list/nosestab_zones = list(BODY_ZONE_PRECISE_NOSE)
 	var/static/list/earstab_zones = list(BODY_ZONE_PRECISE_EARS)
-	var/static/list/knockout_zones = list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_MOUTH)
+	var/static/list/knockout_zones = list(BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_EARS, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_MOUTH)
 	var/used
 	var/damage_dividend = (get_damage() / max_damage)
 	var/resistance = HAS_TRAIT(owner, TRAIT_CRITICAL_RESISTANCE)
@@ -354,8 +354,8 @@
 	if(user)
 		if((owner.dir == REVERSE_DIR(get_dir(owner, user))))
 			from_behind = TRUE
-		if(user.stat_roll(STATKEY_LCK,2,10))
-			dam += 10
+	if(user?.stat_roll(STATKEY_LCK,2,10))
+		dam += 10
 	var/list/crit_classes
 	if(bclass in GLOB.dislocation_bclasses)
 		LAZYADD(crit_classes, "dislocation")
@@ -384,9 +384,9 @@
 				dam += 10
 			used = round(damage_dividend * 20 + (dam / 6), 1)
 			if(!owner.stat && (zone_precise in knockout_zones) && !(bclass in GLOB.no_knockout_bclasses) && prob(used))
-				owner.next_attack_msg += " <span class='crit'><b>Critical hit!</b> [owner] is knocked out[from_behind ? " FROM BEHIND" : ""]!</span>"
+				owner.next_attack_msg += " [span_crit("<b>Critical hit!</b> [owner] is knocked out[from_behind ? " FROM BEHIND" : ""]!")]"
 				owner.flash_fullscreen("whiteflash3")
-				owner.Unconscious(30 SECONDS + (from_behind * 60 SECONDS))
+				owner.Unconscious(15 SECONDS + (from_behind * 15 SECONDS))
 				if(owner.client)
 					winset(owner.client, "outputwindow.output", "max-lines=1")
 					winset(owner.client, "outputwindow.output", "max-lines=100")
@@ -428,7 +428,7 @@
 				var/artery_type = /datum/wound/artery
 				if(zone_precise == BODY_ZONE_PRECISE_NECK)
 					artery_type = /datum/wound/artery/neck
-				attempted_wounds += artery_type
+				LAZYADD(attempted_wounds, artery_type)
 				if((bclass in GLOB.stab_bclasses) && !resistance)
 					if(zone_precise in earstab_zones)
 						var/obj/item/organ/ears/my_ears = owner.getorganslot(ORGAN_SLOT_EARS)
