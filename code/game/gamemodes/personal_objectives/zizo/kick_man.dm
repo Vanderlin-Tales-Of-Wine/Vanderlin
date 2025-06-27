@@ -15,8 +15,9 @@
 
 /datum/objective/kick_groin/proc/on_kick_attempted(datum/source, mob/living/target, zone_hit, damage_blocked)
 	SIGNAL_HANDLER
-	if(completed || target.gender != MALE || zone_hit != BODY_ZONE_PRECISE_GROIN)
+	if(completed || target.gender != MALE || target.stat == DEAD || zone_hit != BODY_ZONE_PRECISE_GROIN)
 		return
+
 	if(damage_blocked)
 		to_chat(owner.current, span_notice("The kick must inflict actual PAIN to please Zizo!"))
 	else
