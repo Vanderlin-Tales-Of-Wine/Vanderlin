@@ -2,11 +2,9 @@
 	name = "Transfer Pain"
 	desc = "Take another's pain upon yourself as an act of mercy."
 	invocation_type = "whisper"
-	overlay_state = "pestra_heal"
+	overlay_state = "curse"
 	range = 1
 	recharge_time = 30 SECONDS
-	action_icon_state = "pain_transfer"
-	action_background_icon_state = "bg_pestra"
 
 /obj/effect/proc_holder/spell/invoked/transfer_pain/cast(list/targets, mob/user = usr)
 	var/mob/living/carbon/human/H = user

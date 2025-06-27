@@ -1,11 +1,11 @@
 /obj/effect/proc_holder/spell/invoked/adopt_child
 	name = "Adopt Child"
+	overlay_state = "bliss"
 	invocation_type = "whisper"
 	overlay_state = "bless"
 	range = 1
 	recharge_time = 20 SECONDS
 	uses_mana = FALSE
-	overlay_state = "bliss"
 
 /obj/effect/proc_holder/spell/invoked/adopt_child/cast(list/targets, mob/user = usr)
 	var/mob/living/carbon/human/H = user
@@ -46,7 +46,7 @@
 		return
 
 	if(!target.Adjacent(H))
-		to_chat(H, span_warning("Child is too far away!"))
+		to_chat(H, span_warning("The child is too far away!"))
 		return
 
 	if(target.family_datum)

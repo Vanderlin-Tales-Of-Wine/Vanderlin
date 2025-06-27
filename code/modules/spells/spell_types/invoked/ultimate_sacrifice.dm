@@ -3,6 +3,7 @@
 	overlay_state = "revive"
 	antimagic_allowed = TRUE
 	uses_mana = FALSE
+	range = 1
 	recharge_time = 0
 	invocation = "RAVOX, HEAR MY PLEA!"
 	invocation_type = "shout"
@@ -25,7 +26,7 @@
 	if(!target)
 		return FALSE
 
-	var/confirm = alert(user, "This will KILL YOU PERMANENTLY to revive [target.real_name]. You CANNOT be revived after this. Are you absolutely sure?", "Ultimate Sacrifice", "Sacrifice Myself", "Cancel")
+	var/confirm = alert(user, "Your life will be sacrificed to revive [target.real_name]. You CANNOT be revived after this. Are you absolutely sure?", "Ultimate Sacrifice", "Sacrifice Myself", "Cancel")
 	if(confirm != "Sacrifice Myself")
 		return FALSE
 
@@ -37,11 +38,19 @@
 		return FALSE
 
 	confirm = alert(user, "LAST WARNING: This will KILL YOU PERMANENTLY and you CANNOT be revived. Proceed?", "Final Sacrifice", "Give My Life", "Cancel")
-	if(confirm != "Give My Life")
+	if(confirm != "Give My Life" || !target || target.stat != DEAD || !Adjacent(target))
 		return FALSE
 
 	user.say("RAVOX, I GIVE MY LIFE FOR THEIRS!", forced = "ravox_ritual")
 	user.emote("rage", forced = TRUE)
+
+	var/mob/living/carbon/spirit/underworld_spirit = target.get_spirit()
+	if(underworld_spirit)
+		var/mob/dead/observer/ghost = underworld_spirit.ghostize()
+		qdel(underworld_spirit)
+		ghost.mind.transfer_to(target, TRUE)
+	target.grab_ghost(force = TRUE)
+
 	target.revive(full_heal = TRUE, admin_revive = FALSE)
 
 	playsound(user, 'sound/magic/churn.ogg', 100)

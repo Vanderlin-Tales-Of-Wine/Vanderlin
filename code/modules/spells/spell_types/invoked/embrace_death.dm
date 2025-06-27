@@ -2,6 +2,7 @@
 	name = "Embrace Death"
 	overlay_state = "necra"
 	antimagic_allowed = TRUE
+	uses_mana = FALSE
 	recharge_time = 0
 	invocation = "NECRA, I AM READY!"
 	invocation_type = "shout"
