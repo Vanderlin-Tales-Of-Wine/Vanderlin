@@ -28,7 +28,7 @@
 
 /datum/objective/release_fish/proc/complete_objective()
 	to_chat(owner.current, span_greentext("A rare fish has been returned to the depths, pleasing Abyssor!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Abyssor", 15)
 	escalate_objective()

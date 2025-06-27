@@ -1,6 +1,5 @@
 /datum/objective/ravox_duel
 	name = "Honor Duels"
-	triumph_count = 0
 	var/duels_won = 0
 	var/duels_required = 2
 
@@ -15,7 +14,7 @@
 	duels_won++
 	if(duels_won >= duels_required && !completed)
 		to_chat(owner.current, span_greentext("You have proven your worth in combat! Ravox is pleased!"))
-		owner.current.adjust_triumphs(duels_required)
+		owner.current.adjust_triumphs(triumph_count * duels_required)
 		completed = TRUE
 		adjust_storyteller_influence("Ravox", duels_required * 10)
 		escalate_objective()

@@ -32,7 +32,7 @@
 
 /datum/objective/abyssor_bath/proc/complete_objective()
 	to_chat(owner.current, span_greentext("You have honored Abyssor by taking a relaxing bath while wearing his amulet!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Abyssor", 10)
 	escalate_objective()

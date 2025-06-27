@@ -19,7 +19,7 @@
 
 	if(target.job == "Beggar" || istype(target.mind?.assigned_role, /datum/job/vagrant))
 		to_chat(owner.current, span_greentext("You've hugged a beggar, completing Eora's objective!"))
-		owner.current.adjust_triumphs(1)
+		owner.current.adjust_triumphs(triumph_count)
 		completed = TRUE
 		adjust_storyteller_influence("Eora", 10)
 		escalate_objective()

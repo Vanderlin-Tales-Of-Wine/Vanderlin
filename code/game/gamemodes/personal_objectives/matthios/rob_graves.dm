@@ -28,7 +28,7 @@
 
 /datum/objective/grave_robbery/proc/complete_objective()
 	to_chat(owner.current, span_greentext("You've robbed enough graves to earn Matthios' respect!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Matthios", 15)
 	escalate_objective()

@@ -54,7 +54,7 @@
 
 /datum/objective/listen_whispers/proc/complete_objective()
 	to_chat(owner.current, span_greentext("You have listened to the whispers of the dead long enough to satisfy Necra!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Necra", 15)
 	escalate_objective()

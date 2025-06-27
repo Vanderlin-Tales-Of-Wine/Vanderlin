@@ -26,7 +26,7 @@
 
 /datum/objective/tame_animal/proc/complete_objective(mob/living/simple_animal/animal)
 	to_chat(owner.current, span_greentext("You have tamed [animal], fulfilling Dendor's will!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Dendor", 15)
 	escalate_objective()

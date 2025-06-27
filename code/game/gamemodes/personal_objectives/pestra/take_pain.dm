@@ -1,6 +1,6 @@
 /datum/objective/take_pain
 	name = "Take Pain"
-	triumph_count = 0
+	triumph_count = 2
 	var/total_pain_taken = 0
 	var/target_pain = 1250
 
@@ -33,7 +33,7 @@
 
 	if(total_pain_taken >= target_pain)
 		to_chat(owner.current, span_greentext("You have taken enough pain from others, completing Pestra's objective! Your sacrifice is rewarded."))
-		owner.current.adjust_triumphs(2)
+		owner.current.adjust_triumphs(triumph_count)
 		completed = TRUE
 		adjust_storyteller_influence("Pestra", 15)
 		escalate_objective()

@@ -30,7 +30,7 @@
 
 /datum/objective/punch_women/proc/complete_objective()
 	to_chat(owner.current, span_greentext("You have dealt enough face punches to satisfy Graggar!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Graggar", 15)
 	escalate_objective()

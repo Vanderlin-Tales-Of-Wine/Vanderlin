@@ -23,7 +23,7 @@
 	sniff_count++
 	if(sniff_count >= required_count)
 		to_chat(owner.current, span_greentext("You have sniffed enough drugs to complete Baotha's objective!"))
-		owner.current.adjust_triumphs(1)
+		owner.current.adjust_triumphs(triumph_count)
 		completed = TRUE
 		adjust_storyteller_influence("Baotha", 10)
 		escalate_objective()

@@ -1,6 +1,6 @@
 /datum/objective/embrace_death
 	name = "Embrace Death"
-	triumph_count = 0
+	triumph_count = 3
 
 /datum/objective/embrace_death/on_creation()
 	. = ..()

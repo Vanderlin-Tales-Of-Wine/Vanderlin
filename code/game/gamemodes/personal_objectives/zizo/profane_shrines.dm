@@ -28,7 +28,7 @@
 		return
 
 	to_chat(owner.current, span_greentext("You have built all the required profane shrines, completing Zizo's objective!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Zizo", 15)
 	escalate_objective()

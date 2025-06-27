@@ -25,7 +25,7 @@
 
 /datum/objective/kick_groin/proc/complete_objective()
 	to_chat(owner.current, span_greentext("You've established your dominance over this man and completed Zizo's objective!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Zizo", 15)
 	escalate_objective()

@@ -16,7 +16,7 @@
 	if(!.)
 		return FALSE
 
-	if(GLOB.last_messages.len < 10)
+	if(length(GLOB.last_messages) < 10)
 		return FALSE
 
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
@@ -29,8 +29,8 @@
 	return FALSE
 
 /datum/round_event/dead_whispers/start()
-	if(GLOB.last_messages.len < 10)
-		return
+	if(length(GLOB.last_messages) < 10)
+		return FALSE
 
 	var/list/valid_targets = list()
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)

@@ -61,7 +61,7 @@
 		var/datum/objective/ultimate_sacrifice/objective = locate() in user.mind.get_all_objectives()
 		if(objective && !objective.completed)
 			objective.completed = TRUE
-			user.adjust_triumphs(2)
+			user.adjust_triumphs(objective.triumph_count)
 			adjust_storyteller_influence("Ravox", 20)
 			objective.escalate_objective()
 

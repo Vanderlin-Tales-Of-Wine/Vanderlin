@@ -26,7 +26,7 @@
 	. = ..()
 	if((istype(victim.mind?.assigned_role, /datum/job/lord) || victim.job == "Monarch") && (source == owner.current))
 		to_chat(owner.current, span_greentext("You have mocked the monarch and completed the objective!"))
-		owner.current.adjust_triumphs(1)
+		owner.current.adjust_triumphs(triumph_count)
 		completed = TRUE
 		adjust_storyteller_influence("Xylix", 15)
 		escalate_objective()
@@ -56,7 +56,7 @@
 		mocked_targets++
 		if(mocked_targets >= required_count)
 			to_chat(owner.current, span_greentext("You have mocked enough nobles and completed the objective!"))
-			owner.current.adjust_triumphs(1)
+			owner.current.adjust_triumphs(triumph_count)
 			completed = TRUE
 			adjust_storyteller_influence("Xylix", 10)
 			escalate_objective()

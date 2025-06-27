@@ -1,6 +1,6 @@
 /datum/objective/get_apprentice
 	name = "Get Apprentice"
-	triumph_count = 0
+	triumph_count = 2
 
 /datum/objective/get_apprentice/on_creation()
 	. = ..()
@@ -18,7 +18,7 @@
 		return
 
 	to_chat(owner.current, span_greentext("You've obtained a new apprentice, completing Noc's objective!"))
-	owner.current.adjust_triumphs(2)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Noc", 15)
 	escalate_objective()

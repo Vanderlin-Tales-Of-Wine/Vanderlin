@@ -19,7 +19,7 @@
 
 	if(istype(skill_ref, /datum/skill/misc/reading) && old_level == SKILL_LEVEL_NONE && new_level > SKILL_LEVEL_NONE)
 		to_chat(owner.current, span_greentext("You've learned to read, completing Noc's objective!"))
-		owner.current.adjust_triumphs(1)
+		owner.current.adjust_triumphs(triumph_count)
 		completed = TRUE
 		adjust_storyteller_influence("Noc", 10)
 		escalate_objective()

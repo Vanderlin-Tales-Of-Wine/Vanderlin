@@ -28,7 +28,7 @@
 
 /datum/objective/abyssor_splash/proc/complete_objective(mob/target)
 	to_chat(owner.current, span_greentext("You've unleashed Abyssor's rage, completing the objective!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Abyssor", 15)
 	escalate_objective()

@@ -19,7 +19,7 @@
 		return
 
 	to_chat(owner.current, span_greentext("You have extracted lux and completed Pestra's objective!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Pestra", 15)
 	escalate_objective()

@@ -1,6 +1,6 @@
 /datum/objective/torture
 	name = "Extract Truth Through Pain"
-	triumph_count = 0
+	triumph_count = 2
 	var/torture_count = 0
 	var/required_count = 1
 
@@ -26,7 +26,7 @@
 
 /datum/objective/torture/proc/complete_objective(mob/living/victim)
 	to_chat(owner.current, span_greentext("You have extracted the truth through pain, satisfying Zizo!"))
-	owner.current.adjust_triumphs(2)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Zizo", 20)
 	escalate_objective()

@@ -23,7 +23,7 @@
 	meals_eaten++
 	if(meals_eaten >= meals_required)
 		to_chat(owner.current, span_greentext("You have consumed enough rotten food to complete Pestra's objective!"))
-		owner.current.adjust_triumphs(1)
+		owner.current.adjust_triumphs(triumph_count)
 		completed = TRUE
 		adjust_storyteller_influence("Pestra", 10)
 		escalate_objective()

@@ -1,6 +1,6 @@
 /datum/objective/baptism
 	name = "Receive Baptism"
-	triumph_count = 0
+	triumph_count = 2
 
 /datum/objective/baptism/on_creation()
 	. = ..()
@@ -22,7 +22,7 @@
 		return
 
 	to_chat(owner.current, span_greentext("You have been baptized and completed Noc's objective!"))
-	owner.current.adjust_triumphs(2)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Noc", 15)
 	escalate_objective()

@@ -26,7 +26,7 @@
 
 /datum/objective/energy_expenditure/proc/complete_objective()
 	to_chat(owner.current, span_greentext("You've spent enough energy working to satisfy Malum!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Malum", 15)
 	escalate_objective()

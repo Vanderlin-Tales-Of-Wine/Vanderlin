@@ -38,7 +38,7 @@
 		var/datum/objective/embrace_death/objective = locate() in user.mind.get_all_objectives()
 		if(objective && !objective.completed)
 			objective.completed = TRUE
-			user.adjust_triumphs(3)
+			user.adjust_triumphs(objective.triumph_count)
 			adjust_storyteller_influence("Necra", 25)
 			objective.escalate_objective()
 

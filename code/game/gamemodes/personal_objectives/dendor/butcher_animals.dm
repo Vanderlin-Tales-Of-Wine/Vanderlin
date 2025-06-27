@@ -28,7 +28,7 @@
 
 /datum/objective/butcher_animals/proc/complete_objective()
 	to_chat(owner.current, span_greentext("You've butchered enough animals to satisfy Dendor!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Dendor", 15)
 	escalate_objective()

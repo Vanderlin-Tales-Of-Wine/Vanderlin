@@ -24,7 +24,7 @@
 
 /datum/objective/retainer/proc/complete_objective()
 	to_chat(owner.current, span_greentext("You have recruited a retainer and completed Astrata's objective!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Astrata", 15)
 	escalate_objective()

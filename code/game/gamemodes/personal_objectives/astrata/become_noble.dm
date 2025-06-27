@@ -1,6 +1,6 @@
 /datum/objective/nobility
 	name = "Become Noble"
-	triumph_count = 0
+	triumph_count = 2
 
 /datum/objective/nobility/on_creation()
 	. = ..()
@@ -22,7 +22,7 @@
 		return
 
 	to_chat(owner.current, span_greentext("You have earned nobility and completed Astrata's objective!"))
-	owner.current.adjust_triumphs(2)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Astrata", 15)
 	escalate_objective()

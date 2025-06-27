@@ -1,6 +1,6 @@
 /datum/objective/adopt_orphan
 	name = "Adopt Orphan"
-	triumph_count = 0
+	triumph_count = 2
 
 /datum/objective/adopt_orphan/on_creation()
 	. = ..()
@@ -18,7 +18,7 @@
 		return
 
 	to_chat(owner.current, span_greentext("You've adopted a child, completing Eora's objective!"))
-	owner.current.adjust_triumphs(2)
+	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Eora", 20)
 	escalate_objective()

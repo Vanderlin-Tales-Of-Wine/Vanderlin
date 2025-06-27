@@ -1,6 +1,6 @@
 /datum/objective/ultimate_sacrifice
 	name = "Ultimate Sacrifice"
-	triumph_count = 0
+	triumph_count = 3
 
 /datum/objective/ultimate_sacrifice/on_creation()
 	. = ..()

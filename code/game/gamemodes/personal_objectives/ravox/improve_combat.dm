@@ -33,7 +33,7 @@
 
 	if(levels_gained >= required_levels)
 		to_chat(owner.current, span_greentext("You've improved your combat skills enough to satisfy Ravox!"))
-		owner.current.adjust_triumphs(1)
+		owner.current.adjust_triumphs(triumph_count)
 		completed = TRUE
 		adjust_storyteller_influence("Ravox", 15)
 		escalate_objective()
