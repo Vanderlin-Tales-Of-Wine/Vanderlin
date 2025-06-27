@@ -17,7 +17,7 @@
 	toggle_icon_state = FALSE
 	salvage_result = /obj/item/natural/hide/cured
 
-/obj/item/clothing/cloak/raincloak/ComponentInitialize()
+/obj/item/clothing/cloak/raincloak/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/grid/cloak)
 
@@ -53,7 +53,7 @@
 
 /obj/item/clothing/cloak/raincloak/random/Initialize()
 	color = pick(CLOTHING_BLOOD_RED, CLOTHING_PLUM_PURPLE, CLOTHING_SOOT_BLACK, CLOTHING_BARK_BROWN, CLOTHING_FOREST_GREEN, CLOTHING_SKY_BLUE)
-	..()
+	return ..()
 
 /obj/item/clothing/head/hooded/rainhood
 	name = "hood"

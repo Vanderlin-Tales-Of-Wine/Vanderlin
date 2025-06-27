@@ -6,6 +6,7 @@
 	recharge_time = 50
 	cooldown_min = 50
 	die_with_shapeshifted_form =  FALSE
+	convert_damage = FALSE
 	shapeshift_type = /mob/living/simple_animal/hostile/retaliate/bat
 	attunements = list(
 		/datum/attunement/dark = 0.4,
@@ -19,6 +20,7 @@
 	recharge_time = 50
 	cooldown_min = 50
 	die_with_shapeshifted_form =  FALSE
+	convert_damage = FALSE
 	shapeshift_type = /mob/living/simple_animal/hostile/retaliate/gaseousform
 	attunements = list(
 		/datum/attunement/dark = 0.4,
@@ -47,7 +49,7 @@
 
 	var/obj/effect/portal/vampire/portal = new /obj/effect/portal/vampire(get_turf(user), user, 15 MINUTES, null, FALSE, get_turf(destination), FALSE)
 	portal.RegisterSignal(destination, COMSIG_PARENT_QDELETING, TYPE_PROC_REF(/obj/effect/portal/vampire, handle_portalmaker_destruction))
-	return TRUE
+	return ..()
 
 /obj/effect/portal/vampire
 	name = "Eerie Portal"

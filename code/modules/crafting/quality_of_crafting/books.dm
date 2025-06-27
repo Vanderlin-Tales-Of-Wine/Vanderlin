@@ -75,6 +75,10 @@
 			temp_recipe = new path()
 			var/datum/anvil_recipe/r = temp_recipe
 			category = r.category
+		else if(ispath(path, /datum/artificer_recipe))
+			temp_recipe = new path()
+			var/datum/artificer_recipe/r = temp_recipe
+			category = r.category
 		else if(ispath(path, /datum/pottery_recipe))
 			temp_recipe = new path()
 			var/datum/pottery_recipe/r = temp_recipe
@@ -90,6 +94,22 @@
 		else if(ispath(path, /datum/book_entry))
 			temp_recipe = new path()
 			var/datum/book_entry/r = temp_recipe
+			category = r.category
+		else if(ispath(path, /datum/alch_cauldron_recipe))
+			temp_recipe = new path()
+			var/datum/alch_cauldron_recipe/r = temp_recipe
+			category = r.category
+		else if(ispath(path, /datum/essence_combination))
+			temp_recipe = new path()
+			var/datum/essence_combination/r = temp_recipe
+			category = r.category
+		else if(ispath(path, /datum/natural_precursor))
+			temp_recipe = new path()
+			var/datum/natural_precursor/r = temp_recipe
+			category = r.category
+		else if(ispath(path, /datum/essence_infusion_recipe))
+			temp_recipe = new path()
+			var/datum/essence_infusion_recipe/r = temp_recipe
 			category = r.category
 
 		// Clean up our temporary instance
@@ -309,6 +329,9 @@
 						continue
 
 				var/recipe_name = initial(sub_path.name)
+				if(ispath(sub_path, /datum/alch_cauldron_recipe))
+					var/datum/alch_cauldron_recipe/typed_sub = sub_path
+					recipe_name = typed_sub.recipe_name
 
 				// Check if this recipe belongs to the current category
 				var/should_show = TRUE
@@ -320,7 +343,15 @@
 				// Default display style - will be changed by JS if searching
 				var/display_style = should_show ? "" : "display: none;"
 
-				html += "<a class='recipe-link' href='byond://?src=\ref[src];action=view_recipe&recipe=[sub_path]' style='[display_style]'>[recipe_name]</a>"
+				// In the recipe list generation section, modify the recipe link to include essence data:
+				var/essence_data = ""
+				if(ispath(sub_path, /datum/natural_precursor))
+					var/datum/natural_precursor/temp = new sub_path()
+					for(var/datum/thaumaturgical_essence/essence_type as anything in temp.essence_yields)
+						essence_data += "[initial(essence_type.name)],"
+					qdel(temp)
+
+				html += "<a class='recipe-link' href='byond://?src=\ref[src];action=view_recipe&recipe=[sub_path]' style='[display_style]' data-essences='[essence_data]'>[recipe_name]</a>"
 		else
 			var/recipe_name = initial(path.name)
 
@@ -374,11 +405,13 @@
 
 					recipeLinks.forEach(function(link) {
 						const recipeName = link.textContent.toLowerCase();
+						const essences = (link.getAttribute('data-essences') || "").toLowerCase();
 
-						// Check if it matches the search query
-						const matchesQuery = query === '' || recipeName.includes(query);
+						// Check if it matches either the recipe name or any of the essences
+						const matchesQuery = query === '' ||
+							recipeName.includes(query) ||
+							essences.includes(query);
 
-						// If we have both a query and active category, respect both filters
 						if (matchesQuery) {
 							link.style.display = 'block';
 							anyVisible = true;
@@ -393,11 +426,6 @@
 
 					// Remember the query
 					window.location.replace(`byond://?src=\\ref[src];action=remember_query&query=${encodeURIComponent(query)}`);
-				}
-
-				// Initialize search based on any current query
-				if ("[search_query]" !== "") {
-					filterRecipes("[search_query]".toLowerCase());
 				}
 			</script>
 		</body>
@@ -456,6 +484,11 @@
 		var/datum/anvil_recipe/r = temp_recipe
 		recipe_name = initial(r.name)
 		recipe_html = get_recipe_specific_html(r, user)
+	else if(ispath(path, /datum/artificer_recipe))
+		temp_recipe = new path()
+		var/datum/artificer_recipe/r = temp_recipe
+		recipe_name = initial(r.name)
+		recipe_html = get_recipe_specific_html(r, user)
 	else if(ispath(path, /datum/pottery_recipe))
 		temp_recipe = new path()
 		var/datum/pottery_recipe/r = temp_recipe
@@ -474,6 +507,26 @@
 	else if(ispath(path, /datum/book_entry))
 		temp_recipe = new path()
 		var/datum/book_entry/r = temp_recipe
+		recipe_name = initial(r.name)
+		recipe_html = get_recipe_specific_html(r, user)
+	else if(ispath(path, /datum/alch_cauldron_recipe))
+		temp_recipe = new path()
+		var/datum/alch_cauldron_recipe/r = temp_recipe
+		recipe_name = initial(r.recipe_name)
+		recipe_html = get_recipe_specific_html(r, user)
+	else if(ispath(path, /datum/natural_precursor))
+		temp_recipe = new path()
+		var/datum/natural_precursor/r = temp_recipe
+		recipe_name = initial(r.name)
+		recipe_html = get_recipe_specific_html(r, user)
+	else if(ispath(path, /datum/essence_combination))
+		temp_recipe = new path()
+		var/datum/essence_combination/r = temp_recipe
+		recipe_name = initial(r.name)
+		recipe_html = get_recipe_specific_html(r, user)
+	else if(ispath(path, /datum/essence_infusion_recipe))
+		temp_recipe = new path()
+		var/datum/essence_infusion_recipe/r = temp_recipe
 		recipe_name = initial(r.name)
 		recipe_html = get_recipe_specific_html(r, user)
 
@@ -723,6 +776,7 @@
 		/datum/book_entry/water_pressure,
 		/datum/repeatable_crafting_recipe/engineering,
 		/datum/slapcraft_recipe/engineering,
+		/datum/artificer_recipe,
 	)
 
 /obj/item/recipe_book/masonry
@@ -774,4 +828,25 @@
 		/datum/slapcraft_recipe/arcyne,
 		/datum/container_craft/cooking/arcyne,
 		/datum/runerituals,
+	)
+
+
+/obj/item/recipe_book/alchemy
+	name = "Codex Virellia"
+	desc = "Transcribed by Maerion Duskwind, avid hater of gnomes."
+	icon_state ="book4_0"
+	base_icon_state = "book4"
+
+	types = list(
+		/datum/book_entry/gnome_homunculus,
+		/datum/book_entry/essence_crafting,
+		/datum/alch_cauldron_recipe,
+		/datum/essence_combination,
+		/datum/natural_precursor,
+		/datum/essence_infusion_recipe,
+		/datum/container_craft/cooking/herbal_salve,
+		/datum/container_craft/cooking/herbal_tea,
+		/datum/container_craft/cooking/herbal_oil,
+		/datum/slapcraft_recipe/alchemy,
+		/datum/repeatable_crafting_recipe/alchemy,
 	)

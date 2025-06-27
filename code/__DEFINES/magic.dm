@@ -73,3 +73,6 @@
 
 #define COMSIG_SPELL_BEFORE_CAST "spell_before_cast"
 #define COMSIG_SPELL_AFTER_CAST "spell_after_cast"
+
+#define SPELL_MANA (1<<0)
+#define SPELL_ESSENCE (1<<1)

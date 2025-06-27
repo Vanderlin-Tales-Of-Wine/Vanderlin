@@ -45,20 +45,21 @@
 	if(step_up)
 		forceMove(step_up)
 
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	set_light(1.4, 1.4, 0.75, l_color = COLOR_CYAN)
 
 /obj/structure/mana_pylon/Destroy()
-	. = ..()
+	if(linked_pylon)
+		unlink_pylon(linked_pylon)
 	QDEL_NULL(fake_density)
+	return ..()
 
-/obj/structure/mana_pylon/update_icon()
+/obj/structure/mana_pylon/update_overlays()
 	. = ..()
-	cut_overlays()
 	var/mutable_appearance/MA = mutable_appearance(icon, "pylon-glow", plane = ABOVE_LIGHTING_PLANE)
 	if(different_z)
 		MA.color = COLOR_RED
-	add_overlay(MA)
+	. += MA
 
 /obj/structure/mana_pylon/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
@@ -102,14 +103,13 @@
 		different_z = FALSE
 	linked_pylon = pylon_to_link
 	mana_pool.start_transfer(pylon_to_link.mana_pool, TRUE)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	return TRUE
 
 /obj/structure/mana_pylon/proc/unlink_pylon(obj/structure/pylon_to_unlink)
 	QDEL_NULL(created_beam)
 	linked_pylon = null
 	mana_pool.stop_transfer(pylon_to_unlink.mana_pool)
-
 
 /obj/structure/mana_pylon/proc/drain_mana(mob/living/user)
 	if(mana_pool.network_attunement)

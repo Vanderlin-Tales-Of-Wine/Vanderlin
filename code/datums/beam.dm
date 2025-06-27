@@ -22,8 +22,10 @@
 	var/datum/mana_pool/mana_pool
 	var/redraws
 	var/draws_invis
+	var/obj/effect/proc_holder/spell/spell_source
+	var/list/hit_targets = list()  // Track what we've already hit
 
-/datum/beam/New(beam_origin,beam_target,beam_icon='icons/effects/beam.dmi',beam_icon_state="b_beam",time=50,maxdistance=10,btype = /obj/effect/ebeam,beam_sleep_time=3,beam_color = COLOR_WHITE, redraws = TRUE, invisible_state)
+/datum/beam/New(beam_origin,beam_target,beam_icon='icons/effects/beam.dmi',beam_icon_state="b_beam",time=50,maxdistance=10,btype = /obj/effect/ebeam,beam_sleep_time=3,beam_color = COLOR_WHITE, redraws = TRUE, invisible_state, incoming_spell)
 	origin = beam_origin
 	origin_oldloc =	get_turf(origin)
 	target = beam_target
@@ -41,6 +43,7 @@
 	if(time < INFINITY)
 		addtimer(CALLBACK(src,PROC_REF(End)), time)
 	draws_invis = invisible_state
+	spell_source = incoming_spell
 
 /datum/beam/proc/Start()
 	Draw()
@@ -86,6 +89,8 @@
 		deltimer(timing_id)
 	if(!QDELETED(src) && destroy_self)
 		qdel(src)
+	hit_targets = null
+	spell_source = null
 	origin?.BeamBroken(target)
 
 /datum/beam/proc/Reset()
@@ -115,6 +120,7 @@
 			break
 		var/obj/effect/ebeam/X = new beam_type(origin_oldloc)
 		X.owner = src
+		X.spell_source = spell_source
 		if(draws_invis)
 			X.invisibility = draws_invis
 		elements += X
@@ -166,13 +172,33 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = TRUE
 	var/datum/beam/owner
+	var/obj/effect/proc_holder/spell/spell_source
 
 /obj/effect/ebeam/Destroy()
 	owner = null
 	return ..()
 
-/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=50, maxdistance=10,beam_type=/obj/effect/ebeam,beam_sleep_time = 3, beam_color = COLOR_WHITE)
-	var/datum/beam/newbeam = new(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type,beam_sleep_time,beam_color)
+/obj/effect/ebeam/react_to_entry
+
+/obj/effect/ebeam/react_to_entry/Initialize(mapload, beam_owner)
+	. = ..()
+	if(isnull(owner))
+		return
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+		COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZED_ON = PROC_REF(on_entered),
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+	// Technically the beam is entering the mob but we'll count it
+	for(var/thing in loc)
+		on_entered(src, thing)
+
+/obj/effect/ebeam/react_to_entry/proc/on_entered(datum/source, atom/movable/entering)
+	SIGNAL_HANDLER
+	SEND_SIGNAL(owner, COMSIG_BEAM_ENTERED, src, entering)
+
+/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=50, maxdistance=10,beam_type=/obj/effect/ebeam,beam_sleep_time = 3, beam_color = COLOR_WHITE, spell_source)
+	var/datum/beam/newbeam = new(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type,beam_sleep_time,beam_color, incoming_spell = spell_source)
 	INVOKE_ASYNC(newbeam, TYPE_PROC_REF(/datum/beam, Start))
 	return newbeam
 

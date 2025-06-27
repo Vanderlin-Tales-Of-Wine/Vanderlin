@@ -341,7 +341,7 @@
 /datum/repeatable_crafting_recipe/crafting/pyro_arrow
 	name = "pyroclastic arrow"
 	requirements = list(
-		/obj/item/ammo_casing/caseless/arrow= 1,
+		/obj/item/ammo_casing/caseless/arrow = 1,
 		/obj/item/reagent_containers/food/snacks/produce/fyritius = 1,
 	)
 	blacklisted_paths = list(/obj/item/ammo_casing/caseless/arrow/pyro)
@@ -356,7 +356,7 @@
 /datum/repeatable_crafting_recipe/crafting/pyro_bolt
 	name = "pyroclastic bolt"
 	requirements = list(
-		/obj/item/ammo_casing/caseless/bolt= 1,
+		/obj/item/ammo_casing/caseless/bolt = 1,
 		/obj/item/reagent_containers/food/snacks/produce/fyritius = 1,
 	)
 	blacklisted_paths = list(/obj/item/ammo_casing/caseless/bolt/pyro)
@@ -367,6 +367,76 @@
 	skillcraft = /datum/skill/craft/engineering
 	craft_time = 1 SECONDS
 	uses_attacked_atom = TRUE
+
+/datum/repeatable_crafting_recipe/crafting/water_arrow
+	name = "water arrow"
+	requirements = list(
+		/obj/item/ammo_casing/caseless/arrow = 3,
+		/obj/item/alch/waterdust = 1,
+	)
+	blacklisted_paths = list(/obj/item/ammo_casing/caseless/arrow/water)
+	attacked_atom = /obj/item/ammo_casing/caseless/arrow
+	starting_atom = /obj/item/alch/waterdust
+	output = /obj/item/ammo_casing/caseless/arrow/water
+	output_amount = 3
+	craftdiff = 2
+	skillcraft = /datum/skill/craft/alchemy
+	craft_time = 4 SECONDS
+	uses_attacked_atom = TRUE
+
+/datum/repeatable_crafting_recipe/crafting/vial_arrow
+	abstract_type = /datum/repeatable_crafting_recipe/crafting/vial_arrow
+	requirements = list(
+		/obj/item/ammo_casing/caseless/arrow = 1,
+		/obj/item/reagent_containers/glass/alchemical = 1,
+		/obj/item/natural/fibers = 1,
+	)
+	blacklisted_paths = list(/obj/item/ammo_casing/caseless/arrow/vial)
+	attacked_atom = /obj/item/ammo_casing/caseless/arrow
+	starting_atom = /obj/item/natural/fibers // Vials get a little bit quirky
+	skillcraft = /datum/skill/craft/crafting
+
+/datum/repeatable_crafting_recipe/crafting/vial_arrow/water
+	name = "vial arrow (water)"
+	reagent_requirements = list(
+		/datum/reagent/water = 15,
+	)
+	output = /obj/item/ammo_casing/caseless/arrow/vial/water
+
+/datum/repeatable_crafting_recipe/crafting/water_bolt
+	name = "water bolt"
+	requirements = list(
+		/obj/item/ammo_casing/caseless/bolt = 3,
+		/obj/item/alch/waterdust = 1,
+	)
+	blacklisted_paths = list(/obj/item/ammo_casing/caseless/bolt/water)
+	attacked_atom = /obj/item/ammo_casing/caseless/bolt
+	starting_atom = /obj/item/alch/waterdust
+	output = /obj/item/ammo_casing/caseless/bolt/water
+	output_amount = 3
+	craftdiff = 2
+	skillcraft = /datum/skill/craft/alchemy
+	craft_time = 4 SECONDS
+	uses_attacked_atom = TRUE
+
+/datum/repeatable_crafting_recipe/crafting/water_bolt
+	abstract_type = /datum/repeatable_crafting_recipe/crafting/water_bolt
+	requirements = list(
+		/obj/item/ammo_casing/caseless/bolt = 1,
+		/obj/item/reagent_containers/glass/alchemical = 1,
+		/obj/item/natural/fibers = 1,
+	)
+	blacklisted_paths = list(/obj/item/ammo_casing/caseless/bolt/vial)
+	attacked_atom = /obj/item/ammo_casing/caseless/bolt
+	starting_atom = /obj/item/natural/fibers // Vials get a little bit quirky
+	skillcraft = /datum/skill/craft/crafting
+
+/datum/repeatable_crafting_recipe/crafting/water_bolt/water
+	name = "vial bolt (water)"
+	reagent_requirements = list(
+		/datum/reagent/water = 15,
+	)
+	output = /obj/item/ammo_casing/caseless/bolt/vial/water
 
 /datum/repeatable_crafting_recipe/crafting/bigflail
 	name = "great militia flail"

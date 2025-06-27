@@ -2,6 +2,10 @@
 	enchantment_name = "Mana Capacity"
 	examine_text = "I can feel this objects mana and use it freely."
 
+	essence_recipe = list(
+		/datum/thaumaturgical_essence/energia = 30,
+		/datum/thaumaturgical_essence/crystal = 30
+	)
 	var/hardcap_increase = 1000
 
 	var/list/affecting_mobs = list()

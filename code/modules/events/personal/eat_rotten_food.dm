@@ -3,7 +3,7 @@
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/pestra_rotten_feast
 	weight = 10
-	earliest_start = 5 MINUTES
+	earliest_start = 10 MINUTES
 	max_occurrences = 1
 	min_players = 20
 
@@ -43,7 +43,7 @@
 	var/datum/objective/rotten_feast/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE PESTRA'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Everything can be reused. Consume rotten food to earn Pestra's favor!"))
 	chosen_one.playsound_local(chosen_one, 'sound/magic/cosmic_expansion.ogg', 100)
 

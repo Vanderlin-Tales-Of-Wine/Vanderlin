@@ -48,61 +48,13 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		to_chat(parent, "<span class='danger'>Empty keybindings, setting default to [hotkeys ? "Hotkey" : "Classic"] mode</span>")
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
-	if(current_version < 19)
-		pda_style = "mono"
-	if(current_version < 20)
-		pda_color = "#808000"
 	if(current_version < 22)
 		job_preferences = list() //It loaded null from nonexistant savefile field.
-		var/job_civilian_high = 0
-		var/job_civilian_med = 0
-		var/job_civilian_low = 0
-
-		var/job_medsci_high = 0
-		var/job_medsci_med = 0
-		var/job_medsci_low = 0
-
-		var/job_engsec_high = 0
-		var/job_engsec_med = 0
-		var/job_engsec_low = 0
-
-		S["job_civilian_high"]	>> job_civilian_high
-		S["job_civilian_med"]	>> job_civilian_med
-		S["job_civilian_low"]	>> job_civilian_low
-		S["job_medsci_high"]	>> job_medsci_high
-		S["job_medsci_med"]		>> job_medsci_med
-		S["job_medsci_low"]		>> job_medsci_low
-		S["job_engsec_high"]	>> job_engsec_high
-		S["job_engsec_med"]		>> job_engsec_med
-		S["job_engsec_low"]		>> job_engsec_low
 
 		//Can't use SSjob here since this happens right away on login
 		for(var/job in subtypesof(/datum/job))
 			var/datum/job/J = job
 			var/new_value
-			var/fval = initial(J.flag)
-			switch(initial(J.department_flag))
-				if(CIVILIAN)
-					if(job_civilian_high & fval)
-						new_value = JP_HIGH
-					else if(job_civilian_med & fval)
-						new_value = JP_MEDIUM
-					else if(job_civilian_low & fval)
-						new_value = JP_LOW
-				if(MEDSCI)
-					if(job_medsci_high & fval)
-						new_value = JP_HIGH
-					else if(job_medsci_med & fval)
-						new_value = JP_MEDIUM
-					else if(job_medsci_low & fval)
-						new_value = JP_LOW
-				if(ENGSEC)
-					if(job_engsec_high & fval)
-						new_value = JP_HIGH
-					else if(job_engsec_med & fval)
-						new_value = JP_MEDIUM
-					else if(job_engsec_low & fval)
-						new_value = JP_LOW
 			if(new_value)
 				job_preferences[initial(J.title)] = new_value
 	if(current_version < 24)
@@ -184,8 +136,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["menuoptions"]		>> menuoptions
 	S["enable_tips"]		>> enable_tips
 	S["tip_delay"]			>> tip_delay
-	S["pda_style"]			>> pda_style
-	S["pda_color"]			>> pda_color
 
 	// Custom hotkeys
 	S["key_bindings"]		>> key_bindings
@@ -222,8 +172,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	ghost_others	= sanitize_inlist(ghost_others, GLOB.ghost_others_options, GHOST_OTHERS_DEFAULT_OPTION)
 	menuoptions		= SANITIZE_LIST(menuoptions)
 	be_special		= SANITIZE_LIST(be_special)
-	pda_style		= sanitize_inlist(pda_style, GLOB.pda_styles, initial(pda_style))
-	pda_color		= sanitize_hexcolor(pda_color, 6, 1, initial(pda_color))
 	key_bindings 	= sanitize_islist(key_bindings, list())
 
 	check_new_keybindings()
@@ -288,8 +236,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["menuoptions"], menuoptions)
 	WRITE_FILE(S["enable_tips"], enable_tips)
 	WRITE_FILE(S["tip_delay"], tip_delay)
-	WRITE_FILE(S["pda_style"], pda_style)
-	WRITE_FILE(S["pda_color"], pda_color)
 	WRITE_FILE(S["key_bindings"], key_bindings)
 	return TRUE
 
@@ -312,33 +258,27 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		charflaw = new charflaw()
 
 /datum/preferences/proc/_load_appearence(S)
-	S["real_name"]			>> real_name
-	S["gender"]				>> gender
-	S["domhand"]			>> domhand
-//	S["alignment"]			>> alignment
-	S["age"]				>> age
-	S["eye_color"]			>> eye_color
-	S["voice_color"]		>> voice_color
-	S["skin_tone"]			>> skin_tone
-	S["underwear"]			>> underwear
-	S["underwear_color"]	>> underwear_color
-	S["undershirt"]			>> undershirt
-	S["accessory"]			>> accessory
-	S["detail"]			>> detail
-	S["socks"]				>> socks
+	S["real_name"] >> real_name
+	S["gender"] >> gender
+	S["domhand"] >> domhand
+	S["age"] >> age
+	S["eye_color"] >> eye_color
+	S["voice_color"] >> voice_color
+	S["skin_tone"] >> skin_tone
+	S["underwear"] >> underwear
+	S["accessory"] >> accessory
+	S["detail"] >> detail
 	S["randomise"] >> randomise
+	S["family"] >> family
+	S["setspouse"] >> setspouse
+	S["selected_accent"] >> selected_accent
+
 	// We load our list, but override everything to FALSE to stop a "tainted" save from making it random again.
 	randomise[RANDOM_BODY] = FALSE
 	randomise[RANDOM_BODY_ANTAG] = FALSE
 	randomise[RANDOM_UNDERWEAR] = FALSE
-	randomise[RANDOM_UNDERWEAR_COLOR] = FALSE
-	randomise[RANDOM_UNDERSHIRT] = FALSE
 	randomise[RANDOM_SKIN_TONE] = FALSE
 	randomise[RANDOM_EYE_COLOR] = FALSE
-
-	S["family"]			>> family
-	S["setspouse"]			>> setspouse
-	S["selected_accent"]	>> selected_accent
 
 /datum/preferences/proc/load_character(slot)
 	if(!path)
@@ -370,13 +310,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	_load_appearence(S)
 
 	var/patron_typepath
-	S["selected_patron"]	>> patron_typepath
+	S["selected_patron"] >> patron_typepath
 	if(patron_typepath)
 		selected_patron = GLOB.patronlist[patron_typepath]
 		if(!selected_patron) //failsafe
 			selected_patron = GLOB.patronlist[default_patron]
-
-//	S["selected_patron"]				>> selected_patron
 
 	//Custom names
 	for(var/custom_name_id in GLOB.preferences_custom_names)
@@ -384,7 +322,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		S[savefile_slot_name] >> custom_names[custom_name_id]
 
 	//Jobs
-	S["joblessrole"]		>> joblessrole
+	S["joblessrole"] >> joblessrole
+
 	//Load prefs
 	S["job_preferences"] >> job_preferences
 
@@ -394,7 +333,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		headshot_link = null
 
 	//Load flavor text
-	S["flavortext"]			>> flavortext
+	S["flavortext"] >> flavortext
 
 	//try to fix any outdated data if necessary
 	if(needs_update >= 0)
@@ -416,24 +355,27 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	randomise = SANITIZE_LIST(randomise)
 
 	age = sanitize_inlist(age, pref_species.possible_ages)
-	underwear_color			= sanitize_hexcolor(underwear_color, 3, 0)
-	eye_color		= sanitize_hexcolor(eye_color, 3, 0)
-	voice_color		= voice_color
-	skin_tone		= skin_tone
+	eye_color = sanitize_hexcolor(eye_color, 3, 0)
+	voice_color = voice_color
+	skin_tone = skin_tone
 	family = family
 	setspouse = setspouse
 	selected_accent ||= ACCENT_DEFAULT
+
 	S["body_markings"] >> body_markings
 	body_markings = SANITIZE_LIST(body_markings)
+
 	validate_body_markings()
 
 	S["descriptor_entries"] >> descriptor_entries
 	descriptor_entries = SANITIZE_LIST(descriptor_entries)
 	S["custom_descriptors"] >> custom_descriptors
 	custom_descriptors = SANITIZE_LIST(custom_descriptors)
+
 	validate_descriptors()
 
 	joblessrole	= sanitize_integer(joblessrole, 1, 3, initial(joblessrole))
+
 	//Validate job prefs
 	for(var/j in job_preferences)
 		if(job_preferences[j] != JP_LOW && job_preferences[j] != JP_MEDIUM && job_preferences[j] != JP_HIGH)

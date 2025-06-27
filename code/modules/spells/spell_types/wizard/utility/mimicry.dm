@@ -39,12 +39,13 @@
 /obj/effect/proc_holder/spell/invoked/mimicry/cast(list/targets, mob/living/user)
 	if(transformed)
 		addtimer(CALLBACK(src, PROC_REF(return_to_normal), user), 5 SECONDS)
-	if (ishuman(targets[1]))
+		return ..()
+	if(ishuman(targets[1]))
 		if(targets[1] == user)
 			return FALSE
 		to_chat(user, "You have memorized [targets[1]] face in 5 seconds you will attempt to transform into them.")
 		addtimer(CALLBACK(src, PROC_REF(try_transform), targets[1], user), 5 SECONDS)
-		return TRUE
+		return ..()
 
 	return FALSE
 

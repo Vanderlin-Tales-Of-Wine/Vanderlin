@@ -7,9 +7,9 @@
 	. = ..()
 	SSfake_world.fake_world_constructs |= src
 
-/obj/structure/fake_door/maniac/Destroy()
-	. = ..()
+/obj/structure/fake_door/Destroy()
 	SSfake_world.fake_world_constructs -= src
+	return ..()
 
 /turf/open/floor/plasteel/maniac
 	icon = 'icons/roguetown/maniac/dreamer_floors.dmi'
@@ -22,8 +22,8 @@
 	SSfake_world.fake_world_constructs |= src
 
 /turf/open/floor/plasteel/maniac/Destroy()
-	. = ..()
 	SSfake_world.fake_world_constructs -= src
+	return ..()
 
 /turf/open/floor/plasteel/maniac/damaged
 	icon_state = "ldamaged1"
@@ -37,16 +37,16 @@
 	SSfake_world.fake_world_constructs |= src
 
 /turf/open/floor/underworld/space/sparkle_quiet/fake_world/Destroy()
-	. = ..()
 	SSfake_world.fake_world_constructs -= src
+	return ..()
 
 /turf/closed/wall/mineral/underbrick/fake_world/Initialize(mapload)
 	. = ..()
 	SSfake_world.fake_world_constructs |= src
 
 /turf/closed/wall/mineral/underbrick/fake_world/Destroy()
-	. = ..()
 	SSfake_world.fake_world_constructs -= src
+	return ..()
 
 //Mostly garbage related to the ending "cutscene"
 /obj/item/clothing/head/cyberdeck
@@ -90,21 +90,21 @@
 	SSfake_world.fake_world_constructs |= src
 
 /obj/item/gun/ballistic/revolver/last_resort/Destroy()
-	. = ..()
 	SSfake_world.fake_world_constructs -= src
+	return ..()
 
 /obj/structure/closet/fake_world/Initialize(mapload)
 	. = ..()
 	SSfake_world.fake_world_constructs |= src
 
 /obj/structure/closet/fake_world/Destroy()
-	. = ..()
 	SSfake_world.fake_world_constructs -= src
+	return ..()
 
 /obj/structure/bed/fake_world/Initialize(mapload)
 	. = ..()
 	SSfake_world.fake_world_constructs |= src
 
 /obj/structure/bed/fake_world/Destroy()
-	. = ..()
 	SSfake_world.fake_world_constructs -= src
+	return ..()

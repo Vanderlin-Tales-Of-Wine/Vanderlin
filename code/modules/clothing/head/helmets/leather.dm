@@ -21,7 +21,6 @@
 	salvage_result = /obj/item/natural/hide/cured
 	item_weight = 1.6
 
-
 /obj/item/clothing/head/helmet/leather/advanced
 	name = "hardened leather helmet"
 	desc = "Sturdy, durable, flexible. A confortable and reliable hood made of hardened leather."
@@ -103,6 +102,10 @@
 	var/brightness_on = 4 //less than a torch; basically good for one person.
 	var/on = FALSE
 
+/obj/item/clothing/head/helmet/leather/minershelm/Initialize(mapload, ...)
+	AddElement(/datum/element/update_icon_updates_onmob)
+	return ..()
+
 /obj/item/clothing/head/helmet/leather/minershelm/attack_self(mob/living/user)
 	toggle_helmet_light(user)
 
@@ -112,21 +115,27 @@
 		turn_on(user)
 	else
 		turn_off(user)
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
+	for(var/datum/action/A as anything in actions)
+		A.UpdateButtonIcon(force = TRUE)
 
-/obj/item/clothing/head/helmet/leather/minershelm/update_icon()
+/obj/item/clothing/head/helmet/leather/minershelm/update_icon_state()
+	. = ..()
 	icon_state = "minerslamp[on]"
 	item_state = "minerslamp[on]"
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
-		H.update_inv_head()
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.UpdateButtonIcon(force = TRUE)
-	..()
 
 /obj/item/clothing/head/helmet/leather/minershelm/proc/turn_on(mob/user)
 	set_light(brightness_on)
 
 /obj/item/clothing/head/helmet/leather/minershelm/proc/turn_off(mob/user)
 	set_light(0)
+
+/obj/item/clothing/head/leather/duelhat
+	name = "valorian duelist hat"
+	desc = "A dainty looking feathered hat that is actually quite heavy and thick, Duelists from Valoria are known to value winning fights without dirtying the white feather on top"
+	icon_state = "duelisthat"
+	item_state = "duelisthat"
+	sewrepair = TRUE
+	prevent_crits =  MINOR_CRITICALS
+	body_parts_covered = HEAD|HAIR
+	dynamic_hair_suffix = ""

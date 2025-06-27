@@ -1,7 +1,7 @@
 /// Standard follower modifier for storytellers, ie. how many points they get for each follower
 #define STANDARD_FOLLOWER_MODIFIER 20
-/// Special follower modifier for Astrata, who is a default patron
-#define ASTRATA_FOLLOWER_MODIFIER STANDARD_FOLLOWER_MODIFIER - 2
+/// Lower follower modifier for special storytellers such as Astrata, who is a default patron
+#define LOWER_FOLLOWER_MODIFIER STANDARD_FOLLOWER_MODIFIER - 2
 
 ///The storyteller datum. He operates with the SSgamemode data to run events
 /datum/storyteller

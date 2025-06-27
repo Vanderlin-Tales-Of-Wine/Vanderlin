@@ -4,110 +4,110 @@
 // Return the item currently in the slot ID
 /mob/living/carbon/human/get_item_by_slot(slot_id)
 	switch(slot_id)
-		if(SLOT_WEAR_MASK)
+		if(ITEM_SLOT_MASK)
 			return wear_mask
-		if(SLOT_NECK)
+		if(ITEM_SLOT_NECK)
 			return wear_neck
-		if(SLOT_HANDCUFFED)
+		if(ITEM_SLOT_HANDCUFFED)
 			return handcuffed
-		if(SLOT_LEGCUFFED)
+		if(ITEM_SLOT_LEGCUFFED)
 			return legcuffed
-		if(SLOT_BELT)
+		if(ITEM_SLOT_BELT)
 			return belt
-		if(SLOT_RING)
+		if(ITEM_SLOT_RING)
 			return wear_ring
-		if(SLOT_WRISTS)
+		if(ITEM_SLOT_WRISTS)
 			return wear_wrists
-		if(SLOT_MOUTH)
+		if(ITEM_SLOT_MOUTH)
 			return mouth
-		if(SLOT_SHIRT)
+		if(ITEM_SLOT_SHIRT)
 			return wear_shirt
-		if(SLOT_CLOAK)
+		if(ITEM_SLOT_CLOAK)
 			return cloak
-		if(SLOT_BACK_R)
+		if(ITEM_SLOT_BACK_R)
 			return backr
-		if(SLOT_BACK_L)
+		if(ITEM_SLOT_BACK_L)
 			return backl
-		if(SLOT_BELT_L)
+		if(ITEM_SLOT_BELT_L)
 			return beltl
-		if(SLOT_BELT_R)
+		if(ITEM_SLOT_BELT_R)
 			return beltr
-		if(SLOT_GLOVES)
+		if(ITEM_SLOT_GLOVES)
 			return gloves
-		if(SLOT_HEAD)
+		if(ITEM_SLOT_HEAD)
 			return head
-		if(SLOT_SHOES)
+		if(ITEM_SLOT_SHOES)
 			return shoes
-		if(SLOT_ARMOR)
+		if(ITEM_SLOT_ARMOR)
 			return wear_armor
-		if(SLOT_PANTS)
+		if(ITEM_SLOT_PANTS)
 			return wear_pants
 	return null
 
 /mob/living/carbon/human/get_slot_by_item(obj/item/looking_for)
 
 	if(looking_for == wear_mask)
-		return SLOT_WEAR_MASK
+		return ITEM_SLOT_MASK
 
 	if(looking_for == wear_neck)
-		return SLOT_NECK
+		return ITEM_SLOT_NECK
 
 	if(looking_for == handcuffed)
-		return SLOT_HANDCUFFED
+		return ITEM_SLOT_HANDCUFFED
 
 	if(looking_for == legcuffed)
-		return SLOT_LEGCUFFED
+		return ITEM_SLOT_LEGCUFFED
 
 	if(looking_for == belt)
-		return SLOT_BELT
+		return ITEM_SLOT_BELT
 
 	if(looking_for == wear_ring)
-		return SLOT_RING
+		return ITEM_SLOT_RING
 
 	if(looking_for == wear_wrists)
-		return SLOT_WRISTS
+		return ITEM_SLOT_WRISTS
 
 	if(looking_for == mouth)
-		return SLOT_MOUTH
+		return ITEM_SLOT_MOUTH
 
 	if(looking_for == wear_shirt)
-		return SLOT_SHIRT
+		return ITEM_SLOT_SHIRT
 
 	if(looking_for == cloak)
-		return SLOT_CLOAK
+		return ITEM_SLOT_CLOAK
 
 	if(looking_for == backr)
-		return SLOT_BACK_R
+		return ITEM_SLOT_BACK_R
 
 	if(looking_for == backl)
-		return SLOT_BACK_L
+		return ITEM_SLOT_BACK_L
 
 	if(looking_for == beltl)
-		return SLOT_BELT_L
+		return ITEM_SLOT_BELT_L
 
 	if(looking_for == beltr)
-		return SLOT_BELT_R
+		return ITEM_SLOT_BELT_R
 
 	if(looking_for == gloves)
-		return SLOT_GLOVES
+		return ITEM_SLOT_GLOVES
 
 	if(looking_for == head)
-		return SLOT_HEAD
+		return ITEM_SLOT_HEAD
 
 	if(looking_for == shoes)
-		return SLOT_SHOES
+		return ITEM_SLOT_SHOES
 
 	if(looking_for == wear_armor)
-		return SLOT_ARMOR
+		return ITEM_SLOT_ARMOR
 
 	if(looking_for == wear_pants)
-		return SLOT_PANTS
+		return ITEM_SLOT_PANTS
 
 	if(looking_for == beltl)
-		return SLOT_BELT_L
+		return ITEM_SLOT_BELT_L
 
 	if(looking_for == beltr)
-		return SLOT_BELT_R
+		return ITEM_SLOT_BELT_R
 
 	return ..()
 
@@ -160,30 +160,30 @@
 
 	var/not_handled = FALSE //Added in case we make this type path deeper one day
 	switch(slot)
-		if(SLOT_BELT)
+		if(ITEM_SLOT_BELT)
 
 			belt = I
 			update_inv_belt()
-		if(SLOT_RING)
+		if(ITEM_SLOT_RING)
 			wear_ring = I
 			update_inv_ring()
-		if(SLOT_WRISTS)
+		if(ITEM_SLOT_WRISTS)
 
 			wear_wrists = I
 			update_inv_wrists()
-		if(SLOT_HEAD)
+		if(ITEM_SLOT_HEAD)
 
 			head = I
 			update_inv_head()
-		if(SLOT_GLOVES)
+		if(ITEM_SLOT_GLOVES)
 
 			gloves = I
 			update_inv_gloves()
-		if(SLOT_SHOES)
+		if(ITEM_SLOT_SHOES)
 
 			shoes = I
 			update_inv_shoes()
-		if(SLOT_ARMOR)
+		if(ITEM_SLOT_ARMOR)
 
 			wear_armor = I
 			if(I.flags_inv & HIDEJUMPSUIT)
@@ -193,31 +193,31 @@
 				stop_pulling() //can't pull if restrained
 				update_action_buttons_icon() //certain action buttons will no longer be usable.
 			update_inv_armor()
-		if(SLOT_PANTS)
+		if(ITEM_SLOT_PANTS)
 			wear_pants = I
 			update_inv_pants()
-		if(SLOT_SHIRT)
+		if(ITEM_SLOT_SHIRT)
 			wear_shirt = I
 			update_inv_shirt()
-		if(SLOT_CLOAK)
+		if(ITEM_SLOT_CLOAK)
 			cloak = I
 			update_inv_cloak()
-		if(SLOT_BELT_L)
+		if(ITEM_SLOT_BELT_L)
 			beltl = I
 			update_inv_belt()
-		if(SLOT_BELT_R)
+		if(ITEM_SLOT_BELT_R)
 			beltr = I
 			update_inv_belt()
-		if(SLOT_BACK_R)
+		if(ITEM_SLOT_BACK_R)
 			backr = I
 			update_inv_back()
-		if(SLOT_BACK_L)
+		if(ITEM_SLOT_BACK_L)
 			backl = I
 			update_inv_back()
-		if(SLOT_MOUTH)
+		if(ITEM_SLOT_MOUTH)
 			mouth = I
 			update_inv_mouth()
-		if(SLOT_IN_BACKPACK)
+		if(ITEM_SLOT_BACKPACK)
 			not_handled = TRUE
 			if(beltr)
 				if(SEND_SIGNAL(beltr, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE))
@@ -227,6 +227,12 @@
 					not_handled = FALSE
 			if(belt && not_handled)
 				if(SEND_SIGNAL(belt, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE))
+					not_handled = FALSE
+			if(backr && not_handled)
+				if(SEND_SIGNAL(backr, COMSIG_TRY_STORAGE_CAN_INSERT, I, src, TRUE))
+					not_handled = FALSE
+			if(backl && not_handled)
+				if(SEND_SIGNAL(backl, COMSIG_TRY_STORAGE_CAN_INSERT, I, src, TRUE))
 					not_handled = FALSE
 		else
 			not_handled = TRUE
@@ -240,8 +246,8 @@
 
 
 	if(hud_used)
-		hud_used.throw_icon?.update_icon()
-		hud_used.give_intent?.update_icon()
+		hud_used.throw_icon?.update_appearance()
+		hud_used.give_intent?.update_appearance()
 
 	return not_handled //For future deeper overrides
 
@@ -377,12 +383,12 @@
 	if(incapacitated(ignore_grab = TRUE))
 		return
 	var/obj/item/thing = get_active_held_item()
-	var/obj/item/equipped_belt = get_item_by_slot(SLOT_BELT)
+	var/obj/item/equipped_belt = get_item_by_slot(ITEM_SLOT_BELT)
 	if(!equipped_belt) // We also let you equip a belt like this
 		if(!thing)
 			to_chat(src, "<span class='warning'>I have no belt to take something out of!</span>")
 			return
-		if(equip_to_slot_if_possible(thing, SLOT_BELT))
+		if(equip_to_slot_if_possible(thing, ITEM_SLOT_BELT))
 			update_inv_hands()
 		return
 	if(!SEND_SIGNAL(equipped_belt, COMSIG_CONTAINS_STORAGE)) // not a storage item

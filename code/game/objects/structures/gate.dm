@@ -63,7 +63,7 @@ GLOBAL_LIST_EMPTY(biggates)
 
 /obj/structure/gate/Initialize()
 	. = ..()
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	var/turf/current_turf = loc
 	var/blocker_ref
 	var/blocker
@@ -87,20 +87,26 @@ GLOBAL_LIST_EMPTY(biggates)
 		GLOB.biggates += src
 
 /obj/structure/gate/Destroy()
-	for(var/A in blockers)
-		qdel(A)
+	if(is_big_gate)
+		GLOB.biggates -= src
+	for(var/A as anything in blockers)
+		QDEL_NULL(A)
+	blockers.Cut()
+	turfsy.Cut()
 	if(attached_to)
 		var/obj/structure/winch/W = attached_to
 		W.attached_gate = null
-	..()
+	return ..()
 
-/obj/structure/gate/update_icon()
-	cut_overlays()
+/obj/structure/gate/update_icon_state()
+	. = ..()
 	icon_state = "[base_state][density]"
-	if(!density && !isSwitchingStates)
-		add_overlay(mutable_appearance(icon, "[base_state]0_part", ABOVE_MOB_LAYER))
-	else
-		add_overlay(mutable_appearance(icon, "[base_state]1_part", ABOVE_MOB_LAYER))
+
+/obj/structure/gate/update_overlays()
+	. = ..()
+	if(isSwitchingStates)
+		return
+	. += mutable_appearance(icon, "[base_state][density]_part", ABOVE_MOB_LAYER)
 
 /obj/structure/gate/proc/toggle()
 	if(density)
@@ -121,14 +127,13 @@ GLOBAL_LIST_EMPTY(biggates)
 	for(var/obj/gblock/B in blockers)
 		B.opacity = FALSE
 	isSwitchingStates = FALSE
-	update_icon()
-
+	update_appearance(UPDATE_ICON)
 
 /obj/structure/gate/proc/close()
 	if(isSwitchingStates || density)
 		return
 	isSwitchingStates = TRUE
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	layer = ABOVE_MOB_LAYER
 	playsound(src, 'sound/misc/gate.ogg', 100, extrarange = 5)
 	flick("[base_state]_closing",src)
@@ -143,7 +148,7 @@ GLOBAL_LIST_EMPTY(biggates)
 	for(var/obj/gblock/B in blockers)
 		B.opacity = initial(B.opacity)
 	isSwitchingStates = FALSE
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/structure/gate/proc/crush(mob/living/crushed_mob)
 	crushed_mob.gib()
@@ -176,18 +181,18 @@ GLOBAL_LIST_EMPTY(biggates)
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/structure/winch/Destroy()
-	if(attached_gate)
-		var/obj/structure/gate/W = attached_gate
-		W.attached_to = null
-	..()
-
 /obj/structure/winch/LateInitialize()
 	for(var/obj/structure/gate/G in GLOB.biggates)
 		if(G.gid == gid)
 			GLOB.biggates -= G
 			attached_gate = G
 			G.attached_to = src
+
+/obj/structure/winch/Destroy()
+	if(attached_gate)
+		var/obj/structure/gate/W = attached_gate
+		W.attached_to = null
+	return ..()
 
 /obj/structure/winch/attack_hand(mob/user)
 	. = ..()

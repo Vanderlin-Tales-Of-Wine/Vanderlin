@@ -69,8 +69,8 @@
 	var/no_burn_msg = "unburned"
 
 	var/add_extra = FALSE
+
 	var/offset
-	var/offset_f
 
 	var/last_disable = 0
 	var/last_crit = 0
@@ -99,6 +99,31 @@
 
 	var/punch_modifier = 1 // for modifying arm punching damage
 	var/acid_damage_intensity = 0
+	var/lingering_pain = 0
+	var/chronic_pain = 0
+	var/chronic_pain_type = null
+	var/last_severe_injury_time = 0
+
+/obj/item/bodypart/Initialize()
+	. = ..()
+	if(can_be_disabled)
+		RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_gain))
+		RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_loss))
+	update_HP()
+
+/obj/item/bodypart/Destroy()
+	if(owner)
+		owner.remove_bodypart(src)
+		set_owner(null)
+	for(var/obj/item/I as anything in embedded_objects)
+		remove_embedded_object(I)
+	for(var/datum/wound/wound as anything in wounds)
+		qdel(wound)
+	if(bandage)
+		QDEL_NULL(bandage)
+	embedded_objects = null
+	original_owner = null
+	return ..()
 
 /obj/item/bodypart/grabbedintents(mob/living/user, precise)
 	return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/smash)
@@ -121,16 +146,6 @@
 	if(precise == BODY_ZONE_PRECISE_GROIN)
 		return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/shove)
 	return list(/datum/intent/grab/move, /datum/intent/grab/shove)
-
-/obj/item/bodypart/Destroy()
-	if(owner)
-		owner.remove_bodypart(src)
-		set_owner(null)
-	if(bandage)
-		QDEL_NULL(bandage)
-	for(var/datum/wound/wound as anything in wounds)
-		qdel(wound)
-	return ..()
 
 /obj/item/bodypart/onbite(mob/living/carbon/human/user)
 	if((user.mind && user.mind.has_antag_datum(/datum/antagonist/zombie)) || istype(user.dna.species, /datum/species/werewolf))
@@ -244,13 +259,6 @@
 	. = ..()
 	if(lethal && owner && !(NOBLOOD in owner.dna?.species?.species_traits))
 		owner.death()
-
-/obj/item/bodypart/Initialize()
-	. = ..()
-	if(can_be_disabled)
-		RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_gain))
-		RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_loss))
-	update_HP()
 
 /obj/item/bodypart/proc/update_HP()
 	if(!is_organic_limb() || !owner)
@@ -524,7 +532,7 @@
 	if(!animal_origin)
 		var/mob/living/carbon/human/H = C
 		should_draw_greyscale = FALSE
-		if(!H.dna || !H.dna.species)
+		if(!H.dna?.species)
 			return
 		var/datum/species/S = H.dna.species
 		species_id = S.limbs_id
@@ -743,7 +751,6 @@
 	subtargets = list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_PRECISE_GROIN)
 	grabtargets = list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_PRECISE_GROIN)
 	offset = OFFSET_ARMOR
-	offset_f = OFFSET_ARMOR_F
 	dismemberable = FALSE
 
 	grid_width = 64
@@ -794,7 +801,6 @@
 	subtargets = list(BODY_ZONE_PRECISE_L_HAND)
 	grabtargets = list(BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_L_ARM)
 	offset = OFFSET_GLOVES
-	offset_f = OFFSET_GLOVES_F
 	dismember_wound = /datum/wound/dismemberment/l_arm
 	can_be_disabled = TRUE
 
@@ -856,7 +862,7 @@
 
 	if(owner.hud_used)
 		var/atom/movable/screen/inventory/hand/hand_screen_object = owner.hud_used.hand_slots["[held_index]"]
-		hand_screen_object?.update_icon()
+		hand_screen_object?.update_appearance()
 
 /obj/item/bodypart/l_arm/monkey
 	icon = 'icons/mob/animal_parts.dmi'
@@ -888,7 +894,6 @@
 	subtargets = list(BODY_ZONE_PRECISE_R_HAND)
 	grabtargets = list(BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_R_ARM)
 	offset = OFFSET_GLOVES
-	offset_f = OFFSET_GLOVES_F
 	dismember_wound = /datum/wound/dismemberment/r_arm
 	can_be_disabled = TRUE
 
@@ -950,7 +955,7 @@
 
 	if(owner.hud_used)
 		var/atom/movable/screen/inventory/hand/hand_screen_object = owner.hud_used.hand_slots["[held_index]"]
-		hand_screen_object?.update_icon()
+		hand_screen_object?.update_appearance()
 
 /obj/item/bodypart/r_arm/monkey
 	icon = 'icons/mob/animal_parts.dmi'

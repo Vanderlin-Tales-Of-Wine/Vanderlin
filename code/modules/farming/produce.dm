@@ -13,21 +13,22 @@
 
 /obj/item/reagent_containers/food/snacks/produce/proc/set_quality(quality)
 	crop_quality = quality
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/reagent_containers/food/snacks/produce/update_overlays()
 	. = ..()
 	// Add quality overlay to the food item
-	if(crop_quality > 1)
-		var/list/quality_icons = list(
-			null, // Regular has no overlay
-			"bronze",
-			"silver",
-			"gold",
-			"diamond",
-		)
-		if(crop_quality <= length(quality_icons) && quality_icons[crop_quality])
-			overlays += mutable_appearance('icons/effects/crop_quality.dmi', quality_icons[crop_quality])
+	if(crop_quality <= 0)
+		return
+	var/list/quality_icons = list(
+		null, // Regular has no overlay
+		"bronze",
+		"silver",
+		"gold",
+		"diamond",
+	)
+	if(crop_quality <= length(quality_icons) && quality_icons[crop_quality])
+		. += mutable_appearance('icons/effects/crop_quality.dmi', quality_icons[crop_quality])
 
 /obj/item/reagent_containers/food/snacks/produce/fruit
 	name = "fruit"
@@ -208,10 +209,10 @@
 	sellprice = 0 // spoil too quickly to export
 
 /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry
-	seed = /obj/item/neuFarm/seed/berry
 	name = "jacksberries"
 	desc = "Common berries found throughout Enigma and surrounding lands. A traveler's repast, or Dendor's wrath."
-	icon_state = "berries"
+	icon_state = "berriesc0"
+	seed = /obj/item/neuFarm/seed/berry
 	tastes = list("berry" = 1)
 	faretype = FARE_NEUTRAL
 	bitesize = 5
@@ -223,6 +224,7 @@
 	var/poisonous = FALSE
 
 /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/Initialize()
+	. = ..()
 	if(GLOB.berrycolors[color_index])
 		filling_color = GLOB.berrycolors[color_index]
 	else
@@ -232,32 +234,32 @@
 		else
 			GLOB.berrycolors[color_index] = newcolor
 		filling_color = GLOB.berrycolors[color_index]
-	update_icon()
-	..()
+	update_appearance(UPDATE_ICON)
 
 /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/on_consume(mob/living/eater)
-	..()
-	update_icon()
+	. = ..()
+	update_appearance(UPDATE_ICON)
 
-/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/update_icon()
-	cut_overlays()
-	var/used_state = "berriesc0"
-	if(bitecount == 1)
-		used_state = "berriesc1"
-	if(bitecount == 2)
-		used_state = "berriesc2"
-	if(bitecount == 3)
-		used_state = "berriesc3"
-	if(bitecount == 4)
-		used_state = "berriesc4"
-	var/image/item_overlay = image(used_state)
-	item_overlay.color = filling_color
-	add_overlay(item_overlay)
+/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/update_icon_state()
+	. = ..()
+	switch(bitecount)
+		if(1)
+			icon_state = "berriesc1"
+		if(2)
+			icon_state = "berriesc2"
+		if(3)
+			icon_state = "berriesc3"
+		if(4)
+			icon_state = "berriesc4"
+	color = filling_color
+
+/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/update_overlays()
+	. = ..()
+	var/mutable_appearance/M = mutable_appearance(icon, "berries")
+	. += M
 
 /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison
 	seed = /obj/item/neuFarm/seed/poison_berries
-	icon_state = "berries"
-	tastes = list("berry" = 1)
 	list_reagents = list(/datum/reagent/berrypoison = 5)
 	grind_results = list(/datum/reagent/berrypoison = 5)
 	color_index = "bad"
@@ -266,7 +268,7 @@
 /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/examine(mob/user)
 	var/farminglvl = user.get_skill_level(/datum/skill/labor/farming)
 	. = ..()
-	// Foragers can always detect if a berry is safe or poisoned
+	// Foragers can always detect if p berry is safe or poisoned
 	if(HAS_TRAIT(user, TRAIT_FORAGER))
 		if(poisonous)
 			. += span_warning("This berry looks suspicious. I sense it might be poisoned.")
@@ -535,7 +537,9 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 0)
 	dropshrink = 0.5
 	rotprocess = null
-
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	body_parts_covered = NONE
+	alternate_worn_layer  = 8.9
 /*
 /obj/item/reagent_containers/food/snacks/produce/garlic
 	name = "garlic"
@@ -554,3 +558,11 @@
 	grind_results = list(/datum/reagent/toxin/amanitin = 6)
 
 */
+
+/proc/display_shit()
+	var/list/list = subtypesof(/obj/item/alch)
+	var/type_list = ""
+	for(var/i in list)
+		type_list += "[i], "
+	usr << browse(list)
+

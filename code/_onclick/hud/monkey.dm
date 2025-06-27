@@ -50,7 +50,7 @@
 	inv_box.icon_state = "mask"
 //	inv_box.icon_full = "template"
 	inv_box.screen_loc = ui_monkey_mask
-	inv_box.slot_id = SLOT_WEAR_MASK
+	inv_box.slot_id = ITEM_SLOT_MASK
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -60,7 +60,7 @@
 	inv_box.icon_state = "neck"
 //	inv_box.icon_full = "template"
 	inv_box.screen_loc = ui_monkey_neck
-	inv_box.slot_id = SLOT_NECK
+	inv_box.slot_id = ITEM_SLOT_NECK
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -70,7 +70,7 @@
 	inv_box.icon_state = "head"
 //	inv_box.icon_full = "template"
 	inv_box.screen_loc = ui_monkey_head
-	inv_box.slot_id = SLOT_HEAD
+	inv_box.slot_id = ITEM_SLOT_HEAD
 	inv_box.hud = src
 	static_inventory += inv_box
 
@@ -86,7 +86,7 @@
 
 	pull_icon = new /atom/movable/screen/pull()
 	pull_icon.icon = ui_style
-	pull_icon.update_icon()
+	pull_icon.update_appearance()
 	pull_icon.screen_loc = ui_above_movement
 	pull_icon.hud = src
 	static_inventory += pull_icon
@@ -94,7 +94,7 @@
 	zone_select = new /atom/movable/screen/zone_sel()
 	zone_select.icon = ui_style
 	zone_select.hud = src
-	zone_select.update_icon()
+	zone_select.update_appearance()
 	static_inventory += zone_select
 
 	mymob.client.screen = list()
@@ -108,8 +108,8 @@
 	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory))
 		if(inv.slot_id)
 			inv.hud = src
-			inv_slots[inv.slot_id] = inv
-			inv.update_icon()
+			inv_slots[TOBITSHIFT(inv.slot_id) + 1] = inv
+			inv.update_appearance()
 
 /datum/hud/monkey/persistent_inventory_update()
 	if(!mymob)

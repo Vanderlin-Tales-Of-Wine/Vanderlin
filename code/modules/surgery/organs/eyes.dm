@@ -35,17 +35,40 @@
 	var/damaged	= FALSE	//damaged indicates that our eyes are undergoing some level of negative effect
 
 	var/old_eye_color = "fff" //cache owners original eye color before inserting new eyes
-	var/eye_color = ""//set to a hex code to override a mob's eye color
+	/// Current eye color
+	var/eye_color = null
+	/// Whether eyes are different colors
 	var/heterochromia = FALSE
-	var/second_color = "#FFFFFF"
+	/// Second color for heterochromia
+	var/second_color = "FFFFFF"
 
+	/// Glows with emissive in the dark
+	var/glows = FALSE
+
+/obj/item/organ/eyes/Initialize()
+	. = ..()
+	if(!owner && !eye_color)
+		eye_color = random_eye_color()
+		if(prob(5))
+			heterochromia = TRUE
+			second_color = random_eye_color()
+	update_icon()
 
 /obj/item/organ/eyes/update_overlays()
 	. = ..()
-	if(initial(eye_color) && (icon_state == "eyeball"))
-		var/mutable_appearance/iris_overlay = mutable_appearance(src.icon, "eyeball-iris")
-		iris_overlay.color = "#" + eye_color
+	if(eye_color)
+		var/mutable_appearance/iris_overlay = mutable_appearance(icon, "[icon_state]-iris")
+
+		var/used_color = "#[eye_color]"
+		if(heterochromia && prob(50))
+			used_color = "#[second_color]"
+
+		iris_overlay.color = used_color
 		. += iris_overlay
+		if(glows)
+			iris_overlay = mutable_appearance(icon, "[icon_state]-iris", plane = EMISSIVE_PLANE)
+			iris_overlay.color = used_color
+			. += iris_overlay
 
 /obj/item/organ/eyes/update_accessory_colors()
 	var/list/colors_list = list()
@@ -142,7 +165,7 @@
 /obj/item/organ/eyes/night_vision/zombie
 	name = "undead eyes"
 	desc = ""
-	eye_color = "#FFFFFF"
+	eye_color = "FFFFFF"
 
 /obj/item/organ/eyes/night_vision/werewolf
 	name = "moonlight eyes"
@@ -151,7 +174,6 @@
 /obj/item/organ/eyes/night_vision/nightmare
 	name = "burning red eyes"
 	desc = ""
-	// icon_state = "burning_eyes"
 	eye_color = BLOODCULT_EYE
 
 /obj/item/organ/eyes/night_vision/mushroom
@@ -165,10 +187,18 @@
 	lighting_alpha = LIGHTING_PLANE_ALPHA_NV_TRAIT
 
 /obj/item/organ/eyes/elf/less
-	name = "elf eyes"
-	desc = ""
 	see_in_dark = 3
 	lighting_alpha = LIGHTING_PLANE_ALPHA_LESSER_NV_TRAIT
+
+/obj/item/organ/eyes/kobold
+	name = "slitted eyes" // SPRITE PLS
+	accessory_type = /datum/sprite_accessory/eyes/humanoid/kobold
+
+/obj/item/organ/eyes/triton
+	name = "dead fish eyes"
+	accessory_type = /datum/sprite_accessory/eyes/humanoid/triton
+	glows = TRUE
+	flash_protect = FLASH_PROTECTION_SENSITIVE
 
 /obj/item/organ/eyes/no_render
 	accessory_type = null

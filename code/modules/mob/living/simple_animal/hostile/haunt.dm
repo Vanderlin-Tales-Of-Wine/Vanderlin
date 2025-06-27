@@ -25,7 +25,6 @@
 	base_intents = list(/datum/intent/simple/slash)
 	gender = MALE
 	speak_chance = 0
-	turns_per_move = 5
 	response_help_continuous = "passes through"
 	response_help_simple = "pass through"
 	maxHealth = 50
@@ -128,7 +127,7 @@
 	layer = BELOW_OBJ_LAYER
 	attacked_sound = 'sound/vo/mobs/ghost/skullpile_hit.ogg'
 
-/obj/structure/intert_bonepile
+/obj/structure/inert_bonepile
 	icon = 'icons/roguetown/mob/monster/wraith.dmi'
 	icon_state = "hauntpile"
 	max_integrity = 100
@@ -143,9 +142,19 @@
 	soundloop.start()
 	for(var/i in 1 to maxhaunts)
 		spawn_haunt()
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
-/obj/structure/bonepile/update_icon()
+/obj/structure/bonepile/Destroy()
+	if(soundloop)
+		QDEL_NULL(soundloop)
+	for(var/mob/living/simple_animal/hostile/haunt/H as anything in haunts)
+		H.death()
+	haunts.Cut()
+	var/spawned = pick(/obj/item/reagent_containers/powder/spice)
+	new spawned(get_turf(src))
+	return ..()
+
+/obj/structure/bonepile/update_icon_state()
 	. = ..()
 	if(spawning_haunt)
 		icon_state = "hauntpile-r"
@@ -160,24 +169,14 @@
 	H.slavepile = src
 	H.ai_controller.set_blackboard_key(BB_LEYLINE_SOURCE, src)
 	haunts += H
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/bonepile/proc/spawn_haunt()
 	if(QDELETED(src))
 		return
 	spawning_haunt = TRUE
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	addtimer(CALLBACK(src, PROC_REF(createhaunt)), rand(4,6) SECONDS)
-
-/obj/structure/bonepile/Destroy()
-	soundloop.stop()
-	spawning_haunt = null
-	for(var/H in haunts)
-		var/mob/living/simple_animal/hostile/haunt/D = H
-		D.death()
-	var/spawned = pick(/obj/item/reagent_containers/powder/spice)
-	new spawned(get_turf(src))
-	. = ..()
 
 /mob/living/simple_animal/hostile/haunt/Initialize()
 	. = ..()

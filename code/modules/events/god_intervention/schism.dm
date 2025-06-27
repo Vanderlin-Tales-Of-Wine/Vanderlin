@@ -6,6 +6,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	var/list/supporters_astrata = list()
 	var/list/supporters_challenger = list()
 	var/list/neutrals = list()
+	var/halfway_passed = FALSE
 
 /datum/tennite_schism/New(datum/patron/challenger)
 	. = ..()
@@ -23,7 +24,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	if(!challenger)
 		return
 
-	priority_announce("[challenger.name] challenges Astrata's leadeship! The outcome of this conflict will be decided in less than 2 daes by a sheer number of their supporters. [challenger.name] promises great rewards to the faithful if victorious, while Astrata swears revenge to any who dare to defy her. Choose your side, or stand aside...", "Schism within the Ten", 'sound/magic/marked.ogg')
+	priority_announce("[challenger.name] challenges Astrata's leadership! The outcome of this conflict will be decided in less than 2 daes by a sheer number of their alive supporters. [challenger.name] promises great rewards to the faithful if victorious, while Astrata swears revenge to any who dare to defy her. Choose your side, or stand aside...", "Schism within the Ten", 'sound/magic/marked.ogg')
 	for(var/mob/living/carbon/human/H in GLOB.human_list)
 		setup_mob(H)
 
@@ -36,7 +37,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 	var/mob/living/carbon/human/H = spawned
 	var/datum/patron/challenger = challenger_god?.resolve()
-	if(!challenger)
+	if(!challenger || !H)
 		return
 
 	to_chat(H, span_notice("There is an active schism within the Ten! [challenger.name] has challenged Astrata's leadership!"))
@@ -72,13 +73,19 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 	if(astrata_count >= challenger_count)
 		priority_announce("Astrata's light prevails over the challenge of [challenger.name]! The Sun Queen confirms her status as a true heir of Psydon!", "Astrata is VICTORIOUS!", 'sound/magic/ahh2.ogg')
-		adjust_storyteller_influence("Astrata", 300)
+		adjust_storyteller_influence("Astrata", 200)
+		adjust_storyteller_influence(challenger.name, -50)
 
 		for(var/datum/weakref/supporter_ref in supporters_astrata)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
 			if(supporter && supporter.patron == astrata)
-				to_chat(supporter, span_notice("Astrata's light prevails! Your steadfast devotion is rewarded with many triumphs."))
-				supporter.adjust_triumphs(3)
+				for(var/obj/effect/proc_holder/spell/self/choose_schism_side/spell in supporter.mind.spell_list)
+					if(spell.chose_early)
+						to_chat(supporter, span_notice("Astrata's light prevails! Your steadfast devotion is rewarded with many triumphs."))
+						supporter.adjust_triumphs(3)
+					else
+						to_chat(supporter, span_notice("Astrata's light prevails, but your late support goes unrewarded."))
+					break
 			else if(supporter)
 				to_chat(supporter, span_notice("Astrata's light prevails over the challenge of [challenger.name]! The Sun Queen expected no less than your total support."))
 
@@ -87,34 +94,53 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			if(supporter)
 				to_chat(supporter, span_userdanger("NEVER DEFY ME AGAIN!"))
 				supporter.electrocute_act(5, astrata)
+				supporter.add_curse(/datum/curse/astrata)
 
 		cleanup_schism()
 
 	else if(challenger_count > astrata_count)
 		priority_announce("[challenger.name]'s challenge succeeds against Astrata's tyranny! The Sun Queen is grudgingly forced to share power with [challenger.name]...", "[challenger.name] RULES!", 'sound/magic/inspire_02.ogg')
-		adjust_storyteller_influence(challenger.name, 300)
+		adjust_storyteller_influence(challenger.name, 200)
+		adjust_storyteller_influence("Astrata", -50)
 
 		for(var/datum/weakref/supporter_ref in supporters_challenger)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
 			if(supporter && supporter.patron == challenger)
-				to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds! Your persistent faith is rewarded with triumphs."))
-				supporter.adjust_triumphs(2)
+				for(var/obj/effect/proc_holder/spell/self/choose_schism_side/spell in supporter.mind.spell_list)
+					if(spell.chose_early)
+						to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds! Your persistent faith is rewarded with triumphs."))
+						supporter.adjust_triumphs(2)
+					else
+						to_chat(supporter, span_notice("[challenger.name] succeeds, but your late support goes unrewarded."))
+					break
 			else if(supporter)
-				to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Astrata's tyranny! Your support is rewarded with a triumph."))
-				supporter.adjust_triumphs(1)
-
+				for(var/obj/effect/proc_holder/spell/self/choose_schism_side/spell in supporter.mind.spell_list)
+					if(spell.chose_early)
+						to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Astrata's tyranny! Your support is rewarded with a triumph."))
+						supporter.adjust_triumphs(1)
+					else
+						to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds, but your late support goes unrewarded."))
+					break
 		for(var/datum/weakref/supporter_ref in supporters_astrata)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
 			if(supporter)
 				to_chat(supporter, span_userdanger("INCOMPETENT IMBECILES!"))
 				supporter.electrocute_act(5, astrata)
 
-		addtimer(CALLBACK(src, PROC_REF(select_and_announce_vice_priest), challenger), 20 SECONDS)
+		if(GLOB.todoverride == null)
+			addtimer(CALLBACK(src, PROC_REF(astrata_scorn)), 15 SECONDS)
+
+		addtimer(CALLBACK(src, PROC_REF(select_and_announce_vice_priest), challenger), 30 SECONDS)
+
+/datum/tennite_schism/proc/astrata_scorn()
+		priority_announce("You don't deserve my holy light, you ungrateful swines!", "Astrata's Scorn", 'sound/magic/fireball.ogg')
+		GLOB.todoverride = "night"
+		settod()
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reset_tod_override)), 20 MINUTES)
 
 /datum/tennite_schism/proc/select_and_announce_vice_priest(datum/patron/challenger)
 	var/mob/living/carbon/human/selected_priest = null
 	var/was_supporter = FALSE
-	var/was_clergy = FALSE
 
 	// First try to find a challenger supporter who is also clergy
 	for(var/datum/weakref/supporter_ref in supporters_challenger)
@@ -122,7 +148,6 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		if(human_mob && human_mob.stat != DEAD && human_mob.client && (human_mob.mind?.assigned_role.title in GLOB.church_positions) && human_mob.patron == challenger)
 			selected_priest = human_mob
 			was_supporter = TRUE
-			was_clergy = TRUE
 			break
 
 	// If no supporter found, fall back to any clergy member who has the challenger as his patron
@@ -130,16 +155,6 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
 			if(human_mob.stat != DEAD && human_mob.client && (human_mob.mind?.assigned_role.title in GLOB.church_positions) && human_mob.patron == challenger)
 				selected_priest = human_mob
-				was_clergy = TRUE
-				break
-
-	// As a last resort, pick someone who has the challenger as his patron, is nonheretical species, is adult and is not a noble, garrison or a migrant
-	if(!selected_priest)
-		for(var/datum/weakref/supporter_ref in supporters_challenger)
-			var/mob/living/carbon/human/human_mob = supporter_ref.resolve()
-			if(human_mob && human_mob.stat != DEAD && human_mob.client && human_mob.patron == challenger && (human_mob.dna?.species.name in RACES_PLAYER_NONHERETICAL) && !human_mob.is_noble() && human_mob.age != AGE_CHILD && !(human_mob.mind?.assigned_role.title in GLOB.garrison_positions) && !(human_mob.mind?.assigned_role.title in GLOB.allmig_positions))
-				selected_priest = human_mob
-				was_supporter = TRUE
 				break
 
 	// Promote the selected priest if we found one
@@ -154,11 +169,13 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			selected_priest.advjob = "Vice Priest"
 			male = TRUE
 		selected_priest.migrant_type = null
-		if(!was_clergy)
-			var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(selected_priest, selected_priest.patron)
-			C.grant_spells(selected_priest)
-			selected_priest.verbs |= /mob/living/carbon/human/proc/devotionreport
-			selected_priest.verbs |= /mob/living/carbon/human/proc/clericpray
+		var/datum/devotion/cleric_holder/C = selected_priest.cleric
+		if(C)
+			C.passive_devotion_gain = 1
+			C.passive_progression_gain = 1
+			START_PROCESSING(SSprocessing, C)
+		selected_priest.verbs |= /mob/living/carbon/human/proc/devotionreport
+		selected_priest.verbs |= /mob/living/carbon/human/proc/clericpray
 		selected_priest.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
 		selected_priest.verbs |= /mob/living/carbon/human/proc/churchcurse
 		selected_priest.verbs |= /mob/living/carbon/human/proc/churchannouncement
@@ -169,6 +186,9 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			to_chat(selected_priest, span_green("[challenger.name] smiles upon you! Your faithful support during the schism has been rewarded with the position of a [male ? "Vice Priest" : "Vice Priestess"]!"))
 		else
 			to_chat(selected_priest, span_green("Though you did not openly support [challenger.name] during the schism, you have been chosen to serve as a [male ? "Vice Priest" : "Vice Priestess"]!"))
+
+		if(C)
+			to_chat(selected_priest, span_notice("You have gained a passive devotion gain and powers to announce, excommunicate or curse!"))
 
 	cleanup_schism()
 
@@ -206,6 +226,8 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	else if(challenger_count > astrata_count)
 		priority_announce("[challenger.name] is leading in the schism! Astrata will soon be forced to yield...", "Schism Rages On", 'sound/magic/marked.ogg')
 
+	halfway_passed = TRUE
+
 /datum/tennite_schism/proc/change_side(mob/living/carbon/human/user, new_side)
 	supporters_astrata -= WEAKREF(user)
 	supporters_challenger -= WEAKREF(user)
@@ -228,6 +250,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	name = "Choose your side"
 	overlay_state = "limb_attach"
 	recharge_time = 20 SECONDS
+	var/chose_early = FALSE
 	var/uses_remaining = 2
 
 /obj/effect/proc_holder/spell/self/choose_schism_side/cast(mob/living/carbon/human/user)
@@ -247,7 +270,6 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	options["Neutral"] = "neutral"
 	if(challenger)
 		options["[challenger.name]"] = "challenger"
-
 
 	var/choice = input(user, "Choose your allegiance in the schism, you can change your side [uses_remaining] more time\s", "Choose your side") as null|anything in options
 	if(!choice || !current_schism)
@@ -269,21 +291,24 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	uses_remaining--
 	current_schism.change_side(user, options[choice])
 
+	if(!current_schism.halfway_passed)
+		chose_early = TRUE
+
 	if(uses_remaining <= 0)
 		if(action)
 			action.UpdateButtonIcon()
 		to_chat(user, span_boldnotice("Your allegiance in the schism is now final."))
-	return TRUE
+	return ..()
 
 /datum/round_event_control/schism_within_ten
 	name = "Schism within the Ten"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/schism_within_ten
-	weight = 1
+	weight = 0.2
 	max_occurrences = 1
-	min_players = 50
-	earliest_start = 25 MINUTES
-	allowed_storytellers = list(/datum/storyteller/noc, /datum/storyteller/ravox, /datum/storyteller/necra, /datum/storyteller/xylix, /datum/storyteller/pestra, /datum/storyteller/abyssor, /datum/storyteller/dendor, /datum/storyteller/eora, /datum/storyteller/malum)
+	min_players = 60
+	earliest_start = 20 MINUTES
+	allowed_storytellers = list(/datum/storyteller/noc, /datum/storyteller/ravox, /datum/storyteller/necra, /datum/storyteller/xylix, /datum/storyteller/pestra, /datum/storyteller/abyssor, /datum/storyteller/dendor, /datum/storyteller/malum)
 
 /datum/round_event_control/schism_within_ten/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
@@ -303,23 +328,9 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	if(!alternative_events)
 		return FALSE
 
-	var/datum/patron/astrata = GLOB.patronlist[/datum/patron/divine/astrata]
-	if(!astrata)
+	var/datum/patron/challenger = find_strongest_challenger()
+	if(!challenger)
 		return FALSE
-
-	var/astrata_followers = GLOB.patron_follower_counts["Astrata"] || 0
-	var/astrata_influence = get_storyteller_influence("Astrata") || 0
-
-	for(var/type in subtypesof(/datum/patron/divine) - /datum/patron/divine/astrata)
-		var/datum/patron/divine/god = GLOB.patronlist[type]
-		if(!god)
-			continue
-
-		var/god_followers = GLOB.patron_follower_counts[god.name] || 0
-		var/god_influence = get_storyteller_influence(god.name) || 0
-
-		if(god_followers > astrata_followers && god_influence > astrata_influence)
-			return TRUE
 
 	return FALSE
 
@@ -366,19 +377,33 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		return FALSE
 	return istype(human_mob.patron, /datum/patron/divine)
 
+/// Resets day cycle override to null
+/proc/reset_tod_override()
+	GLOB.todoverride = null
+
 /// Finds strongest divine pantheon to challenge Astrata
 /proc/find_strongest_challenger()
 	var/datum/patron/strongest_challenger
-	var/most_followers = 0
+	var/highest_influence = 0
+	var/astrata_influence = get_storyteller_influence("Astrata") || 0
 
-	for(var/type in subtypesof(/datum/patron/divine) - /datum/patron/divine/astrata)
+	for(var/type in subtypesof(/datum/patron/divine) - list(/datum/patron/divine/astrata, /datum/patron/divine/eora))
 		var/datum/patron/divine/god = GLOB.patronlist[type]
 		if(!god)
 			continue
 
-		var/current_followers = GLOB.patron_follower_counts[god.name] || 0
-		if(current_followers > most_followers)
-			most_followers = current_followers
+		var/has_clergy = FALSE
+		for(var/mob/living/carbon/human/H in GLOB.player_list)
+			if(H.stat != DEAD && H.client && H.patron == god && (H.mind?.assigned_role.title in GLOB.church_positions))
+				has_clergy = TRUE
+				break
+
+		if(!has_clergy)
+			continue
+
+		var/god_influence = get_storyteller_influence(god.name) || 0
+		if(god_influence > highest_influence && god_influence > astrata_influence)
+			highest_influence = god_influence
 			strongest_challenger = god
 
 	return strongest_challenger

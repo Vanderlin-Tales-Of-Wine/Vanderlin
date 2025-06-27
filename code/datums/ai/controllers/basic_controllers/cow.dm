@@ -5,8 +5,6 @@
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/allow_items(),
 		BB_BASIC_MOB_TIP_REACTING = FALSE,
 		BB_BASIC_MOB_TIPPER = null,
-		BB_BABIES_PARTNER_TYPES = list(/mob/living/simple_animal/hostile/retaliate/bull, /mob/living/simple_animal/hostile/retaliate/cow),
-		BB_BABIES_CHILD_TYPES = list(/mob/living/simple_animal/hostile/retaliate/cow/cowlet = 95, /mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5),
 	)
 
 	ai_traits = STOP_MOVING_WHEN_PULLED

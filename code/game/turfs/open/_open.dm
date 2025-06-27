@@ -21,6 +21,11 @@
 	/// Pollution of this turf
 	var/datum/pollution/pollution
 
+/turf/open/Initialize(mapload)
+	. = ..()
+	if(wet)
+		AddComponent(/datum/component/wet_floor, wet, INFINITY, 0, INFINITY, TRUE)
+
 /turf/proc/get_slowdown(mob/user)
 	return 0
 
@@ -34,12 +39,6 @@
 
 /turf
 	var/landsound = null
-
-/turf/open/ComponentInitialize()
-	. = ..()
-	if(wet)
-		AddComponent(/datum/component/wet_floor, wet, INFINITY, 0, INFINITY, TRUE)
-
 
 //direction is direction of travel of A
 /turf/open/zPassIn(atom/movable/A, direction, turf/source)
@@ -186,6 +185,9 @@
 	var/ambient_temperature = SSParticleWeather.selected_forecast.current_ambient_temperature
 	if(ambient_temperature < 15 && (outdoor_effect?.weatherproof || !outdoor_effect))
 		ambient_temperature += 5
-	if(SSmapping.level_has_any_trait(z, list(ZTRAIT_CELLAR_LIKE)))
+	if(!("[z]" in GLOB.cellar_z))
+		if(SSmapping.level_has_any_trait(z, list(ZTRAIT_CELLAR_LIKE)))
+			GLOB.cellar_z |= "[z]"
+	if("[z]" in GLOB.cellar_z)
 		ambient_temperature = 11 + CEILING(ambient_temperature * 0.1, 1)
 	return temperature_modification + ambient_temperature

@@ -178,6 +178,7 @@
 	W.RemoveSpell(new /obj/effect/proc_holder/spell/self/howl)
 	W.RemoveSpell(new /obj/effect/proc_holder/spell/self/claws)
 
+	W.fully_heal(FALSE)
 	W.regenerate_icons()
 
 	to_chat(W, span_userdanger("I return to my facade."))

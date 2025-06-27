@@ -72,3 +72,16 @@
 	desc = "Gloves of worn leather. Alas, the psydonian fetish wrapped around one is but a powerless replica."
 	icon_state = "inqgloves"
 	item_state = "inqgloves"
+
+//Valorian Duelist Merc - On par with grenzelhoftian's stats.
+/obj/item/clothing/gloves/leather/duelgloves
+	desc = "Gloves of worn leather, Seems to be padded and commonly used by fencers, renowned for their quality.."
+	color = CLOTHING_SOOT_BLACK
+	blocksound = SOFTHIT
+	blade_dulling = DULLING_BASHCHOP
+	resistance_flags = FLAMMABLE // Made of leather
+	armor = ARMOR_LEATHER
+	prevent_crits = ALL_EXCEPT_CHOP_AND_STAB
+	max_integrity = INTEGRITY_STANDARD
+	salvage_result = /obj/item/natural/fur
+	item_weight = 4

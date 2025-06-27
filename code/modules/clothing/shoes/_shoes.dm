@@ -39,7 +39,7 @@
 	var/is_barefoot = FALSE
 	var/chained = 0
 
-/obj/item/clothing/shoes/ComponentInitialize()
+/obj/item/clothing/shoes/Initialize(mapload, ...)
 	. = ..()
 	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(clean_blood))
 
@@ -77,7 +77,7 @@
 
 /obj/item/clothing/shoes/equipped(mob/user, slot)
 	. = ..()
-	if(offset && slot_flags & slotdefine2slotbit(slot))
+	if(offset && (slot_flags & slot))
 		user.pixel_y += offset
 		worn_y_dimension -= (offset * 2)
 		user.update_inv_shoes()

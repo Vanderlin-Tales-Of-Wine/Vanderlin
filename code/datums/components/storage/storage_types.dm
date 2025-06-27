@@ -119,7 +119,7 @@
 	click_gather = TRUE
 	collection_mode = COLLECT_EVERYTHING
 	dump_time = 0
-	allow_quick_gather = FALSE
+	allow_quick_gather = TRUE
 	allow_quick_empty = TRUE
 	insert_preposition = "in"
 

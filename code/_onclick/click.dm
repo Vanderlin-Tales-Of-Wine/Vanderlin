@@ -115,6 +115,10 @@
 				if(mmb_intent.no_early_release && client?.chargedprog < 100)
 					changeNext_move(mmb_intent.clickcd)
 					return
+		else if(client?.keys_held["Shift"])
+			spell_quickselect(A)
+			return
+
 	if(modifiers["left"])
 		if(atkswinging != "left")
 			return
@@ -812,7 +816,7 @@
 		targeti.pixel_x = -1
 		src.client.images |= targeti
 		for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
-			eyet.update_icon(src) //Update eye icon
+			eyet.update_appearance(UPDATE_ICON_STATE)
 	else
 		UntargetMob()
 
@@ -831,7 +835,7 @@
 	src.client.images -= targeti
 	//clear hud icon
 	for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
-		eyet.update_icon(src)
+		eyet.update_appearance(UPDATE_ICON_STATE)
 
 /mob/proc/ShiftRightClickOn(atom/A, params)
 //	linepoint(A, params)
@@ -870,4 +874,4 @@
 		atom_flags |= NO_DIR_CHANGE
 	tempfixeye = TRUE
 	for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
-		eyet.update_icon(src) //Update eye icon
+		eyet.update_appearance(UPDATE_ICON_STATE)

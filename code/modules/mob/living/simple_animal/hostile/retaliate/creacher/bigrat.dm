@@ -11,7 +11,6 @@
 	faction = list(FACTION_RATS)
 	emote_hear = list("squeaks.")
 	emote_see = list("cleans its nose.")
-	turns_per_move = 3
 	move_to_delay = 5
 	vision_range = 2
 	aggro_vision_range = 2
@@ -85,8 +84,8 @@
 	pixel_y = -8
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/Initialize()
+	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands
 	. = ..()
-	AddComponent(/datum/component/obeys_commands, pet_commands)
 
 	gender = MALE
 	if(prob(33))
@@ -95,24 +94,22 @@
 		icon_state = "Frat"
 		icon_living = "Frat"
 		icon_dead = "Frat1"
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
 
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/death(gibbed)
 	..()
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
-
-/mob/living/simple_animal/hostile/retaliate/bigrat/update_icon()
-	cut_overlays()
-	..()
+/mob/living/simple_animal/hostile/retaliate/bigrat/update_overlays()
+	. = ..()
 	if(stat != DEAD)
 		var/mutable_appearance/eye_lights = mutable_appearance(icon, "bigrat-eyes")
 		eye_lights.plane = 19
 		eye_lights.layer = 19
-		add_overlay(eye_lights)
+		. += eye_lights
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/get_sound(input)
 	switch(input)

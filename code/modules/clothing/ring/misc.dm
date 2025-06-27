@@ -102,7 +102,7 @@
 	cooldowny = world.time
 	addtimer(CALLBACK(src, PROC_REF(demagicify)), activetime)
 	active = TRUE
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	activate(user)
 
 /obj/item/clothing/ring/active/proc/activate(mob/user)
@@ -110,7 +110,7 @@
 
 /obj/item/clothing/ring/active/proc/demagicify()
 	active = FALSE
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	if(ismob(loc))
 		var/mob/user = loc
 		user.visible_message("<span class='warning'>The ring settles down.</span>")
@@ -125,8 +125,8 @@
 	activetime = 30 SECONDS
 	sellprice = 100
 
-/obj/item/clothing/ring/active/nomag/update_icon()
-	..()
+/obj/item/clothing/ring/active/nomag/update_icon_state()
+	. = ..()
 	if(active)
 		icon_state = "rubyactive"
 	else
@@ -166,15 +166,15 @@
 /obj/item/clothing/ring/gold/protection/equipped(mob/user, slot)
 	. = ..()
 	if(antileechy)
-		if (slot == SLOT_RING && istype(user))
+		if ((slot & ITEM_SLOT_RING) && istype(user))
 			RegisterSignal(user, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(item_removed))
 			ADD_TRAIT(user, TRAIT_LEECHIMMUNE,"[REF(src)]")
 	if(antimagika)
-		if (slot == SLOT_RING && istype(user))
+		if ((slot & ITEM_SLOT_RING) && istype(user))
 			RegisterSignal(user, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(item_removed))
 			ADD_TRAIT(user, TRAIT_ANTIMAGIC,"[REF(src)]")
 	if(antishocky)
-		if (slot == SLOT_RING && istype(user))
+		if ((slot & ITEM_SLOT_RING) && istype(user))
 			RegisterSignal(user, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(item_removed))
 			ADD_TRAIT(user, TRAIT_SHOCKIMMUNE,"[REF(src)]")
 
@@ -195,7 +195,7 @@
 /obj/item/clothing/ring/gold/ravox/equipped(mob/living/user, slot)
 	. = ..()
 	if(user.mind)
-		if(slot == SLOT_RING && istype(user))
+		if((slot & ITEM_SLOT_RING) && istype(user))
 			RegisterSignal(user, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(item_removed))
 			user.apply_status_effect(/datum/status_effect/buff/ravox)
 
@@ -214,7 +214,7 @@
 /obj/item/clothing/ring/silver/calm/equipped(mob/living/user, slot)
 	. = ..()
 	if(user.mind)
-		if (slot == SLOT_RING && istype(user))
+		if ((slot & ITEM_SLOT_RING) && istype(user))
 			RegisterSignal(user, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(item_removed))
 			user.apply_status_effect(/datum/status_effect/buff/calm)
 
@@ -233,7 +233,7 @@
 /obj/item/clothing/ring/silver/noc/equipped(mob/living/user, slot)
 	. = ..()
 	if(user.mind)
-		if (slot == SLOT_RING && istype(user))
+		if (slot & ITEM_SLOT_RING && istype(user))
 			RegisterSignal(user, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(item_removed))
 			user.apply_status_effect(/datum/status_effect/buff/noc)
 
@@ -285,7 +285,7 @@
 
 	if((gaffed == "Yes") && user.is_holding(src))
 		ADD_TRAIT(user, TRAIT_BURDEN, type)
-		user.equip_to_slot_if_possible(src, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
+		user.equip_to_slot_if_possible(src, ITEM_SLOT_RING, FALSE, FALSE, TRUE, TRUE)
 		to_chat(user, span_danger("A constricting weight grows around your neck as you adorn the ring"))
 		return TRUE
 
@@ -319,7 +319,7 @@
 
 /obj/item/clothing/ring/gold/burden/equipped(mob/user, slot)
 	. = ..()
-	if(slot == SLOT_RING && istype(user)) //this will hopefully be a natural HEADEATER tutorial when HEADEATER is a proper thing
+	if((slot & ITEM_SLOT_RING) && istype(user)) //this will hopefully be a natural HEADEATER tutorial when HEADEATER is a proper thing
 		//say("good choice") as much as I love the aesthetic of the ring speech bubble being in the inventory screen, cant make it whisper like this
 		var/message = pick("New...bearer...",
 			"The...Guild...",
@@ -349,7 +349,7 @@
 	. = ..()
 	if(active_item)
 		return
-	else if(slot == SLOT_RING)
+	else if(slot & ITEM_SLOT_RING)
 		active_item = TRUE
 		to_chat(user, span_notice("Here be dragons."))
 		user.change_stat("strength", 2)

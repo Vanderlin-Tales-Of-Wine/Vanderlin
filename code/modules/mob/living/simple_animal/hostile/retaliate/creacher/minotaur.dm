@@ -8,7 +8,6 @@
 	emote_hear = null
 	emote_see = null
 	speak_chance = 1
-	turns_per_move = 2
 	see_in_dark = 10
 	move_to_delay = 3
 	base_intents = list(/datum/intent/simple/minotaur_unarmed)
@@ -70,7 +69,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/minotaur/death(gibbed)
 	..()
-	update_icon()
+	update_appearance()
 
 /mob/living/simple_animal/hostile/retaliate/minotaur/taunted(mob/user)
 	emote("aggro")

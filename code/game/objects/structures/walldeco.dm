@@ -122,8 +122,8 @@
 	layer = TURF_DECAL_LAYER
 
 /obj/structure/fluff/walldeco/stone/Initialize()
+	. = ..()
 	icon_state = "walldec[rand(1,6)]"
-	..()
 
 /obj/structure/fluff/walldeco/maidensigil
 	name = "stone sigil"
@@ -165,35 +165,14 @@
 	buckleverb = "tie"
 
 /obj/structure/fluff/walldeco/chains/Initialize()
+	. = ..()
 	icon_state = "chains[rand(1,8)]"
-	..()
 
 /obj/structure/fluff/walldeco/customflag
 	name = "vanderlin flag"
 	desc = ""
 	icon_state = "wallflag"
-
-/obj/structure/fluff/walldeco/customflag/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/structure/fluff/walldeco/customflag/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
-
-/obj/structure/fluff/walldeco/customflag/lordcolor(primary,secondary)
-	if(!primary || !secondary)
-		return
-	var/mutable_appearance/M = mutable_appearance(icon, "wallflag_primary", -(layer+0.1))
-	M.color = primary
-	add_overlay(M)
-	M = mutable_appearance(icon, "wallflag_secondary", -(layer+0.1))
-	M.color = secondary
-	add_overlay(M)
-	GLOB.lordcolor -= src
+	uses_lord_coloring = LORD_PRIMARY | LORD_SECONDARY
 
 /obj/structure/fluff/walldeco/moon
 	name = "banner"

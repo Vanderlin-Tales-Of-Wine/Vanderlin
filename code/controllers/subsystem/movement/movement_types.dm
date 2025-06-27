@@ -298,7 +298,7 @@
 		return
 	var/atom/old_loc = moving.loc
 	step_to(moving, target)
-	return old_loc != moving.loc
+	return old_loc != moving?.loc
 
 /**
  * Wrapper around walk_away()

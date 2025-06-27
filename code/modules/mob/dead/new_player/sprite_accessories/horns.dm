@@ -9,7 +9,7 @@
 	return is_human_part_visible(owner, HIDEEARS|HIDEHAIR)
 
 /datum/sprite_accessory/horns/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
-	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_FACE, OFFSET_FACE_F)
+	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_FACE)
 
 /datum/sprite_accessory/horns/simple
 	name = "Simple"
@@ -194,3 +194,12 @@
 	icon_state = "tiebhornsalt"
 	specuse = list("tiefling")
 	color_key_defaults = list(KEY_SKIN_COLOR)
+
+/datum/sprite_accessory/horns/triton
+	name = "Triton Tusks"
+	icon = 'icons/mob/sprite_accessory/horns/triton.dmi'
+	icon_state = "tusks"
+	use_static = TRUE
+
+/datum/sprite_accessory/horns/triton/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	return is_human_part_visible(owner, HIDEMASK)
