@@ -27,7 +27,7 @@
 		to_chat(owner.current, span_notice("Grave robbed! Rob [graves_required - graves_robbed] more to complete Matthios' task."))
 
 /datum/objective/grave_robbery/proc/complete_objective()
-	to_chat(owner.current, span_greentext("You've robbed enough graves to satisfy Matthios' greed!"))
+	to_chat(owner.current, span_greentext("You've robbed enough graves to earn Matthios' respect!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Matthios", 15)
@@ -35,4 +35,4 @@
 	UnregisterSignal(owner.current, COMSIG_GRAVE_ROBBED)
 
 /datum/objective/grave_robbery/update_explanation_text()
-	explanation_text = "Rob at least [graves_required] graves to satisfy Matthios' hunger for wealth."
+	explanation_text = "Rob at least [graves_required] graves to earn Matthios' respect."

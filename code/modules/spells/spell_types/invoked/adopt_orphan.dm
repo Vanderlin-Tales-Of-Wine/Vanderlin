@@ -4,6 +4,8 @@
 	overlay_state = "bless"
 	range = 1
 	recharge_time = 20 SECONDS
+	uses_mana = FALSE
+	overlay_state = "bliss"
 
 /obj/effect/proc_holder/spell/invoked/adopt_child/cast(list/targets, mob/user = usr)
 	var/mob/living/carbon/human/H = user
@@ -70,9 +72,8 @@
 			spouse_member = family.CreateFamilyMember(H.spouse_mob)
 		child_member.AddParent(spouse_member)
 
-	to_chat(H, span_notice("You have adopted [target.real_name] as your child with Eora's blessing!"))
-	to_chat(target, span_notice("You have been adopted by [H.real_name]!"))
-	H.playsound_local(H, 'sound/vo/female/gen/giggle (1).ogg', 100)
+	to_chat(H, span_love("You have adopted [target.real_name] as your child with Eora's blessing!"))
+	to_chat(target, span_love("You have been adopted by [H.real_name]!"))
 
 	SEND_SIGNAL(user, COMSIG_ORPHAN_ADOPTED, target)
 

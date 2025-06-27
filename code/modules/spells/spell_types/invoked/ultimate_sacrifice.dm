@@ -1,11 +1,11 @@
 /obj/effect/proc_holder/spell/self/ultimate_sacrifice
 	name = "Ultimate Sacrifice"
-	overlay_state = "ravox"
+	overlay_state = "revive"
 	antimagic_allowed = TRUE
+	uses_mana = FALSE
 	recharge_time = 0
-	invocation = "RAVOX, TAKE MY LIFE!"
+	invocation = "RAVOX, HEAR MY PLEA!"
 	invocation_type = "shout"
-	sound = 'sound/ambience/noises/genspooky (1).ogg'
 
 /obj/effect/proc_holder/spell/self/ultimate_sacrifice/cast(mob/living/carbon/human/user)
 	if(user.stat == DEAD)
@@ -18,7 +18,7 @@
 			possible_targets += H
 
 	if(!possible_targets.len)
-		to_chat(user, span_warning("No valid corpses nearby to revive!"))
+		to_chat(user, span_warning("There is no one around to revive!"))
 		return FALSE
 
 	var/mob/living/carbon/human/target = input(user, "Choose who to revive (this will kill you permanently)", "Ultimate Sacrifice") as null|anything in possible_targets
@@ -30,7 +30,7 @@
 		return FALSE
 
 	user.visible_message(span_userdanger("[user] begins chanting Ravox's sacrificial rites!"), \
-						span_userdanger("You feel Ravox's presence as you prepare to give your life..."))
+						span_userdanger("You feel Ravox's presence around you as you prepare to give your life..."))
 
 	if(!do_after(user, 10 SECONDS, target = user))
 		to_chat(user, span_warning("The ritual was interrupted!"))
@@ -41,15 +41,11 @@
 		return FALSE
 
 	user.say("RAVOX, I GIVE MY LIFE FOR THEIRS!", forced = "ravox_ritual")
-	playsound(user, 'sound/magic/churn.ogg', 100)
+	target.revive(full_heal = TRUE, admin_revive = FALSE)
 
+	playsound(user, 'sound/magic/churn.ogg', 100)
 	ADD_TRAIT(user, TRAIT_NECRA_CURSE, "ravox_ritual")
 	ADD_TRAIT(user, TRAIT_BURIED_COIN_GIVEN, "ravox_ritual")
-
-	target.revive(full_heal = TRUE, admin_revive = FALSE)
-	target.visible_message(span_mind_control("[target] gasps as they return to life!"))
-	to_chat(target, span_notice("You feel life returning to your body as someone's sacrifice revives you!"))
-
 	user.death()
 
 	if(user.mind)

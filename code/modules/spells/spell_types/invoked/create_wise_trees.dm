@@ -4,6 +4,7 @@
 	overlay_state = "entangle"
 	range = 1
 	recharge_time = 20 SECONDS
+	uses_mana = FALSE
 	var/uses = 3
 
 /obj/effect/proc_holder/spell/invoked/transform_tree/cast(list/targets, mob/user = usr)

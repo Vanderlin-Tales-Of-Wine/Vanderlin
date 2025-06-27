@@ -1,5 +1,5 @@
 /datum/round_event_control/grave_robbery
-	name = "Matthios' Grave Robbery"
+	name = "Grave Robbery"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/grave_robbery
 	weight = 10

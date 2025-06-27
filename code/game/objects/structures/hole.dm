@@ -186,7 +186,6 @@
 			for(var/obj/structure/gravemarker/G in loc)
 				record_featured_stat(FEATURED_STATS_CRIMINALS, user)
 				GLOB.vanderlin_round_stats[STATS_GRAVES_ROBBED]++
-				SEND_SIGNAL(user, COMSIG_GRAVE_ROBBED, user)
 				qdel(G)
 				if(isliving(user))
 					var/mob/living/L = user
@@ -195,6 +194,7 @@
 					else
 						to_chat(user, "<span class='warning'>Necra shuns my blasphemous deeds, I am cursed!</span>")
 						L.apply_status_effect(/datum/status_effect/debuff/cursed)
+				SEND_SIGNAL(user, COMSIG_GRAVE_ROBBED, user)
 		stage_update()
 		attacking_shovel.heldclod = new(attacking_shovel)
 		attacking_shovel.update_appearance(UPDATE_ICON_STATE)
