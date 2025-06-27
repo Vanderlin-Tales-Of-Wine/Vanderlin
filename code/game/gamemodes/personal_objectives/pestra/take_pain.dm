@@ -2,7 +2,7 @@
 	name = "Take Pain"
 	triumph_count = 0
 	var/total_pain_taken = 0
-	var/target_pain = 300
+	var/target_pain = 1500
 
 /datum/objective/take_pain/on_creation()
 	. = ..()

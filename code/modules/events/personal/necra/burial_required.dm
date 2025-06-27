@@ -1,5 +1,5 @@
 /datum/round_event_control/necra_burials
-	name = "Burial Demand"
+	name = "Burial Request"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/necra_burials
 	weight = 10

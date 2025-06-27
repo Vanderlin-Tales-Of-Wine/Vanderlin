@@ -6,6 +6,7 @@
 
 /datum/objective/ravox_duel/on_creation()
 	. = ..()
+	duels_required = prob(66) ? 1 : 2
 	if(owner?.current)
 		owner.current.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/ravox_challenge)
 	update_explanation_text()
@@ -14,13 +15,13 @@
 	duels_won++
 	if(duels_won >= duels_required && !completed)
 		to_chat(owner.current, span_greentext("You have proven your worth in combat! Ravox is pleased!"))
-		owner.current.adjust_triumphs(2)
+		owner.current.adjust_triumphs(duels_required)
 		completed = TRUE
-		adjust_storyteller_influence("Ravox", 25)
+		adjust_storyteller_influence("Ravox", duels_required * 10)
 		escalate_objective()
 
 /datum/objective/ravox_duel/update_explanation_text()
-	explanation_text = "Win [duels_required] honor duels against other warriors to prove your might!"
+	explanation_text = "Win [duels_required] duel\s with honor against other warriors to prove your might!"
 
 /obj/effect/proc_holder/spell/targeted/ravox_challenge
 	name = "Challenge to Duel"

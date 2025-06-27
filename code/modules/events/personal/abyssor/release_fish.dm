@@ -1,5 +1,5 @@
 /datum/round_event_control/abyssor_fish_release
-	name = "Fish Release Request"
+	name = "Free Fish"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/abyssor_fishing
 	weight = 10

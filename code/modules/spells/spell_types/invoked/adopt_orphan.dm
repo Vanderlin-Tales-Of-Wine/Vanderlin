@@ -10,48 +10,48 @@
 /obj/effect/proc_holder/spell/invoked/adopt_child/cast(list/targets, mob/user = usr)
 	var/mob/living/carbon/human/H = user
 	if(!istype(H))
-		return
+		return FALSE
 
 	var/mob/living/carbon/human/target = targets[1]
 	if(!istype(target))
 		to_chat(H, span_warning("You must target a person!"))
-		return
+		return FALSE
 
 	if(target == H)
 		to_chat(H, span_warning("You cannot adopt yourself!"))
-		return
+		return FALSE
 
 	if(target.age != AGE_CHILD)
 		to_chat(H, span_warning("You can only adopt children!"))
-		return
+		return FALSE
 
 	if(target.family_datum && target.family_member_datum?.parents.len)
 		to_chat(H, span_warning("This child is not an orphan!"))
-		return
+		return FALSE
 
 	if(target.job != "Orphan" && !istype(target.mind?.assigned_role, /datum/job/orphan))
 		to_chat(H, span_warning("This child is not an orphan!"))
-		return
+		return FALSE
 
 	H.visible_message(span_notice("[H] begins a solemn adoption ritual."), \
 					span_notice("You begin the adoption ritual with Eora's blessing..."))
 
 	if(!do_after(H, 5 SECONDS, target = target))
 		to_chat(H, span_warning("The ritual was interrupted!"))
-		return
+		return FALSE
 
 	var/choice = alert(target, "Do you wish to be adopted by [H.real_name] and become part of their family?", "Adoption Offer", "Yes", "No")
 	if(choice != "Yes")
 		to_chat(H, span_warning("[target] has rejected your adoption offer!"))
-		return
+		return FALSE
 
 	if(!target.Adjacent(H))
 		to_chat(H, span_warning("The child is too far away!"))
-		return
+		return FALSE
 
 	if(target.family_datum)
 		to_chat(H, span_warning("The child has a family already!"))
-		return
+		return FALSE
 
 	var/datum/heritage/family = H.family_datum
 	if(!family)

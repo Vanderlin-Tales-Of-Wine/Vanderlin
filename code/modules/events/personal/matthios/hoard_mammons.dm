@@ -1,5 +1,5 @@
 /datum/round_event_control/matthios_hoard
-	name = "Golden Demand"
+	name = "Mammon Desire"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/matthios_hoard
 	weight = 10

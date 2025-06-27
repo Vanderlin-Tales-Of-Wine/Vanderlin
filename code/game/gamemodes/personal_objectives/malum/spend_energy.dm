@@ -2,7 +2,7 @@
 	name = "Spend Energy"
 	triumph_count = 0
 	var/energy_spent = 0
-	var/energy_required = 100
+	var/energy_required = 1000
 
 /datum/objective/energy_expenditure/on_creation()
 	. = ..()

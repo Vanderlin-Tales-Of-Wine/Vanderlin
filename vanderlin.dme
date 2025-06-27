@@ -1942,7 +1942,7 @@
 #include "code\modules\events\personal\astrata\inhumen_scorn.dm"
 #include "code\modules\events\personal\astrata\nobility_aspiration.dm"
 #include "code\modules\events\personal\astrata\recruit_retainer.dm"
-#include "code\modules\events\personal\baotha\slap.dm"
+#include "code\modules\events\personal\baotha\forbidden_slap.dm"
 #include "code\modules\events\personal\baotha\sniff_drugs.dm"
 #include "code\modules\events\personal\baotha\taste_lux.dm"
 #include "code\modules\events\personal\dendor\butcher_animals.dm"

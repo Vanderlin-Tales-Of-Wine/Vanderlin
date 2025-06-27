@@ -24,10 +24,10 @@
 	if(slaps_completed >= slaps_required)
 		complete_objective()
 	else
-		to_chat(owner.current, span_notice("Ass slapped! [slaps_required - slaps_completed] more complete Baotha's will!"))
+		to_chat(owner.current, span_notice("Ass slapped! Slap [slaps_required - slaps_completed] more to complete Baotha's will!"))
 
 /datum/objective/ass_slap/proc/complete_objective()
-	to_chat(owner.current, span_greentext("You've satisfied Baotha's desires with your ass slaps!"))
+	to_chat(owner.current, span_greentext("You've satisfied Baotha's desire with your ass slaps!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Baotha", 15)
@@ -35,4 +35,4 @@
 	UnregisterSignal(owner.current, COMSIG_ASS_SLAPPED)
 
 /datum/objective/ass_slap/update_explanation_text()
-	explanation_text = "Slap at least [slaps_required] asses to satisfy Baotha's desires."
+	explanation_text = "Slap at least [slaps_required] asses to satisfy Baotha's desire."

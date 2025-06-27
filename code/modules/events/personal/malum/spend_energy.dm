@@ -1,5 +1,5 @@
 /datum/round_event_control/spend_energy
-	name = "Malum's Demand"
+	name = "Work Hard"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/spend_energy
 	weight = 10

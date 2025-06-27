@@ -1,5 +1,5 @@
 /datum/round_event_control/noc_literacy
-	name = "Literacy Desire"
+	name = "Get Literate"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/noc_literacy
 	weight = 10

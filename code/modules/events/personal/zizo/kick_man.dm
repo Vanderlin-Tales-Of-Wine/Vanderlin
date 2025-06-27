@@ -1,7 +1,7 @@
-/datum/round_event_control/zizos_demand
-	name = "Zizo's Demand"
+/datum/round_event_control/zizos_misandry
+	name = "Zizo's Misandry"
 	track = EVENT_TRACK_PERSONAL
-	typepath = /datum/round_event/zizos_demand
+	typepath = /datum/round_event/zizos_misandry
 	weight = 10
 	earliest_start = 10 MINUTES
 	max_occurrences = 1
@@ -11,7 +11,7 @@
 		TAG_BATTLE,
 	)
 
-/datum/round_event_control/zizos_demand/canSpawnEvent(players_amt, gamemode, fake_check)
+/datum/round_event_control/zizos_misandry/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -27,7 +27,7 @@
 
 	return FALSE
 
-/datum/round_event/zizos_demand/start()
+/datum/round_event/zizos_misandry/start()
 	var/list/valid_targets = list()
 
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
