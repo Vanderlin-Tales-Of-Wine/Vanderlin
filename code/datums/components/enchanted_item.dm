@@ -60,7 +60,7 @@ There used to be a concept for a blade to set people on fire - but it was too br
 		I.obj_integrity += DURABILITY_INCREASE
 		var/durability_filter = I.get_filter(DURABILITY_FILTER)
 		if(!durability_filter)
-			I.add_filter(DURABILITY_FILTER, 2, loutline_filter(1, "#808080"))
+			I.add_filter(DURABILITY_FILTER, 2, outline_filter(1, "#808080"))
 
 	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equip))
