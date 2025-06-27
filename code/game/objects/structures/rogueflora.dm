@@ -141,7 +141,7 @@
 			closest_wise.retaliate(user, source)
 
 /obj/structure/flora/tree/wise/proc/retaliate(mob/living/target, obj/structure/flora/attacked_tree)
-	if(cooldown || !istype(target) || !activated)
+	if(cooldown || !istype(target) || !activated || !attacked_tree)
 		return
 
 	cooldown = TRUE
