@@ -2,7 +2,7 @@
 	name = "Xylix's Game"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/xylix_gamble
-	weight = 10
+	weight = 7
 	earliest_start = 10 MINUTES
 	max_occurrences = 1
 	min_players = 20
