@@ -753,7 +753,7 @@
 		if(L.eyesclosed)
 			L.eyesclosed = 0
 			L.cure_blind("eyelids")
-			update_appearance(UPDATE_ICON_STATE)
+			update_appearance(UPDATE_ICON)
 			return
 
 	if(modifiers["left"])
@@ -769,7 +769,7 @@
 		if(isliving(hud.mymob))
 			var/mob/living/L = hud.mymob
 			L.look_up()
-	update_appearance(UPDATE_ICON_STATE)
+	update_appearance(UPDATE_ICON)
 
 	if(modifiers["right"])
 		if(isliving(hud.mymob))
