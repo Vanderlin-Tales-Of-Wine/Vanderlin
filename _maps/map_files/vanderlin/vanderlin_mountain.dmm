@@ -1786,7 +1786,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "BR" = (
-/obj/effect/traveltile_spawner/vertical/bandit,
+/obj/effect/spawner/traveltile_spawner/vertical/bandit,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "BU" = (
@@ -1980,7 +1980,7 @@
 /turf/open/water/swamp,
 /area/rogue/under/mountains/anvil/lower)
 "EK" = (
-/obj/effect/traveltile_spawner/horizontal/inhumen,
+/obj/effect/spawner/traveltile_spawner/horizontal/inhumen,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "EO" = (
@@ -2999,7 +2999,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower/building)
 "TQ" = (
-/obj/effect/traveltile_spawner/horizontal/vampire,
+/obj/effect/spawner/traveltile_spawner/horizontal/vampire,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "TT" = (
@@ -3340,7 +3340,7 @@
 /turf/open/floor/volcanic,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "YV" = (
-/obj/effect/traveltile_spawner/vertical/bandit,
+/obj/effect/spawner/traveltile_spawner/vertical/bandit,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "YZ" = (
@@ -3382,7 +3382,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "Zs" = (
-/obj/effect/traveltile_spawner/vertical/vampire,
+/obj/effect/spawner/traveltile_spawner/vertical/vampire,
 /turf/open/floor/dirt,
 /area/rogue/under/mountains/anvil/lower)
 "Zu" = (

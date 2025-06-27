@@ -559,9 +559,9 @@
 			possible_offhand_intents += new defintent(src)
 	if(hud_used?.action_intent)
 		if(active_hand_index == 1)
-			hud_used.action_intent.update_icon(possible_a_intents,possible_offhand_intents,oactive)
+			hud_used.action_intent.update(possible_a_intents, possible_offhand_intents, oactive)
 		else
-			hud_used.action_intent.update_icon(possible_offhand_intents,possible_a_intents,oactive)
+			hud_used.action_intent.update(possible_offhand_intents, possible_a_intents, oactive)
 	if(active_hand_index == 1)
 		if(l_index <= possible_a_intents.len)
 			rog_intent_change(l_index)
@@ -686,7 +686,7 @@
 	playsound_local(src, 'sound/misc/click.ogg', 100)
 	if(hud_used)
 		if(hud_used.def_intent)
-			hud_used.def_intent.update_icon()
+			hud_used.def_intent.update_appearance(UPDATE_ICON_STATE)
 	update_inv_hands()
 
 
@@ -702,7 +702,7 @@
 		if(cmode)
 			cmode = FALSE
 		refresh_looping_ambience()
-		hud_used?.cmode_button?.update_icon()
+		hud_used?.cmode_button?.update_appearance(UPDATE_ICON_STATE)
 		return
 	if(cmode)
 		playsound_local(src, 'sound/misc/comboff.ogg', 100)
@@ -713,7 +713,7 @@
 		cmode = TRUE
 		playsound_local(src, 'sound/misc/combon.ogg', 100)
 	refresh_looping_ambience()
-	hud_used?.cmode_button?.update_icon()
+	hud_used?.cmode_button?.update_appearance(UPDATE_ICON_STATE)
 
 /mob
 	var/last_aimhchange = 0
@@ -773,7 +773,7 @@
 		playsound_local(src, 'sound/misc/click.ogg', 50, TRUE)
 		if(hud_used)
 			if(hud_used.zone_select)
-				hud_used.zone_select.update_icon()
+				hud_used.zone_select.update_appearance()
 
 /mob/proc/select_organ_slot(choice)
 	organ_slot_selected = choice

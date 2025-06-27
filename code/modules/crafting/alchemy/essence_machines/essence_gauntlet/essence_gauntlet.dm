@@ -185,7 +185,7 @@
 				remaining_to_consume -= to_consume
 				if(vial.essence_amount <= 0)
 					vial.contained_essence = null
-				vial.update_icon()
+				vial.update_appearance(UPDATE_OVERLAYS)
 		return remaining_to_consume <= 0
 
 	for(var/attunement_path in required_attunements)
@@ -201,7 +201,7 @@
 				remaining_to_consume -= to_consume
 				if(vial.essence_amount <= 0)
 					vial.contained_essence = null
-				vial.update_icon()
+				vial.update_appearance(UPDATE_OVERLAYS)
 
 	return remaining_to_consume <= 0
 

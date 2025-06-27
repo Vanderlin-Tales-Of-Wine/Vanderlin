@@ -5,7 +5,7 @@
 	weight = 7
 	earliest_start = 5 MINUTES
 	max_occurrences = 1
-	min_players = 20
+	min_players = 25
 
 	tags = list(
 		TAG_BOON,
@@ -37,7 +37,7 @@
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/astrata))
 			continue
-		if(human_mob.is_noble())
+		if(human_mob.is_noble() || (human_mob.mind?.assigned_role.title in GLOB.church_positions))
 			continue
 		if(!(human_mob.dna?.species.name in RACES_PLAYER_NONHERETICAL))
 			continue
@@ -51,7 +51,7 @@
 	var/datum/objective/nobility/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE ASTRATA'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Astrata wishes you to ascend in status! Become a part of the nobility to earn Astrata's favor!"))
 	chosen_one.playsound_local(chosen_one, 'sound/magic/bless.ogg', 100)
 

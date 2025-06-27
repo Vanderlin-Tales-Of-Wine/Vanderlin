@@ -44,17 +44,18 @@ GLOBAL_LIST_EMPTY(lord_titles)
 /datum/job/lord/after_spawn(mob/living/spawned, client/player_client)
 	..()
 	SSticker.rulermob = spawned
-	addtimer(CALLBACK(spawned, TYPE_PROC_REF(/mob, lord_color_choice)), 5 SECONDS)
+	var/mob/living/carbon/human/H = spawned
+	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob, lord_color_choice)), 5 SECONDS)
 	if(spawned.gender == MALE)
-		SSfamilytree.AddRoyal(spawned, FAMILY_FATHER)
+		SSfamilytree.AddRoyal(H, FAMILY_FATHER)
 		ruler_title = "[SSmapping.config.monarch_title]"
 	else
-		SSfamilytree.AddRoyal(spawned, FAMILY_MOTHER)
+		SSfamilytree.AddRoyal(H, FAMILY_MOTHER)
 		ruler_title = "[SSmapping.config.monarch_title_f]"
-	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of [SSmapping.config.map_name]."))]</b>")
+	to_chat(world, "<b>[span_notice(span_big("[H.real_name] is [ruler_title] of [SSmapping.config.map_name]."))]</b>")
 	to_chat(world, "<br>")
 	if(GLOB.keep_doors.len > 0)
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), spawned), 70)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 7 SECONDS)
 
 /datum/outfit/job/lord
 	job_bitflag = BITFLAG_ROYALTY

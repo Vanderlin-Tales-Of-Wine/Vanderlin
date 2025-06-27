@@ -455,11 +455,10 @@
 
 /datum/mana_pool/proc/set_max_mana(new_max, change_amount = FALSE, change_softcap = TRUE)
 	var/percent = get_percent_to_max() //originally this was a duplicate redefinition- see change_amount
-	var/softcap_percent = get_percent_of_softcap_to_max()
+	var/softcap_increase = new_max - maximum_mana_capacity
 
 	if (change_softcap)
-		softcap_percent = get_percent_of_softcap_to_max() // originally softcap_percent was defined here
-		softcap = new_max * (softcap_percent / 100)
+		softcap += softcap_increase
 
 	if (change_amount)
 		percent = get_percent_to_max() // this used to be var/percent. why?

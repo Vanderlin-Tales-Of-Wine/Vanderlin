@@ -296,7 +296,7 @@
 	adjust_weeds(-30, FALSE)
 	if(plant)
 		playsound(src, "plantcross", 90, FALSE)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/soil/proc/bless_soil()
 	blessed_time = 15 MINUTES
@@ -364,15 +364,15 @@
 		force_update = process_plant(dt)
 	process_soil(dt)
 	if(soil_decay_time <= 0)
-		decay_soil()
+		decay_soil(TRUE)
 		return
 	if(force_update)
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 		return
 	if(!COOLDOWN_FINISHED(src, soil_update))
 		return
 	COOLDOWN_START(src, soil_update, 10 SECONDS)
-	update_icon() // only update icon after all the processes have run
+	update_appearance(UPDATE_OVERLAYS) // only update icon after all the processes have run
 
 /obj/structure/soil/update_overlays()
 	. = ..()
@@ -731,7 +731,7 @@
 	if(produce_ready)
 		ruin_produce()
 	plant = null
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /// Spawns uproot loot, such as a long from an apple tree when removing the tree
 /obj/structure/soil/proc/yield_uproot_loot()
@@ -743,7 +743,7 @@
 /// Yields produce on its tile if it's ready for harvest
 /obj/structure/soil/proc/ruin_produce()
 	produce_ready = FALSE
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /// Yields produce on its tile if it's ready for harvest
 /obj/structure/soil/proc/yield_produce(modifier = 0)
@@ -784,7 +784,7 @@
 		crop_quality = QUALITY_REGULAR
 		quality_points = 0
 
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/soil/proc/insert_plant(datum/plant_def/new_plant)
 	if(plant)
@@ -799,7 +799,7 @@
 	// Reset quality values
 	crop_quality = QUALITY_REGULAR
 	quality_points = 0
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/soil/debug_soil
 	var/obj/item/neuFarm/seed/seed_to_grow

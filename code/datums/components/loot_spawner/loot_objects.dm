@@ -20,7 +20,7 @@
 
 /obj/structure/lootable_structure/proc/update_loot()
 	empty = TRUE
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/lootable_structure/update_icon_state()
 	. = ..()

@@ -1,14 +1,10 @@
 /obj/item/reagent_containers/glass/bucket/pot
-	force = 10
 	name = "pot"
 	desc = "The peasants friend, when filled with boiling water it will turn the driest oats to filling oatmeal."
-
 	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "pote"
-
-	sharpness = IS_BLUNT
-	slot_flags = null
-	w_class = WEIGHT_CLASS_BULKY
+	fill_icon_state = null
+	force = 10
 	drop_sound = 'sound/foley/dropsound/shovel_drop.ogg'
 	var/processing_amount = 0 ///we use this to "reserve" reagents
 	var/static/list/recipe_list = list()
@@ -25,34 +21,6 @@
 
 /obj/item/reagent_containers/glass/bucket/pot/copper
 	icon_state = "pote_copper"
-
-/obj/item/reagent_containers/glass/bucket/pot/update_icon()
-	cut_overlays()
-	if(reagents.total_volume > 0)
-		if(reagents.total_volume <= 50)
-			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "pote_half")
-			filling.color = mix_color_from_reagents(reagents.reagent_list)
-			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
-			for(var/datum/reagent/reagent as anything in reagents.reagent_list)
-				if(reagent.glows)
-					var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/cooking.dmi', "pote_half")
-					emissive.plane = EMISSIVE_PLANE
-					overlays += emissive
-					break
-			add_overlay(filling)
-
-		if(reagents.total_volume > 50)
-			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "pote_full")
-			filling.color = mix_color_from_reagents(reagents.reagent_list)
-			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
-			for(var/datum/reagent/reagent as anything in reagents.reagent_list)
-				if(reagent.glows)
-					var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/cooking.dmi', "pote_full")
-					emissive.plane = EMISSIVE_PLANE
-					overlays += emissive
-					break
-			add_overlay(filling)
-
 
 /obj/item/reagent_containers/glass/bucket/pot/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/reagent_containers/glass/bowl))

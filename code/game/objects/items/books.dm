@@ -202,10 +202,11 @@
 		open = FALSE
 		playsound(loc, 'sound/items/book_close.ogg', 100, FALSE, -1)
 	curpage = 1
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	user.update_inv_hands()
 
-/obj/item/book/update_icon()
+/obj/item/book/update_icon_state()
+	. = ..()
 	icon_state = "[base_icon_state]_[open]"
 
 /obj/item/book/secret/ledger
@@ -999,9 +1000,8 @@
 /// Called when our pages have been updated.
 /obj/item/manuscript/proc/update_pages()
 	number_of_pages = length(pages)
-	//name = "[number_of_pages] page manuscript"
 	desc = "A [number_of_pages]-page written piece, with aspirations of becoming a book."
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 	compiled_pages = null
 	for(var/obj/item/paper/page as anything in pages)
@@ -1089,6 +1089,7 @@
 		</body>
 	</html>
 	"}
+	dat += "<a href='byond://?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
 	user << browse(dat, "window=reading;size=1000x700;can_close=1;can_minimize=0;can_maximize=0;can_resize=0;")
 	onclose(user, "reading", src)
 
@@ -1122,7 +1123,7 @@
 		return
 	return ..()
 
-/obj/item/manuscript/update_icon()
+/obj/item/manuscript/update_icon_state()
 	. = ..()
 	switch(length(pages))
 		if(2)
@@ -1137,7 +1138,7 @@
 			dir = SOUTHEAST
 		if(7)
 			dir = SOUTHWEST
-		else //8
+		else
 			dir = NORTHWEST
 
 /obj/item/manuscript/fire_act(added, maxstacks)

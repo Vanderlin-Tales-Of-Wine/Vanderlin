@@ -693,7 +693,7 @@
 	icon_state = "brownkey"
 	lockids = list("luxroomv")
 
-/obj/item/key/luxroomiv
+/obj/item/key/luxroomvi
 	name = "luxury room VI key"
 	desc = "The key to the sixth luxury room."
 	icon_state = "brownkey"
@@ -704,6 +704,37 @@
 	desc = "The key to the most luxurious Inn room."
 	icon_state = "brownkey"
 	lockids = list("roomhunt")
+
+/obj/item/key/thatchwood
+	name = "ABSTRACT THATCHWOOD KEY CALL CODERS"
+	desc = "Contact a dev on the discord, or make a bug report"
+	icon_state = "brownkey"
+	abstract_type = /obj/item/key/thatchwood
+
+/obj/item/key/thatchwood/farm
+	name = "old farmhouse key"
+	desc = "A rusty key. Specs of dirt and soil cover its handle."
+	lockids = list("oldfarm")
+
+/obj/item/key/thatchwood/smithy
+	name = "old smithy key"
+	desc = "A rusty key."
+	lockids = list("oldsmith")
+
+/obj/item/key/thatchwood/inn1
+	name = "room I key"
+	desc = "A rusty key. The number I has been engraved on its handle."
+	lockids = list("oldinn1")
+
+/obj/item/key/thatchwood/inn2
+	name = "room II key"
+	desc = "A rusty key. The number II has been engraved on its handle."
+	lockids = list("oldinn2")
+
+/obj/item/key/thatchwood/inn3
+	name = "side room key"
+	desc = "A rusty key. Something was engraved on its handle, but you can't make it out anymore."
+	lockids = list("oldinn3")
 
 // Special Keys
 

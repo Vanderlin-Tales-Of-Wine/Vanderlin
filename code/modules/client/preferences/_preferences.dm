@@ -292,9 +292,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	dat += "<td width=40% valign='top'>"
 
 	//-----------START OF IDENT TABLE-----------//
-	dat += "<h2>Identity</h2>"
+	dat += "<h2 style='padding-left: 4px'>Identity</h2>"
 	dat += "<table width='100%'><tr><td width='75%' valign='top'>"
-	dat += "<a style='white-space:nowrap;' href='?_src_=prefs;preference=randomiseappearanceprefs;'>Randomize Character</a>"
+	dat += "<a style='white-space:nowrap; padding: 0px' href='?_src_=prefs;preference=randomiseappearanceprefs;'>Randomize Character</a>"
 	dat += "<br>"
 	dat += "<b>Name:</b> "
 	if(check_nameban(user.ckey))
@@ -340,7 +340,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	dat += "<td width=20% valign='top'>"
 	// Rightmost column, 40% width
 	dat += "<td width=40% valign='top'>"
-	dat += "<h2>Body</h2>"
+	dat += "<h2 style='padding-left: 4px'>Body</h2>"
 
 	//-----------START OF BODY TABLE-----------
 	dat += "<table width='100%'><tr><td width='1%' valign='top'>"
@@ -386,7 +386,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	dat += "<td width='33%' align='center'>"
 	var/mob/dead/new_player/N = user
 	if(istype(N))
-		dat += "<a href='?_src_=prefs;preference=bespecial'><b>[next_special_trait ? "<font color='red'>SPECIAL</font>" : "Be Special"]</b></a><BR>"
+		dat += "<a href='?_src_=prefs;preference=bespecial'><b>[next_special_trait ? "<font color='red'>SPECIAL</font>" : "BE SPECIAL"]</b></a><BR>"
 		if(SSticker.current_state <= GAME_STATE_PREGAME)
 			switch(N.ready)
 				if(PLAYER_NOT_READY)
