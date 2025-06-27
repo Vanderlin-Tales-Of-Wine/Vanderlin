@@ -80,7 +80,15 @@
 
 /obj/item/coin/proc/set_quantity(new_quantity)
 	quantity = new_quantity
-	update_icon()
+	if(quantity > 1)
+		drop_sound = 'sound/foley/coins1.ogg'
+	else
+		drop_sound = 'sound/foley/coinphy (1).ogg'
+	if(quantity == 1 || quantity == 2)
+		dropshrink = 0.2
+	else
+		dropshrink = 1
+	update_appearance(UPDATE_ICON_STATE | UPDATE_DESC | UPDATE_NAME)
 	update_transform()
 
 /obj/item/coin/get_displayed_price(mob/user)
@@ -281,28 +289,14 @@
 			user.visible_message("<span class='info'>[user] flips the coin. Tails!</span>")
 			heads_tails = FALSE
 	rigged_outcome = 0
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
-/obj/item/coin/update_icon()
-	..()
-	if(quantity > 1)
-		drop_sound = 'sound/foley/coins1.ogg'
-	else
-		drop_sound = 'sound/foley/coinphy (1).ogg'
-
-	if(quantity == 1)
-		name = initial(name)
-		desc = initial(desc)
-		icon_state = "[base_type][heads_tails]"
-		dropshrink = 0.2
-		return
-
-	name = plural_name
-	desc = ""
-	dropshrink = 1
+/obj/item/coin/update_icon_state()
+	. = ..()
 	switch(quantity)
+		if(1)
+			icon_state = "[base_type][heads_tails]"
 		if(2)
-			dropshrink = 0.2 // this is just like the single coin, gotta shrink it
 			icon_state = "[base_type]m"
 			if(heads_tails == last_merged_heads_tails)
 				icon_state = "[base_type][heads_tails]1"
@@ -317,6 +311,19 @@
 		if(16 to INFINITY)
 			icon_state = "[base_type]15"
 
+/obj/item/coin/update_name()
+	. = ..()
+	if(quantity == 1)
+		name = initial(name)
+	else
+		name = plural_name
+
+/obj/item/coin/update_desc()
+	. = ..()
+	if(quantity == 1)
+		desc = initial(desc)
+	else
+		desc = ""
 
 /obj/item/coin/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/coin))

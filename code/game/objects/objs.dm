@@ -76,6 +76,9 @@
 	/// If this is currently being lockpicked
 	var/being_picked = FALSE
 
+	/// Uses colours defined by the monarch roundstart see [lordcolor.dm]
+	var/uses_lord_coloring = FALSE
+
 	vis_flags = VIS_INHERIT_PLANE
 
 /obj/vv_edit_var(vname, vval)

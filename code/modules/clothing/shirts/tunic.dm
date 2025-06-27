@@ -42,14 +42,4 @@
 
 /obj/item/clothing/shirt/tunic/tunicprimary
 	color = CLOTHING_BLOOD_RED
-
-/obj/item/clothing/shirt/tunic/tunicprimary/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/shirt/tunic/tunicprimary/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY

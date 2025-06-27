@@ -11,13 +11,12 @@
 
 /obj/item/paint_brush/update_overlays()
 	. = ..()
-	cut_overlays()
 	if(!current_color)
 		return
 
 	var/mutable_appearance/MA = mutable_appearance(icon, "paintbrush-color")
 	MA.color = current_color
-	add_overlay(MA)
+	. += MA
 
 /obj/item/paint_brush/afterattack(atom/target, mob/living/user, proximity_flag, click_parameters)
 	. = ..()
@@ -31,12 +30,10 @@
 			current_color = merge_color
 		else
 			current_color = BlendRGB(current_color, merge_color, 0.5)
-		update_overlays()
+		update_appearance(UPDATE_OVERLAYS)
 		return
 
-	if(!target.reagents)
-		return
-	if(!(target.reagents.flags & OPENCONTAINER))
+	if(!(target?.reagents?.flags & DRAINABLE))
 		return
 
 	if(target.reagents.has_reagent(/datum/reagent/water))
@@ -44,4 +41,4 @@
 		if(!do_after(user, 1 SECONDS, target))
 			return
 		current_color = null
-		update_overlays()
+		update_appearance(UPDATE_OVERLAYS)
