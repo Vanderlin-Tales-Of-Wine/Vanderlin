@@ -74,12 +74,10 @@
 	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands
 	. = ..()
 
-/mob/living/simple_animal/hostile/gnome_homunculus/update_icon()
+/mob/living/simple_animal/hostile/gnome_homunculus/update_overlays()
 	. = ..()
-	cut_overlays()
-
 	if(hat_state)
-		overlays += mutable_appearance(icon, hat_state)
+		. += mutable_appearance(icon, hat_state)
 
 /mob/living/simple_animal/hostile/gnome_homunculus/proc/item_matches_filter(obj/item/target_item)
 	if(!length(item_filters))
@@ -88,4 +86,4 @@
 
 /mob/living/simple_animal/hostile/gnome_homunculus/proc/hat()
 	hat_state = pick("spike_helm", "fungi_helm", "fungi_helm_bog", "gnome_helm", null)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)

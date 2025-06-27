@@ -17,7 +17,7 @@
 	SIGNAL_HANDLER
 	if(QDELETED(src))
 		return
-	qdel(src, 6)
+	qdel(src)
 
 /datum/effect_system/expl_particles
 	number = 10
@@ -39,7 +39,7 @@
 
 /obj/effect/explosion/Initialize()
 	. = ..()
-	QDEL_IN(src, 1.2 SECONDS)
+	QDEL_IN(src, 1 SECONDS)
 
 /datum/effect_system/explosion
 
@@ -61,4 +61,4 @@
 
 /datum/effect_system/explosion/smoke/start()
 	..()
-	addtimer(CALLBACK(src, PROC_REF(create_smoke)), 5)
+	addtimer(CALLBACK(src, PROC_REF(create_smoke)), 0.5 SECONDS)

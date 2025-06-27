@@ -45,8 +45,6 @@
 		if(!LAZYLEN(linked_minds))
 			ADD_TRAIT(src, TRAIT_MOVE_FLOATING, LIFECANDLE_TRAIT)
 
-	update_icon()
-
 	if(LAZYLEN(linked_minds))
 		START_PROCESSING(SSobj, src)
 		set_light(lit_luminosity)
@@ -54,7 +52,8 @@
 		STOP_PROCESSING(SSobj, src)
 		set_light(0)
 
-/obj/structure/life_candle/update_icon()
+/obj/structure/life_candle/update_icon_state()
+	. = ..()
 	if(LAZYLEN(linked_minds))
 		icon_state = icon_state_active
 	else
