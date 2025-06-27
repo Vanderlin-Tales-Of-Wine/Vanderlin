@@ -35,7 +35,7 @@
 		return
 
 	var/turf/below = get_step_multiz(target, DOWN)
-	if(below && !istype(below, /turf/open/transparent/openspace))
+	if(below && istype(below, /turf/open/transparent/openspace))
 		to_chat(H, span_warning("You must target the base of the tree!"))
 		return
 
