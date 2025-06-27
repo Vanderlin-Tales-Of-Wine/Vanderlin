@@ -1,5 +1,5 @@
 /datum/round_event_control/xylix_gamble
-	name = "Xylix's Gamble"
+	name = "Xylix's Game"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/xylix_gamble
 	weight = 10

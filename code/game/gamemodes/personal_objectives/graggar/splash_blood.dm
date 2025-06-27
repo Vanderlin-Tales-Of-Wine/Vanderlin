@@ -19,15 +19,15 @@
 		return
 
 	var/blood_amount = 0
-	for(var/reagent_type in reagents_splashed)
+	for(var/datum/reagent/reagent_type as anything in reagents_splashed)
 		if(istype(reagent_type, /datum/reagent/blood))
-			blood_amount += reagents_splashed[reagent_type]
+			blood_amount += reagent_type.volume
 
-	if(blood_amount >= 10)
+	if(blood_amount >= 30)
 		complete_objective()
 
 /datum/objective/blood_splash/proc/complete_objective()
-	to_chat(owner.current, span_greentext("The blood ritual pleases Graggar!"))
+	to_chat(owner.current, span_greentext("You have performed the blood ritual, appeasing Graggar!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Graggar", 15)

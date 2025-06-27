@@ -56,7 +56,7 @@
 	if(calm)
 		to_chat(chosen_one, span_notice("Abyssor is calm at the moment. Take a relaxing bath while wearing his amulet to honor him!"))
 	else
-		to_chat(chosen_one, span_notice("Abyssor is RAGING like a storm! Splash an ingrate who forgot his name with a bucket full of water!"))
+		to_chat(chosen_one, span_notice("Abyssor is RAGING like a storm! Splash those who forgot his name with a bucket full of water to help them remember!"))
 	chosen_one.playsound_local(chosen_one, 'sound/items/bucket_transfer (2).ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()
