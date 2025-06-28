@@ -35896,7 +35896,6 @@
 /obj/structure/door/swing{
 	lockid = "MountainManorEast"
 	},
-/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/grass/cold,
 /area/rogue/indoors/town)
 "tGy" = (
@@ -41560,8 +41559,6 @@
 /area/rogue/under/town/sewer)
 "wLk" = (
 /obj/structure/closet/crate/crafted_closet,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "wLq" = (
