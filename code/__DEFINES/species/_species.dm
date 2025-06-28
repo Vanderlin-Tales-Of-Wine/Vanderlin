@@ -15,7 +15,7 @@
 #define RACE_HUMAN_SPACE "Human"
 
 // ============ USING ID BECAUSE FUCK YOU
-/// List of all species
+/// List of all species. **RACES IN CODE ONLY, "SPECIES" EVERYWHERE ELSE!!**
 #define ALL_RACES_LIST list(\
 	"human",\
 	"demihuman",\
@@ -151,13 +151,13 @@
 	RACE_HALF_DROW,\
 )
 
-/// Patreon only races.
+/// Patreon only species.
 #define RACES_PLAYER_PATREON list(\
 	RACE_KOBOLD,\
 	RACE_HOLLOWKIN,\
 )
 
-/// Guard Races - No Orcs or Dark Elf
+/// Guard Species - No Orcs or Dark Elf
 #define RACES_PLAYER_GUARD list(\
 	RACE_HUMEN,\
 	RACE_DWARF,\
@@ -171,7 +171,7 @@
 	RACE_TRITON,\
 )
 
-/// Foreigner Nobility Races - No Tiefling (you know why) or hollow-kin
+/// Foreigner Nobility Species - No Tiefling (you know why) or hollow-kin
 #define RACES_PLAYER_FOREIGNNOBLE list(\
 	RACE_HUMEN,\
 	RACE_DWARF,\
