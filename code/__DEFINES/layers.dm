@@ -66,7 +66,6 @@
 #define GASFIRE_LAYER 5.05
 #define RIPPLE_LAYER 5.1
 #define AREA_LAYER	12
-#define CHAT_LAYER 12.1
 
 #define OPENSPACE_LAYER 600 //! Openspace layer over all
 
@@ -172,6 +171,9 @@
 ///AI Camera Static
 #define CAMERA_STATIC_PLANE 200
 #define CAMERA_STATIC_RENDER_TARGET "CAMERA_STATIC_RENDER_TARGET"
+
+// Floating chat messages
+#define RUNECHAT_PLANE 250
 
 ///--------------- FULLSCREEN IMAGES ------------
 #define FULLSCREEN_PLANE 500
