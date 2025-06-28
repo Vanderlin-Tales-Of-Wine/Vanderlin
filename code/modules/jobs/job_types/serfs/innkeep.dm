@@ -20,8 +20,7 @@
 		"Dwarf",
 		"Tiefling",
 		"Dark Elf",
-		"Aasimar",
-		"Rakshari"
+		"Aasimar"
 	)
 
 	outfit = /datum/outfit/job/innkeep
