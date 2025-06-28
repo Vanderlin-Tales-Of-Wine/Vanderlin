@@ -11,7 +11,6 @@
 	throw_range = 3
 	var/old_render = TRUE
 
-
 /obj/item/paper/scroll/attackby(obj/item/P, mob/living/carbon/human/user, params)
 	if(istype(P, /obj/item/natural/thorn) || istype(P, /obj/item/natural/feather))
 		if(!open)
@@ -40,7 +39,7 @@
 		user.visible_message("<span class='notice'>[user] opens the missive from [mailer].</span>")
 		mailer = null
 		mailedto = null
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 		return
 	if(!open)
 		attack_right(user)
@@ -76,8 +75,8 @@
 	onclose(user, "reading", src)
 
 /obj/item/paper/scroll/Initialize()
-	update_icon_state()
 	. = ..()
+	update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 
 /obj/item/paper/scroll/rmb_self(mob/user)
 	attack_right(user)
@@ -92,27 +91,35 @@
 		slot_flags &= ~ITEM_SLOT_HIP
 		open = TRUE
 		playsound(src, 'sound/items/scroll_open.ogg', 100, FALSE)
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 	user.update_inv_hands()
 
 /obj/item/paper/scroll/update_icon_state()
+	. = ..()
 	if(mailer)
 		icon_state = "scroll_prep"
 		open = FALSE
-		name = "missive"
 		slot_flags |= ITEM_SLOT_HIP
 		throw_range = 7
 		return
 	throw_range = initial(throw_range)
-	if(open)
-		if(info)
-			icon_state = "scrollwrite"
-		else
-			icon_state = "scroll"
-		name = initial(name)
-	else
+	if(!open)
 		icon_state = "scroll_closed"
+		return
+	if(info)
+		icon_state = "scrollwrite"
+	else
+		icon_state = "scroll"
+
+/obj/item/paper/scroll/update_name()
+	. = ..()
+	if(mailer)
+		name = "missive"
+		return
+	if(!open)
 		name = "scroll"
+	else
+		name = initial(name)
 
 /obj/item/paper/scroll/cargo
 	name = "shipping order"
@@ -138,16 +145,21 @@
 	//for each order, add up total price and display orders
 
 /obj/item/paper/scroll/cargo/update_icon_state()
-	if(open)
-		if(signedname)
-			icon_state = "contractsigned"
-		else
-			icon_state = "contractunsigned"
-		name = initial(name)
-	else
+	. = ..()
+	if(!open)
 		icon_state = "scroll_closed"
-		name = "scroll"
+		return ..()
+	if(signedname)
+		icon_state = "contractsigned"
+	else
+		icon_state = "contractunsigned"
 
+/obj/item/paper/scroll/cargo/update_name()
+	. = ..()
+	if(!open)
+		name = "scroll"
+	else
+		name = initial(name)
 
 /obj/item/paper/scroll/cargo/attackby(obj/item/P, mob/living/carbon/human/user, params)
 	if(istype(P, /obj/item/natural/feather))
@@ -163,9 +175,8 @@
 						if(do_after(user, 2 SECONDS, src))
 							signedname = user.real_name
 							signedjob = user.mind.assigned_role.get_informed_title(user)
-							icon_state = "contractsigned"
 							user.visible_message(span_notice("[user] signs [src]."), span_notice("I sign [src]."))
-							update_icon_state()
+							update_appearance(UPDATE_ICON_STATE)
 							playsound(src, 'sound/items/write.ogg', 100, FALSE)
 							rebuild_info()
 
@@ -194,6 +205,7 @@
 /obj/item/paper/confession
 	name = "confession of villainy"
 	icon_state = "confession"
+	var/base_icon_state = "confession"
 	desc = "A drab piece of parchment stained with the magical ink of the Order lodges. Looking at it fills you with profound guilt."
 	info = "THE GUILTY PARTY ADMITS THEIR SINFUL NATURE AS ___. THEY WILL SERVE ANY PUNISHMENT OR SERVICE AS REQUIRED BY THE ORDER OF THE PSYCROSS UNDER PENALTY OF DEATH.<br/><br/>SIGNED,"
 	var/signed = null
@@ -216,17 +228,21 @@
 	return ..()
 
 /obj/item/paper/confession/update_icon_state()
+	. = ..()
 	if(mailer)
 		icon_state = "paper_prep"
-		name = "letter"
 		throw_range = 7
 		return
-	name = initial(name)
 	throw_range = initial(throw_range)
-	if(signed)
-		icon_state = "confessionsigned"
-		return
-	icon_state = "confession"
+	icon_state = "[base_icon_state][signed ? "signed" : ""]"
+	return
+
+/obj/item/paper/confession/update_name()
+	. = ..()
+	if(mailer)
+		name = "letter"
+	else
+		name = initial(name)
 
 /obj/item/paper/confession/proc/attempt_confession(mob/living/carbon/human/M, mob/user)
 	if(!ishuman(M))
@@ -468,13 +484,18 @@
 	rebuild_info()
 
 /obj/item/paper/scroll/sell_price_changes/update_icon_state()
+	. = ..()
 	if(open)
 		icon_state = "contractsigned"
-		name = initial(name)
 	else
 		icon_state = "scroll_closed"
-		name = "scroll"
 
+/obj/item/paper/scroll/sell_price_changes/update_name()
+	. = ..()
+	if(open)
+		name = initial(name)
+	else
+		name = "scroll"
 
 /obj/item/paper/scroll/sell_price_changes/proc/rebuild_info()
 	info = null

@@ -40,6 +40,7 @@
 	AddElement(/datum/element/footstep_override, priority = STEP_SOUND_TABLE_PRIORITY)
 
 /obj/structure/table/update_icon()
+	. = ..()
 	if(smoothing_flags & SMOOTH_BITMASK)
 		QUEUE_SMOOTH(src)
 		QUEUE_SMOOTH_NEIGHBORS(src)

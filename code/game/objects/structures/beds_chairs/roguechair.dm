@@ -81,25 +81,6 @@
 	name = "small throne"
 	icon_state = "thronechair"
 
-/obj/structure/chair/bench/couch/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/structure/chair/bench/couch/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
-
-/obj/structure/chair/bench/couch/lordcolor(primary,secondary)
-	if(!primary || !secondary)
-		return
-	var/mutable_appearance/M = mutable_appearance(icon, "[icon_state]_primary", -(layer+0.1))
-	M.color = secondary //looks better
-	add_overlay(M)
-	GLOB.lordcolor -= src
-
 // dirtier sofa
 /obj/structure/chair/bench/couch/redleft
 	icon_state = "redcouch_alt"

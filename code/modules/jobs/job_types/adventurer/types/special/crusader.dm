@@ -147,7 +147,7 @@
 	worn_x_dimension = 32
 	worn_y_dimension = 32
 
-/obj/item/clothing/cloak/cape/crusader/ComponentInitialize()
+/obj/item/clothing/cloak/cape/crusader/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/grid/cloak/lord)
 
