@@ -183,7 +183,7 @@
 	filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 
 	if(use_underlays)
-		cut_overlays()
+		underlays.Cut()
 		underlays += filling
 	else
 		. += filling
