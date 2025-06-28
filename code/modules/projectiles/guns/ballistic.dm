@@ -94,12 +94,12 @@
 	. = ..()
 	if (!spawnwithmagazine)
 		bolt_locked = TRUE
-		update_appearance(UPDATE_OVERLAYS)
+		update_appearance(UPDATE_ICON)
 		return
 	if (!magazine)
 		magazine = new mag_type(src)
 	chamber_round()
-	update_appearance(UPDATE_OVERLAYS)
+	update_appearance(UPDATE_ICON)
 
 /obj/item/gun/ballistic/update_overlays()
 	. = ..()
@@ -175,7 +175,7 @@
 		playsound(src, lock_back_sound, lock_back_sound_volume, lock_back_sound_vary)
 	else
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
-	update_appearance(UPDATE_OVERLAYS)
+	update_appearance(UPDATE_ICON)
 
 ///Drops the bolt from a locked position
 /obj/item/gun/ballistic/proc/drop_bolt(mob/user = null)
@@ -184,7 +184,7 @@
 		to_chat(user, "<span class='notice'>I drop the [bolt_wording] of \the [src].</span>")
 	chamber_round()
 	bolt_locked = FALSE
-	update_appearance(UPDATE_OVERLAYS)
+	update_appearance(UPDATE_ICON)
 
 ///Handles all the logic needed for magazine insertion
 /obj/item/gun/ballistic/proc/insert_magazine(mob/user, obj/item/ammo_box/magazine/AM, display_message = TRUE)
@@ -198,7 +198,7 @@
 		playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
 		if (bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
 			chamber_round(TRUE)
-		update_appearance(UPDATE_OVERLAYS)
+		update_appearance(UPDATE_ICON)
 		return TRUE
 	else
 		to_chat(user, "<span class='warning'>I cannot seem to get \the [src] out of your hands!</span>")
@@ -226,7 +226,7 @@
 	old_mag.update_appearance()
 	if (display_message)
 		to_chat(user, "<span class='notice'>I pull the [magazine_wording] out of \the [src].</span>")
-	update_appearance(UPDATE_OVERLAYS)
+	update_appearance(UPDATE_ICON)
 
 /obj/item/gun/ballistic/can_shoot()
 	return chambered
@@ -257,7 +257,7 @@
 				if (chambered == null && bolt_type == BOLT_TYPE_NO_BOLT)
 					chamber_round()
 				A.update_appearance()
-				update_appearance(UPDATE_OVERLAYS)
+				update_appearance(UPDATE_ICON)
 			return
 	user.update_inv_hands()
 	return FALSE
@@ -274,17 +274,17 @@
 		if (bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
 			bolt_locked = TRUE
 			playsound(src, bolt_drop_sound, bolt_drop_sound_volume)
-			update_appearance(UPDATE_OVERLAYS)
+			update_appearance(UPDATE_ICON)
 
 ///postfire empty checks for bolt locking and sound alarms
 /obj/item/gun/ballistic/proc/postfire_empty_checks(last_shot_succeeded)
 	if (!chambered && !get_ammo())
 		if (empty_alarm && last_shot_succeeded)
 			playsound(src, empty_alarm_sound, empty_alarm_volume, empty_alarm_vary)
-			update_appearance(UPDATE_OVERLAYS)
+			update_appearance(UPDATE_ICON)
 		if (last_shot_succeeded && bolt_type == BOLT_TYPE_LOCKING)
 			bolt_locked = TRUE
-			update_appearance(UPDATE_OVERLAYS)
+			update_appearance(UPDATE_ICON)
 
 /obj/item/gun/ballistic/afterattack()
 	prefire_empty_checks()
@@ -316,7 +316,7 @@
 		if (num_unloaded)
 			to_chat(user, "<span class='notice'>I remove [(num_unloaded == 1) ? "the" : "[num_unloaded]"] [cartridge_wording]\s from [src].</span>")
 			playsound(user, eject_sound, eject_sound_volume, eject_sound_vary)
-			update_appearance(UPDATE_OVERLAYS)
+			update_appearance(UPDATE_ICON)
 		else
 			to_chat(user, "<span class='warning'>[src] is empty!</span>")
 		return
