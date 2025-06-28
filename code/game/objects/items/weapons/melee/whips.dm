@@ -79,6 +79,27 @@
 	resistance_flags = FIRE_PROOF
 	smeltresult = /obj/item/ingot/steel
 	sellprice = 50
+//................ Caning Stick.................//
+/obj/item/weapon/whip/cane
+	force = DAMAGE_WHIP-10 // half the damage of a whip.
+	name = "caning stick"
+	desc = "A thin cane meant for striking others as punishment."
+	possible_item_intents = list(/datum/intent/whip/lash/cane)
+	icon_state = "canestick"
+	wlength = WLENGTH_NORMAL
+	max_integrity = 4 //Striking unarmered parts doesn't take integrity, four hits to anything with an armor value will break it.
+	sellprice = 0
+
+/datum/intent/whip/lash/cane
+	attack_verb = list("lashes", "canes")
+	chargetime = 20
+	no_early_release = TRUE
+	penfactor = 0
+	reach = 1 //no added range
+	misscost = 10
+	icon_state = "inlash"
+	canparry = TRUE //Not meant for fighting with
+	item_damage_type = "slash"
 
 //................ Lashkiss Whip ............... //
 /obj/item/weapon/whip/spiderwhip
