@@ -1,3 +1,11 @@
+	/*=================*
+	*				   *
+	*	 Hollow-kin	   *
+	*				   *
+	*==================*/
+
+// ( -1 STR, +2 PER, +1 INT, -1 CON, -1 FOR)
+
 /mob/living/carbon/human/species/demihuman
 	race = /datum/species/demihuman
 
@@ -65,8 +73,8 @@
 		OFFSET_UNDIES = list(0,0),\
 	)
 
-	specstats_m = list(STAT_PERCEPTION = 1)
-	specstats_f = list(STAT_PERCEPTION = 1)
+	specstats_m = list(STATKEY_STR = -1, STATKEY_PER = 2, STATKEY_INT = 1, STATKEY_CON = -1, STATKEY_LCK = -1)
+	specstats_f = list(STATKEY_STR = -1, STATKEY_PER = 2, STATKEY_INT = 1, STATKEY_CON = -1, STATKEY_LCK = -1)
 
 	enflamed_icon = "widefire"
 
