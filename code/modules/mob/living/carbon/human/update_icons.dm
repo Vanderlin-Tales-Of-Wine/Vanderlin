@@ -99,7 +99,7 @@ There are several things that need to be remembered:
 		offsets = is_child ? species.offset_features_child : species.offset_features_m
 		limb_icon = is_child ? species.child_dam_icon : species.dam_icon_m
 
-	var/hidechest = FALSE
+	var/hidechest = TRUE
 	var/list/limb_overlaysa = list()
 	var/list/limb_overlaysb = list()
 	var/list/limb_overlaysc = list()
@@ -109,12 +109,12 @@ There are several things that need to be remembered:
 		if(CH)
 			if(wear_armor?.flags_inv & HIDEBOOB)
 				hidechest = TRUE
-			if(wear_shirt?.flags_inv & HIDEBOOB)
+			else if(wear_shirt?.flags_inv & HIDEBOOB)
 				hidechest = TRUE
-			if(cloak?.flags_inv & HIDEBOOB)
+			else if(cloak?.flags_inv & HIDEBOOB)
 				hidechest = TRUE
-	else
-		hidechest = TRUE
+			else
+				hide_chest = FALSE
 
 	for(var/obj/item/bodypart/BP as anything in bodyparts)
 		var/list/damage_overlays = list()
