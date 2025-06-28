@@ -25,6 +25,14 @@
 	grid_height = 32
 	item_weight = 7 * IRON_MULTIPLIER
 
+/obj/item/clothing/gloves/plate/iron
+	name = "iron plate gauntlets"
+	desc = "Plated gauntlets made out of iron. Offers good protection against melee attacks."
+	icon_state = "igauntlets"
+	sellprice = VALUE_IRON_ARMOR/2
+	armor = ARMOR_PLATE_BAD
+	max_integrity = INTEGRITY_STANDARD
+
 /obj/item/clothing/gloves/plate/rust
 	name = "rusted riveted gauntlets"
 	desc = "Riveted gauntlets made out of iron. They're covered in rust.. at least the glove liner is good still."
