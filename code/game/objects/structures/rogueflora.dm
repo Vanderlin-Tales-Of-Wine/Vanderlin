@@ -1,5 +1,4 @@
 /obj/structure/flora
-	var/base_icon_state
 	var/num_random_icons = 0
 
 /obj/structure/flora/Initialize()

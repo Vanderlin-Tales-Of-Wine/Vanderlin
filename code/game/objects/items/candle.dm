@@ -5,7 +5,7 @@
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle1"
 	item_state = "candle1"
-	var/base_icon_state = "candle"
+	base_icon_state = "candle"
 	w_class = WEIGHT_CLASS_TINY
 	light_color = LIGHT_COLOR_FIRE
 	dropshrink = 0.8
