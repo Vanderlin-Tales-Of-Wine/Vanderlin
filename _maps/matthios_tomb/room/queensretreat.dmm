@@ -86,8 +86,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "bY" = (
 /obj/structure/door/violet{
-	name = "Queens Retreat";
-	
+	name = "Queens Retreat"
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/carpet/lord/center,
