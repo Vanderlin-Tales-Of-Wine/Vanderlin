@@ -10717,7 +10717,7 @@
 "gNO" = (
 /obj/effect/mapping_helpers/access/locker,
 /obj/structure/door/red,
-/obj/effect/mapping_helpers/access/keyset/garrison,
+/obj/effect/mapping_helpers/access/keyset/garrison/general,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/town/roofs)
 "gNP" = (
@@ -18315,7 +18315,6 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/clinic_large)
 "lKj" = (
-/obj/effect/mapping_helpers/access/locker,
 /obj/structure/rack/shelf/biggest,
 /obj/item/paper,
 /obj/item/paper,
@@ -19597,10 +19596,6 @@
 	dir = 8
 	},
 /area/rogue/outdoors/town/roofs)
-"mDV" = (
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/dirt,
-/area/rogue/outdoors/town)
 "mEy" = (
 /obj/structure/bars/pipe{
 	dir = 4
@@ -26134,10 +26129,6 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
-"qTd" = (
-/obj/effect/mapping_helpers/access/locker,
-/turf/closed/wall/mineral/stonebrick,
-/area/rogue/indoors/town/magician)
 "qTn" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -148372,7 +148363,7 @@ iSk
 iSk
 iSk
 sWL
-mDV
+jdk
 vue
 vgJ
 vgJ
@@ -173795,7 +173786,7 @@ shM
 shM
 gwg
 oWv
-qTd
+cBJ
 cBJ
 cBJ
 oWv

@@ -6088,8 +6088,6 @@
 /area/rogue/under/town/basement)
 "djt" = (
 /obj/structure/door/swing,
-/obj/effect/mapping_helpers/access/keyset/town/butcher,
-/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/grass/cold,
 /area/rogue/indoors/soilsons)
 "djM" = (
@@ -13246,7 +13244,6 @@
 /area/rogue/outdoors/town)
 "hlF" = (
 /obj/structure/door/swing,
-/obj/effect/mapping_helpers/access/keyset/manor/general,
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/basement)
 "hlP" = (
@@ -20861,7 +20858,6 @@
 /area/rogue/indoors/town/manor)
 "lGW" = (
 /obj/structure/door/swing,
-/obj/effect/mapping_helpers/access/keyset/town/inn,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/tavern)
 "lHt" = (
@@ -33705,6 +33701,10 @@
 /obj/structure/chair/stool,
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
+"sAa" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/cobble,
+/area/rogue/under/town/basement)
 "sAb" = (
 /obj/structure/table/wood/plain,
 /turf/open/floor/tile,
@@ -60550,7 +60550,7 @@ cGb
 cGb
 rLE
 rLE
-rUz
+sAa
 rLE
 cGb
 rLE

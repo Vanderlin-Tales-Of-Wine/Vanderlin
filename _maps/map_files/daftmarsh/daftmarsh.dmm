@@ -13057,7 +13057,8 @@
 /obj/structure/door/fancy{
 	name = "Lord's Chambers"
 	},
-/obj/effect/mapping_helpers/access/keyset/manor/lord/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/manor/lord,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
 "mJj" = (
@@ -22657,7 +22658,6 @@
 /area/rogue/indoors/town/manor)
 "vZP" = (
 /obj/structure/door/swing,
-/obj/effect/mapping_helpers/access/keyset/town/inn,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/tavern)
 "vZT" = (
