@@ -390,6 +390,10 @@
 	if(!hud?.mymob)
 		return
 	var/lol = 0
+	intent1 = null
+	intent2 = null
+	intent3 = null
+	intent4 = null
 	var/list/used = right_intents
 	if(hud.mymob.active_hand_index == 1)
 		used = left_intents
