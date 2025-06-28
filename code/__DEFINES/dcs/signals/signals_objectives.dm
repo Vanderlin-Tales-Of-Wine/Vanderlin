@@ -26,7 +26,7 @@
 #define COMSIG_MOB_BUTCHERED "mob_butchered" //from /mob/living/simple_animal/butcher() (mob/user, mob/animal)
 #define COMSIG_MOB_KICK "mob_kick" //from /datum/species/proc/kicked() (mob/user, mob/target, zone_hit, damage_blocked)
 #define COMSIG_GRAVE_ROBBED "grave_robbed" //from /obj/structure/closet/dirthole/attackby() (mob/user)
-#define COMSIG_FLAW_FOUND "flaw_found" //from /obj/effect/proc_holder/spell/targeted/find_flaw/cast() (datum/charflaw/flaw, mob/target)
+#define COMSIG_FLAW_FOUND "flaw_found" //from /obj/effect/proc_holder/spell/invoked/find_flaw/cast() (datum/charflaw/flaw, mob/target)
 
 // Globals
 #define COMSIG_GLOBAL_MARRIAGE "global_marriage" // from base of /obj/structure/fluff/psycross/attackby() (bride, groom)
