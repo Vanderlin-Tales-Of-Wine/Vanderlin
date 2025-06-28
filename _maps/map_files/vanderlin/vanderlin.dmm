@@ -10817,7 +10817,6 @@
 /obj/structure/door,
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/church/grave,
-/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
 "gRe" = (
@@ -16916,15 +16915,6 @@
 "kIF" = (
 /turf/open/floor/tile,
 /area/rogue/indoors/town/clinic_large)
-"kIH" = (
-/obj/structure/door/iron/bars{
-	name = "Royal Crypt"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/obj/effect/mapping_helpers/access/keyset/church/grave,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/blocks,
-/area/rogue/indoors/town/church)
 "kII" = (
 /obj/structure/fake_machine/atm,
 /turf/open/floor/ruinedwood,
@@ -19045,7 +19035,6 @@
 /obj/structure/door,
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/town/clinic,
-/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/twig,
 /area/rogue/indoors/town/bath)
 "mjT" = (
@@ -23345,7 +23334,6 @@
 "oWv" = (
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/town/tower,
-/obj/effect/mapping_helpers/access/locker,
 /obj/structure/door/violet,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/magician)
@@ -113669,7 +113657,7 @@ vgJ
 vgJ
 hJQ
 dsC
-kIH
+pLy
 tMD
 dtJ
 box

@@ -1624,8 +1624,7 @@
 /area/rogue/outdoors/bog)
 "qB" = (
 /obj/structure/door{
-	name = "Salem Smithy";
-	
+	name = "Salem Smithy"
 	},
 /obj/effect/mapping_helpers/access/keyset/thatchwood/smith,
 /turf/open/floor/cobble,

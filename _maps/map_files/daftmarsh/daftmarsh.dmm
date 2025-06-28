@@ -11196,8 +11196,7 @@
 /area/rogue/under/town/sewer)
 "kXq" = (
 /obj/structure/door/viewport{
-	dir = 1;
-	
+	dir = 1
 	},
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/manor/general,
