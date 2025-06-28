@@ -463,9 +463,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/outdoors/town)
 "aAB" = (
-/obj/structure/closet/crate/chest/crate{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/chest/crate,
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/egg,
@@ -2345,9 +2343,7 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/under/town/basement)
 "cjN" = (
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet,
 /obj/item/clothing/cloak/stole/red,
 /obj/item/clothing/cloak/chasuble,
 /obj/item/storage/backpack/satchel,
@@ -2422,9 +2418,9 @@
 /area/rogue/indoors/town/manor)
 "coo" = (
 /obj/structure/door/iron/bars{
-	lockid = "puritan";
 	name = "Holding Cell"
 	},
+/obj/effect/mapping_helpers/access/keyset/church/inquisition,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church/inquisition)
@@ -4988,9 +4984,9 @@
 /area/rogue/indoors/town/manor)
 "eWA" = (
 /obj/structure/door/green{
-	lockid = "tailor";
 	name = "Tailor Shop"
 	},
+/obj/effect/mapping_helpers/access/keyset/town/tailor,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
@@ -6718,9 +6714,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/tavern)
 "gGQ" = (
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet,
 /obj/item/clothing/shirt/undershirt/priest,
 /obj/item/clothing/shirt/robe/priest,
 /turf/open/floor/blocks/newstone,
@@ -7181,9 +7175,9 @@
 /area/rogue/indoors/town/tavern)
 "hdQ" = (
 /obj/structure/door/fancy{
-	lockid = "lord";
 	name = "Lord's Chambers"
 	},
+/obj/effect/mapping_helpers/access/keyset/manor/lord,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/manor)
@@ -7268,7 +7262,6 @@
 /obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/church/inquisition,
-/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/church/inquisition)
 "hir" = (
@@ -7556,9 +7549,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "hyo" = (
-/obj/structure/closet/crate/chest/crate{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/chest/crate,
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/egg,
@@ -10711,9 +10702,8 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
 "kqW" = (
-/obj/structure/door/stone{
-	lockid = "priest"
-	},
+/obj/structure/door/stone,
+/obj/effect/mapping_helpers/access/keyset/church/priest,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church/chapel)
@@ -11207,7 +11197,7 @@
 "kXq" = (
 /obj/structure/door/viewport{
 	dir = 1;
-	lockid = "manor"
+	
 	},
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/manor/general,
@@ -13066,10 +13056,9 @@
 /area/rogue/indoors/soilsons)
 "mIS" = (
 /obj/structure/door/fancy{
-	lockid = "lord";
 	name = "Lord's Chambers"
 	},
-/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/manor/lord/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
 "mJj" = (
@@ -13216,9 +13205,9 @@
 /area/rogue/indoors/soilsons)
 "mRF" = (
 /obj/structure/door/fancy{
-	lockid = "lord";
 	name = "Lord's Apartment"
 	},
+/obj/effect/mapping_helpers/access/keyset/manor/lord,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/manor)
@@ -14159,9 +14148,7 @@
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
 "nTK" = (
-/obj/structure/door{
-	lockid = "manor"
-	},
+/obj/structure/door,
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/manor/general,
 /turf/open/floor/carpet/royalblack,
@@ -14923,9 +14910,7 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
 "oMc" = (
-/obj/structure/closet/crate/chest{
-	lockid = "priest"
-	},
+/obj/structure/closet/crate/chest,
 /obj/item/storage/keyring,
 /obj/item/key/church,
 /obj/item/key/church,
@@ -17561,9 +17546,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/outdoors/town)
 "rvB" = (
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet,
 /obj/item/alch/earthdust,
 /obj/item/alch/earthdust,
 /obj/item/alch/firedust,
@@ -18663,9 +18646,8 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/church)
 "soI" = (
-/obj/structure/door{
-	lockid = "nightmaiden"
-	},
+/obj/structure/door,
+/obj/effect/mapping_helpers/access/keyset/town/bathhouse,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
@@ -19458,9 +19440,9 @@
 /area/rogue/indoors/town/dwarfin)
 "sZH" = (
 /obj/structure/door/iron/bars{
-	lockid = "puritan";
 	name = "Holding Cell"
 	},
+/obj/effect/mapping_helpers/access/keyset/church/inquisition,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/inquisition)
@@ -19784,7 +19766,6 @@
 /area/rogue/under/cavelava)
 "tpg" = (
 /obj/structure/door/fancy{
-	lockid = "manor";
 	name = "Clocktower Entrance"
 	},
 /obj/effect/mapping_helpers/access/keyset/manor/general,
@@ -19904,7 +19885,6 @@
 /obj/structure/door,
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/church/grave,
-/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
 "tuk" = (
@@ -23405,9 +23385,9 @@
 /area/rogue/indoors/town/church/chapel)
 "wNP" = (
 /obj/structure/door/fancy{
-	lockid = "nightmaiden";
 	name = "Sauna"
 	},
+/obj/effect/mapping_helpers/access/keyset/town/bathhouse,
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
 "wNQ" = (
@@ -24224,10 +24204,8 @@
 /area/rogue/indoors/town/magician)
 "xwE" = (
 /obj/structure/door{
-	lockid = "blacksmith";
 	name = "Miners Quarters"
 	},
-/obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/town/smith,
 /turf/open/floor/blocks/stonered/tiny,
@@ -24971,10 +24949,8 @@
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/shop)
 "ygi" = (
-/obj/structure/door/iron/bars{
-	lockid = "mage";
-	max_integrity = 100000
-	},
+/obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/access/keyset/manor/mage,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobblerock,
 /area/rogue/under/town/sewer)

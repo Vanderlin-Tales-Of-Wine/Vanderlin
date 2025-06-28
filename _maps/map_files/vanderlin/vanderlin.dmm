@@ -3740,7 +3740,6 @@
 "ckM" = (
 /obj/effect/mapping_helpers/access/keyset/town/tower,
 /obj/effect/mapping_helpers/access/locker,
-/obj/effect/mapping_helpers/access/locker,
 /obj/structure/door/violet,
 /turf/open/floor/greenstone,
 /area/rogue/indoors/town/magician)
@@ -3884,9 +3883,7 @@
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/bath)
 "coS" = (
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet,
 /obj/item/clothing/shirt/undershirt/priest,
 /obj/item/clothing/shirt/robe/priest,
 /turf/open/floor/blocks/newstone,
@@ -23020,9 +23017,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "oLh" = (
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet,
 /obj/item/clothing/cloak/stole/red,
 /obj/item/clothing/cloak/chasuble,
 /obj/item/storage/backpack/satchel,
@@ -25972,9 +25967,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "qPq" = (
-/obj/structure/closet/crate/chest{
-	lockid = "priest"
-	},
+/obj/structure/closet/crate/chest,
 /obj/item/storage/keyring,
 /obj/item/key/church,
 /obj/item/key/church,

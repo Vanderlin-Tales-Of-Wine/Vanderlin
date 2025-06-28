@@ -771,9 +771,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors/magic)
 "Cx" = (
-/obj/structure/door/red{
-	lockid = "Acid1"
-	},
+/obj/structure/door/red,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors/magic)

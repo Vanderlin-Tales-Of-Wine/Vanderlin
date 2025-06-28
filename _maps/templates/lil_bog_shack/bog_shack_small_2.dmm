@@ -98,9 +98,7 @@
 /turf/open/floor/metal/alt,
 /area/rogue/outdoors/bog)
 "U" = (
-/obj/structure/door{
-	lockid = "artificer"
-	},
+/obj/structure/door,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)

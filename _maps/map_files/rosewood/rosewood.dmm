@@ -699,9 +699,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/town/basement)
 "ato" = (
-/obj/structure/door/red{
-	lockid = "SpookManor"
-	},
+/obj/structure/door/red,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town)
@@ -5336,15 +5334,6 @@
 /obj/item/clothing/shirt/tunic/random,
 /obj/item/clothing/shirt/tunic/random,
 /obj/item/key/guest{
-	lockid = "SpookManor";
-	name = "Haunted House Key";
-	desc = "The key to the haunted manor near the lighthouse."
-	},
-/obj/item/book{
-	name = "Dusty Forgotten Book";
-	desc = "A book with a dusty key print under it, the book itself came from that haunted manor near the lighthouse... Maybe the key opens it."
-	},
-/obj/item/key/guest{
 	name = "Mountain Manor West";
 	lockid = "MountainManorWest";
 	desc = "A key to the mountain manor in the west"
@@ -7916,7 +7905,6 @@
 /area/rogue/indoors/town/manor)
 "eky" = (
 /obj/structure/door/window{
-	lockid = "theatre";
 	name = "The Theatre"
 	},
 /turf/open/floor/ruinedwood/turned/darker,
@@ -8805,9 +8793,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/town/cell)
 "eNF" = (
-/obj/structure/closet/crate/chest{
-	lockid = "priest"
-	},
+/obj/structure/closet/crate/chest,
 /obj/item/reagent_containers/glass/bottle/manapot,
 /obj/item/reagent_containers/food/snacks/produce/fruit/apple,
 /obj/structure/fluff/walldeco/psybanner{
@@ -9059,9 +9045,7 @@
 /obj/item/clothing/cloak/stole,
 /obj/item/clothing/cloak/stole/red,
 /obj/item/weapon/polearm/woodstaff/aries,
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/church/chapel)
 "eVJ" = (
@@ -12151,9 +12135,7 @@
 	pixel_x = 0;
 	pixel_y = -32
 	},
-/obj/structure/closet/crate/chest/crate{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/chest/crate,
 /obj/effect/spawner/guaranteed_map_spawner/listed/cutlery,
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
@@ -14077,9 +14059,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/town/basement)
 "hKB" = (
-/obj/structure/door/window{
-	lockid = "theatre"
-	},
+/obj/structure/door/window,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/theatre)
 "hKR" = (
@@ -20977,9 +20957,7 @@
 /turf/closed/wall/mineral/pipe,
 /area/rogue/indoors/town/clocktower)
 "lJo" = (
-/obj/structure/door/stone{
-	lockid = "SpookManor"
-	},
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town)
@@ -23606,9 +23584,7 @@
 /turf/open/floor/metal/alt,
 /area/rogue/indoors/town/shop)
 "ndj" = (
-/obj/structure/closet/crate/chest/crate{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/chest/crate,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
@@ -33247,9 +33223,7 @@
 /turf/open/floor/carpet/lord/right,
 /area/rogue/indoors/town/manor)
 "snU" = (
-/obj/structure/closet/crate/chest/crate{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/chest/crate,
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/egg,
@@ -35982,9 +35956,7 @@
 /turf/open/floor/blocks,
 /area/rogue/outdoors/rtfield)
 "tIx" = (
-/obj/structure/door/red{
-	lockid = "SpookManor"
-	},
+/obj/structure/door/red,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/grass/cold,
 /area/rogue/indoors/town)
@@ -40204,9 +40176,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "vYh" = (
-/obj/structure/door/window{
-	lockid = "theatre"
-	},
+/obj/structure/door/window,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/theatre)
 "vYi" = (
@@ -41589,9 +41559,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/sewer)
 "wLk" = (
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet,
 /obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /turf/open/floor/ruinedwood/darker,
