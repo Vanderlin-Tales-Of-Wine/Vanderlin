@@ -33,9 +33,9 @@
 
 /datum/component/storage/concrete/dump_harddel_info()
 	. = list()
-	. += parent.type
+	. += "Parent's Type: [parent.type]"
 	for(var/datum/component/storage/S as anything in slaves)
-		. += S.type
+		. += "Slave Type: [S.type]"
 	if(is_using)
 		. += "WAS BEING USED"
 	return .
