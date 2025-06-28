@@ -1,6 +1,5 @@
 /datum/objective/abyssor_splash
 	name = "Splash Water"
-	triumph_count = 0
 
 /datum/objective/abyssor_splash/on_creation()
 	. = ..()

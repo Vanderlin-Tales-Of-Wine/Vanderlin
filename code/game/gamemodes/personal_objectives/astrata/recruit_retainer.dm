@@ -1,6 +1,5 @@
 /datum/objective/retainer
 	name = "Recruit Retainer"
-	triumph_count = 0
 	var/retainers_recruited = 0
 
 /datum/objective/retainer/on_creation()

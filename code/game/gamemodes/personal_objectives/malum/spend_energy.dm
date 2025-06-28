@@ -1,6 +1,5 @@
 /datum/objective/energy_expenditure
 	name = "Spend Energy"
-	triumph_count = 0
 	var/energy_spent = 0
 	var/energy_required = 1000
 

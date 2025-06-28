@@ -1,6 +1,5 @@
 /datum/objective/rotten_feast
 	name = "Rotten Feast"
-	triumph_count = 0
 	var/meals_eaten = 0
 	var/meals_required = 2
 

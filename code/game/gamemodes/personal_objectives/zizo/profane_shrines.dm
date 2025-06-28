@@ -1,6 +1,5 @@
 /datum/objective/build_zizo_shrine
 	name = "Construct Profane Shrines"
-	triumph_count = 0
 	var/target_type = /obj/structure/fluff/psycross/zizocross
 	var/target_count = 2
 	var/current_count = 0

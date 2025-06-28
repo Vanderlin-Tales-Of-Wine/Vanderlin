@@ -1,6 +1,5 @@
 /datum/objective/sniff_drugs
 	name = "Sniff Drugs"
-	triumph_count = 0
 	var/sniff_count = 0
 	var/required_count = 2
 

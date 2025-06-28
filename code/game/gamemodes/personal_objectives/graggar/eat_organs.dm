@@ -1,6 +1,5 @@
 /datum/objective/consume_organs
 	name = "Consume Organs"
-	triumph_count = 0
 	var/organs_consumed = 0
 	var/hearts_consumed = 0
 	var/organs_required = 3

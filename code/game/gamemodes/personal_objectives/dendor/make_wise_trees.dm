@@ -1,6 +1,5 @@
 /datum/objective/wise_trees
 	name = "Create Wise Trees"
-	triumph_count = 0
 	var/trees_transformed = 0
 	var/trees_required = 3
 

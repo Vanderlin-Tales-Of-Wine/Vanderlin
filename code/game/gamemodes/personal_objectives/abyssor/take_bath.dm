@@ -1,6 +1,5 @@
 /datum/objective/abyssor_bath
 	name = "Take Bath"
-	triumph_count = 0
 
 /datum/objective/abyssor_bath/on_creation()
 	. = ..()

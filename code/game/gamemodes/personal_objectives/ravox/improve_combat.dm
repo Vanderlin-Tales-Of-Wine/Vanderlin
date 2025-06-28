@@ -1,6 +1,5 @@
 /datum/objective/improve_combat
 	name = "Improve Combat Skills"
-	triumph_count = 0
 	var/levels_gained = 0
 	var/required_levels = 2
 

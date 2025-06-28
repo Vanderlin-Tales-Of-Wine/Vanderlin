@@ -1,6 +1,5 @@
 /datum/objective/create_abyssoids
 	name = "Create Abyssoids"
-	triumph_count = 0
 	var/abyssoids_created = 0
 	var/abyssoids_required = 5
 

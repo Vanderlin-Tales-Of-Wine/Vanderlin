@@ -1,6 +1,5 @@
 /datum/objective/mock
 	name = "Mock"
-	triumph_count = 0
 
 /datum/objective/mock/on_creation()
 	. = ..()
@@ -20,7 +19,6 @@
 /// Monarch variant
 /datum/objective/mock/monarch
 	name = "Mock Monarch"
-	triumph_count = 0
 
 /datum/objective/mock/monarch/on_mock_used(datum/source, mob/living/victim)
 	. = ..()

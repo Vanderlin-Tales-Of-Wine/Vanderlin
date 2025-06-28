@@ -1,6 +1,5 @@
 /datum/objective/listen_whispers
 	name = "Listen to Whispers"
-	triumph_count = 0
 	var/time_required = 5 MINUTES
 	var/time_spent = 0
 	var/last_check = 0

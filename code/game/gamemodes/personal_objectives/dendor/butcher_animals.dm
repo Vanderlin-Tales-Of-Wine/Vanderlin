@@ -1,6 +1,5 @@
 /datum/objective/butcher_animals
 	name = "Butcher Animals"
-	triumph_count = 0
 	var/animals_butchered = 0
 	var/animals_required = 2
 

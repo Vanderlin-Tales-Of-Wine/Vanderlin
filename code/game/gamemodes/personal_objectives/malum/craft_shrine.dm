@@ -1,6 +1,5 @@
 /datum/objective/craft_shrine
 	name = "Build Shrines"
-	triumph_count = 0
 	var/target_type = /obj/structure/fluff/psycross/crafted
 	var/target_count = 2
 	var/current_count = 0

@@ -1,6 +1,5 @@
 /datum/objective/ass_slap
 	name = "Slap Asses"
-	triumph_count = 0
 	var/slaps_completed = 0
 	var/slaps_required = 3
 

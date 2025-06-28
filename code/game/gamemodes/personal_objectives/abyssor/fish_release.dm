@@ -1,6 +1,5 @@
 /datum/objective/release_fish
 	name = "Release Rare Fish"
-	triumph_count = 0
 	var/released_count = 0
 	var/required_count = 1
 	var/required_rarity_rank = 1

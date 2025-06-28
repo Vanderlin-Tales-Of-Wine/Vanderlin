@@ -1,6 +1,5 @@
 /datum/objective/punch_women
 	name = "Punch Women"
-	triumph_count = 0
 	var/punches_done = 0
 	var/punches_required = 3
 
