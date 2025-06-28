@@ -3,7 +3,6 @@
 	desc = ""
 	icon = 'icons/roguetown/weapons/tools.dmi'
 	icon_state = "tongs"
-	base_icon_state = "tongs"
 	force = 5
 	possible_item_intents = list(/datum/intent/mace/strike)
 	sharpness = IS_BLUNT
@@ -35,9 +34,9 @@
 /obj/item/weapon/tongs/update_icon_state()
 	. = ..()
 	if(!held_item)
-		icon_state = base_icon_state
+		icon_state = initial(icon_state)
 	else
-		icon_state = "[base_icon_state]i[hott ? "1" : "0"]"
+		icon_state = "[initial(icon_state)]i[hott ? "1" : "0"]"
 
 /obj/item/weapon/tongs/proc/proxy_heat(incoming, max_heat)
 	if(istype(held_item, /obj/item/storage/crucible))
@@ -100,7 +99,6 @@
 /obj/item/weapon/tongs/stone
 	name = "stone tongs"
 	icon_state = "stonetongs"
-	base_icon_state = "stonetongs"
 	force = 3
 	smeltresult = null
 	anvilrepair = null
