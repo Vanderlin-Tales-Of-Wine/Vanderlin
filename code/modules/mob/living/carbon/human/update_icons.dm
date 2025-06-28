@@ -112,6 +112,9 @@ There are several things that need to be remembered:
 			else
 				hidechest = FALSE
 
+	var/list/limb_overlaysa = list()
+	var/list/limb_overlaysb = list()
+	var/list/limb_overlaysc = list()
 	for(var/obj/item/bodypart/BP as anything in bodyparts)
 		var/list/damage_overlays = list()
 		var/list/legdam_overlays = list()
@@ -215,9 +218,6 @@ There are several things that need to be remembered:
 				armdam_overlay.color = BP.bandage.color
 				armdam_overlays += armdam_overlay
 
-		var/list/limb_overlaysa = list()
-		var/list/limb_overlaysb = list()
-		var/list/limb_overlaysc = list()
 		var/used_offset = BP.offset
 		for(var/mutable_appearance/M as anything in damage_overlays)
 			if(used_offset in offsets)
