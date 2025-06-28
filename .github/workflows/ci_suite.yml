@@ -86,11 +86,11 @@ jobs:
       - name: Check Define Sanity
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: tools/bootstrap/python -m define_sanity.check
-      - name: Run DreamChecker
+      - name: Lint With DreamChecker
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         shell: bash
         run: ~/dreamchecker 2>&1 | bash tools/ci/annotate_dm.sh
-      - name: Run OpenDream
+      - name: Lint With OpenDream
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: ./DMCompiler_linux-x64/DMCompiler vanderlin.dme --suppress-unimplemented --define=CIBUILDING | bash tools/ci/annotate_od.sh
       - name: Run Map Checks
