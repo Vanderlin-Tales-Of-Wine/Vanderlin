@@ -100,10 +100,6 @@ There are several things that need to be remembered:
 		limb_icon = is_child ? species.child_dam_icon : species.dam_icon_m
 
 	var/hidechest = TRUE
-	var/list/limb_overlaysa = list()
-	var/list/limb_overlaysb = list()
-	var/list/limb_overlaysc = list()
-
 	if(use_female_sprites)
 		var/obj/item/bodypart/CH = get_bodypart(BODY_ZONE_CHEST)
 		if(CH)
@@ -114,7 +110,7 @@ There are several things that need to be remembered:
 			else if(cloak?.flags_inv & HIDEBOOB)
 				hidechest = TRUE
 			else
-				hide_chest = FALSE
+				hidechest = FALSE
 
 	for(var/obj/item/bodypart/BP as anything in bodyparts)
 		var/list/damage_overlays = list()
@@ -219,8 +215,10 @@ There are several things that need to be remembered:
 				armdam_overlay.color = BP.bandage.color
 				armdam_overlays += armdam_overlay
 
+		var/list/limb_overlaysa = list()
+		var/list/limb_overlaysb = list()
+		var/list/limb_overlaysc = list()
 		var/used_offset = BP.offset
-
 		for(var/mutable_appearance/M as anything in damage_overlays)
 			if(used_offset in offsets)
 				M.pixel_x += offsets[used_offset][1]
