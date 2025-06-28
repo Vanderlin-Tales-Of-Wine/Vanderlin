@@ -15,7 +15,7 @@
 #define RACE_HUMAN_SPACE "Human"
 
 // ============ USING ID BECAUSE FUCK YOU
-/// List of all species. **RACES IN CODE ONLY, "SPECIES" EVERYWHERE ELSE!!**
+/// List of all species. "RACES" in code only, "SPECIES" everywhere else please!
 #define ALL_RACES_LIST list(\
 	"human",\
 	"demihuman",\
