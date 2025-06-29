@@ -63,6 +63,6 @@
 		armor = /obj/item/clothing/shirt/dress/gen/random
 		shoes = /obj/item/clothing/shoes/shortboots
 
-	if(H.dna.species.id == "dwarf")
+	if(H.dna.species.id == RACE_ID_DWARF)
 		head = /obj/item/clothing/head/helmet/leather/minershelm
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'

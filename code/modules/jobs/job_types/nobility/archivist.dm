@@ -13,7 +13,6 @@
 	min_pq = 1
 	bypass_lastclass = TRUE
 
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/archivist
@@ -26,7 +25,7 @@
 /datum/outfit/job/archivist/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mana_pool?.set_intrinsic_recharge(MANA_ALL_LEYLINES)
-	if(H.dna.species.id == "Dwarf")
+	if(H.dna.species.id == RACE_ID_DWARF)
 		shirt = /obj/item/clothing/shirt/undershirt/puritan
 		armor = /obj/item/clothing/armor/leather/jacket/apothecary
 		pants = /obj/item/clothing/pants/tights/black

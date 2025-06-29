@@ -1,11 +1,11 @@
 /datum/advclass/mercenary/steppesman
 	name = "Steppesman"
 	tutorial = "A mercenary from hailing from the wild frontier steppes. There are three things you value most; saigas, freedom, and coin."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Half-Elf",
-		"Aasimar"
+	allowed_races = list(\
+		RACE_ID_HUMEN,\
+		RACE_ID_ELF,\
+		RACE_ID_HALF_ELF,\
+		RACE_ID_AASIMAR,\
 	)
 	outfit = /datum/outfit/job/mercenary/steppesman
 	category_tags = list(CTAG_MERCENARY)

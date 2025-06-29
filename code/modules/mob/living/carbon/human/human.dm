@@ -28,7 +28,7 @@
 					update_body()
 					GLOB.vanderlin_round_stats[STATS_BEARDS_SHAVED]++
 					if(dna?.species)
-						if(dna.species.id == "dwarf")
+						if(dna.species.id == RACE_ID_DWARF)
 							var/mob/living/carbon/V = src
 							V.add_stress(/datum/stressevent/dwarfshaved)
 				else

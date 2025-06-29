@@ -102,8 +102,8 @@
 			if (istype(S))
 				H.update_body_parts_head_only()
 				density = FALSE
-				switch(H.dna.species.name)
-					if ("Dwarf","Goblin")
+				switch(H.dna.species.id)
+					if (RACE_ID_DWARF,"goblin")
 						H.set_mob_offsets("bed_buckle", _x = 0, _y = PILLORY_HEAD_OFFSET)
 				icon_state = "[base_icon]-over"
 			else

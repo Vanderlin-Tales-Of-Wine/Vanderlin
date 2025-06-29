@@ -130,7 +130,6 @@
 /datum/migrant_role/rockhill/sergeant_at_arms
 	name = "Rockhill Serjeant"
 	greet_text = "The Mayor of Rockhill has conscripted you and your mens to go see the rulers of Vanderlin."
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE

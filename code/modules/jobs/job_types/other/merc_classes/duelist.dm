@@ -1,15 +1,14 @@
 /datum/advclass/mercenary/duelist
 	name = "Duelist"
 	tutorial = "A swordsman from Valoria, wielding a rapier with deadly precision and driven by honor and a thirst for coin, they duel with unmatched precision, seeking glory and wealth."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-	"Humen",
-	"Elf",
-	"Tiefling",
-	"Half-Elf",
-	"Half-Drow",
-	"Aasimar",
-	"Half-Orc"
+	allowed_races = list(\
+		RACE_ID_HUMEN,\
+		RACE_ID_ELF,\
+		RACE_ID_TIEFLING,\
+		RACE_ID_HALF_ELF,\
+		RACE_ID_HALF_DROW,\
+		RACE_ID_AASIMAR,\
+		RACE_ID_HALF_ORC,\
 	) //Yes, Horcs get to be Duelists, Not Drows though.
 	outfit = /datum/outfit/job/mercenary/duelist
 	category_tags = list(CTAG_MERCENARY)

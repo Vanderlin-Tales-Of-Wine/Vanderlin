@@ -11,7 +11,6 @@
 	spawn_positions = 99
 	#endif
 
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/tester

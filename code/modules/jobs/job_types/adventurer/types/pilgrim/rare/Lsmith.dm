@@ -4,10 +4,9 @@
 	name = "Master Blacksmith"
 	tutorial = "Dwarves, and humen who trained extensively under them in the art of smithing, \
 	become the most legendary smiths at their craft, gaining reputation beyond compare."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Dwarf",
+	allowed_races = list(\
+		RACE_ID_HUMEN,\
+		RACE_ID_DWARF,\
 	)
 	outfit = /datum/outfit/job/adventurer/masterblacksmith
 	maximum_possible_slots = 1

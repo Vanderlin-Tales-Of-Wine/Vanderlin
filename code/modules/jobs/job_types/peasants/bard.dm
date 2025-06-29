@@ -12,7 +12,6 @@
 	total_positions = 4
 	spawn_positions = 4
 
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/bard
 	cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
@@ -49,7 +48,7 @@
 	beltr = /obj/item/weapon/knife/dagger/steel/special
 	beltl = /obj/item/storage/belt/pouch/coins/poor
 	backpack_contents = list(/obj/item/flint)
-	if(H.dna?.species?.id == "dwarf")
+	if(H.dna?.species?.id == RACE_ID_DWARF)
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)

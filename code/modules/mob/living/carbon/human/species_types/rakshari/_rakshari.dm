@@ -3,7 +3,7 @@
 
 /datum/species/rakshari
 	name = "Rakshari"
-	id = "rakshari"
+	id = RACE_ID_RAKSHARI
 	changesource_flags = WABBAJACK
 
 	desc = "Their origins trace back to nomadic desert tribes, \

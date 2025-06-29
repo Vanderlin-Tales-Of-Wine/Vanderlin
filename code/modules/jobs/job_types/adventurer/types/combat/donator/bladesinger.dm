@@ -1,10 +1,7 @@
 /datum/advclass/combat/bladesinger
 	name = "Bladesinger"
 	tutorial = "Your vigil over the elven cities has long since ended. Though dutiful, the inevitable happened and now you hope these lands have use for your talents."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Elf"
-	)
+	allowed_races = list(RACE_ID_ELF)
 	maximum_possible_slots = 1
 	pickprob = 15
 	outfit = /datum/outfit/job/adventurer/bladesinger

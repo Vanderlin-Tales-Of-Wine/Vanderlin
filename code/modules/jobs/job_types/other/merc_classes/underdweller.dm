@@ -1,11 +1,11 @@
 /datum/advclass/mercenary/underdweller
 	name = "Underdweller"
 	tutorial = "A member of the Underdwellers, you've taken many of the deadliest contracts known to man in literal underground circles. Drow or Dwarf, you've put your differences aside for coin and adventure."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Dwarf",
-		"Dark Elf",
-		"Kobold",
+	allowed_races = list(\
+		RACE_ID_DWARF,\
+		RACE_ID_DROW,\
+		RACE_ID_HALF_DROW,\
+		RACE_ID_KOBOLD,\
 	)
 	outfit = /datum/outfit/job/mercenary/underdweller
 	category_tags = list(CTAG_MERCENARY)
@@ -47,7 +47,7 @@
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_INT, 1)
 
-	if(H.dna.species.id == "dwarf")
+	if(H.dna.species.id == RACE_ID_DWARF)
 		H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)

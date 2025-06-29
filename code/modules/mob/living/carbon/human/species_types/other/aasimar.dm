@@ -12,7 +12,7 @@
 
 /datum/species/aasimar
 	name = "Aasimar"
-	id = "aasimar"
+	id = RACE_ID_AASIMAR
 	desc = "Immortal offspring sculpted by the gods for use in servitude. \
 	\n\n\
 	Aasimar roaming alone on Psydonia often are those abandoned after serving their purpose. \

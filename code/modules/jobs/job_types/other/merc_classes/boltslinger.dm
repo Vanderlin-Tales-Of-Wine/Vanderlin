@@ -1,7 +1,6 @@
 /datum/advclass/mercenary/boltslinger
 	name = "Boltslinger"
 	tutorial = "A cutthroat and a soldier of fortune, your mastery of the crossbow has brought you to many battlefields, all in pursuit of mammon."
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONEXOTIC
 	outfit = /datum/outfit/job/mercenary/boltslinger
 	category_tags = list(CTAG_MERCENARY)

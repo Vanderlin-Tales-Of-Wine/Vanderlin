@@ -19,7 +19,6 @@
 	bypass_lastclass = TRUE
 	selection_color = "#0d6929"
 
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_races = RACES_PLAYER_GUARD
 	give_bank_account = 30

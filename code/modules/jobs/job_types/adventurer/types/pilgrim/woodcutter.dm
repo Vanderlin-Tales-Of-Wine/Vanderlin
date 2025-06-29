@@ -1,6 +1,5 @@
 /datum/advclass/pilgrim/woodcutter
 	name = "Woodcutter"
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONEXOTIC
 
 	outfit = /datum/outfit/job/adventurer/woodcutter

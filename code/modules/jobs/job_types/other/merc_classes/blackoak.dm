@@ -1,7 +1,6 @@
 /datum/advclass/mercenary/blackoak
 	name = "Black Oak's Guardian"
 	tutorial = "A shady guardian of the Black Oaks, a mercenary band in all but offical name. Commonly taking caravan contracts through the thickest of forests."
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ELF
 	outfit = /datum/outfit/job/mercenary/blackoak
 	category_tags = list(CTAG_MERCENARY)

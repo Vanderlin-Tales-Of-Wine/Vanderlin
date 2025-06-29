@@ -11,7 +11,7 @@
 
 /datum/species/dwarf/mountain
 	name = "Dwarf"
-	id = "dwarf"
+	id = RACE_ID_DWARF
 	desc = "Malum's chosen.\
 	\n\n\
 	A proud and robust species of stunted folk, \

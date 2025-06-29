@@ -11,7 +11,6 @@
 	spawn_positions = 12
 	bypass_lastclass = TRUE
 
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/miner
@@ -51,7 +50,7 @@
 	H.change_stat(STATKEY_END, 1)
 	H.change_stat(STATKEY_CON, 1)
 
-	if(H.dna.species.id == "dwarf")
+	if(H.dna.species.id == RACE_ID_DWARF)
 		head = /obj/item/clothing/head/helmet/leather/minershelm
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'
 	else

@@ -2,17 +2,7 @@
 	name = "Travelling Merchant"
 	tutorial = "You are a travelling merchant from far away lands. \
 	You've picked up many wears on your various adventures, now it's time to peddle them to these locals."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Rakshari",
-	)
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/adventurer/merchant
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 2

@@ -13,14 +13,16 @@
 	min_pq = -10
 	bypass_lastclass = TRUE
 
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar"
+	allowed_races = list(\
+		RACE_ID_HUMEN,\
+		RACE_ID_ELF,\
+		RACE_ID_HALF_ELF,\
+		RACE_ID_DWARF,\
+		RACE_ID_DROW,\
+		RACE_ID_HALF_DROW,\
+		RACE_ID_TIEFLING,\
+		RACE_ID_AASIMAR,\
+		RACE_ID_HARPY,\
 	)
 
 	outfit = /datum/outfit/job/innkeep

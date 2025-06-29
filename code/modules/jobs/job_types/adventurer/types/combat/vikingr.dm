@@ -1,11 +1,7 @@
 /datum/advclass/combat/vikingr
 	name = "Elven Vikingr"
 	tutorial = "A wandering searaider, a Vikingr from the Elven Clans of Kaledon. You are locked in a fierce rivalry with your other kin, those sea elves, those coastal elves, you hate whichever one is not you. You will see them die. Abyysor's bounty is what you seek, and you shall have it."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Elf",
-		"Half-Elf",
-	)
+	allowed_races = RACES_PLAYER_ELF
 	outfit = /datum/outfit/job/adventurer/vikingr
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 0

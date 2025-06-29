@@ -27,7 +27,7 @@
 	name = "dark elf plate"
 	desc = "A fine suit of sleek, moulded dark elf metal. Its interlocking nature and light weight allow for increased maneuverability."
 	icon_state = "elfchest"
-	allowed_race = list("elf", "half-elf", "dark elf")
+	allowed_race = RACES_PLAYER_ELF_ALL
 	equip_delay_self = 2 SECONDS
 	unequip_delay_self = 2 SECONDS
 
@@ -45,14 +45,14 @@
 	name = "dwarvish plate"
 	desc = "Plate armor made out of the sturdiest, finest dwarvish metal armor. It's as heavy and durable as it gets."
 	icon_state = "dwarfchest"
-	allowed_race = list("dwarf")
+	allowed_race = list(RACE_ID_DWARF)
 	item_weight = 12 * STEEL_MULTIPLIER
 
 /obj/item/clothing/armor/rare/grenzelplate
 	name = "grenzelhoftian plate regalia"
 	desc = "Engraved on this masterwork of humen metallurgy lies \"Thrice Slain, Thrice Risen, Thrice Pronged\" alongside the symbol of Psydon in its neck guard."
 	icon_state = "human_swordchest"
-	allowed_race = list("human","aasimar")
+	allowed_race = list(RACE_ID_HUMEN, RACE_ID_AASIMAR)
 	allowed_sex = list(MALE)
 	item_weight = 12 * STEEL_MULTIPLIER
 
@@ -62,7 +62,7 @@
 			ensuring the wearer optimal defence with forgiving breathability. \
 			The sigil of the Zybantu Kataphractoe is embezzeled at the throat guard."
 	icon_state = "human_spearchest"
-	allowed_race = list("human")
+	allowed_race = list(RACE_ID_HUMEN)
 	allowed_sex = list(MALE)
 	item_weight = 12 * STEEL_MULTIPLIER
 
@@ -74,7 +74,7 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	icon_state = "aasimarplate"
-	allowed_race = list("aasimar")
+	allowed_race = list(RACE_ID_AASIMAR)
 	smeltresult = /obj/item/ingot/bronze
 	sellprice = VALUE_SNOWFLAKE_STEEL+BONUS_VALUE_MODEST // It has great value to historical collectors
 

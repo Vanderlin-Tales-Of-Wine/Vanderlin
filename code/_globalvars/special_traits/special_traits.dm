@@ -91,7 +91,7 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 			return FALSE
 	if(!isnull(special.restricted_jobs) && job && (job.type in special.restricted_jobs))
 		return FALSE
-	if(!isnull(special.allowed_races) && !(character.dna.species.type in special.allowed_races))
+	if(!isnull(special.allowed_races) && !(character.dna.species.id in special.allowed_races))
 		return FALSE
 	if(!isnull(special.allowed_migrants))
 		if(!character.migrant_type)
@@ -100,7 +100,7 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 			return FALSE
 	if(!isnull(special.restricted_migrants) && character.migrant_type && (character.migrant_type in special.restricted_migrants))
 		return FALSE
-	if(!isnull(special.restricted_races) && (character.dna.species.type in special.restricted_races))
+	if(!isnull(special.restricted_races) && (character.dna.species.id in special.restricted_races))
 		return FALSE
 	if(!isnull(special.allowed_sexes) && !(character.gender in special.allowed_sexes))
 		return FALSE

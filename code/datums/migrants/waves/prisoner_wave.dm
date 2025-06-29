@@ -1,20 +1,20 @@
 /datum/migrant_role/gaoler
 	name = "Gaoler"
 	greet_text = "The lords of Vanderlins sent you to Heartfelt to rappatriate some prisoners that were in their prison, you are now on your way back."
-	allowed_sexes = list(MALE, FEMALE)
 	grant_lit_torch = TRUE
 	outfit = /datum/outfit/job/gaoler
 	is_foreigner = FALSE
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc")
-
+	allowed_races = list(\
+		RACE_ID_HUMEN,\
+		RACE_ID_ELF,\
+		RACE_ID_HALF_ELF,\
+		RACE_ID_DWARF,\
+		RACE_ID_TIEFLING,\
+		RACE_ID_DROW,\
+		RACE_ID_HALF_DROW,\
+		RACE_ID_AASIMAR,\
+		RACE_ID_HALF_ORC,\
+	)
 
 /datum/outfit/job/gaoler/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -48,7 +48,7 @@
 		H.change_stat(STATKEY_SPD, -1)
 		H.change_stat(STATKEY_PER, -1)
 	if(H.dna?.species)
-		if(H.dna.species.id == "human")
+		if(H.dna.species.id == RACE_ID_HUMEN)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
 	H.cmode_music = 'sound/music/cmode/nobility/CombatDungeoneer.ogg'
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
@@ -86,7 +86,17 @@
 	name = "Guard"
 	greet_text = "You are apart of a convoy returning prisoners to Vanderlin. Obey the gaoler and ensure the prisoners get back to the dungeons."
 	outfit = /datum/outfit/job/mig_guard
-	allowed_races = RACES_PLAYER_NONDISCRIMINATED
+	allowed_races = list(\
+		RACE_ID_HUMEN,\
+		RACE_ID_ELF,\
+		RACE_ID_HALF_ELF,\
+		RACE_ID_DWARF,\
+		RACE_ID_TIEFLING,\
+		RACE_ID_DROW,\
+		RACE_ID_HALF_DROW,\
+		RACE_ID_AASIMAR,\
+		RACE_ID_HALF_ORC,\
+	)
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 
