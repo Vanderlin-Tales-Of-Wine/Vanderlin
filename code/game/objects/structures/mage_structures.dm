@@ -32,14 +32,14 @@
 	. = ..()
 	caster = summoner
 
-/obj/structure/arcyne_wall/caster/CanPass(atom/movable/mover, turf/target)	//only the caster can move through this freely
+/obj/structure/arcyne_wall/caster/CanAllowThrough(atom/movable/mover, turf/target)	//only the caster can move through this freely
+	. = ..()
 	if(mover == caster)
 		return TRUE
 	if(ismob(mover))
 		var/mob/M = mover
-		if(M.anti_magic_check(chargecost = 0) || structureclimber == M)
+		if(M.can_block_magic(charge_cost = 0) || structureclimber == M)
 			return TRUE
-	return FALSE
 
 /obj/structure/arcyne_wall/greater
 	desc = "An immensely strong wall of pure arcyne force."
@@ -60,14 +60,14 @@
 	. = ..()
 	caster = summoner
 
-/obj/structure/arcyne_wall/greater/caster/CanPass(atom/movable/mover, turf/target)	//only the caster can move through this freely
+/obj/structure/arcyne_wall/greater/caster/CanAllowThrough(atom/movable/mover, turf/target)	//only the caster can move through this freely
+	. = ..()
 	if(mover == caster)
 		return TRUE
 	if(ismob(mover))
 		var/mob/M = mover
-		if(M.anti_magic_check(chargecost = 0) || structureclimber == M)
+		if(M.can_block_magic(charge_cost = 0) || structureclimber == M)
 			return TRUE
-	return FALSE
 
 /obj/structure/door/arcyne
 	name = "arcyne door"

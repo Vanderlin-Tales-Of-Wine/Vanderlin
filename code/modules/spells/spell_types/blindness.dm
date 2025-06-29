@@ -20,7 +20,7 @@
 /obj/effect/proc_holder/spell/invoked/blindness/cast(list/targets, mob/user = usr)
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
-		if(target.anti_magic_check(TRUE, TRUE))
+		if(target.can_block_magic(MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY))
 			return FALSE
 		user.visible_message(span_warning("[user] points at [target]'s eyes!"), span_warning("My eyes are covered in darkness!"))
 		target.blind_eyes(3)

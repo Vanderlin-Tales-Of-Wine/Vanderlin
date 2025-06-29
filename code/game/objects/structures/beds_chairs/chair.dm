@@ -9,6 +9,7 @@
 	resistance_flags = NONE
 	max_integrity = 250
 	integrity_failure = 0.1
+	pass_flags_self = PASSTABLE|LETPASSTHROW
 	var/buildstacktype
 	var/buildstackamount = 1
 	var/item_chair = /obj/item/chair // if null it can't be picked up

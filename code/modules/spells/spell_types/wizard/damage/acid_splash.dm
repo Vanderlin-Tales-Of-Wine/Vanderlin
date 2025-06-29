@@ -65,7 +65,7 @@
 	var/scaled_damage = round(2 * strength) // Base DoT damage scaling
 
 	for(var/mob/living/L in range(scaled_aoe, get_turf(src)))
-		if(!L.anti_magic_check())
+		if(!L.can_block_magic(MAGIC_RESISTANCE))
 			var/mob/living/carbon/M = L
 			// Create scaled status effect
 			M.apply_status_effect(/datum/status_effect/buff/acidsplash5e, scaled_damage)

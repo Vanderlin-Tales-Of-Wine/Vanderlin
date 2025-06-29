@@ -23,6 +23,8 @@
 #define SCRN_OBJ_IN_LIST "list"
 /// In the collapseable palette
 #define SCRN_OBJ_IN_PALETTE "palette"
+///Inserted first in the list
+#define SCRN_OBJ_INSERT_FIRST "first"
 
 /*
 	These defines specificy screen locations.  For more information, see the byond documentation on the screen_loc var.

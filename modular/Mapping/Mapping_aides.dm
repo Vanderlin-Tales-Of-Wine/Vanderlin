@@ -97,14 +97,14 @@
 	max_integrity = 50
 	opacity = TRUE
 
-/obj/structure/spider/stickyweb/CanPass(atom/movable/mover, turf/target)
-	if(isliving(mover))
-		if(prob(50) && !HAS_TRAIT(mover, TRAIT_WEBWALK))
+/obj/structure/spider/stickyweb/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(!HAS_TRAIT(mover, TRAIT_WEBWALK) && isliving(mover))
+		if(prob(50))
 			to_chat(mover, "<span class='danger'>I get stuck in \the [src] for a moment.</span>")
 			return FALSE
 	else if(istype(mover, /obj/projectile))
 		return prob(30)
-	return TRUE
 
 /obj/structure/spider/stickyweb/fire_act(added, maxstacks)
 	visible_message("<span class='warning'>[src] catches fire!</span>")
@@ -239,14 +239,14 @@
 	. = ..()
 	wizard = summoner
 
-/obj/effect/forcefield/wizard/CanPass(atom/movable/mover, turf/target)
+/obj/effect/forcefield/wizard/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(mover == wizard)
 		return TRUE
 	if(ismob(mover))
 		var/mob/M = mover
-		if(M.anti_magic_check(chargecost = 0))
+		if(M.can_block_magic(charge_cost = 0))
 			return TRUE
-	return FALSE
 
 /*	..................   NOC Device (Fixed scrying ball)   ................... */
 /obj/structure/nocdevice
@@ -258,6 +258,7 @@
 	layer = 4.2
 	var/mob/current_owner
 	var/last_scry
+
 /obj/structure/nocdevice/attack_hand(mob/user)
 	. = ..()
 	var/mob/living/carbon/human/H = user

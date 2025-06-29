@@ -82,7 +82,7 @@
 		var/stacks = ((fdist - fodist) * 2)
 		fire_act(stacks)
 
-/obj/bullet_act(obj/projectile/P)
+/obj/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
 	. = ..()
 	playsound(src.loc, P.hitsound, 50, TRUE)
 	visible_message("<span class='danger'>[src] is hit by \a [P]!</span>", null, null, COMBAT_MESSAGE_RANGE)

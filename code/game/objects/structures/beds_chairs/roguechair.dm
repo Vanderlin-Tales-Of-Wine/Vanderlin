@@ -35,12 +35,12 @@
 	..()
 	density = FALSE
 
-/obj/structure/chair/bench/CanPass(atom/movable/mover, turf/target)
+/obj/structure/chair/bench/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(istype(mover, /obj/projectile))
 		return TRUE
-	if(get_dir(mover,loc) == dir)
+	if(get_dir(mover, loc) == dir)
 		return FALSE
-	return !density
 
 /obj/structure/chair/bench/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
 	SIGNAL_HANDLER
@@ -145,7 +145,8 @@
 	origin_type = /obj/structure/chair/wood/alt/chair_noble/red
 
 
-/obj/structure/chair/wood/alt/CanPass(atom/movable/mover, turf/target)
+/obj/structure/chair/wood/alt/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(isliving(mover))
 		var/mob/living/M = mover
 		if((M.body_position != LYING_DOWN))
@@ -158,8 +159,6 @@
 					I.dir = dir
 					qdel(src)
 					return FALSE
-	return ..()
-
 
 /obj/structure/chair/wood/alt/onkick(mob/user)
 	if(!user)

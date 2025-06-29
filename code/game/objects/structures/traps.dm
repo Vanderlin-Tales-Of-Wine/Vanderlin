@@ -124,7 +124,7 @@
 		return FALSE
 	if(victim.mind in immune_minds)
 		return FALSE
-	if(checks_antimagic && victim.anti_magic_check())
+	if(checks_antimagic && victim.can_block_magic(MAGIC_RESISTANCE))
 		flare(TRUE)
 		return FALSE
 	return TRUE

@@ -18,7 +18,8 @@
 	close_sound_volume = 50
 	drag_slowdown = 0
 
-/obj/structure/closet/crate/CanPass(atom/movable/mover, turf/target)
+/obj/structure/closet/crate/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(!istype(mover, /obj/structure/closet))
 		var/obj/structure/closet/crate/locatedcrate = locate(/obj/structure/closet/crate) in get_turf(mover)
 		if(locatedcrate) //you can walk on it like tables, if you're not in an open crate trying to move to a closed crate
@@ -26,7 +27,6 @@
 				return TRUE
 			if(!locatedcrate.opened) //otherwise, if the located crate is closed, allow entering
 				return TRUE
-	return !density
 
 /obj/structure/closet/crate/attack_hand(mob/user)
 	. = ..()

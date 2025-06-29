@@ -23,7 +23,7 @@
 	. = ..()
 	if(ismob(target))
 		var/mob/M = target
-		if(M.anti_magic_check())
+		if(M.can_block_magic(MAGIC_RESISTANCE))
 			visible_message(span_warning("[target] repells the fetch!"))
 			playsound(get_turf(target), 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)

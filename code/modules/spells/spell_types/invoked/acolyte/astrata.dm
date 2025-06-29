@@ -22,7 +22,7 @@
 	if(isliving(targets[1]))
 		var/mob/living/L = targets[1]
 		user.visible_message("<font color='yellow'>[user] points at [L]!</font>")
-		if(L.anti_magic_check(TRUE, TRUE))
+		if(L.can_block_magic(MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY))
 			return FALSE
 		playsound(user, 'sound/items/flint.ogg', 150, FALSE)
 		L.adjust_divine_fire_stacks(3.5)

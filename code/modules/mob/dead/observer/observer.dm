@@ -239,17 +239,6 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 
 	return ..()
 
-/mob/dead/CanPass(atom/movable/mover, turf/target)
-	return 1
-
-/mob/dead/observer/rogue/CanPass(atom/movable/mover, turf/target)
-	if(!isinhell)
-		if(istype(mover, /mob/dead/observer/rogue))
-			return 0
-		if(istype(mover, /mob/dead/observer/rogue/arcaneeye))
-			return 1
-	return 1
-
 /*
  * Increase the brightness of a color by calculating the average distance between the R, G and B values,
  * and maximum brightness, then adding 30% of that average to R, G and B.

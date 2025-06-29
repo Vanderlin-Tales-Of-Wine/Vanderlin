@@ -59,7 +59,7 @@
 	var/atom/throw_target = get_step(target, get_dir(firer, target))
 	if(isliving(target))
 		var/mob/living/L = target
-		if(L.anti_magic_check())
+		if(L.can_block_magic(MAGIC_RESISTANCE))
 			return BULLET_ACT_BLOCK
 		L.throw_at(throw_target, 200, 4)
 	else

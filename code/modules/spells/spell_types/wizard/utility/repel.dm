@@ -42,7 +42,7 @@
 	var/atom/throw_target = get_edge_target_turf(firer, get_dir(firer, target)) //ill be real I got no idea why this worked.
 	if(ismob(target))
 		var/mob/M = target
-		if(M.anti_magic_check() || !firer)
+		if(M.can_block_magic(MAGIC_RESISTANCE) || !firer)
 			M.visible_message(span_warning("[src] vanishes on contact with [target]!"))
 			return BULLET_ACT_BLOCK
 		M.throw_at(throw_target, 7, 4)

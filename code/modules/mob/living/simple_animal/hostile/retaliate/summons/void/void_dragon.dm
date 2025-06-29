@@ -305,7 +305,7 @@
 /mob/living/simple_animal/hostile/retaliate/voiddragon/proc/Bolt(mob/origin, mob/target, bolt_energy, bounces, mob/user = usr)
 	origin.Beam(target,icon_state="lightning[rand(1,12)]",time=5)
 	var/mob/living/carbon/current = target
-	if(current.anti_magic_check())
+	if(current.can_block_magic(MAGIC_RESISTANCE))
 		current.visible_message(span_warning("[current] absorbs the spell, remaining unharmed!"), span_danger("I absorb the spell, remaining unharmed!"))
 	else if(bounces < 1)
 		current.electrocute_act(bolt_energy,"Lightning Bolt",flags = SHOCK_NOGLOVES)

@@ -71,8 +71,52 @@
 #define MANA_POOL_SKIP_NEXT_TRANSFER (1<<0)
 #define MANA_POOL_INTRINSIC (1<<1)
 
-#define COMSIG_SPELL_BEFORE_CAST "spell_before_cast"
-#define COMSIG_SPELL_AFTER_CAST "spell_after_cast"
-
 #define SPELL_MANA (1<<0)
 #define SPELL_ESSENCE (1<<1)
+
+// Invocation types - what does the wizard need to do to invoke (cast) the spell?
+/// Allows being able to cast the spell without saying or doing anything.
+#define INVOCATION_NONE "none"
+/// Forces the wizard to shout the invocation to cast the spell.
+#define INVOCATION_SHOUT "shout"
+/// Forces the wizard to whisper the invocation to cast the spell.
+#define INVOCATION_WHISPER "whisper"
+/// Forces the wizard to emote to cast the spell.
+#define INVOCATION_EMOTE "emote"
+
+
+/// Default magic resistance that blocks normal magic (wizard, spells, magical staff projectiles)
+#define MAGIC_RESISTANCE (1<<0)
+/// Tinfoil hat magic resistance that blocks mental magic (telepathy, mind curses, abductors, jelly people)
+#define MAGIC_RESISTANCE_MIND (1<<1)
+/// Holy magic resistance that blocks unholy magic (revenant, cult, vampire, voice of god)
+#define MAGIC_RESISTANCE_HOLY (1<<2)
+
+// Bitflags for spell requirements
+/// Whether the spell requires wizard clothes to cast.
+#define SPELL_REQUIRES_WIZARD_GARB (1 << 0)
+/// Whether the spell can only be cast by humans (mob type, not species).
+/// SPELL_REQUIRES_WIZARD_GARB comes with this flag implied, as carbons and below can't wear clothes.
+#define SPELL_REQUIRES_HUMAN (1 << 1)
+/// Whether the spell can be cast by mobs who are brains / mmis.
+/// When applying, bear in mind most spells will not function for brains out of the box.
+#define SPELL_CASTABLE_AS_BRAIN (1 << 2)
+/// Whether the spell can be cast while the user has antimagic on them that corresponds to the spell's own antimagic flags.
+#define SPELL_REQUIRES_NO_ANTIMAGIC (1 << 4)
+/// Whether the spell requires being on the station z-level to be cast.
+#define SPELL_REQUIRES_STATION (1 << 5)
+/// Whether the spell must be cast by someone with a mind datum.
+#define SPELL_REQUIRES_MIND (1 << 6)
+/// Whether the spell can be cast, even if the caster is unable to speak the invocation
+/// (effectively making the invocation flavor, instead of required).
+#define SPELL_CASTABLE_WITHOUT_INVOCATION (1 << 7)
+
+DEFINE_BITFIELD(spell_requirements, list(
+	"SPELL_CASTABLE_AS_BRAIN" = SPELL_CASTABLE_AS_BRAIN,
+	"SPELL_CASTABLE_WITHOUT_INVOCATION" = SPELL_CASTABLE_WITHOUT_INVOCATION,
+	"SPELL_REQUIRES_HUMAN" = SPELL_REQUIRES_HUMAN,
+	"SPELL_REQUIRES_MIND" = SPELL_REQUIRES_MIND,
+	"SPELL_REQUIRES_NO_ANTIMAGIC" = SPELL_REQUIRES_NO_ANTIMAGIC,
+	"SPELL_REQUIRES_STATION" = SPELL_REQUIRES_STATION,
+	"SPELL_REQUIRES_WIZARD_GARB" = SPELL_REQUIRES_WIZARD_GARB,
+))

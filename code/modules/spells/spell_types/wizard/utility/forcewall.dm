@@ -63,14 +63,14 @@
 	. = ..()
 	caster = summoner
 
-/obj/structure/forcefield_weak/caster/CanPass(atom/movable/mover, turf/target)	//only the caster can move through this freely
+/obj/structure/forcefield_weak/caster/CanAllowThrough(atom/movable/mover, turf/target)	//only the caster can move through this freely
+	. = ..()
 	if(mover == caster)
 		return TRUE
 	if(ismob(mover))
 		var/mob/M = mover
-		if(M.anti_magic_check(chargecost = 0) || structureclimber == M)
+		if(M.can_block_magic(charge_cost = 0) || structureclimber == M)
 			return TRUE
-	return FALSE
 
 /obj/structure/forcefield_weak/caster/do_climb(atom/movable/A)
 	if(A != caster)

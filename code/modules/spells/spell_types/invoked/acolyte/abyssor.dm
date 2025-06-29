@@ -50,7 +50,7 @@
 	. = ..()
 	if(ismob(target))
 		var/mob/hit = target
-		if(hit.anti_magic_check())
+		if(hit.can_block_magic(MAGIC_RESISTANCE))
 			hit.visible_message(span_warning("[src] vanishes on contact with [target]!"))
 			return BULLET_ACT_BLOCK
 	if(!dropped)

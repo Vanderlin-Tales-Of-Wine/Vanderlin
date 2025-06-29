@@ -57,7 +57,7 @@
 	for(var/turf/affected_turf in view(area_of_effect, T))
 		new /obj/effect/temp_visual/snap_freeze(affected_turf)
 		for(var/mob/living/L in affected_turf.contents)
-			if(L.anti_magic_check())
+			if(L.can_block_magic(MAGIC_RESISTANCE))
 				visible_message(span_warning("The ice fades away around you. [L] "))  //antimagic needs some testing
 				playsound(get_turf(L), 'sound/magic/magic_nulled.ogg', 100)
 				return

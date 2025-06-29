@@ -13,7 +13,7 @@
 	if(!isliving(targets[1]))
 		return FALSE
 	var/mob/living/victim = targets[1]
-	if(victim.anti_magic_check())
+	if(victim.can_block_magic(MAGIC_RESISTANCE))
 		to_chat(user, span_warning("Your manipulation of [victim] failed!"))
 		return ..()
 	var/forced_speak = input(user, "What should they say?", "Vicious Mimicry")
@@ -58,7 +58,7 @@
 /obj/effect/proc_holder/spell/invoked/wheel/cast(list/targets, mob/user = usr)
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
-		if(target.anti_magic_check(TRUE, TRUE))
+		if(target.can_block_magic(MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY))
 			to_chat(user, span_warning("Your manipulation of [target]'s fate failed!"))
 			return ..()
 		target.apply_status_effect(/datum/status_effect/wheel)

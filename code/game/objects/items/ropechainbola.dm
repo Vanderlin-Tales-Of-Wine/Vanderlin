@@ -257,11 +257,11 @@
 	else
 		return ..()
 
-/obj/structure/noose/bullet_act(obj/projectile/P)
+/obj/structure/noose/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
 	. = ..()
 	new /obj/item/rope(loc)
 	playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
-	if (istype(src, /obj/structure/noose/gallows))
+	if(istype(src, /obj/structure/noose/gallows))
 		new /obj/machinery/light/fueled/lanternpost/unfixed(loc)
 		visible_message(span_danger("The noose is shot down from the gallows!"))
 	else

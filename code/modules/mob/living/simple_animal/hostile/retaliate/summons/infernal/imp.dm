@@ -62,7 +62,7 @@
 /obj/projectile/magic/firebolt/on_hit(target)
 	if(ismob(target))
 		var/mob/M = target
-		if(M.anti_magic_check())
+		if(M.can_block_magic(MAGIC_RESISTANCE))
 			M.visible_message(span_warning("[src] vanishes on contact with [target]!"))
 			qdel(src)
 			return BULLET_ACT_BLOCK

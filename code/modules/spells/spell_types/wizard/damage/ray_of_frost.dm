@@ -161,7 +161,7 @@
 			return
 
 	// Anti-magic check
-	if(target.anti_magic_check())
+	if(target.can_block_magic(MAGIC_RESISTANCE))
 		visible_message(span_warning("The frost ray fizzles on contact with [target]!"))
 		playsound(get_turf(target), 'sound/magic/magic_nulled.ogg', 100)
 		return

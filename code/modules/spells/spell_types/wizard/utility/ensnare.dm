@@ -40,7 +40,7 @@
 		rogue.Paralyze(duration, ignore_canstun = TRUE)	//i think animal movement is coded weird, i cant seem to stun them
 
 	for(var/mob/living/L in range(area_of_effect, T))
-		if(L.anti_magic_check())
+		if(L.can_block_magic(MAGIC_RESISTANCE))
 			visible_message(span_warning("The tendrils of force can't seem to latch onto [L] "))  //antimagic needs some testing
 			playsound(get_turf(L), 'sound/magic/magic_nulled.ogg', 100)
 			return

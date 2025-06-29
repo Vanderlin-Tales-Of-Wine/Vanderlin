@@ -273,7 +273,7 @@
 	if(istype(targeteditem, /obj/item/weapon/tongs))
 		return handle_tongs(targeteditem, user)
 
-	if(!targeteditem.smeltresult || targeteditem.smeltresult == /obj/item/ash || target.anti_magic_check(TRUE))
+	if(!targeteditem.smeltresult || targeteditem.smeltresult == /obj/item/ash || target.can_block_magic(MAGIC_RESISTANCE_HOLY))
 		user.visible_message("<font color='yellow'>After their incantation, [user] points at [target], but nothing happens.</font>", "<font color='yellow'>After your incantation, you point at [target], but nothing happens.</font>")
 		return TRUE
 

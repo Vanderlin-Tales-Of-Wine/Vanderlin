@@ -301,9 +301,8 @@
 		changing_layer(min(bleed_layer - round(damage / (bleed_layer * 20), 1), MAX_LAYER_SNOW_LEVELS))
 		progression = bleed_layer * 4
 
-/obj/structure/snow/bullet_act(obj/projectile/proj)
+/obj/structure/snow/bullet_act(obj/projectile/proj, def_zone, piercing_hit)
 	return FALSE
-
 
 /obj/structure/snow/proc/weathered(datum/weather_effect/effect)
 	if(progression < bleed_layer * 32)

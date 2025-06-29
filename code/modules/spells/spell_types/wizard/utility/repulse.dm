@@ -93,7 +93,7 @@
 
 		if(ismob(AM))
 			var/mob/M = AM
-			if(M.anti_magic_check())
+			if(M.can_block_magic(MAGIC_RESISTANCE))
 				continue
 
 		throwtarget = get_edge_target_turf(user, get_dir(user, get_step_away(AM, user)))

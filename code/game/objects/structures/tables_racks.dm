@@ -21,7 +21,7 @@
 	anchored = TRUE
 	layer = TABLE_LAYER
 	climbable = TRUE
-	pass_flags = LETPASSTHROW //You can throw objects over this, despite it's density.")
+	pass_flags_self = LETPASSTHROW|PASSTABLE
 	var/frame
 	var/framestack
 	var/buildstack
@@ -86,15 +86,14 @@
 
 /obj/structure/table/proc/after_added_effects(obj/item/item, mob/user)
 
-/obj/structure/table/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover) && (mover.pass_flags & PASSTABLE))
-		return 1
+/obj/structure/table/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(.)
+		return
 	if(mover.throwing)
-		return 1
+		return TRUE
 	if(locate(/obj/structure/table) in get_turf(mover))
-		return 1
-	else
-		return !density
+		return TRUE
 
 /obj/structure/table/CanAStarPass(ID, dir, requester)
 	. = !density
@@ -398,23 +397,11 @@
 	layer = TABLE_LAYER
 	density = TRUE
 	anchored = TRUE
-	pass_flags = LETPASSTHROW //You can throw objects over this, despite it's density.
+	pass_flags_self = LETPASSTHROW|PASSTABLE
 	max_integrity = 40
 	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 	blade_dulling = DULLING_BASHCHOP
-
-/obj/structure/rack/examine(mob/user)
-	. = ..()
-// += "<span class='notice'>It's held together by a couple of <b>bolts</b>.</span>"
-
-/obj/structure/rack/CanPass(atom/movable/mover, turf/target)
-	if(src.density == 0) //Because broken racks -Agouri |TODO: SPRITE!|
-		return 1
-	if(istype(mover) && (mover.pass_flags & PASSTABLE))
-		return 1
-	else
-		return 0
 
 /obj/structure/rack/CanAStarPass(ID, dir, requester)
 	. = !density
