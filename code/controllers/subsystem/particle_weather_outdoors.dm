@@ -33,7 +33,6 @@
 	color = list("#100a18", "#0c0412", "#0f0012")
 	start = 16 HOURS //4:00:00 PM
 
-GLOBAL_VAR_INIT(GLOBAL_LIGHT_RANGE, 3)
 GLOBAL_LIST_EMPTY(SUNLIGHT_QUEUE_WORK)   /* turfs to be stateChecked */
 GLOBAL_LIST_EMPTY(SUNLIGHT_QUEUE_UPDATE) /* turfs to have their colors updated via corners (filter out the unroofed dudes) */
 GLOBAL_LIST_EMPTY(SUNLIGHT_QUEUE_CORNER) /* turfs to have their color/lights/etc updated */
@@ -238,15 +237,14 @@ SUBSYSTEM_DEF(outdoor_effects)
 	/* transistion in an hour or time diff from now to our next step, whichever is smaller */
 	if(!next_step_datum)
 		get_time_of_day()
-	SP.color = last_color
-	var/timeDiff = min((1 HOURS / SSticker.station_time_rate_multiplier ),daytimeDiff(station_time(), next_step_datum.start))
-	animate(SP,color=picked_color, time = timeDiff)
+	var/timeDiff = min((1 HOURS / SSticker.station_time_rate_multiplier), daytimeDiff(station_time(), next_step_datum.start))
+	animate(SP, color = picked_color, time = timeDiff)
 
 // Updates overlays and vis_contents for outdoor effects
 /datum/controller/subsystem/outdoor_effects/proc/update_outdoor_effect_overlays(atom/movable/outdoor_effect/OE)
 	var/mutable_appearance/MA
 	if (OE.state != SKY_BLOCKED)
-		MA = get_sunlight_overlay(1,1,1,1) /* fully lit */
+		MA = get_sunlight_overlay(1, 1, 1, 1) /* fully lit */
 	else //Indoor - do proper corner checks
 		/* check if we are globally affected or not */
 		var/static/datum/lighting_corner/dummy/dummy_lighting_corner = new
@@ -294,26 +292,23 @@ SUBSYSTEM_DEF(outdoor_effects)
 /datum/controller/subsystem/outdoor_effects/proc/create_sunlight_overlay(fr, fg, fb, fa)
 	var/mutable_appearance/MA = new /mutable_appearance()
 	MA.icon = LIGHTING_ICON
-	MA.icon_state = "lighting_transparent"
+	MA.icon_state = null
 	MA.plane = SUNLIGHTING_PLANE /* we put this on a lower level than lighting so we dont multiply anything */
 	MA.blend_mode = BLEND_OVERLAY
 	MA.invisibility = INVISIBILITY_LIGHTING
 
 	//MA gets applied as an overlay, but we pull luminosity out to set our outdoor_effect object's lum
-	#if LIGHTING_SOFT_THRESHOLD != 0
+#if LIGHTING_SOFT_THRESHOLD != 0
 	MA.luminosity = max(fr, fg, fb, fa) > LIGHTING_SOFT_THRESHOLD
-	#else
+#else
 	MA.luminosity = max(fr, fg, fb, fa) > 1e-6
-	#endif
+#endif
 
 	if((fr & fg & fb & fa) && (fr + fg + fb + fa == 4)) /* this will likely never happen */
-		MA.icon_state = "lighting_transparent"
-		MA.color = null
+		MA.color = LIGHTING_BASE_MATRIX
 	else if(!MA.luminosity)
-		MA.icon_state = "lighting_dark"
-		MA.color = null
+		MA.color = SUNLIGHT_DARK_MATRIX
 	else
-		MA.icon_state = null
 		MA.color = list(
 			fr, fr, fr, 00,
 			fg, fg, fg, 00,
