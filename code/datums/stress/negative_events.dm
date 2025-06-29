@@ -412,3 +412,8 @@
 	timer = 2 MINUTES
 	stressadd = 2
 	desc = span_red("Oww, my head...")
+
+/datum/stressevent/divine_punishment
+	timer = 5 MINUTES
+	stressadd = 4
+	desc = span_warning("The gods have not taken kindly to my deeds.")
