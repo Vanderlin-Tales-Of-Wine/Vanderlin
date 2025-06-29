@@ -26,7 +26,7 @@
 	armor = /obj/item/clothing/armor/leather/jacket
 	wrists = /obj/item/clothing/neck/psycross/silver/dendor
 	gloves = /obj/item/clothing/gloves/fingerless
-	backpack_contents = list(/obj/item/flashlight/flare/torch/lantern/copper, /obj/item/weapon/knife/hunting)
+	backpack_contents = list(/obj/item/weapon/knife/hunting)
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/black
 
 	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE) // Knives are gonna be a rough backup, but should be one anyway
@@ -44,7 +44,7 @@
 	H.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 
-	H.change_stat(STATKEY_PER, 2)
-	H.change_stat(STATKEY_SPD, 2) // Fast... for a dwarf
+	H.change_stat(STATKEY_PER, 1)
+	H.change_stat(STATKEY_SPD, 2) // Speedy out of necessity! Get the hell outta there
 
-	ADD_TRAIT(H, TRAIT_NIGHT_OWL, TRAIT_GENERIC) // Dendor influence in nature blesses them with the Eyes of the Zad
+	ADD_TRAIT(H, TRAIT_BESTIALSENSE, TRAIT_GENERIC) // Dendor influence in nature blesses them with the Eyes of the Zad
