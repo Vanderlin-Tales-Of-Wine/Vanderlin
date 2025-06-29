@@ -13,6 +13,25 @@
 	sewrepair = FALSE
 	smeltresult = /obj/item/ingot/iron //no 1 to 1 conversion
 
+/obj/item/clothing/wrists/bracers/iron
+	name = "iron plate vambraces"
+	desc = "Plate forearm guards that offer good protection while allowing mobility."
+	icon_state = "ibracers"
+	item_state = "ibracers"
+	armor = ARMOR_MAILLE
+	max_integrity = INTEGRITY_STANDARD
+
+
+/obj/item/clothing/wrists/bracers/jackchain
+	name = "jack chains"
+	desc = "Thin strips of steel attached to small shoulder and elbow plates, worn on the outside of the arms to protect against slashes."
+	icon_state = "jackchain"
+	item_state = "jackchain"
+	armor = ARMOR_MAILLE
+	max_integrity = INTEGRITY_STANDARD
+	prevent_crits = CUT_AND_MINOR_CRITS
+	smeltresult = null //Gives two per smith, gives none per smelt.
+
 /obj/item/clothing/wrists/bracers/leather
 	name = "leather bracers"
 	desc = "Boiled leather bracers typically worn by archers to protect their forearms."

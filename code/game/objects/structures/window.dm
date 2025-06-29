@@ -141,10 +141,10 @@
 	icon += initial(icon_state)
 	if(brokenstate)
 		icon_state = "[icon]br"
-		return ..()
+		return
 	if(climbable)
 		icon_state = "[icon]op"
-		return ..()
+		return
 	icon_state = "[icon]"
 
 /obj/structure/window/openclose/attack_right(mob/user)
