@@ -1,7 +1,7 @@
 
 <p><strong><em><span style="font-size:115%"> Welcome to Vanderlin! </span></em></strong></p>
 <p> This lore primer serves as an introduction to Vanderlin's lore and world. <br>
-While it's not required reading, leadership roles may find this information useful to roleplay their positions. This, or anyone else interested in playing a character with more knowledge about the setting. </p><br>
+While it's not required reading, leadership roles may find this information useful to roleplay their positions. This, or anyone else interested in playing a character with more knowledge about the setting. Not all information is available here, and some secrets still lie within item descriptions, inscriptions, or booklets- it's a primer, not a compendium. </p>
 <hr>
 <strong><span style="font-size:105%"> Some quick vocabulary/concepts important to the setting: </span></strong>
 <p><strong> Psydonia </strong> - The world Vanderlin takes place in, named after its creation god, Psydon. It is currently the year 2515 after His death. </p>
@@ -10,7 +10,7 @@ While it's not required reading, leadership roles may find this information usef
 <hr>
 
 <details>
-	<summary><strong><span style="font-size:130%"> AREAS OF THE WORLD </span></strong></summary>
+	<summary><strong><span style="font-size:130%"> AREAS OF FAIENCE </span></strong></summary>
 
 
 
@@ -99,17 +99,38 @@ While it's not required reading, leadership roles may find this information usef
 	<br>
 	<strong><span style="font-size:115%"> MAJOR POWERS </span></strong>
 	<br><br>
+	<details>
+		<summary><strong> KINGSFIELD EXPANSE </strong></summary>
+		<br>
+		<em>The Crown of Psydonia</em>
+		<br><br>
+		Kingsfield spans along the Northwest of Faience, housing the cultural center of the world in its massive cities and impressive population. Unlike many of the other humen-majority populations, its inhabitants and history are defined by kindness rather than conquest. A certain demographic of Kingsfieldians are identifiable by their odd pronunciation of certain Imperial words and inclusion of 'eh?' after a comment or question. Species from all over the world would visit and establish themselves within these cities, including a non-insignificant population of dark elves before Zizo's conquest. They are, perhaps, the most tolerant of half-drow as a result- and as such are subject to mockery by the rest of Faience.
+		<br><br>
+		Kingsfield's prominence was built from tactical allyship and infrastructure development through industrialization. Through close cooperation with Heartfelt, Kingsfield railways span across the Western side of the entire continent, stretching from the tip of Kingsfield's tundras to the bottom of Vanderlin's peninsula. Kingsfield's population, notable in arts and culture worldwide, is of course largely Eoran and Xylixian in patronage; however, scholars of Noc account for a close third.
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> EMPIRE OF WINTERMARE </strong></summary>
+		<br>
+		<em>Noc's Embraced, The Elven Empire, The Arcyne Tundra</em>
+		<br><br>
+		Wintermare is the largest elven power in Psydonia, often the only territory marked on humen maps. Unfortunately, most of its territory is covered in unusable Northern permafrost despite its size. Nevertheless Wintermare remains incredibly influential, with most of its Southern cities producing renown magicians and Noccian scholars. Kingsfieldian rail links along the Southern mountain ranges, providing vital resources to an otherwise tense border zone between the elven empire and Grenzelhoft below.
+		<br><br>
+		Abandoned settlements and ghost towns along the border of Wintermare stand as graves and memorials to wars and genocides of the past. What populated locations remain are riddled with discarded and potentially active weapons of war. What don't... after Zizo's rise, no one goes there anymore.
+		<br><br>
+	</details>
 
 	<details>
 		<summary><strong> GRENZELHOFT IMPIRATE </strong></summary>
 		<br>
 		<em>The Black Empire, The Empty Throne, Empire of the Trident</em>
 		<br><br>
-		Grenzelhoft is an Imperialist state carved across the Northeast of Faience through political upheaval and military action.
+		Grenzelhoft is an Imperialist state carved across the Northeast of Faience through political upheaval and military action. They are known mainly for their striking cuisine, honourable, loyal mercenaries, and their overwhelming monopoly over black powder. Despite a largely humen-supremacist culture, dwarves are embraced and regarded as the friends and builders of Psydon's vision.
 		<br><br>
-		The Grenzelhoftians proudly assimilate all those who come under their heel into their Empire, integrating national identities into their fold and destroying them in favour of their own. Grenzelhoft bears the largest armies in the world and incredible military might, which come under vast scrutiny and disgust as they become increasingly desperate to upkeep their power. Their history is defined by crusades, elven genocide, and general aggression in the supposed name of Psydon and His return to the throne. Orthodox Psydonism is the dominant religion. Critics and pagans are persecuted.
+		Grenzelhoftians proudly assimilate all humens who come under their heel into their Empire, integrating national identities into their fold and destroying them in favour of their own. Grenzelhoft bears the largest armies in the world and incredible military might, which come under vast scrutiny and disgust as they become increasingly desperate to upkeep their power. Their history is defined by crusades, elven genocide, and general aggression in the supposed name of Psydon and His return to the throne. Orthodox Psydonism is the dominant religion. Critics and pagans are persecuted.
 		<br><br>
-		Their people cannot remember a time when the Empire was not at war, and many have served within its military forces to escape the intense poverty of its lower-class. A world-scale conflict between Grenzelhoft and its neighbours was narrowly avoided in the early 2100s by the rise of a new common enemy: Zizo.
+		Their people cannot remember a time when the Empire was not at war, and many have served within its military forces to escape the intense poverty of its lower-class. A world-scale conflict between Grenzelhoft and its neighbours was narrowly avoided in the early 2100s by the rise of a new common enemy: Zizo. Grenzelhoft's forces, explosives, and firearms now supply the Eastern front with vital support under the explicit command of Grenzelhoft's cabal of sun-averse counts and countesses.
 		<br><br>
 	</details>
 
@@ -120,7 +141,7 @@ While it's not required reading, leadership roles may find this information usef
 		<br><br>
 		A grand-spanning, mercantilist empire which found prosperity and riches from spice export. Zaladin is home to some of the worlds greatest wonders, though the labourers who built them were directed by force and threats rather than passion. The dominant ideologies are Astratanism and Xylixianism. Xylixian freemen and Astratan order-keepers clash often in mortal representations of divine conflict. Zaladians have grown numb to the possibility of a civil war, and these skirmishes have simply become another aspect of daily life.
 		<br><br>
-		Zaladin was once known as Zybantine whilst under Grenzelhoftian occupation. It was a title forced upon them rather than chosen, and was violently rejected alongside the repellant of Grenzelhoft's Southern crusades by Zalad armies. In modern times, the term has become considered a grave and bigoted insult.
+		Zaladin was known as 'Zybantine' whilst under Grenzelhoftian occupation. It was a title forced upon them rather than chosen, and was violently rejected alongside the repellance of Grenzelhoft's Southern crusades by Zalad armies. In modern times, the term has become considered a grave and bigoted insult.
 		<br><br>
 		Within desperation after the failed conquest, Zaladin's dwindling forces turned to conscription of prisoners-of-war, the first of their slave-armies, forcefully enlisting many captured Grenzelhoftians. These troops are sent to support the front lines of allied Valorian states to the North against Zizo's armies in the Barrows. Regardless of origin, Zaladin's signature "Desert Riders" are a force to reckon- especially when mounted atop their twain-humped pegasi.
 		<br><br>
@@ -132,102 +153,301 @@ While it's not required reading, leadership roles may find this information usef
 	<br><br>
 
 	<details>
-		<summary><strong> VALORIAN RUPUBLIAS </strong></summary>
+		<summary><strong> KALEDON </strong></summary>
 		<br>
-		Valoria is a land of constant strife, bickering city-states with a number of conflicting interests. Yet they bear some pride of their lands, banding together to repel the invading Grenzelhoft Empire out of shared desire for freedom. With conflict comes innovation, the Valorian lands developing pride in their revolution of blade combat strategy and stance. Largely followers of Ravox, they value honour and duels as an expression of status.
+		<em> Placeholder </em>
+		<br><br>
+		Placeholder...
 		<br><br>
 	</details>
 
-	<p>  Dwarven Federations - Scattered confederacies around Psydonia, the largest being to the West of Zaladin in the frigid mountains. Homeplace of the Dwarves. </p>
+	<details>
+		<summary><strong> VALORIAN RUPUBLIAS </strong></summary>
+		<br>
+		<em> The Freestates, Vineyards of Valoria, The Lords of Coin </em>
+		<br><br>
+		Valoria is a land of constant strife, bickering city-states with a number of conflicting interests. Yet they bear some pride of their lands, banding together to repel the invading Grenzelhoft Empire out of shared desire for freedom. With conflict comes innovation; the Valorian lands developed pride in their revolution of blade combat strategy and stance. Largely followers of Ravox, they value honour and duels as an expression of status.
+		<br><br>
+		Valoria is renown for their alcohol exports and trade, seconding only Zaladin as most-sought goods.
+		<br><br>
+	</details>
 
-	<p><i>  DWARVEN CONFEDERACY  </i></p>
-	<p>  The Great Throngs, The Braided Confederacy, Malums Prodigy </p>
-	<p>  Usually in the mountains of continents all over Psydonia. The political aspects stem from federations bearing unique dwarven clans, leaderships, industries, and cultures. Unified by a homogenous racial identity. Dwarves and humen empires have established a long history of allyship. Whilst dwarves often choose neutrality in humen-on-humen conflict, a dwarven face is a trusted face to most humens. </p>
-	<p><br></p>
+	<details>
+		<summary><strong> DWARVEN CONFEDERACY </strong></summary>
+		<br>
+		<em> The Great Throngs, The Braided Confederacy, Seven Hammers </em>
+		<br><br>
+		Located in the mountains of continents all over Psydonia. The political aspects stem from federations bearing unique dwarven clans, leaderships, industries, and cultures. The largest establishment is within the great mountain range to the Southeast of Zaladin's deserts. Dwarves and humen empires have established a long history of allyship. Whilst dwarves often choose neutrality in humen-on-humen conflict, a dwarven face is a trusted face to most humens.
+		<br><br>
+	</details>
 
-	<p><i>  ELVEN ENCLAVES  </i></p>
-	<p>  Keepers of Psydonia, Retreats of the Ancient Age, Forgotten Fallen Fae </p>
-	<p>  The declining population has led Elves to retreat to compact and isolated communities. They defend their remaining homes in natural wonders around Psydonia to the death and without mercy. Subdivided into distinct cultures such as Wood, Dark, Sand, Mountain, Sea, and countless more. Whilst once there lived a culture of snow elves, Zizo's ascension has caused an all-but complete genocide of the tribe.  </p>
-	<p><br></p>
+	<details>
+		<summary><strong> ELVEN ENCLAVES </strong></summary>
+		<br>
+		<em> Keepers of Psydonia, Retreats of the Ancient Age, Forgotten Guides of Death </em>
+		<br><br>
+		The declining population has led Elves to retreat to compact and isolated communities outside of Wintermare. They defend their remaining homes in natural wonders around Psydonia to the death and without mercy. Subdivided into distinct cultures such as Wood, Dark, Sand, Mountain, Sea, and countless more. Whilst once there lived a culture of snow elves, Zizo's ascension resulted in an all-but complete genocide of the tribe. Most elven settlements are not even recognized, much less their their territories represented within modern humen maps.
+		<br><br>
+	</details>
 
-	<p><i>  ORC & GOBLIN THRONES  </i></p>
-	<p>  Crusaders of Graggar, Graggarspawn, Heirs of Psydonia    </p>
-	<p>  Sprung up fortresses and towns established via nomadic means, with origins from the Crimsonlands, taking advantage of natural resources and nearby settlements to raid, conquer, and move on to more promising targets. An ever-moving snowball that expands in size and occasionally experiences great losses, followed by a steady regrowth.  </p>
-	<p><br></p>
+	<details>
+		<summary><strong> ORC & GOBLIN THRONES  </strong></summary>
+		<br>
+		<em> Crusaders of Graggar, Graggarspawn, Heirs of Psydonia  </em>
+		<br><br>
+		Spontaneous fortresses and towns of Crimsonland origin, established via nomadic means. These encampments take advantage of natural resources and nearby settlements to raid, conquer, consume, and then move on to more promising targets. They are ever-moving hordes of gluttony and rage which constantly follow a pattern of great loss followed by a steady regrowth. Most of these forces are still recovering from the most recent Goblin War.
+		<br><br>
+		A misogynistic and self-destructive culture to its extreme, scholars report that several terms of language have been developed just to describe masculinity. Any sane individual loses focus after an orc rambles about &Sigma;-class masculinity or whatever newest scam Graggarspawn have begun pushing. Records are sparse as a result.
+		<br><br>
+	</details>
+	<br><br>
 </details>
 
 
 <details>
 	<summary><strong><span style="font-size:130%"> MYTHOS OF PSYDONIA </span></strong></summary>
-	<p><br></p>
-	<p>&quot;  Deities of The Mortal Races  &quot;</p>
-	<p><br></p>
-	<p> THE DEAD GOD </p>
-	<p><i>   Founder of Psydonia - The Great Hero </i></p>
-	<p>  Worshipped primarily by the Grenzelhoft Sect of the Pantheon, few know His true nature and feats. He is considered the father of The Ten, though the exact nature of his widely-accepted death is subject to heavy debate. Some followers of Psydon hold heavy grudges against Necra and The Ten for their roles in his butchery.  </p>
-	<p><br></p>
+	<br>
+	<strong><span style="font-size:115%"> THE OLD GOD </span></strong>
+	<br>
+	<em> The only good god is dead. He holds our rightful worship. </em>
+	<br><br>
+	<details>
+		<summary><strong> Orthodox Psydonism </strong></summary>
+		<br>
+		The overwhelming majority of Grenzelhoft's church of Psydon. Orthodox Psydonites believe that Psydon lives still, though divided into nine pieces. They are intent to tear down The Ten so that the true God may reform, however long it takes. They hold a deep hatred towards Necra for her butchery and betrayal of Psydon.
+		<br><br>
+	</details>
 
-	<p>&quot;   ASTRATA  &quot; </p>
-	<p><i>   Goddess of Order - The Sun Queen </i></p>
-	<p>  Leader of the divine Pantheon and ancient steward of the mortal races. Prideful to a fault, She demands absolute obedience from her mortal followers, bringing cleansing to Psydonia and everlasting order to the world of mortals. </p>
-	  <p>  Astatan Priests are known to call upon purifying flames, steel the resolve of their allies and even call upon the wrath of the sun herself against those who would fall against order.</p>
-	  <p>  Astrata's doctrine shows mercy only in the form of justice swiftly delivered by the blade's edge. To this end, despite the Pantheon's distance in recent times, She still grants many blessings and boons to her worshippers and will gladly punish those who break her law. She despises chaos, diabolism, betrayal, and sloth. </p>
-	  <p><br></p>
+	<details>
+		<summary><strong> Progressive Psydonism </strong></summary>
+		<br>
+		A schism within the orthodox church of Psydon, this progressive faction believes that worship is possible through The Ten. Rather than striving to cut down The Ten, progressive Psydonites instead look for signs of His will expressed through the pieces left behind.
+		<br><br>
+	</details>
 
-	  <p>&quot;   NOC &quot; </p>
-	  <p><i>   God of Knowledge - The Moon Prince </i></p>
-	  <p>  Crafted twin of Astrata. Noc is the God of All Knowledge, spending most of his time learning the many secrets of his father's creation. </p>
-	  <p>  The Faithful of Noc tend to be those of scholars and take much pride in learning and teaching. He looks poorly upon those who would shame the studies and remain ignorant of the world. Those who walk the moonlit path to transmute the Unknown into Knowledge, seek enlightenment in the unseen. Resentment is to be harnessed and transformed into a thirst for knowledge. </p>
-	  <p><br></p>
+	<hr>
+	<strong><span style="font-size:115%"> THE DIVINE PANTHEON </span></strong>
+	<br>
+	<em> The time of Psydon has passed, The Ten are righteous. Necra leads us to salvation. </em>
+	<br><br>
 
-	  <p>&quot;   NECRA  &quot; </p>
-	  <p><i>   Goddess of Death and Decay - The Mother of the Ten </i></p>
-	  <p>  Once a mortal, partner of Psydon, Necra broke apart His body as He fell to grant herself divinity and shape The Ten to ensure world prosperity.  </p>
-	  <p>  Necra watches over the underworld, guiding souls to their proper resting places. Through time, She developed a close relationship with Her son Ravox, spending much of her eternity socializing. With His influence, her underworld was shaped to offer Herself entertainment and spirits a chance to prove themselves.  </p>
-	  <p><br></p>
+	<details>
+		<summary><strong> Astrata </strong></summary>
+		<br>
+		<b><span style="display:block; color:#e5d569; font-size:130%"> "THY DEVOTION IS NO MERE SUGGESTION. I DEMAND IT." </span></b>
+		<br>
+		<em>The Sun Queen, The Tyrant of The Ten.</em>
+		<br><br>
+		Goddess of light and fire. Her domain encompasses the sun, healing, and most importantly the revival of the dead. She was crafted from the head of Psydon.
+		<br>
+		Astrata leads The Ten with an iron fist.  She demands obedience and respect as she leads both the mortal and divine worlds through calamity after calamity. As time passes, her grip only gets tighter and her patience for heresy thinner. She simply cannot spare her focus. Since the 2430s, she fills the cycles of darkness with periodic flares to light the nite.
+		<br><br>
+	</details>
 
-	  <p>&quot;   DENDOR  &quot; </p>
-	  <p><i>   God of Nature and Beasts </i></p>
-	  <p>  One of the primordial Gods of Psydonia, grew mad with time as nature fell to industry.   </p>
-	  <p>  Dendor in His beastly form wishes only for a return to the natural order of life, of predators and prey, hunters and the hunted. He and His followers are stark defenders of nature, saboteurs of industry and hold a very uneasy and often violent relationship with the dwarves. </p>
-	  <p><br></p>
+	<details>
+		<summary><strong> Noc </strong></summary>
+		<br>
+		<i><span style="display:block; color:#82a1d9; font-size:120%">"Dreams are thy gateway to wisdom, if thou art worthy." </span></i>
+		<br>
+		<em>The Moon Prince, The Keeper of Magick.</em>
+		<br>
+		God of knowledge and magick. His domain encompasses the moon, study, record-keeping, and self-improvement. He was crafted from the silver helm of Psydon.
+		<br>
+		Noc guides scholars, often nobles, through life dedication in order to master the ways of arcyne magick. Since the ascension of Zizo, he has only grown more strict with who are worthy of practicing this gift. He is known to wear the most fabulous of dresses.
+		<br><br>
+	</details>
 
-	  <p>&quot;   ABYSSOR  &quot; </p>
-	  <p><i>   God of Seas and Storms </i></p>
-	  <p>  Closely aligned with Dendor, Abyssor's concerns are of the natural environment and the preserved sanctity of the seas' bounty. </p>
-	  <p>  He harbours similar resentment of mortals and their treatment of His domain, though rather than driven mad with frustration Abyssor began crafting horrors of the deep to deliver vengeance. </p>
-	  <p><br></p>
+	<details>
+		<summary><strong> Abyssor </strong></summary>
+		<br>
+		<span style="display:block; color:#8b2d39; font-size:120%"> "Don't be fishin' deeper than ye can catch." </span>
+		<br>
+		God of the sea and storms. His domain encompasses all within the oceans, water, and blood. He defends the natural world alongside his brother, Dendor. Abyssor was crafted from the drained blood of Psydon.
+		<br>
+		With the destruction of the natural world, both brothers of nature were driven mad. While Dendor was struck with insanity, Abyssor encompasses the rage of the sea. Woe be to any who offend him.
+		<br><br>
+	</details>
 
-	  <p>&quot;   MALUM &quot; </p>
-	  <p><i>   God of Toil, Innovation, and Creation </i></p>
-	  <p>  Malum is a tenacious god who looks to the mortal races, especially that of the dwarves, with pride in their work. The All-Father of Flame and Industry, He smiles upon those who earn the sweat upon their brow, those who work honest days until their muscles are sore, and those who bear the burden of wishing to refine their craft even beyond. Malumites call upon their God’s will to soothe metal and summon bounties of resources from Psydonia itself.  </p>
-	  <p>  Malumites tend to show great love for craftsmanship and hard labor. Something that Malum rewards by soothing their soreness and whispering ideas into their minds. Malum loathes those who are slothlike and lazy, personally ensuring that any half-assed machine is sure to fail. He finds those who take credit for others' work infuriating.</p>
-	  <p><br></p>
+	<details>
+		<summary><strong> Dendor </strong></summary>
+		<br>
+		<span style="display:block; color:#74875a; font-size:120%"> "Prophecy? Eh... what prophecy? Madness? Drivel? Nonsense, the lot of it!" </span>
+		<br>
+		God of nature and beasts.  His domain encompasses the wilds on the surface, and all flora and fauna within. He does not claim any Subterran life due to its hellish corruption. Dendor was crafted from the bones of Psydon.
+		<br>
+		Fallen to insanity from the world industrialization and natural decimation. His followers struggle to find meaning in his words, to commune with the growing hostility seen within the previously-pristine glades and woods. He holds a deep resentment towards Malum, and his part in this.
+		<br><br>
+	</details>
 
-	  <p>&quot;   RAVOX &quot; </p>
-	  <p><i>  God of Warfare, Justice, and Bravery </i></p>
-	  <p>  The favoured of Necra, Ravox's charisma and sheer will to do right inspire all across the lands of Psydonia. Those who take upon themselves the task of asserting justice find His blessings in their training and physical aptitude. </p>
-	  <p>  Ravox values the worthiness of duels and art of battle. He cares not who fights, but for the worthiness of their cause and the passion in their hearts. His body is steel; His heart is justice. </p>
-	  <p><br></p>
+	<details>
+		<summary><strong> Ravox </strong></summary>
+		<br>
+		<span style="display:block; color:#774b44; font-size:120%"> "It's a rough world out there, kid. Keep safe. Stay holy." </span>
+		<br>
+		God of warfare, and justice. His domain encompasses righteous combat and bravery. He retreated to the underworld, reshaping it alongside Necra to include trials of combat and strife. He was crafted from the still-bloodied greatsword of Psydon.
+		<br>
+		Sullen and withdrawn, Ravox struggles to keep his followers away from Graggarism. As he has discovered, even remaining alive is not enough to avoid his words and domain twisted into heresy. Ravoxians often argue that their ideology lies closest to Psydon's own ways, though few if any remember to a degree of certainty.
+		<br><br>
+	</details>
 
-	  <p>&quot;   EORA &quot;</p>
-	  <p><i>   Goddess of Love, Family, and Art </i></p>
-	  <p>  Eora embodies the heart of Psydon, in a quite literal sense. She sees kindness in all, occasionally to Her own detriment. She granted pity to Graggar, offering him a sliver of Psydon's heart only to be promptly betrayed. In this, She has an unwilling hand in the creation of orcs and goblins, the only children She truly hates.  </p>
-	  <p>  Eora values bonds, family, and expressions of love or passion. Despite her betrayal, She continues to preach pity and mercy.  </p>
-	  <p><br></p>
+	<details>
+		<summary><strong> Malum</strong></summary>
+		<br>
+		<b><span style="display:block; color:#d39459; font-size:120%"> "Hammer with PURPOSE. Strike the STONE!" </span></b>
+		<br>
+		God of craft, forge, and toil. His domain encompasses architecture, mining, and sculpting. He considers the dwarven species his chosen, proudly supporting and guiding their technological improvements. He was crafted from the hands of Psydon.
+		<br>
+		Almost equally defined by conflict as much as creation, Malum and Dendor's rivalry spans millennia. Their bickering is reflected in the mortal planes through elven and dwarven skirmishes.
+		<br><br>
+	</details>
 
-	  <p>&quot;   PESTRA &quot;</p>
-	  <p><i>   Goddess of Disease, Alchemy, and Medicine </i></p>
-	  <p>  The Serpent of Medicine, Pestra, guards the sanctity of the cycle of life. Life gives way to rot, rot gives way to soil, soil gives way to more life. Life is defined by transformation and connection.  </p>
-	  <p>  She cares greatly that the natural order is maintained, Her followers preaching that natural calamities of life should be understood and adapted to rather than resisted. She grants her followers the knowledge of the inner-workings of Psydon's body, through which they may delay the cycle of life and death- but never to break it. </p>
-	  <p><br></p>
+	<details>
+		<summary><strong> Eora </strong></summary>
+		<br>
+		<span style="display:block; color:#e4bae6; font-size:115%"> "I will always love you, sweetheart. Regardless of the ne'er-do-wells you associate with."</span>
+		<br>
+		Goddess of love, family, and art. Her domain encompasses marriage, painting, singing, and literature- especially romance. She is considered the backbone of The Ten, barely able to keep them together and officially allied. She was crafted from the heart of Psydon.
+		<br>
+		Despite Astrata's overt support for same-sex couples, Eora remains begrudging at best. Some theorize it is hatred, some theorize jealousy. Regardless, her failed seduction of Pestra early in their history and the Great Insult exchanged has left a lasting effect on the so-called goddess of love.
+		<br><br>
+	</details>
 
-	  <p>&quot;   XYLIX &quot; </p>
-	  <p><i>  Diety of Trickery, Freedom, and Inspiration  </i></p>
-	  <p>  Xylix was formed from the silver tongue of Psydon, and holds no fear in its use. None have strict accounts of Their appearance, as They often walk amongst mortals for their own amusement.  </p>
-	  <p>  Xylix detests boredom. The art of theatre was created as an appeal to Their desires. Followers of Xylix will often create drama for its own sake, whether through petty lies or elaborate trickery.   </p>
-	  <p>  For Xylixians, a boring life is not one worth living. </p>
-	  <p><br></p>
+	<details>
+		<summary><strong> Xylix </strong></summary>
+		<br>
+		<i><span style="display:block; color:#dfe6ba; font-size:120%"> "Please, darling. The world aaaalways needs more DRAMA!"</span></i>
+		<br>
+		Diety of trickery, freedom, and inspiration. Their domain encompasses friendly pranks, barding, theatre, and performance. Known widely to be genderless, as they see such concepts only as masks to play a role. They were crafted from the tongue of Psydon.
+		<br>
+		Of all The Ten, Xylix is considered the most 'problem child.' Whether spats with Astrata over freedom, or making trouble for its own sake, they're something of an outcast from the orderly nature of the rest- and they are perfectly content with their position. For Xylixians, a boring life is not one worth living.
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> Pestra </strong></summary>
+		<br>
+		Desc
+		<br>
+
+		<br>
+
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> Necra </strong></summary>
+		<br>
+		Desc
+		<br>
+
+		<br>
+
+		<br><br>
+	</details>
+
+	<hr>
+	<strong><span style="font-size:115%"> THE INHUMEN PANTHEON </span></strong>
+	<br>
+	<em> Mortals hold a right to divinity. We follow the new way. </em>
+	<br><br>
+
+	<details>
+		<summary><strong> Matthios </strong></summary>
+		<br>
+		Desc
+		<br>
+
+		<br>
+
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> Baotha </strong></summary>
+		<br>
+		Desc
+		<br>
+
+		<br>
+
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> Graggar </strong></summary>
+		<br>
+		Desc
+		<br>
+
+		<br>
+
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> Zizo </strong></summary>
+		<br>
+		Desc
+		<br>
+
+		<br>
+
+		<br><br>
+	</details>
+
+	<hr>
+	<strong><span style="font-size:115%"> FALSE GODS </span></strong>
+	<br>
+	<em> Worship out of spite. </em>
+	<br><br>
+
+	<details>
+		<summary><strong> Rashan-Kahl </strong></summary>
+		<br>
+		The twin-faced god of ambition and chains. Worshipped mainly by the rakshari out of spite to The Ten.
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> Heartfeltian Horror </strong></summary>
+		<br>
+		Something stirs deep beneath the city. Rumours of a great machine, bidding the rabid automatons forth with purpose.
+		<br><br>
+	</details>
+
+	<hr>
+	<strong><span style="font-size:115%"> ARCHDEVILS </span></strong>
+	<br>
+	<em> Burn it all to the ground. </em>
+	<br><br>
+	<details>
+		<summary><strong> Abraxas </strong></summary>
+		<br>
+		King of the hells, archdevil of wisdom. Abraxas led the attack against Psydon. He is the mastermind, the strategist of the depths. Claimed Baotha to be his own spawn, though her public rejection populations globally confused. It is only a matter of time before he strikes the surface once more.
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> Abaddon </strong></summary>
+		<br>
+		Archdevil of destruction. Said to consume the spirits of all without souls. It is to he that connections of hellfire and brimstone spawn. Abaddon's influence leads to wanton death and devastation, wherever it may fester. He leaves nothing standing in his wake.
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> Mephistopheles </strong></summary>
+		<br>
+		Archdevil of darkness and trickery. A shapeshifting fiend whose deals always go South. He struck Psydon with his tainted blade, leaving the festering wound which led to The Creator's fall. Mephistopheles twisted the first vampires, Psydon's cursed, into the blood-sucking monsters known today.
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> Leviathan </strong></summary>
+		<br>
+		Archdevil of the void and madness, the great eel of shadow. It is unclear where her body ends or starts, and any who dare gaze into the depths of the hells into her swirling masses are driven insane. Sailors lost at sea swear they hear her voice singing alongside Abyssor's own, reciting tales of the very oceans turning to blood and swallowing them whole into an endless maw.
+		<br><br>
+	</details>
+	<hr>
 </details>
 
 
@@ -353,4 +573,5 @@ While it's not required reading, leadership roles may find this information usef
 	</details>
 
 </details>
+<hr>
 
