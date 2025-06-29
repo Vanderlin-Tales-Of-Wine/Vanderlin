@@ -34,9 +34,7 @@
 	var/area/A = get_area(src)
 
 	if(client)
-		SSdroning.kill_droning(client)
-		SSdroning.kill_loop(client)
-		SSdroning.kill_rain(client)
+		stop_sound_channel(CHANNEL_BUZZ)
 
 	if(mind)
 		if(!gibbed)

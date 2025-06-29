@@ -130,10 +130,9 @@
 		return
 	client.screen.Cut()
 	client.screen += client.void
-//	stop_all_loops()
-	SSdroning.kill_rain(src.client)
-	SSdroning.kill_loop(src.client)
-	SSdroning.kill_droning(src.client)
+
+	stop_sound_channel(CHANNEL_BUZZ)
+
 	remove_client_colour(/datum/client_colour/monochrome)
 	if(!client)
 		log_game("[key_name(usr)] AM failed due to disconnect.")
