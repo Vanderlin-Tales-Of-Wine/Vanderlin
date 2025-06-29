@@ -64,6 +64,13 @@
 	var/list/wonders_made = list()
 	/// Hallucinations screen object
 	var/atom/movable/screen/fullscreen/maniac/hallucinations
+	/// Whether the combat music is enabled
+	var/music_enabled = FALSE
+	var/custom_music_track = null
+	var/last_music_change = 0
+	var/datum/looping_sound/maniac_theme_song/combat_music_loop
+	var/curthemefile = 'sound/music/cmode/antag/combat_maniac.ogg'
+	var/old_cm = null //Cheffie's Req, Cache the old combat music and given back upon removal.
 
 GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 
@@ -86,6 +93,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		if(ishuman(owner.current))
 			var/mob/living/carbon/human/dreamer = owner.current
 			dreamer.set_patron(/datum/patron/inhumen/graggar_zizo)
+			old_cm = dreamer.cmode_music
 			dreamer.cmode_music = 'sound/music/cmode/antag/combat_maniac.ogg'
 			dreamer.adjust_skillrank(/datum/skill/combat/knives, 6, TRUE)
 			dreamer.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
@@ -99,6 +107,9 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			dreamer.set_stat_modifier("[type]", STATKEY_STR, extra_strength)
 			dreamer.set_stat_modifier("[type]", STATKEY_CON, extra_constitution)
 			dreamer.set_stat_modifier("[type]", STATKEY_END, extra_endurance)
+			combat_music_loop = new /datum/looping_sound/maniac_theme_song(dreamer, FALSE)
+			dreamer.verbs += /mob/living/carbon/human/proc/toggle_maniac_music
+			dreamer.verbs += /mob/living/carbon/human/proc/set_custom_music
 			var/obj/item/organ/heart/heart = dreamer.getorganslot(ORGAN_SLOT_HEART)
 			if(heart) // clear any inscryptions, in case of being made maniac midround
 				heart.inscryptions = list()
@@ -126,6 +137,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		if(ishuman(owner.current))
 			var/mob/living/carbon/human/dreamer = owner.current
 			dreamer.set_patron(/datum/patron/inhumen/zizo)
+			dreamer.cmode_music = old_cm
 			dreamer.remove_stat_modifier("[type]")
 			var/client/clinet = dreamer?.client
 			if(clinet) //clear screenshake animation
@@ -133,6 +145,8 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		for(var/trait in final_traits)
 			REMOVE_TRAIT(owner.current, trait, "[type]")
 		owner.current.clear_fullscreen("maniac")
+		owner.current.verbs -= /mob/living/carbon/human/proc/toggle_maniac_music
+		owner.current.verbs -= /mob/living/carbon/human/proc/set_custom_music
 	QDEL_LIST(wonders_made)
 	wonders_made = null
 	owner.learned_recipes -= recipe_progression
@@ -368,3 +382,71 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			user.status_flags |= GODMODE // To prevent Trey Liam from dying
 		return TRUE
 	. = ..()
+
+
+/mob/living/carbon/human/proc/toggle_maniac_music() //BRO.
+	set name = "Toggle Theme Music"
+	set category = "MANIAC"
+
+	var/datum/antagonist/maniac/dreamer = src.mind.has_antag_datum(/datum/antagonist/maniac)
+	if(!dreamer)
+		return
+	dreamer.music_enabled = !dreamer.music_enabled
+	if(dreamer.music_enabled)
+		dreamer.combat_music_loop.start()
+		to_chat(src, span_notice("Theme Song Active"))
+	else
+		dreamer.combat_music_loop.stop()
+		to_chat(src, span_notice("Theme Song disabled."))
+
+/mob/living/carbon/human/proc/set_custom_music()
+	set name = "Set Custom Theme Music"
+	set category = "MANIAC"
+
+	var/datum/antagonist/maniac/dreamer = src.mind.has_antag_datum(/datum/antagonist/maniac)
+	if(!dreamer)
+		return
+
+	if(dreamer.music_enabled)
+		to_chat(src, span_warning("theme song active, can't set a new one."))
+		return
+
+	if(dreamer.last_music_change)
+		if(world.time < dreamer.last_music_change + 3 MINUTES)
+			to_chat(src, span_warning("Can't set a new theme song yet."))
+			return
+
+	var/infile = input(src, "Choose a custom OGG file for your theme song", src) as null|file
+	if(!infile)
+		return
+
+	var/filename = "[infile]"
+	var/file_ext = lowertext(copytext(filename, -4))
+	var/file_size = length(infile)
+
+	if(file_ext != ".ogg")
+		to_chat(src, span_warning("The file must be an OGG."))
+		return
+	if(file_size > 6485760) // 6MB limit
+		to_chat(src, span_warning("The file is too large. Maximum size is 6 MB."))
+		return
+
+	fcopy(infile, "data/jukeboxUploads/[src.ckey]/[filename]")
+	dreamer.custom_music_track = file("data/jukeboxUploads/[src.ckey]/[filename]")
+
+	dreamer.last_music_change = world.time
+	dreamer.curthemefile = dreamer.custom_music_track
+	dreamer.combat_music_loop.mid_sounds = list(dreamer.custom_music_track)
+	dreamer.combat_music_loop.cursound = null
+	src.cmode_music = dreamer.custom_music_track
+
+	to_chat(src, span_notice("Done, check your combat mode music and/or theme song."))
+
+/datum/looping_sound/maniac_theme_song
+	mid_sounds = list()
+	mid_length = 240 SECONDS
+	volume = 100
+	falloff_exponent = 5
+	extra_range = 6
+	channel = CHANNEL_IMSICK
+	persistent_loop = TRUE
