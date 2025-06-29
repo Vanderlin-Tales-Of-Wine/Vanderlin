@@ -136,14 +136,17 @@
 	O.screen_loc = screen_loc
 	return O
 
-/proc/remove_images_from_clients(image/I, list/show_to)
-	for(var/client/C in show_to)
-		C.images -= I
+/// Like remove_image_from_client, but will remove the image from a list of clients
+/proc/remove_image_from_clients(image/image_to_remove, list/hide_from)
+	for(var/client/remove_from in hide_from)
+		remove_from.images -= image_to_remove
 
-/proc/flick_overlay(image/I, list/show_to, duration)
-	for(var/client/C in show_to)
-		C.images += I
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_images_from_clients), I, show_to), duration, TIMER_CLIENT_TIME)
+/proc/flick_overlay(image/image_to_show, list/show_to, duration)
+	if(!show_to || !length(show_to) || !image_to_show)
+		return
+	for(var/client/add_to in show_to)
+		add_to.images += image_to_show
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_image_from_clients), image_to_show, show_to), duration, TIMER_CLIENT_TIME)
 
 /**
  * Helper atom that copies an appearance and exists for a period

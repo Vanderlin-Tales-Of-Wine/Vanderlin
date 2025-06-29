@@ -48,6 +48,6 @@
 		if(!ispath(path))
 			warning("Z-level [z] has invalid baseturf '[SSmapping.level_trait(z, ZTRAIT_BASETURF)]'")
 			path = /turf/open/floor/naturalstone
-	var/mutable_appearance/underlay_appearance = mutable_appearance(initial(path.icon), initial(path.icon_state), layer = TURF_LAYER, plane = PLANE_SPACE)
+	var/mutable_appearance/underlay_appearance = mutable_appearance(initial(path.icon), initial(path.icon_state), layer = TURF_LAYER, plane = SPACE_PLANE)
 	underlays += underlay_appearance
 	return TRUE

@@ -190,4 +190,4 @@
 
 	var/datum/reagent/master = reagents.get_master_reagent()
 	if(master?.glows)
-		. += mutable_appearance(filling.icon, filling.icon_state, plane = EMISSIVE_PLANE)
+		. += emissive_appearance(filling.icon, filling.icon_state, alpha = filling.alpha)

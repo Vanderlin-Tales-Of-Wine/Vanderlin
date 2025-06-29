@@ -104,7 +104,7 @@
 
 	// Visual effects
 	color = phase_colors[phase_number]
-	add_filter("rage_glow", 2, list("type" = "outline", "color" = "#3366FF", "size" = phase_number))
+	add_filter("rage_glow", 2, outline_filter(phase_number, "#3366FF"))
 	playsound(src, 'sound/misc/explode/explosion.ogg', 100, TRUE) // Replace with appropriate sound
 
 	// Particle effects based on phase
@@ -268,4 +268,4 @@
 			icon_state = "scale"
 
 	// Add a unique glow
-	add_filter("artifact_glow", 2, list("type" = "outline", "color" = "#3366FF", "size" = 1))
+	add_filter("artifact_glow", 2, outline_filter(1, "#3366FF"))

@@ -42,11 +42,11 @@
 
 /obj/effect/abstract/liquid_turf/proc/set_connection(dir)
 	connected["[dir]"] = 1
-	update_appearance(UPDATE_ICON_STATE)
+	update_appearance(UPDATE_ICON)
 
 /obj/effect/abstract/liquid_turf/proc/unset_connection(dir)
 	connected["[dir]"] = 0
-	update_appearance(UPDATE_ICON_STATE)
+	update_appearance(UPDATE_ICON)
 
 /obj/effect/abstract/liquid_turf/update_icon_state()
 	. = ..()
@@ -117,12 +117,12 @@
 			set_connection(get_dir(src, pipe))
 			pipe.set_connection(get_dir(pipe, src))
 	if(z)
-		update_appearance(UPDATE_ICON_STATE)
+		update_appearance(UPDATE_ICON)
 		for(var/direction in GLOB.cardinals)
 			var/turf/turf = get_step(src, direction)
 			if(!turf.liquids)
 				continue
-			turf.liquids.update_appearance(UPDATE_ICON_STATE)
+			turf.liquids.update_appearance(UPDATE_ICON)
 
 /obj/effect/abstract/liquid_turf/Destroy(force)
 	UnregisterSignal(my_turf, list(COMSIG_ATOM_ENTERED, COMSIG_PARENT_EXAMINE))

@@ -7,25 +7,33 @@
  * almost guaranteed to be doing something wrong.
  */
 /atom/movable/emissive_blocker
-	name = ""
-	plane = EMISSIVE_BLOCKER_PLANE
-	layer = EMISSIVE_BLOCKER_LAYER
+	name = "emissive blocker"
+	plane = EMISSIVE_PLANE
+	layer = FLOAT_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	//Why?
-	//render_targets copy the transform of the target as well, but vis_contents also applies the transform
-	//to what's in it. Applying RESET_TRANSFORM here makes vis_contents not apply the transform.
-	//Since only render_target handles transform we don't get any applied transform "stacking"
-	appearance_flags = RESET_TRANSFORM
+	appearance_flags = EMISSIVE_APPEARANCE_FLAGS
 
-/atom/movable/emissive_blocker/Initialize(mapload, source)
+/atom/movable/emissive_blocker/Initialize(mapload, atom/source)
 	. = ..()
 	verbs.Cut() //Cargo culting from lighting object, this maybe affects memory usage?
 
-	render_source = source
+	if(!source)
+		return
+
+	render_source = source.render_target
+	src.color = GLOB.em_block_color
+
+	RegisterSignal(source, COMSIG_PARENT_QDELETING, PROC_REF(on_source_deleting))
 
 /atom/movable/emissive_blocker/Destroy()
 	render_source = null
 	return ..()
+
+/atom/movable/emissive_blocker/proc/on_source_deleting(atom/source)
+	SIGNAL_HANDLER
+
+	if(!QDELING(src))
+		qdel(src)
 
 /atom/movable/emissive_blocker/ex_act(severity)
 	return FALSE

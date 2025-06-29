@@ -12,6 +12,16 @@
 		var/_measurement = measurement; \
 		return_var = text2num(copytext(_measurement, findtextEx(_measurement, "x") + 1)); \
 	} while(FALSE);
+
+///Base layer of chat elements
+#define CHAT_LAYER 1
+///Highest possible layer of chat elements
+#define CHAT_LAYER_MAX 2
+/// Maximum precision of float before rounding errors occur (in this context)
+#define CHAT_LAYER_Z_STEP 0.0001
+/// The number of z-layer 'slices' usable by the chat message layering
+#define CHAT_LAYER_MAX_Z (CHAT_LAYER_MAX - CHAT_LAYER) / CHAT_LAYER_Z_STEP
+
 /**
  * # Chat Message Overlay
  *
@@ -170,8 +180,8 @@
 			qdel(m)
 
 	// Build message image
-	message = image(loc = message_loc, layer = ABOVE_HUD_LAYER)
-	message.plane = ABOVE_HUD_PLANE
+	message = image(loc = message_loc, layer = CHAT_LAYER)
+	message.plane = RUNECHAT_PLANE
 	message.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
 	message.alpha = 0
 	message.pixel_y = owner.bound_height * 0.95

@@ -34,13 +34,8 @@
 		return
 	var/level = clamp(CEILING(essence_percent * 5, 1), 1, 5)
 
-	var/mutable_appearance/MA = mutable_appearance(icon, "liquid_[level]")
-	MA.color = calculate_mixture_color()
-	. += MA
-
-	var/mutable_appearance/emissive = mutable_appearance(icon, "liquid_[level]")
-	emissive.plane = EMISSIVE_PLANE
-	. += emissive
+	. += mutable_appearance(icon, "liquid_[level]", color = calculate_mixture_color())
+	. += emissive_appearance(icon, "liquid_[level]", alpha = src.alpha)
 
 /obj/machinery/essence/reservoir/return_storage()
 	return storage

@@ -55,7 +55,7 @@
 		"288" = 'icons/effects/light_overlays/light_288.dmi',
 		"320" = 'icons/effects/light_overlays/light_320.dmi',
 		"352" = 'icons/effects/light_overlays/light_352.dmi',
-		)
+	)
 
 /obj/effect/fog_parter/Initialize(mapload, range = 5)
 	. = ..()
@@ -107,11 +107,11 @@
 		if(area.outdoors)
 			if(!old_plane)
 				old_plane = area.plane
-			area.icon 			  = 'icons/effects/weather_overlay.dmi'
-			area.icon_state 		  = "weather_overlay"
-			area.plane			  = WEATHER_OVERLAY_PLANE
-			area.blend_mode   	  = BLEND_OVERLAY
-			area.invisibility 	  = INVISIBILITY_LIGHTING
+			area.icon = 'icons/effects/weather_overlay.dmi'
+			area.icon_state = "weather_overlay"
+			area.plane = WEATHER_OVERLAY_PLANE
+			area.blend_mode = BLEND_OVERLAY
+			area.invisibility = INVISIBILITY_LIGHTING
 
 /datum/particle_weather/fog/end()
 	. = ..()
@@ -119,9 +119,9 @@
 		if(area.outdoors)
 			area.icon = initial(area.icon)
 			area.icon_state = ""
-			area.plane			  = old_plane
-			area.blend_mode   	  = initial(area.blend_mode)
-			area.invisibility 	  = initial(area.invisibility)
+			area.plane = old_plane
+			area.blend_mode = initial(area.blend_mode)
+			area.invisibility = initial(area.invisibility)
 	old_plane = null
 
 /datum/particle_weather/fog/swamp

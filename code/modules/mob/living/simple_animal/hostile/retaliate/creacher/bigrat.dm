@@ -105,11 +105,9 @@
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/update_overlays()
 	. = ..()
-	if(stat != DEAD)
-		var/mutable_appearance/eye_lights = mutable_appearance(icon, "bigrat-eyes")
-		eye_lights.plane = 19
-		eye_lights.layer = 19
-		. += eye_lights
+	if(stat == DEAD)
+		return
+	. += emissive_appearance(icon, "bigrat-eyes")
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/get_sound(input)
 	switch(input)
