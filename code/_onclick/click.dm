@@ -816,7 +816,7 @@
 		targeti.pixel_x = -1
 		src.client.images |= targeti
 		for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
-			eyet.update_appearance(UPDATE_ICON_STATE)
+			eyet.update_appearance(UPDATE_ICON)
 	else
 		UntargetMob()
 
@@ -835,7 +835,7 @@
 	src.client.images -= targeti
 	//clear hud icon
 	for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
-		eyet.update_appearance(UPDATE_ICON_STATE)
+		eyet.update_appearance(UPDATE_ICON)
 
 /mob/proc/ShiftRightClickOn(atom/A, params)
 //	linepoint(A, params)
@@ -874,4 +874,4 @@
 		atom_flags |= NO_DIR_CHANGE
 	tempfixeye = TRUE
 	for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
-		eyet.update_appearance(UPDATE_ICON_STATE)
+		eyet.update_appearance(UPDATE_ICON)

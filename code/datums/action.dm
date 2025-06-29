@@ -144,12 +144,13 @@
 			return 1
 
 /datum/action/proc/ApplyIcon(atom/movable/screen/movable/action_button/current_button, force = FALSE)
-	if(icon_icon && button_icon_state && ((current_button.button_icon_state != button_icon_state) || force))
-		current_button.cut_overlays(TRUE)
-		current_button.add_overlay(mutable_appearance(icon_icon, button_icon_state))
-		if(overlay_state)
-			current_button.add_overlay(mutable_appearance(icon_icon, overlay_state))
-		current_button.button_icon_state = button_icon_state
+	if(!icon_icon)
+		return
+	current_button.cut_overlays()
+	current_button.add_overlay(mutable_appearance(icon_icon, button_icon_state))
+	if(overlay_state)
+		current_button.add_overlay(mutable_appearance(icon_icon, overlay_state))
+	current_button.button_icon_state = button_icon_state
 
 /datum/action/proc/OnUpdatedIcon()
 	UpdateButtonIcon()

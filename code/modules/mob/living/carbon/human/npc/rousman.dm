@@ -2,7 +2,6 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 
 /mob/living/carbon/human/species/rousman
 	name = "rousman"
-
 	icon = 'icons/roguetown/mob/monster/rousman.dmi'
 	icon_state = "rousman"
 	race = /datum/species/rousman
@@ -142,7 +141,8 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	no_equip = list(ITEM_SLOT_SHIRT, ITEM_SLOT_MASK, ITEM_SLOT_GLOVES, ITEM_SLOT_SHOES, ITEM_SLOT_PANTS)
 	offset_features_m = list(OFFSET_HANDS = list(0,-4))
 	offset_features_f = list(OFFSET_HANDS = list(0,-4))
-
+	dam_icon_f = null
+	dam_icon_m = null
 	damage_overlay_type = ""
 	changesource_flags = WABBAJACK
 	var/raceicon = "rousman"
