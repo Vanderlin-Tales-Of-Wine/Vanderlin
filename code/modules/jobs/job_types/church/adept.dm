@@ -33,7 +33,7 @@
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 	mask = /obj/item/clothing/face/facemask
 	pants = /obj/item/clothing/pants/trou/leather
-	shirt = /obj/item/clothing/shirt/undershirt/black
+	shirt = /obj/item/clothing/armor/gambeson/light/black
 	wrists = /obj/item/clothing/neck/psycross/silver
 
 // Brutal Zealot, a class balanced to town guard, with 1 more strength but less intelligence and perception. Axe/Mace and shield focus.
@@ -69,7 +69,6 @@
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/firearms, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.change_stat(STATKEY_STR, 2)
 	H.change_stat(STATKEY_INT, -2)
@@ -115,7 +114,6 @@
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
@@ -157,6 +155,7 @@
 
 	//Stats for class
 	H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE) // No good armor, cannot dodge, cannot parry with whips/flails. We can keep it at 3.
+	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE) // Only class without average knives, and they probably need it since whips don't have any penetration.
 	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
