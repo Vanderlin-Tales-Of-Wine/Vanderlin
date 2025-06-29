@@ -228,7 +228,7 @@
 
 /atom/movable/screen/plane_master/weather_effect/Initialize()
 	. = ..()
-	add_filter("weather_effect", 1, alpha_mask_filter(render_source = WEATHER_RENDER_TARGET))
+	//add_filter("weather_effect", 1, alpha_mask_filter(render_source = WEATHER_RENDER_TARGET))
 	SSoutdoor_effects.weather_planes_need_vis |= src
 
 /atom/movable/screen/plane_master/weather_effect/Destroy()
@@ -245,9 +245,10 @@
 
 /atom/movable/screen/fullscreen/lighting_backdrop/sunlight/Initialize()
 	. = ..()
-	add_filter("sunlight", 1, alpha_mask_filter(render_source = SUNLIGHTING_RENDER_TARGET))
+	add_filter("sunlight", 1, layering_filter(render_source = SUNLIGHTING_RENDER_TARGET))
 	SSoutdoor_effects.sunlighting_planes |= src
 	SSoutdoor_effects.transition_sunlight_color(src)
+	color = SSoutdoor_effects.last_color
 
 /atom/movable/screen/fullscreen/lighting_backdrop/sunlight/Destroy()
 	. = ..()
