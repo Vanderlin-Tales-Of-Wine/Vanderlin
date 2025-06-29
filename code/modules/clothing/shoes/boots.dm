@@ -139,7 +139,7 @@
 
 /obj/item/clothing/shoes/boots/armor/zizo
 	name = "darksteel boots"
-	desc = "Plate boots. Called forth from the edge of what should be known. In Her name."
+	desc = "Plate boots. Called forth from the edge of what should be known. In Her name.<br><span class='warningbig'>ZIZOID HERESY!!</span>"
 	icon_state = "zizoboots"
 	item_state = "zizoboots"
 	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
@@ -149,7 +149,7 @@
 
 /obj/item/clothing/shoes/boots/armor/matthios
 	name = "gilded boots"
-	desc = "Plate boots. A door kicked in, treasures to behold inside."
+	desc = "Plate boots. A door kicked in, treasures to behold inside.<br><span class='warningbig'MATTHIOSIAN HERESY!!</span>"
 	icon_state = "matthiosboots"
 	item_state = "matthiosboots"
 	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'

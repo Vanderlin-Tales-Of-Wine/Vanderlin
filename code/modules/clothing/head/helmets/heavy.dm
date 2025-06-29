@@ -101,7 +101,7 @@
 
 /obj/item/clothing/head/helmet/heavy/zizo
 	name = "darksteel frog helmet"
-	desc = "A darksteel frog helmet. This one has an adjustable visor. Called forth from the edge of what should be known. In Her name."
+	desc = "A darksteel frog helmet. This one has an adjustable visor. Called forth from the edge of what should be known. In Her name.<br><span class='warningbig'>ZIZOID HERESY!!</span>"
 	adjustable = CAN_CADJUST
 	icon_state = "zizofrogmouth"
 	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
@@ -117,7 +117,7 @@
 /obj/item/clothing/head/helmet/heavy/matthios
 	name = "gilded visage"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
-	desc = "A sinister visage. So that your crimes are never brought to you."
+	desc = "A sinister visage. So that your crimes are never brought to you.<br><span class='warningbig'MATTHIOSIAN HERESY!!</span>"
 	icon_state = "matthioshelm"
 	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor64x64.dmi'
