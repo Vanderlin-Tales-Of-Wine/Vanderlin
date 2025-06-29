@@ -45,11 +45,14 @@
 	var/list/atom/selected_target[2]
 	var/obj/item/active_mousedown_item = null
 	var/mouseParams = ""
-	var/mouseLocation = null
-	var/mouseObject = null
-	var/mouseControlObject = null
+	///Used in MouseDrag to preserve the last mouse-entered location. Weakref
+	var/datum/weakref/mouse_location_ref = null
+	///Used in MouseDrag to preserve the last mouse-entered object. Weakref
+	var/datum/weakref/mouse_object_ref
+	//Middle-mouse-button click dragtime control for aimbot exploit detection.
 	var/middragtime = 0
-	var/atom/middragatom
+	//Middle-mouse-button clicked object control for aimbot exploit detection. Weakref
+	var/datum/weakref/middle_drag_atom_ref
 	var/tcompare
 	var/charging = 0
 	var/chargedprog = 0
@@ -118,7 +121,7 @@
 
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		mob.face_atom(object, location, control, params)
+		mob.face_atom(object)
 		if(LAZYACCESS(modifiers, LEFT_CLICK))
 			return
 		mob.atkswinging = "right"
@@ -159,7 +162,7 @@
 				mouse_pointer_icon = mob.mmb_intent.pointer
 		return
 	if(LAZYACCESS(modifiers, LEFT_CLICK)) //start charging a lmb intent
-		mob.face_atom(object, location, control, params)
+		mob.face_atom(object)
 		if(LAZYACCESS(modifiers, RIGHT_CLICK))
 			return
 		if(mob.active_hand_index == 1)
@@ -380,29 +383,29 @@
 	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
 		if (src_object && src_location != over_location)
 			middragtime = world.time
-			middragatom = src_object
+			middle_drag_atom_ref = WEAKREF(src_object)
 		else
 			middragtime = 0
-			middragatom = null
-	else
-		mob.face_atom(over_object, over_location, over_control, params)
+			middle_drag_atom_ref = null
+
+	mob.face_atom(over_object)
 
 	mouseParams = params
-	mouseLocation = over_location
-	mouseObject = over_object
-	mouseControlObject = over_control
+	mouse_location_ref = WEAKREF(over_location)
+	mouse_object_ref = WEAKREF(over_object)
 	if(selected_target[1] && over_object && over_object.IsAutoclickable())
 		selected_target[1] = over_object
 		selected_target[2] = params
 	if(active_mousedown_item)
 		active_mousedown_item.onMouseDrag(src_object, over_object, src_location, over_location, params, mob)
-
+	//SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDRAG, src_object, over_object, src_location, over_location, src_control, over_control, params)
+	return ..()
 
 /obj/item/proc/onMouseDrag(src_object, over_object, src_location, over_location, params, mob)
 	return
 
-/client/MouseDrop(src_object, over_object, src_location, over_location, src_control, over_control, params)
-	if (middragatom == src_object)
+/client/MouseDrop(atom/src_object, atom/over_object, atom/src_location, atom/over_location, src_control, over_control, params)
+	if (IS_WEAKREF_OF(src_object, middle_drag_atom_ref))
 		middragtime = 0
-		middragatom = null
+		middle_drag_atom_ref = null
 	..()

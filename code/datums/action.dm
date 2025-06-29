@@ -21,6 +21,8 @@
 	var/button_icon_state = "default" //And this is the state for the action icon
 	var/overlay_state = null
 	var/mob/owner
+	///All mobs that are sharing our action button.
+	var/list/sharers = list()
 
 /datum/action/New(Target)
 	link_to(Target)
@@ -79,6 +81,12 @@
 		Remove(owner)
 
 /datum/action/proc/Remove(mob/M)
+	for(var/datum/weakref/reference as anything in sharers)
+		var/mob/freeloader = reference.resolve()
+		if(!freeloader)
+			continue
+		Unshare(freeloader)
+	sharers = null
 	if(M)
 		if(M.client)
 			M.client.screen -= button
@@ -154,6 +162,25 @@
 
 /datum/action/proc/OnUpdatedIcon()
 	UpdateButtonIcon()
+
+//Adds our action button to the screen of another player
+/datum/action/proc/Share(mob/freeloader)
+	if(!freeloader.client)
+		return
+	sharers += WEAKREF(freeloader)
+	freeloader.client.screen += button
+	freeloader.update_action_buttons()
+
+//Removes our action button from the screen of another player
+/datum/action/proc/Unshare(mob/freeloader)
+	if(!freeloader.client)
+		return
+	for(var/freeloader_reference in sharers)
+		if(IS_WEAKREF_OF(freeloader, freeloader_reference))
+			sharers -= freeloader_reference
+			break
+	freeloader.client.screen -= button
+	freeloader.update_action_buttons()
 
 //Presets for item actions
 /datum/action/item_action

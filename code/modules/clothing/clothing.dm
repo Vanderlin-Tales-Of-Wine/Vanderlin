@@ -481,12 +481,7 @@ BLIND     // can't see anything
 		H.update_inv_pants()
 		H.update_fov_angles()
 	else
-//		hood.forceMove(src)
 		hood.moveToNullspace()
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.UpdateButtonIcon()
-
 
 /obj/item/clothing/proc/ToggleHood()
 	if(!hoodtoggled)
