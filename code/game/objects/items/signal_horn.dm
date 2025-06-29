@@ -21,6 +21,7 @@
 
 /obj/item/signal_horn/proc/sound_horn(mob/living/user)
 	user.visible_message(span_warning("[user] sounds the alarm!"))
+	//new sound by fem_tanyl
 	playsound(src, 'sound/items/signalhorn.ogg', 100, TRUE)
 	var/turf/origin_turf = get_turf(src)
 
@@ -67,6 +68,6 @@
 			else
 				disttext = " very far"
 
-		//sound played for other players
+		//sound played for other players, new sound by fem_tanyl
 		player.playsound_local(get_turf(player), 'sound/items/signalhorn.ogg', 35, FALSE, pressure_affected = FALSE)
 		to_chat(player, span_warning("I hear the horn alarm somewhere[disttext][dirtext]!"))
