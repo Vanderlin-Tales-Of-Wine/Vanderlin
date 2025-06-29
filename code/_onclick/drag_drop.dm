@@ -12,8 +12,8 @@
 		return
 	if(!Adjacent(usr) || !over.Adjacent(usr))
 		return // should stop you from dragging through windows
-	var/list/L = params2list(params)
-	if (L["middle"])
+	var/list/modifiers = params2list(params)
+	if (LAZYACCESS(modifiers, MIDDLE_CLICK))
 		over.MiddleMouseDrop_T(src,usr)
 	else
 		if(over == src)
@@ -25,11 +25,10 @@
 		if(isdead(usr))
 			modifier = 16
 		if(!(I.item_flags & ABSTRACT))
-			var/list/click_params = params2list(params)
-			if(!click_params || !click_params["icon-x"] || !click_params["icon-y"])
+			if(!LAZYACCESS(modifiers, ICON_X) || !LAZYACCESS(modifiers, ICON_Y))
 				return
-			I.pixel_x = round(CLAMP(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)/modifier, 1)
-			I.pixel_y = round(CLAMP(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)/modifier, 1)
+			I.pixel_x = round(CLAMP(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(world.icon_size/2), world.icon_size/2)/modifier, 1)
+			I.pixel_y = round(CLAMP(text2num(LAZYACCESS(modifiers, ICON_Y)) - 16, -(world.icon_size/2), world.icon_size/2)/modifier, 1)
 			return
 	return
 
@@ -117,13 +116,10 @@
 	if(active_mousedown_item)
 		active_mousedown_item.onMouseDown(object, location, params, mob)
 
-
-
-
-	var/list/L = params2list(params)
-	if (L["right"])
+	var/list/modifiers = params2list(params)
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		mob.face_atom(object, location, control, params)
-		if(L["left"])
+		if(LAZYACCESS(modifiers, LEFT_CLICK))
 			return
 		mob.atkswinging = "right"
 		if(mob.oactive)
@@ -143,7 +139,7 @@
 		else
 			mouse_pointer_icon = 'icons/effects/mousemice/human_looking.dmi'
 			return
-	if (L["middle"]) //start charging a spell or readying a mmb intent
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK)) //start charging a spell or readying a mmb intent
 		if(mob.next_move > world.time)
 			return
 		mob.atkswinging = "middle"
@@ -162,9 +158,9 @@
 			else
 				mouse_pointer_icon = mob.mmb_intent.pointer
 		return
-	if (L["left"]) //start charging a lmb intent
+	if(LAZYACCESS(modifiers, LEFT_CLICK)) //start charging a lmb intent
 		mob.face_atom(object, location, control, params)
-		if(L["right"])
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
 			return
 		if(mob.active_hand_index == 1)
 			if(mob.next_lmove > world.time)
@@ -180,7 +176,6 @@
 				updateprogbar()
 			else
 				mouse_pointer_icon = 'icons/effects/mousemice/human_attack.dmi'
-		return
 
 /mob
 	var/obj/effect/spell_rune/spell_rune
@@ -217,11 +212,11 @@
 		return
 
 	var/list/modifiers = params2list(params)
-	if(modifiers["left"])
+	if(LAZYACCESS(modifiers, LEFT_CLICK))
 		if(mob.atkswinging != "left")
 			mob.atkswinging = null
 			return
-	if(modifiers["right"])
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		if(mob.oactive)
 			if(mob.atkswinging != "right")
 				mob.atkswinging = null
@@ -381,8 +376,8 @@
 	if(mob.incapacitated(ignore_grab = TRUE))
 		return
 
-	var/list/L = params2list(params)
-	if (L["middle"])
+	var/list/modifiers = params2list(params)
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
 		if (src_object && src_location != over_location)
 			middragtime = world.time
 			middragatom = src_object

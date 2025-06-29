@@ -118,12 +118,12 @@
 
 /mob/camera/strategy_controller/ClickOn(atom/A, params)
 	var/list/modifiers = params2list(params)
-	if(modifiers["left"] && get_turf(A))
+	if(LAZYACCESS(modifiers, LEFT_CLICK) && get_turf(A))
 		if(held_build)
 			if(held_build.try_place_building(src, get_turf(A)))
 				var/datum/building_datum/last_type = held_build.type
 				held_build.clean_up(success = TRUE)
-				if(modifiers["shift"])
+				if(LAZYACCESS(modifiers, SHIFT_CLICKED))
 					try_setup_build(last_type)
 
 			else

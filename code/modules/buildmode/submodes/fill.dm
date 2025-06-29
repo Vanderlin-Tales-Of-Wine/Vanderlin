@@ -1,6 +1,6 @@
 /datum/buildmode_mode/fill
 	key = "fill"
-	
+
 	use_corner_selection = TRUE
 	var/objholder = null
 
@@ -33,9 +33,9 @@
 	..()
 
 /datum/buildmode_mode/fill/handle_selected_area(client/c, params)
-	var/list/pa = params2list(params)
-	var/left_click = pa.Find("left")
-	var/alt_click = pa.Find("alt")
+	var/list/modifiers = params2list(params)
+	var/left_click = LAZYACCESS(modifiers, LEFT_CLICK)
+	var/alt_click = LAZYACCESS(modifiers, ALT_CLICKED)
 
 	if(left_click) //rectangular
 		if(alt_click)

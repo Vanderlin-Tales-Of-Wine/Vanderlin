@@ -595,7 +595,7 @@
 
 	// Craft Last Again
 	var/list/modifiers = params2list(params)
-	if(modifiers["right"])
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		var/mob/living/H = user
 		var/r = H.last_crafted
 		construct_item(user, r)

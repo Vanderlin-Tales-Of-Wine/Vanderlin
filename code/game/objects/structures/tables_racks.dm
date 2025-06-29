@@ -172,13 +172,15 @@
 	if(!user.cmode)
 		if(!(I.item_flags & ABSTRACT))
 			if(user.transferItemToLoc(I, drop_location(), silent = FALSE))
-				var/list/click_params = params2list(params)
+				var/list/modifiers = params2list(params)
+				var/icon_x = LAZYACCESS(modifiers, ICON_X)
+				var/icon_y = LAZYACCESS(modifiers, ICON_Y)
 				//Center the icon where the user clicked.
-				if(!click_params || !click_params["icon-x"] || !click_params["icon-y"])
+				if(!icon_x || !icon_y)
 					return
 				//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
-				I.pixel_x = initial(I.pixel_x) + CLAMP(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
-				I.pixel_y = initial(I.pixel_y) + CLAMP(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
+				I.pixel_x = initial(I.pixel_x) + CLAMP(icon_x - 16, -(world.icon_size/2), world.icon_size/2)
+				I.pixel_y = initial(I.pixel_y) + CLAMP(icon_y - 16, -(world.icon_size/2), world.icon_size/2)
 				after_added_effects(I, user)
 				return TRUE
 
@@ -189,13 +191,15 @@
 	if(I)
 		if(!(I.item_flags & ABSTRACT))
 			if(user.transferItemToLoc(I, drop_location(), silent = FALSE))
-				var/list/click_params = params2list(params)
+				var/list/modifiers = params2list(params)
+				var/icon_x = LAZYACCESS(modifiers, ICON_X)
+				var/icon_y = LAZYACCESS(modifiers, ICON_Y)
 				//Center the icon where the user clicked.
-				if(!click_params || !click_params["icon-x"] || !click_params["icon-y"])
+				if(!icon_x || !icon_y)
 					return
 				//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
-				I.pixel_x = initial(I.pixel_x) + CLAMP(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
-				I.pixel_y = initial(I.pixel_y) + CLAMP(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
+				I.pixel_x = initial(I.pixel_x) + CLAMP(icon_x - 16, -(world.icon_size/2), world.icon_size/2)
+				I.pixel_y = initial(I.pixel_y) + CLAMP(icon_y - 16, -(world.icon_size/2), world.icon_size/2)
 				return 1
 
 /obj/structure/table/deconstruct(disassembled = TRUE, wrench_disassembly = 0)
@@ -427,23 +431,25 @@
 	if(O.loc != src.loc)
 		step(O, get_dir(O, src))
 
-/obj/structure/rack/attackby(obj/item/W, mob/user, params)
+/obj/structure/rack/attackby(obj/item/I, mob/user, params)
 	. = ..()
-	if (W.tool_behaviour == TOOL_WRENCH && !(flags_1&NODECONSTRUCT_1) && user.used_intent.type != INTENT_HELP)
-		W.play_tool_sound(src)
+	if (I.tool_behaviour == TOOL_WRENCH && !(flags_1&NODECONSTRUCT_1) && user.used_intent.type != INTENT_HELP)
+		I.play_tool_sound(src)
 		deconstruct(TRUE)
 		return
 
 	if(!user.cmode)
-		if(!(W.item_flags & ABSTRACT))
-			if(user.transferItemToLoc(W, drop_location(), silent = FALSE))
-				var/list/click_params = params2list(params)
+		if(!(I.item_flags & ABSTRACT))
+			if(user.transferItemToLoc(I, drop_location(), silent = FALSE))
+				var/list/modifiers = params2list(params)
+				var/icon_x = LAZYACCESS(modifiers, ICON_X)
+				var/icon_y = LAZYACCESS(modifiers, ICON_Y)
 				//Center the icon where the user clicked.
-				if(!click_params || !click_params["icon-x"] || !click_params["icon-y"])
+				if(!icon_x || !icon_y)
 					return
 				//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
-				W.pixel_x = initial(W.pixel_x) + CLAMP(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
-				W.pixel_y = initial(W.pixel_y) + CLAMP(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
+				I.pixel_x = initial(I.pixel_x) + CLAMP(icon_x - 16, -(world.icon_size/2), world.icon_size/2)
+				I.pixel_y = initial(I.pixel_y) + CLAMP(icon_y - 16, -(world.icon_size/2), world.icon_size/2)
 				return 1
 
 /obj/structure/rack/attack_paw(mob/living/user)
@@ -481,15 +487,19 @@
 	pixel_y = 24
 
 // Necessary to avoid a critical bug with disappearing weapons.
-/obj/structure/rack/attackby(obj/item/W, mob/user, params)
+/obj/structure/rack/attackby(obj/item/I, mob/user, params)
 	if(!user.cmode)
-		if(!(W.item_flags & ABSTRACT))
-			if(user.transferItemToLoc(W, drop_location(), silent = FALSE))
-				var/list/click_params = params2list(params)
-				if(!click_params || !click_params["icon-x"] || !click_params["icon-y"])
+		if(!(I.item_flags & ABSTRACT))
+			if(user.transferItemToLoc(I, drop_location(), silent = FALSE))
+				var/list/modifiers = params2list(params)
+				var/icon_x = LAZYACCESS(modifiers, ICON_X)
+				var/icon_y = LAZYACCESS(modifiers, ICON_Y)
+				//Center the icon where the user clicked.
+				if(!icon_x || !icon_y)
 					return
-				W.pixel_x = initial(W.pixel_x) + CLAMP(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
-				W.pixel_y = initial(W.pixel_y) + CLAMP(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
+				//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
+				I.pixel_x = initial(I.pixel_x) + CLAMP(icon_x - 16, -(world.icon_size/2), world.icon_size/2)
+				I.pixel_y = initial(I.pixel_y) + CLAMP(icon_y - 16, -(world.icon_size/2), world.icon_size/2)
 				return 1
 	else
 		. = ..()

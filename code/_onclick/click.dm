@@ -80,7 +80,7 @@
 /mob/proc/ClickOn( atom/A, params )
 	var/list/modifiers = params2list(params)
 
-	if(LAZYACCESS(modifiers, RIGHT_CLICK) && LAZYACCESS(modifiers, "shift"))
+	if(LAZYACCESS(modifiers, RIGHT_CLICK) && LAZYACCESS(modifiers, SHIFT_CLICKED))
 		if(mind && mind.active_uis["quake_console"])
 			if(client.holder)
 				client.holder.marked_datum = A
@@ -107,7 +107,7 @@
 	if(next_move > world.time)
 		return
 
-	if(modifiers["middle"])
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
 		if(atkswinging != "middle")
 			return
 		if(mmb_intent)
@@ -119,7 +119,7 @@
 			spell_quickselect(A)
 			return
 
-	if(modifiers["left"])
+	if(LAZYACCESS(modifiers, LEFT_CLICK))
 		if(atkswinging != "left")
 			return
 		if(active_hand_index == 1)
@@ -140,7 +140,7 @@
 						adf = round(adf * 0.6)
 					changeNext_move(adf,used_hand)
 					return
-	if(modifiers["right"])
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		if(oactive)
 			if(atkswinging != "right")
 				return
@@ -157,29 +157,29 @@
 					changeNext_move(used_intent.clickcd,used_hand)
 					return
 
-	if(modifiers["shift"] && modifiers["right"])
+	if(LAZYACCESS(modifiers, SHIFT_CLICKED) && LAZYACCESS(modifiers, RIGHT_CLICK))
 		ShiftRightClickOn(A, params)
 		return
-	if(modifiers["ctrl"] && modifiers["right"])
+	if(LAZYACCESS(modifiers, CTRL_CLICKED) && LAZYACCESS(modifiers, RIGHT_CLICK))
 		CtrlRightClickOn(A, params)
 		return
-	if(modifiers["alt"] && modifiers["right"])
+	if(LAZYACCESS(modifiers, ALT_CLICKED) && LAZYACCESS(modifiers, RIGHT_CLICK))
 		face_atom(A)
 		AltRightClickOn(A, params)
 		return
-	if(modifiers["middle"])
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
 		MiddleClickOn(A, params)
 		return
-	if(modifiers["shift"])
+	if(LAZYACCESS(modifiers, SHIFT_CLICKED))
 		ShiftClickOn(A)
 		return
-	if(modifiers["alt"]) // alt and alt-gr (rightalt)
+	if(LAZYACCESS(modifiers, ALT_CLICKED)) // alt and alt-gr (rightalt)
 		AltClickOn(A)
 		return
-	if(modifiers["ctrl"])
+	if(LAZYACCESS(modifiers, CTRL_CLICKED))
 		CtrlClickOn(A)
 		return
-	if(modifiers["right"])
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		if(!oactive)
 			RightClickOn(A, params)
 			return
@@ -202,7 +202,7 @@
 		return
 
 	if(in_throw_mode)
-		if(modifiers["right"])
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
 			if(oactive)
 				throw_item(A, TRUE)
 				return
@@ -210,7 +210,7 @@
 		return
 
 	var/obj/item/W = get_active_held_item()
-	if(modifiers["right"])
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		if(oactive)
 			W = get_inactive_held_item()
 
@@ -730,7 +730,7 @@
 
 /atom/movable/screen/click_catcher/Click(location, control, params)
 	var/list/modifiers = params2list(params)
-	var/turf/T = params2turf(modifiers["screen-loc"], get_turf(usr.client ? usr.client.eye : usr), usr.client)
+	var/turf/T = params2turf(LAZYACCESS(modifiers, SCREEN_LOC), get_turf(usr.client ? usr.client.eye : usr), usr.client)
 	params += "&catcher=1"
 	if(T)
 		T.Click(location, control, params)
@@ -738,7 +738,7 @@
 
 /atom/movable/screen/click_catcher/face_me(location, control, params)
 	var/list/modifiers = params2list(params)
-	var/turf/T = params2turf(modifiers["screen-loc"], get_turf(usr.client ? usr.client.eye : usr), usr.client)
+	var/turf/T = params2turf(LAZYACCESS(modifiers, SCREEN_LOC), get_turf(usr.client ? usr.client.eye : usr), usr.client)
 	if(T)
 		return T
 
@@ -750,7 +750,7 @@
 
 /mob/living/MouseWheelOn(atom/A, delta_x, delta_y, params)
 	var/list/modifiers = params2list(params)
-	if(modifiers["shift"])
+	if(LAZYACCESS(modifiers, SHIFT_CLICKED))
 		if(delta_y > 0)
 			aimheight_change("up")
 		else

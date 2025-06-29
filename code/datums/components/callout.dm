@@ -93,7 +93,7 @@
 	SIGNAL_HANDLER
 	var/list/modifiers = params2list(params)
 
-	if (!LAZYACCESS(modifiers, "shift") || !LAZYACCESS(modifiers, MIDDLE_CLICK))
+	if (!LAZYACCESS(modifiers, SHIFT_CLICKED) || !LAZYACCESS(modifiers, MIDDLE_CLICK))
 		return
 
 	if (!active)

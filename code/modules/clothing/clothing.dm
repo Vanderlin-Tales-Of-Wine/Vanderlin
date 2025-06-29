@@ -129,7 +129,7 @@
 	var/mob/living/L = user
 	var/altheld //Is the user pressing alt?
 	var/list/modifiers = params2list(params)
-	if(modifiers["alt"])
+	if(LAZYACCESS(modifiers, ALT_CLICKED))
 		altheld = TRUE
 	if(!isliving(user))
 		return
