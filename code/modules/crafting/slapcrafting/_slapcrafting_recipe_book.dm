@@ -1,9 +1,3 @@
-
-/client/New()
-	. = ..()
-	if(byond_version >= 516) // Enable 516 compat browser storage mechanisms
-		winset(src, null, "browser-options=byondstorage,find,devtools")
-
 /datum/slapcraft_recipe/proc/generate_html(mob/user)
 	var/client/client = user
 	if(!istype(client))

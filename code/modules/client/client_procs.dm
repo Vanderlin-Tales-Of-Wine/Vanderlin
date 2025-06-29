@@ -1094,6 +1094,16 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		if (menuitem)
 			menuitem.Load_checked(src)
 
+
+	if(byond_version >= 516) // Enable 516 compat browser storage mechanisms
+		winset(src, null, "browser-options=byondstorage,find,devtools")
+
+	//fullscreen()
+
+	view_size = new(src, getScreenSize())
+	view_size.resetFormat()
+	view_size.setZoomMode()
+	fit_viewport()
 	Master.UpdateTickRate()
 
 //////////////
@@ -1605,7 +1615,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		if ("key")
 			return FALSE
 		if("view")
-			change_view(var_value)
+			view_size.setDefault(var_value)
 			return TRUE
 	. = ..()
 
@@ -1615,7 +1625,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	var/y = viewscale[2]
 	x = CLAMP(x+change, min, max)
 	y = CLAMP(y+change, min,max)
-	change_view("[x]x[y]")
+	view_size.setDefault("[x]x[y]")
 
 /client/proc/update_movement_keys()
 	if(!prefs?.key_bindings)
@@ -1636,9 +1646,6 @@ GLOBAL_LIST_EMPTY(respawncounts)
 /client/proc/change_view(new_size)
 	if (isnull(new_size))
 		CRASH("change_view called without argument.")
-
-	if(prefs && !prefs.widescreenpref && new_size == CONFIG_GET(string/default_view))
-		new_size = CONFIG_GET(string/default_view_square)
 
 	view = new_size
 	apply_clickcatcher()
@@ -1696,10 +1703,6 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 /client/proc/fullscreen()
 	winset(src, "mainwindow", "statusbar=false")
-
-/client/New()
-	..()
-	fullscreen()
 
 /client/proc/give_award(achievement_type, mob/user)
 	return	player_details.achievements.unlock(achievement_type, mob/user)

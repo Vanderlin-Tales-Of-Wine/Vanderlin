@@ -134,6 +134,7 @@
 
 	/// Messages currently seen by this client
 	var/list/seen_messages
+	var/datum/viewData/view_size
 
 	var/list/current_weathers = list()
 	var/last_lighting_update = 0
