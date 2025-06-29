@@ -5,8 +5,6 @@
 	icon_state = "goblin"
 	race = /datum/species/goblin
 	gender = MALE
-	dam_icon_f = null
-	dam_icon_m = null
 	bodyparts = list(/obj/item/bodypart/chest/goblin, /obj/item/bodypart/head/goblin, /obj/item/bodypart/l_arm/goblin,
 					/obj/item/bodypart/r_arm/goblin, /obj/item/bodypart/r_leg/goblin, /obj/item/bodypart/l_leg/goblin)
 	rot_type = /datum/component/rot/corpse/goblin
@@ -131,6 +129,8 @@
 	offset_features_m = list(OFFSET_HANDS = list(0,-4))
 	offset_features_f = list(OFFSET_HANDS = list(0,-4))
 
+	dam_icon_f = null
+	dam_icon_m = null
 	damage_overlay_type = ""
 	changesource_flags = WABBAJACK
 	var/raceicon = "goblin"
