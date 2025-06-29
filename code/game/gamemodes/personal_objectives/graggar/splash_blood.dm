@@ -34,4 +34,4 @@
 	UnregisterSignal(owner.current, COMSIG_SPLASHED_MOB)
 
 /datum/objective/blood_splash/update_explanation_text()
-	explanation_text = "Splash a bucket full of blood on yourself to please Graggar."
+	explanation_text = "There is much power in blood. Splash a bucket full of blood on yourself to appease Graggar!"
