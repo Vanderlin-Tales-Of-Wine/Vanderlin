@@ -222,6 +222,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		return
 
 	if(client)
+		last_message = message
 		record_featured_stat(FEATURED_STATS_SPEAKERS, src)
 		INVOKE_ASYNC(src, PROC_REF(check_slur), message)
 	if(findtext(message, "Abyssor"))

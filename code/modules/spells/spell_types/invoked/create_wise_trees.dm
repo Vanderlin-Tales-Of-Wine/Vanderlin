@@ -1,10 +1,10 @@
 /obj/effect/proc_holder/spell/invoked/transform_tree
 	name = "Transform Tree"
-	desc = "Transform a normal tree into a wise tree of Dendor."
 	invocation_type = "whisper"
 	overlay_state = "entangle"
 	range = 1
 	recharge_time = 20 SECONDS
+	uses_mana = FALSE
 	var/uses = 3
 
 /obj/effect/proc_holder/spell/invoked/transform_tree/cast(list/targets, mob/user = usr)
@@ -34,6 +34,11 @@
 		to_chat(H, span_warning("You must target a normal, living tree adjacent to you!"))
 		return
 
+	var/turf/below = get_step_multiz(target, DOWN)
+	if(below && istype(below, /turf/open/transparent/openspace))
+		to_chat(H, span_warning("You must target the base of the tree!"))
+		return
+
 	if(uses <= 0)
 		to_chat(H, span_warning("Your blessing has been exhausted!"))
 		H.mind.RemoveSpell(src)
@@ -47,20 +52,29 @@
 		return
 
 	var/turf/T = get_turf(target)
-	var/obj/structure/flora/tree/wise/new_wise_tree = new(T)
-	new_wise_tree.activated = TRUE
-	new_wise_tree.set_light(2, 2, 2, l_color = "#66FF99")
-
 	if(istype(target, /obj/structure/flora/newtree))
-		for(var/turf/adjacent in range(1, T))
-			for(var/obj/structure/flora/newbranch/B in adjacent)
-				qdel(B)
-			for(var/obj/structure/flora/newleaf/L in adjacent)
-				qdel(L)
+		for(var/DIR in GLOB.cardinals)
+			var/turf/B = get_step(T, DIR)
+			for(var/obj/structure/flora/newbranch/BRANCH in B)
+				if(BRANCH.dir == DIR)
+					var/turf/BI = get_step(B, DIR)
+					for(var/obj/structure/flora/newbranch/bi in BI)
+						if(bi.dir == DIR)
+							qdel(bi)
+					for(var/obj/structure/flora/newleaf/bil in BI)
+						qdel(bil)
+					qdel(BRANCH)
+		for(var/turf/DIA in block(get_step(T, SOUTHWEST), get_step(T, NORTHEAST)))
+			for(var/obj/structure/flora/newleaf/LEAF in DIA)
+				qdel(LEAF)
 		var/turf/above = get_step_multiz(T, UP)
 		if(istype(above, /turf/open/transparent/openspace))
 			for(var/obj/structure/flora/newtree/upper_tree in above)
 				qdel(upper_tree)
+
+	var/obj/structure/flora/tree/wise/new_wise_tree = new(T)
+	new_wise_tree.activated = TRUE
+	new_wise_tree.set_light(2, 2, 2, l_color = "#66FF99")
 
 	qdel(target)
 

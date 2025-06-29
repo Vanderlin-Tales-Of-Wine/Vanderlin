@@ -885,10 +885,12 @@
 	message = "spits on the ground."
 	message_param = "spits on %t."
 	emote_type = EMOTE_VISIBLE
+
 /mob/living/carbon/human/verb/emote_spit()
 	set name = "Spit"
 	set category = "Emotes"
 	emote("spit", intentional = TRUE, targetted = TRUE)
+
 /datum/emote/living/spit/run_emote(mob/user, params, type_override, intentional)
 	message_param = initial(message_param) // reset
 	var/mob/living/carbon/human/H = user
@@ -899,6 +901,7 @@
 				H.dropItemToGround(H.mouth, silent = FALSE)
 			return
 	..()
+
 /datum/emote/living/spit/adjacentaction(mob/user, mob/target)
 	. = ..()
 	if(!user || !target)
@@ -908,7 +911,7 @@
 			playsound(target.loc, pick('sound/vo/male/gen/spit.ogg','sound/vo/male/gen/spit_floor.ogg'), 100, FALSE, -1)
 		else
 			playsound(target.loc, pick('sound/vo/female/gen/spit.ogg', 'sound/vo/female/gen/spit_floor.ogg'), 100, FALSE, -1)
-
+		SEND_SIGNAL(user, COMSIG_SPAT_ON, target)
 
 /datum/emote/living/slap
 	key = "slap"
