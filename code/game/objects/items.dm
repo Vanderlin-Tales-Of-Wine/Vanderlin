@@ -464,7 +464,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /// This also ensures that the actions are properly tracked in the actions list and removed if they're deleted.
 /// Can be be passed a typepath of an action or an instance of an action.
 /obj/item/proc/add_item_action(action_or_action_type)
-
 	var/datum/action/action
 	if(ispath(action_or_action_type, /datum/action))
 		action = new action_or_action_type(src)
@@ -474,7 +473,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		CRASH("item add_item_action got a type or instance of something that wasn't an action.")
 
 	LAZYADD(actions, action)
-	RegisterSignal(action, COMSIG_PARENT_QDELETING, .proc/on_action_deleted)
+	RegisterSignal(action, COMSIG_PARENT_QDELETING, PROC_REF(on_action_deleted))
 	if(ismob(loc))
 		// We're being held or are equipped by someone while adding an action?
 		// Then they should also probably be granted the action, given it's in a correct slot
