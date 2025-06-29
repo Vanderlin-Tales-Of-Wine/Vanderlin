@@ -5,9 +5,6 @@
 	or other /datum/visual_ui that
 	* mind datums and their elements should avoid holding references to atoms in the real world.
 */
-/obj/abstract
-	var/base_icon_state
-
 /obj/abstract/proc/get_view_size()
 	if(usr && usr.client)
 		. = usr.client.view

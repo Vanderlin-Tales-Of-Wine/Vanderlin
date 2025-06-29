@@ -5,7 +5,7 @@
 	icon_state = "throne"
 	density = FALSE
 	can_buckle = 1
-	pixel_x = -32
+	SET_BASE_PIXEL(-32, 0)
 	max_integrity = 999999
 	buckle_lying = FALSE
 	obj_flags = NONE

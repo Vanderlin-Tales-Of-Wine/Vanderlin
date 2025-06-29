@@ -68,8 +68,8 @@
 		return .
 	create_reagents(20)
 	reagents.add_reagent(/datum/reagent/blood, 20)
-	pixel_x = rand(-5,5)
-	pixel_y = rand(5,5)
+	pixel_x = base_pixel_x + rand(-5,5)
+	pixel_y = base_pixel_y + rand(5,5)
 	blood_timer = addtimer(CALLBACK(src, PROC_REF(become_dry)), rand(5 MINUTES,15 MINUTES), TIMER_STOPPABLE)
 	GLOB.weather_act_upon_list += src
 

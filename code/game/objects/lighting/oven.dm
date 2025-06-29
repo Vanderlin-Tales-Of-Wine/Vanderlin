@@ -27,46 +27,43 @@
 
 /obj/machinery/light/fueled/oven/OnCrafted(dirin, mob/user)
 	dir = turn(dirin, 180)
-	. = ..()
-	update_appearance(UPDATE_ICON_STATE | UPDATE_OVERLAYS)
+	pixel_x = base_pixel_x
+	pixel_y = base_pixel_y
+	switch(dir)
+		if(SOUTH)
+			pixel_y += 32
+		if(NORTH)
+			pixel_y -= 32
+		if(WEST)
+			pixel_x += 32
+		if(EAST)
+			pixel_x -= 32
+	return ..()
 
 /obj/machinery/light/fueled/oven/Crossed(atom/movable/AM, oldLoc)
 	return
 
 /obj/machinery/light/fueled/oven/south
 	dir = SOUTH
-	pixel_y = 32 //so we see it in mapper
+	SET_BASE_PIXEL(0, 32)
 
 /obj/machinery/light/fueled/oven/west
 	dir = WEST
-	pixel_x = 32
+	SET_BASE_PIXEL(32, 0)
 
 /obj/machinery/light/fueled/oven/east
 	dir = EAST
-	pixel_x = -32
+	SET_BASE_PIXEL(-32, 0)
 
 /obj/machinery/light/fueled/oven/Initialize()
 	. = ..()
 	update_appearance(UPDATE_ICON_STATE | UPDATE_OVERLAYS)
 
-/obj/machinery/light/fueled/oven/update_icon_state()
-	. = ..()
-	switch(dir)
-		if(SOUTH)
-			pixel_y = 32
-		if(NORTH)
-			pixel_y = -32
-		if(WEST)
-			pixel_x = 32
-		if(EAST)
-			pixel_x = -32
-	icon_state = "[base_state][on]"
-
 /obj/machinery/light/fueled/oven/update_overlays()
 	. = ..()
 	for(var/obj/item/I as anything in contents)
-		I.pixel_x = 0
-		I.pixel_y = 0
+		I.pixel_x = I.base_pixel_x
+		I.pixel_y = I.base_pixel_y
 		var/mutable_appearance/M = mutable_appearance(I.icon, I.icon_state)
 		M.color = I.color
 		M.transform *= 0.5

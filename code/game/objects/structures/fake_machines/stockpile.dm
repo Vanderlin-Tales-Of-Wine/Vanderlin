@@ -5,7 +5,7 @@
 	icon_state = "stockpile_vendor"
 	density = FALSE
 	blade_dulling = DULLING_BASH
-	pixel_y = 32
+	SET_BASE_PIXEL(0, 32)
 	var/stockpile_index = 1
 	var/datum/withdraw_tab/withdraw_tab = null
 

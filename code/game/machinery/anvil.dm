@@ -198,8 +198,8 @@
 	if(!hingot)
 		return
 	var/obj/item/I = hingot
-	I.pixel_x = 0
-	I.pixel_y = 0
+	I.pixel_x = I.base_pixel_x
+	I.pixel_y = I.base_pixel_y
 	var/mutable_appearance/M = new /mutable_appearance(I)
 	if(hott)
 		M.filters += filter(type="color", color = list(3,0,0,1, 0,2.7,0,0.4, 0,0,1,0, 0,0,0,1))

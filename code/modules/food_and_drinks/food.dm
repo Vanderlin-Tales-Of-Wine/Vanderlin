@@ -27,8 +27,8 @@
 /obj/item/reagent_containers/food/Initialize(mapload)
 	. = ..()
 	if(!mapload && do_random_pixel_offset)
-		pixel_x = rand(-4, 4)
-		pixel_y = rand(-4, 4)
+		pixel_x = base_pixel_x + rand(-4, 4)
+		pixel_y = base_pixel_y + rand(-4, 4)
 
 /obj/item/reagent_containers/food/proc/checkLiked(fraction, mob/M)
 	if(last_check_time + 50 < world.time)

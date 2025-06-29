@@ -99,7 +99,7 @@ All foods are distributed among various categories. Use common sense.
 
 	var/plating_alt_icon // for food items not sprited in a way that fits the plating underlay, you can instead have a alt sprite specifically for its plated version.
 	var/plated_iconstate // used in afterattack to switch the above on or off
-	var/base_icon_state // used for procs manipulating icons when sliced and the like
+	base_icon_state // used for procs manipulating icons when sliced and the like
 	var/biting // if TRUE changes the icon state to the bitecount, for stuff like handpies. Will break unless you also set a base_icon_state
 	var/rot_away_timer
 

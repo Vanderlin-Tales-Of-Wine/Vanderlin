@@ -7,15 +7,13 @@
 	icon_state = "hailer"
 	density = FALSE
 	blade_dulling = DULLING_BASH
-	pixel_y = 32
+	SET_BASE_PIXEL(0, 32)
 
 /obj/structure/fake_machine/hailer/r
-	pixel_y = 0
-	pixel_x = 32
+	SET_BASE_PIXEL(32, 0)
 
 /obj/structure/fake_machine/hailer/l
-	pixel_y = 0
-	pixel_x = -32
+	SET_BASE_PIXEL(-32, 0)
 
 /obj/structure/fake_machine/hailer/Initialize(mapload)
 	. = ..()
@@ -108,15 +106,13 @@
 	icon_state = "hailerboard"
 	density = FALSE
 	blade_dulling = DULLING_BASH
-	pixel_y = 32
+	SET_BASE_PIXEL(0, 32)
 
 /obj/structure/fake_machine/hailerboard/r
-	pixel_y = 0
-	pixel_x = 32
+	SET_BASE_PIXEL(-32, 0)
 
 /obj/structure/fake_machine/hailerboard/l
-	pixel_y = 0
-	pixel_x = -32
+	SET_BASE_PIXEL(-32, 0)
 
 /obj/structure/fake_machine/hailerboard/Initialize()
 	. = ..()

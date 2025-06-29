@@ -7,9 +7,9 @@
 /obj/structure/mana_pylon
 	name = "mana pylon"
 	desc = ""
-
 	icon_state = "pylon"
 	icon = 'icons/roguetown/misc/mana_pylon.dmi'
+	SET_BASE_PIXEL(0, -32)
 	has_initial_mana_pool = TRUE
 	plane = GAME_PLANE_UPPER
 	layer = ABOVE_MOB_LAYER
@@ -34,13 +34,12 @@
 		var/datum/attunement/attunement = mana_pool.network_attunement
 		. += span_blue("It is attuned to [initial(attunement.name)]")
 
-/obj/structure/mana_pylon/Initialize()
+/obj/structure/mana_pylon/Initialize(mapload, ...)
 	. = ..()
 	fake_density = new(get_turf(src))
 	fake_density.icon = icon
 	fake_density.icon_state = icon_state
 
-	pixel_y = -32
 	var/turf/step_up = get_step(src, NORTH) //this is dumb but for beams it makes it work
 	if(step_up)
 		forceMove(step_up)

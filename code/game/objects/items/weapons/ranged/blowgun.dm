@@ -67,8 +67,8 @@
 	. = ..()
 	if(chambered)
 		var/obj/item/I = chambered
-		I.pixel_x = 0
-		I.pixel_y = 0
+		I.pixel_x = I.base_pixel_x
+		I.pixel_y = I.base_pixel_y
 		. += new /mutable_appearance(I)
 
 /obj/item/ammo_box/magazine/internal/shot/blowgun

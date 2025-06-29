@@ -5,7 +5,7 @@
 	icon_state = "atm"
 	density = FALSE
 	blade_dulling = DULLING_BASH
-	pixel_y = 32
+	SET_BASE_PIXEL(0, 32)
 
 /obj/structure/fake_machine/atm/attack_hand(mob/user)
 	if(!ishuman(user))

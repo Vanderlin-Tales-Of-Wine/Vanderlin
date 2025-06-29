@@ -228,8 +228,8 @@
 	. = ..()
 	if(status != BODYPART_ROBOTIC)
 		playsound(get_turf(src), 'sound/blank.ogg', 50, TRUE, -1)
-	pixel_x = rand(-3, 3)
-	pixel_y = rand(-3, 3)
+	pixel_x = base_pixel_x + rand(-3, 3)
+	pixel_y = base_pixel_y + rand(-3, 3)
 	if(!skeletonized)
 		new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 

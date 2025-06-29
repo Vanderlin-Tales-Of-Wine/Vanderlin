@@ -19,10 +19,11 @@
 ///the issue is they would need atleast a 2x2 to smooth proper.
 /obj/structure/hotspring
 	abstract_type = /obj/structure/hotspring
-	nomouseover = TRUE
-	plane = FLOOR_PLANE
+	name = "hot spring"
 	icon = 'icons/obj/structures/hotspring.dmi'
 	icon_state = "hotspring"
+	nomouseover = TRUE
+	plane = FLOOR_PLANE
 	object_slowdown = 5
 
 	var/edge = FALSE

@@ -6,8 +6,7 @@
 	name = "smoke"
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "smoke"
-	pixel_x = -32
-	pixel_y = -32
+	SET_BASE_PIXEL(-32, -32)
 	opacity = 1
 	layer = FLY_LAYER
 	plane = GAME_PLANE_UPPER

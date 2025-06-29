@@ -198,8 +198,8 @@
 	if(!baited)
 		return
 	var/obj/item/I = baited
-	I.pixel_x = 0
-	I.pixel_y = 0
+	I.pixel_x = I.base_pixel_x + 6
+	I.pixel_y = I.base_pixel_y - 6
 	var/mutable_appearance/M = new /mutable_appearance(I)
 	M.pixel_x = 6
 	M.pixel_y = -6

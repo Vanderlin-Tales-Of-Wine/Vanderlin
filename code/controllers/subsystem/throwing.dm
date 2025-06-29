@@ -43,11 +43,12 @@ SUBSYSTEM_DEF(throwing)
 	var/atom/movable/thrownthing
 	var/atom/target
 	var/turf/target_turf
+	var/mob/thrower
+	var/datum/callback/callback
 	var/target_zone
 	var/init_dir
 	var/maxrange
 	var/speed
-	var/mob/thrower
 	var/diagonals_first
 	var/dist_travelled = 0
 	var/start_time
@@ -58,20 +59,40 @@ SUBSYSTEM_DEF(throwing)
 	var/force = MOVE_FORCE_DEFAULT
 	var/pure_diagonal
 	var/diagonal_error
-	var/datum/callback/callback
 	var/paused = FALSE
 	var/delayed_time = 0
 	var/last_move = 0
 	var/extra = FALSE
 
+/datum/thrownthing/New(thrownthing, target, target_turf, init_dir, maxrange, speed, thrower, diagonals_first, force, callback, target_zone)
+	. = ..()
+	src.thrownthing = thrownthing
+	RegisterSignal(thrownthing, COMSIG_PARENT_QDELETING, PROC_REF(on_thrownthing_qdel))
+	src.target = target
+	src.target_turf = target_turf
+	src.init_dir = init_dir
+	src.maxrange = maxrange
+	src.speed = speed
+	src.thrower = thrower
+	src.diagonals_first = diagonals_first
+	src.force = force
+	src.callback = callback
+	src.target_zone = target_zone
+
 /datum/thrownthing/Destroy()
 	SSthrowing.processing -= thrownthing
+	SSthrowing.currentrun -= thrownthing
 	thrownthing.throwing = null
 	thrownthing = null
 	target = null
 	thrower = null
 	callback = null
 	return ..()
+
+///Defines the datum behavior on the thrownthing's qdeletion event.
+/datum/thrownthing/proc/on_thrownthing_qdel(atom/movable/source, force)
+	SIGNAL_HANDLER
+	qdel(src)
 
 /datum/thrownthing/proc/tick()
 	var/atom/movable/AM = thrownthing
@@ -136,15 +157,21 @@ SUBSYSTEM_DEF(throwing)
 			if (A == target)
 				hit = TRUE
 				thrownthing.throw_impact(A, src)
+				if(QDELETED(thrownthing)) //throw_impact can delete things, such as glasses smashing
+					return //deletion should already be handled by on_thrownthing_qdel()
 				break
 		if (!hit)
 			thrownthing.throw_impact(get_turf(thrownthing), src)  // we haven't hit something yet and we still must, let's hit the ground.
 			thrownthing.newtonian_move(init_dir)
 	else
+		if(QDELETED(thrownthing)) //throw_impact can delete things, such as glasses smashing
+			return //deletion should already be handled by on_thrownthing_qdel()
 		thrownthing.newtonian_move(init_dir)
 
 	if(target)
 		thrownthing.throw_impact(target, src)
+		if(QDELETED(thrownthing)) //throw_impact can delete things, such as glasses smashing
+			return //deletion should already be handled by on_thrownthing_qdel()
 
 	if(QDELETED(thrownthing))
 		qdel(src)

@@ -20,8 +20,8 @@
 		var/obj/item/canvas/C = I
 		user.dropItemToGround(C)
 		painting = C
-		painting.pixel_x = 0
-		painting.pixel_y = painting.easel_offset
+		painting.pixel_x = painting.base_pixel_x
+		painting.pixel_y = painting.base_pixel_y + painting.easel_offset
 		C.forceMove(get_turf(src))
 		C.layer = layer+0.1
 		user.visible_message("<span class='notice'>[user] puts \the [C] on \the [src].</span>","<span class='notice'>I place \the [C] on \the [src].</span>")

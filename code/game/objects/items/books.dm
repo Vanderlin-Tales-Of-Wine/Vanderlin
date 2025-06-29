@@ -27,7 +27,7 @@
 	var/random_cover
 	var/category = null
 
-	var/base_icon_state = "basic_book"
+	base_icon_state = "basic_book"
 	var/open = FALSE
 	var/dat				//Actual page content
 	var/due_date = 0	//Game time in 1/10th seconds

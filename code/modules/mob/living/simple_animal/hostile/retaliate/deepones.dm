@@ -117,7 +117,7 @@
 	melee_damage_upper = 40
 	maxHealth = 200
 	health = 200
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, 0)
 
 /mob/living/simple_animal/hostile/deepone/elite/Initialize()
 	. = ..()

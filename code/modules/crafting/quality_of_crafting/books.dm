@@ -1,12 +1,10 @@
 /obj/item/recipe_book
 	icon = 'icons/roguetown/items/books.dmi'
-
 	grid_width = 32
 	grid_height = 64
 	var/list/types = list()
 	var/mob/current_reader
 	var/open
-	var/base_icon_state
 	var/can_spawn = TRUE
 	var/list/categories = list("All") // Default categories
 	var/current_category = "All"      // Default selected category

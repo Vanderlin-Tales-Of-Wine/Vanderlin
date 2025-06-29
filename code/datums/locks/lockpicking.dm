@@ -176,7 +176,7 @@
 	linked_pick.icon_state = "pick"
 	linked_pick.plane = FLOAT_PLANE + 1
 	linked_pick.layer = 3
-	linked_pick.pixel_y = 6
+	linked_pick.pixel_y = linked_pick.base_pixel_y + 6
 	linked_pick.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	vis_contents += linked_pick
 

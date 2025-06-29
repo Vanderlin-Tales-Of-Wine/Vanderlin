@@ -28,8 +28,8 @@
 			var/list/click_params = params2list(params)
 			if(!click_params || !click_params["icon-x"] || !click_params["icon-y"])
 				return
-			I.pixel_x = round(CLAMP(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)/modifier, 1)
-			I.pixel_y = round(CLAMP(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)/modifier, 1)
+			I.pixel_x = I.base_pixel_x + round(CLAMP(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)/modifier, 1)
+			I.pixel_y = I.base_pixel_y + round(CLAMP(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)/modifier, 1)
 			return
 	return
 

@@ -5,7 +5,7 @@
 	icon_state = "submit"
 	density = FALSE
 	blade_dulling = DULLING_BASH
-	pixel_y = 32
+	SET_BASE_PIXEL(0, 32)
 
 /obj/structure/fake_machine/submission/proc/attemptsell(obj/item/I, mob/H, message = TRUE, sound = TRUE)
 	for(var/datum/stock/R in SStreasury.stockpile_datums)
@@ -98,7 +98,7 @@ GLOBAL_VAR(feeding_hole_reset_timer)
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "feedinghole"
 	density = FALSE
-	pixel_y = 32
+	SET_BASE_PIXEL(0, 32)
 
 /obj/structure/feedinghole/attackby(obj/item/P, mob/user, params)
 	if(istype(P, /obj/item/reagent_containers/food/snacks/produce/grain/wheat))

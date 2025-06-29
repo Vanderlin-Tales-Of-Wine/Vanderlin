@@ -4,4 +4,4 @@
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "deer_trophy"
 	dir = SOUTH
-	pixel_y = 32
+	SET_BASE_PIXEL(0, 32)

@@ -14,8 +14,7 @@
 	icon_state = "gator"
 	icon_living = "gator"
 	icon_dead = "gator-dead"
-	pixel_x = -32
-	pixel_y = 1
+	SET_BASE_PIXEL(-32, 1)
 
 	faction = list("gators")
 	move_to_delay = 12

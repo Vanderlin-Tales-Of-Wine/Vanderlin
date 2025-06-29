@@ -5,7 +5,7 @@
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle1"
 	item_state = "candle1"
-	var/base_icon_state = "candle"
+	base_icon_state = "candle"
 	w_class = WEIGHT_CLASS_TINY
 	light_color = LIGHT_COLOR_FIRE
 	dropshrink = 0.8
@@ -152,7 +152,6 @@
 /obj/item/candle/yellow/lit/infinite/strong
 	light_power = 2
 	light_outer_range =  4
-	pixel_x = 4
 
 /obj/item/candle/yellow/lit/infinite/strong/skull
 	icon_state = "skullcandle_lit"

@@ -9,7 +9,7 @@
 	climbable = FALSE
 	facepull = FALSE
 	drag_slowdown = 6
-	pixel_x = -12
+	SET_BASE_PIXEL(-12, 0)
 
 /obj/structure/plough/Moved(oldLoc, movement_dir)
 	. = ..()

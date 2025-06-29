@@ -111,8 +111,8 @@
 
 /datum/point/proc/move_atom_to_src(atom/movable/AM)
 	AM.forceMove(return_turf())
-	AM.pixel_x = return_px()
-	AM.pixel_y = return_py()
+	AM.pixel_x = AM.base_pixel_x + return_px()
+	AM.pixel_y = AM.base_pixel_y + return_py()
 
 /datum/point/proc/return_turf()
 	return locate(CEILING(x / world.icon_size, 1), CEILING(y / world.icon_size, 1), z)

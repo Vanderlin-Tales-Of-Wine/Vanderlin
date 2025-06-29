@@ -872,8 +872,8 @@
 	visible_message(span_notice("[user] calls upon divine light to bring perfect order."))
 
 	for(var/obj/item/I in range(2, target_turf))
-		I.pixel_x = 0
-		I.pixel_y = 0
+		I.pixel_x = I.base_pixel_x
+		I.pixel_y = I.base_pixel_y
 		I.transform = matrix()
 
 	var/obj/effect/temp_visual/divine_light/light = new(target_turf)

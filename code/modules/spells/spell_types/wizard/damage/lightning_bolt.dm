@@ -29,7 +29,7 @@
 	muzzle_type = null
 	impact_type = null
 	hitscan = TRUE
-	movement_type = UNSTOPPABLE
+	movement_type = PHASING
 	light_color = LIGHT_COLOR_WHITE
 	damage = 15
 	damage_type = BURN

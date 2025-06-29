@@ -10,8 +10,7 @@ GLOBAL_LIST_EMPTY(street_lamp_lights)
 	var/broken_containment = FALSE
 	anchored = TRUE
 	density = TRUE
-	pixel_x = -16
-	pixel_y = -12
+	SET_BASE_PIXEL(-16, -12)
 
 /obj/structure/astratanshard/Initialize()
 	. = ..()

@@ -194,18 +194,16 @@
 	max_integrity = 200
 	blade_dulling = DULLING_BASHCHOP
 
-
-
 /obj/structure/wallladder/OnCrafted(dirin, mob/user)
 	dir = dirin
 	layer = BELOW_MOB_LAYER
 	switch(dir)
 		if(NORTH)
-			pixel_y = 16
+			pixel_y = base_pixel_y + 16
 		if(SOUTH)
 			layer = ABOVE_MOB_LAYER
 		if(WEST)
-			pixel_x = -4
+			pixel_x = base_pixel_x - 4
 		if(EAST)
-			pixel_x = 4
-	. = ..()
+			pixel_x = base_pixel_x + 4
+	return ..()

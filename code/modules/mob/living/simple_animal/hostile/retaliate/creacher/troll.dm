@@ -5,7 +5,7 @@
 	icon_state = "troll"
 	icon_living = "troll"
 	icon_dead = "troll_dead"
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, 0)
 
 	faction = list(FACTION_ORCS)
 	footstep_type = FOOTSTEP_MOB_HEAVY

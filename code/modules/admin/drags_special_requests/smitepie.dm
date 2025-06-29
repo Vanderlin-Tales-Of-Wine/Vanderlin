@@ -31,7 +31,7 @@ GLOBAL_LIST_EMPTY(transformation_animation_objects)
 		var/obj/transform_effect = new
 		transform_effect.appearance = transform_appearance
 		transform_effect.vis_flags = VIS_INHERIT_ID
-		transform_effect.pixel_y = 16
+		transform_effect.pixel_y = transform_effect.base_pixel_y + 16
 		transform_effect.alpha = 255
 		transformation_objects += transform_effect
 		animate(transform_effect,pixel_y=-16,time=time)

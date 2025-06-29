@@ -9,7 +9,7 @@
 	bound_height = 128
 	bound_width = 128
 
-	pixel_x = -64
+	SET_BASE_PIXEL(-64, 0)
 
 /datum/building_datum/core
 	name = "World Core"
