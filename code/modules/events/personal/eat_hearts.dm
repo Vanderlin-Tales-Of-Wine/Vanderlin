@@ -3,7 +3,7 @@
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/graggar_organs
 	weight = 7
-	earliest_start = 20 MINUTES
+	earliest_start = 15 MINUTES
 	max_occurrences = 1
 	min_players = 30
 
@@ -51,9 +51,9 @@
 	var/obj/effect/proc_holder/spell/invoked/extract_heart/heart_spell = new()
 	chosen_one.mind.AddSpell(heart_spell)
 
-	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE GRAGGAR'S CHOSEN!"))
 	to_chat(chosen_one, span_biginfo("Graggar hungers! [new_objective.explanation_text]"))
-	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/genspooky (1).ogg', 100)
+	chosen_one.playsound_local(chosen_one, 'sound/misc/gods/graggar_omen.ogg', 100)
 
 	to_chat(chosen_one, span_notice("Graggar grants you a power to extract hearts from the dead!"))
 

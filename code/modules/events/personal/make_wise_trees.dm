@@ -4,9 +4,9 @@
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/dendor_trees
 	weight = 7
-	earliest_start = 15 MINUTES
+	earliest_start = 10 MINUTES
 	max_occurrences = 1
-	min_players = 20
+	min_players = 25
 
 	tags = list(
 		TAG_NATURE,
@@ -52,7 +52,7 @@
 	var/obj/effect/proc_holder/spell/invoked/transform_tree/tree_spell = new()
 	chosen_one.mind.AddSpell(tree_spell)
 
-	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE DENDOR'S CHOSEN!"))
 	to_chat(chosen_one, span_biginfo("Dendor wants you to choose suitable trees, which are to become guardians of the forest! [new_objective.explanation_text]"))
 	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/genspooky (1).ogg', 100)
 

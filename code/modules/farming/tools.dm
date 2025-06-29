@@ -441,22 +441,19 @@
 				I.forceMove(target)
 				forked -= I
 			to_chat(user, span_warning("I dump the stalks."))
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		return
-	..()
+	return ..()
 
 /obj/item/weapon/pitchfork/ungrip(mob/living/carbon/user, show_message = TRUE)
+	. = ..()
 	if(forked.len)
 		var/turf/T = get_turf(user)
 		for(var/obj/item/I in forked)
 			I.forceMove(T)
 			forked -= I
-		update_icon()
-	..()
+		update_appearance(UPDATE_ICON_STATE)
 
-/obj/item/weapon/pitchfork/update_icon()
-	if(forked.len)
-		icon_state = "pitchforkstuff"
-	else
-		icon_state = initial(icon_state)
-	..()
+/obj/item/weapon/pitchfork/update_icon_state()
+	. = ..()
+	icon_state = "[initial(icon_state)][length(forked) ? "stuff" : ""]"

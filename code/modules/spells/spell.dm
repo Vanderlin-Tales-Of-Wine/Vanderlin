@@ -34,9 +34,10 @@
 	. = ..()
 	if(has_action)
 		action = new base_action(src)
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/effect/proc_holder/spell/update_icon()
+	. = ..()
 	if(!action)
 		return
 	action.button_icon_state = "[base_icon_state][active]"
@@ -107,7 +108,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		user.mmb_intent_change(QINTENT_SPELL)
 	if(msg)
 		to_chat(ranged_ability_user, msg)
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/effect/proc_holder/proc/remove_ranged_ability(msg)
 	if(!ranged_ability_user || !ranged_ability_user.client || (ranged_ability_user.ranged_ability && ranged_ability_user.ranged_ability != src)) //To avoid removing the wrong ability
@@ -121,7 +122,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	if(msg)
 		to_chat(ranged_ability_user, msg)
 	ranged_ability_user = null
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/effect/proc_holder/spell
 	name = "Spell"
@@ -304,15 +305,17 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			return FALSE
 
 	if(req_items.len)
-		var/list/confirmed_items = list()
+		var/list/confirmed_types = list()
 		for(var/I in req_items)
+			var/found = FALSE
 			for(var/obj/item/IN in user.contents)
-				if(istype(IN, I))
-					confirmed_items += IN
-					continue
-		if(confirmed_items.len != req_items.len)
-			to_chat(user, "<span class='warning'>I'm missing something to cast this.</span>")
-			return FALSE
+				if(istype(IN, I) && !(IN.type in confirmed_types))
+					confirmed_types += IN.type
+					found = TRUE
+					break
+			if(!found)
+				to_chat(user, "<span class='warning'>I'm missing something to cast this.</span>")
+				return FALSE
 
 	if(req_inhand)
 		if(!istype(user.get_active_held_item(), req_inhand))

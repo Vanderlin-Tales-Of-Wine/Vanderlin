@@ -115,6 +115,7 @@
 #define TRAIT_BURDEN "Burdened" //Gaffer stuff
 #define TRAIT_OLDPARTY "Old Party"
 #define TRAIT_EARGRAB "Ear Grab"
+#define TRAIT_FACELESS "Faceless One"
 
 // PATRON CURSE TRAITS
 #define TRAIT_CURSE "Curse" //source

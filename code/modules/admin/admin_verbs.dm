@@ -182,7 +182,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/check_bomb_impacts,
 	/client/proc/recipe_tree_debug_menu,
 	/client/proc/family_tree_debug_menu,
-	/client/verb/debug_loot_tables,
+	/client/proc/debug_loot_tables,
 	/client/proc/get_dynex_power,		//*debug verbs for dynex explosions.
 	/client/proc/get_dynex_range,		//*debug verbs for dynex explosions.
 	/client/proc/set_dynex_scale,
@@ -796,28 +796,42 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	else
 		to_chat(src, "<span class='notice'> Either the book file doesn't exist or you have failed to type it in properly (remember characters have been url encoded for the file name)</span>")
 
-
 /client/proc/manage_paintings()
 	set category = "Admin"
 	set name = "Manage Player Made Paintings"
 	if(!holder)
 		return
 
-	var/list/paintings = list()
+	var/dat = "<table><tr><th>Preview</th><th>Title</th><th>Author</th><th>Delete</th></tr>"
 
-	paintings |= SSpaintings.paintings
-	var/dat = "<h3>Paintings:</h3><br>"
-	dat += "<table><tr><th>Picture</th><th>Title</th><th>Author</th><th>Delete</th></tr>"
-	for(var/paint_name in paintings)
-		var/list/painting = paintings[paint_name]
-		var/icon/painting_icon = icon("data/player_generated_paintings/paintings/[painting["painting_title"]].png")
-		src << browse_rsc(painting_icon, "[paint_name].png")
-		dat += "<tr><td><img height=128 src='[painting["painting_title"]].png'/></td><td>[painting["painting_title"]]</td><td>[painting["author_ckey"]]</td><td><a href='byond://?src=[REF(src)];delete_painting=1;id=[painting["painting_title"]]'>Delete</a></td></tr>"
-	if (!length(paintings))
-		dat += "<tr><td colspan='4'>No results found.</td></tr>"
+	if(SSpaintings?.paintings && length(SSpaintings.paintings))
+		for(var/paint_name in SSpaintings.paintings)
+			var/list/painting = SSpaintings.paintings[paint_name]
+			if(!painting || !islist(painting))
+				continue
+
+			var/title = painting["painting_title"]
+			var/author = painting["author_ckey"]
+			var/filename = "data/player_generated_paintings/paintings/[title].png"
+
+			if(fexists(filename))
+				var/icon/painting_icon = icon(filename)
+				if(painting_icon)
+					src << browse_rsc(painting_icon, "[title].png")
+					dat += "<tr>"
+					dat += "<td><img src='[title].png' height=64 width=64></td>"
+					dat += "<td>[title]</td>"
+					dat += "<td>[author]</td>"
+					dat += "<td><a href='?src=[REF(src)];delete_painting=1;id=[title]'>Delete</a></td>"
+					dat += "</tr>"
+	else
+		dat += "<tr><td colspan='4'>No paintings found</td></tr>"
 
 	dat += "</table>"
-	src << browse(dat, "window=painting_deletion")
+
+	var/datum/browser/popup = new(usr, "painting_management", "Painting Management", 600, 600)
+	popup.set_content(dat)
+	popup.open()
 
 //Family Tree Subsystem
 /client/proc/ShowAllFamilies()
