@@ -187,42 +187,54 @@
 /obj/item/bodypart/proc/try_crit(bclass, dam, mob/living/user, zone_precise, silent = FALSE, crit_message = FALSE)
 	if(!bclass || !dam || (owner.status_flags & GODMODE))
 		return FALSE
-	var/list/attempted_wounds = list()
-	var/used
-	var/total_dam = get_damage()
-	var/damage_dividend = (total_dam / max_damage)
-	if(user && dam)
-		if(user.stat_roll(STATKEY_LCK,2,10))
-			dam += 10
-	var/crit_classes = list()
-	if(bclass in GLOB.dislocation_bclasses)
-		crit_classes += "dislocation"
-	if(bclass in GLOB.fracture_bclasses)
-		crit_classes += "fracture"
-	if(bclass in GLOB.artery_bclasses)
-		crit_classes += "artery"
-	if(bclass in GLOB.whipping_bclasses)
-		crit_classes += "scarring"
 
+	if(dam < 5)
+		return FALSE
+
+	if(user?.stat_roll(STATKEY_LCK,2,10))
+		dam += 10
+
+	var/list/crit_classes
+	if(bclass in GLOB.dislocation_bclasses)
+		LAZYADD(crit_classes, "dislocation")
+	if(bclass in GLOB.fracture_bclasses)
+		LAZYADD(crit_classes, "fracture")
+	if(bclass in GLOB.artery_bclasses)
+		LAZYADD(crit_classes, "artery")
+	if(bclass in GLOB.whipping_bclasses)
+		LAZYADD(crit_classes, "scarring")
+
+	if(!crit_classes)
+		return FALSE
+
+	var/used
+	var/damage_dividend = (get_damage() / max_damage)
+	var/list/attempted_wounds
 	switch(pick(crit_classes))
 		if("dislocation")
+			if(damage_dividend < 0.4)
+				return
 			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
 				dam += 10
 			used = round(damage_dividend * 20 + (dam / 6), 1)
 			if(prob(used))
 				if(HAS_TRAIT(src, TRAIT_BRITTLE))
-					attempted_wounds += /datum/wound/fracture
+					LAZYADD(attempted_wounds, /datum/wound/fracture)
 				else
-					attempted_wounds += /datum/wound/dislocation
+					LAZYADD(attempted_wounds, /datum/wound/dislocation)
 		if("fracture")
+			if(damage_dividend < 0.3)
+				return
 			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
 				dam += 10
 			if(HAS_TRAIT(src, TRAIT_BRITTLE))
 				dam += 10
 			used = round(damage_dividend * 20 + (dam / 6), 1)
 			if(prob(used))
-				attempted_wounds += /datum/wound/dislocation
-				attempted_wounds += /datum/wound/fracture
+				if(damage_dividend >= 0.6)
+					LAZYADD(attempted_wounds, /datum/wound/fracture)
+				else
+					LAZYADD(attempted_wounds, /datum/wound/dislocation)
 		if("artery")
 			if(user)
 				if((bclass in GLOB.artery_strong_bclasses) && istype(user.rmb_intent, /datum/rmb_intent/strong))
@@ -231,13 +243,16 @@
 					dam += 10
 			used = round(damage_dividend * 20 + (dam / 6), 1)
 			if(prob(used))
-				attempted_wounds += /datum/wound/artery
+				LAZYADD(attempted_wounds, /datum/wound/artery)
 		if("scarring")
 			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
 				dam += 10
 			used = round(damage_dividend * 20 + (dam / 6), 1)
 			if(prob(used))
-				attempted_wounds += /datum/wound/scarring
+				LAZYADD(attempted_wounds, /datum/wound/scarring)
+
+	if(!attempted_wounds)
+		return FALSE
 
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
@@ -250,24 +265,25 @@
 /obj/item/bodypart/chest/try_crit(bclass, dam, mob/living/user, zone_precise, silent = FALSE, crit_message = FALSE)
 	if(!bclass || !dam || (owner.status_flags & GODMODE))
 		return FALSE
-	var/list/attempted_wounds = list()
 	var/used
-	var/total_dam = get_damage()
-	var/damage_dividend = (total_dam / max_damage)
+	var/damage_dividend = (get_damage() / max_damage)
 	var/resistance = HAS_TRAIT(owner, TRAIT_CRITICAL_RESISTANCE)
-	if(user && dam)
-		if(user.stat_roll(STATKEY_LCK,2,10))
-			dam += 10
-	var/crit_classes = list()
+	if(user?.stat_roll(STATKEY_LCK,2,10))
+		dam += 10
+	var/list/crit_classes
 	if(bclass in GLOB.cbt_classes)
-		crit_classes += "cbt"
+		LAZYADD(crit_classes, "cbt")
 	if(bclass in GLOB.fracture_bclasses)
-		crit_classes += "fracture"
+		LAZYADD(crit_classes, "fracture")
 	if(bclass in GLOB.artery_bclasses)
-		crit_classes += "artery"
+		LAZYADD(crit_classes, "artery")
 	if(bclass in GLOB.whipping_bclasses)
-		crit_classes += "scarring"
+		LAZYADD(crit_classes, "scarring")
 
+	if(!crit_classes)
+		return FALSE
+
+	var/list/attempted_wounds
 	switch(pick(crit_classes))
 		if("cbt")
 			if(zone_precise == BODY_ZONE_PRECISE_GROIN)
@@ -275,12 +291,14 @@
 				if(user && HAS_TRAIT(user, TRAIT_NUTCRACKER))
 					cbt_multiplier = 2
 				if(!resistance && prob(round(dam/5) * cbt_multiplier))
-					attempted_wounds += /datum/wound/cbt
+					LAZYADD(attempted_wounds, /datum/wound/cbt)
 				if(prob(dam * cbt_multiplier))
 					owner.emote("groin", TRUE)
 					owner.Stun(10)
 		if("fracture")
 			if(zone_precise != BODY_ZONE_PRECISE_STOMACH)
+				if(damage_dividend < 0.4)
+					return
 				if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
 					dam += 10
 				if(HAS_TRAIT(src, TRAIT_BRITTLE))
@@ -288,9 +306,10 @@
 				used = round(damage_dividend * 20 + (dam / 6), 1)
 				var/fracture_type = /datum/wound/fracture/chest
 				if(zone_precise == BODY_ZONE_PRECISE_GROIN)
-					fracture_type = /datum/wound/fracture/groin
+					if(damage_dividend >= 0.7) // Lower body paralysis
+						fracture_type = /datum/wound/fracture/groin
 				if(prob(used))
-					attempted_wounds += fracture_type
+					LAZYADD(attempted_wounds, fracture_type)
 		if("artery")
 			if(user && (bclass in GLOB.artery_strong_bclasses) && istype(user.rmb_intent, /datum/rmb_intent/strong))
 				dam += 10
@@ -299,17 +318,20 @@
 			used = round(damage_dividend * 20 + (dam / 6), 1)
 			if(prob(used))
 				if((zone_precise == BODY_ZONE_PRECISE_STOMACH) && !resistance)
-					attempted_wounds += /datum/wound/slash/disembowel
+					LAZYADD(attempted_wounds, /datum/wound/slash/disembowel)
 				if(owner.has_wound(/datum/wound/fracture/chest) || (bclass in GLOB.artery_heart_bclasses))
-					attempted_wounds += /datum/wound/artery/chest
+					LAZYADD(attempted_wounds, /datum/wound/artery/chest)
 				else
-					attempted_wounds += /datum/wound/artery
+					LAZYADD(attempted_wounds, /datum/wound/artery)
 		if("scarring")
 			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
 				dam += 10
 			used = round(damage_dividend * 20 + (dam / 6), 1)
 			if(prob(used))
-				attempted_wounds += /datum/wound/scarring
+				LAZYADD(attempted_wounds, /datum/wound/scarring)
+
+	if(!attempted_wounds)
+		return FALSE
 
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
@@ -324,64 +346,63 @@
 	var/static/list/tonguestab_zones = list(BODY_ZONE_PRECISE_MOUTH)
 	var/static/list/nosestab_zones = list(BODY_ZONE_PRECISE_NOSE)
 	var/static/list/earstab_zones = list(BODY_ZONE_PRECISE_EARS)
-	var/static/list/knockout_zones = list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_MOUTH)
-	var/list/attempted_wounds = list()
+	var/static/list/knockout_zones = list(BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_EARS, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_MOUTH)
 	var/used
-	var/total_dam = get_damage()
-	var/damage_dividend = (total_dam / max_damage)
+	var/damage_dividend = (get_damage() / max_damage)
 	var/resistance = HAS_TRAIT(owner, TRAIT_CRITICAL_RESISTANCE)
 	var/from_behind = FALSE
-	if(user && (owner.dir == turn(get_dir(owner,user), 180)))
-		from_behind = TRUE
-	if(user && dam)
-		if(user.stat_roll(STATKEY_LCK,2,10))
-			dam += 10
-	var/crit_classes = list()
+	if(user)
+		if((owner.dir == REVERSE_DIR(get_dir(owner, user))))
+			from_behind = TRUE
+	if(user?.stat_roll(STATKEY_LCK,2,10))
+		dam += 10
+	var/list/crit_classes
 	if(bclass in GLOB.dislocation_bclasses)
-		crit_classes += "dislocation"
+		LAZYADD(crit_classes, "dislocation")
 	if(bclass in GLOB.fracture_bclasses)
-		crit_classes += "fracture"
+		LAZYADD(crit_classes, "fracture")
 	if(bclass in GLOB.artery_bclasses)
-		crit_classes += "artery"
+		LAZYADD(crit_classes, "artery")
 
-	if(!length(crit_classes))
+	if(!crit_classes)
 		return FALSE
+
+	var/list/attempted_wounds
 	switch(pick(crit_classes))
 		if("dislocation")
 			if(damage_dividend >= 1)
 				used = round(damage_dividend * 20 + (dam / 6), 1)
 				if(prob(used))
 					if(HAS_TRAIT(src, TRAIT_BRITTLE))
-						attempted_wounds += /datum/wound/fracture/neck
+						LAZYADD(attempted_wounds, /datum/wound/fracture/neck)
 					else
-						attempted_wounds += /datum/wound/dislocation/neck
+						LAZYADD(attempted_wounds, /datum/wound/dislocation/neck)
 		if("fracture")
 			if(HAS_TRAIT(src, TRAIT_BRITTLE))
 				dam += 20
 			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
 				dam += 10
 			used = round(damage_dividend * 20 + (dam / 6), 1)
-			if(!owner.stat && (zone_precise in knockout_zones) && (bclass != BCLASS_CHOP) && prob(used))
-				owner.next_attack_msg += " <span class='crit'><b>Critical hit!</b> [owner] is knocked out[from_behind ? " FROM BEHIND" : ""]!</span>"
+			if(!owner.stat && (zone_precise in knockout_zones) && !(bclass in GLOB.no_knockout_bclasses) && prob(used))
+				owner.next_attack_msg += " [span_crit("<b>Critical hit!</b> [owner] is knocked out[from_behind ? " FROM BEHIND" : ""]!")]"
 				owner.flash_fullscreen("whiteflash3")
-				owner.Unconscious(30 SECONDS + (from_behind * 60 SECONDS))
+				owner.Unconscious(15 SECONDS + (from_behind * 15 SECONDS))
 				if(owner.client)
 					winset(owner.client, "outputwindow.output", "max-lines=1")
 					winset(owner.client, "outputwindow.output", "max-lines=100")
+				return
 			var/dislocation_type
 			var/fracture_type = /datum/wound/fracture/head
-			var/necessary_damage = 0.9
+			var/necessary_damage = 0.95
 			if(resistance)
 				fracture_type = /datum/wound/fracture
 			else if(zone_precise == BODY_ZONE_PRECISE_SKULL)
 				fracture_type = /datum/wound/fracture/head/brain
-				necessary_damage = 0.95
-				used += 5
 			else if(zone_precise == BODY_ZONE_PRECISE_EARS)
 				fracture_type = /datum/wound/fracture/head/ears
 			else if(zone_precise == BODY_ZONE_PRECISE_R_EYE || zone_precise == BODY_ZONE_PRECISE_L_EYE)
 				fracture_type = /datum/wound/fracture/head/eyes
-				necessary_damage = 0.8
+				necessary_damage = 0.9
 			else if(zone_precise == BODY_ZONE_PRECISE_NOSE)
 				fracture_type = /datum/wound/fracture/head/nose
 				necessary_damage = 0.7
@@ -391,11 +412,10 @@
 			else if(zone_precise == BODY_ZONE_PRECISE_NECK)
 				fracture_type = /datum/wound/fracture/neck
 				dislocation_type = /datum/wound/dislocation/neck
-				necessary_damage = 0.95
 			if(prob(used) && (damage_dividend >= necessary_damage))
 				if(dislocation_type)
-					attempted_wounds += dislocation_type
-				attempted_wounds += fracture_type
+					LAZYADD(attempted_wounds, dislocation_type)
+				LAZYADD(attempted_wounds, fracture_type)
 		if("artery")
 			if(user)
 				if(bclass == BCLASS_CHOP && istype(user.rmb_intent, /datum/rmb_intent/strong))
@@ -408,36 +428,39 @@
 				var/artery_type = /datum/wound/artery
 				if(zone_precise == BODY_ZONE_PRECISE_NECK)
 					artery_type = /datum/wound/artery/neck
-				attempted_wounds += artery_type
+				LAZYADD(attempted_wounds, artery_type)
 				if((bclass in GLOB.stab_bclasses) && !resistance)
 					if(zone_precise in earstab_zones)
 						var/obj/item/organ/ears/my_ears = owner.getorganslot(ORGAN_SLOT_EARS)
 						if(!my_ears || has_wound(/datum/wound/facial/ears))
-							attempted_wounds += /datum/wound/fracture/head/ears
+							LAZYADD(attempted_wounds, /datum/wound/fracture/head/ears)
 						else
-							attempted_wounds += /datum/wound/facial/ears
+							LAZYADD(attempted_wounds, /datum/wound/facial/ears)
 					else if(zone_precise in eyestab_zones)
 						var/obj/item/organ/my_eyes = owner.getorganslot(ORGAN_SLOT_EYES)
 						if(!my_eyes || (has_wound(/datum/wound/facial/eyes/left) && has_wound(/datum/wound/facial/eyes/right)))
-							attempted_wounds += /datum/wound/fracture/head/eyes
+							LAZYADD(attempted_wounds, /datum/wound/fracture/head/eyes)
 						else if(my_eyes)
 							if(zone_precise == BODY_ZONE_PRECISE_R_EYE)
-								attempted_wounds += /datum/wound/facial/eyes/right
+								LAZYADD(attempted_wounds, /datum/wound/facial/eyes/right)
 							else if(zone_precise == BODY_ZONE_PRECISE_L_EYE)
-								attempted_wounds += /datum/wound/facial/eyes/left
+								LAZYADD(attempted_wounds, /datum/wound/facial/eyes/left)
 					else if(zone_precise in tonguestab_zones)
 						var/obj/item/organ/tongue/tongue_up_my_asshole = owner.getorganslot(ORGAN_SLOT_TONGUE)
 						if(!tongue_up_my_asshole || has_wound(/datum/wound/facial/tongue))
-							attempted_wounds += /datum/wound/fracture/mouth
+							LAZYADD(attempted_wounds, /datum/wound/fracture/mouth)
 						else
-							attempted_wounds += /datum/wound/facial/tongue
+							LAZYADD(attempted_wounds, /datum/wound/facial/tongue)
 					else if(zone_precise in nosestab_zones)
 						if(has_wound(/datum/wound/facial/disfigurement/nose))
-							attempted_wounds +=/datum/wound/fracture/head/nose
+							LAZYADD(attempted_wounds, /datum/wound/fracture/head/nose)
 						else
-							attempted_wounds += /datum/wound/facial/disfigurement/nose
+							LAZYADD(attempted_wounds, /datum/wound/facial/disfigurement/nose)
 					else if(zone_precise in knockout_zones)
-						attempted_wounds += /datum/wound/fracture/head/brain
+						LAZYADD(attempted_wounds, /datum/wound/fracture/head/brain)
+
+	if(!attempted_wounds)
+		return FALSE
 
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
