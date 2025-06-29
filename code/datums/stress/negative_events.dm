@@ -197,6 +197,39 @@
 	stressadd = 1
 	desc = "<span class='red'>A loathesome dark elf.</span>"
 
+/datum/stressevent/delf/major
+	timer = 1 MINUTES
+	stressadd = 1
+	max_stacks = 3
+	stressadd_per_extra_stack = 1
+	desc = span_red("A dirt elf... why does this underscum even exist?")
+
+/datum/stressevent/halfdrow
+	timer = 30 SECONDS
+	stressadd = 1
+	desc = span_red("A cursed mongrel, an outcast from the underdark.")
+
+/datum/stressevent/halfdrow/major
+	timer = 1 MINUTES
+	stressadd = 1
+	max_stacks = 3
+	stressadd_per_extra_stack = 1
+	desc = span_red("An abomination of zizo, further diluting someones cursed bloodline...")
+
+/datum/stressevent/elf/major
+	timer = 90 SECONDS
+	stressadd = 1
+	max_stacks = 3
+	stressadd_per_extra_stack = 1
+	desc = span_danger("Weed eaters and mushroom dancers, damned be those elves!")
+
+/datum/stressevent/helf
+	timer = 30 SECONDS
+	stressadd = 1
+	max_stacks = 3
+	stressadd_per_extra_stack = 1
+	desc = span_red("A halfbred mutt, a product of a treehugger and a traitor...")
+
 /datum/stressevent/tieb
 	timer = 30 SECONDS
 	stressadd = 1
@@ -206,6 +239,11 @@
 	timer = 30 SECONDS
 	stressadd = 1
 	desc = "<span class='red'>A beast in human skin.</span>"
+
+/datum/stressevent/evilgrenzel
+	timer = 1 MINUTES
+	stressadd = 2
+	desc = span_danger("A damned grenzel... murderous bastards!")
 
 /datum/stressevent/paracrowd
 	timer = 15 SECONDS

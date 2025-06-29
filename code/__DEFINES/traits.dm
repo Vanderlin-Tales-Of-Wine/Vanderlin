@@ -59,6 +59,7 @@
 #define TRAIT_KITTEN_MOM				"Loved By Kittens"
 #define TRAIT_WATER_BREATHING			"Waterbreathing"
 #define TRAIT_MOONWATER_ELIXIR			"Moonwater Elixir"
+#define TRAIT_GRENZEL					"Grenzelhoftian"
 #define TRAIT_FLOWERFIELD_IMMUNITY		"Flower Strider"
 /// applied to orphans
 #define TRAIT_ORPHAN 					"Orphan"
@@ -219,6 +220,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_RECRUITED = "I have been recruited!",
 	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
 	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent."),
+	TRAIT_GRENZEL = span_info("I am from the lands of Grenzelhoft. I am not fond of elves."),
 	TRAIT_FACELESS = span_danger("I am faceless. I am shunned. The others will recognise me for what I am. If I give them the chance."),
 	TRAIT_FLOWERFIELD_IMMUNITY = span_info("I am immune to the effects of flower fields."),
 	))
