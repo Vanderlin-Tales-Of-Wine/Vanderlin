@@ -390,6 +390,10 @@
 	if(!hud?.mymob)
 		return
 	var/lol = 0
+	intent1 = null
+	intent2 = null
+	intent3 = null
+	intent4 = null
 	var/list/used = right_intents
 	if(hud.mymob.active_hand_index == 1)
 		used = left_intents
@@ -753,7 +757,7 @@
 		if(L.eyesclosed)
 			L.eyesclosed = 0
 			L.cure_blind("eyelids")
-			update_appearance(UPDATE_ICON_STATE)
+			update_appearance(UPDATE_ICON)
 			return
 
 	if(modifiers["left"])
@@ -769,7 +773,7 @@
 		if(isliving(hud.mymob))
 			var/mob/living/L = hud.mymob
 			L.look_up()
-	update_appearance(UPDATE_ICON_STATE)
+	update_appearance(UPDATE_ICON)
 
 	if(modifiers["right"])
 		if(isliving(hud.mymob))
