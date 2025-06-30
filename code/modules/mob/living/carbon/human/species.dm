@@ -65,9 +65,9 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	/// Type of damage overlay to use
 	var/damage_overlay_type = "human"
 	/// Damage overlays to use for males
-	var/dam_icon_m
+	var/dam_icon_m = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
 	/// Damge overlays to use for females
-	var/dam_icon_f
+	var/dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
 	/// String value ranging from t1 to t3 which controls body hair overlays for this species
 	var/hairyness = null
 	/// Append species id to clothing sprite name
