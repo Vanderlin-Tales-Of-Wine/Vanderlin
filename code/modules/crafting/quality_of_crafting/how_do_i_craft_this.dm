@@ -90,6 +90,7 @@
 	scan_container_craft_recipes()
 	scan_molten_recipes()
 	scan_anvil_recipes()
+	scan_artificer_recipes()
 	scan_pottery_recipes()
 	scan_brewing_recipes()
 	scan_runerituals_recipes()
@@ -406,6 +407,40 @@
 				"rotations_required" = recipe.rotations_required,
 				"creates_multiple" = recipe.createmultiple,
 				"created_count" = recipe.createditem_num + 1
+			)
+		)
+
+		qdel(recipe)
+
+/datum/recipe_tree_interface/proc/scan_artificer_recipes()
+	for(var/recipe_path in subtypesof(/datum/artificer_recipe))
+		var/datum/artificer_recipe/recipe = new recipe_path()
+
+		if(!recipe.created_item)
+			qdel(recipe)
+			continue
+
+		var/list/ingredients = list()
+
+		if(recipe.required_item)
+			ingredients += recipe.required_item
+
+		if(recipe.additional_items)
+			for(var/item in recipe.additional_items)
+				ingredients += item
+
+		add_recipe_to_cache(
+			recipe.created_item,
+			recipe_path,
+			"artificer",
+			recipe.name,
+			ingredients,
+			list(
+				"category" = recipe.category,
+				"craft_difficulty" = recipe.craftdiff,
+				"skill_required" = recipe.appro_skill,
+				"hammers_per_item" = recipe.hammers_per_item,
+				"created_amount" = recipe.created_amount
 			)
 		)
 
@@ -772,6 +807,8 @@
 			return "SC"
 		if("anvil")
 			return "AN"
+		if("artificer")
+			return "AR"
 		if("pottery")
 			return "PT"
 		if("brewing")

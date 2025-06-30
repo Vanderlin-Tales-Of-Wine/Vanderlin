@@ -1,6 +1,8 @@
 /datum/artificer_recipe
 	appro_skill = /datum/skill/craft/engineering
 
+// --------- GENERAL -----------
+
 /datum/artificer_recipe/general
 	i_type = "General"
 	category = "General"
@@ -72,7 +74,7 @@
 	created_amount = 2
 	craftdiff = 0
 
-/datum/artificer_recipe/bronze/headhook
+/datum/artificer_recipe/general/headhook
 	name = "Bronze Headhook (+Fibers x2)"
 	required_item = /obj/item/ingot/bronze
 	created_item = /obj/item/storage/hip/headhook/bronze
@@ -389,15 +391,15 @@
 	hammers_per_item = 5
 	craftdiff = 2
 
-/datum/artificer_recipe/psycross/malum/silver
-	name = "Malum silver Psycross"
+/datum/artificer_recipe/psycross/malum_silver
+	name = "Malum Silver Psycross"
 	required_item = /obj/item/ingot/silver
 	created_item = /obj/item/clothing/neck/psycross/silver/malum
 	hammers_per_item = 5
 	craftdiff = 2
 
-/datum/artificer_recipe/psycross/malum_steel/steel
-	name = "Malum steel Psycross"
+/datum/artificer_recipe/psycross/malum_steel
+	name = "Malum Steel Psycross"
 	required_item = /obj/item/ingot/silver
 	created_item = /obj/item/clothing/neck/psycross/silver/malum_steel
 	additional_items = list(/obj/item/ingot/steel = 1)

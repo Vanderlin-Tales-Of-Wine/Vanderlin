@@ -57,14 +57,9 @@
 		QDEL_NULL(craftingthing)
 	return ..()
 
-/mob/living/update_overlays()
+/mob/living/update_appearance(updates)
 	. = ..()
 	update_reflection()
-
-/mob/living/update_icon()
-	. = ..()
-	update_reflection()
-
 
 /mob/living/proc/create_reflection()
 	//Add custom reflection image
@@ -1808,6 +1803,8 @@
 		SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "on_fire")
 		SEND_SIGNAL(src, COMSIG_LIVING_EXTINGUISHED, src)
 		update_fire()
+	for(var/obj/item/I in (get_equipped_items() + held_items))
+		I.extinguish()
 
 /mob/living/proc/adjust_fire_stacks(add_fire_stacks) //Adjusting the amount of fire_stacks we have on person
 	if(HAS_TRAIT(src, TRAIT_NOFIRE) && add_fire_stacks > 0)
@@ -2515,7 +2512,7 @@
 	if(hud_used)
 		for(var/hand in hud_used.hand_slots)
 			var/atom/movable/screen/inventory/hand/H = hud_used.hand_slots[hand]
-			H?.update_icon()
+			H?.update_appearance()
 	if(. == FALSE) //null is a valid value here, we only want to return if FALSE is explicitly passed.
 		return
 	if(pulledby)

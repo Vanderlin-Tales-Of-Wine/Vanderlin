@@ -589,7 +589,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "fl" = (
-/obj/effect/traveltile_spawner/horizontal/vampire,
+/obj/effect/spawner/traveltile_spawner/horizontal/vampire,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/bog)
 "fm" = (
@@ -2907,7 +2907,7 @@
 /turf/open/water/marsh/deep,
 /area/rogue/outdoors/woods)
 "Fu" = (
-/obj/effect/traveltile_spawner/horizontal/bandit,
+/obj/effect/spawner/traveltile_spawner/horizontal/bandit,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/bog)
 "Fy" = (
@@ -4545,7 +4545,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "Wq" = (
-/obj/effect/traveltile_spawner/horizontal/vampire,
+/obj/effect/spawner/traveltile_spawner/horizontal/vampire,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
 "Wv" = (
@@ -4830,7 +4830,7 @@
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors)
 "Zz" = (
-/obj/effect/traveltile_spawner/vertical/inhumen,
+/obj/effect/spawner/traveltile_spawner/vertical/inhumen,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/bog)
 "ZV" = (

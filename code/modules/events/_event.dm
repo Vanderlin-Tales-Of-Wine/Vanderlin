@@ -415,7 +415,7 @@ GLOBAL_LIST_INIT(badomens, list())
 				"She Peers", \
 				"Zizo Smirks", \
 			)
-			sound = 'sound/misc/badomenzizo.ogg'
+			sound = 'sound/misc/gods/zizo_omen.ogg'
 		if(OMEN_NOLORD)
 			used = "The Monarch is dead! We need a new ruler."
 		if(OMEN_NOPRIEST)

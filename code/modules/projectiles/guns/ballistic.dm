@@ -94,47 +94,45 @@
 	. = ..()
 	if (!spawnwithmagazine)
 		bolt_locked = TRUE
-		update_icon()
+		update_appearance(UPDATE_ICON)
 		return
 	if (!magazine)
 		magazine = new mag_type(src)
 	chamber_round()
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
-/obj/item/gun/ballistic/update_icon()
-	if (QDELETED(src))
-		return
-	..()
-	icon_state = initial(icon_state)
-	cut_overlays()
-	if (bolt_type == BOLT_TYPE_LOCKING)
-		add_overlay("[icon_state]_bolt[bolt_locked ? "_locked" : ""]")
-	if (bolt_type == BOLT_TYPE_OPEN && bolt_locked)
-		add_overlay("[icon_state]_bolt")
-	if(!chambered && empty_indicator)
-		add_overlay("[icon_state]_empty")
-	if (magazine)
-		if (special_mags)
-			add_overlay("[icon_state]_mag_[initial(magazine.icon_state)]")
-			if (!magazine.ammo_count())
-				add_overlay("[icon_state]_mag_empty")
-		else
-			add_overlay("[icon_state]_mag")
-			var/capacity_number = 0
-			switch(get_ammo() / magazine.max_ammo)
-				if(0.2 to 0.39)
-					capacity_number = 20
-				if(0.4 to 0.59)
-					capacity_number = 40
-				if(0.6 to 0.79)
-					capacity_number = 60
-				if(0.8 to 0.99)
-					capacity_number = 80
-				if(1.0)
-					capacity_number = 100
-			if (capacity_number)
-				add_overlay("[icon_state]_mag_[capacity_number]")
-
+/obj/item/gun/ballistic/update_overlays()
+	. = ..()
+	// if (QDELETED(src))
+	// 	return
+	// var/used_state = initial(icon_state)
+	// if (bolt_type == BOLT_TYPE_LOCKING)
+	// 	. += "[used_state]_bolt[bolt_locked ? "_locked" : ""]"
+	// if (bolt_type == BOLT_TYPE_OPEN && bolt_locked)
+	// 	. += "[used_state]_bolt"
+	// if(!chambered && empty_indicator)
+	// 	. += "[used_state]_empty"
+	// if (magazine)
+	// 	if (special_mags)
+	// 		. += "[used_state]_mag_[initial(magazine.icon_state)]"
+	// 		if (!magazine.ammo_count())
+	// 			. += "[used_state]_mag_empty"
+	// 	else
+	// 		. += "[used_state]_mag"
+	// 		var/capacity_number = 0
+	// 		switch(get_ammo() / magazine.max_ammo)
+	// 			if(0.2 to 0.39)
+	// 				capacity_number = 20
+	// 			if(0.4 to 0.59)
+	// 				capacity_number = 40
+	// 			if(0.6 to 0.79)
+	// 				capacity_number = 60
+	// 			if(0.8 to 0.99)
+	// 				capacity_number = 80
+	// 			if(1.0)
+	// 				capacity_number = 100
+	// 		if (capacity_number)
+	// 			. += "[used_state]_mag_[capacity_number]"
 
 /obj/item/gun/ballistic/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
 	if(!semi_auto && from_firing)
@@ -177,7 +175,7 @@
 		playsound(src, lock_back_sound, lock_back_sound_volume, lock_back_sound_vary)
 	else
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 ///Drops the bolt from a locked position
 /obj/item/gun/ballistic/proc/drop_bolt(mob/user = null)
@@ -186,7 +184,7 @@
 		to_chat(user, "<span class='notice'>I drop the [bolt_wording] of \the [src].</span>")
 	chamber_round()
 	bolt_locked = FALSE
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 ///Handles all the logic needed for magazine insertion
 /obj/item/gun/ballistic/proc/insert_magazine(mob/user, obj/item/ammo_box/magazine/AM, display_message = TRUE)
@@ -200,7 +198,7 @@
 		playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
 		if (bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
 			chamber_round(TRUE)
-		update_icon()
+		update_appearance(UPDATE_ICON)
 		return TRUE
 	else
 		to_chat(user, "<span class='warning'>I cannot seem to get \the [src] out of your hands!</span>")
@@ -225,10 +223,10 @@
 	else
 		magazine = null
 	user.put_in_hands(old_mag)
-	old_mag.update_icon()
+	old_mag.update_appearance()
 	if (display_message)
 		to_chat(user, "<span class='notice'>I pull the [magazine_wording] out of \the [src].</span>")
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/item/gun/ballistic/can_shoot()
 	return chambered
@@ -258,8 +256,8 @@
 				playsound(src, load_sound, load_sound_volume, load_sound_vary)
 				if (chambered == null && bolt_type == BOLT_TYPE_NO_BOLT)
 					chamber_round()
-				A.update_icon()
-				update_icon()
+				A.update_appearance()
+				update_appearance(UPDATE_ICON)
 			return
 	user.update_inv_hands()
 	return FALSE
@@ -276,19 +274,19 @@
 		if (bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
 			bolt_locked = TRUE
 			playsound(src, bolt_drop_sound, bolt_drop_sound_volume)
-			update_icon()
+			update_appearance(UPDATE_ICON)
 
 ///postfire empty checks for bolt locking and sound alarms
 /obj/item/gun/ballistic/proc/postfire_empty_checks(last_shot_succeeded)
 	if (!chambered && !get_ammo())
 		if (empty_alarm && last_shot_succeeded)
 			playsound(src, empty_alarm_sound, empty_alarm_volume, empty_alarm_vary)
-			update_icon()
+			update_appearance(UPDATE_ICON)
 		if (last_shot_succeeded && bolt_type == BOLT_TYPE_LOCKING)
 			bolt_locked = TRUE
-			update_icon()
+			update_appearance(UPDATE_ICON)
 
-/obj/item/gun/ballistic/afterattack()
+/obj/item/gun/ballistic/afterattack(atom/target, mob/living/user, proximity_flag, click_parameters)
 	prefire_empty_checks()
 	. = ..() //The gun actually firing
 	postfire_empty_checks(.)
@@ -318,7 +316,7 @@
 		if (num_unloaded)
 			to_chat(user, "<span class='notice'>I remove [(num_unloaded == 1) ? "the" : "[num_unloaded]"] [cartridge_wording]\s from [src].</span>")
 			playsound(user, eject_sound, eject_sound_volume, eject_sound_vary)
-			update_icon()
+			update_appearance(UPDATE_ICON)
 		else
 			to_chat(user, "<span class='warning'>[src] is empty!</span>")
 		return
@@ -329,7 +327,6 @@
 		return
 	recent_rack = world.time + rack_delay
 	rack(user)
-	return
 
 ///Gets the number of bullets in the gun
 /obj/item/gun/ballistic/proc/get_ammo(countchambered = TRUE)

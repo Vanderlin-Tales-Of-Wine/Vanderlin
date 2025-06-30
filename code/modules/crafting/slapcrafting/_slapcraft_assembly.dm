@@ -69,7 +69,7 @@
 
 /obj/item/slapcraft_assembly/Entered(atom/movable/arrived, direction)
 	. = ..()
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/slapcraft_assembly/Destroy(force)
 	disassembling = TRUE

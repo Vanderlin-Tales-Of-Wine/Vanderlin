@@ -16,7 +16,12 @@
 		"Priest",
 		"Orphan",
 		"Churchling",
-		"Innkeepers Son"
+		"Innkeepers Son",
+		"Captain",
+		"Hand",
+		"Forest Warden",
+		"Royal Knight",
+		"Templar"
 	)
 
 	base_antags = 1

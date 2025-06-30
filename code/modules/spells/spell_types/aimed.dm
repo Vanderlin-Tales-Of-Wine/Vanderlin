@@ -1,6 +1,7 @@
 
 /obj/effect/proc_holder/spell/aimed
 	name = "aimed projectile spell"
+	overlay_state = null
 	var/projectile_type = /obj/projectile/magic/teleport
 	var/deactive_msg = null
 	var/active_msg = null
@@ -9,12 +10,6 @@
 	var/projectile_amount = 1	//Projectiles per cast.
 	var/current_amount = 0	//How many projectiles left.
 	var/projectiles_per_fire = 1		//Projectiles per fire. Probably not a good thing to use unless you override ready_projectile().
-
-/obj/effect/proc_holder/spell/aimed/update_icon()
-	if(!action)
-		return
-	action.button_icon_state = "[base_icon_state][active]"
-	action.UpdateButtonIcon()
 
 /obj/effect/proc_holder/spell/aimed/Click()
 	var/mob/living/user = usr

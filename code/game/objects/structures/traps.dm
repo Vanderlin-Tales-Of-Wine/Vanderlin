@@ -21,7 +21,7 @@
 	///see on_active_perception
 	var/perception_dc = 6
 
-	var/list/static/ignore_typecache
+	var/static/list/ignore_typecache
 	var/list/mob/immune_minds = list()
 
 	var/sparks = TRUE
@@ -37,7 +37,7 @@
 	spark_system.set_up(4,1,src)
 	spark_system.attach(src)
 
-	if(!ignore_typecache)
+	if(isnull(ignore_typecache))
 		ignore_typecache = typecacheof(list(
 			/obj/effect,
 			/mob/dead))
@@ -205,6 +205,16 @@
 /obj/structure/trap/bomb/trigger_step_off(mob/living/victim)
 	..()
 	explosion(src, light_impact_range = 1, hotspot_range = 2, smoke = TRUE, soundin = pick('sound/misc/explode/bottlebomb (1).ogg','sound/misc/explode/bottlebomb (2).ogg'))
+	post_triggered()
+
+/obj/structure/trap/mine
+	name = "mine plate trap"
+	icon_state = "bomb_trap_plate"
+	charges = 1
+
+/obj/structure/trap/mine/trigger_step_off(mob/living/victim)
+	..()
+	explosion(src, heavy_impact_range = 2, light_impact_range = 3, flash_range = 2, smoke = TRUE, soundin = pick('sound/misc/explode/bottlebomb (1).ogg','sound/misc/explode/bottlebomb (2).ogg'))
 	post_triggered()
 
 /obj/structure/trap/saw_blades

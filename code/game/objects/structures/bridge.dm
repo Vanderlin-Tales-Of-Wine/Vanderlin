@@ -23,7 +23,7 @@
 	// Choosing one of the sprite variants
 	base_icon = "planks_1"
 	icon_state = base_icon
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/structure/bridge/update_icon_state()
 	if(broken)
@@ -64,7 +64,7 @@
 	if(istype(O, /mob/camera))
 		return TRUE
 	var/direction = get_dir(loc, target)
-	if(direction != dir && direction != GLOB.reverse_dir[dir])
+	if(direction != dir && direction != REVERSE_DIR(dir))
 		return FALSE
 	return TRUE
 
@@ -78,7 +78,7 @@
 		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/bridge/CanAStarPass(ID, to_dir, requester)
-	if(to_dir != dir && to_dir != GLOB.reverse_dir[dir])
+	if(to_dir != dir && to_dir != REVERSE_DIR(dir))
 		return FALSE
 	return TRUE
 
@@ -87,7 +87,7 @@
 	if(broken)
 		broken = FALSE  // Not broken anymore
 		obj_flags = initial(obj_flags)  // so we set back initial flags
-		update_icon_state()  // No need to update overlays
+		update_appearance(UPDATE_ICON_STATE)
 
 /// Stakes at the end of a makeshift bridge
 /obj/structure/bridge_stakes
@@ -109,7 +109,7 @@
 	icon_state = ""
 	if(dir == EAST || dir == WEST)
 		pixel_y = -7
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/structure/bridge_stakes/update_overlays()
 	. = ..()

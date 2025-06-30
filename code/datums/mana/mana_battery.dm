@@ -168,7 +168,7 @@
 	else
 		if(!user.is_holding(src))
 			return
-		var/mana_to_draw = input(user, "How much mana do you want to draw from the battery? Soft Cap (You will lose mana when above this!): [user.mana_pool.get_softcap()]", "Draw Mana") as num
+		var/mana_to_draw = input(user, "How much mana do you want to draw from the battery? Soft Cap (You will lose mana when above this!): [user.mana_pool.get_softcap()]", "Draw Mana") as num|null
 		mana_to_draw = CLAMP(mana_to_draw, mana_pool.maximum_mana_capacity, 0)
 		if(!mana_to_draw || QDELETED(user) || QDELETED(src) || !user.is_holding(src))
 			return

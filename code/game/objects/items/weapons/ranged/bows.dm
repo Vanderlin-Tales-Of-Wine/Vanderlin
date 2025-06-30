@@ -25,7 +25,6 @@
 	metalizer_result = /obj/item/restraints/legcuffs/beartrap/armed
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/getonmobprop(tag)
-	. = ..()
 	if(tag)
 		switch(tag)
 			if("gen")
@@ -35,9 +34,7 @@
 			if("onback")
 				return list("shrink" = 0.6,"sx" = 1,"sy" = -1,"nx" = 1,"ny" = -1,"wx" = 3,"wy" = -1,"ex" = 0,"ey" = -1,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 8,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 1,"southabove" = 0,"eastabove" = 0,"westabove" = 0)
 
-
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/shoot_with_empty_chamber()
-	update_icon()
 	return
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/equipped(mob/user, slot, initial)
@@ -46,8 +43,7 @@
 		chambered = null
 		for(var/obj/item/ammo_casing/CB in get_ammo_list(TRUE, TRUE))
 			CB.forceMove(drop_location())
-//			CB.bounce_away(FALSE, NONE)
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/dropped(mob/user)
 	. = ..()
@@ -55,8 +51,7 @@
 		chambered = null
 		for(var/obj/item/ammo_casing/CB in get_ammo_list(TRUE, TRUE))
 			CB.forceMove(drop_location())
-//			CB.bounce_away(FALSE, NONE)
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
 //Bows are subtype of grenadelauncher and use BOLT_TYPE_NO_BOLT code
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/attack_self(mob/living/user)
@@ -68,7 +63,7 @@
 	if(num_unloaded)
 		to_chat(user, "<span class='notice'>I remove [(num_unloaded == 1) ? "the [cartridge_wording]" : "[num_unloaded] [cartridge_wording]\s "] from [src].</span>")
 		playsound(user, eject_sound, eject_sound_volume, eject_sound_vary)
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 	if(user.usable_hands < 2)
@@ -107,16 +102,12 @@
 			var/amt2raise = user.STAINT/2
 			user.adjust_experience(/datum/skill/combat/bows, amt2raise * boon * modifier, FALSE)
 
-/obj/item/gun/ballistic/revolver/grenadelauncher/bow/update_icon()
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/update_icon_state()
 	. = ..()
-	cut_overlays()
 	if(chambered)
 		icon_state = "[base_icon]_ready"
 	else
 		icon_state = "[base_icon]"
-	if(ismob(loc))
-		var/mob/M = loc
-		M.update_inv_hands()
 
 /obj/item/ammo_box/magazine/internal/shot/bow
 	ammo_type = /obj/item/ammo_casing/caseless/arrow

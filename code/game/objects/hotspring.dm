@@ -162,6 +162,7 @@
 	icon = 'icons/obj/structures/hotspring.dmi'
 	icon_state = "stonelantern1"
 	base_state = "stonelantern"
+	shows_empty = FALSE
 
 /obj/machinery/light/fueled/torchholder/hotspring/standing
 	name = "standing stone lantern"
@@ -185,6 +186,7 @@
 	icon = 'icons/obj/structures/hotspring.dmi'
 	buildstackamount = 1
 	item_chair = null
+	anchored = TRUE
 
 /obj/structure/chair/hotspring_bench/left
 	icon_state = "parkbench_sofaend_left"
