@@ -99,7 +99,7 @@
 
 /datum/patron/divine/necra
 	name = "Necra"
-	domain = "Mother Goddess of Death and Decay"
+	domain = "Mother Goddess of Death and Time"
 	desc = "The Veiled Lady, once close partner to Psydon. She created the Nine others from his corpse, guiding them from the Underworld."
 	flaws = "Unchanging, Apathetic, Easy to Bore"
 	worshippers = "Orderlies, Gravetenders, Mourners"
