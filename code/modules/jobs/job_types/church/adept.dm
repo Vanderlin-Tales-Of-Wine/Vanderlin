@@ -144,9 +144,9 @@
 	//Armor for class
 	belt = /obj/item/storage/belt/leather
 	cloak = /obj/item/clothing/cloak/half
-	armor = /obj/item/clothing/armor/leather/jacket/leathercoat/black
-	head = /obj/item/clothing/head/helmet/leather/inquisitor // A nice swashbuckler hat would go hard.
-	neck = /obj/item/clothing/neck/gorget
+	armor = /obj/item/clothing/armor/leather/jacket/leathercoat/renegade
+	head = /obj/item/clothing/head/helmet/leather/tricorn
+	neck = /obj/item/clothing/neck/chaincoif/renegadecollar
 	beltl = /obj/item/weapon/whip // Great length, they don't need to be next to a person to help in apprehending them.
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	backl = /obj/item/ammo_holder/quiver/bolts
