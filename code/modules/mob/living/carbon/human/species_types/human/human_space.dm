@@ -17,7 +17,7 @@
 	Humans have long since departed from the restraints of their homeworld, 'Earth.' \
 	Most live within megacorporation jurisdiction, TerraGov space, or politically irrelevant planetary colonies. \
 	Most humans rightfully avoid this section of space, however the corporation Interdyne Pharmaceuticals \
-	avoid these warnings with Syndicate backing, repeatedly attempting planetary landing in effort to create \
+	avoids these warnings with Syndicate backing, repeatedly attempting planetary landing in effort to create \
 	some nondescript bioweapon under codename 'Romero.' \
 	\n\n\
 	While genetic alteration technologies allow for a wide range of hair colours, \
