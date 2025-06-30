@@ -1,6 +1,6 @@
 /datum/advclass/pilgrim/rare/zalad
 	name = "Zalad Emir"
-	tutorial = "An Emir hailing from Deshret, here on business for the Mercator's Guild to Vanderlin."
+	tutorial = "An Emir hailing from Deshret, here on business for the Mercator's Guild."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",

@@ -1,6 +1,6 @@
 /datum/migrant_role/zalad/emir
 	name = "Zalad Emir"
-	greet_text = "An Emir hailing from the Deshret, here on business for the Mercator's Guild to the Isle of the Enigma."
+	greet_text = "An Emir hailing from the Deshret, here on business for the Mercator's Guild."
 	allowed_sexes = list(MALE)
 	allowed_races = list(
 		"Humen",
