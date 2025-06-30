@@ -1,17 +1,16 @@
 /datum/advclass/mercenary/zybantine
 	name = "Zybantine"
 	tutorial = "A cutthroat from the western countries, you've headed into foreign lands to make even greater coin than you had prior."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
+	allowed_races = list(\
+		RACE_ID_HUMEN,\
+		RACE_ID_RAKSHARI,\
+		RACE_ID_ELF,\
+		RACE_ID_HALF_ELF,\
+		RACE_ID_DWARF,\
+		RACE_ID_TIEFLING,\
+		RACE_ID_DROW,\
+		RACE_ID_AASIMAR,\
+		RACE_ID_HALF_ORC,\
 	)
 	outfit = /datum/outfit/job/mercenary/zybantine
 	category_tags = list(CTAG_MERCENARY)

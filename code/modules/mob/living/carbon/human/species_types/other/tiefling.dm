@@ -9,7 +9,7 @@
 
 /datum/species/tieberian
 	name = "Tiefling"
-	id = "tiefling"
+	id = RACE_ID_TIEFLING
 	desc = "Also known as Infernal-Spawn, Hell-Bloods, Surface-Devils, and perhaps in a more humorous manner, <i>thief</i>-lings. \
 	\n\n\
 	Their treatment ranges from shunning to distrust, depending on the region. \

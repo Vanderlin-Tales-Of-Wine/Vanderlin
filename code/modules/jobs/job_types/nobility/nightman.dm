@@ -14,7 +14,6 @@
 	min_pq = 1
 	bypass_lastclass = TRUE
 
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONEXOTIC
 	outfit = /datum/outfit/job/apothecary
 	give_bank_account = 100
@@ -50,5 +49,5 @@
 
 	if(H.gender == MALE)
 		if(H.dna?.species)
-			if(H.dna.species.id == "human")
+			if(H.dna.species.id == RACE_ID_HUMEN)
 				H.dna.species.soundpack_m = new /datum/voicepack/male/zeth()

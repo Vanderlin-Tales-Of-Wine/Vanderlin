@@ -3,7 +3,7 @@
 
 /datum/species/demihuman
 	name = "Hollow-Kin"
-	id = "demihuman"
+	id = RACE_ID_HOLLOWKIN
 	desc = "Amber Hollow is a \"nation\" to the North of Vanderlin and East of Rosewood. It is located atop a great, earthen mound of tightly-rooted Redwoods. At this mound's peak lies a chasm, bordered by a woven, almost quilt-like ring of sequoias. This chasm is the largest entry point of many in Psydonia to Subterra, the land of the drow.\
 	This ring has been built upon and turned into a civilization of Hollowkin, a people showing traits of an animal nature. These people are short lived, diverse, and have an insatiable hatred for drow. This hate has been from their long standing political neighbor, the dark-elven kingdoms of Subterra.\
 	The patrons of these people are by in large Dendor and Xylix. They view freedom to be of the upmost importance due to their dark-elven neighbors' tendencies toward slavery and their own history of subjugation. They worship Dendor for the boon of their animalistic nature, seeing him as the provider for their traits and talents.\

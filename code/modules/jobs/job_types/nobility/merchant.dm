@@ -15,20 +15,7 @@
 	selection_color = "#192bc2"
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
-	allowed_races = list(
-		RACE_HUMEN,
-		RACE_ELF,
-		RACE_HALF_ELF,
-		RACE_DWARF,
-		RACE_TIEFLING,
-		RACE_DROW,
-		RACE_HALF_DROW,
-		RACE_AASIMAR,
-		RACE_RAKSHARI,
-		RACE_HOLLOWKIN,
-		RACE_TRITON,
-		RACE_HARPY,
-	)
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/merchant
 	give_bank_account = 100

@@ -1,7 +1,6 @@
 /datum/migrant_role/sergeant_at_arms
 	name = "Serjeant-At-Arms"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and the mens under your command have returned upon fullfiling your task."
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
@@ -104,7 +103,7 @@
 	name = "Bannermen Crossbowman"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and your serjeant-at-arms have returned upon fullfiling your task."
 	outfit = /datum/outfit/job/crossbow_bannerman
-	allowed_races = list("Humen","Dwarf","Aasimar", "Half-Elf", "Elf")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 

@@ -121,7 +121,7 @@ SUBSYSTEM_DEF(job)
 			JobDebug("GRJ incompatible with antagonist role, Player: [player], Job: [job.title]")
 			continue
 
-		if(length(job.allowed_races) && !(player.client.prefs.pref_species.name in job.allowed_races))
+		if(length(job.allowed_races) && !(player.client.prefs.pref_species.id in job.allowed_races))
 			JobDebug("GRJ incompatible with species, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
 			continue
 
@@ -246,7 +246,7 @@ SUBSYSTEM_DEF(job)
 					JobDebug("DO incompatible with antagonist role, Player: [player], Job:[job.title]")
 					continue
 
-				if(length(job.allowed_races) && !(player.client.prefs.pref_species.name in job.allowed_races))
+				if(length(job.allowed_races) && !(player.client.prefs.pref_species.id in job.allowed_races))
 					if(!(player.client.triumph_ids.Find("race_all")))
 						JobDebug("DO incompatible with species, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
 						continue
@@ -331,7 +331,7 @@ SUBSYSTEM_DEF(job)
 			if(player.mind && (job.title in player.mind.restricted_roles))
 				continue
 
-			if(length(job.allowed_races) && !(player.client.prefs.pref_species.name in job.allowed_races))
+			if(length(job.allowed_races) && !(player.client.prefs.pref_species.id in job.allowed_races))
 				continue
 
 			if(length(job.allowed_patrons) && !(player.client.prefs.selected_patron.type in job.allowed_patrons))
@@ -580,7 +580,7 @@ SUBSYSTEM_DEF(job)
 	if(player.mind && (job.title in player.mind.restricted_roles))
 		return
 
-	if(length(job.allowed_races) && !(player.client.prefs.pref_species.name in job.allowed_races))
+	if(length(job.allowed_races) && !(player.client.prefs.pref_species.id in job.allowed_races))
 		return
 
 	if(length(job.allowed_patrons) && !(player.client.prefs.selected_patron.type in job.allowed_patrons))

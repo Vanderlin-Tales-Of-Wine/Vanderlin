@@ -12,7 +12,6 @@
 	spawn_positions = 1
 	min_pq = 6
 
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/courtphys

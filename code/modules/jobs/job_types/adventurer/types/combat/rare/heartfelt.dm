@@ -3,7 +3,7 @@
 	tutorial = "You are the proud lord of Heartfelt, \
 	but why have you come to Vanderlin?"
 	allowed_sexes = list(MALE)
-	allowed_races = list("Humen")
+	allowed_races = list(RACE_ID_HUMEN)
 	outfit = /datum/outfit/job/adventurer/heartfeltlord
 	min_pq = 2
 	maximum_possible_slots = 1

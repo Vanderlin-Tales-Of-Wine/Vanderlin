@@ -3,8 +3,7 @@
 	tutorial = "Dwarfish rangers, much like their humen counterparts, \
 	live outside of society and explore the far corners of the creation. They \
 	protect dwarfish settlements from wild beasts and sell their notes to the cartographers."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list("Dwarf")
+	allowed_races = list(RACE_ID_DWARF)
 	outfit = /datum/outfit/job/adventurer/dranger
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)

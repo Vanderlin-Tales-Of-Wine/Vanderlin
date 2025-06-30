@@ -202,7 +202,7 @@
 	name = "Magos of Heartfelt"
 	greet_text = "You are the Magos of Heartfelt, renowned for your arcane knowledge yet unable to foresee the tragedy that befell your home. Drawn by a guiding star to Vanderlin, you seek answers and perhaps a new purpose in the wake of destruction."
 	outfit = /datum/outfit/job/heartfelt/magos
-	allowed_races = list("Humen")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 
 /datum/outfit/job/heartfelt/magos

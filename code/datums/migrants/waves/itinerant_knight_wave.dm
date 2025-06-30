@@ -53,7 +53,7 @@
 	name = "Itinerant Squire"
 	greet_text = "You are the squire of an itinerant knight, they have taken you under their custody as you have shown great talents, if you keep it on, you might become a knight yourself."
 	outfit = /datum/outfit/job/itinerant_squire
-	allowed_races = list("Humen", "Dwarf","Elf", "Half-Elf", "Aasimar")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	allowed_ages = list(AGE_CHILD, AGE_ADULT)
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE

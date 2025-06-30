@@ -249,7 +249,7 @@
 				var/mob/living/carbon/human/H = i
 				SEND_SOUND(H, sound('sound/blank.ogg'))
 
-				if(H.dna.species.id == "human")
+				if(H.dna.species.id == RACE_ID_HUMEN)
 					if(H.dna.features["tail_human"] == "None" || H.dna.features["ears"] == "None")
 						var/obj/item/organ/ears/cat/ears = new
 						var/obj/item/organ/tail/cat/tail = new

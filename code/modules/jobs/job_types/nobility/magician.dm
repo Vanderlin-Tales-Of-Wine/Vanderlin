@@ -59,7 +59,7 @@
 		armor = /obj/item/clothing/shirt/robe/courtmage
 		H.change_stat(STATKEY_SPD, -1)
 		H.change_stat(STATKEY_INT, 1)
-		if(H.dna.species.id == "human")
+		if(H.dna.species.id == RACE_ID_HUMEN)
 			belt = /obj/item/storage/belt/leather/plaquegold
 			cloak = null
 			head = /obj/item/clothing/head/wizhat

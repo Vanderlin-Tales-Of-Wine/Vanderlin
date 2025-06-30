@@ -19,13 +19,7 @@
 	min_pq = 10
 	bypass_lastclass = TRUE
 
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf"
-	)
+	allowed_races = RACES_PLAYER_ROYALTY
 
 	outfit = /datum/outfit/job/hand
 	advclass_cat_rolls = list(CTAG_HAND = 20)

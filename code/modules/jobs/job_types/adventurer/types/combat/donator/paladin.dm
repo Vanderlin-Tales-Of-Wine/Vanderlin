@@ -1,7 +1,6 @@
 /datum/advclass/combat/paladin
 	name = "Paladin"
 	tutorial = "Paladins are former noblemen and clerics who have dedicated themselves to great combat prowess. Often, they were promised redemption for past sins if they crusaded in the name of the gods."
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	outfit = /datum/outfit/job/adventurer/paladin
 	maximum_possible_slots = 1
@@ -128,7 +127,7 @@
 			H.grant_language(/datum/language/celestial)
 			to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 	if(H.dna?.species)
-		if(H.dna.species.id == "human")
+		if(H.dna.species.id == RACE_ID_HUMEN)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	//Paladins, while devout warriors spent WAY too much time studying the blade. No more acolyte+

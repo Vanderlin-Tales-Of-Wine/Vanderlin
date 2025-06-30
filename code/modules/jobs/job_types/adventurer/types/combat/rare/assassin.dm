@@ -59,13 +59,13 @@
 			beltl = /obj/item/storage/belt/pouch/coins/poor
 			backpack_contents = list(/obj/item/flint)
 			if(H.dna?.species)
-				if(H.dna.species.id == "human")
+				if(ishuman(H))
 					backr = /obj/item/instrument/lute
-				if(H.dna.species.id == "dwarf")
+				else if(isdwarf(H))
 					backr = /obj/item/instrument/accord
-				if(H.dna.species.id == "elf")
+				else if(iself(H))
 					backr = /obj/item/instrument/harp
-				if(H.dna.species.id == "tiefling")
+				else if(istiefling(H))
 					backr = /obj/item/instrument/guitar
 		if("Beggar") //The sole "town" disguise available.
 			H.job = "Beggar"
@@ -285,7 +285,7 @@
 
 	H.change_stat(STATKEY_PER, 2)
 	H.change_stat(STATKEY_SPD, 2)
-	if(H.dna.species.id == "human")
+	if(H.dna.species.id == RACE_ID_HUMEN)
 		if(H.gender == "male")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/assassin()
 		else

@@ -4,17 +4,7 @@
 	name = "Mason"
 	tutorial = "Despite the lack of a formal guild in Vanderlin, you've traveled there to hone your stonemasonry. \
 	You've known your entire life there are ancient secrets within stone, and now you must prove their value to others."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/adventurer/mason
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Mason Apprentice"

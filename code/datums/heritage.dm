@@ -687,7 +687,7 @@
 	// Build mix string
 	if(istype(dad_species, /datum/species/human/northern) || istype(mom_species, /datum/species/human/northern))
 		mix_text += "human+"
-	if(istype(dad_species, /datum/species/elf) || istype(mom_species, /datum/species/elf))
+	if(istype(dad_species, /datum/species/elf/snow) || istype(mom_species, /datum/species/elf/snow))
 		mix_text += "elf+"
 	if(istype(dad_species, /datum/species/elf/dark) || istype(mom_species, /datum/species/elf/dark))
 		mix_text += "darkelf+"

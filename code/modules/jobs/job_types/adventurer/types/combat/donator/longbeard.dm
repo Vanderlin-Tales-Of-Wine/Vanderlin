@@ -5,8 +5,7 @@
 	name = "Longbeard"
 	tutorial = "You've earned your place as one of the old grumblers, a pinnacle of tradition, justice, and willpower. You've come to establish order in these lands, and with your hammer of grudges you'll see it through."
 	allowed_ages = list( AGE_MIDDLEAGED, AGE_OLD)
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list("Dwarf")
+	allowed_races = list(RACE_ID_DWARF)
 	outfit = /datum/outfit/job/adventurer/longbeard
 	maximum_possible_slots = 1
 	pickprob = 15

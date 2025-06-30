@@ -33,7 +33,7 @@
 	name = "darkplate gauntlets"
 	desc = "Gauntlets with gilded fingers fashioned into talons. The tips are all too dull to be of harm."
 	icon_state = "shadowgauntlets"
-	allowed_race = list("elf", "dark elf")
+	allowed_race = list(RACE_ID_ELF, RACE_ID_HALF_DROW)
 	item_weight = 6 * STEEL_MULTIPLIER
 
 /obj/item/clothing/gloves/chain/vampire

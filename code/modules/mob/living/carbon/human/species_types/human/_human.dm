@@ -1,6 +1,6 @@
 /datum/species/human
 	name = "Humanb"
-	id = "human"
+	id = RACE_ID_HUMEN
 	changesource_flags = WABBAJACK
 	bodypart_features = list(
 		/datum/bodypart_feature/hair/head,

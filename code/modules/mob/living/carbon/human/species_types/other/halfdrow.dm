@@ -9,7 +9,7 @@
 
 /datum/species/human/halfdrow
 	name = "Half-Drow"
-	id = "human"
+	id = RACE_ID_HALF_DROW
 	desc = "The child of a Dark Elf and Humen. \
 	\n\n\
 	The distinction between Half-Elves and 'Half-Drow' has been a subject of debate for centuries. \

@@ -16,7 +16,6 @@
 	selection_color = "#920909"
 
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	advclass_cat_rolls = list(CTAG_ROYALKNIGHT = 20)
@@ -75,7 +74,7 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	if(H.dna?.species?.id == "human")
+	if(H.dna?.species?.id == RACE_ID_HUMEN)
 		H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
 /datum/outfit/job/royalknight/post_equip(mob/living/carbon/human/H, visualsOnly)

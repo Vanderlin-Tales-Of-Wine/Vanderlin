@@ -60,7 +60,7 @@
 		backr = instruments[instrument_choice]
 	else
 		backr = /obj/item/instrument/lute
-	if(H.dna?.species?.id == "dwarf")
+	if(H.dna?.species?.id == RACE_ID_DWARF)
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
