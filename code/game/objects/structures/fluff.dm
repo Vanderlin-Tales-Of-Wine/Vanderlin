@@ -939,6 +939,7 @@
 	name = "arachnid idol"
 	desc = "A stone idol of a spider with the head of a smirking elven woman. Her eyes seem to follow you."
 	icon_state = "spidercore"
+
 /obj/structure/fluff/statue/spider/examine(mob/user)
 	. = ..()
 	if(user.mind.special_role == "Dark Elf")
