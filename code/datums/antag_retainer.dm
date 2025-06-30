@@ -21,7 +21,7 @@
 
 	///delf stuff
 	var/delf_contribute = 0
-	var/delf_goal = 1
+	var/delf_goal = 5
 
 	///bandit stuff
 	var/bandit_goal = 1

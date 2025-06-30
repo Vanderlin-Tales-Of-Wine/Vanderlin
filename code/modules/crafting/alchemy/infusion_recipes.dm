@@ -105,6 +105,6 @@
 /datum/essence_infusion_recipe/mana_crystal
 	name = "Mana Crystal"
 	target_type  = /obj/item/gem
-	result_type = /obj/item/mana_battery/mana_crystal
+	result_type = /obj/item/mana_battery/mana_crystal/standard
 	required_essences = list(/datum/thaumaturgical_essence/magic = 10)
 

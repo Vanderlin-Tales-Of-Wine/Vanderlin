@@ -142,6 +142,14 @@
 
 	begin_bulk_splitting(user)
 
+/obj/machinery/essence/splitter/attack_right(mob/user, params)
+
+	if(processing)
+		to_chat(user, span_warning("The splitter is currently processing."))
+		return
+
+	remove_all_items(user)
+
 /obj/machinery/essence/splitter/proc/remove_all_items(mob/user)
 	for(var/obj/item/I in current_items)
 		I.forceMove(get_turf(src))

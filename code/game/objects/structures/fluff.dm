@@ -830,14 +830,14 @@
 	to_chat(H, "<span class='notice'>[message2send]</span>")
 
 	if(random_message == 2)
-		if(do_after(H, 2.5 SECONDS, src))
+		if(do_after(H, 1 SECONDS, src)) // QUICK LOOK AWAY !!
 			var/obj/item/bodypart/affecting = H.get_bodypart("head")
 			to_chat(H, "<span class='warning'>The blinding light causes you intense pain!</span>")
-			if(affecting && affecting.receive_damage(0, 5))
+			if(affecting && affecting.receive_damage(0, 10))
 				H.update_damage_overlays()
 
-	if(message2send == "You can see noc rotating!")
-		if(do_after(H, 25, target = src))
+	if(random_message == 1)
+		if(do_after(H, 1 SECONDS, target = src))
 			to_chat(H, span_warning("Noc's glow seems to help clear your thoughts."))
 			H.apply_status_effect(/datum/status_effect/buff/nocblessing)
 
@@ -941,15 +941,18 @@
 	icon_state = "spidercore"
 
 /obj/structure/fluff/statue/spider/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/reagent_containers/food/snacks/spiderhoney))
+	if(istype(W, /obj/item/organ/ears))
 		if(user.mind)
 			if(user.mind.special_role == "Dark Elf")
 				playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
 				SSmapping.retainer.delf_contribute += 1
 				if(SSmapping.retainer.delf_contribute >= SSmapping.retainer.delf_goal)
 					say("YOU HAVE DONE WELL, MY CHILD.",language = /datum/language/elvish)
+					user.adjust_triumphs(1, reason = "Pleased the dark lady")
+					qdel(src)
+					// TODO : add crumbling message and sound
 				else
-					say("BRING ME [SSmapping.retainer.delf_goal - SSmapping.retainer.delf_contribute] MORE. I HUNGER.",language = /datum/language/elvish)
+					say("BRING ME [SSmapping.retainer.delf_goal - SSmapping.retainer.delf_contribute] MORE EARS. I HUNGER.",language = /datum/language/elvish)
 				qdel(W)
 				return TRUE
 	..()

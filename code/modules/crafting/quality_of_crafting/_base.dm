@@ -16,7 +16,7 @@
 	var/requires_learning = FALSE
 
 	///our sellprice
-	var/sellprice = 0
+	var/sellprice = null
 
 	///this is the things we check for in our offhand ie herb pouch or something to repeat the craft
 	var/list/offhand_repeat_check = list(
@@ -859,8 +859,9 @@
 	for(var/spawn_count = 1 to output_amount)
 		var/obj/item/new_item = new output(get_turf(user))
 
-		new_item.sellprice = sellprice
-		new_item.randomize_price()
+		if(isnum(sellprice)) // if the item has no price override we make it take its original price. in the future we could add "labor" price increase but for now this should allow people to sell crafted items.
+			new_item.sellprice = sellprice
+			new_item.randomize_price()
 
 		if(length(pass_types_in_end))
 			var/list/parts = list()
