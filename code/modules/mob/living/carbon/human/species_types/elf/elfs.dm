@@ -39,8 +39,6 @@
 	changesource_flags = WABBAJACK
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/met.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/ft.dmi'
-	dam_icon_m = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
-	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
 	hairyness = "t1"
 
 	customizers = list(
