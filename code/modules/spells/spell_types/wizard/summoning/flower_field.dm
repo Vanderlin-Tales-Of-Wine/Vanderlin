@@ -261,8 +261,6 @@
 |  Flower Debuffs  |
 \-----------------*/
 
-#define FOLIAGE_ICON 'icons/effects/effects.dmi'
-
 /datum/status_effect/debuff/flower_base
 	var/overlay_state = null
 	var/field_path = null
@@ -270,10 +268,9 @@
 
 /datum/status_effect/debuff/flower_base/on_apply()
 	. = ..()
-	if (ismob(owner) && overlay_state)
+	if(overlay_state && ismob(owner))
 		var/mob/M = owner
-		flower_overlay = mutable_appearance(FOLIAGE_ICON, overlay_state)
-		M.overlays += flower_overlay
+		M.add_overlay(mutable_appearance('icons/effects/effects.dmi', overlay_state))
 		RegisterSignal(M, COMSIG_MOVABLE_MOVED, PROC_REF(_check_flower_field))
 
 /datum/status_effect/debuff/flower_base/on_remove()

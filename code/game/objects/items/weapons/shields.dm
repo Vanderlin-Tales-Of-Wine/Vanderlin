@@ -1,5 +1,3 @@
-#define SHIELD_BASH		/datum/intent/shield/bash
-#define SHIELD_BLOCK		/datum/intent/shield/block
 #define SHIELD_BANG_COOLDOWN (3 SECONDS)
 
 /obj/item/weapon/shield

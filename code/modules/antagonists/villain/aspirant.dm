@@ -1,10 +1,10 @@
-#define CHOICE_POISON "poison"
 #define CHOICE_SKILL_SWORD "sword_skill"
 #define CHOICE_SKILL_KNIFE "knife_skill"
 #define CHOICE_SKILL_BOW "bow_skill"
 #define CHOICE_SKILL_MACES "maces_skill"
 #define CHOICE_SKILL_LOCKPICKING "lockpicking_skill"
 #define CHOICE_SKILL_WRESTLING "wrestling_skill"
+#define CHOICE_POISON "poison"
 #define CHOICE_GUN "gun"
 #define CHOICE_BOMB "bomb"
 
@@ -277,3 +277,13 @@
 
 /datum/antagonist/aspirant/ruler/examine_friendorfoe(datum/antagonist/examined_datum, mob/examiner, mob/examined)
 	return
+
+#undef CHOICE_SKILL_SWORD
+#undef CHOICE_SKILL_KNIFE
+#undef CHOICE_SKILL_BOW
+#undef CHOICE_SKILL_MACES
+#undef CHOICE_SKILL_LOCKPICKING
+#undef CHOICE_SKILL_WRESTLING
+#undef CHOICE_POISON
+#undef CHOICE_GUN
+#undef CHOICE_BOMB

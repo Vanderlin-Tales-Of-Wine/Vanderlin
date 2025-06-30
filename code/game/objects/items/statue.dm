@@ -38,6 +38,13 @@
 	. = ..()
 	icon_state = "sstatue[pick(1,2)]"
 
+/*	..................   Misc   ................... */
+/obj/item/statue/silver/gnome
+	name = "petrified gnome"
+	desc = "A literal gnome, turned to stone mid-step and put on a matching stone platform. Rather unsettling."
+	smeltresult = null
+	sellprice = 120
+
 /obj/item/statue/steel
 	name = "steel statue"
 	icon_state = "ststatue1"

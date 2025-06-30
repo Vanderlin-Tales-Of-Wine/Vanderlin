@@ -221,3 +221,10 @@
 	. = ..()
 	soundloop.extra_range = 12
 	soundloop.falloff_exponent = 6
+
+#undef MUSIC_TAVCAT_CHILL
+#undef MUSIC_TAVCAT_FUCK
+#undef MUSIC_TAVCAT_PARTY
+#undef MUSIC_TAVCAT_SCUM
+#undef MUSIC_TAVCAT_DAMN
+#undef MUSIC_TAVCAT_MISC

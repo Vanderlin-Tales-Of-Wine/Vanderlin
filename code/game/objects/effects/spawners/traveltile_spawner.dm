@@ -29,6 +29,7 @@
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 
 	GLOB.traveltile_spawners += src
+	return INITIALIZE_HINT_NORMAL
 	/*
 	we don't call parent here because the removal of this spawner effect from the map
 	is handled by /datum/controller/subsystem/random_travel_tiles/Initialize() .

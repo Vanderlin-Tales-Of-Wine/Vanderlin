@@ -94,11 +94,6 @@
 /////////////////////////////////////////////////////////////////
 
 #define UPGRADE_NOTAX		(1<<0)
-/*
-#define UPGRADE_ARMOR		(1<<1)
-#define UPGRADE_WEAPONS		(1<<2)
-#define UPGRADE_FOOD		(1<<3)
-*/
 
 /obj/structure/fake_machine/merchantvend
 	name = "GOLDFACE"

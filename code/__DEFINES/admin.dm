@@ -62,11 +62,29 @@
 #define ADMIN_FULLMONTY(user) "[ADMIN_QUE(user)] [key_name_admin(user)] [ADMIN_FULLMONTY_NONAME(user)]"
 #define ADMIN_MONTY_LIMITED(user) "[ADMIN_PP(user)] [ADMIN_FLW(user)]"
 #define ADMIN_JMP(src) "(<a href='?_src_=holder;[HrefToken(TRUE)];adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)"
-#define COORD(src) "[src ? "([src.x],[src.y],[src.z])" : "nonexistent location"]"
-#define AREACOORD(src) "[src ? "[get_area_name(src, TRUE)] ([src.x], [src.y], [src.z])" : "nonexistent location"]"
-#define ADMIN_COORDJMP(src) "[src ? "[COORD(src)] [ADMIN_JMP(src)]" : "nonexistent location"]"
-#define ADMIN_VERBOSEJMP(src) "[src ? "[AREACOORD(src)] [ADMIN_JMP(src)]" : "nonexistent location"]"
+#define COORD(src) "[src ? src.Admin_Coordinates_Readable() : "nonexistent location"]"
+#define AREACOORD(src) "[src ? src.Admin_Coordinates_Readable(TRUE) : "nonexistent location"]"
+#define ADMIN_COORDJMP(src) "[src ? src.Admin_Coordinates_Readable(FALSE, TRUE) : "nonexistent location"]"
+#define ADMIN_VERBOSEJMP(src) "[src ? src.Admin_Coordinates_Readable(TRUE, TRUE) : "nonexistent location"]"
 #define ADMIN_INDIVIDUALLOG(user) "(<a href='?_src_=holder;[HrefToken(TRUE)];individuallog=[REF(user)]'>LOGS</a>)"
+
+/atom/proc/Admin_Coordinates_Readable(area_name, admin_jump_ref)
+	var/turf/turf_at_coords = Safe_COORD_Location()
+	return turf_at_coords ? "[area_name ? "[get_area_name(turf_at_coords, TRUE)] " : " "]([turf_at_coords.x],[turf_at_coords.y],[turf_at_coords.z])[admin_jump_ref ? " [ADMIN_JMP(turf_at_coords)]" : ""]" : "nonexistent location"
+
+/atom/proc/Safe_COORD_Location()
+	var/atom/drop_atom = drop_location()
+	if(!drop_atom)
+		return //not a valid atom.
+	var/turf/drop_turf = get_step(drop_atom, 0) //resolve where the thing is.
+	if(!drop_turf) //incase it's inside a valid drop container, inside another container. ie if a mech picked up a closet and has it inside its internal storage.
+		var/atom/last_try = drop_atom.loc?.drop_location() //one last try, otherwise fuck it.
+		if(last_try)
+			drop_turf = get_step(last_try, 0)
+	return drop_turf
+
+/turf/Safe_COORD_Location()
+	return src
 
 #define ADMIN_PUNISHMENT_LIGHTNING "Lightning bolt"
 #define ADMIN_PUNISHMENT_BRAINDAMAGE "Brain damage"

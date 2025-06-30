@@ -1,0 +1,7 @@
+﻿/obj/effect/mapping_helpers/access/keyset:
+  banned_neighbors:
+  - /obj/effect/mapping_helpers/access/keyset
+
+/obj/effect/mapping_helpers/access/locker:
+  banned_neighbors:
+  - /obj/effect/mapping_helpers/access/locker

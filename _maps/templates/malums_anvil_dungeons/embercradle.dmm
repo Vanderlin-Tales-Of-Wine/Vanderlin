@@ -363,7 +363,6 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "gl" = (
 /obj/structure/door/fancy{
-	lockid = "manor";
 	name = "Manor"
 	},
 /turf/open/floor/carpet/lord/center,
@@ -2551,7 +2550,6 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "Il" = (
 /obj/structure/door/fancy{
-	lockid = "manor";
 	name = "Manor"
 	},
 /turf/open/floor/cobblerock,
@@ -2696,7 +2694,6 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "JL" = (
 /obj/structure/door/fancy{
-	lockid = "manor";
 	name = "Manor"
 	},
 /turf/open/floor/cobble,
@@ -2893,7 +2890,6 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "Md" = (
 /obj/structure/door/fancy{
-	lockid = "manor";
 	name = "Manor"
 	},
 /turf/open/floor/cobble,

@@ -10,8 +10,9 @@
 
 /obj/item/storage/Initialize(mapload, ...)
 	. = ..()
-	if(component_type)
-		AddComponent(component_type)
+	if(!component_type)
+		CRASH("Storage item created without storage component")
+	AddComponent(component_type)
 	PopulateContents()
 
 /obj/item/storage/AllowDrop()

@@ -57,3 +57,5 @@
 		spell_quickslots[slot_index] = null
 	else
 		spell_quickslots[slot_index] = choice
+
+#undef MAX_SPELL_SLOTS

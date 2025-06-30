@@ -1476,7 +1476,7 @@
 /turf/closed/wall/mineral/decorstone,
 /area/rogue/indoors/town/garrison)
 "boq" = (
-/obj/structure/rotation_piece/cog/large,
+/obj/structure/rotation_piece/cog,
 /turf/open/water/river{
 	dir = 4
 	},
@@ -2192,9 +2192,9 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/clocktower)
 "bWA" = (
-/obj/structure/door/swing,
 /obj/effect/mapping_helpers/access/keyset/manor/general,
 /obj/effect/mapping_helpers/access/locker,
+/obj/structure/door/window,
 /turf/open/floor/tile,
 /area/rogue/indoors/town)
 "bWB" = (
@@ -3514,8 +3514,6 @@
 /area/rogue/indoors/town/manor)
 "duw" = (
 /obj/structure/door/swing,
-/obj/effect/mapping_helpers/access/keyset/town/inn,
-/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/tavern)
 "duz" = (
@@ -4034,6 +4032,12 @@
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/rtfield)
+"dMk" = (
+/obj/structure/rotation_piece/cog,
+/turf/open/water/river/dirt{
+	dir = 4
+	},
+/area/rogue/indoors/town/clocktower)
 "dMq" = (
 /obj/structure/table/wood/reinforced,
 /obj/structure/bars/bent,
@@ -11685,6 +11689,10 @@
 "lbS" = (
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/indoors/town/orphanage)
+"lbW" = (
+/obj/structure/steam_recharger,
+/turf/open/floor/cobble,
+/area/rogue/indoors/town/clocktower)
 "lcs" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -12808,6 +12816,10 @@
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/manor)
+"mfq" = (
+/obj/structure/water_pipe,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors/town/clocktower)
 "mgn" = (
 /turf/open/floor/rooftop,
 /area/rogue/indoors/lich)
@@ -15145,8 +15157,6 @@
 /area/rogue/indoors/town/smithy)
 "ole" = (
 /obj/structure/door/swing,
-/obj/effect/mapping_helpers/access/keyset/manor/general,
-/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/manor)
 "olg" = (
@@ -15768,10 +15778,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/town/church)
-"oOs" = (
-/obj/structure/steam_recharger,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors/town/clocktower)
 "oOy" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/ruinedwood/darker,
@@ -16548,6 +16554,10 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/under/town/basement)
+"pBT" = (
+/obj/structure/water_pipe,
+/turf/open/floor/cobble,
+/area/rogue/indoors/town/clocktower)
 "pCe" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
@@ -24881,6 +24891,12 @@
 /obj/structure/flora/grass/bush/tundra,
 /turf/open/floor/snow,
 /area/rogue/outdoors/rtfield/safe)
+"xmf" = (
+/obj/structure/rotation_piece/cog/large,
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/under/town/basement)
 "xmk" = (
 /obj/machinery/light/fueled/firebowl/church,
 /turf/open/floor/churchbrick,
@@ -55202,8 +55218,8 @@ nJJ
 fQr
 bNs
 hSF
-hSF
-fId
+qgw
+bWQ
 dPw
 dPw
 fyK
@@ -55403,10 +55419,10 @@ nJJ
 nJJ
 fQr
 hSF
-hSF
-hSF
+sHo
+dMk
 bWQ
-oOs
+fyK
 dPw
 fyK
 fyK
@@ -55605,7 +55621,7 @@ nJJ
 nJJ
 fQr
 hSF
-sHo
+hSF
 unm
 wxx
 fyK
@@ -55807,10 +55823,10 @@ nJJ
 nJJ
 fQr
 hSF
-hSF
-qgw
+sHo
+dMk
 iOK
-dPw
+pBT
 fyK
 fyK
 dPw
@@ -56012,8 +56028,8 @@ hSF
 hSF
 hSF
 fQr
-fyK
-dPw
+mfq
+lbW
 dPw
 rCo
 fQr
@@ -56415,7 +56431,7 @@ fQr
 bNs
 hSF
 hSF
-fQr
+fId
 ack
 dPw
 fyK
@@ -130727,8 +130743,8 @@ mos
 nJJ
 mos
 cOb
-mos
-mos
+cOb
+cOb
 cOb
 mos
 nJJ
@@ -130931,7 +130947,7 @@ xTy
 qNO
 iac
 iac
-qNO
+iac
 xTy
 nJJ
 nJJ
@@ -131133,7 +131149,7 @@ xTy
 fHc
 iac
 iac
-fHc
+iac
 xTy
 nJJ
 nJJ
@@ -131335,7 +131351,7 @@ xTy
 fHc
 iac
 iac
-fHc
+iac
 xTy
 nJJ
 nJJ
@@ -131537,7 +131553,7 @@ xTy
 fHc
 iac
 iac
-fHc
+iac
 xTy
 nJJ
 nJJ
@@ -131739,7 +131755,7 @@ fHc
 fHc
 iac
 iac
-fHc
+iac
 xTy
 nJJ
 nJJ
@@ -131941,7 +131957,7 @@ iac
 iac
 iac
 iac
-fHc
+iac
 xTy
 nJJ
 nJJ
@@ -132137,13 +132153,13 @@ nJJ
 nJJ
 nJJ
 xTy
-dSa
-boq
+mMv
+xmf
 iac
 iac
 iac
 iac
-fHc
+iac
 xTy
 nJJ
 nJJ
@@ -132339,13 +132355,13 @@ nJJ
 nJJ
 nJJ
 xTy
-mMv
-vHQ
-fHc
-fHc
-fHc
-fHc
-fHc
+dSa
+boq
+iac
+iac
+iac
+iac
+iac
 xTy
 nJJ
 nJJ

@@ -560,3 +560,5 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 		return
 	prefs.ooccolor = null
 	prefs.save_preferences()
+
+#undef TOGGLE_CHECKBOX

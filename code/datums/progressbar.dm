@@ -18,6 +18,8 @@
 	var/listindex = 0
 	///Where to draw the progress bar above the icon
 	var/offset_y
+	///The type of our last value for bar_loc, for debugging
+	var/location_type
 
 /datum/progressbar/New(mob/User, goal_number, atom/target)
 	. = ..()
@@ -34,6 +36,7 @@
 
 	goal = goal_number
 	bar_loc = target
+	location_type = bar_loc.type
 
 	var/list/icon_offsets = target.get_oversized_icon_offsets()
 	var/offset_x = icon_offsets["x"]
@@ -133,6 +136,11 @@
 	animate(bar, alpha = 0, time = PROGRESSBAR_ANIMATION_TIME)
 
 	QDEL_IN(src, PROGRESSBAR_ANIMATION_TIME)
+
+///Progress bars are very generic, and what hangs a ref to them depends heavily on the context in which they're used
+///So let's make hunting harddels easier yeah?
+/datum/progressbar/dump_harddel_info()
+	return "Owner's type: [location_type]"
 
 #undef PROGRESSBAR_ANIMATION_TIME
 #undef PROGRESSBAR_HEIGHT

@@ -3,13 +3,11 @@
 #define DRAGON_ATTACK_SUMMON_OBELISK 3
 #define DRAGON_ATTACK_LAVA_SWOOP 4
 #define DRAGON_ATTACK_LIGHTNING_BREATH 5
-
 #define DRAGON_ATTACK_VOID_PULL 6
 #define DRAGON_ATTACK_SHADOW_CLONE 7
 #define DRAGON_ATTACK_WING_GUST 8
 #define DRAGON_ATTACK_VOID_EXPLOSION 9
 #define DRAGON_ATTACK_PHASE_SHIFT 10
-
 
 /datum/ai_planning_subtree/dragon_attack_subtree
 	var/datum/ai_behavior/dragon_attack/attack_behavior = /datum/ai_behavior/dragon_attack
@@ -219,3 +217,14 @@
 
 	controller.set_blackboard_key(BB_DRAGON_SPECIAL_COOLDOWN, world.time + 5 SECONDS)
 	finish_action(controller, TRUE)
+
+#undef DRAGON_ATTACK_SUNDERING_LIGHTNING
+#undef DRAGON_ATTACK_SLAM
+#undef DRAGON_ATTACK_SUMMON_OBELISK
+#undef DRAGON_ATTACK_LAVA_SWOOP
+#undef DRAGON_ATTACK_LIGHTNING_BREATH
+#undef DRAGON_ATTACK_VOID_PULL
+#undef DRAGON_ATTACK_SHADOW_CLONE
+#undef DRAGON_ATTACK_WING_GUST
+#undef DRAGON_ATTACK_VOID_EXPLOSION
+#undef DRAGON_ATTACK_PHASE_SHIFT

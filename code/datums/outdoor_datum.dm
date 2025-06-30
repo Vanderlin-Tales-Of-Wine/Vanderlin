@@ -82,10 +82,9 @@ Sunlight System
 		if(SKY_VISIBLE_BORDER)
 			calc_sunlight_spread()
 
-#define hardSun 0.5 /* our hyperboloidy modifyer funky times - I wrote this in like, 2020 and can't remember how it works - I think it makes a 3D cone shape with a flat top */
+#define HARDSUN 0.5 /* our hyperboloidy modifyer funky times - I wrote this in like, 2020 and can't remember how it works - I think it makes a 3D cone shape with a flat top */
 /* calculate the indoor corners we are affecting */
-#define SUN_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 - hardSun) / max(1, GLOB.GLOBAL_LIGHT_RANGE)))
-
+#define SUN_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 - HARDSUN) / max(1, GLOB.GLOBAL_LIGHT_RANGE)))
 
 /atom/movable/outdoor_effect/proc/calc_sunlight_spread()
 
@@ -131,6 +130,9 @@ Sunlight System
 
 
 	GLOB.SUNLIGHT_QUEUE_CORNER += tempMasterList /* update the boys */
+
+#undef HARDSUN
+#undef SUN_FALLOFF
 
 /* Related object changes */
 /* I moved this here to consolidate sunlight changes as much as possible, so its easily disabled */

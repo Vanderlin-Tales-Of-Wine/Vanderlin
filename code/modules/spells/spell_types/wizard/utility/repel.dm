@@ -4,7 +4,7 @@
 	range = 10
 	projectile_type = /obj/projectile/magic/repel
 	overlay_state = ""
-	sound = list('modular/modular_azure/sound/unmagnet.ogg')
+	sound = list('sound/magic/unmagnet.ogg')
 	releasedrain = 5
 	chargedrain = 0
 	chargetime = 20

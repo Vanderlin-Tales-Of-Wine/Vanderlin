@@ -270,3 +270,4 @@
 	return speech_verb
 
 #undef SCRAMBLE_CACHE_LEN
+#undef SENTENCE_CACHE_LEN

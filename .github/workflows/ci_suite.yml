@@ -1,22 +1,34 @@
 name: BYOND Build
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
-      - main
+    - main
+  merge_group:
+    branches:
+    - main
 
 env:
   BYOND_MAJOR: 515
   BYOND_MINOR: 1647
   SPACEMAN_DMM_VERSION: suite-1.9
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  run-linters:
+  start_gate:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
+    name: Start Gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mandatory Empty Step
+        run: exit 0
+
+  run_linters:
     name: Run Linters
+    needs: start_gate
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
@@ -28,61 +40,82 @@ jobs:
           key: ${{ runner.os }}-spacemandmm-${{ hashFiles('dependencies.sh') }}
           restore-keys: |
             ${{ runner.os }}-spacemandmm-
+      - name: Restore Node cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.nvm
+          key: ${{ runner.os }}-node-${{ hashFiles('dependencies.sh') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Restore Bootstrap cache
+        uses: actions/cache@v4
+        with:
+          path: tools/bootstrap/.cache
+          key: ${{ runner.os }}-bootstrap-${{ hashFiles('tools/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-bootstrap-
       - name: Restore Rust cache
         uses: actions/cache@v4
         with:
           path: ~/.cargo
-          key: ${{ runner.os }}-rust-${{ hashFiles('tools/ci/ci_dependencies.sh')}}
-          restore-keys: |
-            ${{ runner.os }}-rust-
+          key: ${{ runner.os }}-rust
+      - name: Install OpenDream
+        uses: robinraju/release-downloader@v1.12
+        with:
+          repository: "OpenDreamProject/OpenDream"
+          tag: "latest"
+          fileName: "DMCompiler_linux-x64.tar.gz"
+          extract: true
       - name: Install Tools
         run: |
           pip3 install setuptools
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           bash tools/ci/install_ripgrep.sh
           tools/bootstrap/python -c ''
-      - name: Run Linters
+      - name: Give Linters A Go
+        id: linter-setup
+        run: ':'
+      - name: Run Grep Checks
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: bash tools/ci/check_grep.sh
+      - name: Ticked File Enforcement
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: |
-          bash tools/ci/check_filedirs.sh vanderlin.dme
-          bash tools/ci/check_changelogs.sh
-          find . -name "*.php" -print0 | xargs -0 -n1 php -l
-          bash tools/ci/check_grep.sh
-          tools/bootstrap/python tools/ci/validate_dme.py < vanderlin.dme
-          tools/bootstrap/python -m dmi.test
+          tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/vanderlin_dme.json
+          tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/unit_tests.json
+      - name: Check Define Sanity
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: tools/bootstrap/python -m define_sanity.check
+      - name: Lint With DreamChecker
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        shell: bash
+        run: ~/dreamchecker 2>&1 | bash tools/ci/annotate_dm.sh
+      - name: Lint With OpenDream
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: ./DMCompiler_linux-x64/DMCompiler vanderlin.dme --suppress-unimplemented --define=CIBUILDING | bash tools/ci/annotate_od.sh
+      - name: Run Map Checks
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: |
           tools/bootstrap/python -m mapmerge2.dmm_test
           tools/bootstrap/python -m tools.maplint.source
-
-  OpenDream:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Python setup
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-      - name: Setup Cache
-        uses: actions/cache@v4
-        with:
-          path: $HOME/spaceman_dmm/$SPACEMAN_DMM_VERSION
-          key: ${{ runner.os }}-spacemandmm-${{ env.SPACEMAN_DMM_VERSION }}
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v4.2.0
-        with:
-          dotnet-version: 9.x
-      - name: Install OpenDream
-        uses: robinraju/release-downloader@v1.9
-        with:
-          repository: "OpenDreamProject/OpenDream"
-          tag: "latest"
-          fileName: "DMCompiler_linux-x64.tar.gz"
-          extract: true
-      - name: Run OpenDream
-        run: ./DMCompiler_linux-x64/DMCompiler vanderlin.dme --suppress-unimplemented --skip-anything-typecheck --version=${BYOND_MAJOR}.${BYOND_MINOR} | python tools/od_annotator/__main__.py "$@"
+      - name: Run DMI Tests
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: tools/bootstrap/python -m dmi.test
+      - name: Check File Directories
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: bash tools/ci/check_filedirs.sh vanderlin.dme
+      - name: Check Changelogs
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: bash tools/ci/check_changelogs.sh
+      # Fails because of player books and I CBA rn
+      # - name: Check Miscellaneous Files
+      #   if: steps.linter-setup.conclusion == 'success' && !cancelled()
+      #   run: bash tools/ci/check_misc.sh
 
   compile_all_maps:
-    if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     name: Compile Maps
     runs-on: ubuntu-22.04
+    needs: collect_data
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -90,27 +123,49 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/BYOND
-          key: ${{ runner.os }}-byond-${{ secrets.CACHE_PURGE_KEY }}
+          key: ${{ runner.os }}-byond
       - name: Compile All Maps
         run: |
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           python3 tools/ci/template_dm_generator.py
           DreamMaker -DCIBUILDING -DCITESTING -DALL_MAPS vanderlin.dme
+      - name: Check client Compatibility
+        uses: tgstation/byond-client-compatibility-check@v3
+        with:
+          dmb-location: vanderlin.dmb
+          max-required-client-version: ${{needs.collect_data.outputs.max_required_byond_client}}
+
+  collect_data:
+    name: Collect data for other tasks
+    needs: start_gate
+    runs-on: ubuntu-22.04
+    outputs:
+      maps: ${{ steps.map_finder.outputs.maps }}
+      max_required_byond_client: ${{ steps.max_required_byond_client.outputs.max_required_byond_client }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find Maps
+        id: map_finder
+        run: |
+          echo "$(ls -mw0 _maps/*.json)" > maps_output.txt
+          sed -i -e s+_maps/+\"+g -e s+.json+\"+g maps_output.txt
+          echo "Maps: $(cat maps_output.txt)"
+          echo "maps={\"paths\":[$(cat maps_output.txt)]}" >> $GITHUB_OUTPUT
+      - name: Collect byond client version configuration
+        id: max_required_byond_client
+        #the regex here does not filter out non-numbers because error messages about no input are less helpful then error messages about bad input (which includes the bad input)
+        run: |
+          echo "max_required_byond_client=$(grep -Ev '^[[:blank:]]{0,}#{1,}|^[[:blank:]]{0,}$' .github/max_required_byond_client.txt | tail -n1)" >> $GITHUB_OUTPUT
 
   run_all_tests:
-    if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     name: Integration Tests
     runs-on: ubuntu-22.04
-    timeout-minutes: 30
-    services:
-      mysql:
-        image: mysql:latest
-        env:
-          MYSQL_ROOT_PASSWORD: root
-        ports:
-          - 3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    needs: collect_data
+    strategy:
+      fail-fast: false
+      matrix:
+        map: ${{ fromJSON(needs.collect_data.outputs.maps).paths }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -118,7 +173,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/BYOND
-          key: ${{ runner.os }}-byond-${{ secrets.CACHE_PURGE_KEY }}
+          key: ${{ runner.os }}-byond
       - name: Setup database
         run: |
           sudo systemctl start mysql
@@ -137,33 +192,20 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           DreamMaker -DCIBUILDING vanderlin.dme
-          bash tools/ci/run_server.sh roguetest
+          bash tools/ci/run_server.sh ${{ matrix.map }}
+      - name: Check client Compatibility
+        uses: tgstation/byond-client-compatibility-check@v3
+        with:
+          dmb-location: vanderlin.dmb
+          max-required-client-version: ${{needs.collect_data.outputs.max_required_byond_client}}
 
-  test_windows:
-    if: ( !contains(github.event.head_commit.message, '[ci skip]') )
-    name: Windows Build
-    runs-on: windows-latest
+  completion_gate: # Serves as a non-moving target for branch rulesets
+    if: always() && !cancelled()
+    name: Completion Gate
+    needs: [compile_all_maps, run_all_tests, run_linters]
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Restore BYOND cache
-        uses: actions/cache@v4
+      - name: Decide whether the needed jobs succeeded or failed
+        uses: re-actors/alls-green@release/v1
         with:
-          path: C:\\byond
-          key: ${{ runner.os }}-byond-${{ secrets.CACHE_PURGE_KEY }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ secrets.CACHE_PURGE_KEY }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Compile
-        run: pwsh tools/ci/build.ps1
-        env:
-          DM_EXE: "C:\\byond\\bin\\dm.exe"
-      - name: Create artifact
-        run: |
-          md deploy
-          bash tools/deploy.sh ./deploy
-      - name: Deploy artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: deploy
-          path: deploy
+          jobs: ${{ toJSON(needs) }}

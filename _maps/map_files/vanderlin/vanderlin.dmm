@@ -3740,7 +3740,6 @@
 "ckM" = (
 /obj/effect/mapping_helpers/access/keyset/town/tower,
 /obj/effect/mapping_helpers/access/locker,
-/obj/effect/mapping_helpers/access/locker,
 /obj/structure/door/violet,
 /turf/open/floor/greenstone,
 /area/rogue/indoors/town/magician)
@@ -3884,9 +3883,7 @@
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/bath)
 "coS" = (
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet,
 /obj/item/clothing/shirt/undershirt/priest,
 /obj/item/clothing/shirt/robe/priest,
 /turf/open/floor/blocks/newstone,
@@ -10720,7 +10717,7 @@
 "gNO" = (
 /obj/effect/mapping_helpers/access/locker,
 /obj/structure/door/red,
-/obj/effect/mapping_helpers/access/keyset/garrison,
+/obj/effect/mapping_helpers/access/keyset/garrison/general,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/town/roofs)
 "gNP" = (
@@ -10820,7 +10817,6 @@
 /obj/structure/door,
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/church/grave,
-/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
 "gRe" = (
@@ -16919,15 +16915,6 @@
 "kIF" = (
 /turf/open/floor/tile,
 /area/rogue/indoors/town/clinic_large)
-"kIH" = (
-/obj/structure/door/iron/bars{
-	name = "Royal Crypt"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/obj/effect/mapping_helpers/access/keyset/church/grave,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/blocks,
-/area/rogue/indoors/town/church)
 "kII" = (
 /obj/structure/fake_machine/atm,
 /turf/open/floor/ruinedwood,
@@ -18328,7 +18315,6 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/clinic_large)
 "lKj" = (
-/obj/effect/mapping_helpers/access/locker,
 /obj/structure/rack/shelf/biggest,
 /obj/item/paper,
 /obj/item/paper,
@@ -19048,7 +19034,6 @@
 /obj/structure/door,
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/town/clinic,
-/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/twig,
 /area/rogue/indoors/town/bath)
 "mjT" = (
@@ -19611,10 +19596,6 @@
 	dir = 8
 	},
 /area/rogue/outdoors/town/roofs)
-"mDV" = (
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/dirt,
-/area/rogue/outdoors/town)
 "mEy" = (
 /obj/structure/bars/pipe{
 	dir = 4
@@ -23020,9 +23001,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "oLh" = (
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet,
 /obj/item/clothing/cloak/stole/red,
 /obj/item/clothing/cloak/chasuble,
 /obj/item/storage/backpack/satchel,
@@ -23350,7 +23329,6 @@
 "oWv" = (
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/town/tower,
-/obj/effect/mapping_helpers/access/locker,
 /obj/structure/door/violet,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/magician)
@@ -25972,9 +25950,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "qPq" = (
-/obj/structure/closet/crate/chest{
-	lockid = "priest"
-	},
+/obj/structure/closet/crate/chest,
 /obj/item/storage/keyring,
 /obj/item/key/church,
 /obj/item/key/church,
@@ -26153,10 +26129,6 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
-"qTd" = (
-/obj/effect/mapping_helpers/access/locker,
-/turf/closed/wall/mineral/stonebrick,
-/area/rogue/indoors/town/magician)
 "qTn" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -113676,7 +113648,7 @@ vgJ
 vgJ
 hJQ
 dsC
-kIH
+pLy
 tMD
 dtJ
 box
@@ -148391,7 +148363,7 @@ iSk
 iSk
 iSk
 sWL
-mDV
+jdk
 vue
 vgJ
 vgJ
@@ -173814,7 +173786,7 @@ shM
 shM
 gwg
 oWv
-qTd
+cBJ
 cBJ
 cBJ
 oWv

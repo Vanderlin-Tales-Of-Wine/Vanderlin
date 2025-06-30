@@ -333,3 +333,7 @@
 		return
 	opened = !opened
 	update_appearance(UPDATE_ICON_STATE)
+
+#undef STEP_FIDDLE
+#undef STEP_LEVER
+#undef STEP_BUTTON
