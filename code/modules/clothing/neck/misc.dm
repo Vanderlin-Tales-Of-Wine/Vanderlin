@@ -130,6 +130,16 @@
 	armor = ARMOR_MAILLE_IRON
 	max_integrity = INTEGRITY_STRONG
 
+/obj/item/clothing/neck/chaincoif/renegadecollar
+	icon_state = "renegadecollar"
+	name = "black collar"
+	desc = "A tough leather collar concealing iron chain mail, meant to be paired with its jacket."
+	smeltresult = null
+	flags_inv = HIDEEARS|HIDEHAIR|HIDEFACE
+	body_parts_covered = NECK|EARS|MOUTH|NOSE
+	armor = ARMOR_MAILLE_IRON
+	max_integrity = INTEGRITY_STRONG
+
 /obj/item/clothing/neck/gorget/copper
 	name = "neck protector"
 	icon_state = "copperneck"
