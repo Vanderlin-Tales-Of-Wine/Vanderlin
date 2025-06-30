@@ -1,73 +1,184 @@
-"<p><strong><em> || AREAS OF THE WORLD </em></strong></p>
-<p> Psydonia - The world Vanderlin takes place in.</p>
-<p><br></p>
+<p><strong><em><span style="font-size:115%"> Welcome to Vanderlin! </span></em></strong></p>
+<p> This lore primer serves as an introduction to Vanderlin's lore and world. <br>
+While it's not required reading, leadership roles may find this information useful to roleplay their positions. This, or anyone else interested in playing a character with more knowledge about the setting. Not all information is available here, and some secrets still lie within item descriptions, inscriptions, or booklets- it's a primer, not a compendium. </p>
+<hr>
+<strong><span style="font-size:105%"> Some quick vocabulary/concepts important to the setting: </span></strong>
+<p><strong> Psydonia </strong> - The world Vanderlin takes place in, named after its creation god, Psydon. It is currently the year 2515 after His death. </p>
+<p><strong> Faience </strong> - The continent Vanderlin takes place in. Shaped by His hand. </p>
+<p><strong> Lux </strong> - The core link of divinity a person holds; the soul. A sliver of Psydon present within each species touched at one point by divine hand. It is said that it carries the power of a single, focused miracle of life- yet its removal dooms a soul never to pass into the underworld. </p>
+<hr>
 
-<p><strong>&quot;  Isle of Enigma - The center of the world.  &quot;</strong></p>
-<p><br></p>
-
-<p>  Petty Kingdom of Vanderlin - A canyon settlement on a nearby peninsula to Enigma. Reaping the boons of both, this is a place of trade and prosperity. Built over the Tomb of Matthios, it attracts adventurers from all over the world to delve within and see fortune.  </p>
-<p>  Town of Rockhill - A once bustling trade center, colloquially known as Roguetown, now degraded due to neglect and troubled fortune, run by the Mayor. </p>
-<p>  Kingdom of Heartfelt - The prosperous head of technological progress within Enigma, experiencing disaster as their automaton constructions turn against them and ravage their lands.  </p>
-<p>  Mire of the Bogswamp - A fertile and jungle-like area of the isle, overgrown and suffering an invasion of beespiders.  </p>
-<p>  Shire of Murderwood - Ancestral Forest bearing many glades, overrun by villains, knaves, and other lawlessness.  </p>
-<p>  Malum's Anvil - A jagged mountain filled with ores, treasures, and lava. Likewise a cacophony of horrid goblins, beasts, and other misfortunes. </p>
-<p>  Kingsfield, Crown of Psydonia - Massive city built upon plains far North of the Isle of Enigma. The cultural capital of the world, Kingsfield is the most prosperous and populated city.  </p>
-<p><br></p>
-
-<p>  Grenzelhoft  - Imperialist Faction to the East, known as the Black Empire. Renown for their black powder production and use. </p>
-<p>  Zybantu - Ziggurat to the West, the birthplace of the Mercator Guild. Employs an army of slave-soldiers to sustain their power. </p>
-<p>  Valoria - Freestates to the South of Grenzelhoft. Known for their crafting guilds and wine. </p>
-<p>  Dwarven Federations - Scattered confederacies around Psydonia, the largest being to the West of Zybantu in the frigid mountains. Homeplace of the Dwarves. </p>
-<p>  Psy Forests -  Ancestral forests scattered around Psydonia, great and terrible trees. Ancient homes of the elves. The largest of which is North of Zybantu and the Crimsonlands. </p>
-<p>  The Barrows - Former boreal forest of the snow elves, now a deadland of ruin and decay following the ascension of Zizo. </p>
-<p>  Subterra - A vast cave system underground with its own unique biosphere, once an ancient empire, now home of the dark elven culture conquered by Zizo. </p>
-<p><br></p>
-
-
-<p><strong>  || MAJOR EVENTS KNOWN TO ENIGMA AND VANDERLIN  </strong></p>
-<p><br></p>
-
-<p> Zizo's Ascension - Necromancer snow elf Zizo sacrificed her entire people for her own apotheosis. </p>
-<p> Heartfelt's Hubris - Automaton servants created by Heartfelt's artificers go haywire, ravaging parts of their home city and surrounding lands as they engage in endless conquest for biomass to fuel themselves. </p>
-<p> Astrata's Coment - Striking Malum's Anvil, a strange comet landed. In its center, a rusted capsule containing a divine shard of Astrata's light. The first artificer to touch the shard could not handle the pure divinity, falling to ash. It was successfully contained within Vanderlin, now serving to light the way of travelers. </p>
-<p> Matthios' Unearthing - A dwarf miner within Vanderlin dug deeply, striking solid bricks. A tomb was unearthed, the fabled tomb of the ascended Matthios... brimming with His power and riches, but of equal danger. Adventurers talent from across the lands further boost Vanderlin's influence and power. </p>
-
-<p><br></p>
+<details>
+	<summary><strong><span style="font-size:130%"> AREAS OF FAIENCE </span></strong></summary>
 
 
 
-<p><strong>  || FACTIONS OF PSYDONIA </strong></p>
-<p><br></p>
-<p><i>  Major Powers  </i></p>
-<p><br></p>
-<p><i>  GRENZELHOFT IMPERIATE  </i></p>
-<p>  The Grand Empire, The Black Banners, Empire of the Trident </p>
-<p>  An Imperialist state carved across the Eastern Continent through political upheaval and military action. </p>
-<p>  The Grenzelhofts proudly assimilate all those who come under their heel into their Empire, integrating national identities into their fold and destroying them with their own. Bearing the largest armies in the world, which come under vast scrutiny and disgust as they become increasingly desperate to upkeep.  </p>
-<p>  The Grenzelhoftian cannot remember a time when the Empire was not at war, and many have served within its military forces to escape the intense poverty of its lower-class. </p>
-<p>  Exhibiting a strong sense of pride, mainly towards their own nationality, those outside its realms have likely good reason to escape the encroaching iron grip of house Grenz. </p>
-<p><br></p>
+	<p><strong>  Isle of Enigma </strong><em> - "Once the trade center of the world, now a festering cancer of spilled oil, shrapnel, and bomb-shattered soil."  </em>
+	<br></p>
 
-<p><i>  ZYBANTU ZIGGURAT </i></p>
-<p>  The Dune Lands, Empire of the Sand, Merchants of the Pasha </p>
-<p>  The Zybantian Empire is a conglomeration of many smaller states within the Western Deserts of their home continent. Protected by the massive, frigid mountain range to the deep west from the frozen winds of the Unknown Continent: the Zybantu Ziggurat is known for its extremely favorable climate to the production of many commodity goods within the world, leading to their rise as a nationalized identity.  </p>
-<p>  While life within Zybantu is commonly dictated by the local lordships' control over their fiefdom, the Zybantians have recently found a resurgence of economic growth after the near destruction of the culture by Grenzelhoftian influence. A reawakening that has seen the near complete autonomy of the state by that of the powerful Merchants Guild, which funds nearly every aspect of the Mansa Padashas wishes. </p>
-<p>  Within desperation after the failed attack, the Zybantu turned to slave-armies, forcefully enlisting many captured Grenzelhoftians. People within will sell children as soldiers to escape poverty- this is considered common and noble an action as service to their homeland. </p>
-<p><br></p>
+	<details>
+		<summary><em> Points of Interest </em></summary>
 
-<p><i>  VALORIAN RUPUBLIAS  </i></p>
-<p>  Land of Abominable Coin-Lords, The Blood Baros & The Totod Order </p>
-<p>  Valoria is a land of constant strife, bickering city-states with a number of conflicting interests. Yet they bear some pride of their lands, banding together to repel the invading Grenzelhoft Empire out of shared desire for freedom. </p>
-<p>  With conflict comes innovation, the Valorian lands developing pride in their revolution of blade combat strategy and stance. Largely followers of Ravox, they value honour and duels as an expression of status. </p>
-<p><br></p>
+		<p><strong> - Town of Rockhill </strong><br>  A once-bustling trade center colloquially known as Roguetown. Now a warzone, the last-standing settlement against the armada of automatons. </p>
+		<p><strong> - Kingdom of Heartfelt </strong><br>  The prosperous head of technological progress within the Isle of Enigma, experiencing disaster as their automaton constructions turn against them and ravage their lands.  </p>
+	</details>
+	<br>
 
-<p><i>  Minor Powers  </i></p>
-<p><br></p>
 
-<p><i>  DWARVEN CONFEDERACY  </i></p>
-<p>  The Great Throngs, The Braided Confederacy, Malums Prodigy </p>
-<p>  Usually in the mountains of continents all over Psydonia. The political aspects stem from federations bearing unique dwarven clans, leaderships, industries, and cultures. Unified by a homogenous racial identity. Dwarves and humen empires have established a long history of allyship. Whilst dwarves often choose neutrality in humen-on-humen conflict, a dwarven face is a trusted face to most humens. </p>
-<p><br></p>
+	<p><strong>  Peninsula of Vanderlin </strong><em> - "The new trade capital of the world."  </em></p>
+
+	<details>
+		<summary><em> Points of Interest </em></summary>
+
+		<p><strong> - City of Vanderlin </strong><br> A canyon settlement on a nearby peninsula to the East of the Isle of Enigma. Reaping the boons of both, Vanderlin is a city of trade and prosperity. Built over the first-discovered opening to the Tomb of Matthios, it attracts adventurers from all over Psydonia to delve within and seek fortune.  </p>
+		<p><strong> - County of Daftmarsh </strong><br> A thrice-sunken castle, now a town-on-stilts built from its ruins. Daftmarsh guards the river delta directly North of Vanderlin. It often serves as a safe cove for pirates, providing Vanderlin merchant ships safe passage in exchange for the Crown's averted eyes. </p>
+		<p><strong> - Mire of the Terrorbog </strong><br> A fertile and marshy area of the peninsula, overgrown and suffering an invasion of beespiders.  </p>
+		<p><strong> - Shire of Murderwood </strong><br> Ancestral Forest bearing many glades, overrun by villains, knaves, and other lawlessness. A testament to Dendor's madness, its constant-shifting thicket stretches across Western Vanderlin. </p>
+		<p><strong> - Malum's Anvil </strong><br> A jagged mountain filled with ores, treasures, and lava. Likewise a cacophony of horrid goblins, beasts, and other misfortunes. The crater of Astrata's fallen shard still scars its peak. </p>
+	</details>
+	<br>
+
+
+	<p><strong>  Kingsfield  </strong><em> - "The pride of humenity. Crown of Psydonia"	</em></p>
+
+	<details>
+		<summary><em> Points of Interest </em></summary>
+
+		<p><strong> - City of Kingsfield </strong><br>  Massive city built upon temperate forests far, far North to the Isle of Enigma. Kingsfield is the most prosperous and populated city of the world, not to mention the major cultural export. It is not to be confused with the state, Kingsfield, which encompasses it. Kingsfield rail systems span all across Western Faience, of no small part due to Heartfeltian artificers' effort. </p>
+	</details>
+	<br>
+
+
+	<p><strong>  Tundras of Wintermare </strong><em> - "The largest humen-accepted elven territory, though most land is covered in tough permafrost."  </em></p>
+
+	<details>
+		<summary><em>Points of Interest</em></summary>
+
+		<p><strong> - City of Rosewood </strong><br> The capital of the Wintermare Empire, located near its Southeastern inland sea. Houses world-reknown Noccian academies, it is widely considered the magic capital of the world. </p>
+		<p><strong> - White Palace Pass </strong><br> One of few passageways through The Howling Mountains between Grenzelhoft and Rosewood. A place of great tension and prior conflict. </p>
+		<p><strong> - Noc's Crown </strong><br> A towering peak hiding ruins of past civilization.  </p>
+		<p><strong> - Morvael Sink </strong><br> A frigid marsh. Old temples to Zizo lie in ruin.  </p>
+		<p><strong> - Snowdust Glade </strong><br> An enchanted forest bearing the dangers of unchecked fae and abandoned summons.  </p>
+	</details>
+	<br>
+
+	<p><strong>  Necral Forests </strong><em> - "Ancestral forests scattered around Psydonia. The ancient homes of the elves." </em></p>
+
+	<details>
+		<summary><em> Points of Interest </em></summary>
+
+		<p><strong> - Amber Hollow </strong><br> At the center of the Northwestern Redwoods, a ring of gnarled, interlaced roots sits atop a great earthen mound. Within which lies the largest Western entrance to Subterra. Escaped hollowkin experiments, and later harpies, call this settlement their home. Almost all hollowkin can trace their ancestry back to this maw. While hostile to outsiders, this serves as a major point of defense against dark elven forces. </p>
+		<p><strong> - The Tree of Psydonia </strong><br> A great sequoia dwarfing all others, located far Northwest of Amber Hollow. It is said to be a memorial created by Psydon Himself to honour Necra's original death. Elves revere this landmark, despite its unsettling, skull-like bark.  </p>
+	</details>
+	<br>
+
+	<p><strong>  The Barrows </strong><em> - "Former boreal forests called home by the snow elves, now a deadland of ruin and decay following the ascension of Zizo. Home to the great war front against her undead armies." </em></p>
+
+	<details>
+		<summary><em> Points of Interest </em></summary>
+		<p><strong> - The Realm of Z </strong><br> The northern parts of The Barrows are colloquially known as 'The Realm of Z' due to her nigh-complete control. Few, if any, survivors remain- though rumours circulate that a last bastion settlement in the Northern, mountainous frostlands presses on despite all odds.  </p>
+	</details>
+	<br>
+
+	<p><strong>  Subterra </strong><em> - "A vast cave system underground with its own unique biosphere of hostile flora and fauna. It once housed an ancient empire of Ravoxian dark elves, but now serves as the conquered core of Zizo's evil matriarchy." </em></p>
+
+	<details>
+		<summary><em> Points of Interest </em></summary>
+
+		<p><strong> - Zizo's Claw Marquisate </strong><br> Located below Amber Hollow, marking the farthest West reach of Subterran caverns. Serves as a forward operations base for dark elven forces and slaves as they prepare yet another attempt at breaching the surface.  </p>
+		</details>
+	<br>
+
+
+</details>
+
+
+<details>
+	<summary><strong><span style="font-size:130%"> FACTIONS OF FAIENCE </span></strong></summary>
+	<br>
+	<strong><span style="font-size:115%"> MAJOR POWERS </span></strong>
+	<br><br>
+	<details>
+		<summary><strong> KINGSFIELD EXPANSE </strong></summary>
+		<br>
+		<em>The Crown of Psydonia</em>
+		<br><br>
+		Kingsfield spans along the Northwest of Faience, housing the cultural center of the world in its massive cities and impressive population. Unlike many of the other humen-majority populations, its inhabitants and history are defined by kindness rather than conquest. A certain demographic of Kingsfieldians are identifiable by their odd pronunciation of certain Imperial words and inclusion of 'eh?' after a comment or question. Species from all over the world would visit and establish themselves within these cities, including a non-insignificant population of dark elves before Zizo's conquest. They are, perhaps, the most tolerant of half-drow as a result- and as such are subject to mockery by the rest of Faience.
+		<br><br>
+		Kingsfield's prominence was built from tactical allyship and infrastructure development through industrialization. Through close cooperation with Heartfelt, Kingsfield railways span across the Western side of the entire continent, stretching from the tip of Kingsfield's tundras to the bottom of Vanderlin's peninsula. Kingsfield's population, notable in arts and culture worldwide, is of course largely Eoran and Xylixian in patronage; however, scholars of Noc account for a close third.
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> EMPIRE OF WINTERMARE </strong></summary>
+		<br>
+		<em>Noc's Embraced, The Elven Empire, The Arcyne Tundra</em>
+		<br><br>
+		Wintermare is the largest elven power in Psydonia, often the only territory marked on humen maps. Unfortunately, most of its territory is covered in unusable Northern permafrost despite its size. Nevertheless Wintermare remains incredibly influential, with most of its Southern cities producing renown magicians and Noccian scholars. Kingsfieldian rail links along the Southern mountain ranges, providing vital resources to an otherwise tense border zone between the elven empire and Grenzelhoft below.
+		<br><br>
+		Abandoned settlements and ghost towns along the border of Wintermare stand as graves and memorials to wars and genocides of the past. What populated locations remain are riddled with discarded and potentially active weapons of war. What don't... after Zizo's rise, no one goes there anymore.
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> GRENZELHOFT IMPIRATE </strong></summary>
+		<br>
+		<em>The Black Empire, The Empty Throne, Empire of the Trident</em>
+		<br><br>
+		Grenzelhoft is an imperialist state carved across the Northeast of Faience through political upheaval and military action. They are known mainly for their striking cuisine, honourable, loyal mercenaries, and their overwhelming monopoly over black powder. Despite a largely humen-supremacist culture, dwarves are embraced and regarded as the friends and builders of Psydon's vision.
+		<br><br>
+		Grenzelhoftians proudly assimilate all humens who come under their heel into their Empire, integrating national identities into their fold and destroying them in favour of their own. Grenzelhoft bears the largest armies in the world and incredible military might, which come under vast scrutiny and disgust as they become increasingly desperate to upkeep their power. Their history is defined by crusades, elven genocide, and general aggression in the supposed name of Psydon and His return to the throne. Orthodox Psydonism is the dominant religion. Critics and pagans are persecuted.
+		<br><br>
+		Their people cannot remember a time when the Empire was not at war, and many have served within its military forces to escape the intense poverty of its lower-class. A world-scale conflict between Grenzelhoft and its neighbours was narrowly avoided in the early 2100s by the rise of a new common enemy: Zizo. Grenzelhoft's forces, explosives, and firearms now supply the Eastern front with vital support under the explicit command of Grenzelhoft's cabal of sun-averse counts and countesses.
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> ZALADIN DYNASTY </strong></summary>
+		<br>
+		<em>The Red Sands, Empire of the Dunes, Merchants of the Pasha</em>
+		<br><br>
+		A grand-spanning, mercantilist empire which found prosperity and riches from spice export. Zaladin is home to some of the worlds greatest wonders, though the labourers who built them were directed by force and threats rather than passion. The dominant ideologies are Astratanism and Xylixianism. Xylixian freemen and Astratan order-keepers clash often in mortal representations of divine conflict. Zaladians have grown numb to the possibility of a civil war, and these skirmishes have simply become another aspect of daily life.
+		<br><br>
+		Zaladin was known as 'Zybantine' whilst under Grenzelhoftian occupation. It was a title forced upon them rather than chosen, and was violently rejected alongside the repellance of Grenzelhoft's Southern crusades by Zalad armies. In modern times, the term has become considered a grave and bigoted insult.
+		<br><br>
+		Within desperation after the failed conquest, Zaladin's dwindling forces turned to conscription of prisoners-of-war, the first of their slave-armies, forcefully enlisting many captured Grenzelhoftians. These troops are sent to support the front lines of allied Valorian states to the North against Zizo's armies in the Barrows. Regardless of origin, Zaladin's signature "Desert Riders" are a force to reckon- especially when mounted atop their twain-humped pegasi.
+		<br><br>
+	</details>
+
+
+	<br>
+	<strong><span style="font-size:115%"> MINOR POWERS </span></strong>
+	<br><br>
+
+	<details>
+		<summary><strong> KALEDON </strong></summary>
+		<br>
+		<em> Too fast, too soon. </em>
+		<br><br>
+		<span style="display:block; color:#17181a"> Certainly not awaiting writing. You should definitely not poke Cocokailey to provide a description to the author of this primer, who is eagerly awaiting something to include. ^v^ </span>
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> VALORIAN RUPUBLIAS </strong></summary>
+		<br>
+		<em> The Freestates, Vineyards of Valoria, The Lords of Coin </em>
+		<br><br>
+		Valoria is a land of constant strife, bickering city-states with a number of conflicting interests. Yet they bear some pride of their lands, banding together to repel the invading Grenzelhoft Empire out of shared desire for freedom. With conflict comes innovation; the Valorian lands developed pride in their revolution of blade combat strategy and stance. Largely followers of Ravox, they value honour and duels as an expression of status.
+		<br><br>
+		Valoria is renown for their alcohol exports and trade, seconding only Zaladin as most-sought goods.
+		<br><br>
+	</details>
+
+	<details>
+		<summary><strong> DWARVEN CONFEDERACY </strong></summary>
+		<br>
+		<em> The Great Throngs, The Braided Confederacy, Seven Hammers </em>
+		<br><br>
+		Located in the mountains of continents all over Psydonia. The political aspects stem from federations bearing unique dwarven clans, leaderships, industries, and cultures. The largest establishment is within the great mountain range to the Southeast of Zaladin's deserts. Dwarves and humen empires have established a long history of allyship. Whilst dwarves often choose neutrality in humen-on-humen conflict, a dwarven face is a trusted face to most humens.
+		<br><br>
+	</details>
 
 	<details>
 		<summary><strong> ELVEN ENCLAVES </strong></summary>
@@ -274,7 +385,7 @@
 		<br><br>
 		Followers of Graggar put women in their place. Graggarism is a culture built on strength, misogyny, and glee in the destruction or corruption of what exists. It's an addictive, never-ending hunger of flesh, gorging until one's skin turns green and they sprout tusks. Resist the cravings as long as you can, fool. They consume all.
 		<br><br>
-		Eora took pity upon Graggar as he ascended, extending some of her own divinity in attempt to heal the man she foolishly thought she could 'fix.' Graggar was gracious, of course, as he crafted with this sliver a hordes of goblins and outlandish monsters to terrorize Psydonia for eternity onwards. He cackles about her naivety to this day.
+		Eora took pity upon Graggar as he ascended, extending some of her own divinity in attempt to heal the man she foolishly thought she could 'fix.' Graggar was gracious, of course, as he crafted with this sliver hordes of goblins and outlandish monsters to terrorize Psydonia for eternity onwards. He cackles about her naivety to this day.
 		<br><br>
 	</details>
 
@@ -489,6 +600,13 @@
 		<br><br>
 	</details>
 
+	<details>
+		<summary><strong> Kobolds </strong></summary>
+		<br>
+		Speculated to have originated from the dank depths of Subterra, Kobolds are a species of stout sea-faring and mountain-dwelling lizardfolk infamous for their skills in trap-making, their habit of hoarding grandiose amounts of trinkets and artifacts, and their opportunism. They are often found in servitude to great beasts such as dragons and giants - trapping their lairs and utilizing pack tactics to dispose of ambitious adventurers and thieves alike. But in their lonesome, Kobolds are generally weak and quick to die, as they noticeably lack the meaningful amount of constitution, strength, and endurance that other species usually have.
+		<br><br>
+	</details>
+
 	<hr>
 </details>
 
@@ -583,3 +701,4 @@
 
 </details>
 <hr>
+
