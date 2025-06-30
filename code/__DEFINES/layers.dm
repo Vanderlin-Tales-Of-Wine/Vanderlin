@@ -120,41 +120,37 @@
 #define GHOST_PLANE 80
 #define POINT_PLANE 90
 
-#define RAD_TEXT_PLANE 90
-
-#define FRILL_MASK_PLANE 95
-#define FRILL_MASK_RENDER_TARGET "FRILL_MASK_RENDER_TARGET"
-
 #define WEATHER_PLANE 100
 #define INDOOR_PLANE 110
 
 //---------- LIGHTING -------------
+/// Displays reflections
+#define REFLECTIVE_DISPLACEMENT_PLANE 120
+#define REFLECTIVE_DISPLACEMENT_PLANE_RENDER_TARGET "*REFLECTIVE_DISPLACEMENT_RENDER_TARGET"
+
+/// Fog weather rendering
+#define PLANE_FOG_CUTTER 130
+#define FOG_RENDER_TARGET "FOG_RENDER_TARGET"
+
 /// Sunlight effect
-#define SUNLIGHTING_PLANE 120
+#define SUNLIGHTING_PLANE 140
 #define SUNLIGHTING_RENDER_TARGET "*SUNLIGHT_RENDER_TARGET"
 
 ///Normal 1 per turf dynamic lighting objects
-#define LIGHTING_PLANE 130
+#define LIGHTING_PLANE 150
 #define LIGHTING_RENDER_TARGET "LIGHT_RENDER_TARGET"
 
 ///Lighting objects that are "free floating"
-#define O_LIGHTING_VISUAL_PLANE 140
+#define O_LIGHTING_VISUAL_PLANE 160
 #define O_LIGHTING_VISUAL_RENDER_TARGET "O_LIGHT_VISUAL_RENDER_TARGET"
 
-#define PLANE_FOG_CUTTER 150
-#define FOG_RENDER_TARGET "FOG_RENDER_TARGET"
-
 ///Things that should render ignoring lighting
-#define ABOVE_LIGHTING_PLANE 160
+#define ABOVE_LIGHTING_PLANE 170
 #define ABOVE_LIGHTING_RENDER_TARGET "ABOVE_LIGHTING_RENDER_TARGET"
 
 ///visibility + hiding of things outside of light source range
-#define BYOND_LIGHTING_PLANE 170
+#define BYOND_LIGHTING_PLANE 180
 #define BYOND_LIGHTING_RENDER_TARGET "BYOND_LIGHTING_RENDER_TARGET"
-
-/// Displays reflections
-#define REFLECTIVE_DISPLACEMENT_PLANE 180
-#define REFLECTIVE_DISPLACEMENT_PLANE_RENDER_TARGET "*REFLECTIVE_DISPLACEMENT_RENDER_TARGET"
 
 //---------- EMISSIVES -------------
 //Layering order of these is not particularly meaningful.

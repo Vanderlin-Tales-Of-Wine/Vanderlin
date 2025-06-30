@@ -151,17 +151,6 @@
 	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_OVERLAY
 
-/atom/movable/screen/plane_master/indoor_mask
-	plane = INDOOR_PLANE
-	mouse_opacity = 0
-	render_target = "*rainzone"
-	appearance_flags = PLANE_MASTER
-
-/atom/movable/screen/plane_master/weather
-	plane = WEATHER_PLANE
-	mouse_opacity = 0
-	appearance_flags = PLANE_MASTER
-
 /atom/movable/screen/plane_master/game_world_fov_hidden
 	name = "game world fov hidden plane master"
 	plane = GAME_PLANE_FOV_HIDDEN
@@ -234,25 +223,6 @@
 /atom/movable/screen/plane_master/weather_effect/Destroy()
 	. = ..()
 	SSoutdoor_effects.weather_planes_need_vis -= src
-
-/// Our sunlight planemaster mashes all of our sunlight overlays together into one
-/// The fullscreen then grabs the plane_master with a layer filter, and colours it
-/// We do this so the sunlight fullscreen acts as a big lighting object, in our lighting plane
-/atom/movable/screen/fullscreen/lighting_backdrop/sunlight
-	icon_state  = ""
-	screen_loc = "CENTER-2:-16, CENTER"
-	blend_mode = BLEND_ADD
-
-/atom/movable/screen/fullscreen/lighting_backdrop/sunlight/Initialize()
-	. = ..()
-	add_filter("sunlight", 1, layering_filter(render_source = SUNLIGHTING_RENDER_TARGET))
-	SSoutdoor_effects.sunlighting_planes |= src
-	SSoutdoor_effects.transition_sunlight_color(src)
-	color = SSoutdoor_effects.last_color
-
-/atom/movable/screen/fullscreen/lighting_backdrop/sunlight/Destroy()
-	. = ..()
-	SSoutdoor_effects.sunlighting_planes -= src
 
 //Contains all sunlight overlays
 /atom/movable/screen/plane_master/sunlight
