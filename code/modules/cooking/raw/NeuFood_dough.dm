@@ -154,7 +154,7 @@
 /*	.................   Bread   ................... */
 /obj/item/reagent_containers/food/snacks/bread
 	name = "bread loaf"
-	desc = "One of the staple foods of commoners. With the decline of magic, the loss of bread-duplication has led to mass famines around Psydonia."
+	desc = "One of the staple foods of commoners. A simple meal, yet a luxury men will die for."
 	icon_state = "loaf"
 	base_icon_state = "loaf"
 	dropshrink = 0.8
