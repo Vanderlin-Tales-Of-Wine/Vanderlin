@@ -1,9 +1,9 @@
 /datum/job/inquisitor
 	title = "Inquisitor"
 	tutorial = "A recent arrival from Grenzelhoft, \
-	you are a member of the secretive lodges that have held to the service of Psydon since the Apotheosis War. \
-	You have been sent by your leader, the Holy Bishop, \
-	to assign the local Priest in combatting the increasing number of heretics and monsters infiltrating Vanderlin."
+	you are an emmissary of political and theological import. \
+	You have been sent by your leader, the Orthodox Bishop, \
+	to assist the local Priest in combatting the increasing number of heretics and monsters infiltrating Vanderlin."
 	flag = PURITAN
 	department_flag = CHURCHMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
