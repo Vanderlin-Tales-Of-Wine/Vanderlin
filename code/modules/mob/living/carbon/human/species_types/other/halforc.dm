@@ -8,7 +8,7 @@
 	\n\n\
 	Half-Orcs are the offspring of orcs and another species, half-orcs, \
 	or another species who has consumed much kinsflesh on their way to orcishness. \
-	An outsider cannot tell a half-orc product of heritage or cannibalism at a glance, leading to much social ostricization.\
+	An outsider cannot tell a half-orc product of heritage or cannibalism at a glance, leading to much social ostracization.\
 	\n\n\
 	Due to their parent's refusal to nurture them, \
 	as well as their other parent often rejecting or attacking them, most Half-Orcs will grow as orphans. \
@@ -17,6 +17,7 @@
 	believing that they are cursed to follow their orcish parent's footsteps in the gorging of kin-flesh. \
 	\n\n\
 	A Half-Orc may display Orcish features, sporting tusks and natural strength. \
+	Many are nigh-indistinguishable visually from full orcs, save for their remaining grasp on self-control.\
 	\n\n\
 	THIS IS AN <I>EXTREMELY</I> DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. <B>NOBLES EVEN MORE SO.</B> PLAY AT YOUR OWN RISK."
 

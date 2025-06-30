@@ -12,10 +12,10 @@
 /datum/species/human/northern
 	name = "Humen"
 	id = "human"
-	desc = "Humenity, creation in Psydon's image. \
+	desc = "Humenity, created in Psydon's image. \
 	\n\n\
 	Humens come from a vast swathe of cultures and ethnicities all around Psydonia, most of which \
-	have historically been at odds with one another and other species. \
+	have historically been at odds with both one another and other species. \
 	With their tenacity and overwhelming population, humens tend to outnumber the other species drastically. \
 	Their saturation leads to most world maps representing humen borders and states over other species'. \
 	\n\n\
