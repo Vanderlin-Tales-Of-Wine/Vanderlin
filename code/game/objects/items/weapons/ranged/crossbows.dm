@@ -181,8 +181,8 @@
 	if(!chambered)
 		return
 	var/obj/item/I = chambered
-	I.pixel_x = 0
-	I.pixel_y = 0
+	I.pixel_x = I.base_pixel_x
+	I.pixel_y = I.base_pixel_y
 	. += mutable_appearance(I.icon, I.icon_state)
 
 /obj/item/ammo_box/magazine/internal/shot/xbow

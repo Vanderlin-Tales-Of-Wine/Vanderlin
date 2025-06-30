@@ -27,7 +27,7 @@
 	deathmessage = "wails, disintegrating into a pile of ectoplasm!"
 	minbodytemp = 0
 	maxbodytemp = 1500
-	movement_type = FLYING
+	is_flying_animal = TRUE
 	gold_core_spawnable = NO_SPAWN //too spooky for science
 	var/random = TRUE //if you want random names for ghosts or not
 
@@ -186,9 +186,8 @@
 	base_state = "fireplace"
 	icon = 'icons/roguetown/misc/fireplace64.dmi'
 	fueluse = -1
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, 0)
 	climb_offset = 4
-
 
 /*	..................   Wizard Shenanigans   ................... */
 /obj/structure/circle_protection
@@ -196,10 +195,10 @@
 	icon = 'icons/roguetown/misc/96x96.dmi'
 	icon_state = "circle"
 	alpha = 180
-	pixel_y = -32
-	pixel_x = -32
+	SET_BASE_PIXEL(-32, -32)
 	var/wall_type = /obj/effect/forcefield/wizard
 	var/depleted
+
 /obj/structure/circle_protection/attack_hand(mob/user)
 	. = ..()
 	var/mob/living/carbon/human/H = user
@@ -328,7 +327,7 @@
 	desc = "These large bushes are known to be well-liked by silkworms who make their nests in their dark depths."
 	icon = 'icons/mob/creacher/trolls/troll.dmi'
 	icon_state = "troll_hide"
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, 0)
 	layer = ABOVE_ALL_MOB_LAYER
 	max_integrity = 500
 	density = TRUE
@@ -366,7 +365,7 @@
 	desc = "These large mana crystals deposit are known to bring fortune to miners who ventures into the deep dark depths of the world."
 	icon = 'icons/mob/creacher/trolls/troll_cave.dmi'
 	icon_state = "troll_hide"
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, 0)
 	layer = ABOVE_ALL_MOB_LAYER
 	max_integrity = 500
 	density = TRUE

@@ -10,7 +10,7 @@ GLOBAL_LIST_INIT(bounty_rep, list())  // ckey -> reputation score
 	icon_state = "bounty_board"
 	anchored = TRUE
 	density = FALSE
-	pixel_y = 32
+	SET_BASE_PIXEL(0, 32)
 	var/list/active_contracts = list()
 	var/list/completed_contracts = list()
 	var/total_bounty_pool = 0

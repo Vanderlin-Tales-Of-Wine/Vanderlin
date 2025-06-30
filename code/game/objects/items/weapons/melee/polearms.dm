@@ -4,8 +4,7 @@
 /obj/item/weapon/polearm
 	throwforce = DAMAGE_STAFF
 	icon = 'icons/roguetown/weapons/64.dmi'
-	pixel_y = -16
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, -16)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	bigboy = TRUE
@@ -484,8 +483,7 @@
 	desc = "A humble farming tool with long reach, traditionally used to cut grass or wheat."
 	icon_state = "scythe"
 	icon = 'icons/roguetown/weapons/64.dmi'
-	pixel_y = -16
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, -16)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	bigboy = TRUE
@@ -519,8 +517,7 @@
 	desc = "A spear made of bones."
 	// icon_state = "bonespear"
 	icon_state = "stonespear_sk"
-	// pixel_y = -16
-	// pixel_x = -16
+	//SET_BASE_PIXEL(-16, -16)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	bigboy = TRUE

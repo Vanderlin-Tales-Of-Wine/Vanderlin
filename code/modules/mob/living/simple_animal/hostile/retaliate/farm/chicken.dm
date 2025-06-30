@@ -115,15 +115,12 @@
 
 /mob/living/simple_animal/hostile/retaliate/chicken/Initialize()
 	. = ..()
-
 	if(chicken_init)
 		if(!body_color)
 			body_color = pick(validColors)
 		icon_state = "[icon_prefix]_[body_color]"
 		icon_living = "[icon_prefix]_[body_color]"
 		icon_dead = "[icon_prefix]_[body_color]_dead"
-	pixel_x = rand(-6, 6)
-	pixel_y = rand(0, 10)
 	++chicken_count
 
 /mob/living/simple_animal/hostile/retaliate/chicken/Destroy()

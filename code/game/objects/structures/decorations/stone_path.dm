@@ -63,9 +63,9 @@
 		addtimer(CALLBACK(src, PROC_REF(rebuild)), 55)
 
 /obj/structure/stone_tile/proc/rebuild()
-	pixel_x = initial(pixel_x)
-	pixel_y = initial(pixel_y) - 5
-	animate(src, alpha = initial(alpha), pixel_x = initial(pixel_x), pixel_y = initial(pixel_y), time = 30)
+	pixel_x = base_pixel_x
+	pixel_y = base_pixel_y - 5
+	animate(src, alpha = initial(alpha), pixel_x = base_pixel_x, pixel_y = base_pixel_y, time = 30)
 	sleep(30)
 	falling = FALSE
 	fallen = FALSE

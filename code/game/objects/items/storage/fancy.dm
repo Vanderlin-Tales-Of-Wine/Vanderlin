@@ -17,7 +17,7 @@
 /obj/item/storage/fancy
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "donutbox6"
-	var/base_icon_state = "donutbox"
+	base_icon_state = "donutbox"
 	resistance_flags = FLAMMABLE
 	/// Used by examine to report what this thing is holding.
 	var/contents_tag = "errors"

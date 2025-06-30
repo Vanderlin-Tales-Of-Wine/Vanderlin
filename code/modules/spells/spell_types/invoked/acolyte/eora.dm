@@ -232,8 +232,9 @@
 
 /obj/structure/wine_bubble/Initialize()
 	. = ..()
-	float(on = TRUE)
-	QDEL_IN(src, 100)
+	AddElement(/datum/element/movetype_handler)
+	ADD_TRAIT(src, TRAIT_MOVE_FLOATING, LEAPER_BUBBLE_TRAIT)
+	QDEL_IN(src, 10 SECONDS)
 
 /obj/structure/wine_bubble/Destroy()
 	new /obj/effect/temp_visual/wine_projectile_impact(get_turf(src))

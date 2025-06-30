@@ -114,8 +114,8 @@
 	if(!material)
 		return
 	var/obj/item/I = material
-	I.pixel_x = 0
-	I.pixel_y = 0
+	I.pixel_x = I.base_pixel_x
+	I.pixel_y = I.base_pixel_y
 	var/mutable_appearance/M = new /mutable_appearance(I)
 	M.transform *= 0.8
 	M.pixel_y = 6

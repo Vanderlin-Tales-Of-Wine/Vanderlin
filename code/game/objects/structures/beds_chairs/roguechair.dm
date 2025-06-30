@@ -7,7 +7,6 @@
 	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
 	attacked_sound = "woodimpact"
 	sleepy = 0.55
-//	pixel_y = 10
 	layer = OBJ_LAYER
 	metalizer_result = /obj/item/statue/iron/deformed
 	anchored = TRUE
@@ -206,17 +205,14 @@
 	origin_type = /obj/structure/chair/wood/alt/fancy
 
 /obj/structure/chair/wood/alt
-//	pixel_y = 5
 
 /obj/structure/chair/wood/alt/post_buckle_mob(mob/living/M)
 	..()
 	density = TRUE
-//	M.set_mob_offsets("bed_buckle", _x = 0, _y = 5)
 
 /obj/structure/chair/wood/alt/post_unbuckle_mob(mob/living/M)
 	..()
 	density = FALSE
-//	M.reset_offsets("bed_buckle")
 
 /obj/item/chair/stool/bar
 	name = "stool"

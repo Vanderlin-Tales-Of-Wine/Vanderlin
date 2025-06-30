@@ -161,8 +161,8 @@
 		var/atom/A = new path(location)
 		if(build_dir)
 			A.setDir(build_dir)
-		A.pixel_x = pixel_x_offset
-		A.pixel_y = pixel_y_offset
+		A.pixel_x = A.base_pixel_x + pixel_x_offset
+		A.pixel_y = A.base_pixel_y + pixel_y_offset
 		log_admin("[key_name(user)] placed [path] at [AREACOORD(location)]")
 
 /**

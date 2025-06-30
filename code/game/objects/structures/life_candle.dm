@@ -24,6 +24,10 @@
 	var/respawn_time = 50
 	var/respawn_sound = 'sound/blank.ogg'
 
+/obj/structure/life_candle/Initialize(mapload, ...)
+	. = ..()
+	AddElement(/datum/element/movetype_handler)
+
 /obj/structure/life_candle/attack_hand(mob/user)
 	. = ..()
 	if(.)
@@ -33,13 +37,15 @@
 	if(user.mind in linked_minds)
 		user.visible_message("<span class='notice'>[user] reaches out and pinches the flame of [src].</span>", "<span class='warning'>I sever the connection between myself and [src].</span>")
 		linked_minds -= user.mind
+		if(!LAZYLEN(linked_minds))
+			REMOVE_TRAIT(src, TRAIT_MOVE_FLOATING, LIFECANDLE_TRAIT)
 	else
 		user.visible_message("<span class='notice'>[user] touches [src]. It seems to respond to [user.p_their()] presence!</span>", "<span class='warning'>I create a connection between you and [src].</span>")
 		linked_minds |= user.mind
+		if(!LAZYLEN(linked_minds))
+			ADD_TRAIT(src, TRAIT_MOVE_FLOATING, LIFECANDLE_TRAIT)
 
-	update_appearance(UPDATE_ICON_STATE)
-	float(linked_minds.len)
-	if(linked_minds.len)
+	if(LAZYLEN(linked_minds))
 		START_PROCESSING(SSobj, src)
 		set_light(lit_luminosity)
 	else
@@ -48,20 +54,20 @@
 
 /obj/structure/life_candle/update_icon_state()
 	. = ..()
-	if(length(linked_minds))
+	if(LAZYLEN(linked_minds))
 		icon_state = icon_state_active
 	else
 		icon_state = icon_state_inactive
 
 /obj/structure/life_candle/examine(mob/user)
 	. = ..()
-	if(linked_minds.len)
-		. += "[src] is active, and linked to [linked_minds.len] souls."
+	if(LAZYLEN(linked_minds))
+		. += "[src] is active, and linked to [LAZYLEN(linked_minds)] souls."
 	else
 		. += "It is static, still, unmoving."
 
 /obj/structure/life_candle/process()
-	if(!linked_minds.len)
+	if(!LAZYLEN(linked_minds))
 		STOP_PROCESSING(SSobj, src)
 		return
 

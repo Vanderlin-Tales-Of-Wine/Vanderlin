@@ -59,8 +59,8 @@
 		var/zenar_value = min(floor(zenars_to_put), 20)
 		var/obj/item/coin/G = new type_to_put(T, zenar_value)
 		zenars_to_put -= zenar_value
-		G.pixel_y = rand(-4, 4)
-		G.pixel_x = rand(-4, 4)
+		G.pixel_y = G.base_pixel_y + rand(-4, 4)
+		G.pixel_x = G.base_pixel_x + rand(-4, 4)
 
 		if(user)
 			user.put_in_hands(G)

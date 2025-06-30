@@ -8,17 +8,20 @@
 
 /obj/structure/wild_plant/Initialize(mapload, ...)
 	. = ..()
+
 	if(!plant_type || !istype(plant_type))
 		return
-	plant_type = new plant_type
+
+	plant_type = new plant_type(src)
+
 	if(prob(spread_chance))
 		try_spread()
 
 	name = name + plant_type.name
 	desc = desc + plant_type.name
 
-	pixel_x = rand(-12, 12)
-	pixel_y = rand(-12, 12)
+	pixel_x = base_pixel_x + rand(-12, 12)
+	pixel_y = base_pixel_y + rand(-12, 12)
 
 	icon_state = "[plant_type.icon_state]2"
 

@@ -54,8 +54,8 @@
 	if(!tastes)
 		tastes = list("[name]" = 1)
 
-	pixel_x = rand(-5, 5)
-	pixel_y = rand(-5, 5)
+	pixel_x = base_pixel_x + rand(-5, 5)
+	pixel_y = base_pixel_y + rand(-5, 5)
 
 	if(dried_type == -1)
 		dried_type = src.type

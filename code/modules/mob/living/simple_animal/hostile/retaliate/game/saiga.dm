@@ -6,7 +6,7 @@
 	icon_living = "saiga"
 	icon_dead = "saiga_dead"
 	icon_gib = "saiga_gib"
-	pixel_x = -8
+	SET_BASE_PIXEL(-8, 0)
 
 	animal_species = /mob/living/simple_animal/hostile/retaliate/saigabuck
 	faction = list("saiga")
@@ -177,7 +177,7 @@
 	icon_living = "buck"
 	icon_dead = "buck_dead"
 	icon_gib = "buck_gib"
-	pixel_x = -8
+	SET_BASE_PIXEL(-8, 0)
 
 	faction = list("saiga")
 	footstep_type = FOOTSTEP_MOB_SHOE
@@ -361,7 +361,7 @@
 	base_strength = 5
 	base_speed = 5
 	defprob = 50
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, 0)
 	adult_growth = /mob/living/simple_animal/hostile/retaliate/saiga
 	tame = TRUE
 	can_buckle = FALSE

@@ -25,7 +25,7 @@
 	muzzle_type = null
 	impact_type = null
 	hitscan = TRUE
-	movement_type = UNSTOPPABLE
+	movement_type = PHASING
 	damage = 25
 	damage_type = BRUTE
 	nodamage = FALSE

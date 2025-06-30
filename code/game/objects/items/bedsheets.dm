@@ -40,8 +40,8 @@ LINEN BINS
 /obj/item/bedsheet/proc/coverup(mob/living/sleeper)
 	layer = ABOVE_MOB_LAYER
 	plane = GAME_PLANE_UPPER
-	pixel_x = 0
-	pixel_y = 0
+	pixel_x = base_pixel_x
+	pixel_y = base_pixel_y
 	to_chat(sleeper, "<span class='notice'>I cover myself with [src].</span>")
 	var/angle = sleeper.lying_prev
 	dir = angle2dir(angle + 180) // 180 flips it to be the same direction as the mob

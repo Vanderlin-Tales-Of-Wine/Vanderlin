@@ -365,8 +365,8 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 			new mineralType(src.loc, mineralAmt)
 		for(var/i in 1 to rand(1,3))
 			var/obj/item/S = new /obj/item/natural/stone(src.loc)
-			S.pixel_x = rand(25,-25)
-			S.pixel_y = rand(25,-25)
+			S.pixel_x = S.base_pixel_x + rand(25,-25)
+			S.pixel_y = S.base_pixel_y + rand(25,-25)
 		GLOB.vanderlin_round_stats[STATS_ROCKS_MINED]++
 	qdel(src)
 

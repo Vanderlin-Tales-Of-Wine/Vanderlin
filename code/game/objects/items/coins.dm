@@ -53,8 +53,8 @@
 		return
 
 /obj/item/coin/proc/scatter(turf/T)
-	pixel_x = rand(-8, 8)
-	pixel_y = rand(-5, 5)
+	pixel_x = base_pixel_x + rand(-8, 8)
+	pixel_y = base_pixel_y + rand(-5, 5)
 	if(isturf(T) && quantity > 1)
 		for(var/i in 2 to quantity) // exclude the first coin
 			var/spawned_type = type
@@ -70,8 +70,8 @@
 			var/obj/item/coin/new_coin = new spawned_type
 			new_coin.forceMove(T)
 			new_coin.set_quantity(1) // prevent exploits with coin piles
-			new_coin.pixel_x = rand(-8, 8)
-			new_coin.pixel_y = rand(-5, 5)
+			new_coin.pixel_x = new_coin.base_pixel_x + rand(-8, 8)
+			new_coin.pixel_y = new_coin.base_pixel_y + rand(-5, 5)
 
 	set_quantity(1)
 

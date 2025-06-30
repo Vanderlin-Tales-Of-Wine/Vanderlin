@@ -139,8 +139,7 @@
 	icon_state = "rocks"
 	icon = 'icons/obj/flora/largejungleflora.dmi'
 	density = FALSE
-	pixel_x = -16
-	pixel_y = -16
+	SET_BASE_PIXEL(-16, -16)
 
 /obj/structure/flora/rock/pile/largejungle/Initialize()
 	. = ..()

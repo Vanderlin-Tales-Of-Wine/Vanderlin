@@ -109,8 +109,8 @@
 	var/turf/T
 	if(members[first_turf_index] != /turf/template_noop)
 		var/obj/effect/returned = instance_atom_image(members[first_turf_index],members_attributes[first_turf_index],crds,no_changeturf,placeOnTop, offset_x, offset_y)
-		returned.pixel_y = offset_y
-		returned.pixel_x = offset_x
+		returned.pixel_y = returned.base_pixel_y + offset_y
+		returned.pixel_x = returned.base_pixel_x + offset_x
 		overlay.add_overlay(returned)
 
 	if(T)
@@ -118,8 +118,8 @@
 		index = first_turf_index + 1
 		while(index <= members.len - 1) // Last item is an /area
 			var/obj/effect/returned = instance_atom_image(members[index],members_attributes[index],crds,no_changeturf,placeOnTop)
-			returned.pixel_y = offset_y
-			returned.pixel_x = offset_x
+			returned.pixel_y = returned.base_pixel_y + offset_y
+			returned.pixel_x = returned.base_pixel_x + offset_x
 			overlay.add_overlay(returned)
 			index++
 

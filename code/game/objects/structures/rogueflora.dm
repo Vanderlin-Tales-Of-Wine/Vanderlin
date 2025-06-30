@@ -1,5 +1,4 @@
 /obj/structure/flora
-	var/base_icon_state
 	var/num_random_icons = 0
 
 /obj/structure/flora/Initialize()
@@ -20,7 +19,7 @@
 	density = TRUE
 	max_integrity = 200
 	blade_dulling = DULLING_CUT
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, 0)
 	layer = 4.81
 	plane = GAME_PLANE_UPPER
 	attacked_sound = 'sound/misc/woodhit.ogg'
@@ -124,9 +123,8 @@
 	icon_state = "t1"
 	num_random_icons = 4
 	stump_type = /obj/structure/table/wood/treestump/burnt
-	pixel_x = -32
+	SET_BASE_PIXEL(-32, 0)
 	metalizer_result = /obj/machinery/anvil
-
 
 /obj/structure/flora/tree/underworld
 	name = "screaming tree"
@@ -143,7 +141,7 @@
 	icon = 'icons/obj/flora/pines.dmi'
 	static_debris = list(/obj/item/ore/coal/charcoal = 1)
 	stump_type = null
-	pixel_x = -32
+	SET_BASE_PIXEL(-32, 0)
 
 /obj/structure/flora/tree/stump/pine/Initialize()
 	. = ..()
@@ -230,8 +228,7 @@
 	static_debris = list(/obj/item/grown/log/tree = 1)
 	max_integrity = 200
 	sleepy = 0.2
-	pixel_x = -14
-	pixel_y = 7
+	SET_BASE_PIXEL(-14, 7)
 	pass_flags = PASSTABLE
 
 /obj/structure/chair/bench/ancientlog/Initialize()
@@ -442,7 +439,11 @@
 	desc = "A tall bush that has grown into a hedge."
 	icon_state = "tallbush1"
 	base_icon_state = "tallbush"
-	pixel_x = -16
+	opacity = TRUE
+	SET_BASE_PIXEL(-16, 0)
+	num_random_icons = 2
+	debris = null
+	static_debris = null
 
 /obj/structure/flora/grass/bush/wall/tall/tundra
 	name = "tundra great bush"
@@ -552,7 +553,7 @@
 	num_random_icons = 5
 	max_integrity = 120
 	blade_dulling = DULLING_CUT
-	pixel_x = -16
+	SET_BASE_PIXEL(-16, 0)
 	layer = 4.81
 	attacked_sound = 'sound/misc/woodhit.ogg'
 	destroy_sound = 'sound/misc/woodhit.ogg'
@@ -606,6 +607,9 @@
 	desc = "It was a very happy shroom. Not anymore."
 	icon = 'icons/roguetown/misc/foliagetall.dmi'
 	icon_state = "stump_mush1"
+	alpha = 255
+	SET_BASE_PIXEL(-16, 0)
+	climb_offset = 14
 	stump_loot = /obj/item/reagent_containers/food/snacks/truffles
 
 /obj/structure/table/wood/treestump/shroomstump/Initialize()
@@ -833,12 +837,10 @@
 	prob2findgoodie = 15
 	luckydouble	= 3
 
-
 /obj/structure/flora/grass/bush_meagre/bog
 	desc = "These large bushes are known to be well-liked by silkworms who make their nests in their dark depths."
 	icon = 'icons/mob/creacher/trolls/troll.dmi'
 	icon_state = "troll_hide"
+	SET_BASE_PIXEL(-16, -1)
 	num_random_icons = 0
-	pixel_x = -16
-	pixel_y = -1
 	silky = TRUE

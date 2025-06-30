@@ -12,8 +12,8 @@
 	. = ..()
 	create_reagents(50)
 
-	pixel_x = rand(-5, 5)
-	pixel_y = rand(-5, 5)
+	pixel_x = base_pixel_x + rand(-5, 5)
+	pixel_y = base_pixel_y + rand(-5, 5)
 
 /obj/item/grown/Destroy()
 	if(seed)
