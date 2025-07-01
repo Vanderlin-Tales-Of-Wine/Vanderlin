@@ -804,10 +804,12 @@
 /obj/structure/fluff/telescope/attack_hand(mob/user)
 	if(!ishuman(user))
 		return
+
+	var/mob/living/carbon/human/H = user
 	to_chat(H, "<span class='notice'>I look through the telescope, hoping to glimpse something beyond.</span>")
 	if(!do_after(H, 3 SECONDS, target = src))
 		return
-	var/mob/living/carbon/human/H = user
+
 	var/random_message = rand(1,5)
 	switch(random_message)
 		if(1)
