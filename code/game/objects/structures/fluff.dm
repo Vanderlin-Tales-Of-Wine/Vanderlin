@@ -800,6 +800,37 @@
 	icon_state = "telescope"
 	density = TRUE
 	anchored = FALSE
+	cooldown = 5 SECONDS
+
+/obj/structure/fluff/telescope/attack_hand(mob/user)
+	if(!ishuman(user))
+		return
+	to_chat(H, "<span class='notice'>I look through the telescope, hoping to glimpse something beyond.</span>")
+	if(!do_after(H, 3 SECONDS, target = src))
+		return
+	var/mob/living/carbon/human/H = user
+	var/random_message = rand(1,5)
+	switch(random_message)
+		if(1)
+			to_chat(H, "You can see Noc rotating.")
+			if(do_after(H, 1 SECONDS, target = src))
+				to_chat(H, span_warning("Noc's glow seems to help clear your thoughts."))
+				H.apply_status_effect(/datum/status_effect/buff/nocblessing)
+				H.playsound_local(H, 'sound/misc/notice (2).ogg', 100, FALSE)
+		if(2)
+			to_chat(H, "Looking at Astrata blinds you</span>")
+			if(do_after(H, 1 SECONDS, src)) // QUICK LOOK AWAY !!
+				var/obj/item/bodypart/affecting = H.get_bodypart("head")
+				to_chat(H, "<span class='warning'>The blinding light causes you intense pain!</span>")
+				H.emote("scream", forced=TRUE)
+				if(affecting && affecting.receive_damage(0, 10))
+					H.update_damage_overlays()
+		if(3)
+			to_chat(H, "The stars smile at you.</span>")
+		if(4)
+			to_chat(H, "Blessed yellow strife.</span>")
+		if(5)
+			to_chat(H, "You see a star!</span>")
 
 /obj/structure/fluff/stonecoffin
 	name = "stone coffin"
@@ -808,38 +839,6 @@
 	icon_state = "stonecoffin"
 	density = TRUE
 	anchored = TRUE
-
-/obj/structure/fluff/telescope/attack_hand(mob/user)
-	if(!ishuman(user))
-		return
-
-	var/mob/living/carbon/human/H = user
-	var/random_message = rand(1,5)
-	var/message2send = ""
-	switch(random_message)
-		if(1)
-			message2send = "You can see Noc rotating."
-		if(2)
-			message2send = "Looking at Astrata blinds you!"
-		if(3)
-			message2send = "The stars smile at you."
-		if(4)
-			message2send = "Blessed yellow strife."
-		if(5)
-			message2send = "You see a star!"
-	to_chat(H, "<span class='notice'>[message2send]</span>")
-
-	if(random_message == 2)
-		if(do_after(H, 1 SECONDS, src)) // QUICK LOOK AWAY !!
-			var/obj/item/bodypart/affecting = H.get_bodypart("head")
-			to_chat(H, "<span class='warning'>The blinding light causes you intense pain!</span>")
-			if(affecting && affecting.receive_damage(0, 10))
-				H.update_damage_overlays()
-
-	if(random_message == 1)
-		if(do_after(H, 1 SECONDS, target = src))
-			to_chat(H, span_warning("Noc's glow seems to help clear your thoughts."))
-			H.apply_status_effect(/datum/status_effect/buff/nocblessing)
 
 /obj/structure/fluff/globe
 	name = "globe"
