@@ -939,22 +939,24 @@
 	name = "arachnid idol"
 	desc = "A stone idol of a spider with the head of a smirking elven woman. Her eyes seem to follow you."
 	icon_state = "spidercore"
+	var/goal = 5
+	var/current = 0
+	var/objective = /obj/item/organ/ears
 
 /obj/structure/fluff/statue/spider/examine(mob/user)
 	. = ..()
-	if(user.mind.special_role == "Dark Elf")
-		say("BRING ME [SSmapping.retainer.delf_goal - SSmapping.retainer.delf_contribute] EARS. I HUNGER.",language = /datum/language/elvish)
+	if(isdarkelf(user))
+		say("BRING ME [goal - current] EARS. I HUNGER.",language = /datum/language/elvish)
 
 /obj/structure/fluff/statue/spider/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/organ/ears))
+	if(istype(W, objective))
 		if(user.mind)
-			if(user.mind.special_role == "Dark Elf")
+			if(isdarkelf(user))
 				playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
-				SSmapping.retainer.delf_contribute += 1
-				if(SSmapping.retainer.delf_contribute >= SSmapping.retainer.delf_goal)
+				current += 1
+				if(current >= goal)
 					say("YOU HAVE DONE WELL, MY CHILD.",language = /datum/language/elvish)
 					user.adjust_triumphs(1, reason = "Pleased the dark lady")
-					SSmapping.retainer.delf_contribute = 0
 					qdel(src)
 					// TODO : add crumbling message and sound
 				else

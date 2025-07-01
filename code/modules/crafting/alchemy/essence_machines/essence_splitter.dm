@@ -136,6 +136,7 @@
 	return TRUE
 
 /obj/machinery/essence/splitter/attack_hand(mob/user, params)
+	. = ..()
 	if(processing)
 		to_chat(user, span_warning("The splitter is currently processing."))
 		return
@@ -143,7 +144,7 @@
 	begin_bulk_splitting(user)
 
 /obj/machinery/essence/splitter/attack_right(mob/user, params)
-
+	. = ..()
 	if(processing)
 		to_chat(user, span_warning("The splitter is currently processing."))
 		return
