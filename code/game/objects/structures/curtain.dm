@@ -65,5 +65,5 @@
 	alpha = 255
 
 /obj/structure/curtain/bounty/dir
-	directional = TRUE
 	icon_state = MAP_SWITCH("bounty-open", "bountydir")
+	directional = TRUE
