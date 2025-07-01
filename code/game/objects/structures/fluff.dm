@@ -800,7 +800,6 @@
 	icon_state = "telescope"
 	density = TRUE
 	anchored = FALSE
-	cooldown = 5 SECONDS
 
 /obj/structure/fluff/telescope/attack_hand(mob/user)
 	if(!ishuman(user))
