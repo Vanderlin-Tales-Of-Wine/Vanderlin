@@ -36,8 +36,7 @@
 /obj/effect/flyer_shadow/Initialize()
 	. = ..()
 	transform = matrix() * 0.75 // Make the shadow slightly smaller
-	add_filter("shadow_blur", 1, list("type" = "blur", "size" = 1))
-
+	add_filter("shadow_blur", 1, gauss_blur_filter(1))
 
 /obj/effect/flyer_shadow/attackby(obj/item/W, mob/user, params)
 	if(is_pointy_weapon(W) && flying_mob && flight_spell)
