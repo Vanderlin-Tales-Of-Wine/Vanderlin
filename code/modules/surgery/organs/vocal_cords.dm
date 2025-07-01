@@ -66,11 +66,11 @@
 	invocation_type = "none"
 
 /obj/effect/proc_holder/spell/self/harpy_sing/cast(list/targets, mob/living/user = usr)
-	..()
+	. = ..()
 	var/obj/item/organ/vocal_cords/harpy/vocal_cords = user.getorganslot(ORGAN_SLOT_VOICE)
 	if(!istype(vocal_cords) || !vocal_cords.vocals)
 		return
-	if(vocal_cords.vocals && vocal_cords.vocals.playing)
+	if(vocal_cords.vocals.playing)
 		vocal_cords.vocals.terminate_playing(user)  // Stop singing when removed
 		return TRUE
 	vocal_cords.vocals.attack_self(user)

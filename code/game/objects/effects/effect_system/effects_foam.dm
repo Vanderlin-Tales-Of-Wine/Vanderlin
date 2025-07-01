@@ -30,9 +30,6 @@
 	create_reagents(1000) //limited by the size of the reagent holder anyway.
 	START_PROCESSING(SSfastprocess, src)
 	playsound(src, 'sound/blank.ogg', 80, TRUE, -3)
-
-/obj/effect/particle_effect/foam/ComponentInitialize()
-	. = ..()
 	if(slippery_foam)
 		AddComponent(/datum/component/slippery, 100)
 

@@ -110,7 +110,7 @@
 	// Restore some durability or repair minor damage
 	if(target.obj_integrity < target.max_integrity)
 		target.obj_integrity = min(target.max_integrity, target.obj_integrity + 10)
-		target.update_icon()
+		target.update_appearance()
 
 	return ..()
 

@@ -73,7 +73,6 @@
 			if(observe.client)
 				observe.client.screen -= I
 	I.forceMove(src)
-	I.layer = ABOVE_HUD_LAYER
 	I.plane = ABOVE_HUD_PLANE
 	I.appearance_flags |= NO_CLIENT_COLOR
 	var/not_handled = FALSE
@@ -115,8 +114,8 @@
 		I.equipped(src, slot)
 
 	if(hud_used)
-		hud_used.throw_icon?.update_icon()
-		hud_used.give_intent?.update_icon()
+		hud_used.throw_icon?.update_appearance()
+		hud_used.give_intent?.update_appearance()
 
 	return not_handled
 

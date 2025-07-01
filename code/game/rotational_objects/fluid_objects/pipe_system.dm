@@ -31,7 +31,7 @@
 				return
 			set_connection(get_dir_multiz(src, pipe))
 			pipe.set_connection(get_dir_multiz(pipe, src))
-			pipe.update_overlays()
+			pipe.update_appearance(UPDATE_OVERLAYS)
 			if(pipe.check_id && !check_id)
 				check_id = pipe.check_id
 
@@ -44,7 +44,7 @@
 				continue
 			set_connection(get_dir(src, structure))
 
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 	// START_PROCESSING(SSobj, src)
 
 /obj/structure/water_pipe/Destroy()
@@ -57,7 +57,7 @@
 			if(!istype(pipe))
 				continue
 			pipe.unset_connection(get_dir_multiz(pipe, old_turf))
-			pipe.update_overlays()
+			pipe.update_appearance(UPDATE_OVERLAYS)
 			directional_pipes |= pipe
 
 		if(!(direction & ALL_CARDINALS))
@@ -152,11 +152,11 @@
 
 /obj/structure/water_pipe/proc/set_connection(dir)
 	connected["[dir]"] = 1
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/water_pipe/proc/unset_connection(dir)
 	connected["[dir]"] = 0
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/water_pipe/update_overlays()
 	. = ..()
@@ -169,15 +169,14 @@
 	icon_state = "[new_overlay]"
 	if(!new_overlay)
 		icon_state = "base"
-	cut_overlays()
 	for(var/i in connected)
 		if(!connected[i])
 			continue
 		var/num = text2num(i)
 		if(num & UP)
-			add_overlay(image(icon=icon,icon_state="up"))
+			. += "up"
 		else if(num & DOWN)
-			add_overlay(image(icon=icon,icon_state="down"))
+			. += "down"
 
 	manipulate_possible_steam_creaks()
 

@@ -588,11 +588,6 @@
 		m_intent = MOVE_INTENT_WALK
 	else
 		m_intent = MOVE_INTENT_RUN
-	if(hud_used && hud_used.static_inventory)
-		for(var/atom/movable/screen/mov_intent/selector in hud_used.static_inventory)
-			selector.update_icon()
-
-
 
 /mob/proc/update_sneak_invis(reset = FALSE)
 	return
@@ -646,7 +641,7 @@
 			m_intent = MOVE_INTENT_RUN
 	if(hud_used && hud_used.static_inventory)
 		for(var/atom/movable/screen/rogmove/selector in hud_used.static_inventory)
-			selector.update_icon()
+			selector.update_appearance()
 	if(!silent)
 		playsound_local(src, 'sound/misc/click.ogg', 100)
 
@@ -660,7 +655,7 @@
 		atom_flags |= NO_DIR_CHANGE
 
 	for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
-		eyet.update_icon(src)
+		eyet.update_appearance(UPDATE_ICON)
 	playsound_local(src, 'sound/misc/click.ogg', 100)
 
 /client/proc/hearallasghost()

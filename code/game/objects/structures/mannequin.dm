@@ -100,7 +100,7 @@
 			if(slot)
 				MannequinEquip(clothing, slot)
 
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/mannequin/attack_hand(mob/living/user)
 	if(user.a_intent.name == "punch")
@@ -130,12 +130,6 @@
 	if(!istype(M) || M.incapacitated(ignore_grab = TRUE) || !Adjacent(M) || unchangeable)
 		return
 	ShowInventory(M)
-
-/obj/structure/mannequin/update_icon()
-	..()
-	overlays.Cut()
-	underlays.Cut()
-	CreateOverlays()
 
 /*
 * This is where the button presses from ShowInventory() go.
@@ -179,7 +173,7 @@
 			if(user?.client)
 				user << browse(null, "window=mannequin[REF(src)]")
 			return
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	ShowInventory(user)
 
 //Mannequin Interaction UI
@@ -337,7 +331,7 @@
 	O.forceMove(src)
 	clothing[item_slot] = O
 
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	return O
 
 /obj/structure/mannequin/proc/MannequinUnequip(obj/item/O, item_slot)
@@ -349,26 +343,26 @@
 	O.forceMove(get_turf(src))
 	clothing[item_slot] = null
 
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	return O
 
 /*
 * THIS IS WHAT HAPPENS WHEN YOU
 * HAVE 3 SPRITES FOR EACH BODYPART!!!
 */
-/obj/structure/mannequin/proc/CreateOverlays()
-	//Pain... PAIN!!!.
+/obj/structure/mannequin/update_overlays()
+	. = ..()
 	var/list/mannequin_overlays = list()
 	for(var/cloth_slot in clothing)
 		if(isitem(clothing[cloth_slot]))
 			mannequin_overlays += FormatOverlay(clothing[cloth_slot], cloth_slot)
 	mannequin_overlays += bodypartsNightmare()
-	overlays += mannequin_overlays
+	. += mannequin_overlays
 
 /*
 * This proc returns a mutative overlay that
 * figures out what icon and icon_state to apply.
-* This is used in update_icon()
+* This is used in update_appearance(UPDATE_OVERLAYS)
 */
 /obj/structure/mannequin/proc/FormatOverlay(obj/item/worn_thing, slot_worn_on)
 	if(!worn_thing)
@@ -529,7 +523,7 @@
 	for(var/slot in clothing)
 		MannequinUnequip(null, slot)
 
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 //For knocking the mannequin over whenever it is hit by a hostile.
 /obj/structure/mannequin/proc/TipOver()

@@ -69,7 +69,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/minotaur/death(gibbed)
 	..()
-	update_icon()
+	update_appearance()
 
 /mob/living/simple_animal/hostile/retaliate/minotaur/taunted(mob/user)
 	emote("aggro")

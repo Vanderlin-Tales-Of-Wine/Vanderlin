@@ -37,30 +37,24 @@
 /obj/machinery/essence/infuser/can_target_accept_essence(target, essence_type)
 	return is_essence_allowed(essence_type)
 
-/obj/machinery/essence/infuser/update_icon()
+/obj/machinery/essence/infuser/update_overlays()
 	. = ..()
-	cut_overlays()
 
 	if(infusion_target)
 		var/mutable_appearance/MA = mutable_appearance(icon, "infuser_item")
-		overlays += MA
+		. += MA
 
 	if(working)
 		var/mutable_appearance/work = mutable_appearance(icon, "infuser_working")
-		overlays += work
+		. += work
 
 	var/essence_percent = (storage.get_total_stored()) / (storage.max_total_capacity)
 	if(!essence_percent)
 		return
 	var/level = clamp(CEILING(essence_percent * 5, 1), 1, 5)
 
-	var/mutable_appearance/MA = mutable_appearance(icon, "liquid_[level]")
-	MA.color = calculate_mixture_color()
-	overlays += MA
-
-	var/mutable_appearance/emissive = mutable_appearance(icon, "liquid_[level]")
-	emissive.plane = EMISSIVE_PLANE
-	overlays += emissive
+	. += mutable_appearance(icon, "liquid_[level]", color = calculate_mixture_color())
+	. += emissive_appearance(icon, "liquid_[level]", alpha = src.alpha)
 
 /obj/machinery/essence/infuser/return_storage()
 	return storage
@@ -122,7 +116,7 @@
 	infusion_target = null
 	current_recipe = null
 	progress = 0
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	visible_message(span_notice("The [src] dings as it completes its work!"))
 
 /obj/machinery/essence/infuser/proc/calculate_mixture_color()
@@ -185,8 +179,8 @@
 			vial.essence_amount -= amount_to_transfer
 			if(vial.essence_amount <= 0)
 				vial.contained_essence = null
-			vial.update_icon()
-			update_icon()
+			vial.update_appearance(UPDATE_OVERLAYS)
+			update_appearance(UPDATE_OVERLAYS)
 			return TRUE
 
 	// Handle target item insertion
@@ -202,7 +196,7 @@
 					var/datum/thaumaturgical_essence/essence = new essence_type
 					to_chat(user, span_notice("- [recipe.required_essences[essence_type]] units of [essence.name]"))
 					qdel(essence)
-				update_icon()
+				update_appearance(UPDATE_OVERLAYS)
 				return TRUE
 			qdel(recipe)
 
@@ -231,7 +225,7 @@
 	working = TRUE
 	progress = 0
 	START_PROCESSING(SSobj, src)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	to_chat(user, span_notice("You start the infusion process..."))
 
 /obj/machinery/essence/infuser/proc/eject_target()
@@ -240,7 +234,7 @@
 	infusion_target.forceMove(get_turf(src))
 	infusion_target = null
 	current_recipe = null
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/essence/infuser/examine(mob/user)
 	. = ..()

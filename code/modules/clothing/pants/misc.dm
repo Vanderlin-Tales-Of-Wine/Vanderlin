@@ -21,11 +21,12 @@
 	max_integrity = INTEGRITY_STANDARD
 	item_weight = 4
 
-/obj/item/clothing/pants/grenzelpants/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
+/obj/item/clothing/pants/grenzelpants/update_overlays()
+	. = ..()
+	if(!get_detail_tag())
+		return
+	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
+	pic.appearance_flags = RESET_COLOR
+	if(get_detail_color())
+		pic.color = get_detail_color()
+	. += pic

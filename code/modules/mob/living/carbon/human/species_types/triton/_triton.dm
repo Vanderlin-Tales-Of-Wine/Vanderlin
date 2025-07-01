@@ -49,9 +49,6 @@
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/triton.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/triton.dmi'
 
-	dam_icon_m = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
-	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
-
 	soundpack_m = /datum/voicepack/female
 	soundpack_f = /datum/voicepack/male
 

@@ -21,6 +21,11 @@
 	/// Pollution of this turf
 	var/datum/pollution/pollution
 
+/turf/open/Initialize(mapload)
+	. = ..()
+	if(wet)
+		AddComponent(/datum/component/wet_floor, wet, INFINITY, 0, INFINITY, TRUE)
+
 /turf/proc/get_slowdown(mob/user)
 	return 0
 
@@ -34,12 +39,6 @@
 
 /turf
 	var/landsound = null
-
-/turf/open/ComponentInitialize()
-	. = ..()
-	if(wet)
-		AddComponent(/datum/component/wet_floor, wet, INFINITY, 0, INFINITY, TRUE)
-
 
 //direction is direction of travel of A
 /turf/open/zPassIn(atom/movable/A, direction, turf/source)

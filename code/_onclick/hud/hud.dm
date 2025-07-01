@@ -26,7 +26,7 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 
 	var/atom/movable/screen/devil/soul_counter/devilsouldisplay
 
-	var/atom/movable/screen/act_intent/action_intent
+	var/atom/movable/screen/act_intent/rogintent/action_intent
 	var/atom/movable/screen/scannies
 	var/atom/movable/screen/act_intent/rogintent/magic/spell_intent
 	var/atom/movable/screen/zone_sel/zone_select
@@ -55,6 +55,8 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	var/list/inv_slots[SLOTS_AMT] // /atom/movable/screen/inventory objects, ordered by their slot ID.
 	var/list/hand_slots // /atom/movable/screen/inventory/hand objects, assoc list of "[held_index]" = object
 	var/list/atom/movable/screen/plane_master/plane_masters = list() // see "appearance_flags" in the ref, assoc list of "[plane]" = object
+	///Assoc list of controller groups, associated with key string group name with value of the plane master controller ref
+	var/list/atom/movable/plane_master_controller/plane_master_controllers = list()
 
 	var/atom/movable/screen/movable/action_button/hide_toggle/hide_actions_toggle
 	var/action_buttons_hidden = FALSE
@@ -115,6 +117,10 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 		plane_masters["[instance.plane]"] = instance
 		instance.backdrop(mymob)
 
+	for(var/mytype in subtypesof(/atom/movable/plane_master_controller))
+		var/atom/movable/plane_master_controller/controller_instance = new mytype(null, src)
+		plane_master_controllers[controller_instance.name] = controller_instance
+
 /datum/hud/new_player/New(mob/owner)
 	..()
 	scannies = new /atom/movable/screen/scannies
@@ -149,6 +155,7 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	blobpwrdisplay = null
 
 	QDEL_LIST_ASSOC_VAL(plane_masters)
+	QDEL_LIST_ASSOC_VAL(plane_master_controllers)
 	QDEL_LIST(screenoverlays)
 	mymob = null
 
@@ -314,7 +321,7 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 		hand_slots["[i]"] = hand_box
 		hand_box.hud = src
 		static_inventory += hand_box
-		hand_box.update_icon()
+		hand_box.update_appearance()
 
 	var/i = 1
 	for(var/atom/movable/screen/swap_hand/SH in static_inventory)

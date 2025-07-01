@@ -62,7 +62,6 @@
 	if(istype(item_to_plate, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/S = item_to_plate
 		S.rotprocess += 1 MINUTES
-	update_icon()
 	w_class = contents.len ? WEIGHT_CLASS_BULKY : WEIGHT_CLASS_NORMAL
 
 ///This proc cleans up any signals on the item when it is removed from a plate, and ensures it has the correct state again.

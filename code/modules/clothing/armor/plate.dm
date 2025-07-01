@@ -1,6 +1,6 @@
 /obj/item/clothing/armor/plate
 	name = "steel half-plate"
-	desc = "Plate armor with shoulder guards. An incomplete, bulky set of excellent armor."
+	desc = "Steel plate armor with shoulder guards. An incomplete, bulky set of excellent armor."
 	icon_state = "halfplate"
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
@@ -12,7 +12,7 @@
 	//Plate doesn't protect a lot against blunt
 	armor_class = AC_HEAVY
 	armor = ARMOR_PLATE
-	body_parts_covered = COVERAGE_ALL_BUT_ARMS
+	body_parts_covered = COVERAGE_ALL_BUT_LEGS //Has shoulder guards, and nothing else to suggest leg protection
 	prevent_crits = ALL_EXCEPT_BLUNT
 	max_integrity = INTEGRITY_STRONGEST
 
@@ -20,10 +20,20 @@
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = SFX_PLATE_STEP)
 
+/obj/item/clothing/armor/plate/iron
+	name = "iron half-plate"
+	desc = "Iron plate armor with shoulder guards. An incomplete, bulky set of good armor."
+	icon_state = "ihalfplate"
+	item_state = "ihalfplate"
+	smeltresult = /obj/item/ingot/iron
+	sellprice = VALUE_IRON_ARMOR
+	armor = ARMOR_PLATE_BAD
+	max_integrity = INTEGRITY_STRONG
+
 //................ Full Plate Armor ............... //
 /obj/item/clothing/armor/plate/full
 	name = "plate armor"
-	desc = "Full plate. Leg protecting tassets, groin cup, armored vambraces."
+	desc = "Full steel plate. Leg protecting tassets, groin cup, armored vambraces."
 	icon_state = "plate"
 	item_state = "plate"
 	equip_delay_self = 8 SECONDS
@@ -34,14 +44,27 @@
 	body_parts_covered = COVERAGE_FULL
 	item_weight = 12 * STEEL_MULTIPLIER
 
-//................ Iron Plate Armor ............... //
-/obj/item/clothing/armor/plate/iron
+/obj/item/clothing/armor/plate/full/iron
 	name = "iron plate armor"
-	desc = "A rough set of iron armor, complete with chainmail joints and pauldrons. A simple and cheap design to protect vital zones, but not the arms."
+	desc = "Full iron plate. Leg protecting tassets, groin cup, armored vambraces."
+	icon_state = "iplate"
+	item_state = "iplate"
+	sellprice = VALUE_IRON_ARMOR*2
+	smeltresult = /obj/item/ingot/iron
+
+	armor = ARMOR_PLATE_BAD
+	max_integrity = INTEGRITY_STRONG
+	item_weight = 12 * IRON_MULTIPLIER
+
+//................Old Iron Plate ............... //
+/obj/item/clothing/armor/plate/iron/old
+	name = "old iron plate armor"//No way to get this right now because I removed the smithing recipe, and it's map spawner spawns iron halfplate instead now. The sprite looks like it's in the steel palette, so it doesn't fit in right.
+	desc = "A rough set of iron armor, complete with chainmail joints and pauldrons. An older and cheaper design that protects the torso and legs."
 	icon_state = "ironplate"
 	smeltresult = /obj/item/ingot/iron
 	sellprice = VALUE_IRON_ARMOR*2
 
+	body_parts_covered = COVERAGE_ALL_BUT_ARMS//This one looks like it covers legs
 	armor = ARMOR_PLATE_BAD
 	max_integrity = INTEGRITY_STRONG
 	item_weight = 12 * IRON_MULTIPLIER

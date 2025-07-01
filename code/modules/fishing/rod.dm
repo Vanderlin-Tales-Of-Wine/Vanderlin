@@ -133,8 +133,7 @@
 					I.forceMove(src)
 					reel = I
 					to_chat(user, "<span class='notice'>I add [I] to [src]...</span>")
-	update_icon()
-	return
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/fishingrod/attack_right(mob/user)
 	var/attacheditems = list()
@@ -165,8 +164,7 @@
 			line = null
 		user.put_in_hands(totake)
 		to_chat(user, "<span class='notice'>I take [totake] off of [src].</span>")
-		update_icon()
-		return
+		update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/fishingrod/examine(mob/user)
 	. = ..()
@@ -195,16 +193,17 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
-/obj/item/fishingrod/update_icon()
-	cut_overlays()
-	if(baited)
-		var/obj/item/I = baited
-		I.pixel_x = 6
-		I.pixel_y = -6
-		add_overlay(new /mutable_appearance(I))
-	if(ismob(loc))
-		var/mob/M = loc
-		M.update_inv_hands()
+/obj/item/fishingrod/update_overlays()
+	. = ..()
+	if(!baited)
+		return
+	var/obj/item/I = baited
+	I.pixel_x = 0
+	I.pixel_y = 0
+	var/mutable_appearance/M = new /mutable_appearance(I)
+	M.pixel_x = 6
+	M.pixel_y = -6
+	. += M
 
 #define FISHRARITYWEIGHTS = list("com" = 70, "rare" = 20, "ultra" = 9, "gold" = 1)
 #define FISHSIZEWEIGHTS = list("tiny" = 4, "small" = 4, "normal" = 4, "large" = 2, "prize" = 1)
@@ -548,7 +547,7 @@
 				else
 					to_chat(user, "<span class='warning'>I must stand still to fish.</span>")
 					return
-			update_icon()
+			update_appearance(UPDATE_OVERLAYS)
 		else //where all nonfishing intents end up
 			return ..()
 	else
@@ -738,7 +737,7 @@
 	stopgame(fisher)
 	qdel(baited)
 	baited = null
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/fishingrod/fisher
 

@@ -334,7 +334,7 @@
 				has_confessed = TRUE
 				held_confession.signed = real_name
 				held_confession.info = "THE GUILTY PARTY ADMITS THEIR SINFUL NATURE AS <font color='red'>[held_confession.bad_type]</font>. THEY WILL SERVE ANY PUNISHMENT OR SERVICE AS REQUIRED BY THE ORDER OF THE PSYCROSS UNDER PENALTY OF DEATH.<br/><br/>SIGNED,<br/><font color='red'><i>[held_confession.signed]</i></font>"
-				held_confession.update_icon_state()
+				held_confession.update_appearance(UPDATE_ICON_STATE)
 			return
 		else
 			if(torture) // Only scream your confession if it's due to torture.

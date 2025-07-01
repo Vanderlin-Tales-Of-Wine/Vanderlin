@@ -86,7 +86,7 @@
 	allowed_sex = list(MALE, FEMALE)
 	allowed_race = list("human", "tiefling", "elf", "aasimar")
 
-/obj/item/clothing/cloak/half/ComponentInitialize()
+/obj/item/clothing/cloak/half/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/grid/cloak)
 
@@ -103,42 +103,14 @@
 	color = CLOTHING_PLUM_PURPLE
 	icon_state = "guardcloak"
 	allowed_race = ALL_RACES_LIST
-
-/obj/item/clothing/cloak/half/guard/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/cloak/half/guard/lordcolor(primary,secondary)
-	if(primary)
-		color = primary
-
-/obj/item/clothing/cloak/half/guard/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/cloak/half/guardsecond
 	name = "guard's half cloak"
 	color = CLOTHING_BLOOD_RED
 	icon_state = "guardcloak"
 	allowed_race = ALL_RACES_LIST
-
-/obj/item/clothing/cloak/half/guardsecond/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/cloak/half/guardsecond/lordcolor(primary,secondary)
-	if(secondary)
-		color = secondary
-
-/obj/item/clothing/cloak/half/guardsecond/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/cloak/half/shadowcloak
 	name = "stalker cloak"
@@ -172,17 +144,7 @@
 	icon_state = "guardcloak"
 	color = CLOTHING_BLOOD_RED
 	inhand_mod = FALSE
-
-/obj/item/clothing/cloak/half/vet/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/cloak/half/vet/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/cloak/half/random/Initialize()
 	color = pick(CLOTHING_WINESTAIN_RED, CLOTHING_MUSTARD_YELLOW, CLOTHING_SOOT_BLACK, CLOTHING_BARK_BROWN, CLOTHING_FOREST_GREEN, CLOTHING_BERRY_BLUE)

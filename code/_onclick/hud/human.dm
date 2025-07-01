@@ -95,13 +95,13 @@
 	stressies.hud = src
 	stressies.screen_loc = rogueui_stress
 	static_inventory += stressies
-	stressies.update_icon()
+	stressies.update_appearance(UPDATE_OVERLAYS)
 
 	rmb_intent = new /atom/movable/screen/rmbintent(owner.client)
 	rmb_intent.hud = src
 	rmb_intent.screen_loc = rogueui_rmbintents
 	static_inventory += rmb_intent
-	rmb_intent.update_icon()
+	rmb_intent.update_appearance(UPDATE_OVERLAYS)
 
 	bloods = new /atom/movable/screen/healths/blood
 	bloods.hud = src
@@ -360,13 +360,13 @@
 	using.screen_loc = rogueui_moves
 	using.hud = src
 	static_inventory += using
-	using.update_icon_state()
+	using.update_appearance(UPDATE_ICON_STATE)
 //sprint button
 	using = new /atom/movable/screen/rogmove/sprint
 	using.screen_loc = rogueui_moves
 	using.hud = src
 	static_inventory += using
-	using.update_icon_state()
+	using.update_appearance(UPDATE_ICON_STATE)
 
 	using = new /atom/movable/screen/eye_intent
 	using.icon = ui_style
@@ -374,18 +374,18 @@
 	using.screen_loc = rogueui_eye
 	using.hud = src
 	static_inventory += using
-	using.update_icon()
+	using.update_appearance(UPDATE_OVERLAYS)
 
 	set_advclass()
 
 	zone_select =  new /atom/movable/screen/zone_sel()
 	zone_select.icon = 'icons/mob/roguehud64.dmi'
 	zone_select.screen_loc = rogueui_targetdoll
-	zone_select.update_icon()
+	zone_select.update_appearance()
 	zone_select.hud = src
 	static_inventory += zone_select
 
-	zone_select.update_icon()
+	zone_select.update_appearance()
 
 	stamina = new /atom/movable/screen/stamina()
 	infodisplay += stamina
@@ -401,7 +401,7 @@
 		if(inv.slot_id)
 			inv.hud = src
 			inv_slots[TOBITSHIFT(inv.slot_id) + 1] = inv
-			inv.update_icon()
+			inv.update_appearance()
 
 	update_locked_slots()
 	mymob.update_a_intents()

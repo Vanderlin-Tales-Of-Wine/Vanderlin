@@ -57,7 +57,8 @@
 		STR.remove_from_storage(I, get_turf(user))
 		user.put_in_hands(I)
 
-/obj/item/storage/sack/update_icon()
+/obj/item/storage/sack/update_icon_state()
+	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	var/list/things = STR.contents()
 	if(things.len)

@@ -114,7 +114,7 @@
 	close_switchstates()
 	mode = new newmode(src)
 	mode.enter_mode(src)
-	modebutton.update_icon()
+	modebutton.update_appearance()
 
 /**
  * Change the build direction
@@ -125,7 +125,7 @@
 /datum/buildmode/proc/change_dir(newdir)
 	build_dir = newdir
 	close_dirswitch()
-	dirbutton.update_icon()
+	dirbutton.update_appearance()
 	update_preview_position()
 	return 1
 
@@ -137,7 +137,7 @@
 /datum/buildmode/proc/change_category(new_category)
 	close_categoryswitch()
 	current_category = new_category
-	categorybutton.update_icon()
+	categorybutton.update_appearance()
 	open_item_browser()
 
 /**

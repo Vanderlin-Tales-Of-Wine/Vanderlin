@@ -51,7 +51,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 /obj/structure/fermentation_keg/Initialize()
 	. = ..()
-	create_reagents(900, OPENCONTAINER | NO_REACT | AMOUNT_VISIBLE | REFILLABLE) //on agv it should be 120u for water then rest can be other needed chemicals
+	create_reagents(900, NO_REACT | AMOUNT_VISIBLE | REFILLABLE | DRAINABLE) //on agv it should be 120u for water then rest can be other needed chemicals
 	recipe_crop_stocks = list()
 
 	soundloop = new(src, brewing)
@@ -70,22 +70,21 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 /obj/structure/fermentation_keg/update_overlays()
 	. = ..()
-	if(length(overlays))
-		overlays.Cut()
-
-	if(!reagents.total_volume)
+	if(!reagents?.total_volume)
 		return
+
 	if(icon_state != open_icon_state)
 		return
-	var/mutable_appearance/MA = mutable_appearance(icon, "filling")
-	MA.color = mix_color_from_reagents(reagents)
-	for(var/datum/reagent/reagent as anything in reagents.reagent_list)
-		if(reagent.glows)
-			var/mutable_appearance/emissive = mutable_appearance(icon, "filling")
-			emissive.plane = EMISSIVE_PLANE
-			overlays += emissive
-			break
-	overlays += MA
+	var/used_alpha = mix_alpha_from_reagents(reagents.reagent_list)
+	. += mutable_appearance(
+		icon,
+		"filling",
+		color = mix_color_from_reagents(reagents.reagent_list),
+		alpha = used_alpha,
+	)
+	var/datum/reagent/master = reagents.get_master_reagent()
+	if(master?.glows)
+		. += emissive_appearance(icon, "filling", alpha = used_alpha)
 
 /obj/structure/fermentation_keg/attack_right(mob/user)
 	. = ..()
@@ -176,7 +175,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		user.visible_message("[user] dumps some things into [src].", "You dump some things into [src].")
 
 	. = ..()
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/fermentation_keg/examine(mob/user)
 	. =..()
@@ -285,7 +284,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	sellprice = 25
 	if(open_icon_state)
 		icon_state = open_icon_state
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 	return TRUE
 
 //Remove only chemicals
@@ -309,7 +308,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	made_item = null
 	if(open_icon_state)
 		icon_state = open_icon_state
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 	recipe_crop_stocks.Cut()
 	age_start_time = 0
@@ -347,12 +346,12 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		addtimer(CALLBACK(src, PROC_REF(end_brew)), selected_recipe.brew_time * 0.5)
 	icon_state = initial(icon_state)
 	start_time = world.time
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/fermentation_keg/proc/end_brew()
 	if(!heated)
 		icon_state = "barrel_tapless_ready"
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 	soundloop.stop()
 	ready_to_bottle = TRUE
 	brewing = FALSE
@@ -450,14 +449,13 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	start_time = 0
 	if(open_icon_state)
 		icon_state = open_icon_state
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 	if(selected_recipe.brewed_item)
 		var/items_given
 		for(items_given= 0, items_given < selected_recipe.brewed_item_count, items_given++)
 			new selected_recipe.brewed_item(get_turf(src))
 	selected_recipe = null
-
 
 /obj/structure/fermentation_keg/proc/try_tapping(mob/user)
 	if(tapped)

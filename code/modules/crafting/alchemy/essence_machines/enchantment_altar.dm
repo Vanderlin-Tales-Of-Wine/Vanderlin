@@ -25,7 +25,7 @@
 	altar_storage.max_total_capacity = 500
 	altar_storage.max_essence_types = 15
 
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/essence/enchantment_altar/Destroy()
 	if(altar_storage)
@@ -37,9 +37,8 @@
 		qdel(selected_recipe)
 	return ..()
 
-/obj/machinery/essence/enchantment_altar/update_icon()
-	..()
-	cut_overlays()
+/obj/machinery/essence/enchantment_altar/update_overlays()
+	. = ..()
 
 	if(placed_item)
 		var/mutable_appearance/item_overlay = mutable_appearance(placed_item.icon, placed_item.icon_state)
@@ -50,23 +49,23 @@
 		item_overlay.alpha = 122
 		item_overlay.color = COLOR_CYAN
 
-		add_overlay(item_overlay)
+		. += item_overlay
 
 	if(altar_storage.get_total_stored() > 0)
 		var/mutable_appearance/glow = mutable_appearance(icon, "altar_glow")
 		glow.color = get_dominant_essence_color()
-		add_overlay(glow)
+		. += glow
 
 	if(selected_recipe)
 		var/mutable_appearance/recipe_indicator = mutable_appearance(icon, "recipe_selected")
-		add_overlay(recipe_indicator)
+		. += recipe_indicator
 
 	if(enchanting)
 		var/mutable_appearance/enchant_effect = mutable_appearance(icon, "enchanting")
-		add_overlay(enchant_effect)
+		. += enchant_effect
 
 	var/mutable_appearance/crystal = mutable_appearance(icon, "crystal")
-	add_overlay(crystal)
+	. += crystal
 
 /obj/machinery/essence/enchantment_altar/proc/get_dominant_essence_color()
 	var/highest_amount = 0
@@ -111,9 +110,9 @@
 			if(extracted > 0)
 				vial.contained_essence = new essence_type
 				vial.essence_amount = extracted
-				vial.update_icon()
+				vial.update_appearance(UPDATE_OVERLAYS)
 				to_chat(user, span_info("You extract [extracted] units of essence from the altar."))
-				update_icon()
+				update_appearance(UPDATE_OVERLAYS)
 			return
 
 		var/essence_type = vial.contained_essence.type
@@ -130,13 +129,13 @@
 		to_chat(user, span_info("You pour the [vial.contained_essence.name] into the altar."))
 		vial.contained_essence = null
 		vial.essence_amount = 0
-		vial.update_icon()
+		vial.update_appearance(UPDATE_OVERLAYS)
 
 		// Update recipe progress if we have a selected recipe
 		if(selected_recipe)
 			update_recipe_progress()
 
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 		return TRUE
 
 	// Handle placing items for enchantment
@@ -144,7 +143,7 @@
 		if(user.transferItemToLoc(I, src))
 			placed_item = I
 			to_chat(user, span_info("You place [I] on the altar."))
-			update_icon()
+			update_appearance(UPDATE_OVERLAYS)
 		return TRUE
 
 	..()
@@ -276,7 +275,7 @@
 
 	selected_recipe = new enchantment_path
 	update_recipe_progress()
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 	to_chat(user, span_info("Recipe '[selected_recipe.enchantment_name]' selected. The altar will now only accept essences needed for this recipe."))
 	show_recipe_details(user)
@@ -287,7 +286,7 @@
 		qdel(selected_recipe)
 		selected_recipe = null
 		recipe_progress.Cut()
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/essence/enchantment_altar/proc/show_recipe_progress(mob/user)
 	if(!selected_recipe)
@@ -401,7 +400,7 @@
 		altar_storage.remove_essence(essence_type, required)
 
 	enchanting = TRUE
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 	to_chat(user, span_info("You begin enchanting [placed_item] with [enchant_name]..."))
 
@@ -421,7 +420,7 @@
 /obj/machinery/essence/enchantment_altar/proc/complete_enchantment(enchantment_path, mob/user)
 	if(!placed_item)
 		enchanting = FALSE
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 		return
 
 	// Apply enchantment
@@ -451,7 +450,7 @@
 
 	placed_item = null
 	enchanting = FALSE
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/essence/enchantment_altar/proc/remove_placed_item(mob/user)
 	if(!placed_item)
@@ -468,7 +467,7 @@
 
 	to_chat(user, span_info("You remove [placed_item] from the altar."))
 	placed_item = null
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/essence/enchantment_altar/examine(mob/user)
 	. = ..()

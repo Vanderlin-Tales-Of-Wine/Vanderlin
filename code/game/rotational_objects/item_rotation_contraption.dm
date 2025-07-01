@@ -30,8 +30,7 @@
 
 			in_stack += contraption.in_stack
 			qdel(contraption)
-	update_overlays()
-
+	update_appearance(UPDATE_NAME)
 
 /obj/item/rotation_contraption/afterpickup(mob/user)
 	. = ..()
@@ -99,9 +98,9 @@
 	if(in_stack <= 0)
 		qdel(src)
 	else
-		update_overlays()
+		update_appearance(UPDATE_NAME)
 
-/obj/item/rotation_contraption/update_overlays()
+/obj/item/rotation_contraption/update_name()
 	. = ..()
 	if(in_stack > 1)
 		name = "pile of [initial(placed_type.name)]s x [in_stack]"
@@ -120,7 +119,7 @@
 	I:in_stack += in_stack
 	visible_message("[user] collects [src].")
 	qdel(src)
-	I.update_overlays()
+	I.update_appearance(UPDATE_NAME)
 
 /obj/item/rotation_contraption/cog
 	placed_type = /obj/structure/rotation_piece/cog

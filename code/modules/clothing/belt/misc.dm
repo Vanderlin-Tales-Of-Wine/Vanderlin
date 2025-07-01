@@ -123,7 +123,6 @@
 	attack_verb = list("whips", "lashes")
 	max_integrity = 300
 	equip_sound = 'sound/blank.ogg'
-	content_overlays = FALSE
 	bloody_icon_state = "bodyblood"
 	fiber_salvage = FALSE
 	component_type = /datum/component/storage/concrete/grid/coin_pouch
@@ -342,16 +341,11 @@
 /obj/item/storage/belt/leather/knifebelt/proc/eat_knife(obj/A)
 	if(A.type in typesof(/obj/item/weapon/knife/throwingknife))
 		if(length(contents) < max_storage)
-			if(SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, FALSE))
-				update_icon()
-				return TRUE
-			else
-				return FALSE
+			return SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, FALSE)
 
 /obj/item/storage/belt/leather/knifebelt/attackby(obj/A, mob/living/user, params)
 	if(A.type in typesof(/obj/item/weapon/knife/throwingknife))
 		if(SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, user, TRUE))
-			update_icon()
 			to_chat(usr, span_notice("I discreetly slip [A] into [src]."))
 		else
 			to_chat(loc, span_warning("Full!"))
@@ -365,7 +359,6 @@
 		for(var/knife in knives)
 			user.put_in_active_hand(knife)
 			break
-		update_icon()
 		return TRUE
 
 /obj/item/storage/belt/leather/knifebelt/examine(mob/user)
@@ -379,7 +372,6 @@
 		var/obj/item/weapon/knife/throwingknife/A = new(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
 			qdel(A)
-	update_icon()
 
 /obj/item/storage/belt/leather/knifebelt/steel/Initialize()
 	. = ..()
@@ -387,7 +379,6 @@
 		var/obj/item/weapon/knife/throwingknife/steel/A = new(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
 			qdel(A)
-	update_icon()
 
 /obj/item/storage/belt/leather/knifebelt/psydon/Initialize()
 	. = ..()
@@ -395,10 +386,8 @@
 		var/obj/item/weapon/knife/throwingknife/psydon/A = new(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
 			qdel(A)
-	update_icon()
 
 /obj/item/storage/belt/leather/knifebelt/black
-
 	icon_state = "blackknife"
 	item_state = "blackknife"
 
@@ -408,7 +397,6 @@
 		var/obj/item/weapon/knife/throwingknife/A = new(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
 			qdel(A)
-	update_icon()
 
 /obj/item/storage/belt/leather/knifebelt/black/steel/Initialize()
 	. = ..()
@@ -416,7 +404,6 @@
 		var/obj/item/weapon/knife/throwingknife/steel/A = new(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
 			qdel(A)
-	update_icon()
 
 /obj/item/storage/belt/leather/knifebelt/black/psydon/Initialize()
 	. = ..()
@@ -424,7 +411,6 @@
 		var/obj/item/weapon/knife/throwingknife/psydon/A = new(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
 			qdel(A)
-	update_icon()
 
 ///////////////////////////////////////////////
 
@@ -439,7 +425,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	max_integrity = 300
 	equip_sound = 'sound/blank.ogg'
-	//content_overlays = FALSE
 	bloody_icon_state = "bodyblood"
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/iron
@@ -456,7 +441,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	max_integrity = 400
 	equip_sound = 'sound/blank.ogg'
-	//content_overlays = FALSE
 	bloody_icon_state = "bodyblood"
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/bronze
@@ -483,7 +467,6 @@
 	//w_class = WEIGHT_CLASS_NORMAL
 	//max_integrity = 400
 	//equip_sound = 'sound/blank.ogg'
-	//content_overlays = FALSE
 	//sellprice = 250
 	//bloody_icon_state = "bodyblood"
 	//anvilrepair = /datum/skill/craft/blacksmithing

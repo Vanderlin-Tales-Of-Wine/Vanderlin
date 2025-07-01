@@ -1,9 +1,6 @@
 /**
  * Core buildmode mode buttons
  */
-/atom/movable/screen/buildmode
-	icon = 'icons/misc/buildmode.dmi'
-
 /atom/movable/screen/buildmode/New(datum/buildmode/bm)
 	bd = bm
 	return ..()
@@ -20,8 +17,9 @@
 /atom/movable/screen/buildmode/mode/Click()
 	bd.toggle_modeswitch()
 
-/atom/movable/screen/buildmode/mode/update_icon()
+/atom/movable/screen/buildmode/mode/update_icon_state()
 	icon_state = "buildmode[bd.mode.key ? bd.mode.key : 1]"
+	return ..()
 
 /atom/movable/screen/buildmode/help
 	icon_state = "buildhelp"
@@ -38,6 +36,7 @@
 
 /atom/movable/screen/buildmode/bdir/update_icon()
 	dir = bd.build_dir
+	return ..()
 
 /atom/movable/screen/buildmode/bdir/Click()
 	bd.toggle_dirswitch()

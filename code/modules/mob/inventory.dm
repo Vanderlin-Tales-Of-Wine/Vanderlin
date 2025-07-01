@@ -159,7 +159,6 @@
 //		dropItemToGround(get_item_for_held_index(hand_index), force = TRUE)
 	I.forceMove(src)
 	held_items[hand_index] = I
-	I.layer = ABOVE_HUD_LAYER
 	I.plane = ABOVE_HUD_PLANE
 	I.equipped(src, ITEM_SLOT_HANDS)
 	if(QDELETED(I)) // this is here because some ABSTRACT items like slappers and circle hands could be moved from hand to hand then delete, which meant you'd have a null in your hand until you cleared it (say, by dropping it)
@@ -173,8 +172,8 @@
 	I.pixel_x = initial(I.pixel_x)
 	I.pixel_y = initial(I.pixel_y)
 	if(hud_used)
-		hud_used.throw_icon?.update_icon()
-		hud_used.give_intent?.update_icon()
+		hud_used.throw_icon?.update_appearance()
+		hud_used.give_intent?.update_appearance()
 	givingto = null
 	if((istype(I, /obj/item/weapon) || istype(I, /obj/item/gun) || I.force >= 15) && !forced && client)
 		// is this the right hand?
@@ -322,8 +321,8 @@
 				I.forceMove(newloc)
 		I.dropped(src, silent)
 	if(hud_used)
-		hud_used.throw_icon?.update_icon()
-		hud_used.give_intent?.update_icon()
+		hud_used.throw_icon?.update_appearance()
+		hud_used.give_intent?.update_appearance()
 	givingto = null
 	update_a_intents()
 	SEND_SIGNAL(I, COMSIG_ITEM_POST_UNEQUIP, force, newloc, no_move, invdrop, silent)

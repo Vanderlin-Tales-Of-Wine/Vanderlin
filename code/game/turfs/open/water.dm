@@ -32,21 +32,21 @@
 	barefootstep = null
 	clawfootstep = null
 	heavyfootstep = null
-	landsound = 'sound/foley/jumpland/waterland.wav'
+	landsound = 'sound/foley/jumpland/waterland.ogg'
 	shine = SHINE_SHINY
+	nomouseover = FALSE
+	water_level = 2
+	var/uses_level = TRUE
 	var/datum/reagent/water_reagent = /datum/reagent/water
 	var/mapped = TRUE // infinite source of water
 	var/water_volume = 100 // 100 is 1 bucket. Minimum of 10 to count as a water tile
 	var/water_maximum = 10000 //this is since water is stored in the originate
-	water_level = 2
 	var/wash_in = TRUE
 	var/swim_skill = FALSE
-	nomouseover = FALSE
 	var/swimdir = FALSE
 	var/notake = FALSE // cant pick up with reagent containers
 	var/set_relationships_on_init = TRUE
 	var/list/blocked_flow_directions = list("2" = 0, "1" = 0, "8" = 0, "4" = 0)
-	var/we_cut = FALSE
 	var/childless = FALSE
 
 	var/cached_use = 0
@@ -55,7 +55,7 @@
 	water_volume = volume
 	if(src in children)
 		return
-	update_icon()
+	handle_water()
 
 	for(var/turf/open/water/river/water in children)
 		water.set_watervolume(volume - 10)
@@ -64,7 +64,7 @@
 
 /turf/open/water/proc/adjust_watervolume(volume)
 	water_volume += volume
-	update_icon()
+	handle_water()
 
 	for(var/turf/open/water/river/water in children)
 		water.adjust_watervolume(volume)
@@ -79,7 +79,7 @@
 		if(adjuster.water_volume + volume < initial(adjuster.water_volume))
 			return
 	adjuster.water_volume += volume
-	update_icon()
+	handle_water()
 	if(adjuster.mapped) //means no changes downstream
 		return
 	for(var/turf/open/water/river/water in adjuster.children)
@@ -125,7 +125,7 @@
 	icon_state = "together"
 	baseturfs = /turf/open/transparent/openspace
 
-/turf/open/water/river/creatable/update_icon()
+/turf/open/water/river/creatable/handle_water()
 	if(water_volume < 10)
 		dryup()
 	else if(water_volume)
@@ -170,8 +170,8 @@
 	icon_state = "rock"
 	var/picked_dir = pick(viable_directions)
 	dir = REVERSE_DIR(picked_dir)
-	update_icon()
-	. = ..()
+	handle_water()
+	return ..()
 
 /turf/open/water/river/creatable/attackby(obj/item/C, mob/user, params)
 	if(istype(C, /obj/item/reagent_containers/glass/bucket/wooden) && user.used_intent.type == /datum/intent/splash)
@@ -186,7 +186,7 @@
 			if(!do_after(user, 10 SECONDS * shovel.time_multiplier, src))
 				return
 			QDEL_NULL(shovel.heldclod)
-			shovel.update_icon()
+			shovel.update_appearance(UPDATE_ICON_STATE)
 			ScrapeAway()
 			return TRUE
 	. = ..()
@@ -210,9 +210,8 @@
 	else
 		START_PROCESSING(SSobj, src)
 
-	water_overlay = new(src)
-	water_top_overlay = new(src)
-	update_icon()
+	handle_water()
+
 	return INITIALIZE_HINT_LATELOAD
 
 /turf/open/water/LateInitialize()
@@ -229,23 +228,26 @@
 	if(water_overlay && water_volume < 10)
 		dryup()
 
-/turf/open/water/update_icon()
+/turf/open/water/proc/handle_water()
 	if(!water_volume || water_volume < 10)
 		dryup()
 		return
 	if(!water_overlay)
-		water_overlay = new()
+		water_overlay = new(src)
 	if(!water_top_overlay)
-		water_top_overlay = new()
+		water_top_overlay = new(src)
 	if(!LAZYLEN(neighborlay_list))
 		smoothing_flags = SMOOTH_EDGE
 		QUEUE_SMOOTH(src)
+
 	if(water_overlay)
 		water_overlay.color = water_reagent.color
-		water_overlay.icon_state = "bottom[water_level]"
+		if(uses_level)
+			water_overlay.icon_state = "bottom[water_level]"
 	if(water_top_overlay)
 		water_top_overlay.color = water_reagent.color
-		water_top_overlay.icon_state = "top[water_level]"
+		if(uses_level)
+			water_top_overlay.icon_state = "top[water_level]"
 
 /turf/open/water/add_neighborlay(dir, edgeicon, offset = FALSE)
 	var/add
@@ -270,6 +272,7 @@
 
 	if(water_overlay)
 		var/image/overlay = image(icon, water_overlay, add, ABOVE_MOB_LAYER + 0.01, pixel_x = offset ? x : 0, pixel_y = offset ? y : 0 )
+		overlay.color = water_reagent.color
 		LAZYADDASSOC(water_overlay.neighborlay_list, "[dir]", overlay)
 		water_overlay.add_overlay(overlay)
 
@@ -651,35 +654,16 @@
 /turf/open/water/river
 	name = "water"
 	desc = "Crystal clear water! Flowing swiflty along the river."
-	icon_state = MAP_SWITCH("rocky", "rivermove-dir")
 	icon = 'icons/turf/newwater.dmi'
+	icon_state = MAP_SWITCH("rocky", "rivermove-dir")
 	water_level = 3
 	slowdown = 20
 	swim_skill = TRUE
-	var/river_processing
-	var/river_processes = TRUE
 	swimdir = TRUE
 	set_relationships_on_init = FALSE
-
-/turf/open/water/river/update_icon()
-	if(water_volume < 10)
-		dryup()
-	else if(water_volume)
-		if(!water_overlay)
-			water_overlay = new(src)
-		if(!water_top_overlay)
-			water_top_overlay = new(src)
-		if(!LAZYLEN(neighborlay_list))
-			smoothing_flags = SMOOTH_EDGE
-			QUEUE_SMOOTH(src)
-	if(water_overlay)
-		water_overlay.color = water_reagent.color
-		water_overlay.icon_state = "riverbot"
-		water_overlay.dir = dir
-	if(water_top_overlay)
-		water_top_overlay.color = water_reagent.color
-		water_top_overlay.icon_state = "rivertop"
-		water_top_overlay.dir = dir
+	uses_level = FALSE
+	var/river_processing
+	var/river_processes = TRUE
 
 /turf/open/water/river/get_heuristic_slowdown(mob/traverser, travel_dir)
 	. = ..()

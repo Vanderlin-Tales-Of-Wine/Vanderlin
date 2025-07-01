@@ -337,7 +337,7 @@ All foods are distributed among various categories. Use common sense.
 			mob_location.put_in_hands(generate_trash(mob_location))
 		else
 			generate_trash(current_loc.drop_location())
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user)
 	return
@@ -581,7 +581,7 @@ All foods are distributed among various categories. Use common sense.
 		if(slices_num <= 0)
 			qdel(src)
 			return TRUE
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 	return TRUE
 
 /obj/item/reagent_containers/food/snacks/proc/initialize_slice(obj/item/reagent_containers/food/snacks/slice, reagents_per_slice)
@@ -589,12 +589,6 @@ All foods are distributed among various categories. Use common sense.
 	reagents.trans_to(slice,reagents_per_slice)
 	slice.filling_color = filling_color
 	slice.update_snack_overlays(src)
-//	if(name != initial(name))
-//		slice.name = "slice of [name]"
-//	if(desc != initial(desc))
-//		slice.desc = ""
-//	if(foodtype != initial(foodtype))
-//		slice.foodtype = foodtype //if something happens that overrode our food type, make sure the slice carries that over
 
 /obj/item/reagent_containers/food/snacks/proc/generate_trash(atom/location)
 	if(trash)
@@ -709,7 +703,7 @@ All foods are distributed among various categories. Use common sense.
 	else
 		return ..()
 
-/obj/item/reagent_containers/food/snacks/update_icon()
+/obj/item/reagent_containers/food/snacks/update_icon_state()
 	. = ..()
 	if(biting && bitecount)
 		icon_state = "[base_icon_state][bitecount]"
@@ -758,6 +752,3 @@ All foods are distributed among various categories. Use common sense.
 			name = "nice [name]"
 	filling_color = filling_color
 	update_snack_overlays(src)
-
-
-

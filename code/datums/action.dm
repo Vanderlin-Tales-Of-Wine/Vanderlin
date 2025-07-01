@@ -36,6 +36,7 @@
 
 /datum/action/proc/link_to(Target)
 	target = Target
+	RegisterSignal(target, COMSIG_ATOM_UPDATED_ICON, PROC_REF(OnUpdatedIcon))
 
 /datum/action/Destroy()
 	if(owner)
@@ -143,13 +144,16 @@
 			return 1
 
 /datum/action/proc/ApplyIcon(atom/movable/screen/movable/action_button/current_button, force = FALSE)
-	if(icon_icon && button_icon_state && ((current_button.button_icon_state != button_icon_state) || force))
-		current_button.cut_overlays(TRUE)
-		current_button.add_overlay(mutable_appearance(icon_icon, button_icon_state))
-		if(overlay_state)
-			current_button.add_overlay(mutable_appearance(icon_icon, overlay_state))
-		current_button.button_icon_state = button_icon_state
+	if(!icon_icon)
+		return
+	current_button.cut_overlays()
+	current_button.add_overlay(mutable_appearance(icon_icon, button_icon_state))
+	if(overlay_state)
+		current_button.add_overlay(mutable_appearance(icon_icon, overlay_state))
+	current_button.button_icon_state = button_icon_state
 
+/datum/action/proc/OnUpdatedIcon()
+	UpdateButtonIcon()
 
 //Presets for item actions
 /datum/action/item_action
@@ -187,8 +191,7 @@
 		var/obj/item/I = target
 		var/old_layer = I.layer
 		var/old_plane = I.plane
-		I.layer = FLOAT_LAYER //AAAH
-		I.plane = FLOAT_PLANE //^ what that guy said
+		I.plane = FLOAT_PLANE //^ what that guy said (AAAH)
 		current_button.cut_overlays()
 		current_button.add_overlay(I)
 		I.layer = old_layer

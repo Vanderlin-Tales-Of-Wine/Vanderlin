@@ -574,10 +574,10 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		var/atom/movable/screen/inventory/hand/H
 		H = hud_used.hand_slots["[hand_index]"]
 		if(H)
-			H.update_icon()
+			H.update_appearance()
 		H = hud_used.hand_slots["[oindex]"]
 		if(H)
-			H.update_icon()
+			H.update_appearance()
 	return TRUE
 
 /mob/living/simple_animal/put_in_hands(obj/item/I, del_on_fail = FALSE, merge_stacks = TRUE)
@@ -589,12 +589,10 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		var/obj/item/l_hand = get_item_for_held_index(1)
 		var/obj/item/r_hand = get_item_for_held_index(2)
 		if(r_hand)
-			r_hand.layer = ABOVE_HUD_LAYER
 			r_hand.plane = ABOVE_HUD_PLANE
 			r_hand.screen_loc = ui_hand_position(get_held_index_of_item(r_hand))
 			client.screen |= r_hand
 		if(l_hand)
-			l_hand.layer = ABOVE_HUD_LAYER
 			l_hand.plane = ABOVE_HUD_PLANE
 			l_hand.screen_loc = ui_hand_position(get_held_index_of_item(l_hand))
 			client.screen |= l_hand
@@ -626,7 +624,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			return
 	..()
 	M.adjust_experience(/datum/skill/misc/riding, M.STAINT, FALSE)
-	update_icon()
+	update_appearance()
 
 /mob/living/simple_animal/hostile/user_buckle_mob(mob/living/M, mob/user)
 	if(user != M)
@@ -657,7 +655,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		if(ssaddle)
 			playsound(src, 'sound/foley/saddlemount.ogg', 100, TRUE)
 	..()
-	update_icon()
+	update_appearance()
 
 /mob/living/simple_animal/hostile
 	var/do_footstep = FALSE

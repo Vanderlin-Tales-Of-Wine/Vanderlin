@@ -102,7 +102,7 @@
 	cooldowny = world.time
 	addtimer(CALLBACK(src, PROC_REF(demagicify)), activetime)
 	active = TRUE
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	activate(user)
 
 /obj/item/clothing/ring/active/proc/activate(mob/user)
@@ -110,7 +110,7 @@
 
 /obj/item/clothing/ring/active/proc/demagicify()
 	active = FALSE
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	if(ismob(loc))
 		var/mob/user = loc
 		user.visible_message("<span class='warning'>The ring settles down.</span>")
@@ -125,8 +125,8 @@
 	activetime = 30 SECONDS
 	sellprice = 100
 
-/obj/item/clothing/ring/active/nomag/update_icon()
-	..()
+/obj/item/clothing/ring/active/nomag/update_icon_state()
+	. = ..()
 	if(active)
 		icon_state = "rubyactive"
 	else

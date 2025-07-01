@@ -39,7 +39,7 @@
 	var/is_barefoot = FALSE
 	var/chained = 0
 
-/obj/item/clothing/shoes/ComponentInitialize()
+/obj/item/clothing/shoes/Initialize(mapload, ...)
 	. = ..()
 	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(clean_blood))
 

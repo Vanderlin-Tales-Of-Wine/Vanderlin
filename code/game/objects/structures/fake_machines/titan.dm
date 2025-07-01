@@ -52,6 +52,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	set_light(5)
 
 /obj/structure/fake_machine/titan/Destroy()
+	lose_hearing_sensitivity()
 	set_light(0)
 	return ..()
 
@@ -163,13 +164,6 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		change_position(user)
 	if(findtext(message, "appoint regent") && perform_check(user))
 		appoint_regent(user)
-
-/obj/structure/fake_machine/titan/obj_break(damage_flag, silent)
-	..()
-	cut_overlays()
-//	icon_state = "[icon_state]-br"
-	set_light(0)
-	return
 
 // COMMANDS BELOW
 

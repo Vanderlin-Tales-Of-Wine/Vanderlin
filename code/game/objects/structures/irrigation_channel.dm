@@ -17,11 +17,11 @@
 				continue
 			set_diged_ways(get_dir(src, irrigation_channel))
 			irrigation_channel.set_diged_ways(get_dir(irrigation_channel, src))
-			irrigation_channel.update_overlays()
+			irrigation_channel.update_appearance(UPDATE_OVERLAYS)
 		if(istype(cardinal_turf, /turf/open/water))
 			set_diged_ways(get_dir(src, cardinal_turf))
 
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 	START_PROCESSING(SSobj, src)
 
 /obj/structure/irrigation_channel/Destroy()
@@ -33,20 +33,19 @@
 			if(!istype(irrigation_channel))
 				return
 			irrigation_channel.unset_diged_ways(get_dir(irrigation_channel, src))
-			irrigation_channel.update_overlays()
+			irrigation_channel.update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/irrigation_channel/proc/set_diged_ways(dir)
 	diged["[dir]"] = TRUE
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/irrigation_channel/proc/unset_diged_ways(dir)
 	diged["[dir]"] = 0
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 
 /obj/structure/irrigation_channel/update_overlays()
 	. = ..()
-	cut_overlays()
 	var/new_overlay = ""
 	for(var/i in diged)
 		if(diged[i])
@@ -60,7 +59,7 @@
 	var/mutable_appearance/overlay = mutable_appearance('icons/turf/newwater.dmi', "together")
 	overlay.blend_mode = BLEND_INSET_OVERLAY
 	overlay.color = water_parent.water_reagent.color
-	overlays += overlay
+	. += overlay
 
 /obj/structure/irrigation_channel/process()
 	if(!water_logged)
@@ -76,7 +75,7 @@
 				water_parent = water
 				RegisterSignal(water_parent, COMSIG_TURF_CHANGE, PROC_REF(dry_up), override = TRUE)
 				set_diged_ways(get_dir(src, cardinal_turf))
-				update_overlays()
+				update_appearance(UPDATE_OVERLAYS)
 				return
 
 			for(var/obj/structure/irrigation_channel/irrigation_channel in cardinal_turf)
@@ -87,24 +86,24 @@
 				water_parent = irrigation_channel.water_parent
 				RegisterSignal(water_parent, COMSIG_TURF_CHANGE, PROC_REF(dry_up), override = TRUE)
 				water_logged = TRUE
-				update_overlays()
+				update_appearance(UPDATE_OVERLAYS)
 	else
 		if(water_parent.blocked_flow_directions["[get_dir(water_parent, src)]"])
 			water_logged = FALSE
-			update_overlays()
+			update_appearance(UPDATE_OVERLAYS)
 
 		if(water_reagent != water_parent.water_reagent)
 			water_reagent = water_parent.water_reagent
-			update_overlays()
+			update_appearance(UPDATE_OVERLAYS)
 		if(water_parent.water_volume >= 10)
 			return
 		water_logged = FALSE
-		update_overlays()
+		update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/irrigation_channel/proc/dry_up()
 	water_logged = FALSE
 	water_parent = null
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 
 
@@ -126,6 +125,6 @@
 		if(!do_after(user, 4 SECONDS * shovel.time_multiplier, src))
 			return
 		QDEL_NULL(shovel.heldclod)
-		shovel.update_icon()
+		shovel.update_appearance()
 		qdel(src)
 		return TRUE

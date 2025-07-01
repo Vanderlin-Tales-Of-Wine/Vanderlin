@@ -30,14 +30,11 @@
 			if(!istype(pipe))
 				continue
 			pipe.unset_connection(get_dir(pipe, src))
-			pipe.update_overlays()
+			pipe.update_appearance(UPDATE_OVERLAYS)
 			directional_pipes |= pipe
 
 /obj/structure/metal_channel/update_overlays()
 	. = ..()
-	if(length(overlays))
-		overlays.Cut()
-
 	var/new_overlay = ""
 	for(var/i in connected)
 		if(connected[i])
@@ -51,24 +48,23 @@
 	if(!metal)
 		return
 
-	var/mutable_appearance/MA = mutable_appearance(icon, "[icon_state]-c")
-	MA.appearance_flags = RESET_COLOR | KEEP_APART
-	MA.color = initial(largest.color)
-	overlays += MA
+	. += mutable_appearance(
+		icon,
+		"[icon_state]-c",
+		color = initial(largest.color),
+		appearance_flags = (RESET_COLOR | KEEP_APART),
+	)
 	if(initial(largest?.red_hot) && group_reagents.chem_temp > initial(largest.melting_point))
-		var/mutable_appearance/MA2 = mutable_appearance(icon, "[icon_state]-c")
-		MA2.plane = EMISSIVE_PLANE
-		overlays += MA2
-
+		. += emissive_appearance(icon, "[icon_state]-c", alpha = src.alpha)
 
 /obj/structure/metal_channel/proc/set_connection(dir)
 	connected["[dir]"] = 1
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 	try_find_group()
 
 /obj/structure/metal_channel/proc/unset_connection(dir)
 	connected["[dir]"] = 0
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/metal_channel/proc/set_connected()
 	for(var/direction in GLOB.cardinals)
@@ -78,7 +74,7 @@
 				return
 			set_connection(get_dir(src, pipe))
 			pipe.set_connection(get_dir(pipe, src))
-			pipe.update_overlays()
+			pipe.update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/metal_channel/proc/try_find_group(find_group = FALSE)
 	if(find_group)
@@ -118,8 +114,8 @@
 				channel.info.channels |= src
 				group_reagents = channel.group_reagents
 
-			channel.update_overlays()
-			update_overlays()
+			channel.update_appearance(UPDATE_OVERLAYS)
+			update_appearance(UPDATE_OVERLAYS)
 			return
 
 	for(var/direction2 in GLOB.cardinals)
@@ -168,7 +164,7 @@
 	for(var/obj/structure/metal_channel/setter in channel_found)
 		QDEL_NULL(setter.info)
 		setter.group_reagents = new_reagents
-		setter.update_overlays()
+		setter.update_appearance(UPDATE_OVERLAYS)
 		setter.info = new_info
 
 /obj/structure/metal_channel/proc/reassess_group(turf/old_turf)
@@ -228,7 +224,7 @@
 		for(var/obj/structure/metal_channel/listed_channel as anything in channel_found)
 			listed_channel.group_reagents = new_group_reagents
 			listed_channel.info = new_info
-			listed_channel.update_overlays()
+			listed_channel.update_appearance(UPDATE_OVERLAYS)
 
 	info = null
 	group_reagents =null
@@ -246,7 +242,7 @@
 		return
 	group_reagents.add_reagent(/datum/reagent/molten_metal, metal.volume, data = metal.data, reagtemp = I.reagents.chem_temp)
 	I.reagents.remove_reagent(/datum/reagent/molten_metal, metal.volume)
-	I.update_overlays()
+	I.update_appearance(UPDATE_OVERLAYS)
 
 	for(var/obj/structure/metal_channel/setter in info?.channels)
-		setter.update_overlays()
+		setter.update_appearance(UPDATE_OVERLAYS)

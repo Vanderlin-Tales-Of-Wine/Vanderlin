@@ -77,7 +77,8 @@
 	else
 		layer = initial(layer)
 
-/obj/structure/door/update_icon()
+/obj/structure/door/update_icon_state()
+	. = ..()
 	if(obj_broken)
 		icon_state = "[initial(icon_state)]br"
 		return
@@ -332,7 +333,7 @@
 	density = FALSE
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	switching_states = FALSE
 
 	if(close_delay > 0)
@@ -345,7 +346,7 @@
 	density = FALSE
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	switching_states = FALSE
 
 	if(close_delay > 0)
@@ -366,7 +367,7 @@
 	density = TRUE
 	door_opened = FALSE
 	layer = CLOSED_DOOR_LAYER
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	switching_states = FALSE
 
 /obj/structure/door/proc/force_closed()
@@ -376,7 +377,7 @@
 	density = TRUE
 	door_opened = FALSE
 	layer = CLOSED_DOOR_LAYER
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	switching_states = FALSE
 
 /obj/structure/door/proc/viewport_toggle(mob/user)

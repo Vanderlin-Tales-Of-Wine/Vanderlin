@@ -122,13 +122,13 @@
 		var/obj/effect/decal/cleanable/blood/puddle/P = locate() in get_turf(src)
 		if(P)
 			P.blood_vol += 5
-			P.update_icon()
+			P.update_appearance()
 		else
 			var/obj/effect/decal/cleanable/blood/drip/D = locate() in get_turf(src)
 			if(D)
 				D.blood_vol += 5
 				D.drips++
-				D.update_icon()
+				D.update_appearance()
 			else
 				new /obj/effect/decal/cleanable/blood/drip(get_turf(src))
 

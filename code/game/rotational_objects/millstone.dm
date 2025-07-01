@@ -15,12 +15,9 @@
 	var/mill_progress = 0
 	var/list/millable_contents = list()
 
-/obj/structure/fluff/millstone/Initialize()
+/obj/structure/fluff/millstone/Initialize(mapload, ...)
 	. = ..()
 	START_PROCESSING(SSobj, src)
-
-/obj/structure/fluff/millstone/ComponentInitialize()
-	. = ..()
 	AddComponent(/datum/component/simple_rotation, ROTATION_REQUIRE_WRENCH|ROTATION_IGNORE_ANCHORED)
 
 /obj/structure/fluff/millstone/Destroy()

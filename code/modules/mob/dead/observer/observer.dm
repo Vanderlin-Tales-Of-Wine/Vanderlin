@@ -14,7 +14,7 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	desc = "" //jinkies!
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
-	layer = GHOST_LAYER
+	plane = GHOST_PLANE
 	stat = DEAD
 	density = FALSE
 	see_invisible = SEE_INVISIBLE_OBSERVER
@@ -180,12 +180,12 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 				var/image/MA = new(body)
 				MA.transform = null //so we are standing
 				appearance = MA
-				layer = GHOST_LAYER
+				plane = GHOST_PLANE
 				pixel_x = 0
 				pixel_y = 0
 				invisibility = INVISIBILITY_OBSERVER
 				alpha = 100
-	update_icon()
+	update_appearance()
 
 	if(!T)
 		T = SSmapping.get_station_center()
@@ -249,16 +249,6 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 		if(istype(mover, /mob/dead/observer/rogue/arcaneeye))
 			return 1
 	return 1
-
-/*
- * This proc will update the icon of the ghost itself, with hair overlays, as well as the ghost image.
- * Please call update_icon(icon_state) from now on when you want to update the icon_state of the ghost,
- * or you might end up with hair on a sprite that's not supposed to get it.
- * Hair will always update its dir, so if your sprite has no dirs the haircut will go all over the place.
- * |- Ricotez
- */
-/mob/dead/observer/update_icon(new_form)
-	. = ..()
 
 /*
  * Increase the brightness of a color by calculating the average distance between the R, G and B values,
@@ -531,7 +521,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 				A.desc = message
 				var/old_layer = source.layer
 				var/old_plane = source.plane
-				source.layer = FLOAT_LAYER
 				source.plane = FLOAT_PLANE
 				A.add_overlay(source)
 				source.layer = old_layer
@@ -972,7 +961,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	client.prefs.apply_character_randomization_prefs()
 
-	update_icon()
+	update_appearance()
 
 /mob/dead/observer/can_perform_action(atom/movable/target, action_bitflags)
 	return IsAdminGhost(usr)

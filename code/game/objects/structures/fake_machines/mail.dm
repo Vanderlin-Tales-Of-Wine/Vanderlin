@@ -58,7 +58,7 @@
 	P.info += t
 	P.mailer = sentfrom
 	P.mailedto = send2place
-	P.update_icon()
+	P.update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 	if(findtext(send2place, "#"))
 		var/box2find = text2num(copytext(send2place, findtext(send2place, "#")+1))
 		var/found = FALSE
@@ -67,7 +67,7 @@
 				found = TRUE
 				P.mailer = sentfrom
 				P.mailedto = send2place
-				P.update_icon()
+				P.update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 				P.forceMove(X.loc)
 				X.say("New mail!")
 				playsound(X, 'sound/misc/mail.ogg', 100, FALSE, -1)
@@ -77,7 +77,7 @@
 			playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 			SStreasury.give_money_treasury(coin_loaded, "Mail Income")
 			coin_loaded = FALSE
-			update_icon()
+			update_appearance(UPDATE_OVERLAYS)
 			return
 		else
 			to_chat(user, "<span class='warning'>Failed to send it. Bad number?</span>")
@@ -88,12 +88,12 @@
 			var/obj/item/roguemachine/mastermail/X = SSroguemachine.hermailermaster
 			P.mailer = sentfrom
 			P.mailedto = send2place
-			P.update_icon()
+			P.update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 			P.forceMove(X.loc)
 			var/datum/component/storage/STR = X.GetComponent(/datum/component/storage)
 			STR.handle_item_insertion(P, prevent_warning=TRUE)
 			X.new_mail=TRUE
-			X.update_icon()
+			X.update_appearance(UPDATE_ICON_STATE)
 			send_ooc_note("New letter from <b>[sentfrom].</b>", name = send2place)
 		else
 			to_chat(user, "<span class='warning'>The master of mails has perished?</span>")
@@ -102,7 +102,7 @@
 		playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 		SStreasury.give_money_treasury(coin_loaded, "Mail")
 		coin_loaded = FALSE
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/fake_machine/mail/attackby(obj/item/P, mob/user, params)
 	if(istype(P, /obj/item/merctoken))
@@ -155,6 +155,8 @@
 				new /obj/item/clothing/neck/mercmedal/anthrax(drop_location)
 			if(8)
 				new /obj/item/clothing/neck/mercmedal/duelist(drop_location)
+			if(9)
+				new /obj/item/clothing/neck/mercmedal(drop_location)
 
 	if(istype(P, /obj/item/paper/confession))
 		if(is_inquisitor_job(user.mind.assigned_role) || is_adept_job(user.mind.assigned_role)) // Only Inquisitors and Adepts can sumbit confessions.
@@ -176,7 +178,7 @@
 						found = TRUE
 						P.mailer = sentfrom
 						P.mailedto = send2place
-						P.update_icon()
+						P.update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 						P.forceMove(X.loc)
 						X.say("New mail!")
 						playsound(X, 'sound/misc/mail.ogg', 100, FALSE, -1)
@@ -197,12 +199,12 @@
 					findmaster = TRUE
 					P.mailer = sentfrom
 					P.mailedto = send2place
-					P.update_icon()
+					P.update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 					P.forceMove(X.loc)
 					var/datum/component/storage/STR = X.GetComponent(/datum/component/storage)
 					STR.handle_item_insertion(P, prevent_warning=TRUE)
 					X.new_mail=TRUE
-					X.update_icon()
+					X.update_appearance(UPDATE_ICON_STATE)
 					playsound(src.loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 				if(!findmaster)
 					to_chat(user, "<span class='warning'>The master of mails has perished?</span>")
@@ -220,16 +222,16 @@
 		coin_loaded = C.get_real_price()
 		qdel(C)
 		playsound(src, 'sound/misc/coininsert.ogg', 100, FALSE, -1)
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 		return
-	..()
+	return ..()
 
 /obj/structure/fake_machine/mail/Initialize()
 	. = ..()
 	SSroguemachine.hermailers += src
 	ournum = SSroguemachine.hermailers.len
 	name = "[name] #[ournum]"
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/fake_machine/mail/Destroy()
 	set_light(0)
@@ -244,13 +246,13 @@
 	pixel_y = 0
 	pixel_x = -32
 
-/obj/structure/fake_machine/mail/update_icon()
-	cut_overlays()
+/obj/structure/fake_machine/mail/update_overlays()
+	. = ..()
 	if(coin_loaded)
-		add_overlay(mutable_appearance(icon, "mail-f"))
+		. += mutable_appearance(icon, "mail-f")
 		set_light(1, 1, 1, l_color =  "#ff0d0d")
 	else
-		add_overlay(mutable_appearance(icon, "mail-s"))
+		. += mutable_appearance(icon, "mail-s")
 		set_light(1, 1, 1, l_color =  "#1b7bf1")
 
 /obj/structure/fake_machine/mail/examine(mob/user)
@@ -295,30 +297,24 @@
 /obj/item/roguemachine/mastermail/Initialize()
 	. = ..()
 	SSroguemachine.hermailermaster = src
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
+	set_light(1, 1, 1, l_color = "#ff0d0d")
+	AddComponent(/datum/component/storage/concrete/grid/mailmaster)
 
 /obj/item/roguemachine/mastermail/Destroy()
 	SSroguemachine.hermailermaster = null
 	return ..()
 
-/obj/item/roguemachine/mastermail/update_icon()
-	cut_overlays()
-	if(new_mail)
-		icon_state = "mailspecial-get"
-	else
-		icon_state = "mailspecial"
-	set_light(1, 1, 1, l_color = "#ff0d0d")
-
-/obj/item/roguemachine/mastermail/ComponentInitialize()
+/obj/item/roguemachine/mastermail/update_icon_state()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete/grid/mailmaster)
+	icon_state = "mailspecial[new_mail ? "-get" : ""]"
 
 /obj/item/roguemachine/mastermail/attack_hand(mob/user)
 	var/datum/component/storage/CP = GetComponent(/datum/component/storage)
 	if(CP)
 		if(new_mail)
 			new_mail = FALSE
-			update_icon()
+			update_appearance(UPDATE_ICON_STATE)
 		CP.rmb_show(user)
 		return TRUE
 
@@ -330,7 +326,7 @@
 			PA.mailedto = PA.cached_mailedto
 			PA.cached_mailer = null
 			PA.cached_mailedto = null
-			PA.update_icon()
+			PA.update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 			to_chat(user, "<span class='warning'>I carefully re-seal the letter and place it back in the machine, no one will know.</span>")
 		P.forceMove(loc)
 		var/datum/component/storage/STR = GetComponent(/datum/component/storage)

@@ -14,8 +14,8 @@
 				return
 			set_diged_ways(get_dir(src, trench))
 			trench.set_diged_ways(get_dir(trench, src))
-			trench.update_overlays()
-	update_overlays()
+			trench.update_appearance(UPDATE_OVERLAYS)
+	update_appearance(UPDATE_OVERLAYS)
 	START_PROCESSING(SSobj, src)
 
 /obj/structure/trench/Destroy()
@@ -26,16 +26,15 @@
 			if(!istype(trench))
 				return
 			trench.unset_diged_ways(get_dir(trench, src))
-			trench.update_overlays()
+			trench.update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/trench/proc/set_diged_ways(dir)
 	diged["[dir]"] = world.time + 60 MINUTES
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/trench/proc/unset_diged_ways(dir)
 	diged["[dir]"] = 0
-	update_overlays()
-
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/trench/update_overlays()
 	. = ..()
@@ -44,8 +43,7 @@
 		if(diged[i] > world.time)
 			new_overlay += i
 			icon_state = null
-	overlays += "[new_overlay]"
-
+	. += "[new_overlay]"
 
 /obj/structure/trench/process()
 	for(var/direction in GLOB.cardinals)
@@ -65,8 +63,7 @@
 		var/turf/open/water/river/creatable/W = source_turf.PlaceOnTop(/turf/open/water/river/creatable)
 		W.water_reagent = water.water_reagent
 		W.try_set_parent(water)
-		W.update_icon()
+		W.update_appearance(UPDATE_OVERLAYS)
 		W.dir = REVERSE_DIR(direction)
 		playsound(W, 'sound/foley/waterenter.ogg', 100, FALSE)
 		qdel(src)
-		return

@@ -156,88 +156,6 @@
 			return BULLET_ACT_BLOCK
 	. = ..()
 
-
-/obj/projectile/magic/locker
-	name = "locker bolt"
-	icon_state = "locker"
-	nodamage = TRUE
-	flag = "magic"
-	var/weld = TRUE
-	var/created = FALSE //prevents creation of more then one locker if it has multiple hits
-	var/locker_suck = TRUE
-	var/obj/structure/closet/locker_temp_instance = /obj/structure/closet/decay
-
-/obj/projectile/magic/locker/Initialize()
-	. = ..()
-	locker_temp_instance = new(src)
-
-/obj/projectile/magic/locker/prehit(atom/A)
-	if(isliving(A) && locker_suck)
-		var/mob/living/M = A
-		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[src] vanishes on contact with [A]!</span>")
-			qdel(src)
-			return
-		if(!locker_temp_instance.insertion_allowed(M))
-			return ..()
-		M.forceMove(src)
-		return FALSE
-	return ..()
-
-/obj/projectile/magic/locker/on_hit(target)
-	if(created)
-		return ..()
-	if(LAZYLEN(contents))
-		for(var/atom/movable/AM in contents)
-			locker_temp_instance.insert(AM)
-		locker_temp_instance.welded = weld
-		locker_temp_instance.update_icon()
-	created = TRUE
-	return ..()
-
-/obj/projectile/magic/locker/Destroy()
-	locker_suck = FALSE
-	for(var/atom/movable/AM in contents)
-		AM.forceMove(get_turf(src))
-	. = ..()
-
-/obj/structure/closet/decay
-	breakout_time = 600
-	icon_welded = null
-	var/magic_icon = "cursed"
-	var/weakened_icon = "decursed"
-	var/auto_destroy = TRUE
-
-/obj/structure/closet/decay/Initialize()
-	. = ..()
-	if(auto_destroy)
-		addtimer(CALLBACK(src, PROC_REF(bust_open)), 5 MINUTES)
-	addtimer(CALLBACK(src, PROC_REF(magicly_lock)), 5)
-
-/obj/structure/closet/decay/proc/magicly_lock()
-	if(!welded)
-		return
-	icon_state = magic_icon
-	update_icon()
-
-/obj/structure/closet/decay/proc/decay()
-	animate(src, alpha = 0, time = 30)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), 30)
-
-/obj/structure/closet/decay/open(mob/living/user)
-	. = ..()
-	if(.)
-		if(icon_state == magic_icon) //check if we used the magic icon at all before giving it the lesser magic icon
-			unmagify()
-		else
-			addtimer(CALLBACK(src, PROC_REF(decay)), 15 SECONDS)
-
-/obj/structure/closet/decay/proc/unmagify()
-	icon_state = weakened_icon
-	update_icon()
-	addtimer(CALLBACK(src, PROC_REF(decay)), 15 SECONDS)
-	icon_welded = "welded"
-
 /obj/projectile/magic/flying
 	name = "bolt of flying"
 	icon_state = "flight"
@@ -335,7 +253,7 @@
 		for(var/obj/effect/proc_holder/spell/spell in L.mind.spell_list)
 			spell.charge_counter = spell.recharge_time
 			spell.recharging = FALSE
-			spell.update_icon()
+			spell.update_appearance()
 
 /obj/projectile/magic/aoe
 	name = "Area Bolt"

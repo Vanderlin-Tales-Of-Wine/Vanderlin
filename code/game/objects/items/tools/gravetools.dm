@@ -9,7 +9,7 @@
 	gripped_intents = list(/datum/intent/shovelscoop, /datum/intent/irrigate, /datum/intent/mace/strike/shovel, /datum/intent/axe/chop)
 	name = "shovel"
 	desc = ""
-	icon_state = "shovel1"
+	icon_state = "shovel"
 	icon = 'icons/roguetown/weapons/tools.dmi'
 	mob_overlay_icon = 'icons/roguetown/onmob/onmob.dmi'
 	experimental_onhip = FALSE
@@ -45,29 +45,21 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	return TRUE
 
-/obj/item/weapon/shovel/New()
-	. = ..()
-	if(icon_state == "shovel1")
-		icon_state = "shovel[rand(1,2)]"
-
 /obj/item/weapon/shovel/Destroy()
 	if(heldclod)
 		QDEL_NULL(heldclod)
 	return ..()
 
 /obj/item/weapon/shovel/dropped(mob/user)
+	. = ..()
 	if(heldclod && isturf(loc))
 		heldclod.forceMove(loc)
 		heldclod = null
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
+
+/obj/item/weapon/shovel/update_icon_state()
 	. = ..()
-
-/obj/item/weapon/shovel/update_icon()
-	if(heldclod)
-		icon_state = "dirt[initial(icon_state)]"
-	else
-		icon_state = "[initial(icon_state)]"
-
+	icon_state = "[heldclod ? "dirt" : ""][initial(icon_state)]"
 
 /datum/intent/mace/strike/shovel
 	name = "strike"
@@ -107,7 +99,7 @@
 	if(. && heldclod && get_turf(M))
 		heldclod.forceMove(get_turf(M))
 		heldclod = null
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/weapon/shovel/attack_turf(turf/T, mob/living/user)
 	user.changeNext_move(user.used_intent.clickcd)
@@ -134,7 +126,7 @@
 						heldclod.forceMove(T)
 					heldclod = null
 					playsound(T,'sound/items/empty_shovel.ogg', 100, TRUE)
-					update_icon()
+					update_appearance(UPDATE_ICON_STATE)
 					return
 			else
 				if(D.holie)
@@ -146,7 +138,7 @@
 						T.ChangeTurf(/turf/open/floor/dirt/road, flags = CHANGETURF_INHERIT_AIR)
 					heldclod = new(src)
 					playsound(T,'sound/items/dig_shovel.ogg', 100, TRUE)
-					update_icon()
+					update_appearance(UPDATE_ICON_STATE)
 			return
 		if(heldclod)
 			if(istype(T, /turf/open/water))
@@ -155,7 +147,7 @@
 				heldclod.forceMove(T)
 			heldclod = null
 			playsound(T,'sound/items/empty_shovel.ogg', 100, TRUE)
-			update_icon()
+			update_appearance(UPDATE_ICON_STATE)
 			return
 		if(istype(T, /turf/open/floor/grass))
 			to_chat(user, "<span class='warning'>There is grass in the way.</span>")
@@ -285,7 +277,6 @@
 	open_sound_volume = 15
 	close_sound_volume = 15
 	integrity_failure = 0
-	delivery_icon = null //unwrappable
 	anchorable = FALSE
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	drag_slowdown = 0
@@ -373,7 +364,6 @@
 	open_sound_volume = 15
 	close_sound_volume = 15
 	integrity_failure = 0
-	delivery_icon = null //unwrappable
 	anchorable = FALSE
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	drag_slowdown = 0

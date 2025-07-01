@@ -9,7 +9,6 @@
 /atom/movable/screen
 	name = ""
 	icon = 'icons/mob/screen_gen.dmi'
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 	appearance_flags = APPEARANCE_UI
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
@@ -59,7 +58,6 @@
 	maptext_width = 480
 
 /atom/movable/screen/swap_hand
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 	name = "swap hand"
 
@@ -164,7 +162,6 @@
 	/// Icon when contains an item. For now used only by humans.
 	var/icon_full = "genslot"
 	/// The overlay when hovering over with an item in your hand
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 	nomouseover = FALSE
 
@@ -213,6 +210,7 @@
 							icon_state = "slotbroke"
 		else
 			icon_state = icon_empty
+	return ..()
 
 /atom/movable/screen/inventory/proc/add_overlays()
 	var/mob/user = hud?.mymob
@@ -301,7 +299,6 @@
 
 /atom/movable/screen/close
 	name = "close"
-	layer = ABOVE_HUD_LAYER
 	plane = ABOVE_HUD_PLANE
 	icon_state = "backpack_close"
 
@@ -317,9 +314,7 @@
 
 /atom/movable/screen/drop
 	name = "drop"
-
 	icon_state = "act_drop"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/drop/Click()
@@ -374,71 +369,74 @@
 	var/border1
 	var/border2
 
-/atom/movable/screen/act_intent/rogintent/update_icon(list/intentsl,list/intentsr, oactive = FALSE)
-	..()
-	cut_overlays(TRUE)
-	if(!intentsl || !intentsr)
+/atom/movable/screen/act_intent/rogintent/update_overlays()
+	. = ..()
+	. += intent1
+	. += intent2
+	. += intent3
+	. += intent4
+	. += border1
+	. += border2
+
+/atom/movable/screen/act_intent/rogintent/proc/update(list/left_intents, list/right_intents, active = FALSE)
+	if(!left_intents || !right_intents)
 		return
-	else
-		var/lol = 0
-//		intent1 = image(icon='icons/mob/rogueintentbase.dmi',icon_state="intentbase")
-//		add_overlay(intent1, TRUE)
-		var/list/used = intentsr
-		if(hud.mymob.active_hand_index == 1)
-			used = intentsl
-		for(var/datum/intent/intenty in used)
-			lol++
-			switch(lol)
-				if(1)
-					intent1 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 64, pixel_y = 16, layer = layer+0.02)
-					add_overlay(intent1, TRUE)
-				if(2)
-					intent2 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 96, pixel_y = 16, layer = layer+0.02)
-					add_overlay(intent2, TRUE)
-				if(3)
-					intent3 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 64, layer = layer+0.02)
-					add_overlay(intent3, TRUE)
-				if(4)
-					intent4 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 96, layer = layer+0.02)
-					add_overlay(intent4, TRUE)
-		if(ismob(usr))
-			var/mob/M = usr
-			switch_intent(M.r_index, M.l_index, oactive)
+	if(!hud?.mymob)
+		return
+	var/lol = 0
+	intent1 = null
+	intent2 = null
+	intent3 = null
+	intent4 = null
+	var/list/used = right_intents
+	if(hud.mymob.active_hand_index == 1)
+		used = left_intents
+	for(var/datum/intent/intenty as anything in used)
+		lol++
+		switch(lol)
+			if(1)
+				intent1 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 64, pixel_y = 16, layer = layer+0.02)
+			if(2)
+				intent2 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 96, pixel_y = 16, layer = layer+0.02)
+			if(3)
+				intent3 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 64, layer = layer+0.02)
+			if(4)
+				intent4 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 96, layer = layer+0.02)
+	if(ismob(usr))
+		var/mob/M = usr
+		switch_intent(M.r_index, M.l_index, active)
+		update_appearance(UPDATE_OVERLAYS)
 
 /atom/movable/screen/act_intent/rogintent/switch_intent(r_index, l_index, oactive = FALSE)
-	cut_overlay(border1, TRUE)
-	cut_overlay(border2, TRUE)
 	var/used = "offintent"
 	if(oactive)
 		used = "offintentselected"
 	if(!r_index || !l_index)
 		return
-	else
-		var/used_index = r_index
-		var/other = l_index
-		if(hud.mymob.active_hand_index == 1)
-			used_index = l_index
-			other = r_index
-		switch(used_index)
-			if(1)
-				border1 = image(icon='icons/mob/roguehud.dmi',icon_state="intentselected", pixel_x = 64, pixel_y = 16, layer = layer+0.01)
-			if(2)
-				border1 = image(icon='icons/mob/roguehud.dmi',icon_state="intentselected", pixel_x = 96, pixel_y = 16, layer = layer+0.01)
-			if(3)
-				border1 = image(icon='icons/mob/roguehud.dmi',icon_state="intentselected", pixel_x = 64, layer = layer+0.01)
-			if(4)
-				border1 = image(icon='icons/mob/roguehud.dmi',icon_state="intentselected", pixel_x = 96, layer = layer+0.01)
-		switch(other)
-			if(1)
-				border2 = image(icon='icons/mob/roguehud.dmi',icon_state=used, pixel_x = 64, pixel_y = 16, layer = layer+0.01)
-			if(2)
-				border2 = image(icon='icons/mob/roguehud.dmi',icon_state=used, pixel_x = 96, pixel_y = 16, layer = layer+0.01)
-			if(3)
-				border2 = image(icon='icons/mob/roguehud.dmi',icon_state=used, pixel_x = 64, layer = layer+0.01)
-			if(4)
-				border2 = image(icon='icons/mob/roguehud.dmi',icon_state=used, pixel_x = 96, layer = layer+0.01)
-		add_overlay(border2, TRUE)
-		add_overlay(border1, TRUE)
+	var/used_index = r_index
+	var/other = l_index
+	if(hud.mymob.active_hand_index == 1)
+		used_index = l_index
+		other = r_index
+	switch(used_index)
+		if(1)
+			border1 = image(icon='icons/mob/roguehud.dmi', icon_state="intentselected", pixel_x = 64, pixel_y = 16, layer = layer+0.01)
+		if(2)
+			border1 = image(icon='icons/mob/roguehud.dmi', icon_state="intentselected", pixel_x = 96, pixel_y = 16, layer = layer+0.01)
+		if(3)
+			border1 = image(icon='icons/mob/roguehud.dmi', icon_state="intentselected", pixel_x = 64, layer = layer+0.01)
+		if(4)
+			border1 = image(icon='icons/mob/roguehud.dmi', icon_state="intentselected", pixel_x = 96, layer = layer+0.01)
+	switch(other)
+		if(1)
+			border2 = image(icon='icons/mob/roguehud.dmi', icon_state=used, pixel_x = 64, pixel_y = 16, layer = layer+0.01)
+		if(2)
+			border2 = image(icon='icons/mob/roguehud.dmi', icon_state=used, pixel_x = 96, pixel_y = 16, layer = layer+0.01)
+		if(3)
+			border2 = image(icon='icons/mob/roguehud.dmi', icon_state=used, pixel_x = 64, layer = layer+0.01)
+		if(4)
+			border2 = image(icon='icons/mob/roguehud.dmi', icon_state=used, pixel_x = 96, layer = layer+0.01)
+	update_appearance(UPDATE_OVERLAYS)
 
 /atom/movable/screen/act_intent/rogintent/Click(location, control, params)
 
@@ -558,14 +556,14 @@
 	icon_state = "take0"
 	icon = 'icons/mob/roguehud.dmi'
 	screen_loc = rogueui_give
-	var/giving = 0
+	var/giving = FALSE
 
 /atom/movable/screen/give_intent/proc/switch_intent(ass)
 	if(ass == QINTENT_GIVE)
-		giving = 1
+		giving = TRUE
 	else
-		giving = 0
-	update_icon()
+		giving = FALSE
+	update_appearance(UPDATE_ICON_STATE)
 
 /atom/movable/screen/give_intent/Click(location, control, params)
 	if(ismob(usr))
@@ -573,7 +571,7 @@
 		M.playsound_local(M, 'sound/misc/click.ogg', 100)
 	usr.mmb_intent_change(QINTENT_GIVE)
 
-/atom/movable/screen/give_intent/update_icon()
+/atom/movable/screen/give_intent/update_icon_state()
 	..()
 	if(ismob(usr))
 		var/mob/M = usr
@@ -582,15 +580,14 @@
 		else
 			icon_state = "take[giving]"
 
-//
-
 /atom/movable/screen/def_intent
 	name = "defense intent"
 	icon_state = "def1n"
 	icon = 'icons/mob/roguehud.dmi'
 	screen_loc = rogueui_def
 
-/atom/movable/screen/def_intent/update_icon()
+/atom/movable/screen/def_intent/update_icon_state()
+	. = ..()
 	icon_state = "def[hud.mymob.d_intent]n"
 
 /atom/movable/screen/def_intent/Click(location, control, params)
@@ -601,15 +598,11 @@
 	else if(_y>16 && _y<=32)
 		usr.def_intent_change(INTENT_PARRY)
 
-
 /atom/movable/screen/cmode
 	name = "combat mode"
 	icon_state = "combat0"
 	icon = 'icons/mob/roguehud.dmi'
 	screen_loc = rogueui_cmode
-
-/atom/movable/screen/cmode/update_icon()
-	icon_state = "combat[hud.mymob.cmode]"
 
 /atom/movable/screen/cmode/Click(location, control, params)
 	var/list/modifiers = params2list(params)
@@ -620,17 +613,21 @@
 			L.submit()
 		else
 			L.toggle_cmode()
-			update_icon()
+			update_appearance(UPDATE_ICON_STATE)
+
+/atom/movable/screen/cmode/update_icon_state()
+	. = ..()
+	icon_state = "combat[hud?.mymob?.cmode]"
 
 /atom/movable/screen/mov_intent
 	name = "run/walk toggle"
-
 	icon_state = "running"
 
 /atom/movable/screen/mov_intent/Click(location, control, params)
 	toggle(usr)
 
 /atom/movable/screen/mov_intent/update_icon_state()
+	. = ..()
 	switch(hud?.mymob?.m_intent)
 		if(MOVE_INTENT_WALK)
 			icon_state = "walking"
@@ -641,6 +638,7 @@
 	if(isobserver(user))
 		return
 	user.toggle_move_intent(user)
+	update_appearance(UPDATE_ICON_STATE)
 
 /atom/movable/screen/rogmove
 	name = "sneak mode"
@@ -659,10 +657,11 @@
 		user.toggle_rogmove_intent(MOVE_INTENT_WALK)
 	else
 		user.toggle_rogmove_intent(MOVE_INTENT_SNEAK)
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)
 	user.update_sneak_invis()
 
 /atom/movable/screen/rogmove/update_icon_state()
+	. = ..()
 	if(hud?.mymob?.m_intent == MOVE_INTENT_SNEAK)
 		icon_state = "sneak1"
 	else
@@ -681,15 +680,14 @@
 		user.toggle_rogmove_intent(MOVE_INTENT_WALK)
 	else
 		user.toggle_rogmove_intent(MOVE_INTENT_RUN)
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)
 
 /atom/movable/screen/rogmove/sprint/update_icon_state()
+	. = ..()
 	if(hud?.mymob?.m_intent == MOVE_INTENT_RUN)
 		icon_state = "sprint1"
 	else
 		icon_state = "sprint0"
-
-
 
 /atom/movable/screen/advsetup
 	name = ""
@@ -753,7 +751,7 @@
 		if(L.eyesclosed)
 			L.eyesclosed = 0
 			L.cure_blind("eyelids")
-			update_icon()
+			update_appearance(UPDATE_ICON)
 			return
 
 	if(modifiers["left"])
@@ -769,7 +767,7 @@
 		if(isliving(hud.mymob))
 			var/mob/living/L = hud.mymob
 			L.look_up()
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 	if(modifiers["right"])
 		if(isliving(hud.mymob))
@@ -829,12 +827,11 @@
 		icon_state = "pull"
 	else
 		icon_state = "pull0"
+	return ..()
 
 /atom/movable/screen/rest
 	name = "rest"
-
 	icon_state = "act_rest"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/rest/Click()
@@ -851,12 +848,11 @@
 		icon_state = "act_rest"
 	else
 		icon_state = "act_rest0"
+	return ..()
 
 /atom/movable/screen/restup
 	name = "stand up"
-
 	icon_state = "act_rest_up"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/restup/Click(location, control, params)
@@ -871,9 +867,7 @@
 
 /atom/movable/screen/restdown
 	name = "lay down"
-
 	icon_state = "act_rest_down"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/restdown/Click(location, control, params)
@@ -895,7 +889,6 @@
 	name = "storage"
 	icon_state = "block"
 	screen_loc = "7,7 to 10,8"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/storage/Initialize(mapload, new_master)
@@ -937,14 +930,15 @@
 		var/mob/living/carbon/C = usr
 		C.toggle_throw_mode()
 
-/atom/movable/screen/throw_catch/update_icon()
-	..()
-	if(ismob(usr))
-		var/mob/M = usr
-		if(M.get_active_held_item())
-			icon_state = "throw[throwy]"
-		else
-			icon_state = "catch[throwy]"
+/atom/movable/screen/throw_catch/update_icon_state()
+	. = ..()
+	if(!ismob(usr))
+		return
+	var/mob/M = usr
+	if(M.get_active_held_item())
+		icon_state = "throw[throwy]"
+	else
+		icon_state = "catch[throwy]"
 
 /atom/movable/screen/zone_sel
 	name = "damage zone"
@@ -1013,7 +1007,6 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
-	layer = ABOVE_HUD_LAYER+0.2
 	plane = ABOVE_HUD_PLANE
 
 /atom/movable/screen/zone_sel/MouseExited(location, control, params)
@@ -1273,7 +1266,7 @@
 
 	if(choice != hud.mymob.zone_selected)
 		hud.mymob.select_zone(choice)
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 
 	return TRUE
 
@@ -1375,7 +1368,6 @@
 	icon = 'icons/blank_title.png'
 	icon_state = ""
 	screen_loc = "1,1"
-	layer = SPLASHSCREEN_LAYER+1
 	plane = SPLASHSCREEN_PLANE
 	var/client/holder
 	var/fucme = TRUE
@@ -1384,7 +1376,7 @@
 	icon = 'icons/fullblack.dmi'
 	icon_state = ""
 	screen_loc = ui_backhudl
-	layer = SPLASHSCREEN_LAYER
+	plane = SPLASHSCREEN_PLANE
 	fucme = FALSE
 
 /atom/movable/screen/splash/New(client/C, visible, use_previous_title) //TODO: Make this use INITIALIZE_IMMEDIATE, except its not easy
@@ -1428,7 +1420,6 @@
 	icon = 'icons/gameover.dmi'
 	icon_state = ""
 	screen_loc = ui_backhudl
-	layer = SPLASHSCREEN_LAYER
 	plane = SPLASHSCREEN_PLANE
 
 /atom/movable/screen/gameover/proc/Fade(out = FALSE, qdel_after = FALSE)
@@ -1479,7 +1470,6 @@
 	icon_state = ""
 	name = " "
 	screen_loc = ui_backhudl
-	layer = BACKHUD_LAYER
 	plane = FULLSCREEN_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
@@ -1498,7 +1488,6 @@
 	name = ""
 	icon = 'icons/mob/roguehud.dmi'
 	icon_state = "aimbg"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/aim/boxaim
@@ -1510,55 +1499,50 @@
 		var/mob/M = usr
 		if(M.boxaim == TRUE)
 			M.boxaim = FALSE
+			if(M.client)
+				M.client.mouseoverbox.screen_loc = null
 		else
 			M.boxaim = TRUE
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
-/atom/movable/screen/aim/boxaim/update_icon()
+/atom/movable/screen/aim/boxaim/update_icon_state()
+	. = ..()
 	if(ismob(usr))
 		var/mob/living/M = usr
 		if(M.boxaim == TRUE)
 			icon_state = "boxon"
 		else
 			icon_state = "boxoff"
-			if(M.client)
-				M.client.mouseoverbox.screen_loc = null
-	..()
-
 
 /atom/movable/screen/stress
 	name = "sanity"
 	icon = 'icons/mob/roguehud.dmi'
 	icon_state = "stressback"
 
-
-/atom/movable/screen/stress/update_icon()
-	cut_overlays()
+/atom/movable/screen/stress/update_overlays()
+	. = ..()
 	var/state2use = "stress1"
-	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
-		if(!HAS_TRAIT(H, TRAIT_NOMOOD))
-			var/stress_amt = H.get_stress_amount()
-			if(stress_amt > STRESS_BAD)
-				state2use = "stress2"
-			if(stress_amt >= STRESS_VBAD)
-				state2use = "stress3"
-			if(stress_amt == STRESS_INSANE)
-				state2use = "stress4"
-			if(stress_amt >= STRESS_INSANE)
-				state2use = "stress5"
-		if(H.has_status_effect(/datum/status_effect/buff/drunk))
-			state2use = "mood_drunk"
-		if(H.has_status_effect(/datum/status_effect/buff/druqks))
-			state2use = "mood_drunk"
-		if(H.InFullCritical())
-			state2use = "mood_fear"
-		if(H.mind)
-			if(H.mind.has_antag_datum(/datum/antagonist/zombie))
-				state2use = "mood_fear"
-		if(H.stat == DEAD)
-			state2use = "mood_dead"
-	add_overlay(state2use)
+	if(!hud?.mymob)
+		. += state2use
+		return
+	var/mob/living/carbon/human/H = hud.mymob
+	if(!HAS_TRAIT(H, TRAIT_NOMOOD))
+		var/stress_amt = H.get_stress_amount()
+		if(stress_amt >= STRESS_BAD)
+			state2use = "stress2"
+		if(stress_amt >= STRESS_VBAD)
+			state2use = "stress3"
+		if(stress_amt == STRESS_INSANE)
+			state2use = "stress4"
+		if(stress_amt >= STRESS_INSANE)
+			state2use = "stress5"
+	if(H.has_status_effect(/datum/status_effect/buff/drunk) || H.has_status_effect(/datum/status_effect/buff/druqks))
+		state2use = "mood_drunk"
+	if(H.InFullCritical())
+		state2use = "mood_fear"
+	if(H.stat == DEAD || H.mind?.has_antag_datum(/datum/antagonist/zombie))
+		state2use = "mood_dead"
+	. += state2use
 
 /atom/movable/screen/stress/Click(location,control,params)
 	var/list/modifiers = params2list(params)
@@ -1627,14 +1611,16 @@
 	var/list/shown_intents = list()
 	var/showing = FALSE
 
-/atom/movable/screen/rmbintent/update_icon()
-	cut_overlays()
-	if(isliving(hud?.mymob))
-		var/mob/living/L = hud.mymob
-		if(L.rmb_intent)
-			add_overlay("[L.rmb_intent.icon_state]_x")
-			name = L.rmb_intent.name
-			desc = L.rmb_intent.desc
+/atom/movable/screen/rmbintent/update_overlays()
+	. = ..()
+	if(!isliving(hud?.mymob))
+		return
+	var/mob/living/L = hud.mymob
+	if(!L.rmb_intent)
+		return
+	. += "[L.rmb_intent.icon_state]_x"
+	name = L.rmb_intent.name
+	desc = L.rmb_intent.desc
 
 /atom/movable/screen/rmbintent/Click(location,control,params)
 	var/list/modifiers = params2list(params)
@@ -1657,7 +1643,7 @@
 		return
 	showing = FALSE
 	QDEL_LIST(shown_intents)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /atom/movable/screen/rmbintent/proc/show_intents(mob/living/M)
 	if(showing)
@@ -1730,7 +1716,7 @@
 		if(type in possible_rmb_intents)
 			rmb_intent = new type()
 			if(hud_used?.rmb_intent)
-				hud_used.rmb_intent.update_icon()
+				hud_used.rmb_intent.update_appearance()
 				hud_used.rmb_intent.collapse_intents()
 	if(num)
 		if(possible_rmb_intents.len < num)
@@ -1739,7 +1725,7 @@
 		if(A)
 			rmb_intent = new A()
 			if(hud_used?.rmb_intent)
-				hud_used.rmb_intent.update_icon()
+				hud_used.rmb_intent.update_appearance()
 				hud_used.rmb_intent.collapse_intents()
 
 /// Cycles through right-mouse-button intents. Loops.
@@ -1759,31 +1745,34 @@
 	rmb_intent = new A()
 
 	if(hud_used?.rmb_intent)
-		hud_used.rmb_intent.update_icon()
+		hud_used.rmb_intent.update_appearance()
 		hud_used.rmb_intent.collapse_intents()
 
 /atom/movable/screen/time
-	name = "Sir Sun"
+	name = "Astrata"
 	icon = 'icons/time.dmi'
 	icon_state = "day"
 
-/atom/movable/screen/time/update_icon()
-	cut_overlays()
+/atom/movable/screen/time/update_icon_state()
+	icon_state = GLOB.tod
+	return ..()
+
+/atom/movable/screen/time/update_name()
 	switch(GLOB.tod)
 		if("day")
-			icon_state = "day"
-			name = "Sir Sun"
+			name = "Astrata"
 		if("dusk")
-			icon_state = "dusk"
-			name = "Sir Sun - Dusk"
+			name = "Astrata - Dusk"
 		if("night")
-			icon_state = "night"
-			name = "Miss Moon"
+			name = "Noc"
 		if("dawn")
-			icon_state = "dawn"
-			name = "Sir Sun - Dawn"
+			name = "Astrata - Dawn"
+	return ..()
+
+/atom/movable/screen/time/update_overlays()
+	. = ..()
 	if(SSParticleWeather.runningWeather.target_trait == PARTICLEWEATHER_RAIN)
-		add_overlay("rainlay")
+		. += "rainlay"
 
 /atom/movable/screen/mana
 	name = "Mana Pool"
@@ -1832,7 +1821,7 @@
 	icon_state = "heatstamover"
 	icon = 'icons/mob/rogueheat.dmi'
 	screen_loc = stamina_loc
-	layer = HUD_LAYER+0.1
+	plane = ABOVE_HUD_PLANE
 
 /atom/movable/screen/mana_over
 	name = ""
@@ -1840,7 +1829,7 @@
 	icon_state = "manaover"
 	icon = 'icons/mob/rogueheat.dmi'
 	screen_loc = mana_loc
-	layer = HUD_LAYER+0.1
+	plane = ABOVE_HUD_PLANE
 
 /atom/movable/screen/scannies
 	icon = 'icons/mob/roguehudback2.dmi'
@@ -1849,8 +1838,7 @@
 	screen_loc = ui_backhudl
 	mouse_opacity = 0
 	alpha = 0
-	layer = 24
-	plane = 24
+	plane = HUD_PLANE
 	blend_mode = BLEND_MULTIPLY
 
 /atom/movable/screen/char_preview
@@ -1866,7 +1854,6 @@
 	icon_state = ""
 	name = ""
 	screen_loc = "1,1"
-	layer = HUD_LAYER+0.01
 	plane = HUD_PLANE
 	alpha = 0
 	var/atom/movable/screen/readtext/textright
@@ -1914,7 +1901,7 @@
 	icon = null
 	icon_state = ""
 	screen_loc = "5,5"
-	layer = HUD_LAYER+0.02
+	plane = ABOVE_HUD_PLANE
 	plane = HUD_PLANE
 
 /atom/movable/screen/area_text
@@ -1922,7 +1909,7 @@
 	icon_state = ""
 	name = ""
 	screen_loc = "5,5"
-	layer = HUD_LAYER+0.02
+	plane = ABOVE_HUD_PLANE
 	plane = HUD_PLANE
 	alpha = 0
 	var/reading

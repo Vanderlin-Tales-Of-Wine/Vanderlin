@@ -24,13 +24,8 @@
 	armor = ARMOR_LEATHER
 	max_integrity = INTEGRITY_POOR
 
-/obj/item/clothing/pants/trou/leather/guard/Initialize()
-	. = ..()
-	color = pick(CLOTHING_PLUM_PURPLE, CLOTHING_BLOOD_RED)
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
+/obj/item/clothing/pants/trou/leather/guard
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/pants/trou/leather/guard/Destroy()
 	GLOB.lordcolor -= src

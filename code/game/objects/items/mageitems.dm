@@ -27,7 +27,8 @@
 		STR.remove_from_storage(I, get_turf(user))
 		user.put_in_hands(I)
 
-/obj/item/storage/magebag/update_icon()
+/obj/item/storage/magebag/update_icon_state()
+	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	var/list/things = STR.contents()
 	if(things.len)
@@ -650,7 +651,7 @@
 	icon = 'icons/roguetown/misc/mana.dmi'
 	icon_state = "soul"
 
-	plane = PLANE_LEYLINES
+	plane = LEYLINE_PLANE
 	invisibility = INVISIBILITY_LEYLINES
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF

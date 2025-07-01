@@ -47,35 +47,11 @@
 
 /obj/item/clothing/pants/tights/guard
 	color = CLOTHING_PLUM_PURPLE
-
-/obj/item/clothing/pants/tights/guard/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/pants/tights/guard/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/pants/tights/guardsecond
 	color = CLOTHING_BLOOD_RED
-
-/obj/item/clothing/pants/tights/guardsecond/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/pants/tights/guardsecond/lordcolor(primary,secondary)
-	if(secondary)
-		color = secondary
-
-/obj/item/clothing/pants/tights/guardsecond/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_SECONDARY
 
 /obj/item/clothing/pants/tights/sailor
 	name = "pants"

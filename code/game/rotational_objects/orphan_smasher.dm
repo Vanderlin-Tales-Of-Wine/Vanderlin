@@ -332,4 +332,4 @@
 	if(!do_after(user, 2.5 SECONDS, src))
 		return
 	opened = !opened
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)

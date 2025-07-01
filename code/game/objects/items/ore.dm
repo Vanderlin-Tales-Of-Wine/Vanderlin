@@ -136,18 +136,17 @@
 				desc += " It is of exquisite quality."
 
 /obj/item/ingot/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/weapon/tongs))
-		var/obj/item/weapon/tongs/T = I
-		if(!T.held_item)
-			if(item_flags & IN_STORAGE)
-				if(!SEND_SIGNAL(loc, COMSIG_TRY_STORAGE_TAKE, src, user.loc, TRUE))
-					return ..()
-			forceMove(T)
-			T.held_item = src
-			T.hott = null
-			T.update_icon()
-			return
-	..()
+	if(!istype(I, /obj/item/weapon/tongs))
+		return ..()
+	var/obj/item/weapon/tongs/T = I
+	if(!T.held_item)
+		if(item_flags & IN_STORAGE)
+			if(!SEND_SIGNAL(loc, COMSIG_TRY_STORAGE_TAKE, src, user.loc, TRUE))
+				return ..()
+		forceMove(T)
+		T.held_item = src
+		T.hott = null
+		T.update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/ingot/Destroy()
 	if(currecipe)
@@ -155,7 +154,7 @@
 	if(istype(loc, /obj/machinery/anvil))
 		var/obj/machinery/anvil/A = loc
 		A.hingot = null
-		A.update_icon()
+		A.update_appearance(UPDATE_OVERLAYS)
 	return ..()
 
 /obj/item/ingot/gold

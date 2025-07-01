@@ -82,9 +82,7 @@
 /datum/essence_storage/proc/update_icon_and_overlays()
 	if(!parent_atom)
 		return
-	parent_atom.update_icon()
-	parent_atom.update_overlays()
-
+	parent_atom.update_appearance(UPDATE_ICON)
 
 /datum/essence_storage/proc/on_essence_added(essence_type, amount, was_new_type)
 	parent_atom.on_transfer_in(essence_type, amount, null)

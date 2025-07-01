@@ -37,7 +37,7 @@
 			potential_rotator.set_stress_generation(1024)
 
 	check_surrounding_water()
-	update_icon()
+	handle_water()
 
 /turf/open/water/proc/try_set_parent(turf/open/water/incoming)
 	if(!incoming)

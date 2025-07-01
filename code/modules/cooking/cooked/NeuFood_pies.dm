@@ -27,7 +27,7 @@
 
 /obj/item/reagent_containers/food/snacks/raw_pie/Initialize()
 	. = ..()
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/reagent_containers/food/snacks/raw_pie/update_overlays()
 	. = ..()

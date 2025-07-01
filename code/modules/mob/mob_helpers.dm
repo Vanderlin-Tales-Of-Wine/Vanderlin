@@ -559,9 +559,9 @@
 			possible_offhand_intents += new defintent(src)
 	if(hud_used?.action_intent)
 		if(active_hand_index == 1)
-			hud_used.action_intent.update_icon(possible_a_intents,possible_offhand_intents,oactive)
+			hud_used.action_intent.update(possible_a_intents, possible_offhand_intents, oactive)
 		else
-			hud_used.action_intent.update_icon(possible_offhand_intents,possible_a_intents,oactive)
+			hud_used.action_intent.update(possible_offhand_intents, possible_a_intents, oactive)
 	if(active_hand_index == 1)
 		if(l_index <= possible_a_intents.len)
 			rog_intent_change(l_index)
@@ -686,7 +686,7 @@
 	playsound_local(src, 'sound/misc/click.ogg', 100)
 	if(hud_used)
 		if(hud_used.def_intent)
-			hud_used.def_intent.update_icon()
+			hud_used.def_intent.update_appearance(UPDATE_ICON_STATE)
 	update_inv_hands()
 
 
@@ -705,8 +705,9 @@
 			cmode = FALSE
 		if(hud_used)
 			if(hud_used.cmode_button)
-				hud_used.cmode_button.update_icon()
+				hud_used.cmode_button.update_appearance(UPDATE_ICON_STATE)
 		return
+	var/datum/antagonist/maniac/maniac_datum = mind?.has_antag_datum(/datum/antagonist/maniac)
 	if(cmode)
 		playsound_local(src, 'sound/misc/comboff.ogg', 100)
 		SSdroning.play_area_sound(get_area(src), client)
@@ -716,11 +717,11 @@
 	else
 		cmode = TRUE
 		playsound_local(src, 'sound/misc/combon.ogg', 100)
-		if(L.cmode_music)
+		if(L.cmode_music && (!maniac_datum || !maniac_datum.music_enabled)) //If Maniac's theme song is active, they won't hear their combat music.
 			SSdroning.play_combat_music(L.cmode_music, client)
 	if(hud_used)
 		if(hud_used.cmode_button)
-			hud_used.cmode_button.update_icon()
+			hud_used.cmode_button.update_appearance(UPDATE_ICON_STATE)
 
 /mob
 	var/last_aimhchange = 0
@@ -780,7 +781,7 @@
 		playsound_local(src, 'sound/misc/click.ogg', 50, TRUE)
 		if(hud_used)
 			if(hud_used.zone_select)
-				hud_used.zone_select.update_icon()
+				hud_used.zone_select.update_appearance()
 
 /mob/proc/select_organ_slot(choice)
 	organ_slot_selected = choice
@@ -906,7 +907,6 @@
 				A.target = source
 				if(!alert_overlay)
 					alert_overlay = new(source)
-				alert_overlay.layer = FLOAT_LAYER
 				alert_overlay.plane = FLOAT_PLANE
 				A.add_overlay(alert_overlay)
 

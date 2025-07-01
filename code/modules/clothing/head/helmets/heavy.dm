@@ -242,15 +242,15 @@
 
 	prevent_crits = ALL_CRITICAL_HITS
 
-/obj/item/clothing/head/helmet/heavy/decorated/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
-
+/obj/item/clothing/head/helmet/heavy/decorated/update_overlays()
+	. = ..()
+	if(!get_detail_tag())
+		return
+	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
+	pic.appearance_flags = RESET_COLOR
+	if(get_detail_color())
+		pic.color = get_detail_color()
+	. += pic
 
 //............... Decorated Knight Helmet ............... //
 /obj/item/clothing/head/helmet/heavy/decorated/knight
@@ -268,7 +268,7 @@
 		picked = TRUE
 		icon_state = playerchoice
 		item_state = playerchoice
-		update_icon()
+		update_appearance(UPDATE_ICON)
 		if(loc == user && ishuman(user))
 			var/mob/living/carbon/H = user
 			H.update_inv_head()
@@ -293,7 +293,7 @@
 		picked = TRUE
 		icon_state = playerchoice
 		item_state = playerchoice
-		update_icon()
+		update_appearance(UPDATE_ICON)
 		if(loc == user && ishuman(user))
 			var/mob/living/carbon/H = user
 			H.update_inv_head()
@@ -315,7 +315,7 @@
 		picked = TRUE
 		icon_state = playerchoice
 		item_state = playerchoice
-		update_icon()
+		update_appearance(UPDATE_ICON)
 		if(loc == user && ishuman(user))
 			var/mob/living/carbon/H = user
 			H.update_inv_head()
@@ -337,7 +337,7 @@
 		picked = TRUE
 		icon_state = playerchoice
 		item_state = playerchoice
-		update_icon()
+		update_appearance(UPDATE_ICON)
 		if(loc == user && ishuman(user))
 			var/mob/living/carbon/H = user
 			H.update_inv_head()
@@ -364,7 +364,7 @@
 		picked = TRUE
 		icon_state = playerchoice
 		item_state = playerchoice
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 		if(loc == user && ishuman(user))
 			var/mob/living/carbon/H = user
 			H.update_inv_head()

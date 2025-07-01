@@ -38,6 +38,10 @@
 	var/automatic = 0 //can gun use it, 0 is no, anything above 0 is the delay between clicks in ds
 	var/pb_knockback = 0
 
+/obj/item/gun/Initialize()
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+
 /obj/item/gun/Destroy()
 	if(chambered) //Not all guns are chambered (EMP'ed energy guns etc)
 		QDEL_NULL(chambered)
@@ -46,7 +50,7 @@
 /obj/item/gun/handle_atom_del(atom/A)
 	if(A == chambered)
 		chambered = null
-		update_icon()
+		update_appearance()
 	return ..()
 
 //called after the gun has successfully fired its chambered ammo.
@@ -73,13 +77,13 @@
 						"<span class='danger'>I shoot [src]!</span>", \
 						COMBAT_MESSAGE_RANGE)
 
-/obj/item/gun/afterattack(atom/target, mob/living/user, flag, params)
+/obj/item/gun/afterattack(atom/target, mob/living/user, proximity_flag, click_parameters)
 	. = ..()
 	if(!target)
 		return
 	if(!user?.used_intent.tranged) //melee attack
 		return
-	if(flag) //It's adjacent, is the user, or is on the user's person
+	if(proximity_flag) //It's adjacent, is the user, or is on the user's person
 		if(target in user.contents) //can't shoot stuff inside us.
 			return
 		if(!ismob(target)) //melee attack
@@ -104,7 +108,7 @@
 	if(user?.used_intent.arc_check())
 		target = get_turf(target)
 
-	return process_fire(target, user, TRUE, params, null, 0)
+	return process_fire(target, user, TRUE, click_parameters, null, 0)
 
 
 /obj/item/gun/proc/recharge_newshot()
@@ -136,7 +140,7 @@
 		shoot_with_empty_chamber(user)
 		return
 	process_chamber()
-	update_icon()
+	update_appearance()
 
 	if(user)
 		user.update_inv_hands()

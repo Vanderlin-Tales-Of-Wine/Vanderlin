@@ -6,7 +6,7 @@
 	var/vol_counter = 0
 	var/vol_temp
 
-	for(var/datum/reagent/R in reagent_list)
+	for(var/datum/reagent/R as anything in reagent_list)
 		vol_temp = R.volume
 		vol_counter += vol_temp
 
@@ -29,7 +29,7 @@
 
 	var/mixalpha = 0
 
-	for(var/datum/reagent/R in reagent_list)
+	for(var/datum/reagent/R as anything in reagent_list)
 		if(R.alpha > mixalpha)
 			mixalpha = R.alpha
 

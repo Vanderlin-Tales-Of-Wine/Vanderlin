@@ -88,7 +88,7 @@
 			M.death()
 	for(var/datum/action/A as anything in actions)
 		A.Remove(M)
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 //	START_PROCESSING(SSobj, src)
 
 

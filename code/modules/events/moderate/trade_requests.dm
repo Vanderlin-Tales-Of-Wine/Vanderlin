@@ -54,20 +54,24 @@
 	var/list/requests
 	var/writers_name
 
-/obj/item/paper/scroll/trade_requests/New(loc, list/trade_requests)
+/obj/item/paper/scroll/trade_requests/Initialize()
 	. = ..()
-	requests = trade_requests
-	writers_name = pick( world.file2list("strings/rt/names/human/humnorm.txt") )
+	writers_name = pick(world.file2list("strings/rt/names/human/humnorm.txt"))
 	rebuild_info()
 
 /obj/item/paper/scroll/trade_requests/update_icon_state()
+	. = ..()
 	if(open)
 		icon_state = "contractsigned"
-		name = initial(name)
 	else
 		icon_state = "scroll_closed"
-		name = "scroll"
 
+/obj/item/paper/scroll/trade_requests/update_name()
+	. = ..()
+	if(open)
+		name = initial(name)
+	else
+		name = "scroll"
 
 /obj/item/paper/scroll/trade_requests/proc/rebuild_info()
 	info = null
@@ -113,4 +117,6 @@
 		var/datum/trade_request/new_request = new
 		requests |= new_request
 
-	SSmerchant.sending_stuff |= new /obj/item/paper/scroll/trade_requests(null, requests)
+	var/obj/item/paper/scroll/trade_requests/request = new
+	request.requests = requests
+	SSmerchant.sending_stuff |= request

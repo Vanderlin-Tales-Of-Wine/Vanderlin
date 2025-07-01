@@ -70,6 +70,6 @@
 	new /obj/item/natural/infernalash(deathspot)
 	new /obj/item/natural/infernalash(deathspot)
 	new /obj/item/natural/melded/t2(deathspot)
-	update_icon()
+	update_appearance()
 	spill_embedded_objects()
 	qdel(src)

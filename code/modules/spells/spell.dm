@@ -37,6 +37,7 @@
 	update_icon()
 
 /obj/effect/proc_holder/spell/update_icon()
+	. = ..()
 	if(!action)
 		return
 	action.button_icon_state = "[base_icon_state][active]"

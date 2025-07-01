@@ -32,22 +32,21 @@
 
 /obj/effect/bees/update_overlays()
 	. = ..()
-	cut_overlays()
 	var/bee_spawn = bee_count - 1
 	if(!bee_spawn)
 		return
 
-	for(var/i=1 to bee_spawn)
+	for(var/i = 1 to bee_spawn)
 		var/mutable_appearance/bee = mutable_appearance(icon, icon_state)
 		bee.pixel_x = rand(12, -12)
 		bee.pixel_y = rand(12, -12)
 		bee.color = bee_color // Apply genetic color
-		overlays += bee
+		. += bee
 
 /obj/effect/bees/Initialize()
 	. = ..()
 	START_PROCESSING(SSfaster_obj, src)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/effect/bees/process()
 	// Handle movement and merging
@@ -56,7 +55,7 @@
 		Move(turf, get_dir(src, turf))
 		if(get_dist(merge_target, src) == 0)
 			merge_target.bee_count += bee_count
-			merge_target.update_overlays()
+			merge_target.update_appearance(UPDATE_OVERLAYS)
 			merge_target = null
 			hive?.bee_objects -= src
 			qdel(src)
@@ -251,6 +250,7 @@
 	START_PROCESSING(SSobj, src)
 
 /obj/structure/apiary/update_icon_state()
+	. = ..()
 	if(stored_combs > 0)
 		icon_state = "beebox-full"
 	else
@@ -342,8 +342,7 @@
 		new honey_path(get_turf(src))
 
 	stored_combs = 0
-	update_icon_state()
-
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/apiary/proc/process_comb_gain()
 	if(!pollen)
@@ -360,7 +359,7 @@
 	if(comb_progress > 100)
 		stored_combs = min(stored_combs + 1, 5)
 		comb_progress -= 100
-		update_icon_state()
+		update_appearance(UPDATE_ICON_STATE)
 
 	if(comb_progress > 100)
 		comb_progress = 100
@@ -407,7 +406,7 @@
 		// Wax moths destroy combs
 		if(prob(disease_severity / 5) && stored_combs > 0)
 			stored_combs = max(0, stored_combs - 1)
-			update_icon_state()
+			update_appearance(UPDATE_ICON_STATE)
 
 
 	if(disease_severity >= 100)
@@ -617,7 +616,7 @@
 	queen_maturity = 0
 	pollen -= 50
 	stored_combs -= 2
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)
 
 	var/obj/item/queen_bee/new_queen = new(get_turf(src))
 	// Generate random genetics for the new queen
@@ -702,12 +701,12 @@
 	if(!active && fuel > 0)
 		to_chat(user, "<span class='notice'>You light [src].</span>")
 		active = TRUE
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		process_smoker(user)
 	else if(active)
 		to_chat(user, "<span class='notice'>You extinguish [src].</span>")
 		active = FALSE
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 	else
 		to_chat(user, "<span class='warning'>[src] is out of fuel!</span>")
 
@@ -717,7 +716,7 @@
 
 	if(fuel <= 0)
 		active = FALSE
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		to_chat(user, "<span class='warning'>[src] runs out of fuel!</span>")
 		return
 
@@ -743,6 +742,7 @@
 	addtimer(CALLBACK(src, PROC_REF(process_smoker), user), 1 SECONDS)
 
 /obj/item/bee_smoker/update_icon_state()
+	. = ..()
 	icon_state = active ? "smoker_lit" : "smoker"
 
 /obj/item/bee_smoker/attackby(obj/item/I, mob/user, params)
@@ -916,7 +916,7 @@
 /obj/effect/bee_swarm/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj, src)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 	addtimer(CALLBACK(src, PROC_REF(swarm_timeout)), 5 MINUTES)
 
@@ -970,17 +970,14 @@
 
 /obj/effect/bee_swarm/update_overlays()
 	. = ..()
-	cut_overlays()
-
 	var/bee_spawn = bee_count - 1
 	if(!bee_spawn)
 		return
-
-	for(var/i=1 to min(bee_spawn, 10))
+	for(var/i = 1 to min(bee_spawn, 10))
 		var/mutable_appearance/bee = mutable_appearance('icons/obj/structures/apiary.dmi', "bee")
 		bee.pixel_x = rand(12, -12)
 		bee.pixel_y = rand(12, -12)
-		overlays += bee
+		. += bee
 
 /obj/structure/beehive/wild
 	name = "wild beehive"

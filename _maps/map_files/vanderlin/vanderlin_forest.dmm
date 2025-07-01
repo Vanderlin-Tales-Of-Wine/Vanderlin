@@ -170,10 +170,10 @@
 /area/rogue/indoors/cave)
 "dl" = (
 /obj/structure/door{
-	lockid = "oldinn2";
 	name = "Room II"
 	},
 /obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/thatchwood/inn2,
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "dn" = (
@@ -464,9 +464,8 @@
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "iY" = (
-/obj/structure/door{
-	lockid = "oldfarm"
-	},
+/obj/structure/door,
+/obj/effect/mapping_helpers/access/keyset/thatchwood/farm,
 /turf/open/floor/woodturned,
 /area/rogue/indoors)
 "jc" = (
@@ -559,11 +558,11 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "ki" = (
+/obj/effect/mapping_helpers/access/locker,
 /obj/structure/door{
-	lockid = "oldinn3";
 	name = "Side Room"
 	},
-/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/thatchwood/inn3,
 /turf/open/floor/twig,
 /area/rogue/indoors)
 "kl" = (
@@ -830,11 +829,7 @@
 "nY" = (
 /obj/machinery/light/fueled/oven/south,
 /obj/structure/table/wood/plain_alt,
-/obj/item/key/medroomi{
-	lockid = "oldfarm";
-	name = "Thatchwood Farmhouse key";
-	desc = "an old rusted key"
-	},
+/obj/item/key/thatchwood/farm,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "nZ" = (
@@ -1004,10 +999,10 @@
 /area/rogue/indoors)
 "qE" = (
 /obj/structure/door{
-	lockid = "oldinn1";
 	name = "Room I"
 	},
 /obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/thatchwood/inn1,
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "qK" = (
@@ -1403,9 +1398,8 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "xU" = (
-/obj/structure/door{
-	lockid = "oldsmith"
-	},
+/obj/structure/door,
+/obj/effect/mapping_helpers/access/keyset/thatchwood/smith,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
 "xV" = (
@@ -1655,10 +1649,9 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors)
 "CF" = (
-/obj/structure/door{
-	lockid = "oldfarm"
-	},
 /obj/effect/mapping_helpers/access/locker,
+/obj/structure/door,
+/obj/effect/mapping_helpers/access/keyset/thatchwood/farm,
 /turf/open/floor/woodturned,
 /area/rogue/indoors)
 "CK" = (
@@ -1744,15 +1737,12 @@
 /obj/item/weapon/tongs/stone{
 	pixel_x = -5
 	},
-/obj/item/key/medroomi{
-	desc = "an old key with signs of rust";
-	name = "Thatchwood Smithy key";
-	lockid = "oldsmith";
-	pixel_y = 6;
-	pixel_x = -12
-	},
 /obj/item/flint{
 	pixel_x = 5
+	},
+/obj/item/key/thatchwood/smithy{
+	pixel_x = -12;
+	pixel_y = 6
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
@@ -2254,29 +2244,20 @@
 	icon_state = "largetable"
 	},
 /obj/machinery/light/fueled/oven/west,
-/obj/item/key/medroomi{
-	lockid = "oldinn1";
-	name = "Room I key";
-	pixel_y = 11;
-	pixel_x = 11;
-	desc = "an old key with signs of rust"
-	},
-/obj/item/key/medroomi{
-	name = "Room II key";
-	pixel_x = 2;
-	pixel_y = 11;
-	lockid = "oldinn2";
-	desc = "an old key with signs of rust"
-	},
-/obj/item/key/medroomi{
-	lockid = "oldinn3";
-	name = "Side Room key";
-	pixel_y = 11;
-	pixel_x = -6;
-	desc = "an old key with signs of rust"
-	},
 /obj/item/paper,
 /obj/item/natural/feather,
+/obj/item/key/thatchwood/inn3{
+	pixel_x = -6;
+	pixel_y = 11
+	},
+/obj/item/key/thatchwood/inn2{
+	pixel_x = 2;
+	pixel_y = 11
+	},
+/obj/item/key/thatchwood/inn1{
+	pixel_x = 11;
+	pixel_y = 11
+	},
 /turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors)
 "OD" = (
@@ -2410,9 +2391,9 @@
 /area/rogue/outdoors/mountains)
 "Ro" = (
 /obj/structure/door{
-	name = "Thatchwood Smithy";
-	lockid = "oldsmith"
+	name = "Thatchwood Smithy"
 	},
+/obj/effect/mapping_helpers/access/keyset/thatchwood/smith,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
 "Rq" = (

@@ -292,7 +292,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 	equip_to_slot(W, slot, redraw_mob, initial) //This proc should not ever fail.
 	update_a_intents()
 	if(isliving(src))
-		src:update_reflection()
+		var/mob/living/L = src
+		L.update_reflection()
 	return TRUE
 
 /**
@@ -405,10 +406,10 @@ GLOBAL_VAR_INIT(mobids, 1)
 		face_atom(A)
 		visible_message("<span class='emote'>[src] looks at [A].</span>")
 	var/list/result = A.examine(src)
-	if(result.len)
+	if(LAZYLEN(result))
 		for(var/i in 1 to (length(result) - 1))
 			result[i] += "\n"
-	to_chat(src, examine_block("<span class='infoplain'>[result.Join()]</span>"))
+		to_chat(src, examine_block("<span class='infoplain'>[result.Join()]</span>"))
 	SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, A)
 
 /**
@@ -511,11 +512,11 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 ///Update the pulling hud icon
 /mob/proc/update_pull_hud_icon()
-	hud_used?.pull_icon?.update_icon()
+	hud_used?.pull_icon?.update_appearance()
 
 ///Update the resting hud icon
 /mob/proc/update_rest_hud_icon()
-	hud_used?.rest_icon?.update_icon()
+	hud_used?.rest_icon?.update_appearance()
 
 /**
  * Verb to activate the object in your held hand

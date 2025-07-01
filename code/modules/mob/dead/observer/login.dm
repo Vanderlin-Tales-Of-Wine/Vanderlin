@@ -20,5 +20,7 @@
 	if (isturf(T))
 		update_z(T.z)
 
-	update_icon(preferred_form)
+	if(preferred_form)
+		icon_state = preferred_form
+
 	updateghostimages()

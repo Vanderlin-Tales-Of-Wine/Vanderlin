@@ -834,7 +834,7 @@
 	else
 		//Being destroyed, just move to nullspace now (so it's not in contents for the icon update)
 		removed.moveToNullspace()
-	removed.update_icon()
+	removed.update_appearance()
 	SEND_SIGNAL(parent, COMSIG_STORAGE_REMOVED, removed)
 	update_icon()
 	refresh_mob_views()
@@ -912,7 +912,7 @@
 /atom/movable/screen/storage
 	icon = 'icons/hud/storage.dmi'
 	icon_state = "background"
-	layer = HUD_LAYER
+	plane = HUD_PLANE
 	alpha = 180
 	var/atom/movable/screen/storage_hover/hovering
 
@@ -1026,6 +1026,5 @@
 	icon = 'icons/hud/storage.dmi'
 	icon_state = "white"
 	plane = ABOVE_HUD_PLANE
-	layer = HUD_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 96

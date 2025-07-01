@@ -45,24 +45,17 @@
 
 /obj/machinery/essence/combiner/update_overlays()
 	. = ..()
-	if(length(overlays))
-		cut_overlays()
 
 	var/essence_percent = (output_storage.get_total_stored() + input_storage.get_total_stored()) / (input_storage.max_total_capacity + output_storage.max_total_capacity)
 	if(!essence_percent)
 		return
 	var/level = clamp(CEILING(essence_percent * 7, 1), 1, 7)
 
-	var/mutable_appearance/MA = mutable_appearance(icon, "liquid_[level]")
-	MA.color = calculate_mixture_color()
-	overlays += MA
-
-	var/mutable_appearance/emissive = mutable_appearance(icon, "liquid_[level]")
-	emissive.plane = EMISSIVE_PLANE
-	overlays += emissive
+	. += mutable_appearance(icon, "liquid_[level]", color = calculate_mixture_color())
+	. += emissive_appearance(icon, "liquid_[level]", alpha = src.alpha)
 
 	if(processing)
-		overlays += mutable_appearance(icon, "combining", ABOVE_MOB_LAYER)
+		. += mutable_appearance(icon, "combining", layer = src.layer + 0.01)
 
 /obj/machinery/essence/combiner/examine(mob/user)
 	. = ..()
@@ -142,7 +135,7 @@
 			if(extracted > 0)
 				vial.contained_essence = new essence_type
 				vial.essence_amount = extracted
-				vial.update_icon()
+				vial.update_appearance(UPDATE_OVERLAYS)
 				to_chat(user, span_info("You extract [extracted] units of essence from the [storage_choice == "output" ? "output" : "input"]."))
 				update_overlays()
 			return
@@ -157,7 +150,7 @@
 		to_chat(user, span_info("You pour the [vial.contained_essence.name] into the combiner's input."))
 		vial.contained_essence = null
 		vial.essence_amount = 0
-		vial.update_icon()
+		vial.update_appearance(UPDATE_OVERLAYS)
 		update_overlays()
 		return TRUE
 	..()
@@ -215,7 +208,7 @@
 		var/obj/item/essence_vial/new_vial = new(get_turf(src))
 		new_vial.contained_essence = new essence_type
 		new_vial.essence_amount = amount
-		new_vial.update_icon()
+		new_vial.update_appearance(UPDATE_OVERLAYS)
 
 	input_storage.stored_essences = list()
 	to_chat(user, span_info("You clear the input storage, creating vials for each essence."))

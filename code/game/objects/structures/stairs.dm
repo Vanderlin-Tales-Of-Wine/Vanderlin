@@ -42,32 +42,15 @@
 
 /obj/structure/stairs/fancy/c
 	icon_state = "fancy_stairs_c"
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/structure/stairs/fancy/r
 	icon_state = "fancy_stairs_r"
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/structure/stairs/fancy/l
 	icon_state = "fancy_stairs_l"
-
-/obj/structure/stairs/fancy/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/structure/stairs/fancy/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
-
-/obj/structure/stairs/fancy/lordcolor(primary,secondary)
-	if(!primary || !secondary)
-		return
-	var/mutable_appearance/M = mutable_appearance(icon, "[icon_state]_primary", -(layer+0.1))
-	M.color = primary
-	add_overlay(M)
-	GLOB.lordcolor -= src
-
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/structure/stairs/OnCrafted(dirin, mob/user)
 	dir = dirin

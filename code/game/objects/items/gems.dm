@@ -25,9 +25,9 @@
 		else
 			new_gem = pick(subtypesof(/obj/item/gem))
 		var/obj/item/gem/spawned = new new_gem(get_turf(src))
-		spawned.update_icon_state()
+		spawned.update_appearance(UPDATE_ICON_STATE)
 		return INITIALIZE_HINT_QDEL
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/gem/on_consume(mob/living/eater)
 	. = ..()
@@ -37,13 +37,14 @@
 
 ///This is a switch incase anyone would like to add more...
 /obj/item/gem/update_icon_state()
-	if(icon_state == "aros")
+	if(icon_state == "aros") // :(
 		switch(rand(1,2))
 			if(1)
 				icon_state = "d_cut"
 			if(2)
 				icon_state = "e_cut"
-	return
+	return ..()
+
 /obj/item/gem/getonmobprop(tag)
 	. = ..()
 	if(tag)

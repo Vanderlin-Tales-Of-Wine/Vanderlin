@@ -80,21 +80,19 @@
 	if(isnum(vol) && vol > 0)
 		volume = vol
 	create_reagents(volume, TRANSPARENT)
+	cleaner_component = AddComponent(
+		/datum/component/cleaner, \
+		clean_speed, \
+		CLEAN_SCRUB, \
+		100, \
+		TRUE, \
+		CALLBACK(src, PROC_REF(on_pre_clean)), \
+		CALLBACK(src, PROC_REF(on_clean_success)), \
+	)
 
 /obj/item/natural/cloth/Destroy()
 	cleaner_component = null
 	return ..()
-
-/obj/item/natural/cloth/ComponentInitialize()
-	. = ..()
-	cleaner_component = AddComponent(/datum/component/cleaner, \
-									clean_speed, \
-									CLEAN_SCRUB, \
-									100, \
-									TRUE, \
-									CALLBACK(src, PROC_REF(on_pre_clean)), \
-									CALLBACK(src, PROC_REF(on_clean_success)), \
-									)
 
 /obj/item/natural/cloth/proc/on_pre_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
 	if(cleaner?.used_intent?.type != INTENT_USE || ismob(atom_to_clean) || !check_allowed_items(atom_to_clean))

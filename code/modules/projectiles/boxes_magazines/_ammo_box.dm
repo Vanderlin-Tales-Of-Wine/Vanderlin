@@ -33,7 +33,7 @@
 	if(!start_empty)
 		for(var/i = 1, i <= max_ammo, i++)
 			stored_ammo += new ammo_type(src)
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 ///gets a round from the magazine, if keep is TRUE the round will stay in the gun
 /obj/item/ammo_box/proc/get_round(keep = FALSE)
@@ -96,8 +96,8 @@
 		if(!silent)
 			to_chat(user, "<span class='notice'>I load [num_loaded] shell\s into \the [src]!</span>")
 			playsound(src, 'sound/blank.ogg', 60, TRUE)
-		A.update_icon()
-		update_icon()
+		A.update_appearance(UPDATE_ICON_STATE)
+		update_appearance(UPDATE_ICON_STATE)
 	return num_loaded
 
 /obj/item/ammo_box/attack_self(mob/user)
@@ -108,16 +108,16 @@
 			A.bounce_away(FALSE, NONE)
 		playsound(src, 'sound/blank.ogg', 60, TRUE)
 		to_chat(user, "<span class='notice'>I remove a round from [src]!</span>")
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
-/obj/item/ammo_box/update_icon()
+/obj/item/ammo_box/update_icon_state()
+	. = ..()
 	var/shells_left = stored_ammo.len
 	switch(multiple_sprites)
 		if(AMMO_BOX_PER_BULLET)
 			icon_state = "[initial(icon_state)]-[shells_left]"
 		if(AMMO_BOX_FULL_EMPTY)
 			icon_state = "[initial(icon_state)]-[shells_left ? "[max_ammo]" : "0"]"
-	desc = ""
 
 ///Count of number of bullets in the magazine
 /obj/item/ammo_box/magazine/proc/ammo_count(countempties = TRUE)
@@ -143,4 +143,4 @@
 
 /obj/item/ammo_box/magazine/handle_atom_del(atom/A)
 	stored_ammo -= A
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)

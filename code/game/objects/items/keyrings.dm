@@ -30,8 +30,7 @@
 			qdel(new_key)
 		LAZYREMOVE(keys, X)
 
-	update_icon()
-	update_desc()
+	update_appearance(UPDATE_ICON_STATE | UPDATE_DESC)
 
 /obj/item/storage/keyring/attack_right(mob/user)
 	var/datum/component/storage/CP = GetComponent(/datum/component/storage)
@@ -39,29 +38,18 @@
 		CP.rmb_show(user)
 		return TRUE
 
-/obj/item/storage/keyring/update_icon()
-	. = ..()
-	switch(length(contents))
-		if(0)
-			icon_state = "keyring0"
-		if(1)
-			icon_state = "keyring1"
-		if(2)
-			icon_state = "keyring2"
-		if(3)
-			icon_state = "keyring3"
-		if(4)
-			icon_state = "keyring4"
-		else
-			icon_state = "keyring5"
+/obj/item/storage/keyring/update_icon_state()
+	icon_state = "keyring[clamp(length(contents), 0, 5)]"
+	return ..()
 
-/obj/item/storage/keyring/proc/update_desc()
+/obj/item/storage/keyring/update_desc()
 	if(!length(contents))
 		desc = initial(desc)
 		return
 	desc = span_info("Holds \Roman[length(contents)] key\s, including:")
 	for(var/obj/item/key/KE in contents)
 		desc += span_info("\n- [KE.name ? "\A [KE.name]." : "An unknown key."]")
+	return ..()
 
 /obj/item/storage/keyring/proc/refresh_keys()
 	LAZYCLEARLIST(combined_access)
@@ -84,12 +72,12 @@
 
 /obj/item/storage/keyring/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
-	update_desc()
+	update_appearance(UPDATE_ICON_STATE | UPDATE_DESC)
 	refresh_keys()
 
 /obj/item/storage/keyring/Exited(atom/movable/gone, direction)
 	. = ..()
-	update_desc()
+	update_appearance(UPDATE_ICON_STATE | UPDATE_DESC)
 	refresh_keys()
 
 /obj/item/storage/keyring/getonmobprop(tag)
@@ -142,7 +130,6 @@
 		for(var/X in picks)
 			addtoring(new X())
 			picks -= X
-	update_icon()
 
 /obj/item/lockpickring/getonmobprop(tag)
 	. = ..()
@@ -178,8 +165,7 @@
 		return 0
 	I.loc = src
 	picks += I
-	update_icon()
-	update_desc()
+	update_appearance(UPDATE_ICON_STATE | UPDATE_DESC)
 
 /obj/item/lockpickring/proc/removefromring(mob/user)
 	if(!picks.len)
@@ -187,8 +173,7 @@
 	var/obj/item/lockpick/K = picks[picks.len]
 	picks -= K
 	K.loc = user.loc
-	update_icon()
-	update_desc()
+	update_appearance(UPDATE_ICON_STATE | UPDATE_DESC)
 	return K
 
 /obj/item/lockpickring/attackby(obj/item/I, mob/user)
@@ -207,27 +192,16 @@
 		var/obj/item/lockpick/K = removefromring(user)
 		user.put_in_active_hand(K)
 
-/obj/item/lockpickring/update_icon()
-	..()
-	if(!picks.len)
-		icon_state = "pickring0"
-		return
-	if(picks.len >= 3)
-		icon_state = "pickring3"
-		return
-	switch(picks.len)
-		if(1)
-			icon_state = "pickring1"
-		if(2)
-			icon_state = "pickring2"
-		if(3)
-			icon_state = "pickring3"
+/obj/item/lockpickring/update_icon_state()
+	icon_state = "keyring[clamp(length(contents), 0, 3)]"
+	return ..()
 
-/obj/item/lockpickring/proc/update_desc()
-	if(picks.len)
-		desc = span_info("\Roman[picks.len] lockpick\s.")
-	else
-		desc = ""
+/obj/item/lockpickring/update_desc()
+	if(!length(contents))
+		desc = initial(desc)
+		return
+	desc = span_info("\Roman[length(contents)] lockpick\s.")
+	return ..()
 
 /obj/item/lockpickring/mundane
 	picks = list(/obj/item/lockpick, /obj/item/lockpick, /obj/item/lockpick)
@@ -299,7 +273,7 @@
 	keys = list(/obj/item/key/artificer, /obj/item/key/blacksmith, /obj/item/key/miner)
 
 /obj/item/storage/keyring/veteran
-	keys = list(/obj/item/key/veteran, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/atarms, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson)
+	keys = list(/obj/item/key/veteran, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/atarms, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson, /obj/item/key/manor)
 
 /obj/item/storage/keyring/stevedore
 	keys = list(/obj/item/key/warehouse, /obj/item/key/merchant)

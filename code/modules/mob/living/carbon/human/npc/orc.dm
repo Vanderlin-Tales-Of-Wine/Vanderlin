@@ -171,7 +171,6 @@
 	return
 
 /datum/species/orc/regenerate_icons(mob/living/carbon/human/H)
-//	H.cut_overlays()
 	H.icon_state = ""
 	if(H.notransform)
 		return 1

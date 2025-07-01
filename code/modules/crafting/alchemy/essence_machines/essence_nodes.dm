@@ -18,13 +18,6 @@
 	// Visual states
 	var/base_icon_state = "node"
 
-/obj/structure/essence_node/update_icon()
-	. = ..()
-	cut_overlays()
-	var/mutable_appearance/emissive = mutable_appearance(icon, icon_state)
-	emissive.plane = EMISSIVE_PLANE
-	overlays += emissive
-
 /obj/structure/essence_node/Initialize(mapload)
 	. = ..()
 	if(!essence_type)
@@ -41,12 +34,20 @@
 
 	current_essence = rand(max_essence * 0.3, max_essence * 0.8)
 	last_recharge = world.time
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	START_PROCESSING(SSobj, src)
 
 /obj/structure/essence_node/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	return ..()
+
+/obj/structure/essence_node/update_overlays()
+	. = ..()
+	. += emissive_appearance(icon, icon_state, alpha = src.alpha)
+
+/obj/structure/essence_node/update_icon_state()
+	. = ..()
+	color = initial(essence_type.color)
 
 /obj/structure/essence_node/proc/pick_random_essence_type()
 	if(!tier)
@@ -66,15 +67,10 @@
 				common_and_rare_essences |= essence
 		return pick(common_and_rare_essences)
 
-/obj/structure/essence_node/update_icon()
-	. = ..()
-	color = initial(essence_type.color)
-
 /obj/structure/essence_node/process()
 	if(current_essence < max_essence && world.time >= last_recharge + 1 MINUTES)
 		current_essence = min(max_essence, current_essence + recharge_rate)
 		last_recharge = world.time
-		update_icon()
 
 /obj/structure/essence_node/proc/can_harvest()
 	return current_essence > 0
@@ -82,7 +78,6 @@
 /obj/structure/essence_node/proc/harvest_essence(amount)
 	var/harvested = min(current_essence, amount)
 	current_essence -= harvested
-	update_icon()
 	return harvested
 
 /obj/structure/essence_node/proc/can_be_extracted()
@@ -116,7 +111,7 @@
 			current_essence += harvested // Refund
 			return
 
-		vial.update_icon()
+		vial.update_appearance(UPDATE_OVERLAYS)
 
 		var/datum/thaumaturgical_essence/temp_essence = new essence_type.type
 		to_chat(user, span_info("You harvest [harvested] units of [temp_essence.name] from the node."))
@@ -147,11 +142,11 @@
 		portable_node.max_essence = max_essence
 		portable_node.current_essence = current_essence
 		portable_node.recharge_rate = recharge_rate
-		portable_node.update_icon()
+		portable_node.update_appearance(UPDATE_ICON_STATE)
 
 		portable_node.forceMove(jar)
 		jar.contained_node = portable_node
-		jar.update_icon()
+		jar.update_appearance(UPDATE_OVERLAYS)
 
 		var/datum/thaumaturgical_essence/temp = new essence_type.type
 		to_chat(user, span_info("You carefully extract the essence node and place it in the containment jar. The [temp.name] node is now safely contained."))
@@ -231,10 +226,10 @@
 
 	last_recharge = world.time
 	last_stamina_drain = world.time
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	START_PROCESSING(SSobj, src)
 
-/obj/item/essence_node_portable/update_icon()
+/obj/item/essence_node_portable/update_icon_state()
 	. = ..()
 	color = initial(essence_type.color)
 
@@ -248,7 +243,7 @@
 		var/adjusted_recharge = max(1, round(recharge_rate * portable_penalty))
 		current_essence = min(max_essence, current_essence + adjusted_recharge)
 		last_recharge = world.time
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
 	var/mob/living/holder = loc
 	if(istype(holder) && (src in holder.held_items))

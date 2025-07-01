@@ -48,7 +48,7 @@
 		in_use = FALSE
 		return
 	in_use = FALSE
-	update_icon() //the section below handles roles and admin logging
+	//the section below handles roles and admin logging
 	var/dat = "[key_name(user)] has despawned [departing_mob == user ? "themselves" : departing_mob], job [departing_mob.job], at [AREACOORD(src)]. Contents despawned along:"
 	if(!length(departing_mob.contents))
 		dat += " none."

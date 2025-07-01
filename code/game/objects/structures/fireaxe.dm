@@ -13,7 +13,7 @@
 /obj/structure/fireaxecabinet/Initialize()
 	. = ..()
 	heirloom = new /obj/item/weapon/sword/long/heirloom(src)
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/fireaxecabinet/Destroy()
 	if(heirloom)
@@ -30,7 +30,7 @@
 			return
 		heirloom = F
 		to_chat(user, "<span class='notice'>I place the [F.name] back in the [name].</span>")
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		return
 	return ..()
 
@@ -43,13 +43,14 @@
 		heirloom = null
 		to_chat(user, "<span class='notice'>I take the sword from the [name].</span>")
 		src.add_fingerprint(user)
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		return
 
 /obj/structure/fireaxecabinet/attack_paw(mob/living/user)
 	return attack_hand(user)
 
-/obj/structure/fireaxecabinet/update_icon()
+/obj/structure/fireaxecabinet/update_icon_state()
+	. = ..()
 	icon_state = "fireaxe"
 	if(heirloom)
 		icon_state = "axe"

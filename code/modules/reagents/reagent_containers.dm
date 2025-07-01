@@ -7,22 +7,35 @@
 
 	grid_height = 64
 	grid_width = 32
+	/// Starting transfer amount
 	var/amount_per_transfer_from_this = 5
-	var/list/possible_transfer_amounts = list(5,10,15,20,25,30)
+	/// List of selectable transfer amounts
+	var/list/possible_transfer_amounts = list(5, 10, 15, 20, 25, 30)
+	/// Reagents max volume
 	var/volume = 30
 	var/reagent_flags
-	var/list/list_reagents = null
-	var/disease_amount = 20
+	/// Whether this can be splashed
 	var/spillable = FALSE
-	var/list/fill_icon_thresholds = null
-	var/fill_icon_state = null // Optional custom name for reagent fill icon_state prefix
+	/// Current reagents
+	var/list/list_reagents = null
+	/// List of thresholds to change the filling icon. If null no filling icons are used.
+	var/list/fill_icon_thresholds = null // list(10, 50, 100)
+	/// Optional custom name for reagent fill icon_state prefix
+	var/fill_icon_state = null
+	/// Underlays fill state instead of overlaying it
+	var/fill_icon_under_override = FALSE
+	/// Sounds when consuming
 	var/drinksounds = list('sound/items/drink_gen (1).ogg','sound/items/drink_gen (2).ogg','sound/items/drink_gen (3).ogg')
+	/// Sounds when filling another container
 	var/fillsounds
+	/// Sounds when pouring out of
 	var/poursounds
-	var/short_cooktime = FALSE  // based on cooking skill
-	var/long_cooktime = FALSE  // based on cooking skill
+	/// Short cooktime, when high cooking skill
+	var/short_cooktime = FALSE
+	/// Long cooktime, when low cooking skill
+	var/long_cooktime = FALSE
 
-	COOLDOWN_DECLARE(fill_cooldown)
+	COOLDOWN_DECLARE(weather_act_cooldown)
 
 /obj/item/reagent_containers/Initialize(mapload, vol)
 	. = ..()
@@ -36,12 +49,12 @@
 		GLOB.weather_act_upon_list |= src
 
 /obj/item/reagent_containers/weather_act_on(weather_trait, severity)
-	if(weather_trait != PARTICLEWEATHER_RAIN || !COOLDOWN_FINISHED(src, fill_cooldown))
+	if(weather_trait != PARTICLEWEATHER_RAIN || !COOLDOWN_FINISHED(src, weather_act_cooldown))
 		return
 	if(!isturf(loc))
 		return
 	reagents.add_reagent(/datum/reagent/water, clamp(severity * 0.5, 1, 5))
-	COOLDOWN_START(src, fill_cooldown, 10 SECONDS)
+	COOLDOWN_START(src, weather_act_cooldown, 10 SECONDS)
 
 /obj/item/reagent_containers/Destroy()
 	if(spillable)
@@ -51,7 +64,7 @@
 /obj/item/reagent_containers/proc/add_initial_reagents()
 	if(list_reagents)
 		reagents.add_reagent_list(list_reagents)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)
 	return ..()
@@ -144,32 +157,37 @@
 	reagents.expose_temperature(exposed_temperature)
 
 /obj/item/reagent_containers/on_reagent_change(changetype)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
-/obj/item/reagent_containers/update_icon(dont_fill=FALSE)
-	if(!fill_icon_thresholds || dont_fill)
-		return ..()
-
-	cut_overlays()
-
-	if(reagents.total_volume)
-		var/fill_name = fill_icon_state? fill_icon_state : icon_state
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[fill_name][fill_icon_thresholds[1]]")
-
-		var/percent = round((reagents.total_volume / volume) * 100)
-		for(var/i in 1 to fill_icon_thresholds.len)
-			var/threshold = fill_icon_thresholds[i]
-			var/threshold_end = (i == fill_icon_thresholds.len)? INFINITY : fill_icon_thresholds[i+1]
-			if(threshold <= percent && percent < threshold_end)
-				filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
-
-		filling.color = mix_color_from_reagents(reagents.reagent_list)
-		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
-			if(reagent.glows)
-				var/mutable_appearance/emissive = mutable_appearance('icons/obj/reagentfillings.dmi', filling.icon_state)
-				emissive.plane = EMISSIVE_PLANE
-				overlays += emissive
-				break
-		add_overlay(filling)
+/obj/item/reagent_containers/update_overlays()
 	. = ..()
+	if(!reagents?.total_volume)
+		return
+	if(!fill_icon_thresholds)
+		return
+	var/fill_name = fill_icon_state ? fill_icon_state : icon_state
+	var/use_underlays = FALSE
+	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[fill_name][fill_icon_thresholds[1]]")
 
+	if(fill_icon_under_override || reagent_flags & TRANSPARENT)
+		use_underlays = TRUE
+
+	var/percent = round((reagents.total_volume / volume) * 100)
+	for(var/i in 1 to length(fill_icon_thresholds))
+		var/threshold = fill_icon_thresholds[i]
+		var/threshold_end = (i == length(fill_icon_thresholds)) ? INFINITY : fill_icon_thresholds[i+1]
+		if(threshold <= percent && percent < threshold_end)
+			filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
+
+	filling.color = mix_color_from_reagents(reagents.reagent_list)
+	filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
+
+	if(use_underlays)
+		underlays.Cut()
+		underlays += filling
+	else
+		. += filling
+
+	var/datum/reagent/master = reagents.get_master_reagent()
+	if(master?.glows)
+		. += emissive_appearance(filling.icon, filling.icon_state, alpha = filling.alpha)

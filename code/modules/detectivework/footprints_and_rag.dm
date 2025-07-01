@@ -10,7 +10,7 @@
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "rag"
 	item_flags = NOBLUDGEON
-	reagent_flags = OPENCONTAINER
+	reagent_flags = TRANSFERABLE
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list()
 	volume = 5
