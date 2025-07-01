@@ -143,6 +143,8 @@
 	"blond - dirty" = "88754f",
 	"blond - drywheat" = "d5ba7b",
 	"blond - strawberry" = "c69b71",
+
+	"white - ice" = "f4f4f4",
 	"white - cavedew" = "dee9ed",
 	"white - spiderweb" = "f4f4f4"
 

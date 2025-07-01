@@ -141,12 +141,10 @@
 	"brown - bark" = "2d1300",
 
 	"red - berry" = "b23434",
-	"red - wine" = "82534c",
-	"red - sunset" = "82462b",
+	"red - wine" = "b87f77",
+	"red - sunset" = "bf6821",
 	"red - blood" = "822b2b",
 	"red - maroon" = "612929",
-	"red - carrot" = "bf6821",
-	"red - rose" = "b87f77",
 
 	"white - withered" = "#7c828a"
 
