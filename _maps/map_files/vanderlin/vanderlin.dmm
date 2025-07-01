@@ -477,12 +477,12 @@
 /area/rogue/indoors/town/church)
 "aph" = (
 /obj/item/natural/stone{
-	pixel_y = -5;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = -5
 	},
 /obj/item/natural/stone{
-	pixel_y = 6;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 6
 	},
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/blocks,
@@ -664,8 +664,8 @@
 /area/rogue/indoors/soilsons)
 "atz" = (
 /obj/item/reagent_containers/glass/carafe/silver/redwine{
-	pixel_y = 12;
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = 12
 	},
 /obj/item/reagent_containers/glass/cup/silver{
 	pixel_x = -6;
@@ -1148,9 +1148,9 @@
 /area/rogue/indoors/town)
 "aFf" = (
 /obj/effect/landmark/bounty_location{
+	completion_range = 5;
 	location_name = "Infront of the Clinic";
-	name = "Infront of the Clinic";
-	completion_range = 5
+	name = "Infront of the Clinic"
 	},
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
@@ -1679,7 +1679,9 @@
 /area/rogue/indoors/town/orphanage)
 "aTN" = (
 /obj/structure/fake_machine/camera,
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Orphanage Upper"
+	},
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/orphanage)
 "aTT" = (
@@ -2516,12 +2518,6 @@
 /obj/structure/rousman_hole,
 /turf/open/floor/blocks,
 /area/rogue/under/dungeon)
-"bwL" = (
-/obj/machinery/light/fueled/wallfire/candle{
-	pixel_y = -32
-	},
-/turf/open/floor/herringbone,
-/area/rogue/indoors/town)
 "bxg" = (
 /obj/structure/roguerock,
 /turf/open/water/river{
@@ -2688,8 +2684,8 @@
 /area/rogue/indoors/town/church/inquisition)
 "bBV" = (
 /obj/structure/door/violet{
-	name = "Waterfront V";
-	lockid = "waterfront5"
+	lockid = "waterfront5";
+	name = "Waterfront V"
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/wood,
@@ -3394,8 +3390,8 @@
 	icon_state = "largetable"
 	},
 /obj/machinery/essence/combiner{
-	pixel_y = -3;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = -3
 	},
 /turf/open/floor/twig,
 /area/rogue/indoors/town)
@@ -3615,7 +3611,9 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Wizard tower"
+	},
 /obj/machinery/essence/combiner{
 	pixel_y = 11
 	},
@@ -3877,7 +3875,9 @@
 /turf/open/floor/tile,
 /area/rogue/under/town/basement)
 "cop" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Apothecary"
+	},
 /obj/structure/lever{
 	redstone_id = "nite_shutter"
 	},
@@ -4546,22 +4546,22 @@
 "cNl" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/essence_vial{
-	pixel_y = 15;
-	pixel_x = -8
-	},
-/obj/item/essence_vial{
+	pixel_x = -8;
 	pixel_y = 15
 	},
 /obj/item/essence_vial{
 	pixel_y = 15
 	},
 /obj/item/essence_vial{
-	pixel_y = 10;
-	pixel_x = 7
+	pixel_y = 15
 	},
 /obj/item/essence_vial{
-	pixel_y = 4;
-	pixel_x = 3
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/obj/item/essence_vial{
+	pixel_x = 3;
+	pixel_y = 4
 	},
 /turf/open/floor/twig,
 /area/rogue/indoors/town)
@@ -5359,8 +5359,8 @@
 /area/rogue/under/town/caverogue)
 "dqQ" = (
 /obj/structure/door/violet{
-	name = "Waterfront IV";
-	lockid = "waterfront4"
+	lockid = "waterfront4";
+	name = "Waterfront IV"
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/wood,
@@ -5638,7 +5638,9 @@
 /area/rogue/indoors/town/manor)
 "dzu" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/obj/structure/fake_machine/mail/l,
+/obj/structure/fake_machine/mail/l{
+	mailtag = "Merchant Main"
+	},
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/shop)
 "dzB" = (
@@ -5734,7 +5736,9 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "dDr" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Mercenary Guild"
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/merc_guild)
 "dDB" = (
@@ -6114,8 +6118,8 @@
 /obj/item/lockpick,
 /obj/item/reagent_containers/food/snacks/cheese,
 /obj/item/reagent_containers/food/snacks/cheese{
-	pixel_y = 6;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = 6
 	},
 /obj/item/natural/cloth,
 /turf/open/floor/cobble,
@@ -6511,8 +6515,8 @@
 /area/rogue/indoors/town)
 "dXL" = (
 /obj/structure/door/violet{
-	name = "Waterfront III";
-	lockid = "waterfront3"
+	lockid = "waterfront3";
+	name = "Waterfront III"
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/wood,
@@ -6612,9 +6616,9 @@
 /area/rogue/indoors/town)
 "ebb" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = 614;
 	floor_turf = /turf/open/floor/ruinedwood/spiral;
-	override_floor = 1
+	override_floor = 1;
+	redstone_id = 614
 	},
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors/town/manor)
@@ -6689,7 +6693,9 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/smithy)
 "edD" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Armorsmith"
+	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/smithy)
 "edN" = (
@@ -6708,7 +6714,9 @@
 /turf/open/floor/churchbrick,
 /area/rogue/under/town/sewer)
 "efh" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Merchant private"
+	},
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/shop)
 "efk" = (
@@ -7199,7 +7207,8 @@
 /area/rogue/indoors/town/manor)
 "evQ" = (
 /obj/structure/fake_machine/mail{
-	pixel_y = -32
+	pixel_y = -32;
+	mailtag = "Inquisitor"
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/church/inquisition)
@@ -8469,11 +8478,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/manor)
 "fno" = (
-/obj/machinery/light/fueled/wallfire/candle{
-	pixel_y = -32
-	},
-/obj/structure/closet/crate/chest/crate,
-/turf/open/floor/metal/barograte,
+/turf/open/floor/blocks,
 /area/rogue/indoors/town)
 "fns" = (
 /obj/structure/bars/pipe{
@@ -8712,7 +8717,9 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
 "fwn" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Old Church"
+	},
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/church/inquisition)
 "fwz" = (
@@ -8788,9 +8795,9 @@
 /area/rogue/under/town/sewer)
 "fyD" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = 514;
 	floor_turf = /turf/open/floor/ruinedwood/spiral;
-	override_floor = 1
+	override_floor = 1;
+	redstone_id = 514
 	},
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors/town/manor)
@@ -9769,8 +9776,8 @@
 /area/rogue/indoors/town/orphanage)
 "ght" = (
 /obj/item/ore/iron{
-	pixel_y = 7;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 7
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
@@ -11530,8 +11537,8 @@
 "hqo" = (
 /obj/structure/table/wood/plain,
 /obj/item/plate/silver{
-	pixel_y = 8;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 8
 	},
 /obj/item/kitchen/fork/iron{
 	pixel_x = 11;
@@ -12171,12 +12178,12 @@
 /area/rogue/under/town/basement)
 "hKt" = (
 /obj/item/reagent_containers/food/snacks/cheese_wedge/aged{
-	pixel_y = 1;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 1
 	},
 /obj/item/reagent_containers/food/snacks/cheese_wedge/aged{
-	pixel_y = 7;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = 7
 	},
 /obj/structure/table/wood/plain,
 /turf/open/floor/blocks,
@@ -12192,7 +12199,9 @@
 /turf/closed/wall/mineral/wooddark/horizontal,
 /area/rogue/under/town/basement)
 "hLc" = (
-/obj/structure/fake_machine/mail/r,
+/obj/structure/fake_machine/mail/r{
+	mailtag = "Town garrison captain"
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/garrison)
 "hLN" = (
@@ -12790,7 +12799,8 @@
 "igf" = (
 /obj/structure/fake_machine/mail{
 	pixel_x = 32;
-	pixel_y = 0
+	pixel_y = 0;
+	mailtag = "Artificer"
 	},
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/dwarfin)
@@ -13315,7 +13325,9 @@
 /area/rogue/indoors/town)
 "izz" = (
 /obj/structure/table/wood/plain_alt,
-/obj/structure/fake_machine/mail/r,
+/obj/structure/fake_machine/mail/r{
+	mailtag = "Keep gate"
+	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manorgate)
 "izE" = (
@@ -14816,8 +14828,8 @@
 "jxe" = (
 /obj/item/grown/log/tree,
 /obj/item/grown/log/tree{
-	pixel_y = 9;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 9
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/safe)
@@ -15146,14 +15158,6 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/magician)
-"jGw" = (
-/obj/effect/landmark/bounty_location{
-	location_name = "By the Trains Seats";
-	name = "By the Trains Seats";
-	completion_range = 5
-	},
-/turf/open/floor/herringbone,
-/area/rogue/indoors/town)
 "jGJ" = (
 /obj/structure/fluff/statue/knight,
 /obj/structure/fluff/railing/border{
@@ -15630,8 +15634,8 @@
 /area/rogue/indoors/dungeon)
 "jWa" = (
 /obj/structure/door/violet{
-	name = "Waterfront I";
-	lockid = "waterfront1"
+	lockid = "waterfront1";
+	name = "Waterfront I"
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/wood,
@@ -15991,7 +15995,9 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/outdoors/town)
 "kgk" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Steward"
+	},
 /obj/structure/chair/bench/couchablack/r,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
@@ -16202,7 +16208,9 @@
 /turf/closed/wall/mineral/wood/window,
 /area/rogue/indoors/town)
 "kkY" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Butcher"
+	},
 /turf/open/floor/woodturned,
 /area/rogue/indoors/butchershop)
 "klp" = (
@@ -17573,7 +17581,8 @@
 	},
 /obj/structure/fake_machine/mail{
 	pixel_x = 32;
-	pixel_y = 0
+	pixel_y = 0;
+	mailtag = "Keep captain"
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
@@ -17745,9 +17754,9 @@
 /area/rogue/under/cave)
 "lmW" = (
 /obj/effect/landmark/bounty_location{
+	completion_range = 5;
 	location_name = "End of the Cargo Docks";
-	name = "End of the Cargo Docks";
-	completion_range = 5
+	name = "End of the Cargo Docks"
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/river)
@@ -17834,8 +17843,8 @@
 	},
 /obj/item/kitchen/spoon/iron,
 /obj/item/kitchen/spoon/iron{
-	pixel_y = -5;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = -5
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/dungeon)
@@ -18089,7 +18098,9 @@
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
 	},
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Church of Ten"
+	},
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/chapel)
 "lAc" = (
@@ -19976,12 +19987,12 @@
 /area/rogue/outdoors/rtfield)
 "mPz" = (
 /obj/item/ore/iron{
-	pixel_y = -4;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = -4
 	},
 /obj/item/ore/coal{
-	pixel_y = 4;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 4
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
@@ -20088,8 +20099,8 @@
 	pixel_y = -5
 	},
 /obj/item/clothing/head/sack{
-	pixel_y = 7;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 7
 	},
 /obj/item/needle,
 /obj/item/natural/cloth,
@@ -20259,8 +20270,8 @@
 	pixel_y = 8
 	},
 /obj/item/reagent_containers/glass/cup/wooden{
-	pixel_y = 3;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 3
 	},
 /obj/effect/spawner/map_spawner/loot/food,
 /turf/open/floor/cobble,
@@ -20799,8 +20810,8 @@
 "npg" = (
 /obj/structure/rack/shelf/big,
 /obj/item/reagent_containers/glass/bottle/beer/blackgoat{
-	pixel_y = 15;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = 15
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/dungeon)
@@ -22550,9 +22561,9 @@
 /area/rogue/indoors/town/orphanage)
 "ovH" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = 515;
 	floor_turf = /turf/open/floor/ruinedwood/spiral;
-	override_floor = 1
+	override_floor = 1;
+	redstone_id = 515
 	},
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/town/manor)
@@ -22683,7 +22694,9 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
 "oyq" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Throne room"
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "oyt" = (
@@ -22887,9 +22900,9 @@
 /area/rogue/indoors/town/clocktower)
 "oGf" = (
 /obj/effect/landmark/bounty_location{
+	completion_range = 5;
 	location_name = "Infront of the Graveyard Gates";
-	name = "Infront of the Graveyard Gates";
-	completion_range = 5
+	name = "Infront of the Graveyard Gates"
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/town)
@@ -23585,7 +23598,9 @@
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/town)
 "peS" = (
-/obj/structure/fake_machine/mail/r,
+/obj/structure/fake_machine/mail/r{
+	mailtag = "Orphanage lower"
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
 "pfx" = (
@@ -24076,7 +24091,9 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/sewer)
 "pwF" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Matron"
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/orphanage)
 "pxb" = (
@@ -24302,8 +24319,10 @@
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/merc_guild)
 "pGi" = (
-/obj/structure/flora/grass/water,
-/turf/closed/wall/mineral/stone,
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/turf/open/floor/herringbone,
 /area/rogue/indoors/town)
 "pGm" = (
 /obj/structure/closet/crate/chest,
@@ -24518,13 +24537,6 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
-"pOt" = (
-/obj/structure/fluff/walldeco/wantedposter{
-	pixel_y = 0;
-	pixel_x = 32
-	},
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/town)
 "pOS" = (
 /obj/structure/closet/crate/chest/crafted,
 /turf/open/floor/wood,
@@ -25186,8 +25198,8 @@
 /area/rogue/indoors/town)
 "qnw" = (
 /obj/structure/door/viewport{
-	name = "Steward";
-	dir = 1
+	dir = 1;
+	name = "Steward"
 	},
 /obj/effect/mapping_helpers/access/keyset/manor/steward,
 /turf/open/floor/wood,
@@ -25630,8 +25642,8 @@
 "qCe" = (
 /obj/structure/table/wood/plain,
 /obj/item/reagent_containers/glass/cup/steel{
-	pixel_y = 4;
-	pixel_x = 12
+	pixel_x = 12;
+	pixel_y = 4
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/dungeon)
@@ -25948,7 +25960,9 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/dungeon)
 "qPi" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Soilson"
+	},
 /obj/structure/stairs{
 	dir = 8
 	},
@@ -27622,8 +27636,8 @@
 /obj/structure/fluff/railing/border,
 /obj/structure/rack/shelf/big,
 /obj/item/reagent_containers/glass/bottle{
-	pixel_y = 15;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 15
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/dungeon)
@@ -27678,7 +27692,9 @@
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/inquisition)
 "rUa" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Inn"
+	},
 /obj/structure/table/wood{
 	dir = 10;
 	icon_state = "largetable"
@@ -27785,12 +27801,12 @@
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/reagent_containers/food/snacks/hardtack,
 /obj/item/reagent_containers/food/snacks/hardtack{
-	pixel_y = 3;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = 3
 	},
 /obj/item/reagent_containers/glass/bottle/beer{
-	pixel_y = -3;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = -3
 	},
 /obj/item/storage/backpack/satchel/cloth,
 /turf/open/floor/cobble,
@@ -28988,8 +29004,8 @@
 /area/rogue/outdoors/river)
 "sJT" = (
 /obj/effect/landmark/bounty_location{
-	location_name = "By the Forest Garrisons Noose";
 	completion_range = 5;
+	location_name = "By the Forest Garrisons Noose";
 	name = "By the Forest Garrisons Noose"
 	},
 /turf/open/floor/wood,
@@ -29661,12 +29677,12 @@
 	dir = 4
 	},
 /obj/item/natural/stone{
-	pixel_y = -5;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = -5
 	},
 /obj/item/natural/stoneblock{
-	pixel_y = 16;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = 16
 	},
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/blocks,
@@ -31249,8 +31265,8 @@
 /area/rogue/indoors/town)
 "ueb" = (
 /obj/structure/door/violet{
-	name = "Waterfront II";
-	lockid = "waterfront2"
+	lockid = "waterfront2";
+	name = "Waterfront II"
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/wood,
@@ -31501,7 +31517,8 @@
 "unh" = (
 /obj/structure/fake_machine/mail{
 	pixel_x = 32;
-	pixel_y = 0
+	pixel_y = 0;
+	mailtag = "Priest"
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/church)
@@ -32315,10 +32332,6 @@
 "uOB" = (
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/smithy)
-"uOT" = (
-/obj/structure/bars,
-/turf/open/floor/herringbone,
-/area/rogue/indoors/town)
 "uPh" = (
 /obj/structure/fluff/clock,
 /turf/open/floor/hexstone,
@@ -34027,10 +34040,6 @@
 "wbN" = (
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/indoors/town/garrison)
-"wbO" = (
-/obj/structure/flora/grass/water/reeds,
-/turf/closed/mineral/bedrock,
-/area/rogue/indoors/town)
 "wbS" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -34183,7 +34192,9 @@
 	},
 /area/rogue/under/town/basement)
 "wgK" = (
-/obj/structure/fake_machine/mail/l,
+/obj/structure/fake_machine/mail/l{
+	mailtag = "Weaponsmith"
+	},
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/smithy)
 "wgL" = (
@@ -35092,7 +35103,9 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/tavern)
 "wIi" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Graveyard"
+	},
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "wIn" = (
@@ -35333,8 +35346,8 @@
 	pixel_x = 5
 	},
 /obj/item/reagent_containers/glass/cup{
-	pixel_y = -6;
-	pixel_x = -9
+	pixel_x = -9;
+	pixel_y = -6
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors/dungeon)
@@ -35804,7 +35817,9 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church)
 "xgB" = (
-/obj/structure/fake_machine/mail/r,
+/obj/structure/fake_machine/mail/r{
+	mailtag = "Theatre"
+	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/theatre)
 "xgK" = (
@@ -37041,8 +37056,8 @@
 /area/rogue/indoors/town/manor)
 "xZV" = (
 /obj/structure/door/viewport{
-	name = "Priest's Room";
-	dir = 4
+	dir = 4;
+	name = "Priest's Room"
 	},
 /obj/effect/mapping_helpers/access/keyset/church/priest,
 /obj/effect/mapping_helpers/access/locker,
@@ -37218,7 +37233,9 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/safe)
 "yfl" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Gaffer"
+	},
 /obj/structure/table/wood/counter{
 	dir = 1
 	},
@@ -58984,7 +59001,7 @@ olm
 rnJ
 vgJ
 nYn
-nYn
+oZQ
 nYn
 nYn
 xfD
@@ -59185,9 +59202,9 @@ ijd
 tQf
 qcb
 qcb
-sjG
-wbO
-sjG
+jXx
+nYn
+oZQ
 nYn
 nYn
 nYn
@@ -59390,7 +59407,7 @@ rnJ
 rnJ
 rnJ
 rnJ
-rnJ
+nYn
 xfD
 nYn
 nYn
@@ -59591,8 +59608,8 @@ cYy
 dpf
 edn
 edn
-edn
 rnJ
+nYn
 nYn
 nYn
 nYn
@@ -59793,8 +59810,8 @@ tFx
 qqE
 qqE
 qqE
-bwL
-rnJ
+fno
+nYn
 nYn
 nYn
 nYn
@@ -59995,8 +60012,8 @@ fWL
 rrL
 rrL
 iPh
-rrL
-uOT
+fno
+nYn
 nYn
 nYn
 nYn
@@ -60197,8 +60214,8 @@ fHn
 qqE
 qqE
 qqE
-qqE
-uOT
+fno
+nYn
 nYn
 nYn
 nYn
@@ -60398,9 +60415,9 @@ iGx
 pEm
 qqE
 qqE
-qqE
-qqE
-uOT
+pGi
+rnJ
+nYn
 nYn
 nYn
 nYn
@@ -60601,8 +60618,8 @@ gqE
 qqE
 gnV
 qqE
-gnV
-rnJ
+fno
+nYn
 nYn
 nYn
 nYn
@@ -60803,8 +60820,8 @@ riJ
 qqE
 psb
 qqE
-psb
-rnJ
+fno
+nYn
 xfD
 nYn
 nYn
@@ -61005,8 +61022,8 @@ rxv
 qqE
 caq
 qqE
-caq
-rnJ
+fno
+nYn
 xfD
 nYn
 nYn
@@ -61206,9 +61223,9 @@ iGx
 han
 qqE
 qqE
-jGw
-bwL
 pGi
+rnJ
+nYn
 vMb
 nYn
 nYn
@@ -61409,8 +61426,8 @@ gqE
 qqE
 gnV
 qqE
-gnV
-rnJ
+fno
+nYn
 vMb
 nYn
 nYn
@@ -61611,8 +61628,8 @@ btY
 qqE
 psb
 qqE
-psb
-rnJ
+fno
+nYn
 xfD
 nYn
 nYn
@@ -61813,8 +61830,8 @@ lFG
 qgD
 caq
 qqE
-caq
-rnJ
+fno
+nYn
 nYn
 nYn
 nYn
@@ -62014,9 +62031,9 @@ iGx
 jFg
 rnJ
 gtZ
-qqE
-qqE
-uOT
+pGi
+rnJ
+nYn
 nYn
 nYn
 nYn
@@ -62217,8 +62234,8 @@ gUi
 rnJ
 vWM
 qqE
-qqE
-uOT
+fno
+nYn
 nYn
 nYn
 nYn
@@ -62419,8 +62436,8 @@ gUi
 rnJ
 vWM
 qqE
-qqE
-uOT
+fno
+nYn
 nYn
 nYn
 nYn
@@ -62621,8 +62638,8 @@ jFg
 rnJ
 gtZ
 qqE
-bwL
-rnJ
+fno
+nYn
 nYn
 xfD
 nYn
@@ -62822,9 +62839,9 @@ iGx
 kLW
 nAk
 qqE
-qqE
-qqE
+pGi
 rnJ
+nYn
 nYn
 nYn
 nYn
@@ -63025,8 +63042,8 @@ dwI
 qqE
 ipb
 wWA
-sFd
-rnJ
+fno
+nYn
 nYn
 nYn
 nYn
@@ -63227,8 +63244,8 @@ gqE
 qqE
 qqE
 qqE
-qqE
-rnJ
+fno
+nYn
 nYn
 nYn
 nYn
@@ -63430,7 +63447,7 @@ qqE
 sFd
 vXo
 fno
-rnJ
+nYn
 xfD
 nYn
 nYn
@@ -63632,7 +63649,7 @@ qqE
 qqE
 qqE
 rnJ
-pGi
+nYn
 xfD
 nYn
 nYn
@@ -63832,7 +63849,7 @@ iGx
 han
 qqE
 qqE
-qqE
+pGi
 rnJ
 vMb
 vMb
@@ -99012,7 +99029,7 @@ nEW
 aWD
 nlp
 nEW
-aWD
+nlp
 nlp
 vtv
 vtv
@@ -99214,7 +99231,7 @@ nlp
 nEW
 aWD
 aWD
-aWD
+nlp
 nlp
 vtv
 vtv
@@ -99415,7 +99432,7 @@ mAU
 nlp
 nEW
 nEW
-nlp
+aWD
 aWD
 nlp
 vtv
@@ -99586,9 +99603,9 @@ twR
 rZO
 oDZ
 qUP
-mZi
-mZi
-mZi
+wMs
+wMs
+wMs
 wMs
 wMs
 wMs
@@ -99618,7 +99635,7 @@ aWD
 aWD
 aWD
 aWD
-nlp
+aWD
 nlp
 nlp
 vtv
@@ -99790,8 +99807,8 @@ oDZ
 lBA
 mZi
 mZi
-nlp
-nlp
+wMs
+wMs
 wMs
 wMs
 wMs
@@ -99818,8 +99835,8 @@ nlp
 nlp
 nEW
 aWD
-nlp
-nlp
+aWD
+aWD
 nlp
 mAU
 nlp
@@ -99993,7 +100010,7 @@ lBA
 rAU
 fYR
 msN
-nlp
+wMs
 wMs
 wMs
 wMs
@@ -100195,7 +100212,7 @@ qUP
 aWD
 fYR
 fYR
-nlp
+wMs
 wMs
 wMs
 wMs
@@ -100397,7 +100414,7 @@ bkg
 juz
 fYR
 fYR
-nlp
+wMs
 wMs
 wMs
 wMs
@@ -100599,7 +100616,7 @@ cUD
 aWD
 fYR
 fYR
-nlp
+wMs
 wMs
 wMs
 wMs
@@ -100801,7 +100818,7 @@ cUD
 aWD
 aWD
 fYR
-fYR
+wMs
 wMs
 wMs
 wMs
@@ -101003,7 +101020,7 @@ xJk
 xJk
 jKg
 nlp
-nlp
+wMs
 wMs
 wMs
 wMs
@@ -102813,7 +102830,7 @@ ehF
 lsl
 lsl
 elp
-pOt
+qAt
 lsl
 nSA
 lsl
@@ -112613,7 +112630,7 @@ vtv
 vtv
 nxk
 rDr
-bUM
+nyB
 bUM
 bUM
 rDr
