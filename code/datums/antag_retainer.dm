@@ -20,7 +20,7 @@
 
 
 	///delf stuff
-	var/delf_contribute = 0
+	var/delf_ears = 0
 	var/delf_goal = 5
 
 	///bandit stuff

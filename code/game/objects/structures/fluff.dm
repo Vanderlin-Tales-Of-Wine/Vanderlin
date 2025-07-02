@@ -954,13 +954,15 @@
 			if(isdarkelf(user))
 				playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
 				current += 1
+				SSmapping.retainer.delf_ears += 1
 				if(current >= goal)
 					say("YOU HAVE DONE WELL, MY CHILD.",language = /datum/language/elvish)
 					user.adjust_triumphs(1, reason = "Pleased the dark lady")
+
 					qdel(src)
 					// TODO : add crumbling message and sound
 				else
-					say("BRING ME [SSmapping.retainer.delf_goal - SSmapping.retainer.delf_contribute] MORE EARS. I HUNGER.",language = /datum/language/elvish)
+					say("BRING ME [current - goal] MORE EARS. I HUNGER.",language = /datum/language/elvish)
 				qdel(W)
 				return TRUE
 	..()
