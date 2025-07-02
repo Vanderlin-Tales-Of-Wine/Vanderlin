@@ -305,6 +305,31 @@
 /obj/structure/table/wood/large/corner_blue
 	icon_state = "largetable_alt2"
 
+/obj/structure/table/map
+	icon = 'icons/roguetown/misc/tables.dmi'
+	icon_state = "map_enigma"
+	desc = "A table displaying a map of Enigma."
+
+/obj/structure/table/map/vanderlin
+	icon_state = "map_vanderlin"
+	desc = "A table displaying a map of Vanderlin and Daftmarsh."
+
+/obj/structure/table/map/rosewood
+	icon_state = "map_rosewood"
+	desc = "A table displaying a map of Rosewood and White Palace Pass."
+
+/obj/structure/table/map/deshret
+	icon_state = "map_deshret"
+	desc = "A table displaying a map of Deshret and surrounding deserts."
+
+/obj/structure/table/map/amber
+	icon_state = "map_amber"
+	desc = "A table displaying a map of Amber Hollow. Regardless of serene appearance, the threat of Zizo's Claw underneath never lessens."
+
+/obj/structure/table/map/kingsfield
+	icon_state = "map_kingsfield"
+	desc = "A table displaying a map of the capital of Kingsfield."
+
 /obj/structure/table/wood/fine
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "tablefine"
