@@ -56,7 +56,7 @@
 	H.mob_biotypes = MOB_UNDEAD
 	H.faction = list(FACTION_UNDEAD)
 	ADD_TRAIT(H, TRAIT_NOMOOD, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOSTAMINA, TRAIT_GENERIC)
+
 	ADD_TRAIT(H, TRAIT_NOLIMBDISABLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBREATH, TRAIT_GENERIC)
@@ -72,6 +72,8 @@
 	H.base_speed = rand(7,10)
 	H.base_intelligence = 1
 	H.base_constitution = 3
+	H.base_endurance = 10
+
 
 /* RAIDER SKELETONS */
 /datum/job/skeleton/raider
