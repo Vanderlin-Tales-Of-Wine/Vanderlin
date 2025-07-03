@@ -230,7 +230,7 @@
 
 /datum/container_craft/oven/honey_cake
 	category = "Cakes"
-	name = "Baked Zybantu Cake"
+	name = "Baked Zaladin Cake"
 	requirements = list(/obj/item/reagent_containers/food/snacks/zybcake_ready= 1)
 	output = /obj/item/reagent_containers/food/snacks/zybcake_cooked
 	cooked_smell = /datum/pollutant/food/honey_cake
