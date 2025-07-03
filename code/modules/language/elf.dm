@@ -5,6 +5,7 @@
 	ask_verb = "questions"
 	exclaim_verb = "shouts"
 	key = "e"
+	flags = TONGUELESS_SPEECH
 	space_chance = 75 //very high due to the potential length of each syllable
 	sentence_chance = 10
 	between_word_sentence_chance = 5
