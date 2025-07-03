@@ -253,78 +253,13 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(radio_return & NOPASS)
 		return 1
 
-	var/datum/language/D = GLOB.language_datum_instances[language]
-	if(D.flags & SIGNLANG)
-		send_speech_sign(message, message_range, src, bubble_type, spans, language, message_mode, original_message)
-	else
-		send_speech(message, message_range, src, bubble_type, spans, language, message_mode, original_message)
+	send_speech(message, message_range, src, bubble_type, spans, language, message_mode, original_message)
 
 	if(succumbed)
 		succumb(1)
 		to_chat(src, compose_message(src, language, message, , spans, message_mode))
 
 	return 1
-
-/mob/living/proc/send_speech_sign(message, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode, original_message)
-	var/static/list/eavesdropping_modes = list(MODE_WHISPER = TRUE, MODE_WHISPER_CRIT = TRUE)
-	var/eavesdrop_range = 0
-
-	if(eavesdropping_modes[message_mode])
-		eavesdrop_range = EAVESDROP_EXTRA_RANGE
-	var/list/listening = get_hearers_in_view(message_range+eavesdrop_range, source)
-	var/list/the_dead = list()
-	for(var/_M in GLOB.player_list)
-		var/mob/M = _M
-		if(!client) //client is so that ghosts don't have to listen to mice
-			continue
-		if(!M)
-			continue
-		if(!M.client)
-			continue
-		if(get_dist(M, src) > message_range) //they're out of range of normal hearing
-			if(M.client.prefs)
-				if(eavesdropping_modes[message_mode] && !(M.client.prefs.chat_toggles & CHAT_GHOSTWHISPER)) //they're whispering and we have hearing whispers at any range off
-					continue
-				if(!(M.client.prefs.chat_toggles & CHAT_GHOSTEARS)) //they're talking normally and we have hearing at any range off
-					continue
-		if(!is_in_zweb(src.z,M.z))
-			continue
-		listening |= M
-		the_dead[M] = TRUE
-
-
-
-	var/rendered = compose_message(src, message_language, message, , spans, message_mode)
-	var/list/understanders = list() //those who aren't understanders will be shown an emote instead
-
-	for(var/_AM in listening)
-		var/atom/movable/AM = _AM
-
-		if(!(AM.has_language(message_language) || AM.check_language_hear(message_language)))
-			continue
-
-		understanders += AM
-
-		AM.Hear(rendered, src, message_language, message, , spans, message_mode, original_message)
-
-
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_LIVING_SAY_SPECIAL, src, message)
-
-	//time for emoting!!
-	var/datum/language/D = GLOB.language_datum_instances[message_language]
-	var/sign_verb = pick(D.signlang_verb)
-	var/chatmsg = "<b>[src]</b> " + sign_verb + "."
-	visible_message(chatmsg, runechat_message = sign_verb, ignored_mobs = understanders)
-
-	//speech bubble
-	var/list/speech_bubble_recipients = list()
-	for(var/mob/M in listening)
-		if(M.client?.prefs)
-			if(M.client && !M.client.prefs.chat_on_map)
-				speech_bubble_recipients.Add(M.client)
-	var/image/I = image('icons/mob/talk.dmi', src, "[bubble_type][say_test(message)]", FLY_LAYER)
-	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(flick_overlay), I, speech_bubble_recipients, 30)
 
 /datum/species/proc/get_span_language(datum/language/message_language)
 	if(!message_language)

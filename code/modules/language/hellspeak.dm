@@ -5,7 +5,6 @@
 	ask_verb = "asks"
 	exclaim_verb = "shouts"
 	key = "h"
-	flags = TONGUELESS_SPEECH
 	space_chance = 12
 	sentence_chance = 0
 	between_word_sentence_chance = 10
