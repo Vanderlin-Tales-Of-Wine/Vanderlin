@@ -61,7 +61,7 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define OVERLAY_QUEUED_1 (1<<17)
 
 //turf-only flags
-#define NOJAUNT_1					(1<<0)
+#define NO_JAUNT_1					(1<<0)
 #define UNUSED_RESERVATION_TURF_1	(1<<1)
 /// If a turf can be made dirty at roundstart. This is also used in areas.
 #define CAN_BE_DIRTY_1				(1<<2)

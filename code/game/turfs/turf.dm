@@ -18,6 +18,7 @@
 	var/blocks_air = FALSE
 
 	flags_1 = CAN_BE_DIRTY_1
+	var/turf_flags = NONE
 
 	var/list/image/blueprint_data //for the station blueprints, images of objects eg: pipes
 

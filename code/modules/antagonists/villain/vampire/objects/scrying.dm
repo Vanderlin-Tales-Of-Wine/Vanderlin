@@ -33,8 +33,9 @@
 		return
 	var/list/filtered = list()
 	for(var/area/A as anything in get_sorted_areas())
-		if(!A.hidden)
-			filtered += A
+		if(A.area_flags & (HIDDEN_AREA|NO_TELEPORT))
+			continue
+		filtered += A
 	var/area/thearea  = input("Area to jump to", "VANDERLIN") as null|anything in filtered
 
 	if(!thearea)

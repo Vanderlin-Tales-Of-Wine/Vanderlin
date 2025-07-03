@@ -6,7 +6,6 @@
 	icon_state = "centcom"
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	has_gravity = STANDARD_GRAVITY
-	noteleport = TRUE
 	flags_1 = NONE
 
 /area/centcom/control
@@ -96,14 +95,12 @@
 	icon_state = "yellow"
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	has_gravity = STANDARD_GRAVITY
-	noteleport = TRUE
 	flags_1 = NONE
 
 //Abductors
 /area/abductor_ship
 	name = "Abductor Ship"
 	icon_state = "yellow"
-	noteleport = TRUE
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 
@@ -112,7 +109,6 @@
 	name = "Syndicate Mothership"
 	icon_state = "syndie-ship"
 	has_gravity = STANDARD_GRAVITY
-	noteleport = TRUE
 	flags_1 = NONE
 	ambientsounds = HIGHSEC
 

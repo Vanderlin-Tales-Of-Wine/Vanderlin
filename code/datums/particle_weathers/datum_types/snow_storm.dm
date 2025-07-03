@@ -100,21 +100,16 @@
 
 /turf
 	var/obj/structure/snow/snow
-	var/turf_flags = TURF_EFFECT_AFFECTABLE
 
 /turf/proc/apply_weather_effect(datum/weather_effect/effect)
 	SIGNAL_HANDLER
+	if(!effect)
+		return
 
-	if(locate(/obj/structure/door) in src)
-		var/obj/structure/door/door = locate(/obj/structure/door) in src
-		if(door.density)
-			return
-	if(locate(/obj/structure/window) in src)
-		var/obj/structure/window/door = locate(/obj/structure/window) in src
-		if(!door.climbable)
-			return
+	if(!(turf_flags & TURF_EFFECT_AFFECTABLE))
+		return
 
-	if(!(turf_flags & TURF_EFFECT_AFFECTABLE) || density || !effect)
+	if(is_blocked_turf(TRUE))
 		return
 
 	effect.effect_affect(src)

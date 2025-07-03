@@ -411,13 +411,6 @@
 						to_chat(src, span_danger("I failed to pick the pocket!"))
 					src.adjust_experience(/datum/skill/misc/stealing, exp_to_gain, FALSE)
 					changeNext_move(mmb_intent.clickcd)
-				return
-			if(INTENT_SPELL)
-				if(ranged_ability?.InterceptClickOn(src, params, A))
-					changeNext_move(mmb_intent.clickcd)
-					//if(mmb_intent.releasedrain)
-						//adjust_stamina(mmb_intent.releasedrain)
-				return
 
 //Return TRUE to cancel other attack hand effects that respect it.
 /atom/proc/attack_hand(mob/user, params)
