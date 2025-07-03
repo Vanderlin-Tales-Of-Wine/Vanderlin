@@ -22,4 +22,4 @@
 	if(T)
 		. = T.could_speak_in_language(dt)
 	else
-		. = initial(dt.flags) & TONGUELESS_SPEECH
+		. = !(initial(dt.flags) & TONGUE_REQUIRED)
