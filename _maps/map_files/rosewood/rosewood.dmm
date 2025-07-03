@@ -30789,10 +30789,9 @@
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/church/inquisition)
 "qVz" = (
-/obj/structure/fluff/statue/gaffer{
-	pixel_y = 24
-	},
-/turf/open/floor/cobblerock/snow,
+/obj/structure/fluff/statue/gaffer,
+/obj/structure/fluff/statue/gaffer,
+/turf/open/floor/snow,
 /area/rogue/outdoors/town)
 "qVA" = (
 /obj/structure/fluff/railing/border{
@@ -108906,10 +108905,10 @@ pmI
 cwC
 cwC
 pmI
-jnM
-jnM
-jnM
-jnM
+pmI
+pmI
+pmI
+pmI
 pmI
 jnM
 jnM
@@ -109109,11 +109108,11 @@ jnM
 jnM
 pmI
 jnM
-pmI
-pmI
+jnM
+jnM
 jnM
 pmI
-jnM
+pmI
 pmI
 its
 gzt
@@ -109310,9 +109309,9 @@ pmI
 vQB
 pmI
 pmI
-pmI
+gzt
 qVz
-pmI
+gzt
 jnM
 jnM
 jnM
