@@ -14,7 +14,8 @@
 	associated_skill = /datum/skill/magic/arcane
 	overlay_state = "blade_burst"
 	attunements = list(
-		/datum/attunement/arcyne = 0.5,
+		/datum/attunement/arcyne = 0.3,
+		/datum/attunement/earth = 0.3
 	)
 	var/delay = 7
 	var/damage = 45
