@@ -12661,7 +12661,6 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue,
@@ -16709,7 +16708,6 @@
 /obj/item/rope/chain,
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/structure/table/wood/plain_alt,
@@ -19456,7 +19454,6 @@
 /obj/effect/mapping_helpers/access/locker,
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/structure/door/viewport{
