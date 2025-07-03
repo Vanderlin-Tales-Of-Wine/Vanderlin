@@ -12657,13 +12657,6 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
 "hOj" = (
-/obj/structure/fake_machine/mail/l,
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/structure/fake_machine/mail/l{
 	mailtag = "Merchant Main"
 	},
@@ -16703,13 +16696,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "kod" = (
-/obj/structure/table/wood/plain_alt,
-/obj/structure/fake_machine/mail/r,
 /obj/item/rope/chain,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/table/wood/plain_alt,
 /obj/structure/fake_machine/mail/r{
 	mailtag = "Keep gate"
@@ -19446,16 +19433,7 @@
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/manor)
 "mfR" = (
-/obj/structure/door/viewport{
-	name = "Steward";
-	dir = 1
-	},
-/obj/effect/mapping_helpers/access/keyset/manor/steward,
 /obj/effect/mapping_helpers/access/locker,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/door/viewport{
 	dir = 1;
 	name = "Steward"
