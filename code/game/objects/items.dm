@@ -394,8 +394,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 				getmoboverlay(i,prop,behind=TRUE,mirrored=TRUE)
 
 	. = ..()
+	// Handle adding item associated actions
 	for(var/path in actions_types)
 		add_item_action(path)
+
 	actions_types = null
 
 	if(force_string)

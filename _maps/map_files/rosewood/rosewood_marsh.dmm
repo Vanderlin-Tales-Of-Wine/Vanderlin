@@ -596,8 +596,8 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/lich)
 "dM" = (
-/obj/structure/arcyne_wall/greater,
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
+/obj/structure/forcefield/strong,
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/lich)
 "dO" = (
@@ -845,7 +845,7 @@
 /turf/closed/mineral/bedrock/cold,
 /area/rogue/indoors/mountains)
 "ff" = (
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
 /turf/closed/mineral/random/cold,
 /area/rogue/outdoors/bog)
 "fg" = (
@@ -1684,7 +1684,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors/cave)
 "jz" = (
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
 /turf/closed,
 /area/rogue/indoors/lich)
 "jB" = (
@@ -1811,7 +1811,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/bog)
 "kx" = (
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
 /turf/closed/mineral/bedrock/cold,
 /area/rogue/outdoors/bog)
 "kz" = (
@@ -1835,7 +1835,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/lich)
 "kJ" = (
-/obj/structure/arcyne_wall,
+/obj/structure/forcefield,
 /turf/closed/wall/mineral/stonebrick/reddish,
 /area/rogue/indoors/lich)
 "kL" = (
@@ -2945,7 +2945,7 @@
 /area/rogue/indoors/lich)
 "rJ" = (
 /obj/structure/window,
-/obj/structure/arcyne_wall,
+/obj/structure/forcefield,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/lich)
 "rL" = (
@@ -3585,7 +3585,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/outdoors/bog)
 "uY" = (
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
 /turf/open/transparent/openspace,
 /area/rogue/indoors/lich)
 "vb" = (
@@ -4974,8 +4974,8 @@
 /turf/open/floor/twig,
 /area/rogue/indoors/mountains)
 "CF" = (
-/obj/structure/arcyne_wall/greater,
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
+/obj/structure/forcefield/strong,
 /turf/closed,
 /area/rogue/indoors/lich)
 "CG" = (
@@ -6110,7 +6110,7 @@
 /turf/closed/indestructible/wooddark/hull,
 /area/rogue/outdoors/bog)
 "Ji" = (
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
 /turf/closed/mineral/bedrock/cold,
 /area/rogue/indoors/lich)
 "Jj" = (
@@ -6171,7 +6171,7 @@
 /area/rogue/outdoors/bog)
 "JB" = (
 /obj/structure/window,
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/lich)
 "JC" = (
@@ -6575,8 +6575,8 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/mountains)
 "LY" = (
-/obj/structure/arcyne_wall/greater,
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
+/obj/structure/forcefield/strong,
 /turf/open/transparent/openspace,
 /area/rogue/indoors/lich)
 "Ma" = (
@@ -6841,8 +6841,8 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/bog)
 "NE" = (
-/obj/structure/arcyne_wall/greater,
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
+/obj/structure/forcefield/strong,
 /turf/closed/mineral/bedrock/cold,
 /area/rogue/outdoors/bog)
 "NG" = (
@@ -7144,7 +7144,7 @@
 /turf/closed/wall/mineral/stonebrick/reddish,
 /area/rogue/indoors/lich)
 "PE" = (
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
 /turf/closed/wall/mineral/stonebrick/reddish,
 /area/rogue/indoors/lich)
 "PF" = (
@@ -7418,7 +7418,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/mountains)
 "Rn" = (
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/lich)
 "Rq" = (
@@ -7757,7 +7757,7 @@
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/lich)
 "TA" = (
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/lich)
 "TB" = (
@@ -8138,7 +8138,7 @@
 /area/rogue/indoors/lich)
 "VQ" = (
 /obj/structure/curtain/bounty,
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
 /turf/closed/wall/window,
 /area/rogue/indoors/lich)
 "VR" = (
@@ -8664,7 +8664,7 @@
 /area/rogue/indoors/lich)
 "Zj" = (
 /obj/structure/curtain/bounty,
-/obj/structure/arcyne_wall/greater,
+/obj/structure/forcefield/strong,
 /turf/closed/indestructible/roguewindow,
 /area/rogue/indoors/lich)
 "Zl" = (

@@ -73,18 +73,17 @@
 	AddComponent(/datum/component/ai_aggro_system)
 
 /mob/living/simple_animal/hostile/retaliate/infernal/imp/death(gibbed)
-	..()
+	. = ..()
+	if(gibbed)
+		return
 	var/turf/deathspot = get_turf(src)
-	new /obj/item/natural/infernalash(deathspot)
-	new /obj/item/natural/infernalash(deathspot)
-	new /obj/item/natural/infernalash(deathspot)
-	new /obj/item/natural/infernalash(deathspot)
-	new /obj/item/natural/infernalash(deathspot)
-	new /obj/item/natural/infernalash(deathspot)
-	update_appearance()
-	sleep(1)
-	qdel(src)
-
+	for(var/i in 1 to 6)
+		new /obj/item/natural/infernalash(deathspot)
+		new /obj/item/natural/infernalash(deathspot)
+		new /obj/item/natural/infernalash(deathspot)
+		new /obj/item/natural/infernalash(deathspot)
+		new /obj/item/natural/infernalash(deathspot)
+		new /obj/item/natural/infernalash(deathspot)
 
 /mob/living/simple_animal/hostile/retaliate/infernal/imp/taunted(mob/user)
 	emote("aggro")

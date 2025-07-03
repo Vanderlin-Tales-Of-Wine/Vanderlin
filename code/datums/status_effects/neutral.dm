@@ -83,7 +83,7 @@
 		rewarded = caster
 
 /datum/status_effect/bounty/on_apply()
-	to_chat(owner, "<span class='boldnotice'>I hear something behind you talking...</span> <span class='notice'>I have been marked for death by [rewarded]. If you die, they will be rewarded.</span>")
+	to_chat(owner, span_boldnotice("You hear something behind you talking... \"You have been marked for death by [rewarded]. If you die, they will be rewarded.\""))
 	playsound(owner, 'sound/blank.ogg', 75, FALSE)
 	return ..()
 
@@ -94,13 +94,11 @@
 
 /datum/status_effect/bounty/proc/rewards()
 	if(rewarded && rewarded.mind && rewarded.stat != DEAD)
-		to_chat(owner, "<span class='boldnotice'>I hear something behind you talking...</span> <span class='notice'>Bounty claimed.</span>")
+		to_chat(owner, span_boldnotice("You hear something behind you talking... \"Bounty claimed.\""))
 		playsound(owner, 'sound/blank.ogg', 75, FALSE)
-		to_chat(rewarded, "<span class='greentext'>I feel a surge of mana flow into you!</span>")
-		for(var/obj/effect/proc_holder/spell/spell in rewarded.mind.spell_list)
-			spell.charge_counter = spell.recharge_time
-			spell.recharging = FALSE
-			spell.update_appearance()
+		to_chat(rewarded, span_greentext("You feel a surge of mana flow into you!"))
+		for(var/datum/action/cooldown/spell/spell in rewarded.actions)
+			spell.reset_spell_cooldown()
 		rewarded.adjustBruteLoss(-25)
 		rewarded.adjustFireLoss(-25)
 		rewarded.adjustToxLoss(-25)

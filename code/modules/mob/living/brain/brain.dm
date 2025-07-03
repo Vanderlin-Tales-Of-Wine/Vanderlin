@@ -65,12 +65,6 @@
 	else
 		CRASH("Brainmob without a container [src] attempted to move to [destination].")
 
-/mob/living/brain/update_mouse_pointer()
-	if (!client)
-		return
-	if (client && ranged_ability && ranged_ability.ranged_mousepointer)
-		client.mouse_pointer_icon = ranged_ability.ranged_mousepointer
-
 /mob/living/brain/proc/get_traumas()
 	. = list()
 	if(istype(loc, /obj/item/organ/brain))

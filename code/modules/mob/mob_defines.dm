@@ -270,7 +270,6 @@
 	var/cmode = 0
 	var/d_intent = INTENT_DODGE
 	var/islatejoin = FALSE
-	var/obj/effect/proc_holder/ranged_ability //Any ranged ability the mob has, as a click override
 
 	var/list/mob_timers = list()
 

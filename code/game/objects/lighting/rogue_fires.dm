@@ -63,6 +63,12 @@
 	icon_state = "churchfire1"
 	base_state = "churchfire"
 
+/obj/machinery/light/fueled/firebowl/church/magic
+	name = "magical bonfire"
+	color = "#6ab2ee"
+	bulb_colour = "#6ab2ee"
+	max_integrity = 30
+
 /obj/machinery/light/fueled/firebowl/church/unholyfire
 	desc = "This fire burns yet it is cold..."
 	icon_state = "unholyfire1"

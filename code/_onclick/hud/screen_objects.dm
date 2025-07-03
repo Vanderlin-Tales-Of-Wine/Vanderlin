@@ -446,7 +446,6 @@
 	update_appearance(UPDATE_OVERLAYS)
 
 /atom/movable/screen/act_intent/rogintent/Click(location, control, params)
-
 	var/list/modifiers = params2list(params)
 
 	var/mob/user = hud?.mymob
@@ -456,7 +455,6 @@
 	user.playsound_local(user, 'sound/misc/click.ogg', 100)
 
 	if(usr.client.prefs.toggles & INTENT_STYLE)
-		var/list/modifiers = params2list(params)
 		var/_x = text2num(LAZYACCESS(modifiers, ICON_X))
 		var/_y = text2num(LAZYACCESS(modifiers, ICON_Y))
 		var/clicked = get_index_at_loc(_x, _y)

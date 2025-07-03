@@ -140,11 +140,12 @@
 /mob/living/carbon/human/proc/zombie_check()
 	if(!mind)
 		return
+	var/datum/antagonist/zombie = mind.has_antag_datum(/datum/antagonist/zombie)
+	if(zombie)
+		return zombie
 	if(mind.has_antag_datum(/datum/antagonist/vampire))
 		return
 	if(mind.has_antag_datum(/datum/antagonist/werewolf))
-		return
-	if(mind.has_antag_datum(/datum/antagonist/zombie))
 		return
 	if(mind.has_antag_datum(/datum/antagonist/skeleton))
 		return

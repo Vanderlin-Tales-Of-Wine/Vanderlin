@@ -84,6 +84,8 @@
 	var/mouse_up_icon = null
 	///used to make a special mouse cursor, this one for mouse up icon
 	var/mouse_down_icon = null
+	///used to override the mouse cursor so it doesnt get reset
+	var/mouse_override_icon = null
 
 	///datum that controls the displaying and hiding of tooltips
 	var/datum/tooltip/tooltips
