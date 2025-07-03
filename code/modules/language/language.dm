@@ -233,8 +233,10 @@
 		return is_uppercase(input) ? uppertext(word) : word
 
 	if(!length(syllables))
-		word = stars(input)
-
+		if(!signlang_verb || !signlang_verb.len)
+			word = stars(input)
+		else
+			return "*[pick(signlang_verb)]"
 	else
 		var/input_size = max(length_char(input) + rand(additional_syllable_low, additional_syllable_high), 1)
 		var/add_space = FALSE
