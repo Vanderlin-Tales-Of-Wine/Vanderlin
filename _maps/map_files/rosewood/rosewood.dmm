@@ -3870,12 +3870,6 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
-"cbQ" = (
-/obj/machinery/light/fueledstreet/blue/wall{
-	dir = 8
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/town)
 "cbT" = (
 /obj/structure/fake_machine/mail{
 	mailtag = "Shack"
@@ -109113,10 +109107,10 @@ cwC
 cwC
 jnM
 jnM
-jKl
+pmI
 jnM
 pmI
-jKl
+pmI
 jnM
 pmI
 jnM
@@ -109315,10 +109309,10 @@ cwC
 pmI
 vQB
 pmI
-jKl
+pmI
 pmI
 qVz
-cbQ
+pmI
 jnM
 jnM
 jnM
