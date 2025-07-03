@@ -6,6 +6,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /obj/item
 	name = "item"
 	icon = 'icons/obj/items_and_weapons.dmi'
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	///icon state name for inhand overlays
 	var/item_state = null
 	///Icon file for left hand inhand overlays
