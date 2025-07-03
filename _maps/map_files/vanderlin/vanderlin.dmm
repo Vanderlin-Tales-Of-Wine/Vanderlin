@@ -12660,6 +12660,7 @@
 /obj/structure/fake_machine/mail/l{
 	mailtag = "Merchant Main"
 	},
+/obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/shop)
 "hOC" = (
