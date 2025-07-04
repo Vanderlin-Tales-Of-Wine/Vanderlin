@@ -32,8 +32,7 @@
 /obj/item/flashlight/attack_self(mob/user)
 	on = !on
 	update_brightness(user)
-	for(var/datum/action/A as anything in actions)
-		A.UpdateButtons()
+	update_item_action_buttons()
 	return 1
 
 /obj/item/flashlight/suicide_act(mob/living/carbon/human/user)

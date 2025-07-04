@@ -64,7 +64,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/min_cold_protection_temperature //Set this variable to determine down to which temperature (IN KELVIN) the item protects against cold damage. 0 is NOT an acceptable number due to if(varname) tests!! Keep at null to disable protection. Only protects areas set by cold_protection flags
 
 	// List of /datum/action's that this item has.
-	var/list/actions
+	var/list/datum/action/actions
 	// List of paths of action datums to give to the item on New().
 	var/list/actions_types
 
@@ -1410,6 +1410,17 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		held_weight += stored_item.item_weight * carry_multiplier
 
 	return has_trait ? held_weight * 0.5 : held_weight
+
+/**
+ * Updates all action buttons associated with this item
+ *
+* Arguments:
+ * * update_flags - Which flags of the action should we update
+ * * force - Force buttons update even if the given button icon state has not changed
+ */
+/obj/item/proc/update_item_action_buttons(update_flags = ALL, force = FALSE)
+	for(var/datum/action/current_action as anything in actions)
+		current_action.build_all_button_icons(update_flags, force)
 
 // Update icons if this is being carried by a mob
 /obj/item/wash(clean_types)

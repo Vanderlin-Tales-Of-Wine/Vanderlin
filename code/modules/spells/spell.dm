@@ -43,7 +43,7 @@
 	name = "Spell"
 	desc = "A wizard spell."
 	background_icon_state = "bg_spell"
-	icon_icon = 'icons/mob/actions/actions_spells.dmi'
+	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "spell_default"
 	check_flags = AB_CHECK_CONSCIOUS
 	panel = "Spells"
@@ -128,8 +128,6 @@
 	// I don't really like this but oh well its required without creating a mess of inheritance.
 	/// If the spell acts on the mouse cursor, either on click or after holding
 	var/pointed_spell = TRUE
-	/// The base icon state of the spell's button icon, used for editing the icon "on" and "off"
-	var/base_icon_state
 	/// Message showing to the spell owner upon activating pointed spell.
 	var/active_msg
 	/// Message showing to the spell owner upon deactivating pointed spell.
@@ -164,10 +162,10 @@
 			stack_trace("Miracle added to mob without a cleric holder")
 	// Register some signals so our button's icon stays up to date
 	if(spell_requirements & SPELL_REQUIRES_STATION)
-		RegisterSignal(owner, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(update_icon_on_signal))
+		RegisterSignal(owner, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(update_status_on_signal))
 	if(spell_requirements & (SPELL_REQUIRES_NO_ANTIMAGIC|SPELL_REQUIRES_WIZARD_GARB))
-		RegisterSignal(owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(update_icon_on_signal))
-	RegisterSignal(owner, list(COMSIG_MOB_ENTER_JAUNT, COMSIG_MOB_AFTER_EXIT_JAUNT), PROC_REF(update_icon_on_signal))
+		RegisterSignal(owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(update_status_on_signal))
+	RegisterSignal(owner, list(COMSIG_MOB_ENTER_JAUNT, COMSIG_MOB_AFTER_EXIT_JAUNT), PROC_REF(update_status_on_signal))
 
 /datum/action/cooldown/spell/Remove(mob/living/remove_from)
 	UnregisterSignal(remove_from, list(
@@ -216,9 +214,8 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	to_chat(on_who, span_notice("[active_msg] <B>Left-click to cast the spell on a target!</B>"))
-	if(base_icon_state)
-		button_icon_state = "[base_icon_state]1"
-		UpdateButtons()
+	build_all_button_icons()
+
 	return TRUE
 
 /// Called when the spell is deactivated / the click ability is unset from our spell
@@ -228,9 +225,8 @@
 	if(refund_cooldown)
 		// Only send the "deactivation" message if they're willingly disabling the ability
 		to_chat(on_who, span_notice("[deactive_msg]"))
-	if(base_icon_state)
-		button_icon_state = "[base_icon_state]0"
-		UpdateButtons()
+	build_all_button_icons()
+
 	return TRUE
 
 /datum/action/cooldown/spell/InterceptClickOn(mob/living/caller, params, atom/click_target)
@@ -434,7 +430,7 @@
 	// And then proceed with the aftermath of the cast
 	// Final effects that happen after all the casting is done can go here
 	after_cast(target)
-	UpdateButtons()
+	build_all_button_icons()
 
 	return TRUE
 
@@ -583,7 +579,7 @@
 /datum/action/cooldown/spell/proc/reset_spell_cooldown()
 	SEND_SIGNAL(src, COMSIG_SPELL_CAST_RESET)
 	next_use_time -= cooldown_time // Basically, ensures that the ability can be used now
-	UpdateButtons()
+	build_all_button_icons()
 
 /**
  * Levels the spell up a single level, reducing the cooldown.
@@ -600,7 +596,7 @@
 
 	spell_level++
 	cooldown_time = max(cooldown_time - cooldown_reduction_per_rank, 0)
-	update_spell_name()
+	build_all_button_icons(UPDATE_BUTTON_NAME)
 	return TRUE
 
 /**
@@ -615,26 +611,30 @@
 		return FALSE
 
 	spell_level--
-	cooldown_time = min(cooldown_time + cooldown_reduction_per_rank, initial(cooldown_time))
-	update_spell_name()
+	if(cooldown_reduction_per_rank > 0 SECONDS)
+		cooldown_time = min(cooldown_time + cooldown_reduction_per_rank, initial(cooldown_time))
+	else
+		cooldown_time = max(cooldown_time + cooldown_reduction_per_rank, initial(cooldown_time))
+
+	build_all_button_icons(UPDATE_BUTTON_NAME)
 	return TRUE
 
-/**
- * Updates the spell's name based on its level.
- */
-/datum/action/cooldown/spell/proc/update_spell_name()
-	var/spell_title = ""
+/datum/action/cooldown/spell/update_button_name(atom/movable/screen/movable/action_button/button, force)
+	name = "[get_spell_title()][initial(name)]"
+	return ..()
+
+/// Gets the title of the spell based on its level.
+/datum/action/cooldown/spell/proc/get_spell_title()
 	switch(spell_level)
 		if(2)
-			spell_title = "Efficient "
+			return "Efficient "
 		if(3)
-			spell_title = "Quickened "
+			return "Quickened "
 		if(4)
-			spell_title = "Free "
+			return "Free "
 		if(5)
-			spell_title = "Instant "
+			return "Instant "
 		if(6)
-			spell_title = "Ludicrous "
+			return "Ludicrous "
 
-	name = "[spell_title][initial(name)]"
-	UpdateButtons()
+	return ""

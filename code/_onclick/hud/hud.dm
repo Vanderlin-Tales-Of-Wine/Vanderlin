@@ -178,7 +178,13 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	hud_used = new_hud
 	new_hud.build_action_groups()
 
-//Version denotes which style should be displayed. blank or 0 means "next version"
+/**
+ * Shows this hud's hud to some mob
+ *
+ * Arguments
+ * * version - denotes which style should be displayed. blank or 0 means "next version"
+ * * viewmob - what mob to show the hud to. Can be this hud's mob, can be another mob, can be null (will use this hud's mob if so)
+ */
 /datum/hud/proc/show_hud(version = 0, mob/viewmob)
 	if(!ismob(mymob))
 		return FALSE
@@ -248,7 +254,9 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 
 	hud_version = display_hud_version
 	persistent_inventory_update(screenmob)
-	screenmob.update_action_buttons(1)
+	// Gives all of the actions the screenmob owes to their hud
+	screenmob.update_action_buttons(TRUE)
+	// Handles alerts - the things on the right side of the screen
 	reorganize_alerts()
 	screenmob.reload_fullscreen()
 
@@ -259,6 +267,7 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 			show_hud(hud_version, M)
 	else if (viewmob.hud_used)
 		viewmob.hud_used.plane_masters_update()
+		viewmob.show_other_mob_action_buttons(mymob)
 
 	return TRUE
 

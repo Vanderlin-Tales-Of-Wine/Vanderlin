@@ -1,3 +1,5 @@
+#define COOLDOWN_NO_DISPLAY_TIME (180 SECONDS)
+
 /// Preset for an action that has a cooldown.
 /datum/action/cooldown
 	check_flags = NONE
@@ -11,28 +13,92 @@
 	var/cooldown_time = 0
 	/// Whether or not you want the cooldown for the ability to display in text form
 	var/text_cooldown = TRUE
-	/// Setting for intercepting clicks before activating the ability
-	var/click_to_activate = FALSE
-	/// What icon to replace our mouse cursor with when active. Optional, Requires click_to_activate
-	var/ranged_mousepointer
-	/// The cooldown added onto the user's next click. Requires click_to_activate
-	var/click_cd_override = CLICK_CD_CLICK_ABILITY
-	/// If TRUE, we will unset after using our click intercept. Requires click_to_activate
-	var/unset_after_click = TRUE
 	/// Shares cooldowns with other cooldown abilities of the same value, not active if null
 	var/shared_cooldown
 
-/datum/action/cooldown/CreateButton()
+	// These are only used for click_to_activate actions
+	/// Setting for intercepting clicks before activating the ability
+	var/click_to_activate = FALSE
+	/// The cooldown added onto the user's next click.
+	var/click_cd_override = CLICK_CD_CLICK_ABILITY
+	/// If TRUE, we will unset after using our click intercept.
+	var/unset_after_click = TRUE
+	/// What icon to replace our mouse cursor with when active. Optional
+	var/ranged_mousepointer
+	/// The base icon_state of this action's background
+	var/base_background_icon_state
+	/// The icon state the background uses when active
+	var/active_background_icon_state
+	/// The base icon_state of the overlay we apply
+	var/base_overlay_icon_state
+	/// The active icon_state of the overlay we apply
+	var/active_overlay_icon_state
+	/// The base icon state of the spell's button icon, used for editing the icon "off"
+	var/base_icon_state
+	/// The active icon state of the spell's button icon, used for editing the icon "on"
+	var/active_icon_state
+
+/datum/action/cooldown/New(Target)
+	if(active_background_icon_state)
+		base_background_icon_state ||= background_icon_state
+	if(active_overlay_icon_state)
+		base_overlay_icon_state ||= overlay_icon_state
+	if(active_icon_state)
+		base_icon_state ||= button_icon_state
+
+/datum/action/cooldown/create_button()
 	var/atom/movable/screen/movable/action_button/button = ..()
 	button.maptext = ""
-	button.maptext_x = 8
+	button.maptext_x = 6
 	button.maptext_y = 0
 	button.maptext_width = 24
 	button.maptext_height = 12
 	return button
 
+/datum/action/cooldown/update_button_status(atom/movable/screen/movable/action_button/button, force = FALSE)
+	. = ..()
+	var/time_left = max(next_use_time - world.time, 0)
+	if(!text_cooldown || !owner || time_left == 0 || time_left >= COOLDOWN_NO_DISPLAY_TIME)
+		button.maptext = ""
+	else
+		button.maptext = "<b>[round(time_left/10, 0.1)]</b>"
+
+	if(!IsAvailable() || !is_action_active(button))
+		return
+	// If we don't change the icon state, or don't apply a special overlay,
+	if(active_background_icon_state || active_icon_state || active_overlay_icon_state)
+		return
+	// ...we need to show it's active somehow. So, make it greeeen
+	button.color = COLOR_GREEN
+
+/datum/action/cooldown/apply_button_background(atom/movable/screen/movable/action_button/current_button, force)
+	if(active_background_icon_state)
+		background_icon_state = is_action_active(current_button) ? active_background_icon_state : base_background_icon_state
+	return ..()
+
+/datum/action/cooldown/apply_button_icon(atom/movable/screen/movable/action_button/current_button, force)
+	if(active_icon_state)
+		button_icon_state = is_action_active(current_button) ? active_icon_state : base_icon_state
+	return ..()
+
+/datum/action/cooldown/apply_button_overlay(atom/movable/screen/movable/action_button/current_button, force)
+	if(active_overlay_icon_state)
+		overlay_icon_state = is_action_active(current_button) ? active_overlay_icon_state : base_overlay_icon_state
+	return ..()
+
+/datum/action/cooldown/is_action_active(atom/movable/screen/movable/action_button/current_button)
+	return click_to_activate && current_button.our_hud?.mymob?.click_intercept == src
+
 /datum/action/cooldown/IsAvailable()
 	return ..() && (next_use_time <= world.time)
+
+/datum/action/cooldown/Grant(mob/granted_to)
+	. = ..()
+	if(!owner)
+		return
+	build_all_button_icons()
+	if(next_use_time > world.time)
+		START_PROCESSING(SSfastprocess, src)
 
 /datum/action/cooldown/Remove(mob/living/remove_from)
 	if(click_to_activate && remove_from.click_intercept == src)
@@ -59,7 +125,7 @@
 		next_use_time = world.time + override_cooldown_time
 	else
 		next_use_time = world.time + cooldown_time
-	UpdateButtons()
+	build_all_button_icons(UPDATE_BUTTON_STATUS)
 	START_PROCESSING(SSfastprocess, src)
 
 /datum/action/cooldown/Trigger(trigger_flags, atom/target)
@@ -137,7 +203,7 @@
 	if(ranged_mousepointer)
 		on_who.client?.mouse_override_icon = ranged_mousepointer
 		on_who.update_mouse_pointer()
-	UpdateButtons()
+	build_all_button_icons(UPDATE_BUTTON_STATUS)
 	return TRUE
 
 /**
@@ -153,33 +219,15 @@
 	if(ranged_mousepointer)
 		on_who.client?.mouse_override_icon = initial(on_who.client?.mouse_override_icon)
 		on_who.update_mouse_pointer()
-	UpdateButtons()
+	build_all_button_icons(UPDATE_BUTTON_STATUS)
 	return TRUE
-
-/datum/action/cooldown/UpdateButton(atom/movable/screen/movable/action_button/button, status_only = FALSE, force = FALSE)
-	. = ..()
-	if(!button)
-		return
-	var/time_left = max(next_use_time - world.time, 0)
-	if(text_cooldown)
-		button.maptext = "<b>[round(time_left/10, 0.1)]</b>"
-	if(!owner || time_left == 0)
-		button.maptext = ""
-	if(IsAvailable() && (button.our_hud.mymob.click_intercept == src))
-		button.color = COLOR_GREEN
 
 /datum/action/cooldown/process()
 	if(!owner || (next_use_time - world.time) <= 0)
-		UpdateButtons()
+		build_all_button_icons(UPDATE_BUTTON_STATUS)
 		STOP_PROCESSING(SSfastprocess, src)
 		return
 
-	UpdateButtons()
+	build_all_button_icons(UPDATE_BUTTON_STATUS)
 
-/datum/action/cooldown/Grant(mob/M)
-	..()
-	if(!owner)
-		return
-	UpdateButtons()
-	if(next_use_time > world.time)
-		START_PROCESSING(SSfastprocess, src)
+#undef COOLDOWN_NO_DISPLAY_TIME

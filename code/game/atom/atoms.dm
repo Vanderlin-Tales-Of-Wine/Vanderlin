@@ -1259,6 +1259,10 @@
 		atom_cast.filters += filter(arglist(arguments))
 	UNSETEMPTY(filter_data)
 
+/obj/item/update_filters()
+	. = ..()
+	update_item_action_buttons()
+
 /atom/movable/proc/get_filter(name)
 	if(filter_data && filter_data[name])
 		return filters[filter_data.Find(name)]

@@ -1,3 +1,22 @@
+/**
+ * ## Touch Spell
+ *
+ * Touch spells are spells which function through the power of an item attack.
+ *
+ * Instead of the spell triggering when the caster presses the button,
+ * pressing the button will give them a hand object.
+ * The spell's effects are cast when the hand object makes contact with something.
+ *
+ * To implement a touch spell, all you need is to implement:
+ * * is_valid_target - to check whether the slapped target is valid
+ * * cast_on_hand_hit - to implement effects on cast
+ *
+ * However, for added complexity, you can optionally implement:
+ * * on_antimagic_triggered - to cause effects when antimagic is triggered
+ * * cast_on_secondary_hand_hit - to implement different effects if the caster r-clicked
+ * It is not necessarily to touch any of the core functions, and is
+ * (generally) inadvisable unless you know what you're doing
+ */
 /datum/action/cooldown/spell/undirected/touch
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED
 	sound = 'sound/items/welder.ogg'
@@ -29,12 +48,8 @@
 /datum/action/cooldown/spell/undirected/touch/PreActivate(atom/target)
 	return Activate(target)
 
-/datum/action/cooldown/spell/undirected/touch/UpdateButton(atom/movable/screen/movable/action_button/button, status_only = FALSE, force = FALSE)
-	. = ..()
-	if(!button)
-		return
-	if(attached_hand)
-		button.color = COLOR_GREEN
+/datum/action/cooldown/spell/undirected/touch/is_action_active(atom/movable/screen/movable/action_button/current_button)
+	return !!attached_hand
 
 /datum/action/cooldown/spell/undirected/touch/can_cast_spell(feedback = TRUE)
 	. = ..()
@@ -91,6 +106,7 @@
 		reset_spell_cooldown()
 	else
 		StartCooldown()
+		build_all_button_icons()
 
 /// Registers all signal procs for the hand.
 /datum/action/cooldown/spell/undirected/touch/proc/register_hand_signals()
