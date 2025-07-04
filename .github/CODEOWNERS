@@ -9,13 +9,13 @@
 # aberrantQuesrist
 
 /icons/ @aberrantQuesrist
-/_maps/map_files/daftmarsh @aberrantQuesrist
-/_maps/map_files/vanderlin @aberrantQuesrist
+/_maps/map_files/daftmarsh.dmm @aberrantQuesrist
+/_maps/map_files/vanderlin.dmm @aberrantQuesrist
 
 # Draggeru
 
-/_maps/ @Draggeru
+/_maps/* @Draggeru
 
 # grungussuss
 
-/code/ @grungussuss
+/code/* @grungussuss
