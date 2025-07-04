@@ -260,10 +260,8 @@
 		if(L.getMaxHealth() <= 0)
 			to_chat(L, "<span class='danger'>My weakened soul is completely consumed by the [src]!</span>")
 			L.mind.hasSoul = FALSE
-		for(var/obj/effect/proc_holder/spell/spell in L.mind.spell_list)
-			spell.charge_counter = spell.recharge_time
-			spell.recharging = FALSE
-			spell.update_appearance()
+		for(var/datum/action/cooldown/spell/spell in L.actions)
+			spell.StartCooldown()
 
 /obj/projectile/magic/aoe
 	name = "Area Bolt"

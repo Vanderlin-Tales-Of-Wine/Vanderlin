@@ -54,8 +54,7 @@
 		lich_body_ref = WEAKREF(owner.current)
 		RegisterSignal(owner.current, COMSIG_LIVING_DEATH, PROC_REF(on_death))
 	for(var/datum/action/spell as anything in spells)
-		spell = new(src)
-		spell.Grant(owner.current)
+		owner.current.add_spell(spell, source = src)
 	owner.special_role = name
 	move_to_spawnpoint()
 	remove_job()
@@ -65,12 +64,8 @@
 	return ..()
 
 /datum/antagonist/lich/on_removal()
-	var/mob/lich_mob = owner.current
-	for(var/datum/action/spell as anything in lich_mob.actions)
-		if(spell.target == src)
-			lich_mob.actions -= spell
-			qdel(spell)
-
+	var/mob/living/lich_mob = owner.current
+	lich_mob.remove_spells(source = src)
 	UnregisterSignal(lich_mob, COMSIG_LIVING_DEATH)
 
 /datum/antagonist/lich/greet()

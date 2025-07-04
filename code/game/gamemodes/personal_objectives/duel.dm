@@ -6,8 +6,8 @@
 
 /datum/objective/ravox_duel/on_creation()
 	. = ..()
-	if(owner?.current)
-		owner.current.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/ravox_challenge)
+	var/datum/action/innate/ravox_challenge/challenge = new(src)
+	challenge.Grant(owner.current)
 	update_explanation_text()
 
 /datum/objective/ravox_duel/proc/on_duel_won()
@@ -22,94 +22,104 @@
 /datum/objective/ravox_duel/update_explanation_text()
 	explanation_text = "Win [duels_required] honor duels against other warriors to prove your might!"
 
-/obj/effect/proc_holder/spell/targeted/ravox_challenge
+/datum/action/innate/ravox_challenge
 	name = "Challenge to Duel"
-	overlay_state = "call_to_arms"
-	antimagic_allowed = TRUE
-	recharge_time = 20 SECONDS
-	range = 7
-	selection_type = "view"
-	include_user = FALSE
+	button_icon_state = "call_to_arms"
 
-/obj/effect/proc_holder/spell/targeted/ravox_challenge/cast(list/targets, mob/living/carbon/human/user)
-	var/mob/living/carbon/human/target = targets[1]
+/datum/action/innate/ravox_challenge/Activate()
+	var/list/duelists = list()
+	for(var/mob/living/carbon/human/H in oview(5, owner))
+		if(H.stat != CONSCIOUS)
+			continue
+		if(!H.mind)
+			continue
+		duelists += H
 
-	if(!istype(target))
-		to_chat(user, span_warning("You can only challenge human warriors!"))
-		return FALSE
-
-	if(target == user)
-		to_chat(user, span_warning("Challenging yourself would prove nothing!"))
-		return FALSE
-
-	if(target.stat != CONSCIOUS)
-		to_chat(user, span_warning("Your target must be conscious to accept a duel!"))
-		return FALSE
-
-	if(user.stat != CONSCIOUS)
-		to_chat(user, span_warning("You must be conscious to issue a challenge!"))
-		return FALSE
-
-	var/challenge_message = "[user] challenges you to an honor duel! Do you accept?"
-	user.visible_message(span_notice("[user] challenges [target] to an honor duel!"), span_notice("You challenge [target] to a duel!"))
-	if(alert(target, challenge_message, "Duel Challenge", "Accept", "Refuse") != "Accept")
-		to_chat(user, span_warning("[target] has refused your challenge!"))
-		to_chat(target, span_warning("You refuse [user]'s challenge."))
-		user.visible_message(span_warning("[target] refuses [user]'s duel challenge."))
-		return FALSE
-
-	user.visible_message(span_notice("[user] and [target] prepare for an honor duel!"), span_notice("The duel begins!"))
-	to_chat(user, span_notice("The duel begins! Combat ends at unconsciousness or when a fighter yields (RMB on Combat Mode button)."))
-	user.playsound_local(user, 'sound/magic/inspire_02.ogg', 100)
-
-	to_chat(target, span_notice("The duel begins! Combat ends at unconsciousness or when a fighter yields (RMB on Combat Mode button)."))
-	target.playsound_local(target, 'sound/magic/inspire_02.ogg', 100)
-
-	var/datum/duel/current_duel = new(user, target)
-	var/start_time = world.time
-	var/max_duel_duration = 8 MINUTES
-
-	while(current_duel && current_duel.ongoing)
-		CHECK_TICK
-
-		if(world.time > start_time + max_duel_duration)
-			to_chat(user, span_notice("The duel has gone on too long and is declared a draw!"))
-			to_chat(target, span_notice("The duel has gone on too long and is declared a draw!"))
-			qdel(current_duel)
-			break
-
-		if(user.stat >= SOFT_CRIT || user.surrendering)
-			target.visible_message(span_notice("[target] defeats [user] in the honor duel!"))
-			current_duel.end_duel(target)
-			break
-		if(target.stat >= SOFT_CRIT || target.surrendering)
-			user.visible_message(span_notice("[user] defeats [target] in the honor duel!"))
-			current_duel.end_duel(user)
-			break
-		sleep(2 SECONDS)
-
-	return ..()
-
-/datum/duel
-	var/mob/living/carbon/human/challenger
-	var/mob/living/carbon/human/challenged
-	var/ongoing = TRUE
-
-/datum/duel/New(mob/living/carbon/human/challenger, mob/living/carbon/human/challenged)
-	src.challenger = challenger
-	src.challenged = challenged
-
-/datum/duel/proc/end_duel(mob/living/winner)
-	if(!ongoing)
+	var/mob/living/carbon/human/duelist = browser_input_list(owner, "Who who challenge to an honor duel?", "RAVOX", sortList(duelists))
+	if(QDELETED(src) || QDELETED(owner) || QDELETED(duelist))
 		return
 
-	ongoing = FALSE
-	to_chat(winner, span_green("You have won the duel of honor!"))
-	to_chat(winner == challenger ? challenged : challenger, span_red("You have lost the duel of honor!"))
+	var/challenge_message = "[owner] challenges you to an honor duel! Do you accept?"
+	owner.visible_message(span_notice("[owner] challenges [duelist] to an honor duel!"), span_notice("You challenge [duelist] to a duel!"))
+	var/answer = browser_alert(duelist, challenge_message, "Duel Challenge", DEFAULT_INPUT_CHOICES)
+	if(QDELETED(src) || QDELETED(owner) || QDELETED(duelist))
+		return
+	if(answer != CHOICE_YES)
+		to_chat(owner, span_warning("[duelist] has refused your challenge!"))
+		to_chat(duelist, span_warning("You refuse [owner]'s challenge."))
+		owner.visible_message(span_warning("[duelist] refuses [owner]'s duel challenge."))
+		return
 
-	if(winner.mind)
-		var/datum/objective/ravox_duel/objective = locate() in winner.mind.get_all_objectives()
-		if(objective)
-			objective.on_duel_won()
+	owner.visible_message(span_notice("[owner] and [duelist] prepare for an honor duel!"), span_notice("The duel begins!"))
+	to_chat(owner, span_notice("The duel begins! Combat ends at unconsciousness or when a fighter yields (RMB on Combat Mode button)."))
+	owner.playsound_local(owner, 'sound/magic/inspire_02.ogg', 100)
+
+	to_chat(duelist, span_notice("The duel begins! Combat ends at unconsciousness or when a fighter yields (RMB on Combat Mode button)."))
+	duelist.playsound_local(duelist, 'sound/magic/inspire_02.ogg', 100)
+
+	new /datum/duel(owner, duelist, target)
+
+/datum/duel
+	var/ongoing = TRUE
+	var/datum/weakref/challenger
+	var/datum/weakref/challenged
+	var/datum/weakref/objective
+
+/datum/duel/New(mob/living/carbon/human/challenger, mob/living/carbon/human/challenged, /datum/objective/listener)
+	src.challenger = WEAKREF(challenger)
+	src.challenged = WEAKREF(challenged)
+	src.objective = WEAKREF(objective)
+
+	addtimer(CALLBACK(src, PROC_REF(end_duel)), 8 MINUTES, TIMER_DELETE_ME)
+
+	// sorry
+	addtimer(CALLBACK(src, PROC_REF(check_duel)), 2 SECONDS, TIMER_LOOP|TIMER_DELETE_ME)
+
+/datum/duel/Destroy(force, ...)
+	challenger = null
+	challenged = null
+	return ..()
+
+/datum/duel/proc/check_duel()
+	if(QDELETED(src) || !ongoing)
+		return
+	var/mob/living/carbon/human/challenger_mob = challenger.resolve()
+	var/mob/living/carbon/human/challenged_mob = challenged.resolve()
+	if(QDELETED(challenger_mob) || QDELETED(challenged_mob))
+		qdel(src)
+
+	if(challenger_mob.surrendering || challenger_mob.incapacitated(ignore_grab = TRUE))
+		challenged_mob.visible_message(span_notice("[challenged_mob] defeats [challenged_mob] in the honor duel!"))
+		finish_duel(challenger_mob, challenged_mob)
+		return
+	if(challenged_mob.surrendering || challenged_mob.incapacitated(ignore_grab = TRUE))
+		challenger_mob.visible_message(span_notice("[challenger_mob] defeats [challenged_mob] in the honor duel!"))
+		finish_duel(challenged_mob, challenger_mob)
+
+/datum/duel/proc/end_duel()
+	if(QDELETED(src) || !ongoing)
+		return
+	ongoing = FALSE
+	var/mob/living/carbon/human/challenger_mob = challenger.resolve()
+	if(challenger_mob)
+		to_chat(challenger_mob, span_notice("The duel has gone on too long and is declared a draw!"))
+	var/mob/living/carbon/human/challenged_mob = challenged.resolve()
+	if(challenged_mob)
+		to_chat(challenged_mob, span_notice("The duel has gone on too long and is declared a draw!"))
+
+	qdel(src)
+
+/datum/duel/proc/finish_duel(mob/living/loser, mob/living/winner)
+	if(QDELETED(src) || !ongoing)
+		return
+	ongoing = FALSE
+
+	to_chat(loser, span_red("You have lost the duel of honor!"))
+	to_chat(winner, span_green("You have won the duel of honor!"))
+
+	if(objective)
+		var/datum/objective/ravox_duel/ravox = objective.resolve()
+		if(ravox?.owner == winner)
+			ravox.on_duel_won()
 
 	qdel(src)

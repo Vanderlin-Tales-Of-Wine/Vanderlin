@@ -212,6 +212,7 @@
 
 /datum/outfit/job/heartfelt/magos
 	allowed_patrons = list(/datum/patron/divine/noc)
+
 	var/static/list/spells = list(
 		/datum/action/cooldown/spell/projectile/fireball/greater,
 		/datum/action/cooldown/spell/projectile/lightning,
@@ -262,8 +263,7 @@
 			H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
 
 	for(var/path in spells)
-		var/datum/action/spell = new path(H)
-		spell.Grant(H)
+		H.add_spell(path)
 
 /datum/migrant_role/heartfelt/prior
 	name = "Prior of Heartfelt"

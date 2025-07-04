@@ -2552,41 +2552,44 @@
 	return
 
 /// Check if mob knows spell
-/mob/living/proc/check_spell(datum/action/cooldown/spell/spell)
+/mob/living/proc/get_spell(datum/action/cooldown/spell/spell_type, specific = FALSE)
 	if(!length(actions))
-		return FALSE
-	if(!LAZYACCESS(actions, spell))
-		return FALSE
-	return TRUE
+		return
+	if(istype(spell_type, /datum/action/cooldown/spell))
+		spell_type = spell_type.type
+	for(var/datum/action/cooldown/spell/spell in actions)
+		if(specific && (spell.type == spell_type))
+			return spell
+		else if(istype(spell, spell_type))
+			return spell
 
 /// Add a spell to the mob via typepath
-/// DO NOT USE FOR ANTAGONIST DATUMS
-/mob/living/proc/add_spell(datum/action/cooldown/spell/spell, silent = TRUE, mind_bound = FALSE)
+/mob/living/proc/add_spell(datum/action/cooldown/spell/spell, silent = TRUE, source)
 	if(QDELETED(src))
 		return
-	if(mind_bound && !mind)
+	if(get_spell(spell))
 		return
-	if(check_spell(spell))
-		return
-	var/datum/action/spell = new(mind_bound ? mind : src)
+	if(!source)
+		source = src
+	var/datum/action/spell = new(source)
 	if(!silent)
 		to_chat(src, span_nicegreen("I learnt [spell.name]!"))
 	spell.Grant(src)
 
-/mob/living/proc/remove_spell(datum/action/cooldown/spell/spell, return_skill_points = FALSE, silent = TRUE, mind_bound = FALSE)
+/mob/living/proc/remove_spell(datum/action/cooldown/spell/spell, return_skill_points = FALSE, silent = TRUE)
 	if(QDELETED(src))
 		return
-	var/datum/action/cooldown/spell/spell = LAZYACCESS(actions, spell)
-	if(!spell)
-		return
-	if(!spell.target == mind_bound ? mind : src)
+	var/datum/action/cooldown/spell/real_spell = get_spell(spell)
+	if(!real_spell)
 		return
 	if(return_skill_points)
-		adjust_spellpoints(spell.point_cost)
+		used_spell_points = max(used_spell_points - real_spell.point_cost, 0)
+		spell_points = max(spell_points + real_spell.point_cost, 0)
+		check_learnspell()
 	if(!silent)
-		to_chat(src, span_boldwarning("I forgot [spell.name]!"))
-	actions -= spell
-	qdel(spell)
+		to_chat(src, span_boldwarning("I forgot [real_spell.name]!"))
+	actions -= real_spell
+	qdel(real_spell)
 
 /**
  * purges all spells known by the mob
@@ -2594,11 +2597,14 @@
  ** return_skill_points - do we return the skillpoints for the spells?
  ** silent - do we notify the player of this change?
 */
-/mob/living/proc/purge_all_spells(return_skill_points, silent = TRUE, mind_bound = FALSE)
+//purge_all_spells
+/mob/living/proc/remove_spells(return_skill_points = FALSE, silent = TRUE, source)
 	if(QDELETED(src))
 		return
 	for(var/datum/action/cooldown/spell/spell in actions)
-		remove_spell(spell, return_skill_points, silent, mind_bound)
+		if(source && (spell.target != source))
+			continue
+		remove_spell(spell, return_skill_points, silent)
 	if(!silent)
 		to_chat(src, span_boldwarning("I forget all my spells!"))
 
@@ -2625,7 +2631,7 @@
 	if(QDELETED(src))
 		return
 	var/datum/action/cooldown/spell/undirected/learn/spell = LAZYACCESS(actions, /datum/action/cooldown/spell/undirected/learn)
-	if(spell_points > 0)
+	if(((spell_points - used_spell_points) > 0))
 		if(!spell)
 			add_spell(spell, silent = TRUE)
 		return

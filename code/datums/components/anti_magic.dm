@@ -74,7 +74,9 @@
 
 	if(!casting_restriction_alert)
 		// Check to see if we have any spells that are blocked due to antimagic
-		for(var/obj/effect/proc_holder/spell/magic_spell in equipper.mind?.spell_list)
+		for(var/datum/action/cooldown/spell/magic_spell in equipper.actions)
+			if(!(magic_spell.spell_requirements & SPELL_REQUIRES_NO_ANTIMAGIC))
+				continue
 			if(antimagic_flags & magic_spell.antimagic_flags)
 				to_chat(equipper, span_warning("[parent] is interfering with your ability to cast magic!"))
 				casting_restriction_alert = TRUE
@@ -108,7 +110,7 @@
 				span_warning("[user] pulses red as [visible_subject] absorbs magic energy!"),
 				span_userdanger("An intense magical aura pulses around [self_subject] as it dissipates into the air!"),
 			)
-			antimagic_effect = mutable_appearance('icons/effects/effects.dmi', "shield-red", MOB_SHIELD_LAYER)
+			antimagic_effect = mutable_appearance('icons/effects/effects.dmi', "shield-red")
 			antimagic_color = LIGHT_COLOR_BLOOD_MAGIC
 			playsound(user, 'sound/magic/magic_block.ogg', 50, TRUE)
 		else if(casted_magic_flags & antimagic_flags & MAGIC_RESISTANCE_HOLY)
@@ -124,13 +126,13 @@
 				span_warning("[user] forehead shines as [visible_subject] repulses magic from their mind!"),
 				span_userdanger("A feeling of cold splashes on [self_subject] as your forehead reflects magic usering your mind!"),
 			)
-			antimagic_effect = mutable_appearance('icons/effects/genetics.dmi', "telekinesishead", MOB_SHIELD_LAYER)
+			antimagic_effect = mutable_appearance('icons/effects/genetics.dmi', "telekinesishead")
 			antimagic_color = LIGHT_COLOR_DARK_BLUE
 			playsound(user, 'sound/magic/magic_block_mind.ogg', 50, TRUE)
 
 		user.mob_light(_range = 2, _color = antimagic_color, _duration = 5 SECONDS)
 		user.add_overlay(antimagic_effect)
-		addtimer(CALLBACK(user, /atom/proc/cut_overlay, antimagic_effect), 50)
+		addtimer(CALLBACK(user, TYPE_PROC_REF(/atom, cut_overlay), antimagic_effect), 5 SECONDS)
 
 		if(ismob(parent))
 			return COMPONENT_MAGIC_BLOCKED

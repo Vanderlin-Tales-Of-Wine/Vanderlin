@@ -73,7 +73,7 @@
 /datum/spell_interface
 	var/datum/action/cooldown/spell/undirected/learn/matrix
 	var/datum/browser/window
-	var/mob/user
+	var/mob/living/user
 
 /datum/spell_interface/New(/datum/action/cooldown/spell/undirected/learn/M, mob/U)
 	matrix = M

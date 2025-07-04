@@ -46,7 +46,7 @@
 	H.adjust_skillrank(/datum/skill/misc/music, pick(1,2,3,4,5,6), TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, pick(1,2,3,4,5,6), TRUE)
 	H.adjust_skillrank(/datum/skill/combat/firearms, pick(1,2,3,4,5,6), TRUE)
-	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery) // Mock people to your heart's content!
+	H.add_spell(/datum/action/cooldown/spell/undirected/list_target/vicious_mockery) // Mock people to your heart's content!
 
 	H.base_intelligence = rand(1, 20)
 	H.base_fortune = rand(1, 20)
