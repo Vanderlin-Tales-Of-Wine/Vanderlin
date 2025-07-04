@@ -5,11 +5,11 @@
 /datum/objective/retainer/on_creation()
 	. = ..()
 	if(owner?.current)
-		RegisterSignal(SSdcs, COMSIG_GLOB_ROLE_CONVERTED, PROC_REF(on_retainer_recruited))
+		RegisterSignal(SSdcs, COMSIG_GLOBAL_ROLE_CONVERTED, PROC_REF(on_retainer_recruited))
 	update_explanation_text()
 
 /datum/objective/retainer/Destroy()
-	UnregisterSignal(SSdcs, COMSIG_GLOB_ROLE_CONVERTED)
+	UnregisterSignal(SSdcs, COMSIG_GLOBAL_ROLE_CONVERTED)
 	return ..()
 
 /datum/objective/retainer/proc/on_retainer_recruited(datum/source, mob/living/carbon/human/recruiter, mob/living/carbon/human/recruit, new_role)
