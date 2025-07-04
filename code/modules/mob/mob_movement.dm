@@ -317,7 +317,7 @@
 				for(var/obj/effect/decal/cleanable/food/salt/S in stepTurf)
 					to_chat(L, "<span class='warning'>[S] bars your passage!</span>")
 					return
-				if(stepTurf.flags_1 & NOJAUNT_1)
+				if(stepTurf.flags_1 & NO_JAUNT)
 					to_chat(L, "<span class='warning'>Some strange aura is blocking the way.</span>")
 					return
 				if (locate(/obj/effect/blessing, stepTurf))

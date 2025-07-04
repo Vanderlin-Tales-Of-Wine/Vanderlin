@@ -304,13 +304,11 @@
 		var/mob/living/carbon/C = owner
 		C.remove_stress(/datum/stressevent/calm)
 
-
-
 /datum/status_effect/buff/barbrage
 	id = "barbrage"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/barbrage
 	effectedstats = list(STATKEY_STR = 1, STATKEY_END = 2, STATKEY_PER = -2, STATKEY_INT = -2) //endurance to boost pain treshold, not powerful enough to warrant total painkilling
-	duration = 15 SECONDS
+	duration = 30 SECONDS
 
 /atom/movable/screen/alert/status_effect/buff/barbrage
 	name = "Barbaric Rage"
@@ -322,8 +320,6 @@
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
 		C.apply_status_effect(/datum/status_effect/debuff/barbfalter)
-
-
 
 //============================================================================
 /*--------------\
@@ -367,6 +363,7 @@
 /datum/status_effect/buff/beastsense
 	id = "beastsense"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/beastsense
+	effectedstats = list(STATKEY_PER = 2)
 	duration = 10 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/beastsense
@@ -378,7 +375,7 @@
 	. = ..()
 	var/mob/living/carbon/human/H = owner
 	var/obj/item/organ/eyes/eyes = H.getorgan(/obj/item/organ/eyes)
-	if (!eyes || eyes.lighting_alpha)
+	if(!eyes)
 		return
 	ADD_TRAIT(owner, TRAIT_BESTIALSENSE, REF(src))
 	owner.update_sight()
@@ -388,19 +385,6 @@
 	to_chat(owner, span_warning("Darkness shrouds your senses once more."))
 	REMOVE_TRAIT(owner, TRAIT_BESTIALSENSE, REF(src))
 	owner.update_sight()
-
-/datum/status_effect/buff/beastsense_elf
-	id = "beastsenself"
-	alert_type = /atom/movable/screen/alert/status_effect/buff/beastsenself
-	effectedstats = list(STATKEY_PER = 2)
-	duration = 10 MINUTES
-
-/atom/movable/screen/alert/status_effect/buff/beastsenself
-	name = "Bestial Sense"
-	desc = span_nicegreen("No scent too faint, no shadow too dark...")
-	icon_state = "bestialsense"
-
-
 
 // ---------------------- TROLL SHAPE ( DENDOR ) ----------------------------
 /datum/status_effect/buff/trollshape

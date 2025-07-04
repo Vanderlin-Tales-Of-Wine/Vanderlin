@@ -46,6 +46,7 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
+
 /datum/migrant_role/heartfelt/lady
 	name = "Lady of Heartfelt"
 	greet_text = "You are the Lady of Heartfelt, once a respected noblewoman now struggling to survive in a desolate landscape. With your home in ruins, you look to Vanderlin, hoping to find new purpose or refuge amidst the chaos."
@@ -89,6 +90,7 @@
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
+
 /datum/migrant_role/heartfelt/hand
 	name = "Hand of Heartfelt"
 	greet_text = "You are the Hand of Heartfelt, burdened by the perception of failure in protecting your Lord's domain. Despite doubts from others, your loyalty remains steadfast as you journey to Vanderlin, determined to fulfill your duties."
@@ -136,6 +138,7 @@
 	outfit = /datum/outfit/job/heartfelt/knight
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
+
 /datum/outfit/job/heartfelt/knight/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet
@@ -179,6 +182,7 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
+
 /datum/migrant_role/heartfelt/knight/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(ishuman(L))
@@ -198,6 +202,7 @@
 			honorary = "Dame"
 		H.real_name = "[honorary] [prev_real_name]"
 		H.name = "[honorary] [prev_name]"
+
 /datum/migrant_role/heartfelt/magos
 	name = "Magos of Heartfelt"
 	greet_text = "You are the Magos of Heartfelt, renowned for your arcane knowledge yet unable to foresee the tragedy that befell your home. Drawn by a guiding star to Vanderlin, you seek answers and perhaps a new purpose in the wake of destruction."
@@ -207,6 +212,12 @@
 
 /datum/outfit/job/heartfelt/magos
 	allowed_patrons = list(/datum/patron/divine/noc)
+	var/static/list/spells = list(
+		/datum/action/cooldown/spell/projectile/fireball/greater,
+		/datum/action/cooldown/spell/projectile/lightning,
+		/datum/action/cooldown/spell/projectile/fetch,
+	)
+
 /datum/outfit/job/heartfelt/magos/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/talkstone
@@ -223,44 +234,47 @@
 	backpack_contents = list(/obj/item/reagent_containers/glass/bottle/poison,/obj/item/reagent_containers/glass/bottle/healthpot)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, "[type]")
 	H.cmode_music = 'sound/music/cmode/nobility/CombatCourtMagician.ogg'
-	if(H.mind)
-		H.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
-		H.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
-		H.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
-		H.change_stat(STATKEY_STR, -1)
-		H.change_stat(STATKEY_CON, -1)
-		H.change_stat(STATKEY_INT, 4)
-		if(H.age == AGE_OLD)
-			H.change_stat(STATKEY_SPD, -1)
-			H.change_stat(STATKEY_PER, 1)
-			if(ishumannorthern(H))
-				belt = /obj/item/storage/belt/leather/plaquegold
-				cloak = null
-				head = /obj/item/clothing/head/wizhat
-				armor = /obj/item/clothing/shirt/robe/wizard
-				H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
-		var/list/spells = list(/obj/effect/proc_holder/spell/invoked/projectile/fireball/greater, /obj/effect/proc_holder/spell/invoked/projectile/fireball, /obj/effect/proc_holder/spell/invoked/projectile/lightningbolt, /obj/effect/proc_holder/spell/invoked/projectile/fetch)
-		for(var/S in spells)
-			H.mind.AddSpell(new S)
+	H.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
+	H.change_stat(STATKEY_STR, -1)
+	H.change_stat(STATKEY_CON, -1)
+	H.change_stat(STATKEY_INT, 4)
+	if(H.age == AGE_OLD)
+		H.change_stat(STATKEY_SPD, -1)
+		H.change_stat(STATKEY_PER, 1)
+		if(ishumannorthern(H))
+			belt = /obj/item/storage/belt/leather/plaquegold
+			cloak = null
+			head = /obj/item/clothing/head/wizhat
+			armor = /obj/item/clothing/shirt/robe/wizard
+			H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
+
+	for(var/path in spells)
+		var/datum/action/spell = new path(H)
+		spell.Grant(H)
+
 /datum/migrant_role/heartfelt/prior
 	name = "Prior of Heartfelt"
 	greet_text = "The Prior of Heartfelt, you were destined for ascension within the Church, but fate intervened with the barony's downfall, delaying it indefinitely. Still guided by the blessings of Astrata, you journey to Vanderlin, determined to offer what aid and solace you can."
 	outfit = /datum/outfit/job/heartfelt/prior
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
+
 /datum/outfit/job/heartfelt/prior
 	allowed_patrons = list(/datum/patron/divine/astrata)
+
 /datum/outfit/job/heartfelt/prior/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
@@ -312,6 +326,7 @@
 		/datum/migrant_role/heartfelt/prior = 1,
 	)
 	greet_text = "Fleeing disaster, you have come together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes!"
+
 /datum/migrant_wave/heartfelt_down
 	name = "The Court of Heartfelt"
 	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)

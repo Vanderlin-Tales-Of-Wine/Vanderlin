@@ -422,9 +422,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	SSdroning.kill_droning(src.client)
 	remove_client_colour(/datum/client_colour/monochrome)
 	client.view_size.setDefault(getScreenSize())
-	SStgui.on_transfer(src, mind.current) // Transfer NanoUIs.
 	mind.current_ghost = null
-	mind.current.key = key
+	mind.current.ckey = ckey(key)
 	return TRUE
 
 /mob/dead/observer/returntolobby(modifier as num)

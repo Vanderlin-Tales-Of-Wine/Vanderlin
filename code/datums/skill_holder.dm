@@ -51,6 +51,9 @@
 /mob/proc/get_skill_level(skill)
 	return ensure_skills().get_skill_level(skill)
 
+/mob/proc/has_skill(skill)
+	return ensure_skills().has_skill(skill)
+
 /mob/proc/get_skill_speed_modifier(skill)
 	return ensure_skills().get_skill_speed_modifier(skill)
 
@@ -124,12 +127,7 @@
 
 /datum/skill_holder/proc/set_current(mob/incoming)
 	current = incoming
-	RegisterSignal(incoming, COMSIG_MIND_TRANSFER, PROC_REF(transfer_skills))
 	incoming.skills = src
-
-/datum/skill_holder/proc/transfer_skills(mob/source, mob/destination)
-	UnregisterSignal(source, COMSIG_MIND_TRANSFER)
-	set_current(destination)
 
 /**
  * Offer apprenticeship to a youngling
@@ -225,6 +223,17 @@
 	return known_skills[skill_ref] || SKILL_LEVEL_NONE
 
 /**
+ * Returns boolean for presence of skill
+ * Vars:
+ ** skill - the skill
+ */
+/datum/skill_holder/proc/has_skill(skill)
+	var/datum/skill/skill_ref = GetSkillRef(skill)
+	if(!(skill_ref in known_skills))
+		return FALSE
+	return TRUE
+
+/**
  * Gets the skill's singleton and returns the result of its get_skill_speed_modifier
  * Vars:
  ** skill - the skill
@@ -296,8 +305,8 @@
 				GLOB.vanderlin_round_stats[STATS_CRAFT_SKILLS]++
 			if(skill == /datum/skill/misc/reading && old_level == SKILL_LEVEL_NONE && current.is_literate())
 				GLOB.vanderlin_round_stats[STATS_LITERACY_TAUGHT]++
-		if(skill == /datum/skill/magic/arcane)
-			current?.mind?.adjust_spellpoints(1)
+		if(istype(skill, /datum/skill/magic))
+			current?.adjust_spellpoints(1)
 
 		return TRUE
 	else
@@ -321,8 +330,8 @@
 	/// How much experience the mob gets at the end
 	var/amt2gain = 0
 	// Give spellpoints if the skill is arcane
-	if(skill == /datum/skill/magic/arcane)
-		current.mind?.adjust_spellpoints(amt)
+	if(istype(skill, /datum/skill/magic))
+		current?.adjust_spellpoints(1)
 	if(amt > 0)
 		for(var/i in 1 to amt)
 			switch(skill_experience[skill_ref])

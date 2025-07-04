@@ -34,12 +34,28 @@
 		TRAIT_DEATHSIGHT,
 	)
 
+	var/static/list/spells = list(
+		/datum/action/cooldown/spell/projectile/fireball,
+		/datum/action/cooldown/spell/projectile/blood_bolt,
+		/datum/action/cooldown/spell/projectile/sickness,
+		/datum/action/cooldown/spell/projectile/fetch,
+		/datum/action/cooldown/spell/undirected/arcyne_eye,
+		/datum/action/cooldown/spell/undirected/command_undead,
+		/datum/action/cooldown/spell/strengthen_undead,
+		/datum/action/cooldown/spell/raise_undead,
+		/datum/action/cooldown/spell/diagnose,
+		/datum/action/cooldown/spell/eyebite,
+	)
+
 /datum/antagonist/lich/on_gain()
 	SSmapping.retainer.liches |= owner
 	. = ..()
 	if(iscarbon(owner.current))
 		lich_body_ref = WEAKREF(owner.current)
 		RegisterSignal(owner.current, COMSIG_LIVING_DEATH, PROC_REF(on_death))
+	for(var/datum/action/spell as anything in spells)
+		spell = new(src)
+		spell.Grant(owner.current)
 	owner.special_role = name
 	move_to_spawnpoint()
 	remove_job()
@@ -49,7 +65,12 @@
 	return ..()
 
 /datum/antagonist/lich/on_removal()
-	var/mob/lich_mob = lich_body_ref.resolve()
+	var/mob/lich_mob = owner.current
+	for(var/datum/action/spell as anything in lich_mob.actions)
+		if(spell.target == src)
+			lich_mob.actions -= spell
+			qdel(spell)
+
 	UnregisterSignal(lich_mob, COMSIG_LIVING_DEATH)
 
 /datum/antagonist/lich/greet()
@@ -127,16 +148,7 @@
 	H.change_stat(STATKEY_END, -1)
 	H.change_stat(STATKEY_SPD, -1)
 
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/command_undead)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/strengthen_undead)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/raise_undead)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fireball)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/eyebite)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/sickness)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fetch)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/arcyne_eye)
+
 	H.dna.species.soundpack_m = new /datum/voicepack/lich()
 	H.ambushable = FALSE
 

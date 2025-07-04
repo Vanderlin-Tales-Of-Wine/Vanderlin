@@ -114,6 +114,14 @@
 /// Forces the wizard to emote to cast the spell.
 #define INVOCATION_EMOTE "emote"
 
+// Bitflags for teleport spells
+/// Whether the teleport spell skips over space turfs
+#define TELEPORT_SPELL_SKIP_SPACE (1 << 0)
+/// Whether the teleport spell skips over dense turfs
+#define TELEPORT_SPELL_SKIP_DENSE (1 << 1)
+/// Whether the teleport spell skips over blocked turfs
+#define TELEPORT_SPELL_SKIP_BLOCKED (1 << 2)
+
 /// Default magic resistance that blocks normal magic (wizard, spells, magical staff projectiles)
 #define MAGIC_RESISTANCE (1 << 0)
 /// Tinfoil hat magic resistance that blocks mental magic (telepathy, mind curses, abductors, jelly people)

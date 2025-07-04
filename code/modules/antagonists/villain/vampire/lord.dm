@@ -10,19 +10,10 @@
 	)
 
 	var/ascended = FALSE
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/bat/batform //attached to the datum itself to avoid cloning memes, and other duplicates
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/gaseousform/gas
-	var/obj/effect/proc_holder/spell/targeted/mansion_portal/portal
 
-/datum/antagonist/vampire/lord/apply_innate_effects(mob/living/mob_override)
-	. = ..()
-	var/mob/living/M = mob_override || owner.current
-	ADD_TRAIT(M, TRAIT_HEAVYARMOR, "[type]")
-
-/datum/antagonist/vampire/lord/remove_innate_effects(mob/living/mob_override)
-	. = ..()
-	var/mob/living/M = mob_override || owner.current
-	REMOVE_TRAIT(M, TRAIT_HEAVYARMOR, "[type]")
+	innate_traits = list(
+		TRAIT_HEAVYARMOR,
+	)
 
 /datum/antagonist/vampire/lord/on_gain()
 	var/mob/living/carbon/vampire = owner.current
@@ -30,8 +21,8 @@
 	owner.current?.roll_mob_stats()
 	owner.purge_combat_knowledge()
 	. = ..()
-	portal = new()
-	owner.current.AddSpell(portal)
+	var/datum/action/cooldown/spell/undirected/mansion_portal/portal = new(src)
+	portal.Grant(owner.current)
 	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "[name]"), 5 SECONDS)
 	vampire.grant_undead_eyes()
 
@@ -40,22 +31,11 @@
 	owner.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
 	owner.current.verbs |= /mob/living/carbon/human/proc/punish_spawn
 
-
 /datum/antagonist/vampire/lord/on_removal()
-	if(!isnull(batform))
-		owner.current.RemoveSpell(batform)
-		QDEL_NULL(batform)
-
-	if(!isnull(portal))
-		owner.current.RemoveSpell(portal)
-		QDEL_NULL(portal)
-
-	owner.current.verbs -= /mob/living/carbon/human/proc/demand_submission
-	owner.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
-	owner.current.verbs -= /mob/living/carbon/human/proc/punish_spawn
-
-
 	. = ..()
+	owner.current.verbs -= /mob/living/carbon/human/proc/demand_submission
+	owner.current.verbs -= /mob/living/carbon/human/proc/vamp_regenerate
+	owner.current.verbs -= /mob/living/carbon/human/proc/punish_spawn
 
 /datum/antagonist/vampire/lord/greet()
 	to_chat(owner.current, span_userdanger("I am ancient. I am the Land. And I am now awoken to trespassers upon my domain."))
@@ -73,7 +53,6 @@
 	for(var/datum/mind/MF in get_minds("Death Knight"))
 		owner.i_know_person(MF)
 		owner.person_knows_me(MF)
-
 
 	var/mob/living/carbon/human/H = owner.current
 	H.equipOutfit(/datum/outfit/job/vamplord)
