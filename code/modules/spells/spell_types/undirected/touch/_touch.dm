@@ -20,8 +20,8 @@
 /datum/action/cooldown/spell/undirected/touch
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED
 	sound = 'sound/items/welder.ogg'
-	invocation = "High Five!"
-	invocation_type = INVOCATION_SHOUT
+
+	charge_required = FALSE
 
 	/// Typepath of what hand we create on initial cast.
 	var/obj/item/melee/touch_attack/hand_path = /obj/item/melee/touch_attack
@@ -33,6 +33,11 @@
 	var/drop_message = span_notice("You draw the power out of your hand.")
 	/// If TRUE, the caster can willingly hit themselves with the hand
 	var/can_cast_on_self = FALSE
+
+	/// If the hand has charges
+	var/infinite_use = FALSE
+	/// Number of uses before the spell removes itself
+	var/charges = 1
 
 /datum/action/cooldown/spell/undirected/touch/Destroy()
 	// If we have an owner, the hand is cleaned up in Remove(), which Destroy() calls.
@@ -62,9 +67,6 @@
 		return FALSE
 	return TRUE
 
-/datum/action/cooldown/spell/undirected/touch/is_valid_target(atom/cast_on)
-	return isliving(cast_on)
-
 /**
  * Creates a new hand_path hand and equips it to the caster.
  *
@@ -88,6 +90,10 @@
 	to_chat(cast_on, draw_message)
 	return TRUE
 
+/// Any handling for adjusting charges based on some factor should go here
+/datum/action/cooldown/spell/undirected/touch/proc/adjust_hand_charges()
+	return
+
 /**
  * Unregisters any signals and deletes the hand currently summoned by the spell.
  *
@@ -103,7 +109,10 @@
 	if(reset_cooldown_after)
 		if(hand_owner)
 			to_chat(hand_owner, drop_message)
-		reset_spell_cooldown()
+		if(charges < initial(charges))
+			StartCooldown(cooldown_time * (initial(charges) - charges))
+		else
+			reset_spell_cooldown()
 	else
 		StartCooldown()
 		build_all_button_icons()
@@ -136,6 +145,8 @@
 		return
 
 	create_hand(cast_on)
+	adjust_hand_charges()
+
 	return ..()
 
 /**
@@ -200,7 +211,10 @@
 
 	log_combat(caster, victim, "cast the touch spell [name] on", hand)
 	spell_feedback()
-	remove_hand(caster)
+	if(!infinite_use)
+		charges--
+		if(charges <= 0)
+			remove_hand(caster)
 
 /**
  * Calls do_secondary_hand_hit() from the caster onto the victim.
@@ -216,7 +230,10 @@
 		if(SECONDARY_ATTACK_CONTINUE_CHAIN)
 			log_combat(caster, victim, "cast the touch spell [name] on", hand, "(secondary / alt cast)")
 			spell_feedback()
-			remove_hand(caster)
+			if(!infinite_use)
+				charges--
+				if(charges <= 0)
+					remove_hand(caster)
 
 		// Call normal will call the normal cast proc
 		if(SECONDARY_ATTACK_CALL_NORMAL)
@@ -288,7 +305,8 @@
 /obj/item/melee/touch_attack
 	name = "\improper outstretched hand"
 	desc = "High Five?"
-	icon = 'icons/obj/items_and_weapons.dmi'
+	icon = 'icons/mob/roguehudgrabs.dmi'
+	icon_state = "grabbing_greyscale"
 	item_flags = NEEDS_PERMIT | ABSTRACT
 	w_class = WEIGHT_CLASS_HUGE
 	force = 0
