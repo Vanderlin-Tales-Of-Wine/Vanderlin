@@ -1,0 +1,36 @@
+/datum/action/cooldown/spell/projectile/arcyne_bolt
+	name = "Arcyne Bolt"
+	desc = "Shoot out rapid bolts of arcyne power."
+	button_icon_state =  "arcane_bolt"
+	sound = 'sound/magic/vlightning.ogg'
+
+	point_cost = 2
+	attunements = list(
+		/datum/attunement/arcyne = 0.7,
+	)
+
+	charge_time = 3 SECONDS
+	charge_drain = 1
+	charge_slowdown = 3
+	cooldown_time = 20 SECONDS
+	spell_cost = 50
+
+	projectile_type = /obj/projectile/magic/energy/rogue3
+	projectile_amount = 3
+	projectiles_per_fire = 3
+
+/datum/action/cooldown/spell/projectile/arcyne_bolt/ready_projectile(obj/projectile/to_fire, atom/target, mob/user, iteration)
+	. = ..()
+	to_fire.damage *= attuned_strength
+	to_fire.armor_penetration *= attuned_strength
+
+/obj/projectile/magic/energy/rogue3
+	name = "arcyne bolt"
+	icon_state = "arcane_barrage"
+	damage = 12
+	damage_type = BRUTE
+	armor_penetration = 10
+	nodamage = FALSE
+	flag = "piercing"
+	speed = 2
+	spread = 4
