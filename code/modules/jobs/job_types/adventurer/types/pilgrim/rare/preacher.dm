@@ -34,3 +34,4 @@
 			to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
 		H.set_patron(/datum/patron/psydon)
 	ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_GRENZEL, TRAIT_GENERIC)

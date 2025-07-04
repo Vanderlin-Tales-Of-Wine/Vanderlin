@@ -5,7 +5,7 @@
 	allowed_races = RACES_PLAYER_GRENZ
 	outfit = /datum/outfit/job/grenzelhoft_migration/count
 	grant_lit_torch = TRUE
-	is_foreigner = FALSE
+	is_foreigner = TRUE
 
 /datum/outfit/job/grenzelhoft_migration/count/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -50,6 +50,7 @@
 		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_GRENZEL, TRAIT_GENERIC)
 		H.cmode_music = 'sound/music/cmode/combat_grenzelhoft.ogg'
 
 /datum/migrant_role/grenzelhoft/countess
@@ -62,7 +63,7 @@
 	)
 	outfit = /datum/outfit/job/grenzelhoft_migration/countess
 	grant_lit_torch = TRUE
-	is_foreigner = FALSE
+	is_foreigner = TRUE
 
 /datum/outfit/job/grenzelhoft_migration/countess/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -105,6 +106,7 @@
 		H.change_stat(STATKEY_END, 2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_GRENZEL, TRAIT_GENERIC)
 		H.cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
 /datum/migrant_role/grenzelhoft/grenzelhoft_knight
@@ -113,7 +115,7 @@
 	allowed_sexes = list(MALE)
 	allowed_races = list("Humen")
 	outfit = /datum/outfit/job/grenzelhoft_migration/grenzelhoft_knight
-	is_foreigner = FALSE
+	is_foreigner = TRUE
 
 /datum/outfit/job/grenzelhoft_migration/grenzelhoft_knight/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -153,6 +155,7 @@
 		to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_GRENZEL, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/combat_grenzelhoft.ogg'
 
 /datum/migrant_role/grenzelhoft/grenzelhoft_men_at_arms
@@ -164,7 +167,7 @@
 		"Dwarf"
 	)
 	outfit = /datum/outfit/job/grenzelhoft_migration/grenzelhoft_men_at_arms
-	is_foreigner = FALSE
+	is_foreigner = TRUE
 
 /datum/outfit/job/grenzelhoft_migration/grenzelhoft_men_at_arms/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -206,6 +209,7 @@
 	H.change_stat(STATKEY_END, 1)
 	H.change_stat(STATKEY_CON, 2)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_GRENZEL, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/combat_grenzelhoft.ogg'
 
 /datum/migrant_wave/grenzelhoft_visit

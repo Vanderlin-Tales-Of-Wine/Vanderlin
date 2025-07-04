@@ -4,6 +4,7 @@
 	antag_datum = /datum/antagonist/purishep
 	outfit = /datum/outfit/job/specialinquisitor
 	allowed_races = RACES_PLAYER_GRENZ
+	is_foreigner = TRUE
 
 /datum/outfit/job/specialinquisitor/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
@@ -53,6 +54,7 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_GRENZEL, TRAIT_GENERIC)
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
 	H.verbs |= /mob/living/carbon/human/proc/faith_test
 	to_chat(H,span_info("I can speak Old Psydonic with ,m before my speech."))
@@ -61,8 +63,16 @@
 /datum/migrant_role/crusader
 	name = "Crusader"
 	greet_text = "Crusader of the true faith, you came from Grenzelhoft under the command of the Inquisitor. Obey them as they lead you to smite the heathens."
-	outfit = /datum/outfit/job/adventurer/crusader
+	outfit = /datum/outfit/job/adventurer/crusader/grenzel
 	allowed_races = RACES_PLAYER_GRENZ
+	is_foreigner = TRUE
+
+/datum/outfit/job/adventurer/crusader/grenzel
+	allowed_patrons = list(/datum/patron/psydon)
+
+/datum/outfit/job/adventurer/crusader/grenzel/pre_equip(mob/living/carbon/human/H)
+	. = ..()
+	ADD_TRAIT(H, TRAIT_GRENZEL, TRAIT_GENERIC)
 
 /datum/migrant_wave/crusade
 	name = "The Holy Crusade"
