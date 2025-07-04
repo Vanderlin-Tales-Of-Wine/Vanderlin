@@ -531,4 +531,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_MAGICALLY_PHASED "magically_phased"
 
 /// Is runechat for this atom/movable currently disabled, regardless of prefs or anything?
-#define TRAIT_RUNECHAT_HIDDEN "runechat_hudden"
+#define TRAIT_RUNECHAT_HIDDEN "runechat_hiddenn"
+
+/// Target can't be grabbed by tanglers
+#define TRAIT_ENTANGLER_IMMUNE "tangler_immune"

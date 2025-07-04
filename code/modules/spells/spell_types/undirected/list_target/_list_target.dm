@@ -36,5 +36,6 @@
 		for(var/mob/living/nearby_living in oview(target_radius, center))
 			if(nearby_living == owner)
 				continue
+			things += nearby_living
 
 	return things

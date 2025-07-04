@@ -32,22 +32,18 @@
 /datum/objective/retainer/update_explanation_text()
 	explanation_text = "Recruit atleast one retainer to serve you and to demonstrate your ability to lead to Astrata."
 
-/obj/effect/proc_holder/spell/self/convertrole/retainer
+/datum/action/cooldown/spell/undirected/list_target/convert_role/retainer
 	name = "Recruit Retainer"
+	button_icon_state = "recruit_servant"
+
 	new_role = "Retainer"
-	overlay_state = "recruit_guard"
 	recruitment_faction = "Retainers"
 	recruitment_message = "Join my service as a retainer, %RECRUIT!"
 	accept_message = "I pledge my service to you!"
 	refuse_message = "I must decline your offer."
 
-
-/obj/effect/proc_holder/spell/self/convertrole/retainer/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
-	if(QDELETED(recruit) || QDELETED(recruiter))
-		return FALSE
-
-	new_role = "Retainer of [recruiter.real_name]"
-
+/datum/action/cooldown/spell/undirected/list_target/convert_role/retainer/Grant(mob/grant_to)
 	. = ..()
 	if(!.)
-		return FALSE
+		return
+	new_role = "Retainer of [grant_to.real_name]"
