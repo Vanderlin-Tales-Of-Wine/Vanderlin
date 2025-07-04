@@ -129,6 +129,12 @@
 /// Holy magic resistance that blocks unholy magic (revenant, cult, vampire, voice of god)
 #define MAGIC_RESISTANCE_HOLY (1 << 2)
 
+DEFINE_BITFIELD(antimagic_flags, list(
+	"MAGIC_RESISTANCE" = MAGIC_RESISTANCE,
+	"MAGIC_RESISTANCE_HOLY" = MAGIC_RESISTANCE_HOLY,
+	"MAGIC_RESISTANCE_MIND" = MAGIC_RESISTANCE_MIND,
+))
+
 // Bitflags for spell type
 /// Uses mana, normal behaviour
 #define SPELL_MANA (1 << 0)
@@ -167,3 +173,13 @@ DEFINE_BITFIELD(spell_requirements, list(
 	"SPELL_REQUIRES_STATION" = SPELL_REQUIRES_STATION,
 	"SPELL_REQUIRES_WIZARD_GARB" = SPELL_REQUIRES_WIZARD_GARB,
 ))
+
+/**
+ * Checks if our mob is jaunting actively (within a phased mob object)
+ * Used in jaunting spells specifically to determine whether they should be entering or exiting jaunt
+ *
+ * If you want to use this in non-jaunt related code, it is preferable
+ * to instead check for trait [TRAIT_MAGICALLY_PHASED] instead of using this
+ * as it encompasses more states in which a mob may be "incorporeal from magic"
+ */
+#define is_jaunting(atom) (istype(atom.loc, /obj/effect/dummy/phased_mob))

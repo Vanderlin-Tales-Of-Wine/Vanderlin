@@ -400,20 +400,6 @@
 			to_chat(owner, span_warning("You cannot cast [src] on yourself!"))
 			return FALSE
 
-		if(get_dist(owner, cast_on) > cast_range)
-			to_chat(owner, span_warning("[cast_on.p_theyre(TRUE)] too far away!"))
-			return FALSE
-
-		if((spell_flags & SPELL_MIRACLE) && HAS_TRAIT(cast_on, TRAIT_ATHEISM_CURSE))
-			if(isliving(cast_on))
-				var/mob/living/L = cast_on
-				L.visible_message(
-					span_danger("[L] recoils in disgust!"),
-					span_userdanger("These fools are trying to cure me with religion!!")
-				)
-				L.cursed_freak_out()
-			return FALSE
-
 	return TRUE
 
 // The actual cast chain occurs here, in Activate().
@@ -470,8 +456,23 @@
 	if(owner)
 		sig_return |= SEND_SIGNAL(owner, COMSIG_MOB_BEFORE_SPELL_CAST, src, cast_on)
 
-	if(pointed_spell && (sig_return & SPELL_CANCEL_CAST))
-		on_deactivation(owner, refund_cooldown = FALSE)
+	if(pointed_spell)
+		if(sig_return & SPELL_CANCEL_CAST)
+			on_deactivation(owner, refund_cooldown = FALSE)
+
+		if(get_dist(owner, cast_on) > cast_range)
+			to_chat(owner, span_warning("Too far away!"))
+			return sig_return | SPELL_CANCEL_CAST
+
+		if((spell_flags & SPELL_MIRACLE) && HAS_TRAIT(cast_on, TRAIT_ATHEISM_CURSE))
+			if(isliving(cast_on))
+				var/mob/living/L = cast_on
+				L.visible_message(
+					span_danger("[L] recoils in disgust!"),
+					span_userdanger("These fools are trying to cure me with religion!!")
+				)
+				L.cursed_freak_out()
+			return sig_return | SPELL_CANCEL_CAST
 
 	return sig_return
 

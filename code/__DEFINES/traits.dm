@@ -529,3 +529,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// This mob is phased out of reality from magic, either a jaunt or rod form
 #define TRAIT_MAGICALLY_PHASED "magically_phased"
+
+/// Is runechat for this atom/movable currently disabled, regardless of prefs or anything?
+#define TRAIT_RUNECHAT_HIDDEN "runechat_hudden"
