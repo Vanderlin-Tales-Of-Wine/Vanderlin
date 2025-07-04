@@ -135,7 +135,7 @@
 // Vile Highwayman. Your run of the mill swordsman, albeit fancy, smarter than the other two so he has some non combat related skills.
 /datum/advclass/adept/highwayman
 	name = "Vile Renegade"
-	tutorial = "You were a former outlaw who has been given a chance to redeem yourself by the Inquisitor. You serve him and Psydon with your survival skills and deadly accuracy."
+	tutorial = "You were a former outlaw who has been given a chance to redeem yourself by the Inquisitor. You serve him and Psydon with your survival skills."
 	outfit = /datum/outfit/job/adept/highwayman
 
 	category_tags = list(CTAG_ADEPT)
