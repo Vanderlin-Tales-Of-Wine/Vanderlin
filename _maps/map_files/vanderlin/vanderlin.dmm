@@ -2,12 +2,7 @@
 "aaj" = (
 /obj/structure/door/iron/bars{
 	name = "Dungeon of the Damned"
-	},
-/obj/effect/mapping_helpers/access/keyset/church/inquisition,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/greenstone,
-/area/rogue/under/town/basement)
-"aaF" = (
+
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
