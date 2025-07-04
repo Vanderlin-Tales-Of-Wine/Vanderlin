@@ -43,39 +43,3 @@
 	new /obj/effect/temp_visual/target/orcthrow(target_turf)
 
 /datum/action/cooldown/mob_cooldown/stone_throw/proc/post_chuck_stone()
-
-/obj/effect/temp_visual/stone_throw
-	icon = 'icons/roguetown/items/natural.dmi'
-	icon_state = "stonebig1"
-	name = "stone"
-	desc = "You should scram..."
-	layer = FLY_LAYER
-	plane = GAME_PLANE_UPPER
-	randomdir = FALSE
-	duration = 1 SECONDS
-	pixel_z = 270
-
-/obj/effect/temp_visual/stone_throw/Initialize(mapload, incoming_duration = 9)
-	duration = incoming_duration
-	. = ..()
-	animate(src, pixel_z = 0, time = duration)
-
-/obj/effect/temp_visual/target/orcthrow
-	icon = 'icons/mob/actions/actions_spells.dmi'
-	icon_state = "projectile"
-	exp_heavy = 1
-	exp_light = 3
-	exp_fire = 0
-	explode_sound = list('sound/misc/explode/bomb.ogg')
-
-/obj/effect/temp_visual/target/orcthrow/fall()
-	var/turf/hit_turf = get_turf(src)
-	new /obj/effect/temp_visual/stone_throw(hit_turf, duration)
-	sleep(duration)
-	if(ismineralturf(hit_turf))
-		var/turf/closed/mineral/rock_turf = hit_turf
-		rock_turf.gets_drilled()
-	for(var/mob/living/mob in hit_turf.contents)
-		mob.take_overall_damage(30)
-		to_chat(mob, span_userdanger("You're hit by a big rock!"))
-	explosion(hit_turf, -1, exp_heavy, exp_light, exp_flash, 0, flame_range = exp_fire, hotspot_range = exp_hotspot, soundin = explode_sound)

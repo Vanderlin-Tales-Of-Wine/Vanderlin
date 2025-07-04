@@ -29,23 +29,4 @@
 		if(dist > last_dist)
 			last_dist = dist
 			sleep(2 + min(4 - last_dist, 12) * 0.5)
-		new /obj/effect/temp_visual/lightning(T)
-		playsound(T, 'sound/weather/rain/thunder_1.ogg', 80, TRUE)
-		for(var/mob/living/L in T)
-			L.electrocute_act(50)
-
-/obj/effect/temp_visual/lightning
-	name = "lightning bolt"
-	icon = 'icons/effects/32x200.dmi'
-	icon_state = "lightning"
-	light_color = COLOR_PALE_BLUE_GRAY
-	light_outer_range = 15
-	light_power = 25
-	duration = 12
-	plane = GAME_PLANE_UPPER
-	randomdir = FALSE
-	duration = 12
-
-/obj/effect/temp_visual/lightning/Initialize(mapload)
-	. = ..()
-	add_overlay(mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE))
+		new /obj/effect/temp_visual/target/lightning(src)

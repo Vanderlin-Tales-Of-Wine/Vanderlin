@@ -95,10 +95,7 @@
 			lightning_destination = pick(SSParticleWeather.weathered_turfs)
 
 		var/turf/lightning_turf = get_turf(lightning_destination)
-		new /obj/effect/temp_visual/lightning(lightning_turf)
-		playsound(lightning_turf, 'sound/weather/rain/thunder_1.ogg', 80, TRUE)
-		for(var/mob/living/L in lightning_turf)
-			L.electrocute_act(50)
+		new /obj/effect/temp_visual/target/lightning(lightning_turf)
 		COOLDOWN_START(src, thunder, rand(5, 40) * 1 SECONDS)
 
 //Makes you a bit chilly

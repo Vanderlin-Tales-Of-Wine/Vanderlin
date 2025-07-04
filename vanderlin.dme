@@ -1241,6 +1241,7 @@
 #include "code\game\objects\effects\spawners\guaranteed_map_spawner\guaranteed_map_spawner.dm"
 #include "code\game\objects\effects\spawners\guaranteed_map_spawner\spawners.dm"
 #include "code\game\objects\effects\temporary_visuals\miscellaneous.dm"
+#include "code\game\objects\effects\temporary_visuals\target.dm"
 #include "code\game\objects\effects\temporary_visuals\temporary_visual.dm"
 #include "code\game\objects\effects\temporary_visuals\projectiles\impact.dm"
 #include "code\game\objects\effects\temporary_visuals\projectiles\muzzle.dm"
