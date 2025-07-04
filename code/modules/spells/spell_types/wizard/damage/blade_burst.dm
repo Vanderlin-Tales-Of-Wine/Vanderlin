@@ -14,7 +14,8 @@
 	associated_skill = /datum/skill/magic/arcane
 	overlay_state = "blade_burst"
 	attunements = list(
-		/datum/attunement/earth = 0.5,
+		/datum/attunement/arcyne = 0.3,
+		/datum/attunement/earth = 0.3
 	)
 	var/delay = 7
 	var/damage = 45
@@ -65,7 +66,7 @@
 /obj/effect/temp_visual/blade_burst
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "purplesparkles"
-	name = "rippeling arcyne energy"
+	name = "rippling arcyne energy"
 	desc = "Get out of the way!"
 	randomdir = FALSE
 	duration = 1 SECONDS
