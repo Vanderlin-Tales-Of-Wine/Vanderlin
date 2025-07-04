@@ -3,12 +3,7 @@
 /obj/structure/fermentation_keg/water,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/magician)
-"aaB" = (
-/obj/structure/stairs{
-	dir = 1
-	},
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/indoors/town/tavern)
 "acu" = (
 /obj/structure/chair/stool,
 /obj/effect/landmark/start/adventurer{
