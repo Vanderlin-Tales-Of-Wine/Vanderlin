@@ -28,7 +28,7 @@
 	else
 		return ..()
 
-/obj/item/natural/pre_attack_right(atom/A, mob/living/user, params)
+/obj/item/natural/pre_attack_secondary(atom/A, mob/living/user, params)
 	if(istype(A, /obj/item/natural))
 		if(item_flags & IN_STORAGE)
 			to_chat(user, span_warning("It's hard to find [src] in my bag."))
@@ -142,7 +142,7 @@
 	. = ..()
 	. += span_notice("There are [amount] [stackname] in this bundle.")
 
-/obj/item/natural/bundle/pre_attack_right(atom/A, mob/living/user, params)
+/obj/item/natural/bundle/pre_attack_secondary(atom/A, mob/living/user, params)
 	if(amount <= 0) //how did you manage to do this
 		qdel(src)
 		return

@@ -66,30 +66,6 @@
 					return
 		A.attack_hand(src, params)
 
-/mob/living/rmb_on(atom/A, params)
-	if(stat)
-		return
-
-	if(!has_active_hand()) //can't attack without a hand.
-		to_chat(src, span_warning("I lack working hands."))
-		return
-
-	if(!has_hand_for_held_index(used_hand)) //can't attack without a hand.
-		to_chat(src, span_warning("I can't move this hand."))
-		return
-
-	if(check_arm_grabbed(used_hand))
-		to_chat(src, span_warning("[pulledby] is restraining my arm!"))
-		return
-
-	//TODO VANDERLIN: Refactor this into melee_attack_chain_right so that items can more dynamically work with RMB
-	var/obj/item/held_item = get_active_held_item()
-	if(held_item)
-		if(!held_item.pre_attack_right(A, src, params))
-			A.attack_right(src, params)
-	else
-		A.attack_right(src, params)
-
 /mob/living/attack_right(mob/user, params)
 	. = ..()
 //	if(!user.Adjacent(src)) //alreadyu checked in rmb_on

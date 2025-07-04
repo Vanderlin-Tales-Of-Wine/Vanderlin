@@ -27,7 +27,7 @@
 	var/obj/structure/leyline/source = controller.blackboard[BB_LEYLINE_SOURCE]
 
 	if(prob(15))
-		step_rand(lycan)
+		SSmove_manager.move_rand(lycan)
 
 	if(!source || QDELETED(source))
 		return

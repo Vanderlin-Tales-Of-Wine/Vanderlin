@@ -16,7 +16,7 @@
 	spitoutmouth = FALSE
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/natural/feather/pre_attack_right(atom/A, mob/living/carbon/human/user, params)
+/obj/item/natural/feather/pre_attack_secondary(atom/A, mob/living/carbon/human/user, params)
 	if(istype(A, /obj/item/paper/confession))
 		var/obj/item/paper/confession/confessional = A
 		if(confessional.signed)

@@ -268,7 +268,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 		to_chat(user, span_info("The [src] slips through dead fingers..."))
 		user.dropItemToGround(src, TRUE)
 
-/obj/item/natural/stone/pre_attack_right(atom/A, mob/living/user, params)
+/obj/item/natural/stone/pre_attack_secondary(atom/A, mob/living/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(istype(A, /obj/item/natural/stone))
 		playsound(src.loc, pick('sound/items/stonestone.ogg'), 100)
@@ -381,7 +381,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 				S.set_up(1, 1, front)
 				S.start()
 
-/obj/item/natural/rock/pre_attack_right(atom/A, mob/living/user, params)
+/obj/item/natural/rock/pre_attack_secondary(atom/A, mob/living/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(istype(A, /obj/item/natural/rock))
 		playsound(src.loc, pick('sound/items/stonestone.ogg'), 100)
