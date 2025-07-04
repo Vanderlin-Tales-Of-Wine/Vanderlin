@@ -243,7 +243,7 @@
 	return TRUE
 
 /obj/item/clothing/gloves/essence_gauntlet/proc/update_granted_spells()
-	granted_spells.Cut()
+	granted_spells = null
 	var/list/available_essences = get_available_essence_types()
 
 	// Add single essence spells
@@ -274,10 +274,9 @@
 
 	// Grant single essence and combo spells
 	for(var/spell_type in granted_spells)
-		var/obj/effect/proc_holder/spell/essence_spell = new spell_type()
-		if(istype(essence_spell))
-			essence_spell.spell_flag |= SPELL_ESSENCE
-			living_user.mind?.AddSpell(essence_spell)
+		var/datum/action/cooldown/spell/spell = new spell_type(src)
+		spell.spell_flags |= SPELL_ESSENCE
+		living_user.add_spell(spell)
 
 	// Grant racial combo spells
 	if(user_race && (user_race in racial_combo_mapping))
@@ -286,10 +285,9 @@
 			if(check_combo_requirements(combo_requirements, available_essences))
 				var/list/racial_spells = racial_combos[combo_requirements]
 				for(var/spell_type in racial_spells)
-					var/obj/effect/proc_holder/spell/racial_spell = new spell_type()
-					if(istype(racial_spell))
-						racial_spell.spell_flag |= SPELL_ESSENCE
-						living_user.mind?.AddSpell(racial_spell)
+					var/datum/action/cooldown/spell/spell = new spell_type(src)
+					spell.spell_flags |= SPELL_ESSENCE
+					living_user.add_spell(spell)
 
 /obj/item/clothing/gloves/essence_gauntlet/proc/remove_essence_spells(mob/user)
 	if(!isliving(user) || !user.mind)
@@ -298,9 +296,10 @@
 	var/mob/living/living_user = user
 
 	// Remove all essence-flagged spells
-	for(var/obj/effect/proc_holder/spell/spell in living_user.mind.spell_list)
-		if(spell.spell_flag & SPELL_ESSENCE)
-			living_user.mind.RemoveSpell(spell)
+	for(var/datum/action/cooldown/spell/spell in living_user.actions)
+		if(spell.target == src)
+			living_user.actions -= spell
+			qdel(spell)
 
 /obj/item/clothing/gloves/essence_gauntlet/proc/essence_failure_feedback(mob/user)
 	to_chat(user, span_warning("[src] lacks sufficient essence to cast that spell!"))
