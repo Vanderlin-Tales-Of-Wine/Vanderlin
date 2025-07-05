@@ -1,3 +1,6 @@
+GLOBAL_LIST_EMPTY(excommunicated_players)
+GLOBAL_LIST_EMPTY(heretical_players)
+
 /// DEFINITIONS ///
 #define CLERIC_T0 0
 #define CLERIC_T1 1

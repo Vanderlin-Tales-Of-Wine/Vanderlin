@@ -1048,7 +1048,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/under/mountains/anvil/dungeon)
 "hU" = (
-/obj/structure/arcyne_wall,
+/obj/structure/forcefield,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "hV" = (
@@ -1895,11 +1895,11 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "pc" = (
-/obj/structure/arcyne_wall,
+/obj/structure/forcefield,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "pd" = (
-/obj/structure/arcyne_wall,
+/obj/structure/forcefield,
 /turf/closed/mineral/random/cold/med,
 /area/rogue/under/mountains/anvil/upper)
 "pf" = (
@@ -2745,7 +2745,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "wq" = (
 /obj/structure/window/solid,
-/obj/structure/arcyne_wall,
+/obj/structure/forcefield,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/upper)
 "ws" = (
@@ -3608,7 +3608,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/mountains/anvil/lower)
 "Dt" = (
-/obj/structure/arcyne_wall,
+/obj/structure/forcefield,
 /turf/open/floor/dirt/ambush,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Dv" = (
@@ -4600,7 +4600,7 @@
 /turf/open/water/cleanshallow,
 /area/rogue/under/mountains/anvil/lower)
 "Lk" = (
-/obj/structure/arcyne_wall,
+/obj/structure/forcefield,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Ll" = (
@@ -4897,7 +4897,7 @@
 	},
 /area/rogue/under/cavewet)
 "No" = (
-/obj/structure/arcyne_wall,
+/obj/structure/forcefield,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Nq" = (
@@ -5622,7 +5622,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "SS" = (
-/obj/structure/arcyne_wall,
+/obj/structure/forcefield,
 /turf/open/floor/grass/red,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "ST" = (

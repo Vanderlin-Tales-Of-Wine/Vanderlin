@@ -75,7 +75,17 @@
 	/// Innate skill levels unlocked at roundstart. Format is list(/datum/skill/foo = SKILL_EXP_NOVICE) with exp as an integer or as per code/_DEFINES/skills.dm
 	var/list/skills
 
+	/// Innate spells that get removed when the job is removed
 	var/list/spells
+
+	/// Spell points to give/take to the mob
+	var/spell_points
+
+	/// Upper number of attunements to grant
+	var/attunements_max
+
+	/// Lower number of attunemnets to grant
+	var/attunements_min
 
 	var/list/jobstats
 	var/list/jobstats_f
@@ -172,7 +182,7 @@
 
 /// Executes after the mob has been spawned in the map.
 /// Client might not be yet in the mob, and is thus a separate variable.
-/datum/job/proc/after_spawn(mob/living/spawned, client/player_client)
+/datum/job/proc/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_JOB_AFTER_SPAWN, src, spawned, player_client)
 
@@ -205,6 +215,8 @@
 		spawned.set_apprentice_name(apprentice_name)
 
 	add_spells(spawned)
+	spawned.adjust_spellpoints(spell_points)
+	spawned.generate_random_attunements(rand(attunements_min, attunements_max))
 
 	var/list/used_stats = ((spawned.gender == FEMALE) && jobstats_f) ? jobstats_f : jobstats
 	for(var/stat_key in used_stats)
@@ -254,6 +266,10 @@
 		humanguy.advsetup = TRUE
 		humanguy.invisibility = INVISIBILITY_MAXIMUM
 		humanguy.become_blind("advsetup")
+
+/// When our guy is OLD do we do anything extra
+/datum/job/proc/old_age_effects()
+	return
 
 //Used for a special check of whether to allow a client to latejoin as this job.
 /datum/job/proc/special_check_latejoin(client/C)
@@ -449,18 +465,11 @@
 	current_positions = max(current_positions + offset, 0)
 
 /datum/job/proc/add_spells(mob/living/H)
-	if(spells && H.mind)
-		for(var/S in spells)
-			if(H.mind.has_spell(S))
-				continue
-			H.mind.AddSpell(new S)
+	for(var/datum/action/cooldown/spell/spell as anything in spells)
+		H.add_spell(spell, source = src)
 
 /datum/job/proc/remove_spells(mob/living/H)
-	if(spells && H.mind)
-		for(var/S in spells)
-			if(!H.mind.has_spell(S))
-				continue
-			H.mind.RemoveSpell(S)
+	H.remove_spells(source = src)
 
 /datum/job/proc/get_informed_title(mob/mob)
 	if(mob.gender == FEMALE && f_title)

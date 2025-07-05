@@ -6,20 +6,11 @@
 //	pixel_y = 10
 	base_state = "stonefire"
 	climbable = TRUE
-	pass_flags = LETPASSTHROW
+	pass_flags_self = LETPASSTHROW
 	cookonme = TRUE
 	dir = SOUTH
 	crossfire = TRUE
 	fueluse = 0
-
-/obj/machinery/light/fueled/firebowl/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover) && (mover.pass_flags & PASSTABLE))
-		return 1
-	if(mover.throwing)
-		return 1
-	if(locate(/obj/structure/table) in get_turf(mover))
-		return 1
-	return !density
 
 /obj/machinery/light/fueled/firebowl/attack_hand(mob/user)
 	. = ..()
@@ -71,6 +62,12 @@
 /obj/machinery/light/fueled/firebowl/church
 	icon_state = "churchfire1"
 	base_state = "churchfire"
+
+/obj/machinery/light/fueled/firebowl/church/magic
+	name = "magical bonfire"
+	color = "#6ab2ee"
+	bulb_colour = "#6ab2ee"
+	max_integrity = 30
 
 /obj/machinery/light/fueled/firebowl/church/unholyfire
 	desc = "This fire burns yet it is cold..."
@@ -585,21 +582,9 @@
 	climbable = TRUE
 	on = FALSE
 	fueluse = 30 MINUTES
-	pass_flags = LETPASSTHROW
+	pass_flags_self = LETPASSTHROW
 	bulb_colour = "#eea96a"
 	max_integrity = 60
-
-/obj/machinery/light/fueled/campfire/densefire/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover) && (mover.pass_flags & PASSTABLE))
-		return 1
-	if(mover.throwing)
-		return 1
-	if(locate(/obj/structure/table) in get_turf(mover))
-		return 1
-	if(locate(/obj/machinery/light/fueled/firebowl) in get_turf(mover))
-		return 1
-	return !density
-
 
 /obj/machinery/light/fueled/campfire/pyre
 	name = "pyre"

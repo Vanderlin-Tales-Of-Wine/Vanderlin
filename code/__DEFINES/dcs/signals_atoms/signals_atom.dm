@@ -6,14 +6,15 @@
 
 #define COMPONENT_PICKED "picked"
 
-//from base of client/MouseDown(): (/client, object, location, control, params)
-#define COMSIG_CLIENT_MOUSEDOWN "client_mousedown"
-//from base of client/MouseUp(): (/client, object, location, control, params)
-#define COMSIG_CLIENT_MOUSEUP "client_mouseup"
-	#define COMPONENT_CLIENT_MOUSEUP_INTERCEPT (1<<0)
-
 #define COMSIG_ATOM_PROXY_STEAM_USE "proxy_steam_usage"
 
 #define COMSIG_ATOM_STEAM_USE "steam_usage"
 
 #define COMSIG_ATOM_STEAM_INCREASE "steam_increase"
+
+/* Attack signals. They should share the returned flags, to standardize the attack chain. */
+/// tool_act -> pre_attack -> target.attackby (item.attack) -> afterattack
+	///Ends the attack chain. If sent early might cause posterior attacks not to happen.
+	#define COMPONENT_CANCEL_ATTACK_CHAIN (1<<0)
+	///Skips the specific attack step, continuing for the next one to happen.
+	#define COMPONENT_SKIP_ATTACK (1<<1)

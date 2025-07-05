@@ -35,19 +35,19 @@
 
 /obj/abstract/visual_ui_element/hoverable/movable/proc/move_loc(params)
 	moving = FALSE
-	var/list/PM = params2list(params)
-	if(!PM || !PM["screen-loc"])
+	var/list/modifiers = params2list(params)
+	var/screenloc = LAZYACCESS(modifiers, SCREEN_LOC)
+	if(!screenloc)
 		return
-
 	//first we need the x and y coordinates in pixels of the element relative to the bottom left corner of the screen
-	var/icon/I = new(icon,icon_state)
+	var/icon/I = new(icon, icon_state)
 	var/view = get_view_size()
 	var/list/offsets = screen_loc_to_offset(screen_loc, view)
 	var/start_x_val = offsets[1]
 	var/start_y_val = offsets[2]
 
 	//now we get those of the place where we released the mouse button
-	var/list/dest_loc_params = splittext(PM["screen-loc"], ",")
+	var/list/dest_loc_params = splittext(screenloc, ",")
 	var/list/dest_loc_X = splittext(dest_loc_params[1],":")
 	var/list/dest_loc_Y = splittext(dest_loc_params[2],":")
 	var/dest_pix_x = text2num(dest_loc_X[2]) - round(I.Width()/2)

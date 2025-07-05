@@ -3,7 +3,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors)
 "b" = (
-/obj/structure/arcyne_wall/greater/caster,
+/obj/structure/forcefield/casted/strong,
 /turf/open/floor/greenstone,
 /area/rogue/outdoors)
 "c" = (

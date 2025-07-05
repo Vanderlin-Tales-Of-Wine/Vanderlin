@@ -247,9 +247,6 @@
 		H.update_fov_angles()
 	else
 		hood.moveToNullspace()
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.UpdateButtonIcon()
 
 /obj/item/clothing/shirt/robe/newmage/adept
 	name = "adept robe"

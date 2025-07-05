@@ -1,61 +1,60 @@
-#define MAX_SPELL_SLOTS 8
+/mob/living/var/list/spell_quickslots = list()
 
-/mob/var/list/spell_quickslots = list()
-
-/mob/proc/initialize_spell_quickslots()
-	spell_quickslots = new /list(MAX_SPELL_SLOTS)
-
-/mob/proc/spell_quickselect(atom/clicked_atom)
+/mob/living/proc/spell_quickselect(atom/clicked_atom, params)
 	if(!mind)
 		return
-	if(!length(spell_quickslots))
-		initialize_spell_quickslots()
 
 	var/list/radial_options = list()
 
-	for(var/i in 1 to MAX_SPELL_SLOTS)
-		var/obj/effect/proc_holder/spell/stored_spell = spell_quickslots[i]
+	for(var/i in 1 to 6)
+		var/datum/action/cooldown/spell/stored_spell = get_spell(spell_quickslots[i])
 		if(stored_spell)
-			radial_options["[i]"] = image(icon = stored_spell.action_icon, icon_state = stored_spell.overlay_state)
+			radial_options["[i]"] = mutable_appearance(stored_spell.button_icon, stored_spell.button_icon_state)
 		else
-			radial_options["[i]"] = image(icon = 'icons/hud/radial.dmi', icon_state = "empty_slot")
+			radial_options["[i]"] = mutable_appearance('icons/hud/radial.dmi', "empty_slot")
 
-	var/choice = show_radial_menu(src, get_turf(clicked_atom), radial_options, custom_check = CALLBACK(src, PROC_REF(check_spell_quickselect)), radial_slice_icon = "radial_thaum", click_on_hover = TRUE)
+	var/choice = show_radial_menu(src, get_turf(clicked_atom), radial_options, radial_slice_icon = "radial_thaum", click_on_hover = TRUE)
 
 	if(!choice)
 		return
 
-	var/slot_index = text2num(choice)
-	if(client.keys_held["Ctrl"] || !spell_quickslots[slot_index])
-		assign_spell_to_slot(slot_index, get_turf(clicked_atom))
-	else
-		var/obj/effect/proc_holder/spell/selected_spell = spell_quickslots[slot_index]
-		if(selected_spell)
-			if(ranged_ability)
-				ranged_ability.remove_ranged_ability()
-			selected_spell.Click()
+	var/list/modifiers = params2list(params)
 
-/mob/proc/assign_spell_to_slot(slot_index, turf/creation)
-	if(!mind || !mind.spell_list.len)
+	var/slot_index = text2num(choice)
+	if(LAZYACCESS(modifiers, SHIFT_CLICKED) || !spell_quickslots[slot_index])
+		assign_spell_to_slot(slot_index, get_turf(clicked_atom))
+		return
+	var/datum/action/cooldown/spell/selected_spell = get_spell(spell_quickslots[slot_index])
+	if(selected_spell)
+		var/trigger_flags
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			trigger_flags |= TRIGGER_SECONDARY_ACTION
+		selected_spell.Trigger(trigger_flags)
+
+#define CLEAR_SLOT "Clear Slot"
+
+/mob/living/proc/assign_spell_to_slot(slot_index, turf/creation)
+	if(length(actions))
 		return
 
 	var/list/spell_options = list()
 
 	// Build list of available spells
-	for(var/obj/effect/proc_holder/spell/S in mind.spell_list)
-		spell_options[S] = image(icon = S.action_icon, icon_state = S.overlay_state)
+	for(var/datum/action/cooldown/spell/spell in actions)
+		spell_options[spell] = mutable_appearance(spell.button_icon, spell.button_icon_state)
 
 	// Add option to clear the slot
-	spell_options["Clear Slot"] = image(icon = 'icons/hud/radial.dmi', icon_state = "clear_slot")
+	spell_options[CLEAR_SLOT] = mutable_appearance('icons/hud/radial.dmi', "clear_slot")
 
 	var/choice = show_radial_menu(src, creation, spell_options, radial_slice_icon = "radial_thaum")
 
 	if(!choice)
 		return
 
-	if(choice == "Clear Slot")
+	if(choice == CLEAR_SLOT)
 		spell_quickslots[slot_index] = null
-	else
-		spell_quickslots[slot_index] = choice
+	else if(istype(choice, /datum))
+		var/datum/selected = choice
+		spell_quickslots[slot_index] = selected.type
 
-#undef MAX_SPELL_SLOTS
+#undef CLEAR_SLOT

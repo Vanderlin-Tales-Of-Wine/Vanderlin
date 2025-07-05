@@ -172,15 +172,17 @@
 /obj/abstract/visual_ui_element/hoverable/scroll_handle/MouseDown(location, control, params)
 	..()
 	dragging = TRUE
-	var/list/PM = params2list(params)
-	if(PM && PM["screen-loc"])
-		var/list/loc_params = splittext(PM["screen-loc"], ",")
-		var/list/loc_Y = splittext(loc_params[2], ":")
-		drag_start_y = text2num(loc_Y[1]) * 32 + text2num(loc_Y[2])
+	var/list/modifiers = params2list(params)
+	var/screenloc = LAZYACCESS(modifiers, SCREEN_LOC)
+	if(!screenloc)
+		return
+	var/list/loc_params = splittext(screenloc, ",")
+	var/list/loc_Y = splittext(loc_params[2], ":")
+	drag_start_y = text2num(loc_Y[1]) * 32 + text2num(loc_Y[2])
 
-		var/obj/abstract/visual_ui_element/scrollable/container = locate() in parent.elements
-		if(container)
-			initial_scroll_pos = container.scroll_position
+	var/obj/abstract/visual_ui_element/scrollable/container = locate() in parent.elements
+	if(container)
+		initial_scroll_pos = container.scroll_position
 
 /obj/abstract/visual_ui_element/hoverable/scroll_handle/MouseUp(location, control, params)
 	..()
@@ -190,27 +192,29 @@
 	if(!dragging)
 		return
 
-	var/list/PM = params2list(params)
-	if(PM && PM["screen-loc"])
-		var/list/loc_params = splittext(PM["screen-loc"], ",")
-		var/list/loc_Y = splittext(loc_params[2], ":")
-		var/current_y = text2num(loc_Y[1]) * 32 + text2num(loc_Y[2])
+	var/list/modifiers = params2list(params)
+	var/screenloc = LAZYACCESS(modifiers, SCREEN_LOC)
+	if(!screenloc)
+		return
+	var/list/loc_params = splittext(screenloc, ",")
+	var/list/loc_Y = splittext(loc_params[2], ":")
+	var/current_y = text2num(loc_Y[1]) * 32 + text2num(loc_Y[2])
 
-		var/delta_y = current_y - drag_start_y
+	var/delta_y = current_y - drag_start_y
 
-		var/obj/abstract/visual_ui_element/scrollable/container = locate() in parent.elements
-		if(container)
-			var/track_height = container.visible_height - 32
-			var/scroll_ratio = delta_y / track_height
-			var/scroll_amount = scroll_ratio * (container.max_height - container.visible_height)
+	var/obj/abstract/visual_ui_element/scrollable/container = locate() in parent.elements
+	if(container)
+		var/track_height = container.visible_height - 32
+		var/scroll_ratio = delta_y / track_height
+		var/scroll_amount = scroll_ratio * (container.max_height - container.visible_height)
 
-			container.scroll_position = initial_scroll_pos - scroll_amount
+		container.scroll_position = initial_scroll_pos - scroll_amount
 
-			var/min_scroll = container.visible_height - container.max_height
-			if(container.scroll_position < min_scroll)
-				container.scroll_position = min_scroll
-			if(container.scroll_position > 0)
-				container.scroll_position = 0
+		var/min_scroll = container.visible_height - container.max_height
+		if(container.scroll_position < min_scroll)
+			container.scroll_position = min_scroll
+		if(container.scroll_position > 0)
+			container.scroll_position = 0
 
-			container.update_element_positions()
-			container.update_scroll_handle()
+		container.update_element_positions()
+		container.update_scroll_handle()

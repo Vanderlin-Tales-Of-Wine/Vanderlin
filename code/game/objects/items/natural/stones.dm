@@ -154,9 +154,10 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 /obj/item/natural/stone/on_consume(mob/living/eater)
 	if(!magic_power)
 		return
-	eater.mind?.spell_points += magic_power * 0.1
+	eater.spell_points += magic_power * 0.1
 	eater.mana_pool?.adjust_mana(magic_power * 25)
 	to_chat(eater, span_warning("I feel magic flowing from my stomach."))
+
 /*
 	This right here is stone lore,
 	Yakub from BBC lore has inspired me
@@ -267,7 +268,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 		to_chat(user, span_info("The [src] slips through dead fingers..."))
 		user.dropItemToGround(src, TRUE)
 
-/obj/item/natural/stone/pre_attack_right(atom/A, mob/living/user, params)
+/obj/item/natural/stone/pre_attack_secondary(atom/A, mob/living/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(istype(A, /obj/item/natural/stone))
 		playsound(src.loc, pick('sound/items/stonestone.ogg'), 100)
@@ -380,7 +381,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 				S.set_up(1, 1, front)
 				S.start()
 
-/obj/item/natural/rock/pre_attack_right(atom/A, mob/living/user, params)
+/obj/item/natural/rock/pre_attack_secondary(atom/A, mob/living/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(istype(A, /obj/item/natural/rock))
 		playsound(src.loc, pick('sound/items/stonestone.ogg'), 100)

@@ -22,9 +22,9 @@
 
 	outfit = /datum/outfit/job/priest
 	spells = list(
-		/obj/effect/proc_holder/spell/self/convertrole/templar,
-		/obj/effect/proc_holder/spell/self/convertrole/monk,
-		/obj/effect/proc_holder/spell/self/convertrole/churchling,
+		/datum/action/cooldown/spell/undirected/list_target/convert_role/templar,
+		/datum/action/cooldown/spell/undirected/list_target/convert_role/acolyte,
+		/datum/action/cooldown/spell/undirected/list_target/convert_role/churchling,
 	)
 
 /datum/outfit/job/priest/pre_equip(mob/living/carbon/human/H)
@@ -226,69 +226,3 @@
 			return FALSE
 		priority_announce("[inputty]", title = "The [get_role_title()] Speaks", sound = 'sound/misc/bell.ogg')
 		src.log_talk("[TIMETOTEXT4LOGS] [inputty]", LOG_SAY, tag="Priest announcement")
-
-/obj/effect/proc_holder/spell/self/convertrole/templar
-	name = "Recruit Templar"
-	new_role = "Templar"
-	overlay_state = "recruit_templar"
-	recruitment_faction = "Church"
-	recruitment_message = "Serve the Ten, %RECRUIT!"
-	accept_message = "FOR THE TEN!"
-	refuse_message = "I refuse."
-
-/obj/effect/proc_holder/spell/self/convertrole/templar/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
-	. = ..()
-	if(!.)
-		return
-	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(recruit, recruit.patron)
-	C.grant_spells_templar(recruit)
-	recruit.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
-
-/obj/effect/proc_holder/spell/self/convertrole/monk
-	name = "Recruit Acolyte"
-	new_role = "Acolyte"
-	overlay_state = "recruit_acolyte"
-	recruitment_faction = "Church"
-	recruitment_message = "Serve the Ten, %RECRUIT!"
-	accept_message = "FOR THE TEN!"
-	refuse_message = "I refuse."
-
-/obj/effect/proc_holder/spell/self/convertrole/monk/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
-	. = ..()
-	if(!.)
-		return
-	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(recruit, recruit.patron)
-	C.grant_spells(recruit)
-	recruit.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
-
-/obj/effect/proc_holder/spell/self/convertrole/churchling
-	name = "Recruit Churchling"
-	new_role = "Churchling"
-	overlay_state = "recruit_acolyte"
-	recruitment_faction = "Church"
-	recruitment_message = "Serve the Ten, %RECRUIT!"
-	accept_message = "FOR THE TEN!"
-	refuse_message = "I refuse."
-
-/obj/effect/proc_holder/spell/self/convertrole/churchling/can_convert(mob/living/carbon/human/recruit)
-	//wtf
-	if(QDELETED(recruit))
-		return FALSE
-	//need a mind
-	if(!recruit.mind)
-		return FALSE
-	//only orphans who aren't apprentices
-	if(istype(recruit.mind.assigned_role, /datum/job/orphan) && !recruit.is_apprentice())
-		return FALSE
-	//need to see their damn face
-	if(!recruit.get_face_name(null))
-		return FALSE
-	return TRUE
-
-/obj/effect/proc_holder/spell/self/convertrole/churchling/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
-	. = ..()
-	if(!.)
-		return
-	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(recruit, recruit.patron)
-	C.grant_spells_churchling(recruit)
-	recruit.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)

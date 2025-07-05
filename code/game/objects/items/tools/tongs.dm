@@ -67,7 +67,7 @@
 	. = ..()
 	place_item_to_atom(get_turf(src), user)
 
-/obj/item/weapon/tongs/pre_attack_right(atom/A, mob/living/user, params)
+/obj/item/weapon/tongs/pre_attack_secondary(atom/A, mob/living/user, params)
 	. = ..()
 	place_item_to_atom(get_turf(A), user)
 

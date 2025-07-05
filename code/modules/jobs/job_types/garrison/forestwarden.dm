@@ -16,13 +16,12 @@
 	bypass_lastclass = TRUE
 	selection_color = "#0d6929"
 
-
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/forestwarden
-	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard/forest_guard)
+	spells = list(/datum/action/cooldown/spell/undirected/list_target/convert_role/guard/forest)
 	give_bank_account = 45
 	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 

@@ -11,7 +11,7 @@
 	max_integrity = 100
 	integrity_failure = 0.1
 	blade_dulling = DULLING_BASHCHOP
-	pass_flags = LETPASSTHROW
+	pass_flags_self = LETPASSTHROW
 	climb_time = 20
 	climb_offset = 10
 	attacked_sound = 'sound/combat/hits/onglass/glasshit.ogg'
@@ -188,7 +188,8 @@
 	climbable = FALSE
 	update_appearance(UPDATE_ICON_STATE)
 
-/obj/structure/window/CanPass(atom/movable/mover, turf/target)
+/obj/structure/window/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(istype(mover) && climbable && ((mover.pass_flags & PASSTABLE) || (mover.pass_flags & PASSGRILLE)))
 		return 1
 	if(isliving(mover))
@@ -213,16 +214,13 @@
 						dude.visible_message(
 							span_warning("[dude] hits their head as they fly through the window!"),
 							span_danger("I hit my head on the window frame!"))
-				return 1
+				return TRUE
 	else if(isitem(mover))
 		var/obj/item/I = mover
+		if(brokenstate)
+			return TRUE
 		if(I.throwforce >= 10)
 			take_damage(I.throwforce)
-			if(brokenstate)
-				return 1
-		else
-			return !density
-	return ..()
 
 /obj/structure/window/proc/force_open()
 	playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)

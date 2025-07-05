@@ -60,11 +60,11 @@
 #define DECALTYPE_SCORCH 1
 #define DECALTYPE_BULLET 2
 
-/obj/item/target/clown/bullet_act(obj/projectile/P)
+/obj/item/target/clown/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
 	. = ..()
 	playsound(src.loc, 'sound/blank.ogg', 50, TRUE)
 
-/obj/item/target/bullet_act(obj/projectile/P)
+/obj/item/target/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
 	if(istype(P, /obj/projectile/bullet/reusable)) // If it's a foam dart, don't bother with any of this other shit
 		return P.on_hit(src, 0)
 	var/p_x = P.p_x + pick(0,0,0,0,0,-1,1) // really ugly way of coding "sometimes offset P.p_x!"

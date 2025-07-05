@@ -124,7 +124,7 @@
 	var/mob/living/L = user
 	var/altheld //Is the user pressing alt?
 	var/list/modifiers = params2list(params)
-	if(modifiers["alt"])
+	if(LAZYACCESS(modifiers, ALT_CLICKED))
 		altheld = TRUE
 	if(!isliving(user))
 		return
@@ -476,12 +476,7 @@ BLIND     // can't see anything
 		H.update_inv_pants()
 		H.update_fov_angles()
 	else
-//		hood.forceMove(src)
 		hood.moveToNullspace()
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.UpdateButtonIcon()
-
 
 /obj/item/clothing/proc/ToggleHood()
 	if(!hoodtoggled)

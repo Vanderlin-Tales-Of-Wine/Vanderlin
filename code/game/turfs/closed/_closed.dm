@@ -6,8 +6,8 @@
 	density = TRUE
 	blocks_air = TRUE
 	baseturfs = list(/turf/open/floor/naturalstone, /turf/open/transparent/openspace)
-
 	smoothing_groups = SMOOTH_GROUP_CLOSED
+	pass_flags_self = PASSCLOSEDTURF
 
 	var/above_floor
 	var/wallpress = TRUE
@@ -225,11 +225,6 @@
 
 /turf/closed/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	return FALSE
-
-/turf/closed/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover) && (mover.pass_flags & PASSCLOSEDTURF))
-		return TRUE
-	return ..()
 
 /turf/closed/indestructible
 	name = "wall"

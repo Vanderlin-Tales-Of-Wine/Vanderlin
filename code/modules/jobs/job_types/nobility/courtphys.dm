@@ -19,6 +19,10 @@
 	give_bank_account = 100
 	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
 
+	spells = list(
+		/datum/action/cooldown/spell/diagnose,
+	)
+
 /datum/outfit/job/courtphys
 	job_bitflag = BITFLAG_ROYALTY
 
@@ -58,4 +62,3 @@
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)

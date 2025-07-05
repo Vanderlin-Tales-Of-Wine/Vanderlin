@@ -62,8 +62,8 @@
 		controller.blackboard[BB_DRAGON_SLAM_COOLDOWN] = 0
 
 	// Set up repulse spell
-	var/obj/effect/proc_holder/spell/aoe_turf/repulse/voiddragon/repulse_action = new(src)
-	AddSpell(repulse_action)
+	var/datum/action/cooldown/spell/aoe/repulse/dragon/repulse_action = new(src)
+	repulse_action.Grant(src)
 
 /mob/living/simple_animal/hostile/retaliate/voiddragon/proc/TailSwipe(mob/victim)
 	var/mob/living/target = victim
@@ -109,7 +109,7 @@
 		if(dist > last_dist)
 			last_dist = dist
 			sleep(2 + min(4 - last_dist, 12) * 0.5) //gets faster
-		new /obj/effect/temp_visual/targetlightning(T)
+		new /obj/effect/temp_visual/target/lightning(T)
 
 /mob/living/simple_animal/hostile/retaliate/voiddragon/proc/dragon_slam(mob/owner, range, delay, throw_range)
 	var/turf/origin = get_turf(owner)
@@ -177,7 +177,7 @@
 		if(QDELETED(target))
 			break
 		var/turf/T = pick(RANGE_TURFS(enraged ? 2 : 1, target))
-		new /obj/effect/temp_visual/targetlightning(T)
+		new /obj/effect/temp_visual/target/lightning(T)
 		amount--
 		SLEEP_CHECK_DEATH(delay)
 
@@ -305,7 +305,7 @@
 /mob/living/simple_animal/hostile/retaliate/voiddragon/proc/Bolt(mob/origin, mob/target, bolt_energy, bounces, mob/user = usr)
 	origin.Beam(target,icon_state="lightning[rand(1,12)]",time=5)
 	var/mob/living/carbon/current = target
-	if(current.anti_magic_check())
+	if(current.can_block_magic(MAGIC_RESISTANCE))
 		current.visible_message(span_warning("[current] absorbs the spell, remaining unharmed!"), span_danger("I absorb the spell, remaining unharmed!"))
 	else if(bounces < 1)
 		current.electrocute_act(bolt_energy,"Lightning Bolt",flags = SHOCK_NOGLOVES)
@@ -672,37 +672,10 @@
 	else
 		animate(src, pixel_x = -32, pixel_z = 0, time = 5)
 
-/obj/effect/temp_visual/target/ex_act()
-	return
-
-/obj/effect/temp_visual/target/Initialize(mapload, list/flame_hit)
-	. = ..()
-	INVOKE_ASYNC(src, PROC_REF(fall), flame_hit)
-
-/obj/effect/proc_holder/spell/aoe_turf/repulse/voiddragon
-	name = "Tail Sweep"
-	desc = "Throw back attackers with a sweep of your tail."
-	sound = 'sound/misc/tail_swing.ogg'
-	recharge_time = 150
-	cooldown_min = 150
-	invocation_type = "none"
-	sparkle_path = /obj/effect/temp_visual/dir_setting/tailsweep
-	action_icon_state = "tailsweep"
-	action_background_icon_state = "bg_alien"
-	range = 2
-
-/obj/effect/proc_holder/spell/aoe_turf/repulse/voiddragon/cast(list/targets, mob/user = usr)
-	if(iscarbon(user))
-		var/mob/living/carbon/C = user
-		playsound(C.loc, 'sound/combat/hits/punch/punch_hard (3).ogg', 80, TRUE, TRUE)
-		C.spin(6, 1)
-	..(targets, user, 3)
-
 #undef DRAKE_SWOOP_HEIGHT
 #undef DRAKE_SWOOP_DIRECTION_CHANGE_RANGE
 #undef SWOOP_DAMAGEABLE
 #undef SWOOP_INVULNERABLE
-
 
 /datum/status_effect/void_corruption
 	id = "void_corruption"

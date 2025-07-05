@@ -69,7 +69,7 @@
 		pinned_target.forceMove(user.drop_location())
 		to_chat(user, "<span class='notice'>I take the target out of the stake.</span>")
 
-/obj/structure/target_stake/bullet_act(obj/projectile/P)
+/obj/structure/target_stake/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
 	if(pinned_target)
 		pinned_target.bullet_act(P)
 	else

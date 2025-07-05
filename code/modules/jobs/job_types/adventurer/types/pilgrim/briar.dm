@@ -187,8 +187,8 @@
 		user.emote("smile")
 		ADD_TRAIT(user, TRAIT_BLESSED, TRAIT_GENERIC)
 		ADD_TRAIT(user, TRAIT_WEBWALK, TRAIT_GENERIC)
-		user.AddSpell(new /obj/effect/proc_holder/spell/invoked/entangler(null))
-		if(user.mind.has_spell(/obj/effect/proc_holder/spell/targeted/beasttame))
+		user.add_spell(/datum/action/cooldown/spell/undirected/touch/entangler)
+		if(user.get_spell(/datum/action/cooldown/spell/beast_tame))
 			user.apply_status_effect(/datum/status_effect/buff/calm)
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
@@ -227,9 +227,9 @@
 		user.emote("smile")
 		ADD_TRAIT(user, TRAIT_BLESSED, TRAIT_GENERIC)
 		ADD_TRAIT(user, TRAIT_MIRACULOUS_FORAGING, TRAIT_GENERIC)
-		user.AddSpell(new /obj/effect/proc_holder/spell/targeted/conjure_kneestingers(null))
-		if(user.mind.has_spell(/obj/effect/proc_holder/spell/targeted/beasttame))
-			user.apply_status_effect(/datum/status_effect/buff/calm)
+
+		user.add_spell(/datum/action/cooldown/spell/conjure/kneestingers)
+		user.apply_status_effect(/datum/status_effect/buff/calm)
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
 
@@ -280,15 +280,13 @@
 		ADD_TRAIT(user, TRAIT_STRONGBITE, TRAIT_GENERIC)
 		ADD_TRAIT(user, TRAIT_BLESSED, TRAIT_GENERIC)
 
-		if(user.mind)
-			if(user.mind.has_spell(/obj/effect/proc_holder/spell/targeted/blesscrop))
-				user.apply_status_effect(/datum/status_effect/buff/barbrage/briarrage)
-				user.mind.RemoveSpell(/obj/effect/proc_holder/spell/targeted/blesscrop)
-				to_chat(user, span_warning("Things that grow no longer interests me, the desire to hunt fills my heart!"))
-			if(user.mind.has_spell(/obj/effect/proc_holder/spell/targeted/beasttame))
-				user.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/lesser_heal)
-				user.AddSpell(new /obj/effect/proc_holder/spell/self/trollshape(null))
-				to_chat(user, span_warning("I no longer care for mending wounds, let my rage be heard!"))
+		user.remove_spell(/datum/action/cooldown/spell/undirected/bless_crops)
+		user.apply_status_effect(/datum/status_effect/buff/barbrage/briarrage)
+		to_chat(user, span_warning("Things that grow no longer interests me, the desire to hunt fills my heart!"))
+
+		user.remove_spell(/datum/action/cooldown/spell/healing)
+		user.add_spell(/datum/action/cooldown/spell/undirected/troll_shape)
+		to_chat(user, span_warning("I no longer care for mending wounds, let my rage be heard!"))
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
 

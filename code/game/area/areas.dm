@@ -25,9 +25,7 @@
 	/// This uses the same nested list format as turfs_by_zlevel
 	var/list/list/turf/turfs_to_uncontain_by_zlevel = list()
 
-	var/map_name // Set in New(); preserves the name set by the map maker, even if renamed by the Blueprints.
-
-	var/valid_territory = TRUE // If it's a valid territory for cult summoning or the CRAB-17 phone to spawn
+	var/area_flags = VALID_TERRITORY | UNIQUE_AREA
 
 	var/totalbeauty = 0 //All beauty in this area combined, only includes indoor area.
 	var/beauty = 0 // Beauty average per open turf in the area
@@ -43,16 +41,6 @@
 	var/mood_message = "<span class='nicegreen'>This area is pretty nice!\n</span>"
 
 	var/has_gravity = STANDARD_GRAVITY
-	///Are you forbidden from teleporting to the area? (centcom, mobs, wizard, hand teleporter)
-	var/noteleport = FALSE
-	///Hides area from player Teleport function.
-	var/hidden = FALSE
-	///Is the area teleport-safe: no space / radiation / aggresive mobs / other dangers
-	var/safe = FALSE
-	/// If false, loading multiple maps with this area type will create multiple instances.
-	var/unique = TRUE
-
-//	var/no_air = null
 
 	var/parallax_movedir = 0
 
@@ -129,7 +117,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /area/New()
 	// This interacts with the map loader, so it needs to be set immediately
 	// rather than waiting for atoms to initialize.
-	if (unique)
+	if(area_flags & UNIQUE_AREA)
 		GLOB.areas_by_type[type] = src
 	GLOB.areas += src
 	return ..()
@@ -239,10 +227,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		icon_state = "mask"
 	else
 		icon_state = ""
-	layer = AREA_LAYER
-	map_name = name // Save the initial (the name set in the map) name of the area.
 	first_time_text = uppertext(first_time_text) // Standardization
-
 
 	if(dynamic_lighting == DYNAMIC_LIGHTING_FORCED)
 		dynamic_lighting = DYNAMIC_LIGHTING_ENABLED
@@ -461,8 +446,9 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  */
 /area/proc/setup(a_name)
 	name = a_name
-	valid_territory = FALSE
+	area_flags &= ~VALID_TERRITORY
 	require_area_resort()
+
 /**
  * Set the area size of the area
  *

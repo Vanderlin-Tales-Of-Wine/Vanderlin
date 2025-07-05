@@ -28,7 +28,7 @@
 	H.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
 	H.clamped_adjust_skillrank(/datum/skill/misc/music, 4, 4, TRUE) //Due to Harpy's innate music skill giving them legendary
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
+	H.add_spell(/datum/action/cooldown/spell/undirected/list_target/vicious_mockery)
 	head = /obj/item/clothing/head/bardhat
 	shoes = /obj/item/clothing/shoes/boots
 	pants = /obj/item/clothing/pants/tights/random

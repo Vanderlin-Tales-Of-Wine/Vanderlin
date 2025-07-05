@@ -53,11 +53,11 @@
 
 		// Move less in water
 		if(prob(15))
-			step_rand(gator_pawn)
+			SSmove_manager.move_rand(gator_pawn)
 	else
 		// Normal movement on land
 		if(prob(50))
-			step_rand(gator_pawn)
+			SSmove_manager.move_rand(gator_pawn)
 
 /datum/idle_behavior/gator_idle/proc/end_ambush_pose(mob/living/simple_animal/hostile/retaliate/gator/gator_pawn)
 	if(istype(gator_pawn))

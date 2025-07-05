@@ -60,9 +60,6 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 /// Are we in the overlay queue
 #define OVERLAY_QUEUED_1 (1<<17)
 
-//turf-only flags
-#define NOJAUNT_1					(1<<0)
-#define UNUSED_RESERVATION_TURF_1	(1<<1)
 /// If a turf can be made dirty at roundstart. This is also used in areas.
 #define CAN_BE_DIRTY_1				(1<<2)
 /// If blood cultists can draw runes or build structures on this turf
@@ -92,8 +89,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define FLYING			(1<<1)
 #define VENTCRAWLING	(1<<2)
 #define FLOATING		(1<<3)
-/// When moving, will Bump()/Cross() everything, but won't be stopped.
-#define UNSTOPPABLE		(1<<4)
+/// When moving, will Cross()/Uncross() everything, but won't stop or Bump() anything.
+#define PHASING			(1<<4)
 
 //Fire and Acid stuff, for resistance_flags
 #define LAVA_PROOF		(1<<0)

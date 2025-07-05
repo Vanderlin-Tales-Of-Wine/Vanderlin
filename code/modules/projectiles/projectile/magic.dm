@@ -7,6 +7,10 @@
 	armor_penetration = 100
 	pass_flags = PASSTABLE | PASSGRILLE
 	flag = "magic"
+	/// determines what type of antimagic can block the spell projectileAdd commentMore actions
+	var/antimagic_flags = MAGIC_RESISTANCE
+	/// determines the drain cost on the antimagic item
+	var/antimagic_charge_cost = 1
 	var/explode_sound = list('sound/misc/explode/incendiary (1).ogg','sound/misc/explode/incendiary (2).ogg')
 	var/mob/living/carbon/human/sender
 	var/obj/effect/proc_holder/spell/spell_source
@@ -14,6 +18,12 @@
 /obj/projectile/magic/Initialize(mapload, incoming_spell)
 	. = ..()
 	spell_source = incoming_spell
+
+/obj/projectile/magic/prehit_pierce(mob/living/target)
+	. = ..()
+	if(istype(target) && target.can_block_magic(antimagic_flags, antimagic_charge_cost))
+		visible_message(span_warning("[src] fizzles on contact with [target]!"))
+		return PROJECTILE_DELETE_WITHOUT_HITTING
 
 /obj/projectile/magic/death
 	name = "bolt of death"
@@ -23,7 +33,7 @@
 	. = ..()
 	if(ismob(target))
 		var/mob/M = target
-		if(M.anti_magic_check())
+		if(M.can_block_magic(MAGIC_RESISTANCE))
 			M.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
 			return BULLET_ACT_BLOCK
 		if(isliving(M))
@@ -51,7 +61,7 @@
 /obj/projectile/magic/resurrection/on_hit(mob/living/carbon/target)
 	. = ..()
 	if(isliving(target))
-		if(target.anti_magic_check())
+		if(target.can_block_magic(MAGIC_RESISTANCE))
 			target.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
 			return BULLET_ACT_BLOCK
 		if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
@@ -78,7 +88,7 @@
 	. = ..()
 	if(ismob(target))
 		var/mob/M = target
-		if(M.anti_magic_check())
+		if(M.can_block_magic(MAGIC_RESISTANCE))
 			M.visible_message("<span class='warning'>[src] fizzles on contact with [target]!</span>")
 			return BULLET_ACT_BLOCK
 	var/teleammount = 0
@@ -104,7 +114,7 @@
 	. = ..()
 	if(ismob(target))
 		var/mob/M = target
-		if(M.anti_magic_check())
+		if(M.can_block_magic(MAGIC_RESISTANCE))
 			M.visible_message("<span class='warning'>[src] fizzles on contact with [target]!</span>")
 			return BULLET_ACT_BLOCK
 	if(isturf(target))
@@ -131,7 +141,7 @@
 /obj/projectile/magic/spellblade/on_hit(target)
 	if(ismob(target))
 		var/mob/M = target
-		if(M.anti_magic_check())
+		if(M.can_block_magic(MAGIC_RESISTANCE))
 			M.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
 			qdel(src)
 			return BULLET_ACT_BLOCK
@@ -150,7 +160,7 @@
 /obj/projectile/magic/arcane_barrage/on_hit(target)
 	if(ismob(target))
 		var/mob/M = target
-		if(M.anti_magic_check())
+		if(M.can_block_magic(MAGIC_RESISTANCE))
 			M.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
 			qdel(src)
 			return BULLET_ACT_BLOCK
@@ -164,7 +174,7 @@
 	. = ..()
 	if(isliving(target))
 		var/mob/living/L = target
-		if(L.anti_magic_check())
+		if(L.can_block_magic(MAGIC_RESISTANCE))
 			L.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
 			return BULLET_ACT_BLOCK
 		var/atom/throw_target = get_edge_target_turf(L, angle2dir(Angle))
@@ -178,7 +188,7 @@
 	. = ..()
 	if(isliving(target))
 		var/mob/living/L = target
-		if(L.anti_magic_check() || !firer)
+		if(L.can_block_magic(MAGIC_RESISTANCE) || !firer)
 			L.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
 			return BULLET_ACT_BLOCK
 		L.apply_status_effect(STATUS_EFFECT_BOUNTY, firer)
@@ -191,7 +201,7 @@
 	. = ..()
 	if(isliving(target))
 		var/mob/living/L = target
-		if(L.anti_magic_check())
+		if(L.can_block_magic(MAGIC_RESISTANCE))
 			L.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
 			return BULLET_ACT_BLOCK
 		L.apply_status_effect(STATUS_EFFECT_ANTIMAGIC)
@@ -206,7 +216,7 @@
 	var/atom/throw_target = get_step(firer, get_dir(firer, target))
 	if(isliving(target))
 		var/mob/living/L = target
-		if(L.anti_magic_check() || !firer)
+		if(L.can_block_magic(MAGIC_RESISTANCE) || !firer)
 			L.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
 			return BULLET_ACT_BLOCK
 		L.throw_at(throw_target, 200, 3) //4 is the default threshold speed to embed
@@ -228,7 +238,7 @@
 	. = ..()
 	if(ismob(target))
 		var/mob/M = target
-		if(M.anti_magic_check())
+		if(M.can_block_magic(MAGIC_RESISTANCE))
 			M.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
 			return BULLET_ACT_BLOCK
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, src, /datum/mood_event/sapped)
@@ -241,7 +251,7 @@
 	. = ..()
 	if(isliving(target))
 		var/mob/living/L = target
-		if(L.anti_magic_check() || !L.mind || !L.mind.hasSoul)
+		if(L.can_block_magic(MAGIC_RESISTANCE) || !L.mind || !L.mind.hasSoul)
 			L.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
 			return BULLET_ACT_BLOCK
 		to_chat(L, "<span class='danger'>My body feels drained and there is a burning pain in my chest.</span>")
@@ -250,10 +260,8 @@
 		if(L.getMaxHealth() <= 0)
 			to_chat(L, "<span class='danger'>My weakened soul is completely consumed by the [src]!</span>")
 			L.mind.hasSoul = FALSE
-		for(var/obj/effect/proc_holder/spell/spell in L.mind.spell_list)
-			spell.charge_counter = spell.recharge_time
-			spell.recharging = FALSE
-			spell.update_appearance()
+		for(var/datum/action/cooldown/spell/spell in L.actions)
+			spell.StartCooldown()
 
 /obj/projectile/magic/aoe
 	name = "Area Bolt"
@@ -265,7 +273,7 @@
 /obj/projectile/magic/aoe/Range()
 	if(proxdet)
 		for(var/mob/living/L in range(aoe_range, get_turf(src)))
-			if(L.stat != DEAD && L != firer && !L.anti_magic_check())
+			if(L.stat != DEAD && L != firer && !L.can_block_magic(MAGIC_RESISTANCE))
 				return Bump(L)
 	..()
 
@@ -291,7 +299,7 @@
 	. = ..()
 	if(ismob(target))
 		var/mob/living/M = target
-		if(M.anti_magic_check())
+		if(M.can_block_magic(MAGIC_RESISTANCE))
 			visible_message("<span class='warning'>[src] vanishes into smoke on contact with [target]!</span>")
 			return BULLET_ACT_BLOCK
 		M.adjust_fire_stacks(6)
@@ -330,7 +338,7 @@
 	. = ..()
 	if(ismob(target))
 		var/mob/living/M = target
-		if(M.anti_magic_check())
+		if(M.can_block_magic(MAGIC_RESISTANCE))
 			return BULLET_ACT_BLOCK
 	var/turf/T = get_turf(target)
 	for(var/i=0, i<50, i+=10)

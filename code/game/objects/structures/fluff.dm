@@ -30,6 +30,7 @@
 	deconstructible = FALSE
 	flags_1 = ON_BORDER_1
 	climbable = TRUE
+	pass_flags_self = PASSTABLE|LETPASSTHROW
 	var/passcrawl = TRUE
 	layer = ABOVE_MOB_LAYER
 
@@ -56,58 +57,32 @@
 			layer = ABOVE_MOB_LAYER
 			plane = GAME_PLANE_UPPER
 
-/obj/structure/fluff/railing/CanPass(atom/movable/mover, turf/target)
-//	if(istype(mover) && (mover.pass_flags & PASSTABLE))
-//		return 1
-	if(istype(mover, /mob/camera))
+/obj/structure/fluff/railing/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(.)
+		return
+	if(dir in CORNERDIRS)
 		return TRUE
 	if(istype(mover, /obj/projectile))
-		return 1
-	if(mover.throwing)
-		return 1
+		return TRUE
 	if(isobserver(mover))
-		return 1
+		return TRUE
 	if(mover.movement_type & FLYING)
-		return 1
+		return TRUE
 	if(isliving(mover))
 		var/mob/living/M = mover
 		if(M.body_position == LYING_DOWN)
 			if(passcrawl)
 				return TRUE
-	if(icon_state == "woodrailing" && (dir in CORNERDIRS))
-		var/list/baddirs = list()
-		switch(dir)
-			if(SOUTHEAST)
-				baddirs = list(SOUTHEAST, SOUTH, EAST)
-			if(SOUTHWEST)
-				baddirs = list(SOUTHWEST, SOUTH, WEST)
-			if(NORTHEAST)
-				baddirs = list(NORTHEAST, NORTH, EAST)
-			if(NORTHWEST)
-				baddirs = list(NORTHWEST, NORTH, WEST)
-		if(get_dir(loc, target) in baddirs)
-			return 0
-	else if(get_dir(loc, target) == dir)
-		return 0
-	return 1
+	if(get_dir(loc, target) == dir)
+		return FALSE
 
 /obj/structure/fluff/railing/CanAStarPass(ID, to_dir, requester)
-	if(icon_state == "woodrailing" && (dir in CORNERDIRS))
-		var/list/baddirs = list()
-		switch(dir)
-			if(SOUTHEAST)
-				baddirs = list(SOUTHEAST, SOUTH, EAST)
-			if(SOUTHWEST)
-				baddirs = list(SOUTHWEST, SOUTH, WEST)
-			if(NORTHEAST)
-				baddirs = list(NORTHEAST, NORTH, EAST)
-			if(NORTHWEST)
-				baddirs = list(NORTHWEST, NORTH, WEST)
-		if(to_dir in baddirs)
-			return 0
-	else if(to_dir == dir)
-		return 0
-	return 1
+	if(dir in CORNERDIRS)
+		return TRUE
+	if(to_dir == dir)
+		return FALSE
+	return TRUE
 
 /obj/structure/fluff/railing/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
 	SIGNAL_HANDLER
@@ -171,12 +146,10 @@
 	passcrawl = FALSE
 	climb_offset = 6
 
-/obj/structure/fluff/railing/fence/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover, /mob/camera))
-		return TRUE
+/obj/structure/fluff/railing/fence/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(get_dir(loc, target) == dir)
-		return 0
-	return 1
+		return FALSE
 
 /obj/structure/bars
 	name = "bars"
@@ -195,16 +168,14 @@
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN
 	attacked_sound = list("sound/combat/hits/onmetal/metalimpact (1).ogg", "sound/combat/hits/onmetal/metalimpact (2).ogg")
 
-/obj/structure/bars/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover, /mob/camera))
-		return TRUE
+/obj/structure/bars/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(.)
+		return
 	if(isobserver(mover))
-		return 1
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return 1
+		return TRUE
 	if(mover.throwing && isitem(mover))
 		return prob(66)
-	return ..()
 
 /obj/structure/bars/bent
 	icon_state = "barsbent"
@@ -404,12 +375,10 @@
 		. += "Oh no, it's [station_time_timestamp("hh:mm")] on a [day]."
 		// . += span_info("(Round Time: [gameTimestamp("hh:mm:ss", REALTIMEOFDAY - SSticker.round_start_irl)].)")
 
-/obj/structure/fluff/clock/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover, /mob/camera))
-		return TRUE
+/obj/structure/fluff/clock/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(get_dir(loc, mover) == dir)
-		return 0
-	return 1
+		return FALSE
 
 /obj/structure/fluff/clock/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
 	SIGNAL_HANDLER
@@ -627,12 +596,10 @@
 			return
 
 
-/obj/structure/fluff/statue/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover, /mob/camera))
-		return TRUE
+/obj/structure/fluff/statue/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(get_dir(loc, mover) == dir)
-		return 0
-	return !density
+		return FALSE
 
 /obj/structure/fluff/statue/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
 	SIGNAL_HANDLER
@@ -1022,12 +989,10 @@
 	..()
 	M.reset_offsets("bed_buckle")
 
-/obj/structure/fluff/psycross/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover, /mob/camera))
-		return TRUE
+/obj/structure/fluff/psycross/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(get_dir(loc, mover) == dir)
 		return FALSE
-	return !density
 
 /obj/structure/fluff/psycross/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
 	SIGNAL_HANDLER

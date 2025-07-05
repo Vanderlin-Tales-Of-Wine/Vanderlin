@@ -15,7 +15,7 @@
 	//Should...probably actually be a veteran of at least a few weeks before trying to teach others
 	min_pq = 10
 
-	spells = list(/obj/effect/proc_holder/spell/self/convertrole/town_militia)
+	spells = list(/datum/action/cooldown/spell/undirected/list_target/convert_role/militiaa)
 	allowed_sexes = list(MALE, FEMALE) //same as town guard
 	allowed_ages = list(AGE_OLD, AGE_IMMORTAL)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED

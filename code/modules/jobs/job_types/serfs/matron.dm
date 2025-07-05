@@ -22,6 +22,11 @@
 	can_have_apprentices = TRUE
 	cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
 
+	spells = list(
+		/datum/action/cooldown/spell/undirected/hag_call,
+		/datum/action/cooldown/spell/undirected/seek_orphan,
+	)
+
 /datum/outfit/job/matron/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
@@ -57,8 +62,6 @@
 	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_EARGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KITTEN_MOM, TRAIT_GENERIC)
-	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/seek_orphan)
-	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/hag_call)
 	shirt = /obj/item/clothing/shirt/dress/gen/black
 	armor = /obj/item/clothing/armor/leather/vest/black
 	pants = /obj/item/clothing/pants/trou/beltpants

@@ -21,11 +21,10 @@
 /datum/idle_behavior/minotaur_patrol
 
 /datum/idle_behavior/minotaur_patrol/perform_idle_behavior(delta_time, datum/ai_controller/controller)
-
 	var/mob/living/simple_animal/hostile/retaliate/minotaur/boss = controller.pawn
 
 	if(prob(65))
-		step_rand(boss)
+		SSmove_manager.move_rand(boss)
 
 	if(!istype(boss) || prob(50))
 		return

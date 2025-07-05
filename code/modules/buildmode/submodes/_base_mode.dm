@@ -160,10 +160,10 @@
  * Handle click in this mode
  */
 /datum/buildmode_mode/advanced/handle_click(client/c, params, obj/object)
-	var/list/pa = params2list(params)
-	var/left_click = pa.Find("left")
-	var/right_click = pa.Find("right")
-	var/middle_click = pa.Find("middle")
+	var/list/modifiers = params2list(params)
+	var/left_click = LAZYACCESS(modifiers, LEFT_CLICK)
+	var/right_click = LAZYACCESS(modifiers, RIGHT_CLICK)
+	var/middle_click = LAZYACCESS(modifiers, MIDDLE_CLICK)
 
 	if(left_click)
 		if(isturf(object))

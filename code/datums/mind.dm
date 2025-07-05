@@ -77,12 +77,6 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	var/special_role
 	/// list of roles this mind cannot roll
 	var/list/restricted_roles = list()
-	/// list of spells this mind has
-	var/list/spell_list = list() // Wizard mode & "Give Spell" badmin button.
-	/// amount of spell points this mind currently has
-	var/spell_points
-	/// amount of spell points this mind has used
-	var/used_spell_points
 
 	var/linglink
 	var/datum/martial_art/martial_art
@@ -302,45 +296,23 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	new_character.mind = src							//and associate our new body with ourself
 	for(var/datum/antagonist/antag_datum_ref in antag_datums)	//Makes sure all antag datums effects are applied in the new body
 		antag_datum_ref.on_body_transfer(old_current, current)
-	if(iscarbon(new_character))
-		var/mob/living/carbon/C = new_character
+	if(iscarbon(current))
+		var/mob/living/carbon/C = current
 		C.last_mind = src
 	transfer_antag_huds(hud_to_transfer)				//inherit the antag HUD
-	transfer_actions(new_character)
-	transfer_martial_arts(new_character)
-	RegisterSignal(new_character, COMSIG_MOB_DEATH, PROC_REF(set_death_time))
+	transfer_martial_arts(current)
+	if(old_current.skills)
+		old_current.skills.set_current(current)
+
+	RegisterSignal(current, COMSIG_MOB_DEATH, PROC_REF(set_death_time))
 	if(active || force_key_move)
-		new_character.key = key		//now transfer the key to link the client to our new body
-	new_character.update_fov_angles()
-	SEND_SIGNAL(old_current, COMSIG_MIND_TRANSFER, new_character)
+		current.key = key		//now transfer the key to link the client to our new body
+	current.update_fov_angles()
 
-/**
- * purges all spells known by the mind
- * Vars:
- ** return_skill_points - do we return the skillpoints for the spells?
- ** silent - do we notify the player of this change?
-*/
-/datum/mind/proc/purge_all_spells(return_skill_points, silent = TRUE)
-	for(var/obj/effect/proc_holder/spell_to_purge in spell_list)
-		RemoveSpell(spell_to_purge, return_skill_points ? TRUE : FALSE)
-	if(!silent)
-		to_chat(current, span_boldwarning("I forget all my spells!"))
-
-/datum/mind/proc/purge_all_spellpoints(silent = TRUE)
-	spell_points = 0
-	used_spell_points = 0
-	if(!silent)
-		to_chat(current, span_boldwarning("I lose all my spellpoints!"))
-
-/**
- * adjusts the amount of available spellpoints
- * Vars:
- ** points - amount of points to grant or reduce
-*/
-/datum/mind/proc/adjust_spellpoints(points)
-	spell_points += points
-	check_learnspell() //check if we need to add or remove the learning spell
-
+	SEND_SIGNAL(src, COMSIG_MIND_TRANSFERRED, old_current)
+	SEND_SIGNAL(current, COMSIG_MOB_MIND_TRANSFERRED_INTO, old_current)
+	if(!isnull(old_current))
+		SEND_SIGNAL(old_current, COMSIG_MOB_MIND_TRANSFERRED_OUT_OF, current)
 
 /// set the last_death time of a mind to the current world time
 /datum/mind/proc/set_death_time()
@@ -368,8 +340,8 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 */
 /datum/mind/proc/purge_combat_knowledge(silent)
 	current.purge_all_skills(TRUE)
-	purge_all_spells()
-	purge_all_spellpoints(TRUE)
+	current.remove_spells(silent = TRUE)
+	current.purge_all_spellpoints(TRUE)
 
 // Datum antag mind procs
 
@@ -746,70 +718,6 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	announce_personal_objectives()
 	announce_antagonist_objectives()
 
-/**
- * add a spell to a mind
- * Vars:
- ** spell_type - the type of spell to give
- ** silent - is the player notified of the spell gain?
-*/
-/datum/mind/proc/AddSpell(obj/effect/proc_holder/spell/spell_type, silent = TRUE)
-	if(!spell_type)
-		CRASH("AddSpell was called without a specified spell type")
-	if(has_spell(spell_type))
-		return
-	spell_list += spell_type
-	if(!silent)
-		to_chat(current, "<span class='boldnotice'>I have learned a new spell: [spell_type]</span>")
-	spell_type.action.Grant(current)
-
-/**
- * check if we have a learnspell, give them a learnspell spell if they have excess spell points, remove it if we don't have excess spell points
- * Vars:
- ** spell_type - spell type to check
-*/
-/datum/mind/proc/check_learnspell(obj/effect/proc_holder/spell/spell_type)
-	if(!has_spell(/obj/effect/proc_holder/spell/self/learnspell)) //are we missing the learning spell?
-		if((spell_points - used_spell_points) > 0) //do we have points?
-			AddSpell(new /obj/effect/proc_holder/spell/self/learnspell(null)) //put it in
-			return
-
-	if((spell_points - used_spell_points) <= 0) //are we out of points?
-		RemoveSpell(spell_type) //bye bye spell
-		return
-	return
-
-/**
- * check if we have a spell
- * Vars:
- ** spell_type - spell type to check
- ** specific - boolean, if TRUE we check the specific type, if FALSE we check for subtypes too
-*/
-/datum/mind/proc/has_spell(spell_type, specific = FALSE)
-	if(istype(spell_type, /obj/effect/proc_holder))
-		var/obj/instanced_spell = spell_type
-		spell_type = instanced_spell.type
-	for(var/obj/effect/proc_holder/spell as anything in spell_list)
-		if((specific && spell.type == spell_type) || istype(spell, spell_type))
-			return TRUE
-	return FALSE
-
-/**
- * Remove a specific spell from a mind
- * Vars:
- ** spell_type - spell type to check
-*/
-/datum/mind/proc/RemoveSpell(obj/effect/proc_holder/spell/spell, restore_spell_points = FALSE)
-	if(!spell)
-		return
-	for(var/X in spell_list)
-		var/obj/effect/proc_holder/spell/spell_type = X
-		if(istype(spell_type, spell))
-			spell_list -= spell_type
-			qdel(spell_type)
-			if(restore_spell_points)
-				spell_points = max(spell_points + spell_type.cost, 0)
-				used_spell_points = max(used_spell_points - spell_type.cost, 0)
-
 /datum/mind/proc/transfer_martial_arts(mob/living/new_character)
 	if(!ishuman(new_character))
 		return
@@ -818,33 +726,6 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 			martial_art.remove(new_character)
 		else
 			martial_art.teach(new_character)
-
-/datum/mind/proc/transfer_actions(mob/living/new_character)
-	if(current && current.actions)
-		for(var/datum/action/antag_datum_ref in current.actions)
-			antag_datum_ref.Grant(new_character)
-	transfer_mindbound_actions(new_character)
-
-/datum/mind/proc/transfer_mindbound_actions(mob/living/new_character)
-	for(var/X in spell_list)
-		var/obj/effect/proc_holder/spell/spell_type = X
-		spell_type.action.Grant(new_character)
-
-/**
- * delay usage of all spells except the ones passed into the exceptions list
- * Vars:
- ** delay - how long is the disrupt duration
- ** exceptions - a list of spells to ignore when disrupting
-*/
-/datum/mind/proc/disrupt_spells(delay, list/exceptions = list())
-	for(var/X in spell_list)
-		var/obj/effect/proc_holder/spell/spell_type = X
-		for(var/type in exceptions)
-			if(istype(spell_type, type))
-				continue
-		spell_type.charge_counter = delay
-		spell_type.updateButtonIcon()
-		INVOKE_ASYNC(spell_type, TYPE_PROC_REF(/obj/effect/proc_holder/spell, start_recharge))
 
 /datum/mind/proc/get_ghost(even_if_they_cant_reenter, ghosts_with_clients)
 	for(var/mob/dead/observer/G in (ghosts_with_clients ? GLOB.player_list : GLOB.dead_mob_list))

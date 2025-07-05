@@ -239,17 +239,6 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 
 	return ..()
 
-/mob/dead/CanPass(atom/movable/mover, turf/target)
-	return 1
-
-/mob/dead/observer/rogue/CanPass(atom/movable/mover, turf/target)
-	if(!isinhell)
-		if(istype(mover, /mob/dead/observer/rogue))
-			return 0
-		if(istype(mover, /mob/dead/observer/rogue/arcaneeye))
-			return 1
-	return 1
-
 /*
  * Increase the brightness of a color by calculating the average distance between the R, G and B values,
  * and maximum brightness, then adding 30% of that average to R, G and B.
@@ -432,10 +421,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	SSdroning.kill_loop(src.client)
 	SSdroning.kill_droning(src.client)
 	remove_client_colour(/datum/client_colour/monochrome)
-	client.change_view(CONFIG_GET(string/default_view))
-	SStgui.on_transfer(src, mind.current) // Transfer NanoUIs.
+	client.view_size.setDefault(getScreenSize())
 	mind.current_ghost = null
-	mind.current.key = key
+	mind.current.ckey = ckey(key)
 	return TRUE
 
 /mob/dead/observer/returntolobby(modifier as num)
@@ -686,20 +674,18 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/verb/change_view_range()
 	set category = "Ghost"
 	set name = "View Range"
-	set desc = ""
-	set hidden = 1
-	if(!check_rights(0))
-		return
+	set desc = "Change your view range."
+
 	var/max_view = GHOST_MAX_VIEW_RANGE
-	if(client.view == CONFIG_GET(string/default_view))
+	if(client.view_size.getView() == client.view_size.default)
 		var/list/views = list()
 		for(var/i in 7 to max_view)
 			views |= i
-		var/new_view = input("Choose your new view", "Modify view range", 7) as null|anything in views
+		var/new_view = browser_input_list(src, "Choose your new view", "EYES OF NOC", views)
 		if(new_view)
-			client.change_view(CLAMP(new_view, 7, max_view))
+			client.view_size.setTo(clamp(new_view, 7, max_view) - 7)
 	else
-		client.change_view(CONFIG_GET(string/default_view))
+		client.view_size.resetToDefault()
 
 /mob/dead/observer/verb/add_view_range(input as num)
 	set name = "Add View Range"

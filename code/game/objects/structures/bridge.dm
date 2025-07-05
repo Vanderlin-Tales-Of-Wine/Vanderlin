@@ -59,13 +59,11 @@
 		return
 	. = ..()
 
-/obj/structure/bridge/CanPass(atom/movable/O, turf/target)
-	if(istype(O, /mob/camera))
-		return TRUE
+/obj/structure/bridge/CanAllowThrough(atom/movable/O, turf/target)
+	. = ..()
 	var/direction = get_dir(loc, target)
 	if(direction != dir && direction != REVERSE_DIR(dir))
 		return FALSE
-	return TRUE
 
 /obj/structure/bridge/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
 	SIGNAL_HANDLER

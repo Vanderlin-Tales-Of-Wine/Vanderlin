@@ -54,7 +54,7 @@
 
 	var/area/A = get_area(curturf)
 	var/area/B = get_area(destturf)
-	if(!forced && (HAS_TRAIT(teleatom, TRAIT_NO_TELEPORT) || A.noteleport || B.noteleport))
+	if(!forced && (HAS_TRAIT(teleatom, TRAIT_NO_TELEPORT) || (A.area_flags & NO_TELEPORT) || (B.area_flags & NO_TELEPORT)))
 		return FALSE
 
 	if(SEND_SIGNAL(destturf, COMSIG_ATOM_INTERCEPT_TELEPORT, channel, curturf, destturf))
@@ -112,12 +112,13 @@
 	if(!precision)
 		return list(center)
 	var/list/posturfs = list()
-	for(var/turf/T in range(precision,center))
+	for(var/turf/T in RANGE_TURFS(precision, center))
 		if(T.is_transition_turf())
 			continue // Avoid picking these.
 		var/area/A = T.loc
-		if(!A.noteleport)
-			posturfs.Add(T)
+		if(A.area_flags & NO_TELEPORT)
+			continue
+		posturfs.Add(T)
 	return posturfs
 
 /proc/get_teleport_turf(turf/center, precision = 0)

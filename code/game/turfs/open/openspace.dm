@@ -158,7 +158,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	if(!CanBuildHere())
 		return
 
-/turf/open/transparent/openspace/bullet_act(obj/projectile/P)
+/turf/open/transparent/openspace/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
 	if(!P.arcshot)
 		return ..()
 	var/turf/target = get_step_multiz(src, DOWN)

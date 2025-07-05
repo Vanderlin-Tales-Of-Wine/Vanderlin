@@ -45,7 +45,6 @@
 	return null
 
 /mob/living/carbon/human/get_slot_by_item(obj/item/looking_for)
-
 	if(looking_for == wear_mask)
 		return ITEM_SLOT_MASK
 

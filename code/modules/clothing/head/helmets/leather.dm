@@ -116,8 +116,7 @@
 	else
 		turn_off(user)
 	update_appearance(UPDATE_ICON_STATE)
-	for(var/datum/action/A as anything in actions)
-		A.UpdateButtonIcon(force = TRUE)
+	update_item_action_buttons()
 
 /obj/item/clothing/head/helmet/leather/minershelm/update_icon_state()
 	. = ..()

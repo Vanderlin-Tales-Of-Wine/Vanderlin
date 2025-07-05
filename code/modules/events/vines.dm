@@ -210,7 +210,7 @@
 	density = FALSE
 	layer = SPACEVINE_LAYER
 	mouse_opacity = MOUSE_OPACITY_OPAQUE //Clicking anywhere on the turf is good enough
-	pass_flags = PASSTABLE | PASSGRILLE
+	pass_flags_self = PASSTABLE | PASSGRILLE
 	max_integrity = 5
 	resistance_flags = FLAMMABLE
 	damage_deflection = 5
@@ -475,11 +475,10 @@
 	if(!override)
 		qdel(src)
 
-/obj/structure/vine/CanPass(atom/movable/mover, turf/target)
+/obj/structure/vine/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(isvineimmune(mover))
-		. = TRUE
-	else
-		. = ..()
+		return TRUE
 
 /proc/isvineimmune(atom/A)
 	. = FALSE

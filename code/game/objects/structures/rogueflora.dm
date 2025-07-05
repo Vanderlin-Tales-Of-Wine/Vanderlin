@@ -275,7 +275,7 @@
 	sleepy = 0.2
 	pixel_x = -14
 	pixel_y = 7
-	pass_flags = PASSTABLE
+	pass_flags_self = PASSTABLE
 
 /obj/structure/chair/bench/ancientlog/Initialize()
 	. = ..()
@@ -414,16 +414,6 @@
 			if(!looty.len)
 				to_chat(user, "<span class='warning'>Picked clean.</span>")
 
-/obj/structure/flora/grass/bush/CanPass(atom/movable/mover, turf/target)
-	if(mover.throwing)
-		mover.visible_message(span_danger("[mover] gets caught in \a [src]!"))
-		return TRUE
-	if(mover.pass_flags & PASSGRILLE)
-		return TRUE
-	if(ismob(mover))
-		return TRUE
-	return FALSE
-
 // bush crossing
 /obj/structure/flora/grass/bush/Crossed(atom/movable/AM)
 	. = ..()
@@ -475,10 +465,10 @@
 	icon_state = "bushwall_tundra1"
 	base_icon_state = "bushwall_tundra"
 
-/obj/structure/flora/grass/bush/wall/CanPass(atom/movable/mover, turf/target)
+/obj/structure/flora/grass/bush/wall/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(ismob(mover))
 		return FALSE
-	return ..()
 
 /obj/structure/flora/grass/bush/wall/tall
 	icon = 'icons/roguetown/misc/foliagetall.dmi'
@@ -622,12 +612,10 @@
 	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/structure/flora/shroom_tree/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return 1
+/obj/structure/flora/shroom_tree/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(get_dir(loc, target) == dir)
-		return 0
-	return 1
+		return FALSE
 
 /obj/structure/flora/shroom_tree/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
 	SIGNAL_HANDLER

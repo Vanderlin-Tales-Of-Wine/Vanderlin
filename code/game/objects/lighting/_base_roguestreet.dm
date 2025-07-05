@@ -10,7 +10,7 @@
 	bulb_colour = "#e4ff6c"
 	bulb_power = 1
 	max_integrity = 0
-	pass_flags = LETPASSTHROW
+	pass_flags_self = LETPASSTHROW
 	smeltresult = /obj/item/ingot/bronze
 
 /obj/machinery/light/fueledstreet/Initialize()

@@ -184,10 +184,10 @@
 	. = ..()
 
 	if(!frozen && linked_pick)
-		var/list/new_params = params2list(params)
+		var/list/modifiers = params2list(params)
 
-		var/icon_x = text2num(new_params["icon-x"]) - 240
-		var/icon_y = text2num(new_params["icon-y"]) - 240
+		var/icon_x = text2num(LAZYACCESS(modifiers, ICON_X)) - 240
+		var/icon_y = text2num(LAZYACCESS(modifiers, ICON_Y)) - 240
 
 		icon_y = max(1,icon_y)
 
@@ -224,9 +224,9 @@
 	SIGNAL_HANDLER
 	var/list/modifiers = params2list(params)
 
-	if(LAZYACCESS(modifiers, "middle"))
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
 		return
-	if(LAZYACCESS(modifiers, "right")) //right click to close
+	if(LAZYACCESS(modifiers, RIGHT_CLICK)) //right click to close
 		close_lockpick()
 		return
 	if(source.mob.in_throw_mode)

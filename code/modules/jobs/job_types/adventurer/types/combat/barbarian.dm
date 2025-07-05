@@ -31,7 +31,7 @@
 	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/barbrage)
+	H.add_spell(/datum/action/cooldown/spell/undirected/barbrage)
 	belt = /obj/item/storage/belt/leather
 	shoes = /obj/item/clothing/shoes/boots/leather
 	wrists = /obj/item/clothing/wrists/bracers/leather

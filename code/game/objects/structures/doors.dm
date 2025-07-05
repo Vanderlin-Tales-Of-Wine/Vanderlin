@@ -264,12 +264,10 @@
 	// it's openable
 	return ishuman(requester) && !locked()
 
-/obj/structure/door/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover, /mob/camera))
-		return TRUE
+/obj/structure/door/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
 	if(istype(mover, /obj/effect/beam))
 		return !opacity
-	return !density
 
 /obj/structure/door/setAnchored(anchorvalue) //called in default_unfasten_wrench() chain
 	. = ..()

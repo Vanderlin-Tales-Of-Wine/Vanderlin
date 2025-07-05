@@ -82,13 +82,12 @@
 	item_damage_type = "blunt"
 
 /mob/living/simple_animal/hostile/retaliate/voidstoneobelisk/death(gibbed)
-	..()
+	. = ..()
+	if(gibbed)
+		return
 	var/turf/deathspot = get_turf(src)
 	new /obj/item/natural/voidstone(deathspot)
 	new /obj/item/natural/artifact(deathspot)
-	update_appearance()
-	sleep(1)
-	qdel(src)
 
 /mob/living/simple_animal/hostile/retaliate/voidstoneobelisk/Destroy()
 	. = ..()
