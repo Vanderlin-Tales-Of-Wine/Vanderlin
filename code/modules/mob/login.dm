@@ -75,7 +75,6 @@
 	if(!can_hear())
 		stop_sound_channel(CHANNEL_AMBIENCE)
 	if(client)
-		refresh_looping_ambience()
 		client.change_view(CONFIG_GET(string/default_view)) // Resets the client.view in case it was changed.
 
 		if(client.player_details.player_actions.len)
