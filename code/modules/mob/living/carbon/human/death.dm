@@ -33,11 +33,6 @@
 
 	var/area/A = get_area(src)
 
-	if(client)
-		SSdroning.kill_droning(client)
-		SSdroning.kill_loop(client)
-		SSdroning.kill_rain(client)
-
 	if(mind)
 		if(!gibbed)
 			var/datum/antagonist/vampire/VD = mind.has_antag_datum(/datum/antagonist/vampire)

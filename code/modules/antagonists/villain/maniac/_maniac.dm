@@ -119,6 +119,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			dreamer.remove_stress(/datum/stressevent/saw_wonder)
 			dreamer.remove_curse(/datum/curse/zizo)
 		//	dreamer.remove_client_colour(/datum/client_colour/maniac_marked)
+		owner.current.refresh_looping_ambience()
 		hallucinations = owner.current.overlay_fullscreen("maniac", /atom/movable/screen/fullscreen/maniac)
 	LAZYINITLIST(owner.learned_recipes)
 	owner.learned_recipes |= recipe_progression[1]
@@ -139,9 +140,9 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			dreamer.set_patron(/datum/patron/inhumen/zizo)
 			dreamer.cmode_music = old_cm
 			dreamer.remove_stat_modifier("[type]")
-			var/client/clinet = dreamer?.client
-			if(clinet) //clear screenshake animation
-				animate(clinet, dreamer.pixel_y)
+			var/client/client = dreamer?.client
+			if(client) //clear screenshake animation
+				animate(client, dreamer.pixel_y)
 		for(var/trait in final_traits)
 			REMOVE_TRAIT(owner.current, trait, "[type]")
 		owner.current.clear_fullscreen("maniac")
@@ -231,9 +232,9 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 	to_chat(dreamer, "...It couldn't be.")
 	dreamer.clear_fullscreen("dream")
 	dreamer.clear_fullscreen("wakeup")
-	var/client/clinet = dreamer?.client
-	if(clinet) //clear screenshake animation
-		animate(clinet, dreamer.pixel_y)
+	var/client/client = dreamer?.client
+	if(client) //clear screenshake animation
+		animate(client, dreamer.pixel_y)
 	for(var/datum/objective/objective in objectives)
 		objective.completed = TRUE
 	// for(var/mob/connected_player in GLOB.player_list)

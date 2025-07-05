@@ -27,22 +27,29 @@
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_RESTRAINED), PROC_REF(on_restrained_trait_gain))
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_RESTRAINED), PROC_REF(on_restrained_trait_loss))
 
+	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_DEAF), PROC_REF(on_hearing_loss))
+	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_DEAF), PROC_REF(on_hearing_regain))
+
 ///Called when TRAIT_KNOCKEDOUT is added to the mob.
 /mob/living/proc/on_knockedout_trait_gain(datum/source)
+	SIGNAL_HANDLER
 	if(stat < UNCONSCIOUS)
 		set_stat(UNCONSCIOUS)
 
 ///Called when TRAIT_KNOCKEDOUT is removed from the mob.
 /mob/living/proc/on_knockedout_trait_loss(datum/source)
+	SIGNAL_HANDLER
 	if(stat < DEAD)
 		update_stat()
 
 ///Called when TRAIT_DEATHCOMA is added to the mob.
 /mob/living/proc/on_deathcoma_trait_gain(datum/source)
+	SIGNAL_HANDLER
 	ADD_TRAIT(src, TRAIT_KNOCKEDOUT, TRAIT_DEATHCOMA)
 
 ///Called when TRAIT_DEATHCOMA is removed from the mob.
 /mob/living/proc/on_deathcoma_trait_loss(datum/source)
+	SIGNAL_HANDLER
 	REMOVE_TRAIT(src, TRAIT_KNOCKEDOUT, TRAIT_DEATHCOMA)
 
 ///Called when TRAIT_IMMOBILIZED is added to the mob.
@@ -140,6 +147,7 @@
 
 ///Called when TRAIT_LEPROSY is added to the mob.
 /mob/living/proc/on_leprosy_trait_gain(datum/source)
+	SIGNAL_HANDLER
 	set_stat_modifier(TRAIT_LEPROSY, STATKEY_STR, -5)
 	set_stat_modifier(TRAIT_LEPROSY, STATKEY_SPD, -5)
 	set_stat_modifier(TRAIT_LEPROSY, STATKEY_END, -2)
@@ -149,14 +157,28 @@
 
 ///Called when TRAIT_LEPROSY is removed from the mob.
 /mob/living/proc/on_leprosy_trait_loss(datum/source)
+	SIGNAL_HANDLER
 	remove_stat_modifier(TRAIT_LEPROSY)
 
 ///Called when TRAIT_CRATEMOVER is added to the mob.
 /mob/living/proc/on_cratemover_trait_gain(datum/source)
+	SIGNAL_HANDLER
 	AddComponent(/datum/component/strong_pull)
 
 ///Called when TRAIT_CRATEMOVER is removed from the mob.
 /mob/living/proc/on_cratemover_trait_loss(datum/source)
+	SIGNAL_HANDLER
 	var/datum/component/strongpull = GetComponent(/datum/component/strong_pull)
 	if(strongpull)
 		strongpull.RemoveComponent()
+
+///Called when [TRAIT_DEAF] is added to the mob
+/mob/living/proc/on_hearing_loss()
+	SIGNAL_HANDLER
+	refresh_looping_ambience()
+	stop_sound_channel(CHANNEL_AMBIENCE)
+
+///Called when [TRAIT_DEAF] is removed from the mob.
+/mob/living/proc/on_hearing_regain()
+	SIGNAL_HANDLER
+	refresh_looping_ambience()

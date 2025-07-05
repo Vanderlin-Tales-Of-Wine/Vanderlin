@@ -288,3 +288,6 @@
 	var/sprinted_tiles = 0
 	///how many tiles we can move while casting
 	var/cast_move = 0
+
+	/// A ref of the area we're taking our ambient loop from.
+	var/area/ambience_tracked_area

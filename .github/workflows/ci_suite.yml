@@ -160,7 +160,7 @@ jobs:
 
   run_all_tests:
     name: Integration Tests
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     needs: collect_data
     strategy:
       fail-fast: false

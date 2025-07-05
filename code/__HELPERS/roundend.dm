@@ -126,7 +126,7 @@
 	var/list/key_list = list()
 	for(var/client/C in GLOB.clients)
 		if(C.mob)
-			SSdroning.kill_droning(C)
+			C.mob.cancel_looping_ambience()
 			C.mob.playsound_local(C.mob, 'sound/misc/roundend.ogg', 100, FALSE)
 		if(isliving(C.mob) && C.ckey)
 			key_list += C.ckey

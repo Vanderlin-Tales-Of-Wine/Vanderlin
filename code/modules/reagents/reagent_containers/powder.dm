@@ -98,7 +98,7 @@
 	M.set_drugginess(30)
 	if(M.client)
 		ADD_TRAIT(M, TRAIT_DRUQK, "based")
-		SSdroning.area_entered(get_area(M), M.client)
+		M.refresh_looping_ambience()
 	M.update_body_parts_head_only()
 
 /datum/reagent/druqks/on_mob_end_metabolize(mob/living/M)
@@ -107,7 +107,7 @@
 	M.remove_status_effect(/datum/status_effect/buff/druqks)
 	if(M.client)
 		REMOVE_TRAIT(M, TRAIT_DRUQK, "based")
-		SSdroning.play_area_sound(get_area(M), M.client)
+		M.refresh_looping_ambience()
 	M.update_body_parts_head_only()
 
 /datum/reagent/druqks/overdose_process(mob/living/M)

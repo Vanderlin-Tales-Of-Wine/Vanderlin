@@ -63,16 +63,12 @@ SUBSYSTEM_DEF(nightshift)
 
 /mob/living/carbon/human/update_tod(todd)
 	if(client)
-		var/area/areal = get_area(src)
-		if(!cmode)
-			SSdroning.play_area_sound(areal, src.client)
-		SSdroning.play_loop(areal, src.client)
+		refresh_looping_ambience()
 	if(todd == "dawn")
 		if(HAS_TRAIT(src, TRAIT_VAMP_DREAMS))
 			apply_status_effect(/datum/status_effect/debuff/vamp_dreams)
 		if(HAS_TRAIT(src, TRAIT_NIGHT_OWL))
 			add_stress(/datum/stressevent/night_owl_dawn)
-
 
 	if(todd == "night")
 		if(HAS_TRAIT(src, TRAIT_NIGHT_OWL))

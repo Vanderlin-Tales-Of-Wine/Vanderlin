@@ -1101,8 +1101,18 @@ GLOBAL_LIST_EMPTY(respawncounts)
 //////////////
 
 /client/Del()
-	log_access("Logout: [key_name(src)]")
+	if(!gc_destroyed)
+		gc_destroyed = world.time
+		if (!QDELING(src))
+			stack_trace("Client does not purport to be QDELING, this is going to cause bugs in other places!")
 
+		// Yes this is the same as what's found in qdel(). Yes it does need to be here
+		// Get off my back
+		SEND_SIGNAL(src, COMSIG_PARENT_QDELETING, TRUE)
+		Destroy() //Clean up signals and timers.
+	return ..()
+
+/client/Destroy()
 	if(holder)
 		for(var/I in GLOB.clients)
 			if(!I || I == src)
@@ -1114,41 +1124,29 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		adminGreet(1)
 		holder.owner = null
 		GLOB.admins -= src
-/*		if (!GLOB.admins.len && SSticker.IsRoundInProgress()) //Only report this stuff if we are currently playing.
-			var/cheesy_message = pick(
-				"I have no admins online!",\
-				"I'm all alone :(",\
-				"I'm feeling lonely :(",\
-				"I'm so lonely :(",\
-				"Why does nobody love me? :(",\
-				"I want a man :(",\
-				"Where has everyone gone?",\
-				"I need a hug :(",\
-				"Someone come hold me :(",\
-				"I need someone on me :(",\
-				"What happened? Where has everyone gone?",\
-				"Forever alone :("\
-			)
 
-//			send2irc("Server", "[cheesy_message] (No admins online)")
-*/
+	GLOB.clients -= src
+	GLOB.directory -= ckey
+
+	log_access("Logout: [key_name(src)]")
+	GLOB.ahelp_tickets.ClientLogout(src)
+
+	if(credits)
+		QDEL_LIST(credits)
+
 	if(player_details)
 		player_details.achievements.save()
 
-	GLOB.ahelp_tickets.ClientLogout(src)
-	GLOB.directory -= ckey
-	GLOB.clients -= src
-	QDEL_LIST_ASSOC_VAL(char_render_holders)
 	if(movingmob != null)
 		movingmob.client_mobs_in_contents -= mob
 		UNSETEMPTY(movingmob.client_mobs_in_contents)
-	Master.UpdateTickRate()
-	return ..()
 
-/client/Destroy()
-	. = ..() //Even though we're going to be hard deleted there are still some things that want to know the destroy is happening
-	QDEL_NULL(droning_sound)
-	last_droning_sound = null
+	QDEL_LIST_ASSOC_VAL(char_render_holders)
+
+	SSambience.remove_ambience_client(src)
+	seen_messages = null
+	Master.UpdateTickRate()
+	..() //Even though we're going to be hard deleted there are still some things that want to know the destroy is happening
 	return QDEL_HINT_HARDDEL_NOW
 
 /client/proc/set_client_age_from_db(connectiontopic)
