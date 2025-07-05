@@ -234,6 +234,10 @@ SUBSYSTEM_DEF(garbage)
 				message = "[message] (ref count of [refcount(D)])"
 				log_world(message)
 
+				var/detail = D.dump_harddel_info()
+				if(detail)
+					LAZYADD(I.extra_details, detail)
+
 				#ifdef TESTING
 				for(var/c in GLOB.admins) //Using testing() here would fill the logs with ADMIN_VV garbage
 					var/client/admin = c
