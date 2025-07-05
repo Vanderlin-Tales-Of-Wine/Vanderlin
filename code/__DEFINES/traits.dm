@@ -60,6 +60,7 @@
 #define TRAIT_WATER_BREATHING			"Waterbreathing"
 #define TRAIT_MOONWATER_ELIXIR			"Moonwater Elixir"
 #define TRAIT_FLOWERFIELD_IMMUNITY		"Flower Strider"
+#define TRAIT_SENSITIVE_EARS 			"Sensitive Ears" //Ability to hear whispers from further & voices through walls
 /// applied to orphans
 #define TRAIT_ORPHAN 					"Orphan"
 #define TRAIT_RECRUITED					"Recruit" //Trait used to give foreigners their new title
@@ -221,6 +222,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent."),
 	TRAIT_FACELESS = span_danger("I am faceless. I am shunned. The others will recognise me for what I am. If I give them the chance."),
 	TRAIT_FLOWERFIELD_IMMUNITY = span_info("I am immune to the effects of flower fields."),
+	TRAIT_SENSITIVE_EARS = span_info("People always did get mad at me for accidentally eavesdropping."),
 	))
 
 #define TRAIT_STATUS_EFFECT(effect_id) "[effect_id]-trait"
