@@ -68,12 +68,8 @@ SUBSYSTEM_DEF(garbage)
 
 /datum/controller/subsystem/garbage/Initialize(start_timeofday)
 	. = ..()
-#ifdef REFERENCE_TRACKING
-	enable_hard_deletes = TRUE
-#else
 	if(CONFIG_GET(flag/hard_deletes_enabled))
 		enable_hard_deletes = TRUE
-#endif
 
 /datum/controller/subsystem/garbage/stat_entry(msg)
 	var/list/counts = list()
@@ -233,6 +229,10 @@ SUBSYSTEM_DEF(garbage)
 				var/message = "## TESTING: GC: -- [text_ref(D)] | [type] was unable to be GC'd --"
 				message = "[message] (ref count of [refcount(D)])"
 				log_world(message)
+
+				var/detail = D.dump_harddel_info()
+				if(detail)
+					LAZYADD(I.extra_details, detail)
 
 				#ifdef TESTING
 				for(var/c in GLOB.admins) //Using testing() here would fill the logs with ADMIN_VV garbage

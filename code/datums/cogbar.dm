@@ -16,9 +16,16 @@
 	/// The offset of the icon
 	var/offset_y
 
+	// Debug vars
+	var/owner_type
+	var/had_client
+
 /datum/cogbar/New(mob/user)
 	src.user = user
 	src.user_client = user.client
+	owner_type = user.type
+	if(user_client)
+		had_client = TRUE
 	/*
 	var/list/icon_offsets = user.get_oversized_icon_offsets()
 	offset_y = icon_offsets["y"]
@@ -78,5 +85,13 @@
 
 	qdel(src)
 
+/datum/cogbar/dump_harddel_info()
+	if(harddel_deets_dumped)
+		return
+	harddel_deets_dumped = TRUE
+	. = list()
+	. += "Owner Type: [owner_type]"
+	if(had_client)
+		. += "Had Client Attached"
 
 #undef COGBAR_ANIMATION_TIME

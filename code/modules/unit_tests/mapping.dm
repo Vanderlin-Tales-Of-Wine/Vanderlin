@@ -12,6 +12,5 @@
 		// and various ruins frequently intentionally doing non-standard things.
 		if(!test_areacoord_regex.Find(log_entry))
 			continue
-		var/z = text2num(test_areacoord_regex.group[1])
 
 		TEST_FAIL(log_entry)
