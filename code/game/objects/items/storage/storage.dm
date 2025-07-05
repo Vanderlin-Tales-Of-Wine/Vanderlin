@@ -5,14 +5,14 @@
 	var/component_type = /datum/component/storage/concrete
 	var/list/populate_contents = list()
 
-/obj/item/storage/get_dumping_location(obj/item/storage/source,mob/user)
-	return src
-
 /obj/item/storage/Initialize(mapload, ...)
 	. = ..()
-	PopulateContents()
 	if(component_type)
 		AddComponent(component_type)
+	PopulateContents()
+
+/obj/item/storage/get_dumping_location(obj/item/storage/source,mob/user)
+	return src
 
 /obj/item/storage/AllowDrop()
 	return FALSE

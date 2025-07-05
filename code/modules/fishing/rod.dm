@@ -205,8 +205,8 @@
 	M.pixel_y = -6
 	. += M
 
-#define FISHRARITYWEIGHTS = list("com" = 70, "rare" = 20, "ultra" = 9, "gold" = 1)
-#define FISHSIZEWEIGHTS = list("tiny" = 4, "small" = 4, "normal" = 4, "large" = 2, "prize" = 1)
+#define FISHRARITYWEIGHTS list("com" = 70, "rare" = 20, "ultra" = 9, "gold" = 1)
+#define FISHSIZEWEIGHTS list("tiny" = 4, "small" = 4, "normal" = 4, "large" = 2, "prize" = 1)
 
 /obj/item/fishingrod/proc/checkreqs(mob/living/user)
 	. = FALSE
@@ -321,8 +321,8 @@
 
 	//initialize fishing modifiers
 	var/deepmod = 0
-	var/list/raritypicker = list("com" = 70, "rare" = 20, "ultra" = 9, "gold" = 1)
-	var/list/sizepicker = list("tiny" = 4, "small" = 4, "normal" = 4, "large" = 2, "prize" = 1)
+	var/list/raritypicker = FISHRARITYWEIGHTS
+	var/list/sizepicker = FISHSIZEWEIGHTS
 	var/obj/item/fishing/bait/B = null
 	fisher = user
 	var/specialcatchprob = 0
@@ -739,14 +739,14 @@
 	baited = null
 	update_appearance(UPDATE_OVERLAYS)
 
+#undef FISHRARITYWEIGHTS
+#undef FISHSIZEWEIGHTS
+
 /obj/item/fishingrod/fisher
 
-/obj/item/fishingrod/fisher/New()
+/obj/item/fishingrod/fisher/Initialize(mapload, ...)
 	. = ..()
 	icon_state = "rod[rand(1,3)]"
-
-/obj/item/fishingrod/fisher/Initialize()
-	. = ..()
 	reel = new /obj/item/fishing/reel/silk(src)
 	hook = new /obj/item/fishing/hook/iron(src)
 	line = new /obj/item/fishing/line/bobber(src)

@@ -1,10 +1,8 @@
-#define ALCOHOL_THRESHOLD_MODIFIER 1 //Greater numbers mean that less alcohol has greater intoxication potential
-#define ALCOHOL_RATE 0.005 //The rate at which alcohol affects you
-#define ALCOHOL_EXPONENT 1.6 //The exponent applied to boozepwr to make higher volume alcohol at least a little bit damaging to the liver
-
 ////////////// I don't know who made this header before I refactored alcohols but I'm going to fucking strangle them because it was so ugly, holy Christ
 // ALCOHOLS //
 //////////////
+#define ALCOHOL_THRESHOLD_MODIFIER 1 //Greater numbers mean that less alcohol has greater intoxication potential
+#define ALCOHOL_EXPONENT 1.6 //The exponent applied to boozepwr to make higher volume alcohol at least a little bit damaging to the liver
 
 /datum/reagent/consumable/ethanol
 	name = "Ethanol"
@@ -562,3 +560,6 @@ All effects don't start immediately, but rather get worse over time; the rate is
 /datum/reagent/consumable/ethanol/mead/spider
 	color = "#660061"
 	glows = TRUE
+
+#undef ALCOHOL_THRESHOLD_MODIFIER
+#undef ALCOHOL_EXPONENT

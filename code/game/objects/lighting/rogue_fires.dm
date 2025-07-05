@@ -237,6 +237,7 @@
 	cookonme = FALSE
 	temperature_change = 0
 	fog_parter_effect = null
+	var/shows_empty = TRUE
 
 /obj/machinery/light/fueled/torchholder/c
 	pixel_y = 32
@@ -246,6 +247,14 @@
 
 /obj/machinery/light/fueled/torchholder/l
 	dir = EAST
+
+/obj/machinery/light/fueled/torchholder/update_icon_state()
+	. = ..()
+	if(!shows_empty)
+		return
+	if(torchy)
+		return
+	icon_state = base_state
 
 /obj/machinery/light/fueled/torchholder/seton(s)
 	. = ..()

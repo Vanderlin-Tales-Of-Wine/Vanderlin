@@ -23,6 +23,8 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	belt = /obj/item/storage/belt/leather
 	backr = /obj/item/weapon/shield/heater
+	if(ispath(H.patron?.type, /datum/patron/divine/necra))
+		backl = /obj/item/weapon/shovel
 	if(ispath(H.patron?.type, /datum/patron/divine/abyssor))
 		backl = /obj/item/weapon/polearm/woodstaff/quarterstaff
 	else
@@ -135,6 +137,8 @@
 		H.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
+		if(ispath(H.patron?.type, /datum/patron/divine/necra))
+			H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 		var/datum/skill/to_add = /datum/skill/combat/axesmaces
 		if(ispath(H.patron?.type, /datum/patron/divine/abyssor))
 			to_add = /datum/skill/combat/polearms

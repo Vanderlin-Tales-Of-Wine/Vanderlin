@@ -394,8 +394,9 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		used = safepick(alternative_droning)
 		if(time == "night" && LAZYLEN(alternative_droning_night))
 			used = pick(alternative_droning_night)
-		if(!used)
-			used = 'sound/ambience/creepywind.ogg'
+
+	if(!used)
+		used = 'sound/ambience/creepywind.ogg'
 
 	return used
 
@@ -404,14 +405,16 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!client || isobserver(client.mob))
 		return
 
-	if(!can_hear())
-		SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = CHANNEL_BUZZ))
-		client.current_ambient_sound = null
+	var/datum/antagonist/maniac = mind?.has_antag_datum(/datum/antagonist/maniac)
+
+	if(!can_hear() || maniac?.music_enabled)
+		cancel_looping_ambience()
 		return
 
 	var/area/my_area = get_area(src)
 	var/vol = client.prefs?.musicvol || 50
 	var/used = buzz_to_use
+
 	if(!used)
 		used = my_area.get_current_buzz(has_light_nearby())
 	if(cmode && cmode_music)
@@ -423,8 +426,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		used = 'sound/music/spice.ogg'
 
 	if(!used)
-		SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = CHANNEL_BUZZ))
-		client.current_ambient_sound = null
+		cancel_looping_ambience()
 		return
 
 	if(used == client.current_ambient_sound)
@@ -432,6 +434,12 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 
 	client.current_ambient_sound = used
 	SEND_SOUND(src, sound(used, repeat = 1, wait = 0, volume = vol, channel = CHANNEL_BUZZ))
+
+/mob/proc/cancel_looping_ambience()
+	if(!client)
+		return
+	SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = CHANNEL_BUZZ))
+	client.current_ambient_sound = null
 
 /client
 	var/musicfading = 0

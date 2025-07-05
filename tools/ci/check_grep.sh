@@ -146,6 +146,13 @@ if $grep -i '(add_traits|remove_traits)\(.+,\s*src\)' $code_files; then
 	st=1
 fi;
 
+part "improperly pathed static lists"
+if $grep -i 'var/list/static/.*' $code_files; then
+	echo
+	echo -e "${RED}ERROR: Found incorrect static list definition 'var/list/static/', it should be 'var/static/list/' instead.${NC}"
+	st=1
+fi;
+
 # Disabled because I can't be assed to care about this, but it might be a nice change in the future.
 # part "ensure proper lowertext usage"
 # # lowertext() is a BYOND-level proc, so it can be used in any sort of code... including the TGS DMAPI which we don't manage in this repository.

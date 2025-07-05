@@ -655,7 +655,7 @@
 		atom_flags |= NO_DIR_CHANGE
 
 	for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
-		eyet.update_appearance(UPDATE_ICON_STATE)
+		eyet.update_appearance(UPDATE_ICON)
 	playsound_local(src, 'sound/misc/click.ogg', 100)
 
 /client/proc/hearallasghost()

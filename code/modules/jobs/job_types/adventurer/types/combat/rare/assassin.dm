@@ -38,7 +38,7 @@
 	H.become_blind("TRAIT_GENERIC")
 	H.advjob = "Assassin"
 	// Assassin now spawns disguised as one of the non-combat drifters. You never know who will stab you in the back.
-	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Carpenter", "Thief", "Ranger", "Servant", "Assassin", "Faceless One")
+	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Carpenter", "Thief", "Ranger", "Servant", "Faceless One")
 	var/disguisechoice = input("Choose your cover", "Available disguises") as anything in disguises
 
 	if(disguisechoice)

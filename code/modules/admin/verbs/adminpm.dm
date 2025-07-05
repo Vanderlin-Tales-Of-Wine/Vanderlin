@@ -323,6 +323,8 @@
 
 	return "Message Successful"
 
+#undef IRC_AHELP_USAGE
+
 /proc/GenIrcStealthKey()
 	var/num = (rand(0,1000))
 	var/i = 0

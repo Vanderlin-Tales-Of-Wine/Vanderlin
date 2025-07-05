@@ -34,7 +34,7 @@
 	. = ..()
 	if(has_action)
 		action = new base_action(src)
-	update_appearance(UPDATE_ICON)
+	update_icon()
 
 /obj/effect/proc_holder/spell/update_icon()
 	. = ..()
@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		user.mmb_intent_change(QINTENT_SPELL)
 	if(msg)
 		to_chat(ranged_ability_user, msg)
-	update_appearance(UPDATE_ICON)
+	update_icon()
 
 /obj/effect/proc_holder/proc/remove_ranged_ability(msg)
 	if(!ranged_ability_user || !ranged_ability_user.client || (ranged_ability_user.ranged_ability && ranged_ability_user.ranged_ability != src)) //To avoid removing the wrong ability
@@ -122,7 +122,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	if(msg)
 		to_chat(ranged_ability_user, msg)
 	ranged_ability_user = null
-	update_appearance(UPDATE_ICON)
+	update_icon()
 
 /obj/effect/proc_holder/spell
 	name = "Spell"
@@ -691,3 +691,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	user.adjustBruteLoss(-10)
 	user.adjustFireLoss(-10)
 	return ..()
+
+#undef TARGET_CLOSEST
+#undef TARGET_RANDOM
+#undef MAGIC_XP_MULTIPLIER

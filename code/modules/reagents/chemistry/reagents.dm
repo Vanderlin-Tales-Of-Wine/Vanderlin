@@ -7,7 +7,6 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 		if (length(initial(R.name)))
 			.[ckey(initial(R.name))] = t
 
-
 //Various reagents
 //Toxin & acid reagents
 //Hydroponics stuff

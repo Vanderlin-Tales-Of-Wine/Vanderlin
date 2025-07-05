@@ -32,7 +32,7 @@
 	barefootstep = null
 	clawfootstep = null
 	heavyfootstep = null
-	landsound = 'sound/foley/jumpland/waterland.wav'
+	landsound = 'sound/foley/jumpland/waterland.ogg'
 	shine = SHINE_SHINY
 	nomouseover = FALSE
 	water_level = 2

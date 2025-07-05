@@ -171,6 +171,8 @@ SUBSYSTEM_DEF(ticker)
 		gametime_offset = world.timeofday
 	return ..()
 
+#undef ROUND_START_MUSIC_LIST
+
 /datum/controller/subsystem/ticker/fire()
 	if(reboot_anyway)
 		if(world.time > reboot_anyway)

@@ -71,7 +71,7 @@
 	if(current_amount <= 0)
 		charge_counter = 0
 		start_recharge()
-		update_appearance(UPDATE_ICON)
+		update_icon()
 	return ..()
 
 /obj/effect/proc_holder/spell/aimed/fire_projectile(mob/living/user, atom/target)

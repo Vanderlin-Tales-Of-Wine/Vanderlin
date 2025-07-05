@@ -704,6 +704,7 @@
 		refresh_looping_ambience()
 		hud_used?.cmode_button?.update_appearance(UPDATE_ICON_STATE)
 		return
+	var/datum/antagonist/maniac/maniac_datum = mind?.has_antag_datum(/datum/antagonist/maniac)
 	if(cmode)
 		playsound_local(src, 'sound/misc/comboff.ogg', 100)
 		cmode = FALSE
@@ -712,6 +713,7 @@
 	else
 		cmode = TRUE
 		playsound_local(src, 'sound/misc/combon.ogg', 100)
+
 	refresh_looping_ambience()
 	hud_used?.cmode_button?.update_appearance(UPDATE_ICON_STATE)
 
@@ -899,7 +901,6 @@
 				A.target = source
 				if(!alert_overlay)
 					alert_overlay = new(source)
-				alert_overlay.layer = FLOAT_LAYER
 				alert_overlay.plane = FLOAT_PLANE
 				A.add_overlay(alert_overlay)
 

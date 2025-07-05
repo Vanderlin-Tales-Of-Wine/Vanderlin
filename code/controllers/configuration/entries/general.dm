@@ -500,3 +500,13 @@
 
 /datum/config_entry/flag/reopen_roundstart_suicide_roles_command_report
 
+/datum/config_entry/flag/hard_deletes_enabled
+
+/datum/config_entry/number/hard_deletes_overrun_threshold
+	integer = FALSE
+	min_val = 0
+	default = 0.5
+
+/datum/config_entry/number/hard_deletes_overrun_limit
+	min_val = 0
+	default = 0

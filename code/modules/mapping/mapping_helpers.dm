@@ -5,11 +5,9 @@
 /obj/effect/baseturf_helper //Set the baseturfs of every turf in the /area/ it is placed.
 	name = "baseturf editor"
 	icon_state = ""
-
+	plane = POINT_PLANE
 	var/list/baseturf_to_replace
 	var/baseturf
-
-	layer = POINT_LAYER
 
 /obj/effect/baseturf_helper/Initialize()
 	. = ..()
@@ -105,7 +103,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 /obj/effect/mapping_helpers/dead_body_placer/LateInitialize()
 	var/list/trays = list()
 	if(!trays.len)
-		log_mapping("[src] at [x],[y] could not find any morgues.")
+		log_mapping("[src] at [AREACOORD(src)] could not find any morgues.")
 		return
 	for (var/i = 1 to bodycount)
 		var/mob/living/carbon/human/h = new /mob/living/carbon/human(get_turf(src), 1)

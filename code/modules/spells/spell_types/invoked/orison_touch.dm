@@ -106,8 +106,8 @@
 /datum/status_effect/light_buff/on_apply()
 	to_chat(owner, span_notice("Light blossoms into being around me!"))
 	var/filter = owner.get_filter(BLESSINGOFLIGHT_FILTER)
-	if (!filter)
-		owner.add_filter(BLESSINGOFLIGHT_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 60, "size" = 1))
+	if(!filter)
+		owner.add_filter(BLESSINGOFLIGHT_FILTER, 2, outline_filter(1, outline_colour))
 	add_light(owner)
 	return TRUE
 

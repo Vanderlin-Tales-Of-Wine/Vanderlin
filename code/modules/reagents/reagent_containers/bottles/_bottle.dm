@@ -26,8 +26,8 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	var/fancy		// for bottles with custom descriptors that you don't want to change when bottle manipulated
 
 /obj/item/reagent_containers/glass/bottle/Initialize()
-	. = ..()
 	icon_state = "clear_bottle[rand(1,4)]"
+	return ..()
 
 /obj/item/reagent_containers/glass/bottle/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/paper/scroll))
@@ -186,6 +186,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 /obj/item/reagent_containers/glass/bottle/vial/Initialize()
 	. = ..()
 	icon_state = "clear_vial1"
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/reagent_containers/glass/bottle/vial/rmb_self(mob/user)
 	closed = !closed

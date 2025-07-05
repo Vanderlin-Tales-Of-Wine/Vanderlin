@@ -1,3 +1,24 @@
+/// Will update the light (duh).
+/// Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...
+/atom/proc/update_light()
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(light_system != STATIC_LIGHT)
+		CRASH("update_light() for [src] with following light_system value: [light_system]")
+
+	if (!light_power || !light_outer_range || !light_on) // We won't emit light anyways, destroy the light source.
+		QDEL_NULL(light)
+	else
+		if (!ismovable(loc)) // We choose what atom should be the top atom of the light here.
+			. = src
+		else
+			. = loc
+
+		if (!QDELETED(light)) // Update the light or create it if it does not exist.
+			light.update(.)
+		else
+			light = new/datum/light_source(src, .)
+
 // The proc you should always use to set the light of this atom.
 // Nonesensical value for l_color default, so we can detect if it gets set to null.
 #define NONSENSICAL_VALUE -99999
@@ -38,28 +59,6 @@
 	. = light_color
 	light_color = new_color
 	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_LIGHT_COLOR, .)
-
-/// Will update the light (duh).
-/// Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...
-/atom/proc/update_light()
-	SHOULD_NOT_SLEEP(TRUE)
-
-	if(light_system != STATIC_LIGHT)
-		CRASH("update_light() for [src] with following light_system value: [light_system]")
-
-	if (!light_power || !light_outer_range || !light_on) // We won't emit light anyways, destroy the light source.
-		QDEL_NULL(light)
-	else
-		if (!ismovable(loc)) // We choose what atom should be the top atom of the light here.
-			. = src
-		else
-			. = loc
-
-		if (!QDELETED(light)) // Update the light or create it if it does not exist.
-			light.update(.)
-		else
-			light = new/datum/light_source(src, .)
-
 
 /atom/proc/set_light_range(new_inner_range, new_outer_range)
 	if(isnull(new_inner_range) && new_outer_range)

@@ -30,7 +30,7 @@
 
 	for(var/turf/affected_turf in view(area_of_effect, T))
 		new /obj/effect/temp_visual/gravity(affected_turf)
-		playsound(T, 'modular/modular_azure/sound/gravity.ogg', 80, TRUE, soundping = FALSE)
+		playsound(T, 'sound/magic/gravity.ogg', 80, TRUE, soundping = FALSE)
 		for(var/mob/living/L in affected_turf.contents)
 			if(L.anti_magic_check())
 				visible_message(span_warning("The gravity fades away around you [L]."))  //antimagic needs some testing
@@ -53,7 +53,7 @@
 	desc = "Get out of the way!"
 	randomdir = FALSE
 	duration = 3 SECONDS
-	layer = MASSIVE_OBJ_LAYER
+	plane = MASSIVE_OBJ_PLANE
 	light_power = 1
 	light_outer_range = 2
 	light_color = COLOR_PALE_PURPLE_GRAY

@@ -317,6 +317,9 @@
 #define COMSIG_TRY_STORAGE_CAN_INSERT "storage_can_equip"				//(obj/item/insertion_candidate, mob/user, silent) - returns bool
 #define COMSIG_STORAGE_CLOSED "storage_close"
 #define COMSIG_STORAGE_REMOVED "storage_item_removed"
+// ~storage component
+///from base of datum/component/storage/can_user_take(): (mob/user)
+#define COMSIG_STORAGE_BLOCK_USER_TAKE "storage_block_user_take"
 // /datum/action signals
 #define COMSIG_ACTION_TRIGGER "action_trigger"						//from base of datum/action/proc/Trigger(): (datum/action)
 	#define COMPONENT_ACTION_BLOCK_TRIGGER 1
