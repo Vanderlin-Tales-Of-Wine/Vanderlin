@@ -2609,6 +2609,7 @@
 #include "code\modules\spells\spell_types\undirected\seek_orphan.dm"
 #include "code\modules\spells\spell_types\undirected\shadow_step.dm"
 #include "code\modules\spells\spell_types\undirected\soul_speak.dm"
+#include "code\modules\spells\spell_types\undirected\transfix.dm"
 #include "code\modules\spells\spell_types\undirected\troll_shape.dm"
 #include "code\modules\spells\spell_types\undirected\cone\_cone.dm"
 #include "code\modules\spells\spell_types\undirected\conjure_item\_conjure_item.dm"
