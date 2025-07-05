@@ -68,12 +68,8 @@ SUBSYSTEM_DEF(garbage)
 
 /datum/controller/subsystem/garbage/Initialize(start_timeofday)
 	. = ..()
-#ifdef REFERENCE_TRACKING
-	enable_hard_deletes = TRUE
-#else
 	if(CONFIG_GET(flag/hard_deletes_enabled))
 		enable_hard_deletes = TRUE
-#endif
 
 /datum/controller/subsystem/garbage/stat_entry(msg)
 	var/list/counts = list()
