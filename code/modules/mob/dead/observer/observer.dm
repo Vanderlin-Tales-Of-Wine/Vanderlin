@@ -292,7 +292,7 @@ Works together with spawning an observer, noted above.
 /mob/proc/ghostize(can_reenter_corpse = 1, force_respawn = FALSE, drawskip)
 	if(key)
 		stop_sound_channel(CHANNEL_HEARTBEAT) //Stop heartbeat sounds because You Are A Ghost Now
-		stop_sound_channel(CHANNEL_BUZZ)
+		cancel_looping_ambience()
 		if(client)
 			if(client.holder)
 				var/mob/dead/observer/ghost = new(src)	// Transfer safety to observer spawning proc.
@@ -341,7 +341,7 @@ Works together with spawning an observer, noted above.
 /mob/proc/scry_ghost()
 	if(key)
 		stop_sound_channel(CHANNEL_HEARTBEAT) //Stop heartbeat sounds because You Are A Ghost Now
-		stop_sound_channel(CHANNEL_BUZZ)
+		cancel_looping_ambience()
 		var/mob/dead/observer/screye/ghost = new(src)	// Transfer safety to observer spawning proc.
 		ghost.ghostize_time = world.time
 		SStgui.on_transfer(src, ghost) // Transfer NanoUIs.
@@ -419,7 +419,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(usr, "<span class='warning'>Another consciousness is in your body...It is resisting you.</span>")
 		return
 
-	stop_sound_channel(CHANNEL_BUZZ)
+	cancel_looping_ambience()
 	remove_client_colour(/datum/client_colour/monochrome)
 	client.change_view(CONFIG_GET(string/default_view))
 	SStgui.on_transfer(src, mind.current) // Transfer NanoUIs.
@@ -456,7 +456,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	client.screen.Cut()
 	client.screen += client.void
-	stop_sound_channel(CHANNEL_BUZZ)
+	cancel_looping_ambience()
 	remove_client_colour(/datum/client_colour/monochrome)
 	if(!client)
 		log_game("[key_name(usr)] AM failed due to disconnect.")

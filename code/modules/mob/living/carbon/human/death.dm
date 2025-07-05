@@ -33,9 +33,6 @@
 
 	var/area/A = get_area(src)
 
-	if(client)
-		stop_sound_channel(CHANNEL_BUZZ)
-
 	if(mind)
 		if(!gibbed)
 			var/datum/antagonist/vampire/VD = mind.has_antag_datum(/datum/antagonist/vampire)

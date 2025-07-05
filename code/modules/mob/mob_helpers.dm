@@ -704,7 +704,7 @@
 		refresh_looping_ambience()
 		hud_used?.cmode_button?.update_appearance(UPDATE_ICON_STATE)
 		return
-	var/datum/antagonist/maniac/maniac_datum = mind?.has_antag_datum(/datum/antagonist/maniac)
+
 	if(cmode)
 		playsound_local(src, 'sound/misc/comboff.ogg', 100)
 		cmode = FALSE

@@ -4,8 +4,7 @@ GLOBAL_LIST_EMPTY(last_messages)
 	var/prev_lying = lying_angle
 	if(stat != DEAD)
 		death(TRUE)
-	if(client)
-		stop_sound_channel(CHANNEL_BUZZ)
+
 	playsound(src.loc, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
 
 	if(!prev_lying)
@@ -76,7 +75,7 @@ GLOBAL_LIST_EMPTY(last_messages)
 	if(!gibbed && !was_dead_before)
 		GLOB.dead_mob_list += src
 
-	stop_sound_channel(CHANNEL_BUZZ)
+	cancel_looping_ambience()
 
 	if(prob(0.1))
 		src.playsound_local(src, 'sound/misc/dark_die.ogg', 250)

@@ -131,7 +131,7 @@
 	client.screen.Cut()
 	client.screen += client.void
 
-	stop_sound_channel(CHANNEL_BUZZ)
+	cancel_looping_ambience()
 
 	remove_client_colour(/datum/client_colour/monochrome)
 	if(!client)
