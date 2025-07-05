@@ -243,3 +243,10 @@
 #define ui_ghost_reenter_corpse "SOUTH:6,CENTER:24"
 #define ui_ghost_teleport "SOUTH:6,CENTER+1:24"
 #define ui_ghost_pai "SOUTH: 6, CENTER+2:24"
+
+#define UI_BOXCRAFT "EAST-4:22,SOUTH+1:6"
+#define UI_BOXAREA "EAST-4:6,SOUTH+1:6"
+#define UI_BOXLANG "EAST-5:22,SOUTH+1:6"
+#define ALERT_STATUS 0
+#define ALERT_DEBUFF 1
+#define ALERT_BUFF 2

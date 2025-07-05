@@ -65,13 +65,13 @@
 	LAZYADD(item_refs, WEAKREF(made_item))
 	if(item_duration)
 		if(uses_component)
-			made_item.AddComponent(
-				/datum/component/conjured_item,
-				item_duration,
-				refresh_count,
-				associated_skill,
-				skill_threshold,
-				item_outline,
+			made_item.AddComponent(\
+				/datum/component/conjured_item,\
+				item_duration,\
+				refresh_count,\
+				associated_skill,\
+				skill_threshold,\
+				item_outline\
 			)
 		else
 			QDEL_IN(made_item, item_duration)
