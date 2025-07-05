@@ -81,3 +81,59 @@
 /obj/item/crystalball/attack_self(mob/user)
 	user.visible_message("<span class='danger'>[user] stares into [src], their eyes rolling back into their head.</span>")
 	user.ghostize(1)
+
+/*	..................   NOC Device (Fixed scrying ball)   ................... */
+/obj/structure/nocdevice
+	name = "NOC Device"
+	desc = "A intricate lunar observation machine, that allows its user to study the face of Noc in the sky, reflecting he true whereabouts of hidden beings.."
+	icon = 'icons/roguetown/misc/96x96.dmi'
+	icon_state = "nocdevice"
+	plane = -1
+	layer = 4.2
+	var/last_scry
+
+/obj/structure/nocdevice/attack_hand(mob/user)
+	. = ..()
+	var/mob/living/carbon/human/H = user
+	if(H.virginity)
+		if(world.time < last_scry + 30 SECONDS)
+			to_chat(user, "<span class='warning'>I peer into the sky but cannot focus the lens on the face of Noc. Maybe I should wait.</span>")
+			return
+		var/input = stripped_input(user, "Who are you looking for?", "Scrying Orb")
+		if(!input)
+			return
+		if(!user.key)
+			return
+		if(world.time < last_scry + 30 SECONDS)
+			to_chat(user, "<span class='warning'>I peer into the sky but cannot focus the lens on the face of Noc. Maybe I should wait.</span>")
+			return
+		if(!user.mind || !user.mind.do_i_know(name=input))
+			to_chat(user, "<span class='warning'>I don't know anyone by that name.</span>")
+			return
+		for(var/mob/living/carbon/human/HL in GLOB.human_list)
+			if(HL.real_name == input)
+				var/turf/T = get_turf(HL)
+				if(!T)
+					continue
+				var/mob/dead/observer/screye/S = user.scry_ghost()
+				if(!S)
+					return
+				S.ManualFollow(HL)
+				last_scry = world.time
+				user.visible_message("<span class='danger'>[user] stares into [src], [p_their()] squinting and concentrating...</span>")
+				addtimer(CALLBACK(S, TYPE_PROC_REF(/mob/dead/observer, reenter_corpse)), 8 SECONDS)
+				if(!HL.stat)
+					if(HL.STAPER >= 15)
+						if(HL.mind)
+							if(HL.mind.do_i_know(name=user.real_name))
+								to_chat(HL, "<span class='warning'>I can clearly see the face of [user.real_name] staring at me!.</span>")
+								return
+						to_chat(HL, "<span class='warning'>I can clearly see the face of an unknown [user.gender == FEMALE ? "woman" : "man"] staring at me!</span>")
+						return
+					if(HL.STAPER >= 11)
+						to_chat(HL, "<span class='warning'>I feel a pair of unknown eyes on me.</span>")
+				return
+		to_chat(user, "<span class='warning'>I peer into the viewpiece, but Noc does not reveal where [input] is.</span>")
+		return
+	else
+		to_chat(user, "<span class='notice'>Noc looks angry with me...</span>")

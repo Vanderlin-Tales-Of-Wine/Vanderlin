@@ -1,3 +1,5 @@
+GLOBAL_LIST_EMPTY(last_messages)
+
 /mob/living/gib(no_brain, no_organs, no_bodyparts)
 	var/prev_lying = lying_angle
 	if(stat != DEAD)
@@ -102,16 +104,15 @@
 	if(client)
 		client.move_delay = initial(client.move_delay)
 		var/atom/movable/screen/gameover/hog/H = new()
-		H.layer = SPLASHSCREEN_LAYER+0.1
+		H.plane = SPLASHSCREEN_PLANE
 		client.screen += H
-//		flick("gameover",H)
-//		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom/movable/screen/gameover, Fade)), 29)
 		H.Fade()
 		MOBTIMER_SET(src, MT_LASTDIED)
 		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom/movable/screen/gameover, Fade), TRUE), 100)
-//		addtimer(CALLBACK(client, PROC_REF(ghostize), 1, src), 150)
 		add_client_colour(/datum/client_colour/monochrome/death)
 		client?.verbs |= /client/proc/descend
+		if(last_message)
+			GLOB.last_messages |= last_message
 
 	for(var/s in ownedSoullinks)
 		var/datum/soullink/S = s

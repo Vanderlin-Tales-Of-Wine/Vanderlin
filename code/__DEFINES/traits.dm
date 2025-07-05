@@ -223,6 +223,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_FLOWERFIELD_IMMUNITY = span_info("I am immune to the effects of flower fields."),
 	))
 
+#define TRAIT_STATUS_EFFECT(effect_id) "[effect_id]-trait"
+
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
 #define SIGNAL_REMOVETRAIT(trait_ref) ("removetrait " + trait_ref)
 

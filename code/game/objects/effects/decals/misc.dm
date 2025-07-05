@@ -2,7 +2,6 @@
 	name = "pointer"
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "arrow"
-	layer = POINT_LAYER
 	plane = POINT_PLANE
 	duration = 3 SECONDS
 

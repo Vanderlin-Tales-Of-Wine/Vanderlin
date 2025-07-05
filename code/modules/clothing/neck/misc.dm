@@ -149,8 +149,8 @@
 
 /obj/item/clothing/neck/bevor
 	name = "bevor"
-	desc = "A piece of plate armor meant to protect the throat and neck of its wearer against decapitation, extending the protection of armor plates."
-	icon_state = "bervor"
+	desc = "A piece of steel plate armor meant to protect the throat and neck of its wearer against decapitation, extending the protection of armor plates."
+	icon_state = "bevor"
 	flags_inv = HIDEFACIALHAIR
 	smeltresult = /obj/item/ingot/steel
 	equip_sound = 'sound/foley/equip/equip_armor.ogg'
@@ -165,6 +165,15 @@
 	body_parts_covered = NECK|EARS|MOUTH|NOSE
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL_EXCEPT_STAB
+
+/obj/item/clothing/neck/bevor/iron
+	name = "iron bevor"
+	desc = "A piece of iron plate armor meant to protect the throat and neck of its wearer against decapitation, extending the protection of armor plates."
+	icon_state = "ibevor"
+	smeltresult = /obj/item/ingot/iron
+
+	armor = ARMOR_PLATE_BAD
+	max_integrity = INTEGRITY_STRONG
 
 /obj/item/clothing/neck/gorget
 	name = "gorget"

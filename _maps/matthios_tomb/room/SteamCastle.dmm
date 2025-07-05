@@ -313,9 +313,7 @@
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "ed" = (
-/obj/structure/door/iron/bars{
-	lockid = "CastleArmor1"
-	},
+/obj/structure/door/iron/bars,
 /obj/effect/mapping_helpers/access/locker,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/cobble,
@@ -465,9 +463,7 @@
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "fI" = (
-/obj/structure/door/stone{
-	lockid = "CastleNoble2"
-	},
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
 /obj/structure/trap/saw_blades,
 /turf/open/floor/blocks,
@@ -1132,9 +1128,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors)
 "ml" = (
-/obj/structure/door/stone{
-	lockid = "CastleGuard1"
-	},
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
@@ -1391,9 +1385,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors)
 "oI" = (
-/obj/structure/door/violet{
-	lockid = "CastleMage1"
-	},
+/obj/structure/door/violet,
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/tile/masonic/single,
@@ -1427,9 +1419,7 @@
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors/royal)
 "pu" = (
-/obj/structure/door/stone{
-	lockid = "CastlePrison1"
-	},
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
@@ -2446,9 +2436,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "AZ" = (
-/obj/structure/door/violet{
-	lockid = "CastleArti"
-	},
+/obj/structure/door/violet,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
@@ -3878,9 +3866,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "Qm" = (
-/obj/structure/door/stone{
-	lockid = "CastleNoble"
-	},
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
@@ -4322,9 +4308,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "UR" = (
-/obj/structure/door/violet{
-	lockid = "CastleGate1"
-	},
+/obj/structure/door/violet,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)

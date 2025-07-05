@@ -651,7 +651,7 @@
 	icon = 'icons/roguetown/misc/mana.dmi'
 	icon_state = "soul"
 
-	plane = PLANE_LEYLINES
+	plane = LEYLINE_PLANE
 	invisibility = INVISIBILITY_LEYLINES
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
