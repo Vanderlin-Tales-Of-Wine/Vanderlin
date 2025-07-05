@@ -211,13 +211,9 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 	if(!(timed_action_flags & IGNORE_SLOWDOWNS))
 		delay *= user.do_after_coefficent()
 
-	var/datum/progressbar/progbar
 	var/datum/cogbar/cog
 
 	if(progress)
-		if(user.client)
-			progbar = new(user, delay, target || user)
-
 		if(!hidden && delay >= 1 SECONDS)
 			cog = new(user)
 
@@ -228,9 +224,6 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 	. = TRUE
 	while(world.time < endtime)
 		stoplag(1)
-
-		if(!QDELETED(progbar))
-			progbar.update(world.time - starttime)
 
 		if(drifting && !user.inertia_dir)
 			drifting = FALSE
@@ -254,10 +247,8 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 			. = FALSE
 			break
 
-	if(!QDELETED(progbar))
-		progbar.end_progress()
-
-	cog?.remove(.) /* V */
+	if(!QDELETED(cog))
+		cog.remove(TRUE) /* V */
 
 	if(interaction_key)
 		user.stop_doing(interaction_key)
