@@ -123,7 +123,8 @@ Sunlight System
 
 	GLOB.SUNLIGHT_QUEUE_CORNER += tempMasterList /* update the boys */
 
-#undef HARDSUN
+#undef GLOBAL_LIGHT_RANGE
+#undef HARD_SUN
 #undef SUN_FALLOFF
 
 /* Related object changes */
