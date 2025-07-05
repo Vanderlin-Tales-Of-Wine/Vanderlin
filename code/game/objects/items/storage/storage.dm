@@ -2,11 +2,8 @@
 	name = "storage"
 	w_class = WEIGHT_CLASS_NORMAL
 	var/rummage_if_nodrop = TRUE
-	var/component_type = /datum/component/storage/concrete
+	var/component_type
 	var/list/populate_contents = list()
-
-/obj/item/storage/get_dumping_location(obj/item/storage/source,mob/user)
-	return src
 
 /obj/item/storage/Initialize(mapload, ...)
 	. = ..()
@@ -14,6 +11,9 @@
 		CRASH("Storage item created without storage component")
 	AddComponent(component_type)
 	PopulateContents()
+
+/obj/item/storage/get_dumping_location(obj/item/storage/source,mob/user)
+	return src
 
 /obj/item/storage/AllowDrop()
 	return FALSE
