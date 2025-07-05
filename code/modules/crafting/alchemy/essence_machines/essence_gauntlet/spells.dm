@@ -10,7 +10,7 @@
 	no_early_release = TRUE
 	movement_interrupt = FALSE
 	cost = 2
-	spell_flag = SPELL_ESSENCE
+	spell_flags = SPELL_ESSENCE
 	uses_mana = TRUE
 
 /obj/effect/proc_holder/spell/invoked/utility/breeze
@@ -35,7 +35,7 @@
 
 	for(var/obj/item/I in target_turf)
 		if(I.w_class <= WEIGHT_CLASS_SMALL && prob(50))
-			step_rand(I)
+			SSmove_manager.move_rand(I)
 
 	return ..()
 

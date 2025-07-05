@@ -1,6 +1,6 @@
 
 /datum/outfit/job/harlequin/pre_equip(mob/living/carbon/human/H)
-	..()
+	. = ..()
 	shoes = /obj/item/clothing/shoes/boots/leather
 	neck = /obj/item/clothing/neck/gorget
 	mask = /obj/item/clothing/face/mask/facemask/steel/harlequin
@@ -29,8 +29,8 @@
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/shadowstep)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/enhanced_mimicry)
+	H.add_spell(/datum/action/cooldown/spell/undirected/shadow_step, TRUE)
+	H.add_spell(/datum/action/cooldown/spell/enhanced_mimicry, TRUE)
 	H.change_stat("strength", 2)
 	H.change_stat("endurance", 2)
 	H.change_stat("perception", 1)
