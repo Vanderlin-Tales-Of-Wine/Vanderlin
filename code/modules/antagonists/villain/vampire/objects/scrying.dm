@@ -145,7 +145,6 @@
 
 /mob/proc/scry(can_reenter_corpse = 1, force_respawn = FALSE, drawskip)
 	stop_sound_channel(CHANNEL_HEARTBEAT) //Stop heartbeat sounds because You Are A Ghost Now
-	cancel_looping_ambience()
 	var/mob/dead/observer/rogue/arcaneeye/eye = new(src)	// Transfer safety to observer spawning proc.
 	SStgui.on_transfer(src, eye) // Transfer NanoUIs.
 	eye.can_reenter_corpse = can_reenter_corpse

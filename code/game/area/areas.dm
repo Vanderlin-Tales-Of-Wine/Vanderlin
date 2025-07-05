@@ -405,7 +405,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!client || isobserver(client.mob))
 		return
 
-	var/datum/antagonist/maniac = mind?.has_antag_datum(/datum/antagonist/maniac)
+	var/datum/antagonist/maniac/maniac = mind?.has_antag_datum(/datum/antagonist/maniac)
 
 	if(!can_hear() || maniac?.music_enabled)
 		cancel_looping_ambience()

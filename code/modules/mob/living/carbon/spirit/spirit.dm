@@ -131,8 +131,6 @@
 	client.screen.Cut()
 	client.screen += client.void
 
-	cancel_looping_ambience()
-
 	remove_client_colour(/datum/client_colour/monochrome)
 	if(!client)
 		log_game("[key_name(usr)] AM failed due to disconnect.")

@@ -68,8 +68,6 @@
 	var/oldinv = invisibility
 	invisibility = INVISIBILITY_MAXIMUM
 	cmode = FALSE
-	if(client)
-		refresh_looping_ambience()
 
 	src.fully_heal(FALSE)
 
