@@ -253,6 +253,14 @@
 	armor = ARMOR_MAILLE
 	max_integrity = INTEGRITY_STRONG
 
+/obj/item/clothing/neck/highcollier/iron/renegadecollar
+	icon_state = "renegadecollar"
+	name = "black collar"
+	desc = "A tough leather collar concealing iron chain mail, meant to be paired with its jacket."
+	body_parts_covered = NECK|EARS|MOUTH|NOSE
+	armor = ARMOR_MAILLE_IRON
+	max_integrity = INTEGRITY_STRONG
+
 /obj/item/clothing/neck/talkstone
 	name = "talkstone"
 	desc = "A bizarre, enchanted necklace. Allows you to bridge the gap between languages."

@@ -33,7 +33,7 @@
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 	mask = /obj/item/clothing/face/facemask
 	pants = /obj/item/clothing/pants/trou/leather
-	shirt = /obj/item/clothing/shirt/undershirt/black
+	shirt = /obj/item/clothing/armor/gambeson/light/black
 	wrists = /obj/item/clothing/neck/psycross/silver
 
 // Brutal Zealot, a class balanced to town guard, with 1 more strength but less intelligence and perception. Axe/Mace and shield focus.
@@ -50,9 +50,9 @@
 	..()
 	//Armor for class
 	belt = /obj/item/storage/belt/leather
+	head = /obj/item/clothing/neck/chaincoif
 	armor = /obj/item/clothing/armor/chainmail
 	cloak = /obj/item/clothing/cloak/tabard/adept
-	neck = /obj/item/clothing/neck/chaincoif
 	beltl = /obj/item/weapon/mace/spiked
 	backr = /obj/item/weapon/shield/wood/adept
 	gloves = /obj/item/clothing/gloves/leather
@@ -69,7 +69,6 @@
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/firearms, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.change_stat(STATKEY_STR, 2)
 	H.change_stat(STATKEY_INT, -2)
@@ -103,19 +102,18 @@
 	beltl = /obj/item/weapon/mace/cudgel
 	pants = /obj/item/clothing/pants/trou/leather
 	cloak = /obj/item/clothing/cloak/raincloak/brown
-	backpack_contents = list(/obj/item/storage/keyring/inquisitor = 1, /obj/item/weapon/knife/dagger/psydon = 1)
+	backpack_contents = list(/obj/item/lockpick = 1, /obj/item/storage/keyring/inquisitor = 1, /obj/item/weapon/knife/dagger/psydon = 1)
 
 	//Stats for class
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE) // Bows can be bullshit annoying so they aren't given one immediately. Inquisitor can get them one now!
+	H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
@@ -129,12 +127,15 @@
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+	H.grant_language(/datum/language/thievescant)
+	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 
 
-// Vile Highwayman, utility and ranged focus. Whip and Bow user with a heavy disincentive to get into a direct fight.
+
+// Vile Highwayman. Your run of the mill swordsman, albeit fancy, smarter than the other two so he has some non combat related skills.
 /datum/advclass/adept/highwayman
 	name = "Vile Renegade"
-	tutorial = "You were a former outlaw who has been given a chance to redeem yourself by the Inquisitor. You serve him and Psydon with your survival skills and deadly accuracy."
+	tutorial = "You were a former outlaw who has been given a chance to redeem yourself by the Inquisitor. You serve him and Psydon with your survival skills."
 	outfit = /datum/outfit/job/adept/highwayman
 
 	category_tags = list(CTAG_ADEPT)
@@ -145,36 +146,37 @@
 	..()
 	//Armor for class
 	belt = /obj/item/storage/belt/leather
-	cloak = /obj/item/clothing/cloak/half
-	armor = /obj/item/clothing/armor/leather/jacket/leathercoat/black
-	head = /obj/item/clothing/head/helmet/leather/inquisitor // A nice swashbuckler hat would go hard.
-	neck = /obj/item/clothing/neck/gorget
-	beltl = /obj/item/weapon/whip // Great length, they don't need to be next to a person to help in apprehending them.
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-	backl = /obj/item/ammo_holder/quiver/bolts
+	armor = /obj/item/clothing/armor/leather/jacket/leathercoat/renegade
+	head = /obj/item/clothing/head/helmet/leather/tricorn
+	neck = /obj/item/clothing/neck/highcollier/iron/renegadecollar
+	beltl =  /obj/item/weapon/sword/short
+	l_hand = /obj/item/weapon/whip // Great length, they don't need to be next to a person to help in apprehending them.
 	pants = /obj/item/clothing/pants/trou/leather
-	backpack_contents = list(/obj/item/lockpick = 1, /obj/item/storage/keyring/inquisitor = 1, /obj/item/weapon/knife/dagger/psydon = 1)
+	backpack_contents = list(/obj/item/storage/keyring/inquisitor = 1, /obj/item/weapon/knife/dagger/psydon = 1)
 
 	//Stats for class
-	H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE) // No good armor, cannot dodge, cannot parry with whips/flails. We can keep it at 3.
-	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE) // I don't know what they would build with this but it felt right.
+	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE) // Try to stablize more heretics for questioning.
 	H.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE) // Smart... For a knave.
-	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/firearms, 1, TRUE)
-	H.change_stat(STATKEY_PER, 2)
+	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/firearms, 2, TRUE)
+	H.change_stat(STATKEY_PER, 1)
 	H.change_stat(STATKEY_INT, 2)
-	H.change_stat(STATKEY_CON, -2)
-	H.change_stat(STATKEY_STR, -2) // Not great in a direct fight.
+	H.change_stat(STATKEY_SPD, 1)
+	H.change_stat(STATKEY_CON, -1)
 	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)

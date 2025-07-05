@@ -31,6 +31,9 @@
 	armor = ARMOR_PADDED_BAD
 	prevent_crits = MINOR_CRITICALS
 
+/obj/item/clothing/armor/gambeson/light/black
+		color = CLOTHING_SOOT_BLACK
+
 /obj/item/clothing/armor/gambeson/heavy
 	name = "padded gambeson"
 	desc = "Thick, padded, this will help a little even against arrows. A wise man carried steel as well, but it will do in a pinch."
