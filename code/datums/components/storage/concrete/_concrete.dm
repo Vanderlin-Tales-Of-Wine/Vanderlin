@@ -32,12 +32,18 @@
 	return ..()
 
 /datum/component/storage/concrete/dump_harddel_info()
+	if(harddel_deets_dumped)
+		return
+	harddel_deets_dumped = TRUE
 	. = list()
-	. += "Parent's Type: [parent.type]"
+	if(parent)
+		. += "Parent's Type: [parent.type]"
+	if(master)
+		. += "Master's Type [master.type]"
 	for(var/datum/component/storage/S as anything in slaves)
 		. += "Slave Type: [S.type]"
 	if(is_using)
-		. += "WAS BEING USED"
+		. += "WAS BEING USED [is_using]"
 	return .
 
 /datum/component/storage/concrete/master()
