@@ -47,7 +47,6 @@
 	if(new_master)
 		var/old_layer = new_master.layer
 		var/old_plane = new_master.plane
-		new_master.layer = FLOAT_LAYER
 		new_master.plane = FLOAT_PLANE
 		thealert.add_overlay(new_master)
 		new_master.layer = old_layer
@@ -85,10 +84,6 @@
 		hud_used.reorganize_alerts()
 		client.screen -= alert
 	qdel(alert)
-
-#define ALERT_STATUS	0
-#define ALERT_DEBUFF	1
-#define ALERT_BUFF		2
 
 /atom/movable/screen/alert
 	icon = 'icons/mob/screen_alert.dmi'

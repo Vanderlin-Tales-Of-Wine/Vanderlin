@@ -257,12 +257,6 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
-"gu" = (
-/obj/structure/door{
-	lockid = "Ship3"
-	},
-/turf/open/floor/ruinedwood,
-/area/rogue/under/tomb/indoors)
 "gz" = (
 /obj/structure/spider/stickyweb{
 	dir = 8
@@ -2011,12 +2005,6 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/tomb/cave)
-"Ze" = (
-/obj/structure/door{
-	lockid = "Ship3"
-	},
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/tomb/indoors)
 "Zh" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -2841,7 +2829,7 @@ oU
 jn
 jn
 jn
-Ze
+qh
 jn
 jn
 jn
@@ -3805,10 +3793,10 @@ Ew
 oU
 wB
 jn
-Ze
+qh
 jn
 jn
-gu
+tj
 jn
 jn
 Dz
@@ -3890,10 +3878,10 @@ oU
 oU
 jn
 sS
-gu
+tj
 jn
 jn
-gu
+tj
 jn
 IP
 oU

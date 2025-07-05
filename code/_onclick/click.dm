@@ -728,6 +728,9 @@
 	M.Scale(px/sx, py/sy)
 	transform = M
 
+#undef MAX_SAFE_BYOND_ICON_SCALE_TILES
+#undef MAX_SAFE_BYOND_ICON_SCALE_PX
+
 /atom/movable/screen/click_catcher/Click(location, control, params)
 	var/list/modifiers = params2list(params)
 	var/turf/T = params2turf(modifiers["screen-loc"], get_turf(usr.client ? usr.client.eye : usr), usr.client)
@@ -810,13 +813,13 @@
 		if(!fixedeye) //If fixedeye isn't already enabled, we need to set this var
 			atom_flags |= NO_DIR_CHANGE
 		tempfixeye = TRUE //Change icon to 'target' red eye
-		targeti = image('icons/mouseover.dmi', targetting.loc, "target", ABOVE_HUD_LAYER+0.1)
+		targeti = image('icons/mouseover.dmi', targetting.loc, "target")
 		var/icon/I = icon(icon, icon_state, dir)
 		targeti.pixel_y = I.Height() - world.icon_size - 4
 		targeti.pixel_x = -1
 		src.client.images |= targeti
 		for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
-			eyet.update_appearance(UPDATE_ICON_STATE)
+			eyet.update_appearance(UPDATE_ICON)
 	else
 		UntargetMob()
 
@@ -835,7 +838,7 @@
 	src.client.images -= targeti
 	//clear hud icon
 	for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
-		eyet.update_appearance(UPDATE_ICON_STATE)
+		eyet.update_appearance(UPDATE_ICON)
 
 /mob/proc/ShiftRightClickOn(atom/A, params)
 //	linepoint(A, params)
@@ -874,4 +877,4 @@
 		atom_flags |= NO_DIR_CHANGE
 	tempfixeye = TRUE
 	for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
-		eyet.update_appearance(UPDATE_ICON_STATE)
+		eyet.update_appearance(UPDATE_ICON)

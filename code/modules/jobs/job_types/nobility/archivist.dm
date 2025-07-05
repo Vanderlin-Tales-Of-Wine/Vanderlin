@@ -51,7 +51,7 @@
 
 	H.grant_language(/datum/language/elvish)
 	H.grant_language(/datum/language/dwarvish)
-	H.grant_language(/datum/language/zybantine)
+	H.grant_language(/datum/language/zalad)
 	H.grant_language(/datum/language/celestial)
 	H.grant_language(/datum/language/hellspeak)
 	H.grant_language(/datum/language/oldpsydonic)

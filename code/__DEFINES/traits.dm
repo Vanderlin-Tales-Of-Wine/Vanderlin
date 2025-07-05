@@ -133,6 +133,8 @@
 #define TRAIT_MATTHIOS_CURSE "Matthios' Curse"
 #define TRAIT_BAOTHA_CURSE "Baotha's Curse"
 
+#define TRAIT_STATUS_EFFECT(effect_id) "[effect_id]-trait"
+
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
 #define SIGNAL_REMOVETRAIT(trait_ref) ("removetrait " + trait_ref)
 

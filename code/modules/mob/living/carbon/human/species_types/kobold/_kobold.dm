@@ -38,8 +38,6 @@
 	limbs_icon_m = 'icons/roguetown/mob/bodies/f/kobold.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/kobold.dmi'
 
-	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
-
 	enflamed_icon = "widefire"
 	patreon_req = TRUE
 

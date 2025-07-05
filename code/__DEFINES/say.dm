@@ -61,7 +61,7 @@
 #define SPAN_DWARF "dwarf"
 #define SPAN_ELF "elf"
 #define SPAN_OLDPSYDONIC "oldpsydonic"
-#define SPAN_ZYBANTINE "zybantine"
+#define SPAN_ZALAD "zalad"
 #define SPAN_SAND "sandspeak"
 #define SPAN_DELF "delf"
 #define SPAN_HELL "hellspeak"
@@ -99,3 +99,7 @@
 // Audio/Visual Flags. Used to determine what sense are required to notice a message.
 #define MSG_VISUAL (1<<0)
 #define MSG_AUDIBLE (1<<1)
+
+// USE ABOVE INSTEAD?
+#define EMOTE_VISIBLE 1
+#define EMOTE_AUDIBLE 2

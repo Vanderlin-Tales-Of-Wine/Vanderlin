@@ -42,13 +42,13 @@
 	if(!contained_node)
 		return
 	var/datum/thaumaturgical_essence/essence = contained_node.essence_type
-	if(!essence)
-		return
-	var/mutable_appearance/node = mutable_appearance(contained_node.icon, contained_node.icon_state, layer - 0.1)
-	node.color = initial(essence.color)
-	. += node
-
-	. += mutable_appearance(node.icon, node.icon_state, plane = EMISSIVE_PLANE)
+	. += mutable_appearance(
+		contained_node.icon,
+		contained_node.icon_state,
+		layer = src.layer - 0.1,
+		color = initial(essence.color),
+	)
+	. += emissive_appearance(contained_node.icon, contained_node.icon_state, alpha = contained_node.alpha)
 
 /obj/item/essence_node_jar/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(!proximity_flag)

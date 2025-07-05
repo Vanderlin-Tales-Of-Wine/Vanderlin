@@ -1086,7 +1086,6 @@
 /area/rogue/under/tomb)
 "Qg" = (
 /obj/structure/door/viewport{
-	lockid = "forrestgarrison";
 	dir = 4
 	},
 /obj/effect/mapping_helpers/access/locker,

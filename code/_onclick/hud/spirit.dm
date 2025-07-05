@@ -2,7 +2,7 @@
 	..()
 	var/atom/movable/screen/using
 
-	action_intent = new /atom/movable/screen/act_intent()
+	action_intent = new /atom/movable/screen/act_intent/rogintent()
 	action_intent.icon = ui_style
 	action_intent.icon_state = mymob.used_intent.name
 	action_intent.screen_loc = ui_acti

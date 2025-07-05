@@ -53,6 +53,9 @@
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_PER, -1) // similar to acolyte's stats
 	H.change_stat(STATKEY_LCK, -1) // Tradeoff for never being cursed when unearthing graves.
+	if(!H.has_language(/datum/language/celestial)) // For discussing church matters with the other Clergy
+		H.grant_language(/datum/language/celestial)
+		to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC) // Operating with corpses every day.
 	ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC) // In case they need to move tombs or anything.

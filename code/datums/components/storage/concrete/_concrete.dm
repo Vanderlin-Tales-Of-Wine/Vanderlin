@@ -31,6 +31,15 @@
 	_user_limbo = null
 	return ..()
 
+/datum/component/storage/concrete/dump_harddel_info()
+	. = list()
+	. += "Parent's Type: [parent.type]"
+	for(var/datum/component/storage/S as anything in slaves)
+		. += "Slave Type: [S.type]"
+	if(is_using)
+		. += "WAS BEING USED"
+	return .
+
 /datum/component/storage/concrete/master()
 	return src
 

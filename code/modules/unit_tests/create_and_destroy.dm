@@ -63,6 +63,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	var/garbage_queue_processed = FALSE
 
 	sleep(time_needed)
+
 	while(!garbage_queue_processed)
 		var/oldest_packet_creation = INFINITY
 		for(var/index in queues_we_care_about)
@@ -83,7 +84,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 			break
 
 		if(REALTIMEOFDAY > real_start_time + time_needed + 50 MINUTES) //If this gets us gitbanned I'm going to laugh so hard
-			TEST_FAIL("Something has gone horribly wrong, the garbage queue has been processing for well over 30 minutes. What the hell did you do")
+			TEST_FAIL("Something has gone horribly wrong, the garbage queue has been processing for well over 50 minutes. What the hell did you do")
 			break
 
 		//Immediately fire the gc right after
@@ -101,6 +102,9 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 			TEST_FAIL("[item.name] failed to respect force deletion [item.no_respect_force] times out of a total del count of [item.qdels]")
 		if(item.no_hint)
 			TEST_FAIL("[item.name] failed to return a qdel hint [item.no_hint] times out of a total del count of [item.qdels]")
+		if(LAZYLEN(item.extra_details))
+			var/details = item.extra_details.Join("\n")
+			TEST_FAIL("[item.name] failed with extra info: \n[details]")
 
 	cache_for_sonic_speed = SSatoms.BadInitializeCalls
 	for(var/path in cache_for_sonic_speed)

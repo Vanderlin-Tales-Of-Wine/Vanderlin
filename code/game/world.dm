@@ -68,6 +68,8 @@ GLOBAL_PROTECT(tracy_init_reason)
 	// THAT'S IT, WE'RE DONE, THE. FUCKING. END.
 	Master = new
 
+#undef USE_TRACY_PARAMETER
+
 /world/New()
 
 	log_world("World loaded at [time_stamp()]!")
@@ -576,3 +578,5 @@ GLOBAL_PROTECT(tracy_init_reason)
 			SEND_TEXT(world.log, "Error flushing byond-tracy log: [flush_result]")
 			CRASH("Error flushing byond-tracy log: [flush_result]")
 		SEND_TEXT(world.log, "Flushed byond-tracy log")
+
+#undef RESTART_COUNTER_PATH

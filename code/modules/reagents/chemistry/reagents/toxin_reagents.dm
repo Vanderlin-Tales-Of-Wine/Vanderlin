@@ -23,8 +23,6 @@
 	toxpwr = 2.5
 	taste_description = "mushroom"
 
-#define	LIQUID_PLASMA_BP (50+T0C)
-
 /datum/reagent/toxin/plasma
 	name = "Plasma"
 	description = "Plasma in its liquid form."

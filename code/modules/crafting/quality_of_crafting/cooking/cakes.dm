@@ -95,7 +95,7 @@
 
 /datum/repeatable_crafting_recipe/cooking/cake_pear
 	category = "Cakes"
-	name = "Zybantu Cake Base"
+	name = "Zaladin Cake Base"
 
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/produce/fruit/pear = 1,
@@ -204,7 +204,7 @@
 
 /datum/repeatable_crafting_recipe/cooking/unbaked_zybcake
 	category = "Cakes"
-	name = "Unbaked Zybantu Cake"
+	name = "Unbaked Zaladin Cake"
 
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/spiderhoney = 1,

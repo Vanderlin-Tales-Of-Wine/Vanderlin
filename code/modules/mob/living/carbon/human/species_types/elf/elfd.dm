@@ -23,6 +23,7 @@
 	To most in Psydonia, a dark elf is nothing more than a servant of Zizo waiting to betray for power, \
 	leading most dark elves to remain within their safe underground strongholds. Those who breach the surface \
 	rarely receive fair treatment. \
+	Dark elves over 500 years old may remember their Ravoxian empire of old, yet few remain who were not killed or converted. \
 	\n\n\
 	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. <B>NOBLES EVEN MORE SO.</B> PLAY AT YOUR OWN RISK."
 
@@ -37,8 +38,6 @@
 	changesource_flags = WABBAJACK
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mem.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/ft.dmi'
-	dam_icon_m = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
-	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
 	hairyness = "t3"
 	exotic_bloodtype = /datum/blood_type/human/delf
 

@@ -1,11 +1,4 @@
 ///VANDERLIN NOTE: This completely overrides generic storage.
-/// Must be in the user's hands to be accessed
-#define STORAGE_NO_WORN_ACCESS (1<<0)
-/// Must be out of the user to be accessed
-#define STORAGE_NO_EQUIPPED_ACCESS (1<<1)
-// ~storage component
-///from base of datum/component/storage/can_user_take(): (mob/user)
-#define COMSIG_STORAGE_BLOCK_USER_TAKE "storage_block_user_take"
 
 /atom/proc/reset_grid_inventory()
 	var/drop_location = drop_location()
@@ -912,7 +905,7 @@
 /atom/movable/screen/storage
 	icon = 'icons/hud/storage.dmi'
 	icon_state = "background"
-	layer = HUD_LAYER
+	plane = HUD_PLANE
 	alpha = 180
 	var/atom/movable/screen/storage_hover/hovering
 
@@ -1026,6 +1019,5 @@
 	icon = 'icons/hud/storage.dmi'
 	icon_state = "white"
 	plane = ABOVE_HUD_PLANE
-	layer = HUD_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 96

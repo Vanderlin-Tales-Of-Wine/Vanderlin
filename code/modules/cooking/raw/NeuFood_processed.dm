@@ -799,7 +799,7 @@
 
 /obj/item/reagent_containers/food/snacks/jellycake_pear
 	name = "pear gelatine cake"
-	desc = "A mildly unappetising dessert, fittingly considered a delicacy by orcs. This flavor is a strange fusion of Zybantine and Orcish cuisines."
+	desc = "A mildly unappetising dessert, fittingly considered a delicacy by orcs. This flavor is a strange fusion of Zalad and Orcish cuisines."
 	icon_state = "peargelatinecake"
 	dropshrink = 0.8
 	slice_path = /obj/item/reagent_containers/food/snacks/jellyslice_pear

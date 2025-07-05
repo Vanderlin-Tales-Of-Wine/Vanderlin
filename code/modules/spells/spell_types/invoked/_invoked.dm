@@ -24,7 +24,7 @@
 		active = TRUE
 		add_ranged_ability(user, null, TRUE)
 		on_activation(user)
-	update_appearance(UPDATE_ICON)
+	update_icon()
 	start_recharge()
 
 /obj/effect/proc_holder/spell/invoked/deactivate(mob/living/user)
@@ -68,7 +68,7 @@
 		return FALSE
 	fire_projectile(user, target)
 	user.newtonian_move(get_dir(U, T))
-	update_appearance(UPDATE_ICON)
+	update_icon()
 	start_recharge()
 	return ..()
 

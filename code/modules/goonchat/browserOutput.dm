@@ -295,3 +295,5 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 
 /datum/chatOutput/proc/swaptodarkmode()
 	owner.force_dark_theme()
+
+#undef MAX_COOKIE_LENGTH

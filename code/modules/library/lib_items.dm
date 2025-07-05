@@ -23,7 +23,7 @@
 	max_integrity = 200
 	armor = list("blunt" = 0, "slash" = 0, "stab" = 0,  "piercing" = 0, "fire" = 50, "acid" = 0)
 	var/state = 0
-	var/list/allowed_books = list(/obj/item/book, /obj/item/storage/book, /obj/item/recipe_book) //Things allowed in the bookcase
+	var/list/allowed_books = list(/obj/item/book, /obj/item/recipe_book) //Things allowed in the bookcase
 
 /obj/structure/bookcase/examine(mob/user)
 	. = ..()

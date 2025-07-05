@@ -86,8 +86,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "bY" = (
 /obj/structure/door/violet{
-	name = "Queens Retreat";
-	lockid = "manor"
+	name = "Queens Retreat"
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/carpet/lord/center,
@@ -345,16 +344,14 @@
 /area/rogue/under/tomb/wilds)
 "ot" = (
 /obj/structure/door/violet{
-	name = "Kitchen";
-	lockid = "manor"
+	name = "Kitchen"
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors/royal)
 "ox" = (
 /obj/structure/door/violet{
-	name = "Bath";
-	lockid = "manor"
+	name = "Bath"
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile/bath,
@@ -679,7 +676,6 @@
 /area/rogue/under/tomb/indoors/royal)
 "EA" = (
 /obj/structure/door/violet{
-	lockid = "nightmaiden";
 	name = "Storage"
 	},
 /obj/effect/mapping_helpers/access/locker,
@@ -714,8 +710,7 @@
 /area/rogue/under/tomb)
 "Go" = (
 /obj/structure/door/violet{
-	name = "Hall";
-	lockid = "manor"
+	name = "Hall"
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/hexstone,
@@ -882,8 +877,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "NG" = (
 /obj/structure/door/violet{
-	name = "Bedroom";
-	lockid = "merchant"
+	name = "Bedroom"
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/carpet/red,
@@ -954,8 +948,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "Pp" = (
 /obj/structure/door/violet{
-	name = "Reading Room";
-	lockid = "manor"
+	name = "Reading Room"
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/carpet/lord/center,

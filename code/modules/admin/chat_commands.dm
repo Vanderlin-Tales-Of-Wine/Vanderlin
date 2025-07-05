@@ -117,3 +117,5 @@ GLOBAL_LIST(round_end_notifiees)
 /datum/tgs_chat_command/reload_admins/proc/ReloadAsync()
 	set waitfor = FALSE
 	load_admins()
+
+#undef IRC_STATUS_THROTTLE

@@ -1,9 +1,8 @@
 /obj/structure/rotation_piece
 	name = "shaft"
-
-	layer = 5
 	icon = 'icons/roguetown/misc/shafts_cogs.dmi'
 	icon_state = "shaft"
+	layer = ABOVE_MOB_LAYER
 	rotation_structure = TRUE
 	initialize_dirs = CONN_DIR_FORWARD | CONN_DIR_FLIP
 
@@ -13,17 +12,13 @@
 
 /obj/structure/rotation_piece/cog
 	name = "cogwheel"
-
 	icon_state = "1"
-
 	cog_size = COG_SMALL
 	stress_use = 3
 
 /obj/structure/rotation_piece/cog/large
 	name = "large cogwheel"
-
 	icon_state = "l1"
-
 	cog_size = COG_LARGE
 	stress_use = 6
 

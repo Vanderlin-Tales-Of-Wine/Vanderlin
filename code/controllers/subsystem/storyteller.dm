@@ -1,4 +1,3 @@
-#define INIT_ORDER_GAMEMODE 70
 ///how many storytellers can be voted for along with always_votable ones
 #define DEFAULT_STORYTELLER_VOTE_OPTIONS 4
 ///amount of players we can have before no longer running votes for storyteller
@@ -826,7 +825,7 @@ SUBSYSTEM_DEF(gamemode)
 /// Loads config values from game_options.txt
 /datum/controller/subsystem/gamemode/proc/load_config_vars()
 	point_gain_multipliers[EVENT_TRACK_MUNDANE] = CONFIG_GET(number/mundane_point_gain_multiplier)
-	point_gain_multipliers[EVENT_TRACK_PERSONAL] = CONFIG_GET(number/moderate_point_gain_multiplier)
+	point_gain_multipliers[EVENT_TRACK_PERSONAL] = CONFIG_GET(number/moderate_point_gain_multiplier) * 1.15
 	point_gain_multipliers[EVENT_TRACK_MODERATE] = CONFIG_GET(number/moderate_point_gain_multiplier)
 	point_gain_multipliers[EVENT_TRACK_INTERVENTION] = CONFIG_GET(number/major_point_gain_multiplier)
 	point_gain_multipliers[EVENT_TRACK_CHARACTER_INJECTION] = CONFIG_GET(number/roleset_point_gain_multiplier)

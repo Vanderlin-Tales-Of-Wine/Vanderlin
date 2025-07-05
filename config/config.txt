@@ -514,3 +514,12 @@ DEFAULT_VIEW_SQUARE 15x15
 ## Uncomment to enable source whitelisting, a comma-separated list (no spaces) of CentCom sources (sourceName).
 ## If enabled, only bans from these servers will be shown to admins using CentCom. The default sources list is an example.
 #CENTCOM_SOURCE_WHITELIST Beestation MRP,TGMC,FTL13
+
+## Whether something with floating refs can be hard deleted
+#HARD_DELETES_ENABLED
+
+## How long in seconds after which a hard delete is treated as causing lag. This can be a float and supports a precision as low as nanoseconds.
+#HARD_DELETES_OVERRUN_THRESHOLD 0.5
+
+## Once a typepath causes overrun from hard deletes this many times, stop hard deleting it on garbage collection failures. (set to 0 to disable)
+#HARD_DELETES_OVERRUN_LIMIT 0

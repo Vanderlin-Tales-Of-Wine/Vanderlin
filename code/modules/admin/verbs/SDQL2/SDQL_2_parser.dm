@@ -100,6 +100,9 @@
 	if(length(options))
 		node["options"] = options
 
+#define SDQL2_VALID_OPTION_TYPES list("proccall", "select", "priority", "autogc" , "sequential")
+#define SDQL2_VALID_OPTION_VALUES list("async", "blocking", "force_nulls", "skip_nulls", "high", "normal", "keep_alive" , "true")
+
 //option_assignment:	query_option '=' define
 /datum/SDQL_parser/proc/option_assignment(i, list/node, list/assignment_list = list())
 	var/type = tokenl(i)
@@ -112,6 +115,9 @@
 		parse_error("Invalid optoin value: [val]")
 	assignment_list[type] = val
 	return (i + 3)
+
+#undef SDQL2_VALID_OPTION_TYPES
+#undef SDQL2_VALID_OPTION_VALUES
 
 //option_assignments: option_assignment, [',' option_assignments]
 /datum/SDQL_parser/proc/option_assignments(i, list/node, list/store)
