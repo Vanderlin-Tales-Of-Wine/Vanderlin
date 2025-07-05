@@ -1,7 +1,7 @@
 #define BLOWDART_DAMAGE		20
 #define ARROW_DAMAGE		33
 #define BOLT_DAMAGE			44
-#define BULLET_DAMAGE		80
+#define BULLET_DAMAGE		200
 #define ARROW_PENETRATION	25
 #define BOLT_PENETRATION	50
 #define BULLET_PENETRATION	100
@@ -472,8 +472,10 @@
 	impact_effect_type = /obj/effect/temp_visual/impact_effect
 	flag =  "piercing"
 	armor_penetration = BULLET_PENETRATION
-	speed = 0.3
+	speed = 0.5
 	accuracy = 50 //Lower accuracy than an arrow.
+	dismemberment = 200
+
 
 /obj/projectile/bullet/fragment
 	name = "smaller lead ball"
