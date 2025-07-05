@@ -8486,6 +8486,14 @@
 "hWV" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/weapon/knife/throwingknife/psydon,
+/obj/item/paper{
+	pixel_x = -12;
+	pixel_y = 8;
+	icon_state = "paperwrite";
+	name = "crumpled note";
+	desc = "A piece of parchment, it was crumpled up and then folded open again.";
+	info = "Unholy spirits reside within these tunnels, unable to be touched by neither flesh nor metal. Perhaps victims of the war, or the souls of heretics executed? No matter, strike them with a lit torch or lamptern and they burn to ashes all the same."
+	},
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church/inquisition)
 "hXi" = (

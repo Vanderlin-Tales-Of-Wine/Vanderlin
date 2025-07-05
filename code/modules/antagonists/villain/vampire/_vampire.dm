@@ -4,6 +4,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 #define VITAE_LEVEL_HUNGRY 100
 #define VITAE_LEVEL_FED 200
 
+// Originally a a curse of hubris from Psydon Himself, vampires are
+// twisted by hellish influence from Kain's time in Subterra into bloodthirsty monsters who can create spread their curse.
 /datum/antagonist/vampire
 	name = "Vampire"
 	roundend_category = "Vampires"

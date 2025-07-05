@@ -1,9 +1,6 @@
 /**
  * Core buildmode mode buttons
  */
-/atom/movable/screen/buildmode
-	icon = 'icons/misc/buildmode.dmi'
-
 /atom/movable/screen/buildmode/New(datum/buildmode/bm)
 	bd = bm
 	return ..()

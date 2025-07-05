@@ -35,7 +35,7 @@ SUBSYSTEM_DEF(droning)
 	if(!area_player || !listener)
 		return
 
-	if(area_player.droningniqqa)
+	if(area_player.droningsound)
 
 		if(!area_player.droning_sound)
 			return
@@ -162,7 +162,7 @@ SUBSYSTEM_DEF(droning)
 	kill_loop(dreamer)
 
 	var/amb_sound_list = null
-	if(area_entered.loopniqqa)
+	if(area_entered.loopsound)
 		if(GLOB.tod == "night")
 			if(area_entered.ambientnight)
 				amb_sound_list = area_entered.ambientnight

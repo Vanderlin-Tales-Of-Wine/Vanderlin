@@ -161,6 +161,7 @@
 		title = apprentice_name
 	youngling.ensure_skills().our_apprentice_name = "[current.real_name]'s [title]"
 	to_chat(current, span_notice("[youngling.real_name] has become your apprentice."))
+	SEND_SIGNAL(current, COMSIG_APPRENTICE_MADE, youngling)
 
 /datum/skill_holder/proc/print_levels(user)
 	var/list/shown_skills = list()

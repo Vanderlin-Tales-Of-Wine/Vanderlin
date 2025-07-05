@@ -11,6 +11,8 @@
 	if(prob(5))
 		H.cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
 
+	if(!(H.patron == /datum/patron/inhumen/zizo))		//Magic lore-wise is either Noc or Zizo. This class was cast out from the academy, so it's definitely not Noc.
+		H.set_patron(/datum/patron/inhumen/zizo)
 	H.mana_pool?.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	pants = /obj/item/clothing/pants/trou/leather

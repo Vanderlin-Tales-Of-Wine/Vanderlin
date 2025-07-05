@@ -251,16 +251,32 @@
 	invisibility = INVISIBILITY_LIGHTING
 	layer = BACKGROUND_LAYER+21
 	color = "#000"
-	show_when_dead = TRUE
 
 //Provides whiteness in case you don't see lights so everything is still visible
 /atom/movable/screen/fullscreen/lighting_backdrop/unlit
 	layer = BACKGROUND_LAYER+20
-	show_when_dead = TRUE
 
 /atom/movable/screen/fullscreen/see_through_darkness
 	icon_state = "nightvision"
 	plane = LIGHTING_PLANE
-	layer = LIGHTING_LAYER
 	blend_mode = BLEND_ADD
-	show_when_dead = TRUE
+
+/// Our sunlight planemaster mashes all of our sunlight overlays together into one
+/// The fullscreen then grabs the plane_master with a layer filter, and colours it
+/// We do this so the sunlight fullscreen acts as a big lighting object, in our lighting plane
+/atom/movable/screen/fullscreen/lighting_backdrop/sunlight
+	icon_state  = ""
+	screen_loc = "CENTER-2:-16, CENTER"
+	transform = null
+	blend_mode = BLEND_ADD
+
+/atom/movable/screen/fullscreen/lighting_backdrop/sunlight/Initialize()
+	. = ..()
+	add_filter("sunlight", 1, layering_filter(render_source = SUNLIGHTING_RENDER_TARGET))
+	SSoutdoor_effects.sunlighting_planes |= src
+	SSoutdoor_effects.transition_sunlight_color(src)
+	//color = SSoutdoor_effects.last_color
+
+/atom/movable/screen/fullscreen/lighting_backdrop/sunlight/Destroy()
+	. = ..()
+	SSoutdoor_effects.sunlighting_planes -= src

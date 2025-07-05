@@ -314,7 +314,7 @@
 /datum/migrant_wave/heartfelt
 	name = "The Court of Heartfelt"
 	max_spawns = 1
-	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
+	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zalad_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
 	weight = 25
 	downgrade_wave = /datum/migrant_wave/heartfelt_down
 	roles = list(
@@ -329,7 +329,7 @@
 
 /datum/migrant_wave/heartfelt_down
 	name = "The Court of Heartfelt"
-	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
+	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zalad_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
 	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/heartfelt/lord = 1,

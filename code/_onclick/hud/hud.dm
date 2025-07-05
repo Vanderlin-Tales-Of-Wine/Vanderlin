@@ -55,6 +55,8 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	var/list/inv_slots[SLOTS_AMT] // /atom/movable/screen/inventory objects, ordered by their slot ID.
 	var/list/hand_slots // /atom/movable/screen/inventory/hand objects, assoc list of "[held_index]" = object
 	var/list/atom/movable/screen/plane_master/plane_masters = list() // see "appearance_flags" in the ref, assoc list of "[plane]" = object
+	///Assoc list of controller groups, associated with key string group name with value of the plane master controller ref
+	var/list/atom/movable/plane_master_controller/plane_master_controllers = list()
 
 	var/atom/movable/screen/button_palette/toggle_palette
 	var/atom/movable/screen/palette_scroll/down/palette_down
@@ -122,6 +124,10 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 		plane_masters["[instance.plane]"] = instance
 		instance.backdrop(mymob)
 
+	for(var/mytype in subtypesof(/atom/movable/plane_master_controller))
+		var/atom/movable/plane_master_controller/controller_instance = new mytype(null, src)
+		plane_master_controllers[controller_instance.name] = controller_instance
+
 /datum/hud/new_player/New(mob/owner)
 	..()
 	scannies = new /atom/movable/screen/scannies
@@ -162,6 +168,7 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	blobpwrdisplay = null
 
 	QDEL_LIST_ASSOC_VAL(plane_masters)
+	QDEL_LIST_ASSOC_VAL(plane_master_controllers)
 	QDEL_LIST(screenoverlays)
 	mymob = null
 

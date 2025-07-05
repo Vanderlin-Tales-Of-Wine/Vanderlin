@@ -385,6 +385,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		dat += "<a href='?_src_=prefs;preference=save'>Save</a><br>"
 		dat += "<a href='?_src_=prefs;preference=load'>Undo</a><br>"
 
+	dat += "<br></td>"
+	dat += "<a href='?_src_=prefs;preference=loreprimer'>LORE PRIMER</a><br>"
+
 	// well.... one empty slot here for something I suppose lol
 	dat += "<table width='100%'>"
 	dat += "<tr>"
@@ -779,6 +782,14 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
 
+/datum/preferences/proc/LorePopup(mob/user)
+	if(!user || !user.client)
+		return
+	var/list/dat = list()
+	var/datum/browser/noclose/popup  = new(user, "lore_primer", "<div align='center'>Lore Primer</div>", 650, 900)
+	dat += GLOB.roleplay_readme
+	popup.set_content(dat.Join())
+	popup.open(FALSE)
 
 /datum/preferences/Topic(href, href_list, hsrc)			//yeah, gotta do this I guess..
 	. = ..()
@@ -1365,6 +1376,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				if("migrants")
 					migrant.show_ui()
 					return
+
+				if("loreprimer")
+					LorePopup(user)
 
 				if("manifest")
 					parent.view_actors_manifest()

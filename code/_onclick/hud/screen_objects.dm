@@ -9,7 +9,6 @@
 /atom/movable/screen
 	name = ""
 	icon = 'icons/mob/screen_gen.dmi'
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 	appearance_flags = APPEARANCE_UI
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
@@ -59,7 +58,6 @@
 	maptext_width = 480
 
 /atom/movable/screen/swap_hand
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 	name = "swap hand"
 
@@ -164,7 +162,6 @@
 	/// Icon when contains an item. For now used only by humans.
 	var/icon_full = "genslot"
 	/// The overlay when hovering over with an item in your hand
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 	nomouseover = FALSE
 
@@ -302,7 +299,6 @@
 
 /atom/movable/screen/close
 	name = "close"
-	layer = ABOVE_HUD_LAYER
 	plane = ABOVE_HUD_PLANE
 	icon_state = "backpack_close"
 
@@ -318,9 +314,7 @@
 
 /atom/movable/screen/drop
 	name = "drop"
-
 	icon_state = "act_drop"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/drop/Click()
@@ -839,9 +833,7 @@
 
 /atom/movable/screen/rest
 	name = "rest"
-
 	icon_state = "act_rest"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/rest/Click()
@@ -862,9 +854,7 @@
 
 /atom/movable/screen/restup
 	name = "stand up"
-
 	icon_state = "act_rest_up"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/restup/Click(location, control, params)
@@ -879,9 +869,7 @@
 
 /atom/movable/screen/restdown
 	name = "lay down"
-
 	icon_state = "act_rest_down"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/restdown/Click(location, control, params)
@@ -903,7 +891,6 @@
 	name = "storage"
 	icon_state = "block"
 	screen_loc = "7,7 to 10,8"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/storage/Initialize(mapload, new_master)
@@ -1022,7 +1009,6 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
-	layer = ABOVE_HUD_LAYER+0.2
 	plane = ABOVE_HUD_PLANE
 
 /atom/movable/screen/zone_sel/MouseExited(location, control, params)
@@ -1384,7 +1370,6 @@
 	icon = 'icons/blank_title.png'
 	icon_state = ""
 	screen_loc = "1,1"
-	layer = SPLASHSCREEN_LAYER+1
 	plane = SPLASHSCREEN_PLANE
 	var/client/holder
 	var/fucme = TRUE
@@ -1393,7 +1378,7 @@
 	icon = 'icons/fullblack.dmi'
 	icon_state = ""
 	screen_loc = ui_backhudl
-	layer = SPLASHSCREEN_LAYER
+	plane = SPLASHSCREEN_PLANE
 	fucme = FALSE
 
 /atom/movable/screen/splash/New(client/C, visible, use_previous_title) //TODO: Make this use INITIALIZE_IMMEDIATE, except its not easy
@@ -1437,7 +1422,6 @@
 	icon = 'icons/gameover.dmi'
 	icon_state = ""
 	screen_loc = ui_backhudl
-	layer = SPLASHSCREEN_LAYER
 	plane = SPLASHSCREEN_PLANE
 
 /atom/movable/screen/gameover/proc/Fade(out = FALSE, qdel_after = FALSE)
@@ -1488,7 +1472,6 @@
 	icon_state = ""
 	name = " "
 	screen_loc = ui_backhudl
-	layer = BACKHUD_LAYER
 	plane = FULLSCREEN_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
@@ -1507,7 +1490,6 @@
 	name = ""
 	icon = 'icons/mob/roguehud.dmi'
 	icon_state = "aimbg"
-	layer = HUD_LAYER
 	plane = HUD_PLANE
 
 /atom/movable/screen/aim/boxaim
@@ -1841,7 +1823,7 @@
 	icon_state = "heatstamover"
 	icon = 'icons/mob/rogueheat.dmi'
 	screen_loc = stamina_loc
-	layer = HUD_LAYER+0.1
+	plane = ABOVE_HUD_PLANE
 
 /atom/movable/screen/mana_over
 	name = ""
@@ -1849,7 +1831,7 @@
 	icon_state = "manaover"
 	icon = 'icons/mob/rogueheat.dmi'
 	screen_loc = mana_loc
-	layer = HUD_LAYER+0.1
+	plane = ABOVE_HUD_PLANE
 
 /atom/movable/screen/scannies
 	icon = 'icons/mob/roguehudback2.dmi'
@@ -1858,8 +1840,7 @@
 	screen_loc = ui_backhudl
 	mouse_opacity = 0
 	alpha = 0
-	layer = 24
-	plane = 24
+	plane = HUD_PLANE
 	blend_mode = BLEND_MULTIPLY
 
 /atom/movable/screen/char_preview
@@ -1875,7 +1856,6 @@
 	icon_state = ""
 	name = ""
 	screen_loc = "1,1"
-	layer = HUD_LAYER+0.01
 	plane = HUD_PLANE
 	alpha = 0
 	var/atom/movable/screen/readtext/textright
@@ -1923,7 +1903,7 @@
 	icon = null
 	icon_state = ""
 	screen_loc = "5,5"
-	layer = HUD_LAYER+0.02
+	plane = ABOVE_HUD_PLANE
 	plane = HUD_PLANE
 
 /atom/movable/screen/area_text
@@ -1931,7 +1911,7 @@
 	icon_state = ""
 	name = ""
 	screen_loc = "5,5"
-	layer = HUD_LAYER+0.02
+	plane = ABOVE_HUD_PLANE
 	plane = HUD_PLANE
 	alpha = 0
 	var/reading

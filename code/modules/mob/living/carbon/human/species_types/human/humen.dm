@@ -12,14 +12,15 @@
 /datum/species/human/northern
 	name = "Humen"
 	id = "human"
-	desc = "Humenity, creation in Psydon's image. \
+	desc = "Humenity, created in Psydon's image. \
 	\n\n\
 	Humens come from a vast swathe of cultures and ethnicities all around Psydonia, most of which \
-	have historically been at odds with one another and other species. \
+	have historically been at odds with both one another and other species. \
 	With their tenacity and overwhelming population, humens tend to outnumber the other species drastically. \
+	Their saturation leads to most world maps representing humen borders and states over other species'. \
 	\n\n\
-	Humens tend to find fortune easier than the other species, and are so diverse that no other trait \
-	are dominant in their species..."
+	Humens tend to find fortune easier than the other species, \
+	and are so diverse that no other trait is dominant..."
 
 	skin_tone_wording = "Ancestry"
 
@@ -130,9 +131,7 @@
 	"red - wine" = "82534c",
 	"red - sunset" = "82462b",
 	"red - blood" = "822b2b",
-	"red - maroon" = "612929",
-	"red - carrot" = "bf6821",
-	"red - rose" = "b87f77"
+	"red - maroon" = "612929"
 
 	))
 

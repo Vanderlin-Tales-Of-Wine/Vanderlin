@@ -16,6 +16,7 @@
 	throwforce = 10
 	vis_flags = VIS_INHERIT_PLANE
 	pass_flags_self = PASSMOB
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	//FOV STUFF
 	plane = GAME_PLANE_FOV_HIDDEN

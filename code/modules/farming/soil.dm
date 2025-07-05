@@ -388,16 +388,20 @@
 		. += "weeds-1"
 
 /obj/structure/soil/proc/get_water_overlay()
-	var/mutable_appearance/water_ma = mutable_appearance(icon, "soil-overlay")
-	water_ma.color = "#000033"
-	water_ma.alpha = 100 * (water / MAX_PLANT_WATER)
-	return water_ma
+	return mutable_appearance(
+		icon,\
+		"soil-overlay",\
+		color = "#000033",\
+		alpha = (100 * (water / MAX_PLANT_WATER)),\
+	)
 
 /obj/structure/soil/proc/get_nutri_overlay()
-	var/mutable_appearance/nutri_ma = mutable_appearance(icon, "soil-overlay")
-	nutri_ma.color = "#6d3a00"
-	nutri_ma.alpha = 50 * (nutrition / MAX_PLANT_NUTRITION)
-	return nutri_ma
+	return mutable_appearance(
+		icon,\
+		"soil-overlay",\
+		color = "#6d3a00",\
+		alpha = (50 * (nutrition / MAX_PLANT_NUTRITION)),\
+	)
 
 /obj/structure/soil/proc/get_plant_overlay()
 	var/plant_color
@@ -415,9 +419,7 @@
 			plant_state = "[plant.icon_state]1"
 		else
 			plant_state = "[plant.icon_state]0"
-	var/mutable_appearance/plant_ma = mutable_appearance(plant.icon, plant_state)
-	plant_ma.color = plant_color
-	return plant_ma
+	return mutable_appearance(plant.icon, plant_state, color = plant_color)
 
 /obj/structure/soil/examine(mob/user)
 	. = ..()

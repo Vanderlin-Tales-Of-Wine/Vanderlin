@@ -47,7 +47,6 @@
 	if(new_master)
 		var/old_layer = new_master.layer
 		var/old_plane = new_master.plane
-		new_master.layer = FLOAT_LAYER
 		new_master.plane = FLOAT_PLANE
 		thealert.add_overlay(new_master)
 		new_master.layer = old_layer

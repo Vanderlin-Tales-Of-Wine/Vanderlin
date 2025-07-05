@@ -658,6 +658,7 @@
 			if(hud_used.cmode_button)
 				hud_used.cmode_button.update_appearance(UPDATE_ICON_STATE)
 		return
+	var/datum/antagonist/maniac/maniac_datum = mind?.has_antag_datum(/datum/antagonist/maniac)
 	if(cmode)
 		playsound_local(src, 'sound/misc/comboff.ogg', 100)
 		SSdroning.play_area_sound(get_area(src), client)
@@ -667,7 +668,7 @@
 	else
 		cmode = TRUE
 		playsound_local(src, 'sound/misc/combon.ogg', 100)
-		if(L.cmode_music)
+		if(L.cmode_music && (!maniac_datum || !maniac_datum.music_enabled)) //If Maniac's theme song is active, they won't hear their combat music.
 			SSdroning.play_combat_music(L.cmode_music, client)
 	if(hud_used)
 		if(hud_used.cmode_button)
@@ -857,7 +858,6 @@
 				A.target = source
 				if(!alert_overlay)
 					alert_overlay = new(source)
-				alert_overlay.layer = FLOAT_LAYER
 				alert_overlay.plane = FLOAT_PLANE
 				A.add_overlay(alert_overlay)
 
