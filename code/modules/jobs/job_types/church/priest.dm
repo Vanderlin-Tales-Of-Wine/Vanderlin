@@ -175,7 +175,6 @@
 				if(H.advjob == "Faceless One")
 					to_chat(src, span_danger("I wasn't able to do that!"))
 					return FALSE
-				found = TRUE
 				H.cleric?.excommunicate()
 				break
 			return FALSE
@@ -208,7 +207,6 @@
 				if(H.advjob == "Faceless One")
 					to_chat(src, span_danger("I wasn't able to do that!"))
 					return FALSE
-				found = TRUE
 				H.add_stress(/datum/stressevent/psycurse)
 				break
 			return FALSE
