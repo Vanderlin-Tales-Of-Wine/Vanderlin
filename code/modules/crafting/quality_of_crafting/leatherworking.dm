@@ -297,7 +297,7 @@
 				/obj/item/natural/fibers = 2)
 	craftdiff = 3
 
-/datum/repeatable_crafting_recipe/leather/standalone/leathercoat
+/datum/repeatable_crafting_recipe/leather/standalone/leathercoat/black // never add items with the same names
 	name = "black leather coat"
 	output = /obj/item/clothing/armor/leather/jacket/leathercoat/black
 	attacked_atom = /obj/item/natural/hide/cured

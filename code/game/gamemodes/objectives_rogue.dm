@@ -13,15 +13,15 @@
 
 /datum/objective/delf
 	name = "delf"
-	explanation_text = "Feed honeys to the mother."
+	explanation_text = "Feed Ears to the mother."
 
 /datum/objective/delf/check_completion()
-	if(SSmapping.retainer.delf_contribute >= SSmapping.retainer.delf_goal)
+	if(SSmapping.retainer.delf_ears >= SSmapping.retainer.delf_goal)
 		return TRUE
 
 /datum/objective/delf/update_explanation_text()
 	..()
-	explanation_text = "Feed [SSmapping.retainer.delf_goal] honeys to the mother."
+	explanation_text = "Feed [SSmapping.retainer.delf_goal] EARS to the mother."
 
 
 /datum/objective/rt_maniac
