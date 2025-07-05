@@ -116,10 +116,12 @@ GLOBAL_LIST_EMPTY_TYPED(schizohelps, /datum/schizohelp)
 	qdel(src)
 
 /datum/schizohelp/proc/decay()
-	var/mob/schizo = owner.resolve()
-	if(!length(answers) && !QDELETED(schizo))
-		to_chat(schizo, mentor_block("[span_notice("<i><b>My meditation goes unanswered...</b></i>")]"))
-		SEND_SOUND(schizo, 'sound/misc/notice.ogg')
+	if(!length(answers))
+		var/mob/schizo = owner.resolve()
+		if(!QDELETED(schizo))
+			to_chat(schizo, mentor_block("[span_notice("<i><b>My meditation goes unanswered...</b></i>")]"))
+			SEND_SOUND(schizo, 'sound/misc/notice.ogg')
+
 	qdel(src)
 
 /datum/schizohelp/proc/answer_schizo(answer, mob/voice)
