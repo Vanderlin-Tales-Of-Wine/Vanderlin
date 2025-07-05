@@ -130,7 +130,7 @@
 		if(LAZYLEN(seeds))
 			attacking_item = pick(seeds)
 
-	if(istype(attacking_item, /obj/item/neuFarm/seed) || istype(attacking_item, /obj/item/herbseed)) //SLOP OBJECT PROC SHARING
+	if(istype(attacking_item, /obj/item/neuFarm/seed)) //SLOP OBJECT PROC SHARING
 		playsound(src, pick('sound/foley/touch1.ogg','sound/foley/touch2.ogg','sound/foley/touch3.ogg'), 170, TRUE)
 		if(do_after(user, get_farming_do_time(user, 15), src))
 			if(old_item)
@@ -436,6 +436,13 @@
 			plant_state = "[plant.icon_state]1"
 		else
 			plant_state = "[plant.icon_state]0"
+
+	if(istype(plant, /datum/plant_def/alchemical))
+		if(plant_state == "[plant.icon_state]0")
+			plant_state = "herb0"
+		else if(plant_state == "[plant.icon_state]3")
+			plant_state = "herb3"
+
 	return mutable_appearance(plant.icon, plant_state, color = plant_color)
 
 /obj/structure/soil/examine(mob/user)
@@ -756,15 +763,16 @@
 
 	// Quality modifiers
 	var/quality_modifier = 0
-	switch(crop_quality)
-		if(QUALITY_BRONZE)
-			quality_modifier = 1
-		if(QUALITY_SILVER)
-			quality_modifier = 2
-		if(QUALITY_GOLD)
-			quality_modifier = 3
-		if(QUALITY_DIAMOND)
-			quality_modifier = 4
+	if(!istype(plant, /datum/plant_def/alchemical))
+		switch(crop_quality)
+			if(QUALITY_BRONZE)
+				quality_modifier = 1
+			if(QUALITY_SILVER)
+				quality_modifier = 2
+			if(QUALITY_GOLD)
+				quality_modifier = 3
+			if(QUALITY_DIAMOND)
+				quality_modifier = 4
 
 	// Calculate final yield amount
 	var/spawn_amount = max(base_amount + modifier + quality_modifier, 1)

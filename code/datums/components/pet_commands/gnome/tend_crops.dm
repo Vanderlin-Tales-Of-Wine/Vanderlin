@@ -38,8 +38,6 @@
 	for(var/obj/structure/closet/container in oview(7, pawn))
 		for(var/obj/item/neuFarm/seed/seed in container.contents)
 			return container
-		for(var/obj/item/herbseed/seed in container.contents)
-			return container
 	return null
 
 /datum/pet_command/gnome/stop_tending
@@ -72,7 +70,7 @@
 			return TRUE
 
 	// If carrying seed, find empty soil
-	else if(carried_item && (istype(carried_item, /obj/item/neuFarm/seed) || istype(carried_item, /obj/item/herbseed)))
+	else if(carried_item && (istype(carried_item, /obj/item/neuFarm/seed)))
 		var/obj/structure/soil/target_soil = find_empty_soil(controller)
 		if(target_soil)
 			set_movement_target(controller, target_soil)
@@ -142,7 +140,7 @@
 			return
 
 	// Plant seed in soil
-	else if(carried_item && (istype(carried_item, /obj/item/neuFarm/seed) || istype(carried_item, /obj/item/herbseed)) && istype(current_target, /obj/structure/soil))
+	else if(carried_item && (istype(carried_item, /obj/item/neuFarm/seed)) && istype(current_target, /obj/structure/soil))
 		var/obj/structure/soil/soil = current_target
 		if(!soil.plant)
 			plant_seed(controller, soil, carried_item)
@@ -232,8 +230,6 @@
 	for(var/obj/structure/closet/container in oview(7, pawn))
 		for(var/obj/item/neuFarm/seed/seed in container.contents)
 			return container
-		for(var/obj/item/herbseed/seed in container.contents)
-			return container
 	return null
 
 /datum/ai_behavior/gnome_crop_tending/proc/is_water_container(obj/item/item)
@@ -244,8 +240,6 @@
 
 /datum/ai_behavior/gnome_crop_tending/proc/find_seed_in_storage(obj/structure/closet/storage)
 	for(var/obj/item/neuFarm/seed/seed in (storage.contents + storage.loc.contents))
-		return seed
-	for(var/obj/item/herbseed/seed in (storage.contents + storage.loc.contents))
 		return seed
 	return null
 
@@ -267,9 +261,6 @@
 	if(istype(seed, /obj/item/neuFarm/seed))
 		var/obj/item/neuFarm/seed/farm_seed = seed
 		farm_seed.try_plant_seed(pawn, soil)
-	else if(istype(seed, /obj/item/herbseed))
-		var/obj/item/herbseed/herb_seed = seed
-		herb_seed.try_plant_seed(pawn, soil)
 
 	controller.clear_blackboard_key(BB_SIMPLE_CARRY_ITEM)
 	pawn.visible_message(span_notice("[pawn] plants [seed] in [soil]."))

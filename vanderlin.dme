@@ -1286,7 +1286,6 @@
 #include "code\game\objects\items\gems.dm"
 #include "code\game\objects\items\granters.dm"
 #include "code\game\objects\items\harpoon_gun.dm"
-#include "code\game\objects\items\herb_seeds.dm"
 #include "code\game\objects\items\honeycomb.dm"
 #include "code\game\objects\items\hourglass.dm"
 #include "code\game\objects\items\keyrings.dm"

@@ -172,6 +172,71 @@
 	seed_identity = "raspberry seeds"
 	plant_def_type = /datum/plant_def/raspberry
 
+//alchemical
+/obj/item/neuFarm/seed/atropa
+	seed_identity = "atropa seeds"
+	plant_def_type = /datum/plant_def/alchemical/atropa
+
+/obj/item/neuFarm/seed/matricaria
+	seed_identity = "matricaria seeds"
+	plant_def_type = /datum/plant_def/alchemical/matricaria
+
+/obj/item/neuFarm/seed/symphitum
+	seed_identity = "symphitum seeds"
+	plant_def_type = /datum/plant_def/alchemical/symphitum
+
+/obj/item/neuFarm/seed/taraxacum
+	seed_identity = "taraxacum seeds"
+	plant_def_type = /datum/plant_def/alchemical/taraxacum
+
+/obj/item/neuFarm/seed/euphrasia
+	seed_identity = "euphrasia seeds"
+	plant_def_type = /datum/plant_def/alchemical/euphrasia
+
+/obj/item/neuFarm/seed/paris
+	seed_identity = "paris seeds"
+	plant_def_type = /datum/plant_def/alchemical/paris
+
+/obj/item/neuFarm/seed/calendula
+	seed_identity = "calendula seeds"
+	plant_def_type = /datum/plant_def/alchemical/calendula
+
+/obj/item/neuFarm/seed/mentha
+	seed_identity = "mentha seeds"
+	plant_def_type = /datum/plant_def/alchemical/mentha
+
+/obj/item/neuFarm/seed/urtica
+	seed_identity = "urtica seeds"
+	plant_def_type = /datum/plant_def/alchemical/urtica
+
+/obj/item/neuFarm/seed/salvia
+	seed_identity = "salvia seeds"
+	plant_def_type = /datum/plant_def/alchemical/salvia
+
+/obj/item/neuFarm/seed/hypericum
+	seed_identity = "hypericum seeds"
+	plant_def_type = /datum/plant_def/alchemical/hypericum
+
+/obj/item/neuFarm/seed/benedictus
+	seed_identity = "benedictus seeds"
+	plant_def_type = /datum/plant_def/alchemical/benedictus
+
+/obj/item/neuFarm/seed/valeriana
+	seed_identity = "valeriana seeds"
+	plant_def_type = /datum/plant_def/alchemical/valeriana
+
+/obj/item/neuFarm/seed/artemisia
+	seed_identity = "artemisia seeds"
+	plant_def_type = /datum/plant_def/alchemical/artemisia
+
+/obj/item/neuFarm/seed/rosa
+	seed_identity = "rosa seeds"
+	plant_def_type = /datum/plant_def/alchemical/rosa
+
+/obj/item/neuFarm/seed/euphorbia
+	seed_identity = "euphorbia seeds"
+	plant_def_type = /datum/plant_def/alchemical/euphorbia
+
 /*
 /obj/item/neuFarm/seed/nut
 	seed_identity = "rocknut seeds"

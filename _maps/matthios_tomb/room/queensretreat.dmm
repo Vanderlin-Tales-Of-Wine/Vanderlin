@@ -393,7 +393,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors/royal)
 "qB" = (
-/obj/item/herbseed/paris{
+/obj/item/neuFarm/seed/paris{
 	name = "paris seed these nuts into your mouth"
 	},
 /obj/structure/closet/crate/chest/wicker,
