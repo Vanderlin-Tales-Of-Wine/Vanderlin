@@ -1000,6 +1000,7 @@
 	key_third_person = "shakeshead"
 	message = "shakes their head."
 	emote_type = EMOTE_VISIBLE
+
 /mob/living/carbon/human/verb/emote_shakehead()
 	set name = "Shakehead"
 	set category = "Emotes"

@@ -123,6 +123,10 @@ Sunlight System
 
 	GLOB.SUNLIGHT_QUEUE_CORNER += tempMasterList /* update the boys */
 
+#undef GLOBAL_LIGHT_RANGE
+#undef HARD_SUN
+#undef SUN_FALLOFF
+
 /* Related object changes */
 /* I moved this here to consolidate sunlight changes as much as possible, so its easily disabled */
 

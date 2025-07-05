@@ -5,8 +5,6 @@
 #define BUCKET_POS(timer) (((ROUND_UP((timer.timeToRun - SStimer.head_offset) / world.tick_lag)+1) % BUCKET_LEN)||BUCKET_LEN)
 /// Gets the maximum time at which timers will be invoked from buckets, used for deferring to secondary queue
 #define TIMER_MAX (SStimer.head_offset + TICKS2DS(BUCKET_LEN + SStimer.practical_offset - 1))
-/// Max float with integer precision
-#define TIMER_ID_MAX (2**24)
 
 /**
  * # Timer Subsystem
@@ -154,7 +152,7 @@ SUBSYSTEM_DEF(timer)
 		bucket_list = src.bucket_list
 		resumed = FALSE
 
-	// Iterate through each bucket starting from the practical offsetAdd commentMore actions
+	// Iterate through each bucket starting from the practical offset
 	while (practical_offset <= BUCKET_LEN && head_offset + ((practical_offset - 1) * world.tick_lag) <= world.time)
 		var/datum/timedevent/timer
 		while ((timer = bucket_list[practical_offset]))
@@ -599,4 +597,3 @@ SUBSYSTEM_DEF(timer)
 #undef BUCKET_LEN
 #undef BUCKET_POS
 #undef TIMER_MAX
-#undef TIMER_ID_MAX

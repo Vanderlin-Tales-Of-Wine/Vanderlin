@@ -899,6 +899,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 	client.last_turn = world.time + MOB_FACE_DIRECTION_DELAY
 	return TRUE
 
+#undef MOB_FACE_DIRECTION_DELAY
+
 ///This might need a rename but it should replace the can this mob use things check
 /mob/proc/IsAdvancedToolUser()
 	return FALSE

@@ -207,3 +207,6 @@
 	if("print" in href_list)
 		var/id = url_encode(href_list["id"])
 		start_printing(usr, "archive", id)
+
+#undef PRINTER_COOLDOWN
+#undef PRINTING_TIME

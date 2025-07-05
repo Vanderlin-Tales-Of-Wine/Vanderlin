@@ -1,13 +1,3 @@
-#define SEARING_BLADE_ENCHANT 1
-#define FORCE_BLADE_ENCHANT 2
-#define DURABILITY_ENCHANT 3
-#define SEARING_BLADE_DAMAGE 8
-#define FORCE_BLADE_FORCE 5
-#define DURABILITY_INCREASE 100
-#define SEARING_FILTER "searing_blade"
-#define FORCE_FILTER "force_blade"
-#define DURABILITY_FILTER "durability_enchant"
-
 // There is literally an echantment system ?? why
 
 /**

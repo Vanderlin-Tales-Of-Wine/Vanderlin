@@ -1898,6 +1898,10 @@
 		animate(textleft, alpha = 255, time = 5, easing = EASE_IN)
 		animate(textright, alpha = 255, time = 5, easing = EASE_IN)
 
+#undef READ_RIGHT
+#undef READ_LEFT
+#undef READ_BOTH
+
 /atom/movable/screen/readtext
 	name = ""
 	icon = null

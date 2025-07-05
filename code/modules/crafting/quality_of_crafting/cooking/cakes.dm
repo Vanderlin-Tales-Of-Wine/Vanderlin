@@ -65,7 +65,7 @@
 	)
 	attacked_atom = /obj/item/reagent_containers/food/snacks/cake
 	starting_atom = /obj/item/reagent_containers/food/snacks/raisins
-	output = /obj/item/reagent_containers/food/snacks/chescake_poison
+	output = /obj/item/reagent_containers/food/snacks/chescake
 	uses_attacked_atom = TRUE
 	required_table = TRUE
 	craft_time = 6 SECONDS

@@ -387,6 +387,13 @@
 	if(!coin_amount)
 		set_quantity(rand(4,14))
 
+/obj/item/coin/silver/pile/xylix
+	name = MAP_SWITCH("ziliqua", "INFINTE COIN PILE")
+
+/obj/item/coin/silver/pile/xylix/Initialize()
+	. = ..()
+	set_quantity(rand(6,9))
+
 #undef CTYPE_GOLD
 #undef CTYPE_SILV
 #undef CTYPE_COPP

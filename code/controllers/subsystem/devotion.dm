@@ -247,3 +247,12 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	to_chat(holder_mob, span_boldnotice("I have been welcomed back into the folds of the Ten."))
 	if(passive_devotion_gain || passive_progression_gain)
 		START_PROCESSING(SSprocessing, src)
+
+#undef CLERIC_T0
+#undef CLERIC_T1
+#undef CLERIC_T2
+#undef CLERIC_T3
+
+#undef CLERIC_REQ_1
+#undef CLERIC_REQ_2
+#undef CLERIC_REQ_3

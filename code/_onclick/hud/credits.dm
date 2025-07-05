@@ -100,3 +100,9 @@
 
 /atom/movable/screen/credit/proc/FadeOut()
 	animate(src, alpha = 0, time = 10,  flags = ANIMATION_PARALLEL)
+
+#undef CREDIT_ROLL_SPEED
+#undef CREDIT_SPAWN_SPEED
+#undef CREDIT_ANIMATE_HEIGHT
+#undef CREDIT_EASE_DURATION
+#undef CREDITS_PATH

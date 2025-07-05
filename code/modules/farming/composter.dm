@@ -1,5 +1,6 @@
 #define MAXIMUM_TOTAL_COMPOST 2000
 #define COMPOST_PER_PRODUCED_ITEM 100
+#define COMPOST_PROCESS_RATE 300 / (1 MINUTES)
 
 /obj/structure/composter
 	name = "composter"
@@ -37,8 +38,6 @@
 /obj/structure/composter/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
-
-#define COMPOST_PROCESS_RATE 300 / (1 MINUTES)
 
 /obj/structure/composter/process()
 	var/dt = 10
@@ -194,3 +193,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	grid_width = 32
 	grid_height = 32
+
+#undef MAXIMUM_TOTAL_COMPOST
+#undef COMPOST_PER_PRODUCED_ITEM
+#undef COMPOST_PROCESS_RATE

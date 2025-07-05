@@ -493,9 +493,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/indoors)
 "gU" = (
-/obj/structure/door/stone{
-	lockid = "Dungeon1"
-	},
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
 /obj/structure/pressure_plate{
 	redstone_id = "W3"
@@ -743,9 +741,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "jR" = (
-/obj/structure/door/stone{
-	lockid = "Dungeon1"
-	},
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/hexstone,
@@ -1218,9 +1214,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "qP" = (
-/obj/structure/door/stone{
-	lockid = "Dungeon1"
-	},
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
@@ -2958,9 +2952,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors)
 "Qx" = (
-/obj/structure/door/stone{
-	lockid = "Dungeon1"
-	},
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/church)
@@ -3027,9 +3019,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "RE" = (
-/obj/structure/door/stone{
-	lockid = "Dungeon1"
-	},
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/church,
 /area/rogue/under/tomb/indoors)
@@ -3274,9 +3264,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/indoors)
 "UL" = (
-/obj/structure/door/stone{
-	lockid = "Dungeon1"
-	},
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)

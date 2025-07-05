@@ -202,3 +202,5 @@
 	for(var/datum/mind/M in members)
 		if(considered_alive(M))
 			M.adjust_triumphs(5)
+
+#undef INGAME_ROLE_HEAD_UPDATE_PERIOD
