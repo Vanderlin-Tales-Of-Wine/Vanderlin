@@ -20,12 +20,16 @@ GLOBAL_LIST_EMPTY_TYPED(schizohelps, /datum/schizohelp)
 	var/message = span_notice("<i>[display_name] meditates...</i>\n<b>[msg]</b>")
 	var/message_admins = span_notice("<i>[display_name] ([key || "NO KEY"]) [ADMIN_FLW(src)] [ADMIN_SM(src)] meditates...</i>\n<b>[msg]</b>")
 	log_game("([key || "NO KEY"]) mentorhelped: [msg]")
+
 	for(var/client/voice in ((GLOB.clients - client) - GLOB.admins))
 		if(!(voice.prefs.toggles & SCHIZO_VOICE))
 			continue
 		var/answer_button = span_notice("(<a href='byond://?src=[voice];schizohelp=[REF(ticket)];'>ANSWER</a>)")
 		to_chat(voice, mentor_block("[message]  [answer_button]"))
-		SEND_SOUND(voice, 'sound/misc/notice (2).ogg')
+
+		var/sound/used = sound('sound/misc/notice (2).ogg')
+		used.pitch *= 0.5
+		SEND_SOUND(voice, used)
 
 	for(var/client/admin in (GLOB.admins - client))
 		if(!(admin.prefs.chat_toggles & CHAT_PRAYER))
@@ -33,7 +37,6 @@ GLOBAL_LIST_EMPTY_TYPED(schizohelps, /datum/schizohelp)
 		var/added_text = span_notice("(<A href='?_src_=holder;[HrefToken()];mute=[ckey];mute_type=[MUTE_MEDITATE]'><span class='adminsay'>MUTE</span></a>)")
 		var/answer_button = span_notice("(<a href='byond://?src=[admin];schizohelp=[REF(ticket)];'>ANSWER</a>)")
 		to_chat(admin,  mentor_block("[message_admins] [added_text] [answer_button]"))
-		SEND_SOUND(admin, 'sound/misc/notice (2).ogg')
 	COOLDOWN_START(src, schizohelp_cooldown, 1 MINUTES)
 
 /mob/proc/get_schizo_name()
@@ -127,7 +130,9 @@ GLOBAL_LIST_EMPTY_TYPED(schizohelps, /datum/schizohelp)
 		qdel(src)
 		return
 	to_chat(schizo, mentor_block("[span_notice("<i>I hear a voice in my head...</i>\n<b>[answer]</b>")]"))
-	SEND_SOUND(schizo, 'sound/misc/notice (2).ogg')
+	var/sound/used = sound('sound/misc/notice (2).ogg')
+	used.pitch *= 1.5
+	SEND_SOUND(schizo, used)
 	for(var/client/admin in GLOB.admins)
 		if(!(admin.prefs.chat_toggles & CHAT_PRAYER))
 			continue
