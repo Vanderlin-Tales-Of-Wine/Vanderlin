@@ -37,3 +37,5 @@
 //used by chem masters and pill presses
 #define PILL_STYLE_COUNT 22 //Update this if you add more pill icons or you die
 #define RANDOM_PILL_STYLE 22 //Dont change this one though
+
+#define ALCOHOL_RATE 0.005 //The rate at which alcohol affects you

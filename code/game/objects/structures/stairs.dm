@@ -1,7 +1,3 @@
-#define STAIR_TERMINATOR_AUTOMATIC 0
-#define STAIR_TERMINATOR_NO 1
-#define STAIR_TERMINATOR_YES 2
-
 // stairs require /turf/open/transparent/openspace as the tile above them to work
 // multiple stair objects can be chained together; the Z level transition will happen on the final stair object in the chain
 

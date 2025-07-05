@@ -18,14 +18,16 @@
 	Aasimar roaming alone on Psydonia often are those abandoned after serving their purpose. \
 	This species is often revered due to their celestial origin, \
 	but face great solitude as not many of their kind exist. \
-	Many an aasimar will detest the reverance in which they are greeted with, \
+	Many an aasimar will detest the reverence in which they are greeted with, \
 	for their greatest failure or unuse that lead to their discarding is not subject for celebration. \
 	\n\n\
 	An aasimar may be crafted with any number of materials. \
-	Many resemble sculptures of stones or ceramic in skin, \
-	but their insides are just as mortal as any other."
+	Many resemble sculptures of stone or are ceramic in skin, \
+	but their insides are just as mortal as any other. \
+	Most Aasimar were created to serve The Ten, and few if any Psydonic Aasimar remain to this day- \
+	decrepit husks of what were once great warriors. "
 
-	skin_tone_wording = "Crafted With"
+	skin_tone_wording = "Craft"
 
 	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP)

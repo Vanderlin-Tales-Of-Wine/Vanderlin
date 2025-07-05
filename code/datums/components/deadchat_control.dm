@@ -104,3 +104,6 @@
 	if(orbiter in orbiters)
 		UnregisterSignal(orbiter, COMSIG_MOB_DEADSAY)
 		orbiters -= orbiter
+
+#undef DEMOCRACY_MODE
+#undef ANARCHY_MODE

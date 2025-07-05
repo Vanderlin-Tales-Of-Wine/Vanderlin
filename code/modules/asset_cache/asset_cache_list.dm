@@ -43,7 +43,7 @@
 		"dwarf.ttf" = 'interface/fonts/languages/dwarf.ttf',
 		"elf.ttf" = 'interface/fonts/languages/elf.ttf',
 		"oldpsydonic.ttf" = 'interface/fonts/languages/oldpsydonic.ttf',
-		"zybantine.ttf" = 'interface/fonts/languages/zybantine.ttf',
+		"zalad.ttf" = 'interface/fonts/languages/zalad.ttf',
 		"hell.ttf" = 'interface/fonts/languages/hell.ttf',
 		"orc.ttf" = 'interface/fonts/languages/orc.ttf',
 		"sand.ttf" = 'interface/fonts/languages/sand.ttf',

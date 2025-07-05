@@ -80,7 +80,6 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "aW" = (
 /obj/structure/door/stone{
-	lockid = "tomb";
 	max_integrity = 10000
 	},
 /obj/effect/mapping_helpers/access/locker,
@@ -2236,9 +2235,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Fl" = (
-/obj/structure/door/iron/bars{
-	lockid = "armory"
-	},
+/obj/structure/door/iron/bars,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -2792,8 +2789,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "NL" = (
 /obj/structure/door/iron/bars{
-	max_integrity = 10000;
-	lockid = "pitentrance"
+	max_integrity = 10000
 	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/churchrough,
@@ -3413,7 +3409,6 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "WQ" = (
 /obj/structure/door{
-	lockid = "dormroom";
 	max_integrity = 3000;
 	name = "Dormitories"
 	},

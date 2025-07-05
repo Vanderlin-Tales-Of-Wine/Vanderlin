@@ -36,7 +36,7 @@
 	if(!held_item)
 		icon_state = initial(icon_state)
 	else
-		icon_state = "[initial(icon_state)]i[hott]"
+		icon_state = "[initial(icon_state)]i[hott ? "1" : "0"]"
 
 /obj/item/weapon/tongs/proc/proxy_heat(incoming, max_heat)
 	if(istype(held_item, /obj/item/storage/crucible))

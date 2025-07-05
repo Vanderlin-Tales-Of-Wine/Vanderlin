@@ -1,14 +1,3 @@
-#define DEFAULT_DURATION 15 MINUTES
-#define SEARING_BLADE_ENCHANT 1
-#define FORCE_BLADE_ENCHANT 2
-#define DURABILITY_ENCHANT 3
-#define SEARING_BLADE_DAMAGE 8
-#define FORCE_BLADE_FORCE 5
-#define DURABILITY_INCREASE 100
-#define SEARING_FILTER "searing_blade"
-#define FORCE_FILTER "force_blade"
-#define DURABILITY_FILTER "durability_enchant"
-
 /* Component used for adding enchantment from the enchant weapon spell
 Three types of enchantments are available:
 1. Searing Blade: Applies 8 burn damage through armor, per strike
@@ -50,17 +39,17 @@ There used to be a concept for a blade to set people on fire - but it was too br
 		I.force_wielded += FORCE_BLADE_FORCE
 		var/force_blade_filter = I.get_filter(FORCE_FILTER)
 		if(!force_blade_filter)
-			I.add_filter(FORCE_FILTER, 2, list("type" = "outline", "color" = "#9400D3", "alpha" = 200, "size" = 1))
+			I.add_filter(FORCE_FILTER, 2, outline_filter(1, "#9400D3"))
 	else if(enchant_type == SEARING_BLADE_ENCHANT)
 		var/searing_blade_filter = I.get_filter(SEARING_FILTER)
 		if(!searing_blade_filter)
-			I.add_filter(SEARING_FILTER, 2, list("type" = "outline", "color" = "#64af18", "alpha" = 200, "size" = 1))
+			I.add_filter(SEARING_FILTER, 2, outline_filter(1, "#64af18"))
 	else if(enchant_type == DURABILITY_ENCHANT)
 		I.max_integrity += DURABILITY_INCREASE
 		I.obj_integrity += DURABILITY_INCREASE
 		var/durability_filter = I.get_filter(DURABILITY_FILTER)
 		if(!durability_filter)
-			I.add_filter(DURABILITY_FILTER, 2, list("type" = "outline", "color" = "#808080", "alpha" = 200, "size" = 1))
+			I.add_filter(DURABILITY_FILTER, 2, outline_filter(1, "#808080"))
 
 	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equip))
@@ -130,5 +119,3 @@ There used to be a concept for a blade to set people on fire - but it was too br
 			to_chat(M, span_warning("Flames leaps from [source] and singes you!"))
 			// Permanent temporary solution until I figure out how to hack a dynamic on mob sprites
 			// Bypass parry & dodge btw.
-
-#undef DEFAULT_DURATION

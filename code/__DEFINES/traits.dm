@@ -225,6 +225,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_SENSITIVE_EARS = span_info("People always did get mad at me for accidentally eavesdropping."),
 	))
 
+#define TRAIT_STATUS_EFFECT(effect_id) "[effect_id]-trait"
+
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
 #define SIGNAL_REMOVETRAIT(trait_ref) ("removetrait " + trait_ref)
 

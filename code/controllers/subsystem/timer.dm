@@ -154,7 +154,7 @@ SUBSYSTEM_DEF(timer)
 		bucket_list = src.bucket_list
 		resumed = FALSE
 
-	// Iterate through each bucket starting from the practical offsetAdd commentMore actions
+	// Iterate through each bucket starting from the practical offset
 	while (practical_offset <= BUCKET_LEN && head_offset + ((practical_offset - 1) * world.tick_lag) <= world.time)
 		var/datum/timedevent/timer
 		while ((timer = bucket_list[practical_offset]))

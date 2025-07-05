@@ -95,16 +95,53 @@
 		"LEAVE FOREST ALONE!",
 		"DENDOR PROTECTS!",
 		"NATURE'S WRATH!",
-		"BEGONE, INTERLOPER!"
+		"BEGONE, INTERLOPER!",
+		"BEGONE, DESTROYER!",
+		"NATURE SHALL PREVAIL!",
+		"NATURE SHALL RECLAIM THE LAND!",
+		"LEAVE US BE!",
+		"YOU HAVE DESTROYED ENOUGH!",
+		"DENDOR SMITES THE INTERLOPERS!",
+		"DENDOR SMITES THE DESTROYERS!",
 	)
 
-/obj/structure/flora/tree/wise/attackby(obj/item/I, mob/user, params)
+/obj/structure/flora/tree/wise/Initialize()
 	. = ..()
-	if(activated && !cooldown)
-		retaliate(user)
+	for(var/obj/structure/flora/tree/normal_tree in range(5, src))
+		if(normal_tree != src && !istype(normal_tree, /obj/structure/flora/tree/wise))
+			RegisterSignal(normal_tree, COMSIG_PARENT_ATTACKBY, TYPE_PROC_REF(/obj/structure/flora/tree/wise, protect_nearby_trees))
+			RegisterSignal(normal_tree, COMSIG_PARENT_QDELETING, TYPE_PROC_REF(/obj/structure/flora/tree/wise, cleanup_tree))
+	for(var/obj/structure/flora/newtree/new_tree in range(5, src))
+		if(!new_tree.burnt)
+			RegisterSignal(new_tree, COMSIG_PARENT_ATTACKBY, TYPE_PROC_REF(/obj/structure/flora/tree/wise, protect_nearby_trees))
+			RegisterSignal(new_tree, COMSIG_PARENT_QDELETING, TYPE_PROC_REF(/obj/structure/flora/tree/wise, cleanup_tree))
 
-/obj/structure/flora/tree/wise/proc/retaliate(mob/living/target)
-	if(cooldown || !istype(target) || !activated)
+/obj/structure/flora/tree/wise/proc/cleanup_tree(datum/source)
+	UnregisterSignal(source, list(COMSIG_PARENT_ATTACKBY, COMSIG_PARENT_QDELETING))
+
+/obj/structure/flora/tree/wise/Destroy()
+	for(var/obj/structure/flora/tree/normal_tree in range(5, src))
+		UnregisterSignal(normal_tree, list(COMSIG_PARENT_ATTACKBY, COMSIG_PARENT_QDELETING))
+	for(var/obj/structure/flora/newtree/new_tree in range(5, src))
+		UnregisterSignal(new_tree, list(COMSIG_PARENT_ATTACKBY, COMSIG_PARENT_QDELETING))
+	return ..()
+
+/obj/structure/flora/tree/wise/proc/protect_nearby_trees(datum/source, obj/item/I, mob/user)
+	SIGNAL_HANDLER
+	if(!cooldown && activated)
+		var/obj/structure/flora/tree/wise/closest_wise
+		var/closest_distance = INFINITY
+		for(var/obj/structure/flora/tree/wise/W in range(5, source))
+			var/distance = get_dist(W, source)
+			if(distance < closest_distance)
+				closest_distance = distance
+				closest_wise = W
+
+		if(closest_wise == src)
+			closest_wise.retaliate(user, source)
+
+/obj/structure/flora/tree/wise/proc/retaliate(mob/living/target, obj/structure/flora/attacked_tree)
+	if(cooldown || !istype(target) || !activated || !attacked_tree)
 		return
 
 	cooldown = TRUE
@@ -113,9 +150,15 @@
 	var/message = pick(retaliation_messages)
 	say(span_danger("[message]"))
 
-	var/atom/throw_target = get_edge_target_turf(src, get_dir(src, target))
+	var/atom/throw_target = get_edge_target_turf(attacked_tree, get_dir(attacked_tree, target))
 	target.throw_at(throw_target, 4, 2)
+	target.Knockdown(2 SECONDS)
 	target.adjustBruteLoss(8)
+
+/obj/structure/flora/tree/wise/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(activated && !cooldown)
+		retaliate(user)
 
 /obj/structure/flora/tree/burnt
 	name = "burnt tree"

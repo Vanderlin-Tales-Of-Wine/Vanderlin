@@ -158,3 +158,28 @@
 #define SHARED_HIGH_THREAT	"high threat event"
 #define SHARED_ANOMALIES	"anomalous event"
 #define SHARED_MINOR_THREAT "minor event"
+
+/// Divine pantheon storytellers
+#define DIVINE_STORYTELLERS list( \
+	/datum/storyteller/astrata, \
+	/datum/storyteller/noc, \
+	/datum/storyteller/ravox, \
+	/datum/storyteller/abyssor, \
+	/datum/storyteller/xylix, \
+	/datum/storyteller/necra, \
+	/datum/storyteller/pestra, \
+	/datum/storyteller/malum, \
+	/datum/storyteller/eora, \
+	/datum/storyteller/dendor, \
+)
+
+/// Inhumen pantheon storytellers
+#define INHUMEN_STORYTELLERS list( \
+	/datum/storyteller/zizo, \
+	/datum/storyteller/baotha, \
+	/datum/storyteller/graggar, \
+	/datum/storyteller/matthios, \
+)
+
+/// All storytellers
+#define STORYTELLERS_ALL (DIVINE_STORYTELLERS + INHUMEN_STORYTELLERS)

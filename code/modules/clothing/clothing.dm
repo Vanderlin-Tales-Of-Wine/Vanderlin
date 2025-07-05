@@ -1,8 +1,3 @@
-#define ARMOR_CLASS_NONE 0
-#define AC_LIGHT 1
-#define AC_MEDIUM 2
-#define AC_HEAVY 3
-
 /obj/item/clothing
 	name = "clothing"
 	resistance_flags = FLAMMABLE
