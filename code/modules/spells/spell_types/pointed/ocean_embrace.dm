@@ -2,7 +2,7 @@
 	name = "Ocean's Embrace"
 	desc = "Restore the blood of a target, or drown them."
 	button_icon_state = "revive"
-	sound = 'sound/foley/jumpland/waterland.wav'
+	sound = 'sound/foley/jumpland/waterland.ogg'
 	sound_loop = /datum/looping_sound/invokeholy
 
 	cast_range = 3
