@@ -177,6 +177,7 @@
 					return FALSE
 				found = TRUE
 				H.cleric?.excommunicate()
+				break
 			return FALSE
 
 		GLOB.excommunicated_players += inputty
@@ -209,6 +210,7 @@
 					return FALSE
 				found = TRUE
 				H.add_stress(/datum/stressevent/psycurse)
+				break
 			return FALSE
 
 		GLOB.heretical_players += inputty
