@@ -63,7 +63,7 @@
 //............... Tricorn ............... //
 /obj/item/clothing/head/helmet/leather/tricorn
 	name = "tricorn hat"
-	desc = "A black leather hat with a shaped brim that have been folded up forming three points."
+	desc = "A black leather hat with a shaped brim that has been folded to form three points."
 	icon_state = "renegadetricorn"
 
 //............... Ominous Hood ............... //
