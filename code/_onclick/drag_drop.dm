@@ -70,7 +70,9 @@
 /atom/movable/screen
 	blockscharging = TRUE
 
-/client/MouseDown(object, location, control, params)
+/client/MouseDown(datum/object, location, control, params)
+	if(!control || QDELETED(object))
+		return
 	if(mob.incapacitated(ignore_grab = TRUE))
 		return
 	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDOWN, object, location, control, params)
@@ -92,7 +94,7 @@
 		mouse_pointer_icon = 'icons/effects/mousemice/human.dmi'
 		return
 
-	if (mouse_down_icon)
+	if(mouse_down_icon)
 		mouse_pointer_icon = mouse_down_icon
 	var/delay = mob.CanMobAutoclick(object, location, params)
 
@@ -149,10 +151,6 @@
 		if(mob.mmb_intent)
 			mob.cast_move = 0
 			mob.used_intent = mob.mmb_intent
-			if(mob.used_intent.type == INTENT_SPELL && mob.ranged_ability)
-				var/obj/effect/proc_holder/spell/S = mob.ranged_ability
-				if(!S.cast_check(TRUE,mob, mob.mmb_intent))
-					return
 		if(!mob.mmb_intent)
 			mouse_pointer_icon = 'icons/effects/mousemice/human_looking.dmi'
 		else
@@ -186,19 +184,21 @@
 	var/accent = ACCENT_DEFAULT
 
 /client/MouseUp(object, location, control, params)
+	if(!control)
+		return
+	if(SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEUP, object, location, control, params) & COMPONENT_CLIENT_MOUSEUP_INTERCEPT)
+		click_intercept_time = world.time
+	if(mouse_up_icon)
+		mouse_pointer_icon = 'icons/effects/mousemice/human.dmi'
 	var/mob/living/L = mob
 	if(L)
 		update_to_mob(L)
 	charging = 0
 	last_charge_process = 0
-//	mob.update_warning()
-	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEUP, object, location, control, params)
 
 	if(istype(object, /obj/abstract/visual_ui_element/hoverable/movable))
 		var/obj/abstract/visual_ui_element/hoverable/movable/ui_object = object
 		ui_object.MouseUp(location, control, params)
-
-	mouse_pointer_icon = 'icons/effects/mousemice/human.dmi'
 
 	if(mob.curplaying)
 		mob.curplaying.on_mouse_up()
@@ -375,7 +375,6 @@
 	. = 1
 
 /client/MouseDrag(src_object,atom/over_object,src_location,over_location,src_control,over_control,params)
-
 	if(mob.incapacitated(ignore_grab = TRUE))
 		return
 
@@ -398,7 +397,7 @@
 		selected_target[2] = params
 	if(active_mousedown_item)
 		active_mousedown_item.onMouseDrag(src_object, over_object, src_location, over_location, params, mob)
-	//SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDRAG, src_object, over_object, src_location, over_location, src_control, over_control, params)
+	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDRAG, src_object, over_object, src_location, over_location, src_control, over_control, params)
 	return ..()
 
 /obj/item/proc/onMouseDrag(src_object, over_object, src_location, over_location, params, mob)

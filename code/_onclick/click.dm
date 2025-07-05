@@ -115,9 +115,6 @@
 				if(mmb_intent.no_early_release && client?.chargedprog < 100)
 					changeNext_move(mmb_intent.clickcd)
 					return
-		else if(client?.keys_held["Shift"])
-			spell_quickselect(A)
-			return
 
 	if(LAZYACCESS(modifiers, LEFT_CLICK))
 		if(atkswinging != "left")
@@ -785,9 +782,6 @@
 /atom/proc/rmb_self(mob/user)
 	return
 
-/mob/proc/rmb_on(atom/A, params)
-	return
-
 /mob/proc/RightClickOn(atom/A, params)
 	if(stat >= UNCONSCIOUS)
 		return
@@ -795,8 +789,6 @@
 	if(A.Adjacent(src))
 		if(A.loc == src && (A == get_active_held_item()) )
 			A.rmb_self(src)
-		else
-			rmb_on(A, params)
 	else if(uses_intents && used_intent.rmb_ranged)
 		used_intent.rmb_ranged(A, src) //get the message from the intent
 	if(isturf(A.loc))
