@@ -26,14 +26,14 @@
 	max_integrity = 50
 	opacity = TRUE
 
-/obj/structure/spider/stickyweb/CanPass(atom/movable/mover, turf/target)
-	if(isliving(mover))
-		if(prob(50) && !HAS_TRAIT(mover, TRAIT_WEBWALK))
+/obj/structure/spider/stickyweb/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(!HAS_TRAIT(mover, TRAIT_WEBWALK) && isliving(mover))
+		if(prob(50))
 			to_chat(mover, "<span class='danger'>I get stuck in \the [src] for a moment.</span>")
 			return FALSE
 	else if(istype(mover, /obj/projectile))
 		return prob(30)
-	return TRUE
 
 /obj/structure/spider/stickyweb/fire_act(added, maxstacks)
 	visible_message("<span class='warning'>[src] catches fire!</span>")

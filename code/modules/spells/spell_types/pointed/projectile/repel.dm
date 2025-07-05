@@ -3,7 +3,7 @@
 	desc = "Shoot out a magical bolt that pushes out the target struck away from the caster. If in throw mode, throw your held item with the same force."
 	button_icon_state = "fetch"
 	cast_range = 10
-	sound = 'modular/modular_azure/sound/unmagnet.ogg'
+	sound = 'sound/magic/unmagnet.ogg'
 
 	point_cost = 3
 	attunements = list(

@@ -2,7 +2,7 @@
 	name = "Gravity"
 	desc = "Weighten space around someone, crushing them."
 	button_icon_state = "gravity"
-	sound = 'modular/modular_azure/sound/gravity.ogg'
+	sound = 'sound/magic/gravity.ogg'
 
 	point_cost = 2
 	attunements = list(
