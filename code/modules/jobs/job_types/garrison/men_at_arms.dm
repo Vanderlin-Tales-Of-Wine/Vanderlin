@@ -87,40 +87,39 @@
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
-/datum/advclass/menatarms/watchman_swordsmen
-	name = "Fencer Men-At-Arms"
+/datum/advclass/menatarms/doorbreaker
+	name = "Door-Breaker Men-At-Arms"
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
-	You were quite a good dancer, you've blended that skill with your blade- \
-	exanguinated personally by one of the Monarch's best. \
+	You are renowned within the Guard for your strength and your ability to destroy anything that stands within your way. \
+	You carry an impressive hammer, and you are not afraid to use it against anyone who dares to oppose the king's will. \
 	You are poor, and your belly is yet full."
-	outfit = /datum/outfit/job/watchman/swordsmen
+	outfit = /datum/outfit/job/watchman/doorbreaker
 	category_tags = list(CTAG_MENATARMS)
 
-/datum/outfit/job/watchman/swordsmen/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/watchman/doorbreaker/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = pick(/obj/item/clothing/head/roguehood/guard, /obj/item/clothing/head/roguehood/guardsecond)
-	armor = /obj/item/clothing/armor/leather/advanced
-	shirt = /obj/item/clothing/armor/gambeson
+	armor = /obj/item/clothing/armor/plate/iron
+	shirt = /obj/item/clothing/armor/chainmail
 	neck = /obj/item/clothing/neck/gorget
+	head = /obj/item/clothing/head/helmet/heavy/ironplate
 	gloves = /obj/item/clothing/gloves/chain
-	beltr = /obj/item/weapon/sword/rapier
+	backr = /obj/item/weapon/polearm/eaglebeak/lucerne
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
 	if(H.mind)
-		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.change_stat(STATKEY_END, 2)
-		H.change_stat(STATKEY_SPD, 2)
-		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+		H.change_stat(STATKEY_CON, 2)
+		H.change_stat(STATKEY_STR, 3)
+		H.change_stat(STATKEY_INT, -2) //ABSURD STRENGTH AND CON, BUT YOU'RE SLOW AND DUMB
+		H.change_stat(STATKEY_SPD, -3)
+		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 		H.verbs |= /mob/proc/haltyell
 
