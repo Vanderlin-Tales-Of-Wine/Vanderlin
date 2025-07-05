@@ -101,7 +101,7 @@ SUBSYSTEM_DEF(ambience)
 			used = background_track_dusk
 	else if(uses_alt_droning)
 		used = safepick(alternative_droning)
-		if(time == "night" && LAZYLEN(alternative_droning_night))
+		if(time == "night" && length(alternative_droning_night))
 			used = pick(alternative_droning_night)
 
 	return used
