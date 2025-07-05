@@ -22,7 +22,7 @@
 	var/mob/living/simple_animal/hostile/retaliate/blood/flesh = controller.pawn
 
 	flesh.visible_message("<span class='danger'>[flesh] goes into a blood frenzy!</span>")
-	flesh.add_filter("frenzy_outline", 2, list("type" = "outline", "color" = "#FF0000", "size" = 2))
+	flesh.add_filter("frenzy_outline", 2, outline_filter(2, "#FF0000"))
 	playsound(flesh, 'sound/magic/barbroar.ogg', 100, TRUE)
 
 	controller.blackboard[BB_FLESH_FRENZY_ACTIVE] = world.time
@@ -99,20 +99,20 @@
 	return TRUE
 
 /datum/ai_behavior/start_flesh_regeneration/perform(delta_time, datum/ai_controller/controller)
-		. = ..()
-		var/mob/living/simple_animal/hostile/retaliate/blood/flesh = controller.pawn
+	. = ..()
+	var/mob/living/simple_animal/hostile/retaliate/blood/flesh = controller.pawn
 
-		flesh.visible_message("<span class='warning'>[flesh] hunkers down and begins to pulsate grotesquely!</span>")
-		flesh.add_filter("regen_ripple", 3, list("type" = "ripple", "flags" = WAVE_BOUNDED, "radius" = 0, "size" = 2))
-		animate(flesh.get_filter("regen_ripple"), radius = 32, time = 15, size = 2, repeat = -1, flags = ANIMATION_PARALLEL)
+	flesh.visible_message("<span class='warning'>[flesh] hunkers down and begins to pulsate grotesquely!</span>")
+	flesh.add_filter("regen_ripple", 3, ripple_filter(0, 2, flags = WAVE_BOUNDED))
+	animate(flesh.get_filter("regen_ripple"), radius = 32, time = 15, size = 2, repeat = -1, flags = ANIMATION_PARALLEL)
 
-		controller.blackboard[BB_FLESH_IS_REGENERATING] = TRUE
-		controller.blackboard[BB_FLESH_LAST_HEALTH] = flesh.health
+	controller.blackboard[BB_FLESH_IS_REGENERATING] = TRUE
+	controller.blackboard[BB_FLESH_LAST_HEALTH] = flesh.health
 
-		// Clear aggro list to stop attacking while regenerating
-		controller.clear_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET)
+	// Clear aggro list to stop attacking while regenerating
+	controller.clear_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET)
 
-		finish_action(controller, TRUE)
+	finish_action(controller, TRUE)
 
 /datum/ai_behavior/continue_flesh_regeneration
 	behavior_flags = AI_BEHAVIOR_CAN_PLAN_DURING_EXECUTION

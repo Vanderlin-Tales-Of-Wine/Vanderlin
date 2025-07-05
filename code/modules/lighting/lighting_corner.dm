@@ -8,11 +8,11 @@ GLOBAL_LIST_INIT(LIGHTING_CORNER_DIAGONAL, list(NORTHEAST, SOUTHEAST, SOUTHWEST,
 /datum/lighting_corner
 	var/list/turf/masters
 	var/list/datum/light_source/affecting // Light sources affecting us.
-	var/active                            = FALSE  // TRUE if one of our masters has dynamic lighting.
+	var/active = FALSE  // TRUE if one of our masters has dynamic lighting.
 
-	var/x     = 0
-	var/y     = 0
-	var/z     = 0
+	var/x = 0
+	var/y = 0
+	var/z = 0
 
 	var/lum_r = 0
 	var/lum_g = 0
@@ -20,9 +20,9 @@ GLOBAL_LIST_INIT(LIGHTING_CORNER_DIAGONAL, list(NORTHEAST, SOUTHEAST, SOUTHWEST,
 
 	var/needs_update = FALSE
 
-	var/cache_r  = LIGHTING_SOFT_THRESHOLD
-	var/cache_g  = LIGHTING_SOFT_THRESHOLD
-	var/cache_b  = LIGHTING_SOFT_THRESHOLD
+	var/cache_r = LIGHTING_SOFT_THRESHOLD
+	var/cache_g = LIGHTING_SOFT_THRESHOLD
+	var/cache_b = LIGHTING_SOFT_THRESHOLD
 	var/cache_mx = 0
 
 /datum/lighting_corner/New(turf/new_turf, diagonal)
@@ -77,16 +77,12 @@ GLOBAL_LIST_INIT(LIGHTING_CORNER_DIAGONAL, list(NORTHEAST, SOUTHEAST, SOUTHWEST,
 
 /datum/lighting_corner/proc/update_active()
 	active = FALSE
-	var/turf/T
-	var/thing
-	for (thing in masters)
-		T = thing
-		if (T.lighting_object)
+	for(var/turf/T as anything in masters)
+		if(T.lighting_object)
 			active = TRUE
 
 // God that was a mess, now to do the rest of the corner code! Hooray!
 /datum/lighting_corner/proc/update_lumcount(delta_r, delta_g, delta_b)
-
 	if ((abs(delta_r)+abs(delta_g)+abs(delta_b)) == 0)
 		return
 
@@ -122,17 +118,14 @@ GLOBAL_LIST_INIT(LIGHTING_CORNER_DIAGONAL, list(NORTHEAST, SOUTHEAST, SOUTHWEST,
 	#endif
 	cache_mx = round(mx, LIGHTING_ROUND_VALUE)
 
-	for (var/TT in masters)
-		var/turf/T = TT
-		if (T.lighting_object)
-			if (!T.lighting_object.needs_update)
+	for(var/turf/T as anything in masters)
+		if(T.lighting_object)
+			if(!T.lighting_object.needs_update)
 				T.lighting_object.needs_update = TRUE
 				SSlighting.objects_queue += T.lighting_object
 
-
 /datum/lighting_corner/dummy/New()
 	return
-
 
 /datum/lighting_corner/Destroy(force)
 	if (!force)

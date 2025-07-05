@@ -3,7 +3,6 @@
     "grenz": {
 	"Vanderlin": "Wanderlein",
 	"Rockhill": "Rockhugel",
-	"Zybantine": "Zeebantein",
 	"Zybant": "Zeebant",
 	"Murderwood": "Mordwald",
 	"Terrorbog": "Terrormoor",
@@ -60,7 +59,7 @@
         "great": "groß",
 	"greatest": "größte",
         "goodbye": [
-	 "auf wiedersehen", 
+	 "auf wiedersehen",
 	 "tschüss"
 	],
 	"bad": "schlecht",
@@ -85,7 +84,7 @@
 	"lord": "Herr",
 	"princess": "Prinzess",
         "prince": "Prinz",
-	
+
         "dwarf": "Zwarf",
         "tiefling": "Teufel",
         "dragon": "Drachen",
@@ -107,11 +106,11 @@
 	"pig": "Schwein",
 	"saiga": "Reh",
 	"forest": [
-	 "wald", 
+	 "wald",
 	 "forst"
 	],
 	"bog": [
-	 "moor", 
+	 "moor",
 	 "sumpf"
 	],
 	"swamp": "Sumpf",

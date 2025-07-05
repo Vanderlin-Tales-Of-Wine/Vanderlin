@@ -51,16 +51,11 @@
 		return
 	var/level = clamp(CEILING(essence_percent * 7, 1), 1, 7)
 
-	var/mutable_appearance/MA = mutable_appearance(icon, "liquid_[level]")
-	MA.color = calculate_mixture_color()
-	. += MA
-
-	var/mutable_appearance/emissive = mutable_appearance(icon, "liquid_[level]")
-	emissive.plane = EMISSIVE_PLANE
-	. += emissive
+	. += mutable_appearance(icon, "liquid_[level]", color = calculate_mixture_color())
+	. += emissive_appearance(icon, "liquid_[level]", alpha = src.alpha)
 
 	if(processing)
-		. += mutable_appearance(icon, "combining", ABOVE_MOB_LAYER)
+		. += mutable_appearance(icon, "combining", layer = src.layer + 0.01)
 
 /obj/machinery/essence/combiner/examine(mob/user)
 	. = ..()

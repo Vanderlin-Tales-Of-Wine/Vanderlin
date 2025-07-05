@@ -15,7 +15,7 @@
 	///for when we print out a selling manifest we have this which shows the price decreases
 	var/list/price_change_manifest = list()
 
-	///modifiers that are hard set by the faction think zybantine needing food more cause desert.
+	///modifiers that are hard set by the faction think zalad needing food more cause desert.
 	var/list/hard_value_multipliers = list()
 
 	///this is our town reputation, this changes the buy and sell modifiers on a faction to faction basis

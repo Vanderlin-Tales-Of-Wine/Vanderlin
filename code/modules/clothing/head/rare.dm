@@ -64,7 +64,7 @@
 //............... Kataphract/bastion/spear/zyban Helmet ............... //
 /obj/item/clothing/head/rare/zybanplate // Unique Freelancer kit
 	name = "bastion helm"
-	desc = "The Zybantu Kataphractoe are the ancestral guardians of the first Despot, \
+	desc = "The Zaladin Kataphractoe are the ancestral guardians of the first Despot, \
 			their helms designed in the fashion of the capital's majestic sky-piercing tower \
 			where the old God-King resided."
 	icon_state = "human_spearhead"

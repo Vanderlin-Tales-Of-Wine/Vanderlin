@@ -154,7 +154,7 @@
 /*	.................   Bread   ................... */
 /obj/item/reagent_containers/food/snacks/bread
 	name = "bread loaf"
-	desc = "One of the staple foods of commoners. With the decline of magic, the loss of bread-duplication has led to mass famines around Psydonia."
+	desc = "One of the staple foods of commoners. A simple meal, yet a luxury men will die for."
 	icon_state = "loaf"
 	base_icon_state = "loaf"
 	dropshrink = 0.8
@@ -558,7 +558,7 @@
 	rotprocess = SHELFLIFE_LONG
 
 /obj/item/reagent_containers/food/snacks/zybcake
-	name = "zybantu cake base"
+	name = "zaladin cake base"
 	desc = "With this sweet thing, you shall make them sing. Lacking spider-honey glazing."
 	icon_state = "cake_filled"
 	dropshrink = 0.8
@@ -566,9 +566,9 @@
 	foodtype = GRAIN | DAIRY
 	rotprocess = SHELFLIFE_LONG
 
-// -------------- SPIDER-HONEY CAKE (Zybantu) -----------------
+// -------------- SPIDER-HONEY CAKE (Zaladin) -----------------
 /obj/item/reagent_containers/food/snacks/zybcake_ready
-	name = "unbaked zybantu cake"
+	name = "unbaked zaladin cake"
 	icon_state = "honeycakeuncook"
 	dropshrink = 0.8
 	slices_num = 0
@@ -576,8 +576,8 @@
 	rotprocess = SHELFLIFE_DECENT
 
 /obj/item/reagent_containers/food/snacks/zybcake_cooked
-	name = "zybantine cake"
-	desc = "Cake glazed with honey, in the famous Zybantu fashion, a delicious sweet treat. Said to be very hard to poison, perhaps the honey counteracting such malicious concotions."
+	name = "zalad cake"
+	desc = "Cake glazed with honey, in the famous Zaladin fashion, a delicious sweet treat. Said to be very hard to poison, perhaps the honey counteracting such malicious concotions."
 	icon_state = "honeycake"
 	dropshrink = 0.8
 	slices_num = 6
@@ -592,7 +592,7 @@
 	faretype = FARE_LAVISH
 
 /obj/item/reagent_containers/food/snacks/zybcake_slice
-	name = "zybantine cake slice"
+	name = "zalad cake slice"
 	icon_state = "hcake_slice"
 	base_icon_state = "hcake_slice"
 	dropshrink = 0.8

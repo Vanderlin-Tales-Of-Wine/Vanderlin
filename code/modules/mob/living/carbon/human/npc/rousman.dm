@@ -16,21 +16,17 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 
 /mob/living/carbon/human/species/rousman/Initialize()
 	. = ..()
-	//Eyes glow in the dark
-	if(stat != DEAD)
-		var/mutable_appearance/eye_overlay = mutable_appearance('icons/roguetown/mob/monster/rousman.dmi', "rousman_eyes")
-		eye_overlay.plane = 19
-		eye_overlay.layer = 19
-		add_overlay(eye_overlay)
+	update_appearance(UPDATE_OVERLAYS)
 
 /mob/living/carbon/human/species/rousman/death(gibbed)
-	..()
-	//Stop glowing in the dark when dead
-	var/mutable_appearance/eye_overlay = mutable_appearance('icons/roguetown/mob/monster/rousman.dmi', "rousman_eyes")
-	eye_overlay.color = COLOR_BLACK
-	eye_overlay.plane = 19
-	eye_overlay.layer = 19
-	add_overlay(eye_overlay)
+	. = ..()
+	update_appearance(UPDATE_OVERLAYS)
+
+/mob/living/carbon/human/species/rousman/update_overlays()
+	. = ..()
+	if(stat == DEAD)
+		return
+	. += emissive_appearance('icons/roguetown/mob/monster/rousman.dmi', "rousman_eyes", alpha = src.alpha)
 
 /mob/living/carbon/human/species/rousman/npc
 	ai_controller = /datum/ai_controller/human_npc
