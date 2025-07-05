@@ -74,17 +74,15 @@
 	whp = 80
 	woundpain = 100
 
+/datum/wound/dislocation/neck/can_apply_to_mob(mob/living/affected)
+	if(!QDELETED(affected) && istype(affected, /mob/living/carbon/human/species/skeleton/death_arena))
+		return FALSE
+	. = ..()
+
 /datum/wound/dislocation/neck/on_mob_gain(mob/living/affected)
 	. = ..()
-	if(!istype(affected, /mob/living/carbon/human/species/skeleton/death_arena))
-		ADD_TRAIT(affected, TRAIT_PARALYSIS, "[type]")
-	// if(iscarbon(affected))
-	// 	var/mob/living/carbon/carbon_affected = affected
-		// carbon_affected.update_disabled_bodyparts()
+	ADD_TRAIT(affected, TRAIT_PARALYSIS, "[type]")
 
 /datum/wound/dislocation/neck/on_mob_loss(mob/living/affected)
 	. = ..()
 	REMOVE_TRAIT(affected, TRAIT_PARALYSIS, "[type]")
-	// if(iscarbon(affected))
-	// 	var/mob/living/carbon/carbon_affected = affected
-		// carbon_affected.update_disabled_bodyparts()

@@ -1346,6 +1346,11 @@ GLOBAL_VAR_INIT(mobids, 1)
 		input = capitalize(copytext(input, customsayverb+1))
 	return "[message_spans_start(spans)][input]</span>"
 
+/mob/living/proc/can_smell()
+	if(HAS_TRAIT(src, TRAIT_MISSING_NOSE))
+		return FALSE
+	return TRUE
+
 /// Send a menu that allows for the selection of an item. Randomly selects one after time_limit. selection_list should be an associative list of string and typepath
 /mob/proc/select_equippable(user_client, list/selection_list, time_limit = 20 SECONDS, message = "", title = "")
 	if(QDELETED(src) || !mind)
