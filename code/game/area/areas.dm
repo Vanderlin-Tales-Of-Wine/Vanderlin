@@ -379,22 +379,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(first_time_text)
 		L.intro_area(src)
 
-/// Get the buzz that should play in accordance with the time
-/area/proc/get_current_buzz(is_lit)
-	var/time = GLOB.tod
-	var/used = background_track
-	if(is_lit)
-		if(time == "night" && background_track_night)
-			used = background_track_night
-		else if (time == "dusk" && background_track_dusk)
-			used = background_track_dusk
-	else if(uses_alt_droning)
-		used = safepick(alternative_droning)
-		if(time == "night" && LAZYLEN(alternative_droning_night))
-			used = pick(alternative_droning_night)
-
-	return used
-
 /client
 	var/musicfading = 0
 
