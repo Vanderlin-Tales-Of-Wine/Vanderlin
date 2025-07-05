@@ -112,12 +112,6 @@
 	var/atom/movable/screen/splash/credits/S = new(src, FALSE)
 	S.Fade(FALSE,FALSE)
 	RollCredits()
-//	if(GLOB.credits_icons.len)
-//		for(var/i=0, i<=GLOB.credits_icons.len, i++)
-//			var/atom/movable/screen/P = new()
-//			P.layer = SPLASHSCREEN_LAYER+1
-//			P.appearance = GLOB.credits_icons
-//			screen += P
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	set waitfor = FALSE
@@ -212,13 +206,9 @@
 	var/end_reason
 
 	if(!check_for_lord(TRUE)) //TRUE forces the check, otherwise it will autofail.
-		end_reason = pick("Without a Monarch, they were doomed to become slaves of Zizo.",
-						"Without a Monarch, they were doomed to be eaten by nite creachers.",
-						"Without a Monarch, they were doomed to become victims of Gehenna.",
-						"Without a Monarch, they were doomed to enjoy a mass-suicide.",
-						"Without a Monarch, the Lich made them his playthings.",
-						"Without a Monarch, some jealous rival reigned in tyranny.",
-						"Without a Monarch, the town was abandoned.")
+		end_reason = pick("Without a Monarch, the forces of Zizo grew ever bolder.",
+						"Without a Monarch, the settlement fell into turmoil.",
+						"Without a Monarch, some jealous rival reigned in tyranny.")
 
 	if(vampire_werewolf() == "vampire")
 		end_reason = "When the Vampires finished sucking the town dry, they moved on to the next one."

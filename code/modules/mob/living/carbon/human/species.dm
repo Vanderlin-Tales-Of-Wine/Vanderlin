@@ -318,7 +318,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 				/datum/language/hellspeak = "Infernal",
 				/datum/language/orcish = "Orcish",
 				/datum/language/celestial = "Celestial",
-				/datum/language/zybantine = "Zybean"
+				/datum/language/zalad = "Zalad"
 			)
 
 			if (language in language_map)
@@ -1656,10 +1656,15 @@ GLOBAL_LIST_EMPTY(patreon_races)
 			affecting = target.get_bodypart(BODY_ZONE_CHEST)
 		var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = BCLASS_BLUNT)
 		var/damage = user.get_kick_damage(1.4)
+		var/damage_blocked = FALSE
+
 		if(!target.apply_damage(damage, user.dna.species.attack_type, affecting, armor_block))
+			damage_blocked = TRUE
 			target.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 		else
 			affecting.bodypart_attacked_by(BCLASS_BLUNT, damage, user, selzone)
+
+		SEND_SIGNAL(user, COMSIG_MOB_KICK, target, selzone, damage_blocked)
 		playsound(target, 'sound/combat/hits/kick/kick.ogg', 100, TRUE, -1)
 		target.lastattacker = user.real_name
 		target.lastattackerckey = user.ckey

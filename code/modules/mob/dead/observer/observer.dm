@@ -14,7 +14,7 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	desc = "" //jinkies!
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
-	layer = GHOST_LAYER
+	plane = GHOST_PLANE
 	stat = DEAD
 	density = FALSE
 	see_invisible = SEE_INVISIBLE_OBSERVER
@@ -180,7 +180,7 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 				var/image/MA = new(body)
 				MA.transform = null //so we are standing
 				appearance = MA
-				layer = GHOST_LAYER
+				plane = GHOST_PLANE
 				pixel_x = 0
 				pixel_y = 0
 				invisibility = INVISIBILITY_OBSERVER
@@ -521,7 +521,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 				A.desc = message
 				var/old_layer = source.layer
 				var/old_plane = source.plane
-				source.layer = FLOAT_LAYER
 				source.plane = FLOAT_PLANE
 				A.add_overlay(source)
 				source.layer = old_layer

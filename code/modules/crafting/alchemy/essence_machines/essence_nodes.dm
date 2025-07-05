@@ -43,9 +43,7 @@
 
 /obj/structure/essence_node/update_overlays()
 	. = ..()
-	var/mutable_appearance/emissive = mutable_appearance(icon, icon_state)
-	emissive.plane = EMISSIVE_PLANE
-	. += emissive
+	. += emissive_appearance(icon, icon_state, alpha = src.alpha)
 
 /obj/structure/essence_node/update_icon_state()
 	. = ..()

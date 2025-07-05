@@ -10,21 +10,21 @@
 /datum/species/human/halfelf
 	name = "Half-Elf"
 	id = "human"
-	desc = "The child of Elf and Humen. \
+	desc = "The child of an Elf and a Humen. \
 	\n\n\
 	Half-Elves are generally frowned upon by more conservative peoples, \
-	although as species tensions lower, more and more half-elves are being born. \
-	To the point that some scholars worry that someday, \
+	although as species tensions lower, more and more half-elves are being born- \
+	to the point that some scholars worry someday \
 	it may be impossible to distinguish the two species. \
 	\n\n\
 	Half-Elves are extraordinarily diverse, as they combine both Humen and Elvish culture. \
 	It is widely considered that Half-Elf culture is simply a melting pot of \
 	various others condensing into one vibrant entity. \
 	\n\n\
-	Their longevity spanning too long for a human and short for an elf lead them to congregate together. \
-	Due to their heritage, Half-Elves tend to gain species traits \
+	With their longevity spanning too long for a human and too short for an elf, they tend to congregate together. \
+	Depending on their heritage, Half-Elves tend to gain species traits \
 	depending on how strong their fathers, or mothers, genes were. \
-	Half-Elves also typically try to find identity."
+	Half-Elves typically struggle to find their own identity."
 
 	skin_tone_wording = "Half-Elven Identity"
 
@@ -155,11 +155,7 @@
 	"blond - strawberry" = "c69b71",
 
 	"green - leaf" = "2f3c2e",
-	"green - moss" = "3b3c2a",
-
-	"white - snow" = "dee9ed",
-	"white - ice" = "f4f4f4"
-
+	"green - moss" = "3b3c2a"
 	))
 
 /datum/species/human/halfelf/get_possible_names(gender = MALE)

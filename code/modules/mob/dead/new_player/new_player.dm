@@ -1,3 +1,6 @@
+#define LINKIFY_READY(string, value) "<a href='byond://?src=[REF(src)];ready=[value]'>[string]</a>"
+GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.txt"))
+
 /mob/dead/new_player
 	flags_1 = NONE
 	invisibility = INVISIBILITY_ABSTRACT
@@ -178,9 +181,9 @@
 	set name = "Lore Primer"
 	set category = "Memory"
 	var/list/dat = list()
-	dat += world.file2list("strings/rt/Lore_Primer.txt")
+	dat += GLOB.roleplay_readme
 	if(dat)
-		var/datum/browser/popup = new(src, "Primer", "VANDERLIN", 460, 550)
+		var/datum/browser/popup = new(src, "Primer", "VANDERLIN", 650, 900)
 		popup.set_content(dat.Join())
 		popup.open()
 

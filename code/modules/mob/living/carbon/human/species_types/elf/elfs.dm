@@ -13,19 +13,19 @@
 /datum/species/elf/snow
 	name = "Elf"
 	id = "elf"
-	desc = "Psydonia's first.\
+	desc = "Necra's guides.\
 	\n\n\
-	Elves, the first species of Psydonia, are characterized by lengthened age, \
-	low fertility, and magical aptitude originating from a vast array of tribal cultures and sub-races. \
+	Elves, created by Necra to guide humenity, are characterized by lengthened age, \
+	low fertility, and a magical aptitude originating from a vast array of tribal cultures and sub-races. \
 	With the ascension of Zizo, the entire culture of snow-elves was all but destroyed, \
 	leading the remaining tribes to live in fear and paranoia of suffering the same fate. \
 	Many elves sought safety through mixing culture, \
 	positioning themselves under the watchful guard of their stronger humen counterparts. \
 	\n\n\
-	A longstanding fued remains between elves and dwarves. \
+	A longstanding feud remains between elves and dwarves. \
 	Elvenkind has yet to forgive the dwarves for their destruction of homeland \
 	and pillaging of natural resources within the former snow-elf territory. \n\
-	To elves, it was the greatest signifier of disrespect for those lost. "
+	To elves, it was the greatest disrespect to those lost. "
 
 	skin_tone_wording = "Tribal Identity"
 

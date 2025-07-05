@@ -164,7 +164,7 @@
 		recruit.job = new_role
 		recruit.advjob = new_role
 		recruit.migrant_type = null
-		SEND_SIGNAL(SSdcs, COMSIG_GLOB_ROLE_CONVERTED, recruiter, recruit, new_role)
+		SEND_SIGNAL(SSdcs, COMSIG_GLOBAL_ROLE_CONVERTED, recruiter, recruit, new_role)
 	return TRUE
 
 /obj/effect/proc_holder/spell/self/convertrole/guard

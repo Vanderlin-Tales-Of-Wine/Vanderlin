@@ -5,11 +5,9 @@
 /obj/effect/baseturf_helper //Set the baseturfs of every turf in the /area/ it is placed.
 	name = "baseturf editor"
 	icon_state = ""
-
+	plane = POINT_PLANE
 	var/list/baseturf_to_replace
 	var/baseturf
-
-	layer = POINT_LAYER
 
 /obj/effect/baseturf_helper/Initialize()
 	. = ..()

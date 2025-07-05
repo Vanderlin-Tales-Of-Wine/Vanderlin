@@ -813,7 +813,7 @@
 		if(!fixedeye) //If fixedeye isn't already enabled, we need to set this var
 			atom_flags |= NO_DIR_CHANGE
 		tempfixeye = TRUE //Change icon to 'target' red eye
-		targeti = image('icons/mouseover.dmi', targetting.loc, "target", ABOVE_HUD_LAYER+0.1)
+		targeti = image('icons/mouseover.dmi', targetting.loc, "target")
 		var/icon/I = icon(icon, icon_state, dir)
 		targeti.pixel_y = I.Height() - world.icon_size - 4
 		targeti.pixel_x = -1

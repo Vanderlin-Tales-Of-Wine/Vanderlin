@@ -1,3 +1,27 @@
+#define CHAT_MESSAGE_SPAWN_TIME		0.2 SECONDS
+#define CHAT_MESSAGE_LIFESPAN		5 SECONDS
+#define CHAT_MESSAGE_EOL_FADE		0.7 SECONDS
+#define CHAT_MESSAGE_EXP_DECAY		0.7 // Messages decay at pow(factor, idx in stack)
+#define CHAT_MESSAGE_HEIGHT_DECAY	0.9 // Increase message decay based on the height of the message
+#define CHAT_MESSAGE_APPROX_LHEIGHT	11 // Approximate height in pixels of an 'average' line, used for height decay
+#define CHAT_MESSAGE_WIDTH			96 // pixels
+#define CHAT_MESSAGE_MAX_LENGTH		110 // characters
+//#define WXH_TO_HEIGHT(x)			text2num(copytext((x), findtextEx((x), "x") + 1)) // thanks lummox
+#define WXH_TO_HEIGHT(measurement, return_var) \
+	do { \
+		var/_measurement = measurement; \
+		return_var = text2num(copytext(_measurement, findtextEx(_measurement, "x") + 1)); \
+	} while(FALSE);
+
+///Base layer of chat elements
+#define CHAT_LAYER 1
+///Highest possible layer of chat elements
+#define CHAT_LAYER_MAX 2
+/// Maximum precision of float before rounding errors occur (in this context)
+#define CHAT_LAYER_Z_STEP 0.0001
+/// The number of z-layer 'slices' usable by the chat message layering
+#define CHAT_LAYER_MAX_Z (CHAT_LAYER_MAX - CHAT_LAYER) / CHAT_LAYER_Z_STEP
+
 /**
  * # Chat Message Overlay
  *
@@ -156,8 +180,8 @@
 			qdel(m)
 
 	// Build message image
-	message = image(loc = message_loc, layer = ABOVE_HUD_LAYER)
-	message.plane = ABOVE_HUD_PLANE
+	message = image(loc = message_loc, layer = CHAT_LAYER)
+	message.plane = RUNECHAT_PLANE
 	message.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
 	message.alpha = 0
 	message.pixel_y = owner.bound_height * 0.95

@@ -35,7 +35,7 @@
 
 /obj/structure/coral_formation/Initialize()
 	. = ..()
-	add_filter("coral_glow", 2, list("type" = "outline", "color" = "#3366FF", "size" = 1))
+	add_filter("coral_glow", 2, outline_filter(1, "#3366FF"))
 	START_PROCESSING(SSobj, src)
 
 /obj/structure/coral_formation/Destroy()

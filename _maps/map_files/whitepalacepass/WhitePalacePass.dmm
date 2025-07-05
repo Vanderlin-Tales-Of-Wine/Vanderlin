@@ -1476,7 +1476,7 @@
 /turf/closed/wall/mineral/decorstone,
 /area/rogue/indoors/town/garrison)
 "boq" = (
-/obj/structure/rotation_piece/cog,
+/obj/structure/rotation_piece/cog/large,
 /turf/open/water/river{
 	dir = 4
 	},
@@ -1654,6 +1654,10 @@
 /obj/structure/table/wood/reinforced,
 /turf/open/floor/concrete,
 /area/rogue/indoors/villagegarrison)
+"buj" = (
+/obj/structure/water_pipe,
+/turf/open/floor/cobble,
+/area/rogue/indoors/town/clocktower)
 "buw" = (
 /obj/structure/hotspring/border/five,
 /obj/effect/falling_sakura,
@@ -2191,12 +2195,6 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/clocktower)
-"bWA" = (
-/obj/effect/mapping_helpers/access/keyset/manor/general,
-/obj/effect/mapping_helpers/access/locker,
-/obj/structure/door/window,
-/turf/open/floor/tile,
-/area/rogue/indoors/town)
 "bWB" = (
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor)
@@ -3512,10 +3510,6 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/manor)
-"duw" = (
-/obj/structure/door/swing,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/town/tavern)
 "duz" = (
 /obj/structure/fluff/walldeco/vinez/blue{
 	dir = 6
@@ -4032,12 +4026,6 @@
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/rtfield)
-"dMk" = (
-/obj/structure/rotation_piece/cog,
-/turf/open/water/river/dirt{
-	dir = 4
-	},
-/area/rogue/indoors/town/clocktower)
 "dMq" = (
 /obj/structure/table/wood/reinforced,
 /obj/structure/bars/bent,
@@ -6941,6 +6929,10 @@
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/smithy)
+"gDY" = (
+/obj/structure/door/swing,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/town/tavern)
 "gEo" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -7335,6 +7327,10 @@
 /obj/effect/landmark/start/mercenarylate,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/merc_guild)
+"gTX" = (
+/obj/structure/door/swing,
+/turf/open/floor/tile/kitchen,
+/area/rogue/indoors/town/manor)
 "gUf" = (
 /obj/structure/lever/hidden/keep{
 	redstone_id = "K15"
@@ -8487,11 +8483,6 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
-"hWV" = (
-/obj/structure/table/wood/plain_alt,
-/obj/item/weapon/knife/throwingknife/psydon,
-/turf/open/floor/cobble,
-/area/rogue/indoors/town/church/inquisition)
 "hXi" = (
 /obj/structure/hotspring,
 /obj/item/soap,
@@ -11689,10 +11680,6 @@
 "lbS" = (
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/indoors/town/orphanage)
-"lbW" = (
-/obj/structure/steam_recharger,
-/turf/open/floor/cobble,
-/area/rogue/indoors/town/clocktower)
 "lcs" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -12159,6 +12146,10 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/clinic_large)
+"luG" = (
+/obj/structure/steam_recharger,
+/turf/open/floor/cobble,
+/area/rogue/indoors/town/clocktower)
 "lvg" = (
 /obj/effect/spawner/map_spawner/hauntz_random,
 /turf/open/floor/cobblerock,
@@ -12816,10 +12807,6 @@
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/manor)
-"mfq" = (
-/obj/structure/water_pipe,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors/town/clocktower)
 "mgn" = (
 /turf/open/floor/rooftop,
 /area/rogue/indoors/lich)
@@ -13058,6 +13045,19 @@
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
+"mvo" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/weapon/knife/throwingknife/psydon,
+/obj/item/paper{
+	pixel_x = -12;
+	pixel_y = 8;
+	icon_state = "paperwrite";
+	name = "crumpled note";
+	desc = "A piece of parchment, it was crumpled up and then folded open again.";
+	info = "Unholy spirits reside within these tunnels, unable to be touched by neither flesh nor metal. Perhaps victims of the war, or the souls of heretics executed? No matter, strike them with a lit torch or lamptern and they burn to ashes all the same."
+	},
+/turf/open/floor/cobble,
+/area/rogue/indoors/town/church/inquisition)
 "mvu" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/lord/left,
@@ -14657,6 +14657,12 @@
 "nOT" = (
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/merc_guild)
+"nOV" = (
+/obj/structure/rotation_piece/cog,
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/under/town/basement)
 "nPd" = (
 /obj/machinery/light/fueled/smelter,
 /obj/machinery/light/fueled/wallfire/candle{
@@ -15155,10 +15161,6 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/smithy)
-"ole" = (
-/obj/structure/door/swing,
-/turf/open/floor/tile/kitchen,
-/area/rogue/indoors/town/manor)
 "olg" = (
 /obj/effect/falling_sakura,
 /turf/open/floor/grass/cold,
@@ -15933,6 +15935,10 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/bath)
+"oWk" = (
+/obj/structure/water_pipe,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors/town/clocktower)
 "oWl" = (
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
@@ -16017,6 +16023,12 @@
 /obj/item/clothing/shirt/dress/gen/random,
 /obj/item/clothing/shirt/dress/gen/random,
 /turf/open/floor/carpet/purple,
+/area/rogue/indoors/town)
+"oZZ" = (
+/obj/effect/mapping_helpers/access/keyset/manor/general,
+/obj/effect/mapping_helpers/access/locker,
+/obj/structure/door/window,
+/turf/open/floor/tile,
 /area/rogue/indoors/town)
 "paa" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
@@ -16126,6 +16138,12 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town)
+"pgz" = (
+/obj/structure/rotation_piece/cog,
+/turf/open/water/river/dirt{
+	dir = 4
+	},
+/area/rogue/indoors/town/clocktower)
 "pgB" = (
 /obj/structure/stairs/stone{
 	dir = 8
@@ -16554,10 +16572,6 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/under/town/basement)
-"pBT" = (
-/obj/structure/water_pipe,
-/turf/open/floor/cobble,
-/area/rogue/indoors/town/clocktower)
 "pCe" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
@@ -24891,12 +24905,6 @@
 /obj/structure/flora/grass/bush/tundra,
 /turf/open/floor/snow,
 /area/rogue/outdoors/rtfield/safe)
-"xmf" = (
-/obj/structure/rotation_piece/cog/large,
-/turf/open/water/river{
-	dir = 4
-	},
-/area/rogue/under/town/basement)
 "xmk" = (
 /obj/machinery/light/fueled/firebowl/church,
 /turf/open/floor/churchbrick,
@@ -53494,7 +53502,7 @@ sXM
 sXM
 sXM
 qxx
-hWV
+mvo
 tCJ
 nJJ
 nJJ
@@ -55420,7 +55428,7 @@ nJJ
 fQr
 hSF
 sHo
-dMk
+pgz
 bWQ
 fyK
 dPw
@@ -55824,9 +55832,9 @@ nJJ
 fQr
 hSF
 sHo
-dMk
+pgz
 iOK
-pBT
+buj
 fyK
 fyK
 dPw
@@ -56028,8 +56036,8 @@ hSF
 hSF
 hSF
 fQr
-mfq
-lbW
+oWk
+luG
 dPw
 rCo
 fQr
@@ -89568,7 +89576,7 @@ tiH
 nIJ
 nIJ
 tiH
-duw
+gDY
 kJb
 tLk
 bVB
@@ -114623,7 +114631,7 @@ vKI
 vKI
 vKI
 vKI
-bWA
+oZZ
 vKI
 vKI
 jxa
@@ -131952,7 +131960,7 @@ nJJ
 nJJ
 xTy
 dSa
-boq
+nOV
 iac
 iac
 iac
@@ -132154,7 +132162,7 @@ nJJ
 nJJ
 xTy
 mMv
-xmf
+boq
 iac
 iac
 iac
@@ -132356,7 +132364,7 @@ nJJ
 nJJ
 xTy
 dSa
-boq
+nOV
 iac
 iac
 iac
@@ -168313,7 +168321,7 @@ fNh
 fNh
 fNh
 fNh
-ole
+gTX
 fNh
 fNh
 fNh
