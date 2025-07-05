@@ -5,6 +5,7 @@
 	unset_machine()
 	set_typing_indicator(FALSE)
 	GLOB.player_list -= src
+	update_ambience_area(null) // Unset ambience vars so it plays again on login
 	..()
 
 	if(loc)

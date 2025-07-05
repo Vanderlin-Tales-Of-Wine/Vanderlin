@@ -146,8 +146,6 @@
 	ADD_TRAIT(owner, TRAIT_KNOCKEDOUT, TRAIT_STATUS_EFFECT(id))
 
 	owner.cmode = FALSE
-	owner.stop_sound_channel(CHANNEL_AMBIENCE)
-	owner.cancel_looping_ambience()
 	owner.set_typing_indicator(FALSE)
 
 /datum/status_effect/incapacitating/sleeping/on_remove()

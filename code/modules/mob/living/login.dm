@@ -28,8 +28,6 @@
 	if(!funeral_login())
 		log_game("[key_name(src)] on login: had an issue with funeral-checking logic.")
 
-	refresh_looping_ambience()
-
 /mob/living/proc/login_fade()
 	set waitfor = FALSE
 	if(!client)

@@ -16,8 +16,8 @@ SUBSYSTEM_DEF(ambience)
 		currentrun = ambience_listening_clients.Copy()
 	var/list/cached_clients = currentrun
 
-	while(cached_clients.len)
-		var/client/client_iterator = cached_clients[cached_clients.len]
+	while(length(cached_clients))
+		var/client/client_iterator = cached_clients[length(cached_clients)]
 		cached_clients.len--
 		//Check to see if the client exists and isn't held by a new player
 		var/mob/client_mob = client_iterator?.mob
@@ -74,3 +74,59 @@ SUBSYSTEM_DEF(ambience)
 	ambience_listening_clients -= to_remove
 	client_old_areas -= to_remove
 	currentrun -= to_remove
+
+/**
+ * Ambience buzz handling called by either area/Enter() or refresh_looping_ambience()
+ */
+/mob/proc/update_ambience_area(area/new_area)
+	var/old_tracked_area = ambience_tracked_area
+
+	if(old_tracked_area)
+		ambience_tracked_area = null
+	if(!client)
+		return
+	if(new_area)
+		ambience_tracked_area = new_area
+
+	refresh_looping_ambience()
+
+/// Tries to play looping ambience to the mob
+/mob/proc/refresh_looping_ambience(sound/buzz_to_use)
+	if(!client || isobserver(client.mob))
+		return
+
+	var/datum/antagonist/maniac/maniac = mind?.has_antag_datum(/datum/antagonist/maniac)
+
+	if(!can_hear() || maniac?.music_enabled)
+		cancel_looping_ambience()
+		return
+
+	var/area/my_area = get_area(src)
+	var/vol = client.prefs?.musicvol || 50
+	var/used = buzz_to_use
+
+	if(!used)
+		used = my_area.get_current_buzz(has_light_nearby())
+	if(cmode && cmode_music)
+		used = cmode_music
+		vol *= 1.2
+	else if(HAS_TRAIT(src, TRAIT_SCHIZO_AMBIENCE))
+		used = 'sound/music/dreamer_is_still_asleep.ogg'
+	else if(HAS_TRAIT(src, TRAIT_DRUQK))
+		used = 'sound/music/spice.ogg'
+
+	if(!used)
+		cancel_looping_ambience()
+		return
+
+	if(used == client.current_ambient_sound)
+		return
+
+	client.current_ambient_sound = used
+	SEND_SOUND(src, sound(used, repeat = 1, wait = 0, volume = vol, channel = CHANNEL_BUZZ))
+
+/mob/proc/cancel_looping_ambience()
+	if(!client)
+		return
+	SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = CHANNEL_BUZZ))
+	client.current_ambient_sound = null

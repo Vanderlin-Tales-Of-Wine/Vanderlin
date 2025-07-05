@@ -372,11 +372,9 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!L.ckey || L.stat == DEAD)
 		return
 
-	var/area/old_area = get_area(old_loc)
-	var/is_lit = L.has_light_nearby()
-	var/current_buzz = get_current_buzz(is_lit)
-	if(current_buzz != old_area.get_current_buzz(is_lit))
-		L.refresh_looping_ambience(current_buzz)
+	if(ismob(M))
+		var/mob/mob = M
+		mob.update_ambience_area(src)
 
 	if(first_time_text)
 		L.intro_area(src)
@@ -395,51 +393,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		if(time == "night" && LAZYLEN(alternative_droning_night))
 			used = pick(alternative_droning_night)
 
-	if(!used)
-		used = 'sound/ambience/creepywind.ogg'
-
 	return used
-
-/// Tries to play looping ambience to the mob
-/mob/proc/refresh_looping_ambience(sound/buzz_to_use)
-	if(!client || isobserver(client.mob))
-		return
-
-	var/datum/antagonist/maniac/maniac = mind?.has_antag_datum(/datum/antagonist/maniac)
-
-	if(!can_hear() || maniac?.music_enabled)
-		cancel_looping_ambience()
-		return
-
-	var/area/my_area = get_area(src)
-	var/vol = client.prefs?.musicvol || 50
-	var/used = buzz_to_use
-
-	if(!used)
-		used = my_area.get_current_buzz(has_light_nearby())
-	if(cmode && cmode_music)
-		used = cmode_music
-		vol *= 1.2
-	else if(HAS_TRAIT(src, TRAIT_SCHIZO_AMBIENCE))
-		used = 'sound/music/dreamer_is_still_asleep.ogg'
-	else if(HAS_TRAIT(src, TRAIT_DRUQK))
-		used = 'sound/music/spice.ogg'
-
-	if(!used)
-		cancel_looping_ambience()
-		return
-
-	if(used == client.current_ambient_sound)
-		return
-
-	client.current_ambient_sound = used
-	SEND_SOUND(src, sound(used, repeat = 1, wait = 0, volume = vol, channel = CHANNEL_BUZZ))
-
-/mob/proc/cancel_looping_ambience()
-	if(!client)
-		return
-	SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = CHANNEL_BUZZ))
-	client.current_ambient_sound = null
 
 /client
 	var/musicfading = 0

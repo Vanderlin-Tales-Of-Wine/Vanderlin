@@ -140,8 +140,6 @@
 
 	var/loop_sound = FALSE
 	var/rain_sound = FALSE
-	var/last_droning_sound
-	var/sound/droning_sound
 
 	///Which ambient sound this client is currently being provided
 	var/current_ambient_sound
