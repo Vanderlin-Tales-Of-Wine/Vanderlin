@@ -30,10 +30,13 @@
 		H.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 		if(H.age == AGE_OLD)
-			H.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
-		H.change_stat(STATKEY_STR, -1)
+			head = /obj/item/clothing/head/wizhat/witch
+			armor = /obj/item/clothing/shirt/robe/black
+			backl = /obj/item/storage/backpack/backpack
+			H.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
+		H.change_stat(STATKEY_STR, -2)
 		H.change_stat(STATKEY_INT, 3)
-		H.change_stat(STATKEY_CON, -1)
+		H.change_stat(STATKEY_CON, -2)
 		H.change_stat(STATKEY_END, -1)
 		H.change_stat(STATKEY_SPD, -2)
 		H.mind.adjust_spellpoints(5)
