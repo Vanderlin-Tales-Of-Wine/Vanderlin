@@ -27,7 +27,7 @@
 		deactivate_silence(TRUE)
 
 	dome = new(get_turf(cast_on))
-	zone = new(get_turf(cast_on), 6, FALSE, src)
+	zone = new(get_turf(cast_on), 3, FALSE, src)
 	// Apply silence to all mobs currently in range
 	apply_initial_silence()
 	// Start validation timer to check positions periodically - this is really redundant but its useful incases of forceMove
@@ -67,7 +67,7 @@
 			zone.remove_affected_mob(target)
 
 	// Check for new mobs that entered range
-	for(var/mob/living/carbon/human/target in range(6, owner))
+	for(var/mob/living/carbon/human/target in range(3, owner))
 		if(should_affect_target(target) && !(target in zone.affected_mobs))
 			zone.add_affected_mob(target)
 
@@ -82,10 +82,10 @@
 	target.apply_status_effect(/datum/status_effect/debuff/silenced/permanent)
 
 /datum/action/cooldown/spell/silence_dome/proc/remove_silence(mob/living/carbon/human/target)
-	if(HAS_TRAIT_FROM(target, TRAIT_DEAF, "quietus"))
-		REMOVE_TRAIT(target, TRAIT_DEAF, "quietus")
-	if(HAS_TRAIT_FROM(target, TRAIT_SILENT_FOOTSTEPS, "quietus"))
-		REMOVE_TRAIT(target, TRAIT_SILENT_FOOTSTEPS, "quietus")
+	if(HAS_TRAIT_FROM(target, TRAIT_DEAF, "silence_dome"))
+		REMOVE_TRAIT(target, TRAIT_DEAF, "silence_dome")
+	if(HAS_TRAIT_FROM(target, TRAIT_SILENT_FOOTSTEPS, "silence_dome"))
+		REMOVE_TRAIT(target, TRAIT_SILENT_FOOTSTEPS, "silence_dome")
 	target.remove_status_effect(/datum/status_effect/debuff/silenced/permanent)
 
 // Proximity monitor for the silence field
@@ -149,6 +149,8 @@
 	anchored = TRUE
 	layer = ABOVE_MOB_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	pixel_x = -112
+	pixel_y = -112
 
 /obj/effect/silence_dome/ex_act()
 	return
