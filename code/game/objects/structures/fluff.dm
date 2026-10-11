@@ -1164,24 +1164,26 @@
 		if(6)
 			var/list/weapon_options = list("Navaja knife" = /obj/item/weapon/knife/dagger/navaja)
 
-			if(GET_MOB_SKILL_VALUE(user, /datum/attribute/skill/combat/polearms) > SKILL_LEVEL_JOURNEYMAN)
+			// Matthios armory, curated for the person getting a reward. Contains mostly steel gear from bandit subclasses, but also has more gimmicky stuff that's rarely seen.
+			if(GET_MOB_SKILL_VALUE_RAW(user, /datum/attribute/skill/combat/polearms) > SKILL_LEVEL_JOURNEYMAN)
 				weapon_options["Billhook"] = /obj/item/weapon/polearm/spear/billhook
 				weapon_options["Quarterstaff"] = /obj/item/weapon/polearm/woodstaff/quarterstaff/steel
-			if(GET_MOB_SKILL_VALUE(user, /datum/attribute/skill/combat/bows) > SKILL_LEVEL_JOURNEYMAN)
+			if(GET_MOB_SKILL_VALUE_RAW(user, /datum/attribute/skill/combat/bows) > SKILL_LEVEL_JOURNEYMAN)
 				weapon_options["Longbow"] = /obj/item/gun/ballistic/bow/long
-			if(GET_MOB_SKILL_VALUE(user, /datum/attribute/skill/combat/swords) > SKILL_LEVEL_JOURNEYMAN)
+			if(GET_MOB_SKILL_VALUE_RAW(user, /datum/attribute/skill/combat/swords) > SKILL_LEVEL_JOURNEYMAN)
 				weapon_options["Longsword"] = /obj/item/weapon/sword/long
 				weapon_options["Sabre"] = /obj/item/weapon/sword/sabre
-			if(GET_MOB_SKILL_VALUE(user, /datum/attribute/skill/combat/axesmaces) > SKILL_LEVEL_JOURNEYMAN)
+			if(GET_MOB_SKILL_VALUE_RAW(user, /datum/attribute/skill/combat/axesmaces) > SKILL_LEVEL_JOURNEYMAN)
 				weapon_options["Steel mace"] = /obj/item/weapon/mace/steel
 				weapon_options["Battle axe"] = /obj/item/weapon/axe/battle
-			if(GET_MOB_SKILL_VALUE(user, /datum/attribute/skill/combat/whipsflails) > SKILL_LEVEL_JOURNEYMAN)
+			if(GET_MOB_SKILL_VALUE_RAW(user, /datum/attribute/skill/combat/whipsflails) > SKILL_LEVEL_JOURNEYMAN)
 				weapon_options["Steel flail"] = /obj/item/weapon/flail
 				weapon_options["Steel whip"] = /obj/item/weapon/whip/steel
-			if(GET_MOB_SKILL_VALUE(user, /datum/attribute/skill/combat/shields) > SKILL_LEVEL_JOURNEYMAN)
+			if(GET_MOB_SKILL_VALUE_RAW(user, /datum/attribute/skill/combat/shields) > SKILL_LEVEL_JOURNEYMAN)
 				weapon_options["Kite shield"] = /obj/item/weapon/shield/tower/metal
-			if(GET_MOB_SKILL_VALUE(user, /datum/attribute/skill/combat/unarmed) > SKILL_LEVEL_JOURNEYMAN)
+			if(GET_MOB_SKILL_VALUE_RAW(user, /datum/attribute/skill/combat/unarmed) > SKILL_LEVEL_JOURNEYMAN)
 				weapon_options["Knuckles"] = /obj/item/weapon/knuckles
+				weapon_options["Mantis claws"] = /obj/item/weapon/handclaw/steel
 
 			var/chosen_weapon
 			if(length(weapon_options))
