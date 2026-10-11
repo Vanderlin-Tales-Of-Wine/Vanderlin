@@ -295,6 +295,24 @@
 	sellprice = 150
 	item_weight = 1.8 KILOGRAMS
 
+//................ Bloodsteel Axe ............... //
+/obj/item/weapon/axe/battle/bloodsteel
+	name = "bloodsteel axe"
+	desc = "A magnificent battle axe of bloodsteel, fitted to counter both unarmored assailants and heavy infantry. The perfect tool for hewing through the unworthy."
+	icon_state = "corruptaxe"
+	force = DAMAGE_AXE + 2
+	force_wielded = DAMAGE_HEAVYAXE_WIELD + 2
+	max_blade_int = 330
+	max_integrity = INTEGRITY_BATTLEAXE * INTEGRITY_MOD_BLOODSTEEL
+	smeltresult = null
+	melting_material = /datum/material/bloodsteel
+	melt_amount = 200
+	sellprice = 0
+	item_weight = 1.2 KILOGRAMS
+
+/obj/item/weapon/axe/battle/bloodsteel/Initialize(mapload)
+	. = ..()
+	enchant(/datum/enchantment/bloodcurse)
 
 //------------------ Silver Axe ---------------//
 /obj/item/weapon/axe/silver
@@ -574,7 +592,7 @@
 	sellprice = 0 // Graggarite axe, nobody wants this
 	item_weight = 2 KILOGRAMS
 	max_integrity = INTEGRITY_GREATAXE * INTEGRITY_MOD_STEEL * INTEGRITY_SPECIAL_BONUS
-	examine_highlight_type = /datum/examine_highlight/heresy_alarming
+	examine_highlight_type = /datum/examine_highlight/heresy_alarming/graggar
 
 /obj/item/weapon/greataxe/blacksteel
 	name = "blacksteel greataxe"
