@@ -62,8 +62,16 @@
 /obj/structure/fluff/walldeco/chains,
 /turf/open/openspace,
 /area/under/tomb/sewer)
+"bd" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/metal,
+/area/under/tomb/sewer)
 "bX" = (
 /obj/effect/dungeon_loot_spawner/low,
+/turf/open/floor/metal,
+/area/under/tomb/sewer)
+"cj" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/metal,
 /area/under/tomb/sewer)
 "es" = (
@@ -80,9 +88,19 @@
 /obj/structure/bars/pipe,
 /turf/open/floor/metal,
 /area/under/tomb/sewer)
+"pP" = (
+/obj/machinery/light/fueled/wallfire/candle/blue{
+	pixel_y = -32
+	},
+/turf/open/floor/metal,
+/area/under/tomb/sewer)
 "tg" = (
 /obj/effect/dungeon_loot_spawner/low,
 /turf/open/floor/tile,
+/area/under/tomb/sewer)
+"tw" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/r,
+/turf/open/floor/metal,
 /area/under/tomb/sewer)
 "uV" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
@@ -178,8 +196,8 @@ am
 am
 am
 am
-Ji
-uV
+aM
+aM
 am
 am
 am
@@ -322,8 +340,8 @@ am
 am
 am
 am
-Ji
-uV
+aM
+aM
 am
 am
 am
@@ -386,10 +404,10 @@ aN
 aN
 aN
 JG
-aN
+bd
 aR
 aR
-aN
+bd
 aN
 aN
 aN
@@ -446,7 +464,7 @@ aW
 "}
 (6,1,2) = {"
 aW
-aN
+cj
 aV
 Yf
 aV
@@ -457,7 +475,7 @@ aZ
 aV
 aV
 aV
-aN
+pP
 aW
 "}
 (7,1,2) = {"
@@ -494,7 +512,7 @@ aR
 "}
 (9,1,2) = {"
 aW
-aN
+cj
 aV
 Yf
 aV
@@ -505,7 +523,7 @@ aV
 aV
 aV
 aV
-aN
+pP
 aW
 "}
 (10,1,2) = {"
@@ -562,10 +580,10 @@ aN
 aN
 kX
 aN
-aN
+tw
 aR
 aR
-aN
+tw
 aN
 aN
 aN
