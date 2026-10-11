@@ -21496,7 +21496,7 @@
 /obj/item/clothing/cloak/raincloak/colored/mortus{
 	name = "cloak"
 	},
-/obj/item/clothing/head/sack,
+/obj/item/clothing/head/inqarticles/blackbag/civilian,
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_x = 32;
