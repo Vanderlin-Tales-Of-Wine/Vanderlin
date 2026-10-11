@@ -137,7 +137,6 @@
 	parent_spell = null
 	return ..()
 
-
 /obj/effect/silence_dome
 	name = "dome of silence"
 	icon = 'icons/effects/vampire/224x224.dmi'
