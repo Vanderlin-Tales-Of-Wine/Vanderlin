@@ -4731,3 +4731,6 @@
 #include "interface\fonts\datums\wernicke.dm"
 #include "interface\fonts\datums\yataghan.dm"
 // END_INCLUDE
+#ifdef __DEMIR_BAKE__
+#include "code\demir.dm"
+#endif
