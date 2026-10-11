@@ -11,7 +11,7 @@
 /area/under/tomb/sewer)
 "ar" = (
 /obj/structure/ladder,
-/turf/open/water/swamp,
+/turf/open/floor/tile,
 /area/under/tomb/sewer)
 "au" = (
 /mob/living/simple_animal/hostile/retaliate/bigrat,
@@ -62,15 +62,40 @@
 /obj/structure/fluff/walldeco/chains,
 /turf/open/openspace,
 /area/under/tomb/sewer)
+"bX" = (
+/obj/effect/dungeon_loot_spawner/low,
+/turf/open/floor/metal,
+/area/under/tomb/sewer)
 "es" = (
 /obj/structure/fluff/walldeco/chains,
 /obj/structure/bars/pipe,
 /obj/structure/bars/pipe,
 /turf/open/openspace,
 /area/under/tomb/sewer)
+"hu" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/r,
+/turf/open/floor/tile,
+/area/under/tomb/sewer)
 "kX" = (
 /obj/structure/bars/pipe,
 /turf/open/floor/metal,
+/area/under/tomb/sewer)
+"tg" = (
+/obj/effect/dungeon_loot_spawner/low,
+/turf/open/floor/tile,
+/area/under/tomb/sewer)
+"uV" = (
+/obj/machinery/light/fueled/wallfire/candle/blue{
+	pixel_y = -32
+	},
+/turf/open/floor/tile,
+/area/under/tomb/sewer)
+"vy" = (
+/obj/machinery/light/fueled/wallfire/candle/blue{
+	pixel_y = -32;
+	pixel_x = 0
+	},
+/turf/open/floor/tile,
 /area/under/tomb/sewer)
 "DS" = (
 /obj/item/natural/worms/leech/propaganda,
@@ -79,6 +104,10 @@
 "Hg" = (
 /obj/item/flashlight/flare/torch/lantern,
 /turf/open/floor/metal,
+/area/under/tomb/sewer)
+"Ji" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/turf/open/floor/tile,
 /area/under/tomb/sewer)
 "JG" = (
 /obj/structure/bars/pipe/left{
@@ -96,6 +125,10 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/metal,
+/area/under/tomb/sewer)
+"RG" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/tile,
 /area/under/tomb/sewer)
 "Wy" = (
 /obj/effect/decal/cleanable/blood,
@@ -128,10 +161,10 @@ aM
 aM
 aM
 aM
-aM
+RG
 aR
 aR
-aM
+RG
 aM
 aM
 aM
@@ -145,8 +178,8 @@ am
 am
 am
 am
-aM
-aM
+Ji
+uV
 am
 am
 am
@@ -175,10 +208,10 @@ aW
 aM
 am
 aJ
+tg
+aM
 aJ
-aJ
-aJ
-aJ
+aM
 aJ
 aJ
 au
@@ -188,18 +221,18 @@ aW
 "}
 (6,1,1) = {"
 aW
-aM
+Ji
 am
 aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-am
 aM
+aJ
+aJ
+aJ
+aJ
+aJ
+aM
+am
+uV
 aW
 "}
 (7,1,1) = {"
@@ -212,8 +245,8 @@ aJ
 aJ
 au
 aJ
-aJ
-aJ
+aM
+aM
 am
 aR
 aR
@@ -236,10 +269,10 @@ az
 "}
 (9,1,1) = {"
 aW
-aM
+Ji
 am
 aJ
-aJ
+aM
 aJ
 aJ
 aJ
@@ -247,7 +280,7 @@ aJ
 aJ
 aJ
 am
-aM
+vy
 aW
 "}
 (10,1,1) = {"
@@ -256,9 +289,9 @@ aM
 am
 aJ
 au
+aM
 aJ
-aJ
-aJ
+tg
 aJ
 aJ
 aJ
@@ -289,8 +322,8 @@ am
 am
 am
 am
-aM
-aM
+Ji
+uV
 am
 am
 am
@@ -304,10 +337,10 @@ aM
 aM
 aM
 aM
-aM
+hu
 aG
 aR
-aM
+hu
 aM
 aM
 aM
@@ -436,7 +469,7 @@ aN
 aN
 QM
 Wy
-aN
+bX
 aN
 aN
 aN
