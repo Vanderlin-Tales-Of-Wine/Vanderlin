@@ -625,8 +625,7 @@
 	max_integrity = INTEGRITY_HALBERD * INTEGRITY_MOD_BLOODSTEEL
 	max_blade_int = 300
 	melting_material = /datum/material/bloodsteel
-	melt_amount = 100
-	melt_amount = 150
+	melt_amount = 200
 	sellprice = 0
 
 /obj/item/weapon/polearm/halberd/bloodsteel/Initialize(mapload)
@@ -828,6 +827,7 @@
 	gripped_intents = list(POLEARM_THRUST, SPEAR_CUT, POLEARM_CHOP, POLEARM_BASH)
 	item_weight = 2.3 KILOGRAMS
 	max_integrity = INTEGRITY_HALBERD * INTEGRITY_MOD_IRON * INTEGRITY_SPECIAL_BONUS
+	examine_highlight_type = /datum/examine_highlight/divine_weapon/dendor
 
 /obj/item/weapon/polearm/halberd/bardiche/captain
 	name = "\proper deliverance"

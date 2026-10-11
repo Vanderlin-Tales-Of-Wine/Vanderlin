@@ -19,7 +19,7 @@
 /turf/open/water/marsh,
 /area/under/cave)
 "af" = (
-/obj/machinery/light/fueled/firebowl/stump,
+/obj/structure/waystone,
 /turf/open/floor/cobblerock,
 /area/outdoors/wilderness/safe/gallowband_fort)
 "ah" = (
@@ -1512,7 +1512,7 @@
 /obj/item/weapon/sword/katana/mulyeog/rumacaptain{
 	name = "Astrata's Will";
 	desc = "A gold-stained sword with cloud patterns, it seems to be a highly sacred relic.";
-	examine_highlight_type = /datum/examine_highlight/divine
+	examine_highlight_type = /datum/examine_highlight/divine_weapon/astrata
 	},
 /turf/open/floor/sandstone_tile/five,
 /area/indoors/dungeon)
