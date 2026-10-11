@@ -324,6 +324,15 @@
 	craftdiff = 2
 	created_amount = 5
 
+/datum/artificer_recipe/ammo/bolts/broadbolt
+	name = "Crossbow Broadhead Bolts 5x (+1 Iron)"
+	required_item = /obj/item/natural/wood/plank
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/ammo_casing/caseless/bolt/broadhead
+	hammers_per_item = 6
+	craftdiff = 2
+	created_amount = 5
+
 /datum/artificer_recipe/ammo/arrows
 	name = "Arrows 5x (+1 Iron)"
 	required_item = /obj/item/natural/wood/plank
@@ -333,7 +342,7 @@
 	craftdiff = 2
 	created_amount = 5
 
-/datum/artificer_recipe/ammo/arrows
+/datum/artificer_recipe/ammo/arrows/broadarrow
 	name = "Broadhead Arrows 5x (+1 Iron)"
 	required_item = /obj/item/natural/wood/plank
 	additional_items = list(/obj/item/ingot/iron)
