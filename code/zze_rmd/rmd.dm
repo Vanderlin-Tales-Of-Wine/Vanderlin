@@ -204,12 +204,15 @@
 	var/sun_luminance = 1
 	// Every placement that emits light, collected in prepare().
 	var/list/light_sources
+	// "x,y,z" of a lower turf -> the static light projecting onto it through openspace (light_depth).
+	var/list/projected_lights
 
 	New()
 		..()
 		if(!GLOB)
 			GLOB = new /datum/controller/global_vars/demir_preview
 		light_sources = list()
+		projected_lights = list()
 		loot_spawners = list()
 		loot_items = list()
 		// Same order as SSoutdoor_effects.time_cycle_steps, midnight last.
@@ -340,6 +343,7 @@
 // light source in range with the game's own falloff (inner and outer range, falloff curve, power
 // squared, and the average of the light's color channels, since a lumcount averages r, g and b).
 // The sum is capped at 1. Walls don't block light here, so a lamp behind one still counts.
+// Only same-z sources are counted here; light projected down through openspace is not (yet).
 /datum/demir/vanderlin/proc/turf_luminosity(turf/here)
 	var/lit = 0
 	if(here.demir_sees_sky())
@@ -424,6 +428,7 @@
 	target.demir_prepare_light_state()
 	if(target.light_on && target.light_outer_range && target.light_power)
 		light_sources += target
+		demir_register_projection(target)
 
 	if(istype(target, /obj/effect/dungeon_loot_spawner))
 		if(!(target in loot_spawners))
@@ -431,6 +436,28 @@
 	else if(istype(target, /obj/item))
 		if(!(target in loot_items))
 			loot_items += target
+
+// Mirrors the downward branch of /datum/light_source/update_corners(): a static light with
+// light_depth >= 1 reaches the turf below its own turf when that turf is transparent (openspace),
+// and repeats for up to 3 levels. The editor has no multi-z light solver, so the lower turf gets
+// its own emitter copied from the source (see /turf/demir_apply_light()), centered under the lamp.
+// Adjacent z levels stack, same as demir_sees_sky() and the water pipes. Not modelled: light_height
+// (upward spread) and the game's per-tile transparency mask, so the whole radius lights below.
+/datum/demir/vanderlin/proc/demir_register_projection(atom/source)
+	if(source.light_system != STATIC_LIGHT || source.light_depth < 1)
+		return
+	var/turf/at = get_turf(source)
+	if(!at)
+		return
+	var/turf/passing = at
+	for(var/level in 1 to min(source.light_depth, 3))
+		if(!istype(passing, /turf/open/openspace))
+			return
+		var/turf/below = locate(at.x, at.y, at.z - level)
+		if(!istype(below, /turf/open))
+			return
+		projected_lights["[below.x],[below.y],[below.z]"] = source
+		passing = below
 
 /atom/proc/demir_bake_appearance()
 	if(smoothing_flags & USES_SMOOTHING)
@@ -487,15 +514,29 @@
 // the -0.5 under the root. Corners keep the closest source rather than the sum, so this is a peak
 // source. A lit turf reaches its own corners at full strength, which is what makes the outdoors
 // read as daylight without an explicit border pass.
+//
+// A turf has one emitter slot, so priority is: sun, then the turf's own light, then a static light
+// projected down from above through openspace (light_depth), then nothing.
 /turf/demir_apply_light()
-	if(!demir_sees_sky())
-		return ..()
-	demir_light_range = 3
-	demir_light_power = 1
-	demir_light_height = -0.5
 	var/datum/demir/vanderlin/profile = demir_profile()
-	demir_light_color = profile.sun_color
-	demir_light_peak = 1
+	if(demir_sees_sky())
+		demir_light_range = 3
+		demir_light_power = 1
+		demir_light_height = -0.5
+		demir_light_color = profile.sun_color
+		demir_light_peak = 1
+		return
+	if(light_on && light_outer_range && light_power)
+		return ..()
+	var/atom/source = profile.projected_lights["[x],[y],[z]"]
+	if(!source)
+		return ..()
+	demir_light_range = max(source.light_outer_range, MINIMUM_USEFUL_LIGHT_RANGE)
+	demir_light_inner_range = source.light_inner_range
+	demir_light_curve = source.light_falloff_curve
+	demir_light_power = (source.light_power ** 2) * (source.light_power < 0 ? -1 : 1)
+	demir_light_color = source.light_color
+	demir_light_height = 0
 
 /area/demir_apply_light()
 	demir_fullbright = !dynamic_lighting
