@@ -49,12 +49,11 @@
 /area/under/tomb)
 "m" = (
 /obj/effect/landmark/chest_or_mimic,
-/obj/item/clothing/armor/gambeson/arming,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
 "n" = (
 /obj/effect/landmark/chest_or_mimic,
-/obj/item/clothing/armor/cuirass/grenzelhoft,
+/obj/effect/dungeon_loot_spawner/low/chest,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
 "o" = (
@@ -112,7 +111,7 @@
 "B" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /obj/effect/landmark/chest_or_mimic,
-/obj/item/clothing/armor/medium/scale,
+/obj/effect/dungeon_loot_spawner/high,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
 "C" = (
@@ -171,11 +170,6 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/drip,
-/turf/open/floor/naturalstone,
-/area/under/tomb)
-"W" = (
-/obj/effect/landmark/chest_or_mimic,
-/obj/item/clothing/shoes/boots/armor,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
 "X" = (
@@ -404,7 +398,7 @@ R
 P
 R
 R
-W
+n
 B
 s
 y
