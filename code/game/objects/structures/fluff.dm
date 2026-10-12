@@ -1170,6 +1170,8 @@
 				weapon_options["Quarterstaff"] = /obj/item/weapon/polearm/woodstaff/quarterstaff/steel
 			if(GET_MOB_SKILL_VALUE_RAW(user, /datum/attribute/skill/combat/bows) > SKILL_LEVEL_JOURNEYMAN)
 				weapon_options["Longbow"] = /obj/item/gun/ballistic/bow/long
+			if(GET_MOB_SKILL_VALUE_RAW(user, /datum/attribute/skill/combat/crossbows) > SKILL_LEVEL_JOURNEYMAN)
+				weapon_options["Slurbow"] = /obj/item/gun/ballistic/bow/cross/slur
 			if(GET_MOB_SKILL_VALUE_RAW(user, /datum/attribute/skill/combat/swords) > SKILL_LEVEL_JOURNEYMAN)
 				weapon_options["Longsword"] = /obj/item/weapon/sword/long
 				weapon_options["Sabre"] = /obj/item/weapon/sword/sabre
@@ -1192,6 +1194,11 @@
 			else
 				chosen_weapon = /obj/item/weapon/knife/dagger/navaja
 			I = new chosen_weapon(user.loc)
+		if(7)
+			if(GET_MOB_SKILL_VALUE_RAW(user, /datum/attribute/skill/combat/bows) > SKILL_LEVEL_JOURNEYMAN)
+				I = new /obj/item/ammo_holder/quiver/arrows(user.loc)
+			else if(GET_MOB_SKILL_VALUE_RAW(user, /datum/attribute/skill/combat/crossbows) > SKILL_LEVEL_JOURNEYMAN)
+				I = new /obj/item/ammo_holder/quiver/bolts(user.loc)
 	if(I)
 		I.sellprice = 0
 
