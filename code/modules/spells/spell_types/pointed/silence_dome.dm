@@ -57,18 +57,18 @@
 			zone.add_affected_mob(target)
 
 /datum/action/cooldown/spell/silence_dome/proc/validate_silence_field()
-	if(!owner || !zone)
+	if(!owner || !zone || !dome)
 		return
 
 	var/list/current_affected = zone.affected_mobs.Copy()
 
 	// Check each affected mob to see if they're still in range
 	for(var/mob/living/carbon/human/target in current_affected)
-		if(!target || target.z != owner.z || get_dist(owner, target) > SILENCE_RANGE)
+		if(!target || target.z != dome.z || get_dist(dome, target) > SILENCE_RANGE)
 			zone.remove_affected_mob(target)
 
 	// Check for new mobs that entered range
-	for(var/mob/living/carbon/human/target in range(SILENCE_RANGE, owner))
+	for(var/mob/living/carbon/human/target in range(SILENCE_RANGE, dome))
 		if(should_affect_target(target) && !(target in zone.affected_mobs))
 			zone.add_affected_mob(target)
 
