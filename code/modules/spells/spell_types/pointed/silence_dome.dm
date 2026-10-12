@@ -10,7 +10,7 @@
 	required_technique = TECHNIQUE_ALTERATION
 	required_level = 4
 
-	invocation = "Fall."
+	invocation = "Be Silent!"
 	invocation_type = INVOCATION_SHOUT
 
 	charge_time = 2 SECONDS
