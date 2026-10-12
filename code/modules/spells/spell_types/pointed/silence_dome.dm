@@ -1,3 +1,4 @@
+#define SILENCE_RANGE 3
 /datum/action/cooldown/spell/silence_dome
 	name = "Silence"
 	desc = "Generate a zone of silence preventing all sound."
@@ -27,7 +28,7 @@
 		deactivate_silence(TRUE)
 
 	dome = new(get_turf(cast_on))
-	zone = new(get_turf(cast_on), 3, FALSE, src)
+	zone = new(get_turf(cast_on), SILENCE_RANGE, FALSE, src)
 	// Apply silence to all mobs currently in range
 	apply_initial_silence()
 	// Start validation timer to check positions periodically - this is really redundant but its useful incases of forceMove
@@ -51,7 +52,7 @@
 		return
 
 	// Find all mobs within range and apply silence
-	for(var/mob/living/carbon/human/target in range(6, owner))
+	for(var/mob/living/carbon/human/target in range(SILENCE_RANGE, owner))
 		if(should_affect_target(target))
 			zone.add_affected_mob(target)
 
@@ -63,11 +64,11 @@
 
 	// Check each affected mob to see if they're still in range
 	for(var/mob/living/carbon/human/target in current_affected)
-		if(!target || target.z != owner.z || get_dist(owner, target) > 6)
+		if(!target || target.z != owner.z || get_dist(owner, target) > SILENCE_RANGE)
 			zone.remove_affected_mob(target)
 
 	// Check for new mobs that entered range
-	for(var/mob/living/carbon/human/target in range(3, owner))
+	for(var/mob/living/carbon/human/target in range(SILENCE_RANGE, owner))
 		if(should_affect_target(target) && !(target in zone.affected_mobs))
 			zone.add_affected_mob(target)
 
@@ -148,8 +149,10 @@
 	anchored = TRUE
 	layer = ABOVE_MOB_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	pixel_x = -112
-	pixel_y = -112
+	pixel_x = -95
+	pixel_y = -95
 
 /obj/effect/silence_dome/ex_act()
 	return
+
+#undef SILENCE_RANGE
