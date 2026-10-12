@@ -2,6 +2,10 @@
 "a" = (
 /turf/closed/mineral/bedrock,
 /area/under/tomb)
+"b" = (
+/obj/machinery/light/fueled/chand,
+/turf/open/openspace,
+/area/under/tomb)
 "c" = (
 /obj/item/clothing/armor/cuirass/iron,
 /turf/open/floor/naturalstone,
@@ -19,6 +23,11 @@
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
+"j" = (
+/obj/effect/landmark/chest_or_mimic,
+/obj/item/weapon/sword/iron,
+/turf/open/floor/naturalstone,
+/area/under/tomb)
 "k" = (
 /obj/item/clothing/armor/chainmail/iron,
 /turf/open/floor/naturalstone,
@@ -30,11 +39,12 @@
 /area/under/tomb)
 "m" = (
 /obj/effect/landmark/chest_or_mimic,
+/obj/item/clothing/armor/gambeson/arming,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
 "n" = (
 /obj/effect/landmark/chest_or_mimic,
-/obj/item/clothing/ring/silver,
+/obj/item/clothing/armor/cuirass/grenzelhoft,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
 "o" = (
@@ -50,10 +60,6 @@
 /obj/item/clothing/head/helmet/winged,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
-"r" = (
-/obj/item/clothing/armor/gambeson/arming,
-/turf/open/floor/naturalstone,
-/area/under/tomb)
 "s" = (
 /obj/effect/landmark/chest_or_mimic,
 /obj/item/clothing/gloves/plate,
@@ -67,6 +73,10 @@
 /area/under/tomb)
 "u" = (
 /obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/naturalstone,
+/area/under/tomb)
+"w" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
 "x" = (
@@ -92,10 +102,6 @@
 /obj/item/clothing/ring/silver/rontz,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
-"C" = (
-/obj/item/clothing/shoes/boots/armor,
-/turf/open/floor/naturalstone,
-/area/under/tomb)
 "D" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/naturalstone,
@@ -114,8 +120,23 @@
 /obj/item/weapon/polearm/spear,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
+"L" = (
+/obj/structure/bars,
+/turf/open/floor/naturalstone,
+/area/under/tomb)
 "M" = (
 /obj/item/weapon/sword/iron,
+/turf/open/floor/naturalstone,
+/area/under/tomb)
+"N" = (
+/obj/machinery/light/fueled/wallfire/candle/blue{
+	pixel_y = -32;
+	pixel_x = 0
+	},
+/turf/open/floor/naturalstone,
+/area/under/tomb)
+"O" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
 "P" = (
@@ -134,8 +155,17 @@
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
+"T" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/naturalstone,
+/area/under/tomb)
 "U" = (
 /obj/item/clothing/armor/leather/hide,
+/turf/open/floor/naturalstone,
+/area/under/tomb)
+"W" = (
+/obj/effect/landmark/chest_or_mimic,
+/obj/item/clothing/shoes/boots/armor,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
 "X" = (
@@ -146,10 +176,6 @@
 /obj/structure/stairs/stone{
 	dir = 8
 	},
-/turf/open/floor/naturalstone,
-/area/under/tomb)
-"Z" = (
-/obj/item/clothing/armor/cuirass/grenzelhoft,
 /turf/open/floor/naturalstone,
 /area/under/tomb)
 
@@ -206,9 +232,9 @@ a
 a
 a
 a
-a
-a
-a
+L
+L
+L
 a
 a
 a
@@ -227,11 +253,11 @@ a
 a
 a
 R
+T
 R
 R
 R
-R
-R
+T
 R
 R
 a
@@ -252,9 +278,9 @@ R
 R
 R
 R
-Z
 R
-M
+R
+R
 R
 R
 R
@@ -272,7 +298,7 @@ R
 R
 R
 R
-I
+R
 U
 R
 R
@@ -289,13 +315,13 @@ a
 a
 a
 a
-R
+O
 R
 R
 X
 M
 y
-R
+I
 R
 R
 y
@@ -317,14 +343,14 @@ R
 Q
 R
 o
-C
+R
 y
 R
 R
 M
 k
-I
 R
+N
 a
 Y
 Y
@@ -332,7 +358,7 @@ Y
 (9,1,1) = {"
 R
 R
-a
+L
 R
 R
 R
@@ -340,28 +366,28 @@ G
 R
 R
 i
-m
+j
 n
 R
 g
 R
 R
 R
-a
+L
 R
 R
 "}
 (10,1,1) = {"
 u
 R
-a
+L
 R
 y
 R
 P
 R
 c
-m
+W
 B
 s
 y
@@ -369,14 +395,14 @@ R
 R
 y
 R
-a
+L
 R
 e
 "}
 (11,1,1) = {"
 R
 R
-a
+L
 R
 R
 R
@@ -391,14 +417,14 @@ R
 R
 R
 R
-a
+L
 R
 R
 "}
 (12,1,1) = {"
 R
 R
-a
+L
 R
 R
 R
@@ -413,7 +439,7 @@ y
 R
 R
 R
-a
+L
 R
 R
 "}
@@ -421,20 +447,20 @@ R
 z
 z
 a
+O
+R
+R
+R
+R
+R
+I
 R
 R
 R
 R
 R
 R
-R
-R
-R
-R
-R
-R
-R
-r
+N
 a
 z
 z
@@ -449,12 +475,12 @@ R
 R
 R
 R
-I
+R
 q
 R
 c
 R
-I
+R
 R
 R
 a
@@ -468,7 +494,7 @@ a
 a
 R
 R
-M
+R
 y
 R
 R
@@ -493,10 +519,10 @@ R
 R
 R
 R
-M
 R
 R
-I
+R
+R
 R
 M
 a
@@ -513,11 +539,11 @@ a
 a
 a
 R
+w
 R
 R
 R
-R
-R
+w
 R
 a
 a
@@ -536,9 +562,9 @@ a
 a
 a
 a
-a
-a
-a
+L
+L
+L
 a
 a
 a
@@ -733,13 +759,13 @@ R
 x
 x
 x
-x
+b
 x
 x
 R
 x
 x
-x
+b
 x
 x
 x
@@ -887,13 +913,13 @@ R
 R
 x
 x
-x
+b
 x
 x
 R
 x
 x
-x
+b
 x
 x
 x
