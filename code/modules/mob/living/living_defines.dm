@@ -77,7 +77,8 @@
 
 	var/mob_size = MOB_SIZE_HUMAN
 	var/mob_biotypes = MOB_ORGANIC
-	var/metabolism_efficiency = 1 //more or less efficiency to metabolize helpful/harmful reagents and regulate body temperature..
+	/// more or less efficiency to metabolize helpful/harmful reagents and regulate body temperature..
+	var/metabolism_efficiency = 1
 	var/has_limbs = 0 //does the mob have distinct limbs?(arms,legs, chest,head)
 
 	/// Chem effects
@@ -263,13 +264,6 @@
 
 	var/list/affixes = list()
 	var/delve_level = 0
-
-	var/cold_res = 0
-	var/max_cold_res = 75
-	var/fire_res = 0
-	var/max_fire_res = 75
-	var/lightning_res = 0
-	var/max_lightning_res = 75
 
 	var/list/status_modifiers
 

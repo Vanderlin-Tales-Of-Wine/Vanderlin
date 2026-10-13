@@ -1104,8 +1104,8 @@
 		setShockStage(0, FALSE, TRUE)
 
 	if(heal_flags & HEAL_ESSENTIALS)
-		set_nutrition(NUTRITION_LEVEL_FED + 50)
-		set_hydration(HYDRATION_LEVEL_HYDRATED + 50)
+		set_nutrition(NUTRITION_LEVEL_WELL_FED)
+		set_hydration(HYDRATION_LEVEL_WELL_HYDRATED)
 
 	set_disgust(0)
 	cure_husk()
@@ -2840,6 +2840,13 @@
 	reset_perspective(looking_holder)
 	update_cone_show()
 	on_looking_z_level_change(get_turf(src), below_turf)
+
+/// Whether the mob's client is currently viewing through a vertical look (up/down) holder
+/mob/proc/is_looking_vertically()
+	return FALSE
+
+/mob/living/is_looking_vertically()
+	return looking_vertically != NONE && client?.eye == looking_holder
 
 /mob/living/proc/look_further(turf/T)
 	if(looking_vertically)

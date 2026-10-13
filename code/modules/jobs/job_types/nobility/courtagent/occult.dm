@@ -39,10 +39,10 @@
 
 	spells = list(
 		/datum/action/cooldown/spell/status/blood_sight,
-		/datum/action/cooldown/spell/projectile/blood_steal,
+		/datum/action/cooldown/spell/blood_steal,
 		/datum/action/cooldown/spell/diagnose/blood,
 		/datum/action/cooldown/spell/blood_healing,
-		/datum/action/cooldown/spell/status/blood_choke,
+		/datum/action/cooldown/spell/status/blood_choke/whisper,
 		/datum/action/cooldown/spell/blood_poison,
 	)
 	book_type = /obj/item/recipe_book/arcyne
@@ -69,4 +69,5 @@
 		/obj/item/book/magicaltheory = 1,
 		/obj/item/recipe_book/arcyne = 1,
 		/obj/item/key/archive = 1,
+		/obj/item/scrying/flame = 1,
 	)
