@@ -326,8 +326,8 @@
 /datum/job/advclass/menatarms/watchman_cavalry/on_roundstart(mob/living/spawned, client/player_client)
 	. = ..()
 	var/static/list/weapons = list(
-		"Steel Sabre & Crossbow" = list(/obj/item/weapon/sword/sabre || /obj/item/gun/ballistic/bow/cross),
-		"Steel Shortsword & Shortbow" = list(/obj/item/weapon/sword/short || /obj/item/gun/ballistic/bow/short),
+		"Steel Sabre & Crossbow" = list(/obj/item/weapon/sword/sabre, /obj/item/gun/ballistic/bow/cross),
+		"Steel Shortsword & Shortbow" = list(/obj/item/weapon/sword/short, /obj/item/gun/ballistic/bow/short),
 		"Steel Spear" = /obj/item/weapon/polearm/spear/steel,
 		"Lucerne" = /obj/item/weapon/polearm/eaglebeak/lucerne,
 	)
