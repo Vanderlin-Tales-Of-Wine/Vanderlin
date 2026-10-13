@@ -99,10 +99,8 @@
 /area/under/tomb/indoors/church)
 "lM" = (
 /obj/structure/table/church/m,
-/obj/item/weapon/sword/decorated{
-	name = "A Lords Blade";
-	desc = "A long dead kings Blade, Forgotten to time yet master in work.";
-	pixel_y = 7
+/obj/item/clothing/ring/active/nomag{
+	pixel_y = 9
 	},
 /turf/open/floor/hexstone,
 /area/under/tomb/indoors/church)
