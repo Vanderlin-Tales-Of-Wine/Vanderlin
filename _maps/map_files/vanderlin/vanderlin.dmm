@@ -60087,10 +60087,10 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/indoors/town/keep/guest/guest1)
 "xrp" = (
-/obj/effect/mapping_helpers/access/keyset/town/tombwarden,
 /obj/structure/door/viewport{
 	name = "Adventurer's Guild"
 	},
+/obj/effect/mapping_helpers/access/keyset/town/tomb,
 /turf/open/floor/metal/barograte,
 /area/indoors/town/adv_guild)
 "xrw" = (
