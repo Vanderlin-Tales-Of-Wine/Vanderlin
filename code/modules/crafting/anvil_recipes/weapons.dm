@@ -171,9 +171,9 @@
 	appro_skill = /datum/attribute/skill/craft/engineering
 	additional_items = list(/obj/item/natural/wood/plank = 1)
 	created_item = /obj/item/ammo_casing/caseless/arrow
-	output_amount = 5
+	output_amount = 20
 	category = "Ammo"
-	craftdiff = 0
+	craftdiff = 1
 
 /datum/anvil_recipe/weapons/iron/arrows/broadhead
 	name = "Broadhead Arrows"
@@ -184,7 +184,7 @@
 	appro_skill = /datum/attribute/skill/craft/engineering
 	additional_items = list(/obj/item/natural/wood/plank = 1)
 	created_item = /obj/item/ammo_casing/caseless/bolt
-	output_amount = 5
+	output_amount = 20
 	category = "Ammo"
 
 /datum/anvil_recipe/weapons/iron/bolts/broadhead

@@ -32,13 +32,6 @@
 	projectile_type = /obj/projectile/bullet/reusable/arrow/stone //weaker projectile
 	max_integrity = 5
 
-/obj/item/ammo_casing/caseless/arrow/stone/blunt
-	name = "blunthead arrow"
-	desc = "A fletched projectile with a flat, stone tip. Non-lethal. Usually."
-	icon_state = "bluntarrow"
-	projectile_type = /obj/projectile/bullet/reusable/arrow/stone/blunt
-	max_integrity = 5
-
 /obj/item/ammo_casing/caseless/arrow/poison
 	name = "poison arrow"
 	desc = "An arrow with its tip coated in a weak poison."

@@ -62,13 +62,6 @@
 	damage = ARROW_DAMAGE-2
 	woundclass = BCLASS_STAB
 
-/obj/projectile/bullet/reusable/arrow/stone/blunt
-	ammo_type = /obj/item/ammo_casing/caseless/arrow/stone/blunt
-	embedchance = 0
-	armor_penetration = 10
-	damage = DAMAGE_HAMMER
-	woundclass = BCLASS_BLUNT
-
 /obj/projectile/bullet/reusable/arrow/pyro
 	name = "pyroclastic arrow"
 	desc = "An arrow with its tip smeared with a flammable tincture."
