@@ -48,11 +48,11 @@
 		deactivation_timer = null
 
 /datum/action/cooldown/spell/silence_dome/proc/apply_initial_silence()
-	if(!owner || !zone)
+	if(!owner || !zone || !dome)
 		return
 
 	// Find all mobs within range and apply silence
-	for(var/mob/living/carbon/human/target in range(SILENCE_RANGE, owner))
+	for(var/mob/living/carbon/human/target in range(SILENCE_RANGE, dome))
 		if(should_affect_target(target))
 			zone.add_affected_mob(target)
 
