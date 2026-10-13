@@ -17231,12 +17231,6 @@
 /obj/structure/chair/wood/alt/chair_noble/red,
 /turf/open/floor/tile/masonic,
 /area/indoors/town/keep/halls/s)
-"gPo" = (
-/obj/structure/stairs/stone{
-	dir = 8
-	},
-/turf/closed/wall/mineral/decorstone,
-/area/indoors/town/keep/library)
 "gPr" = (
 /turf/open/floor/tile,
 /area/indoors/town/vault)
@@ -18907,12 +18901,6 @@
 	},
 /turf/open/openspace,
 /area/outdoors/river)
-"hxH" = (
-/obj/structure/stairs/fancy/l{
-	dir = 1
-	},
-/turf/closed/mineral,
-/area/under/cave)
 "hxT" = (
 /obj/structure/closet/crate/crafted_closet/inn/south,
 /obj/item/clothing/shirt/undershirt/fancy,
@@ -21582,7 +21570,7 @@
 /area/indoors/town)
 "iyS" = (
 /obj/structure/window,
-/turf/closed/wall/mineral/decorstone,
+/turf/open/floor/greenstone,
 /area/indoors/town/keep/halls/w)
 "iyX" = (
 /turf/open/floor/carpet/lord/left{
@@ -24271,12 +24259,6 @@
 /obj/item/natural/bundle/stick,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/under/town/basement)
-"jyV" = (
-/obj/structure/stairs/fancy/r{
-	dir = 1
-	},
-/turf/closed/mineral,
-/area/under/cave)
 "jyW" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -33825,12 +33807,6 @@
 	dir = 4
 	},
 /area/indoors/soilsons)
-"nhB" = (
-/obj/structure/stairs/stone,
-/obj/structure/stairs/stone,
-/obj/structure/stairs/stone,
-/turf/closed/wall/mineral/decorstone,
-/area/indoors/town/keep/library)
 "nhL" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
@@ -39915,7 +39891,6 @@
 /turf/open/floor/blocks,
 /area/indoors/town/keep/servanthead)
 "pAT" = (
-/obj/structure/stairs/stone,
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/closed/wall/mineral/decorstone,
 /area/indoors/town/keep/library)
@@ -42542,7 +42517,6 @@
 /area/indoors/town/train_station)
 "qwO" = (
 /obj/structure/table/wood,
-/obj/structure/table/wood,
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/tile,
 /area/indoors/town/keep/servant)
@@ -45159,12 +45133,6 @@
 /obj/effect/mapping_helpers/access/keyset/manor/mage,
 /turf/open/floor/cobble/mossy,
 /area/outdoors/town/keep)
-"rwt" = (
-/obj/structure/window/openclose/reinforced,
-/obj/structure/window/openclose/reinforced,
-/obj/structure/curtain/bounty/dir,
-/turf/open/floor/tile,
-/area/indoors/town/steward)
 "rwJ" = (
 /obj/structure/flora/grass/bush_meagre,
 /obj/structure/fluff/railing/wood,
@@ -54126,7 +54094,6 @@
 /obj/item/key/guest/two,
 /obj/effect/mapping_helpers/access/keyset/manor/atarms/butler,
 /obj/item/key/guest/three,
-/obj/effect/mapping_helpers/access/keyset/manor/atarms/butler,
 /turf/open/floor/tile,
 /area/indoors/town/keep/servant)
 "uVO" = (
@@ -121414,7 +121381,7 @@ pYm
 iwU
 qFx
 qFx
-hxH
+qFx
 qFx
 xwx
 jWN
@@ -121616,7 +121583,7 @@ hyg
 gJt
 qFx
 qFx
-jyV
+qFx
 qFx
 xwx
 xJi
@@ -123025,7 +122992,7 @@ mWk
 hyg
 kSu
 hyg
-gPo
+hyg
 hyg
 hyg
 hyg
@@ -123228,7 +123195,7 @@ hyg
 gKT
 ngL
 pAT
-nhB
+hyg
 qJA
 iwU
 iwU
@@ -128926,7 +128893,7 @@ vZK
 xTl
 xTl
 oho
-rwt
+wst
 ads
 qcx
 dwV
@@ -163224,7 +163191,7 @@ qFx
 qFx
 qFx
 hyg
-gPo
+hyg
 hyg
 noI
 xQV
