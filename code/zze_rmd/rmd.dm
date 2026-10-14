@@ -182,12 +182,13 @@
 
 	return locate(here.x, here.y, here.z + offset)
 
+#define RMD_LIGHT_CHUNK 8
+
 /datum/demir/vanderlin
 	default = TRUE
 
 	var/list/loot_tally
-	var/list/loot_spawners
-	var/list/loot_items
+	var/list/loot_totals
 
 	var/sun_color
 	// Hour of the station day, 0 to 24, on the same scale as the `start` values on /datum/time_of_day.
@@ -202,16 +203,21 @@
 	var/ambush_light_reduction = 0.75
 	// Brightness of the current sun tint from 0 to 1, for sky-visible turfs.
 	var/sun_luminance = 1
-	// Every placement that emits light, collected in prepare().
-	var/list/light_sources
+	// "x,y,z" of a RMD_LIGHT_CHUNK sized chunk -> the placements emitting light in it,
+	// collected in prepare().
+	var/list/light_chunks
+	// Largest outer range among the collected lights, so a lookup knows how many chunks to visit.
+	var/light_reach = 0
+	// "x,y,z" of a lower turf -> the static light projecting onto it through openspace (light_depth).
+	var/list/projected_lights
 
 	New()
 		..()
 		if(!GLOB)
 			GLOB = new /datum/controller/global_vars/demir_preview
-		light_sources = list()
-		loot_spawners = list()
-		loot_items = list()
+		light_chunks = list()
+		projected_lights = list()
+		loot_totals = list("capacity" = 0, "low" = 0, "medium" = 0, "high" = 0, "sell" = 0, "items" = 0, "spawners" = 0)
 		// Same order as SSoutdoor_effects.time_cycle_steps, midnight last.
 		tod_steps = list(
 			/datum/time_of_day/dawn,
@@ -340,27 +346,54 @@
 // light source in range with the game's own falloff (inner and outer range, falloff curve, power
 // squared, and the average of the light's color channels, since a lumcount averages r, g and b).
 // The sum is capped at 1. Walls don't block light here, so a lamp behind one still counts.
+// Only same-z sources are counted here; light projected down through openspace is not (yet).
 /datum/demir/vanderlin/proc/turf_luminosity(turf/here)
 	var/lit = 0
 	if(here.demir_sees_sky())
 		lit = sun_luminance
-	for(var/atom/source in light_sources)
-		var/turf/at = get_turf(source)
-		if(!at || at.z != here.z)
-			continue
-		var/dx = at.x - here.x
-		var/dy = at.y - here.y
-		var/outer = max(source.light_outer_range, MINIMUM_USEFUL_LIGHT_RANGE)
-		if(abs(dx) >= outer || abs(dy) >= outer)
-			continue
-		var/dist = sqrt((dx * dx) + (dy * dy))
-		if(dist >= outer)
-			continue
-		// Same falloff as LUM_FALLOFF and APPLY_CORNER in the light_source datum.
-		var/falloff = clamp(-((dist - outer) / max(outer - source.light_inner_range, 1)), 0, 1) ** source.light_falloff_curve
-		var/strength = (source.light_power ** 2) * (source.light_power < 0 ? -1 : 1)
-		lit += falloff * strength * demir_light_color_factor(source.light_color)
+	for(var/cx in round((here.x - light_reach) / RMD_LIGHT_CHUNK) to round((here.x + light_reach) / RMD_LIGHT_CHUNK))
+		for(var/cy in round((here.y - light_reach) / RMD_LIGHT_CHUNK) to round((here.y + light_reach) / RMD_LIGHT_CHUNK))
+			var/list/chunk = light_chunks["[cx],[cy],[here.z]"]
+			if(!chunk)
+				continue
+
+			// Edits leave removed and moved lights behind in their old chunk, so recheck where each one is.
+			for(var/atom/source in chunk)
+				var/turf/at = get_turf(source)
+				if(!at || at.z != here.z)
+					continue
+
+				var/dx = at.x - here.x
+				var/dy = at.y - here.y
+				var/outer = max(source.light_outer_range, MINIMUM_USEFUL_LIGHT_RANGE)
+				if(abs(dx) >= outer || abs(dy) >= outer)
+					continue
+
+				var/dist = sqrt((dx * dx) + (dy * dy))
+				if(dist >= outer)
+					continue
+
+				// Same falloff as LUM_FALLOFF and APPLY_CORNER in the light_source datum.
+				var/falloff = clamp(-((dist - outer) / max(outer - source.light_inner_range, 1)), 0, 1) ** source.light_falloff_curve
+				var/strength = (source.light_power ** 2) * (source.light_power < 0 ? -1 : 1)
+				lit += falloff * strength * demir_light_color_factor(source.light_color)
 	return clamp(lit, 0, 1)
+
+/datum/demir/vanderlin/proc/register_light(atom/source)
+	var/turf/at = get_turf(source)
+	if(!at)
+		return
+
+	var/key = "[round(at.x / RMD_LIGHT_CHUNK)],[round(at.y / RMD_LIGHT_CHUNK)],[at.z]"
+	var/list/chunk = light_chunks[key]
+	if(!chunk)
+		chunk = list()
+		light_chunks[key] = chunk
+
+	if(!(source in chunk))
+		chunk += source
+
+	light_reach = max(light_reach, source.light_outer_range, MINIMUM_USEFUL_LIGHT_RANGE)
 
 // Weather reaches a turf when it is not weatherproof. can_weather() reads turf.outdoor_effect and
 // is_weatherproof() walks the z stack through the mapping subsystem, neither of which the editor
@@ -423,14 +456,35 @@
 	target.demir_prepare_smoothing()
 	target.demir_prepare_light_state()
 	if(target.light_on && target.light_outer_range && target.light_power)
-		light_sources += target
+		register_light(target)
+		demir_register_projection(target)
 
 	if(istype(target, /obj/effect/dungeon_loot_spawner))
-		if(!(target in loot_spawners))
-			loot_spawners += target
+		count_loot_spawner(target)
 	else if(istype(target, /obj/item))
-		if(!(target in loot_items))
-			loot_items += target
+		count_loot_item(target)
+
+// Mirrors the downward branch of /datum/light_source/update_corners(): a static light with
+// light_depth >= 1 reaches the turf below its own turf when that turf is transparent (openspace),
+// and repeats for up to 3 levels. The editor has no multi-z light solver, so the lower turf gets
+// its own emitter copied from the source (see /turf/demir_apply_light()), centered under the lamp.
+// Adjacent z levels stack, same as demir_sees_sky() and the water pipes. Not modelled: light_height
+// (upward spread) and the game's per-tile transparency mask, so the whole radius lights below.
+/datum/demir/vanderlin/proc/demir_register_projection(atom/source)
+	if(source.light_system != STATIC_LIGHT || source.light_depth < 1)
+		return
+	var/turf/at = get_turf(source)
+	if(!at)
+		return
+	var/turf/passing = at
+	for(var/level in 1 to min(source.light_depth, 3))
+		if(!istype(passing, /turf/open/openspace))
+			return
+		var/turf/below = locate(at.x, at.y, at.z - level)
+		if(!istype(below, /turf/open))
+			return
+		projected_lights["[below.x],[below.y],[below.z]"] = source
+		passing = below
 
 /atom/proc/demir_bake_appearance()
 	if(smoothing_flags & USES_SMOOTHING)
@@ -487,15 +541,29 @@
 // the -0.5 under the root. Corners keep the closest source rather than the sum, so this is a peak
 // source. A lit turf reaches its own corners at full strength, which is what makes the outdoors
 // read as daylight without an explicit border pass.
+//
+// A turf has one emitter slot, so priority is: sun, then the turf's own light, then a static light
+// projected down from above through openspace (light_depth), then nothing.
 /turf/demir_apply_light()
-	if(!demir_sees_sky())
-		return ..()
-	demir_light_range = 3
-	demir_light_power = 1
-	demir_light_height = -0.5
 	var/datum/demir/vanderlin/profile = demir_profile()
-	demir_light_color = profile.sun_color
-	demir_light_peak = 1
+	if(demir_sees_sky())
+		demir_light_range = 3
+		demir_light_power = 1
+		demir_light_height = -0.5
+		demir_light_color = profile.sun_color
+		demir_light_peak = 1
+		return
+	if(light_on && light_outer_range && light_power)
+		return ..()
+	var/atom/source = profile.projected_lights["[x],[y],[z]"]
+	if(!source)
+		return ..()
+	demir_light_range = max(source.light_outer_range, MINIMUM_USEFUL_LIGHT_RANGE)
+	demir_light_inner_range = source.light_inner_range
+	demir_light_curve = source.light_falloff_curve
+	demir_light_power = (source.light_power ** 2) * (source.light_power < 0 ? -1 : 1)
+	demir_light_color = source.light_color
+	demir_light_height = 0
 
 /area/demir_apply_light()
 	demir_fullbright = !dynamic_lighting
@@ -513,29 +581,25 @@
 		imgui_text("Item sell total: [loot_tally["sell"]] across [loot_tally["items"]] items")
 		imgui_text("Spawners: [loot_tally["spawners"]]")
 
+/datum/demir/vanderlin/proc/count_loot_spawner(obj/effect/dungeon_loot_spawner/spawner)
+	var/value = spawner.get_remaining_value()
+	loot_totals["spawners"]++
+	loot_totals["capacity"] += value
+	switch(spawner.min_item_value)
+		if(LOOT_VALUE_LOW to LOOT_VALUE_MEDIUM - 1)
+			loot_totals["low"] += value
+		if(LOOT_VALUE_MEDIUM to LOOT_VALUE_HIGH - 1)
+			loot_totals["medium"] += value
+		if(LOOT_VALUE_HIGH to LOOT_VALUE_HIGH * 10)
+			loot_totals["high"] += value
+
+/datum/demir/vanderlin/proc/count_loot_item(obj/item/item)
+	loot_totals["sell"] += isnum(item.sellprice) ? item.sellprice : 0
+	loot_totals["items"]++
+
+// Deleting a placement does not take it back out of the sums until the map rebakes.
 /datum/demir/vanderlin/proc/tally_loot()
-	var/list/totals = list("capacity" = 0, "low" = 0, "medium" = 0, "high" = 0, "sell" = 0, "items" = 0, "spawners" = 0)
-
-	for(var/obj/effect/dungeon_loot_spawner/spawner as anything in loot_spawners)
-		if(!spawner)
-			continue
-		var/value = spawner.get_remaining_value()
-		totals["spawners"]++
-		totals["capacity"] += value
-		switch(spawner.min_item_value)
-			if(LOOT_VALUE_LOW to LOOT_VALUE_MEDIUM - 1)
-				totals["low"] += value
-			if(LOOT_VALUE_MEDIUM to LOOT_VALUE_HIGH - 1)
-				totals["medium"] += value
-			if(LOOT_VALUE_HIGH to LOOT_VALUE_HIGH * 10)
-				totals["high"] += value
-
-	for(var/obj/item/I as anything in loot_items)
-		if(!I)
-			continue
-		totals["sell"] += isnum(I.sellprice) ? I.sellprice : 0
-		totals["items"]++
-
+	var/list/totals = loot_totals.Copy()
 	var/budget = BASE_LOOTPOOL_SIZE
 	totals["budget"] = budget
 	totals["max_pool"] = min(totals["capacity"], budget)
@@ -543,5 +607,6 @@
 
 #undef DEMIR_VANDERLIN_AMBUSH_COLOR
 #undef DEMIR_VANDERLIN_WEATHER_COLOR
+#undef RMD_LIGHT_CHUNK
 
 #endif
