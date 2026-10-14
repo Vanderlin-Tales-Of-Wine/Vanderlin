@@ -1,4 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/dungeon_loot_spawner/high/chest,
+/turf/open/floor/ruinedwood/chevron,
+/area/under/tomb/indoors)
 "aq" = (
 /obj/structure/table/wood/fancy,
 /obj/effect/dungeon_loot_spawner/high,
@@ -6437,7 +6442,7 @@ gZ
 gZ
 gZ
 bM
-Uu
+aa
 qC
 yz
 hK
