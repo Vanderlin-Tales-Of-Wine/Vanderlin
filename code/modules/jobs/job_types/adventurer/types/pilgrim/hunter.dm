@@ -9,7 +9,7 @@
 		/datum/attribute/skill/combat/unarmed = 15,
 	)
 	clamped_adjustment = list(
-		/datum/attribute/skill/combat/crossbows = list(10, 30)
+		/datum/attribute/skill/combat/crossbows = list(10, 40)
 	)
 
 /datum/attribute_holder/sheet/job/pilgrim/hunter/crossbowandknife
@@ -17,19 +17,20 @@
 		STAT_STRENGTH = 1,
 		STAT_INTELLIGENCE = 1,
 		/datum/attribute/skill/combat/unarmed = 10,
+		/datum/attribute/skill/combat/knives = 10,
 	)
 	clamped_adjustment = list(
-		/datum/attribute/skill/combat/crossbows = list(10, 30)
+		/datum/attribute/skill/combat/crossbows = list(10, 40)
 	)
 
 /datum/attribute_holder/sheet/job/pilgrim/hunter/bowandknife
 	raw_attribute_list = list(
 		STAT_PERCEPTION = 1,
 		STAT_INTELLIGENCE = 1,
-		/datum/attribute/skill/combat/unarmed = 10,
+		/datum/attribute/skill/combat/knives = 15,
 	)
 	clamped_adjustment = list(
-		/datum/attribute/skill/combat/swords = list(10, 30)
+		/datum/attribute/skill/combat/bows = list(10, 40)
 	)
 
 /datum/attribute_holder/sheet/job/pilgrim/hunter/bowandhatch
@@ -40,7 +41,7 @@
 		/datum/attribute/skill/combat/unarmed = 15,
 	)
 	clamped_adjustment = list(
-		/datum/attribute/skill/combat/axesmaces = list(10, 30)
+		/datum/attribute/skill/combat/bows = list(10, 40)
 	)
 
 
@@ -84,7 +85,7 @@
 		/datum/attribute/skill/craft/tanning = 30,
 		/datum/attribute/skill/combat/bows = 20,
 		/datum/attribute/skill/combat/crossbows = 20,
-		/datum/attribute/skill/combat/knives = 20,
+		/datum/attribute/skill/combat/knives = 10,
 		/datum/attribute/skill/combat/wrestling = 10,
 		/datum/attribute/skill/craft/cooking = 10,
 		/datum/attribute/skill/labor/butchering = 20,
@@ -105,8 +106,8 @@
 		STAT_ENDURANCE = -1,
 		/datum/attribute/skill/craft/crafting = 30,
 		/datum/attribute/skill/craft/tanning = 30,
-		/datum/attribute/skill/combat/bows = 40,
-		/datum/attribute/skill/combat/crossbows = 20,
+		/datum/attribute/skill/combat/bows = 30,
+		/datum/attribute/skill/combat/crossbows = 30,
 		/datum/attribute/skill/combat/knives = 20,
 		/datum/attribute/skill/combat/wrestling = 10,
 		/datum/attribute/skill/combat/unarmed = 10,
