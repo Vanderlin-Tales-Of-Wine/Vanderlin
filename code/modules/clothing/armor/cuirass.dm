@@ -4,8 +4,8 @@
 	desc = "A cuirass of steel. Lightweight and highly durable."
 	icon_state = "cuirass"
 	item_state = "cuirass"
-	anvilrepair = /datum/attribute/skill/craft/armor_repair
-	smeltresult = /obj/item/ingot/steel_slag
+	material = /obj/item/ingot/steel
+	melt_amount = 100
 	boobed = FALSE
 	sellprice = VALUE_STEEL_ARMOR
 
@@ -48,7 +48,8 @@
 	desc = "Many cooking pots ended their daes on the anvil to form this protective plate."
 	icon_state = "ibreastplate"
 	item_state = "ibreastplate"
-	smeltresult = /obj/item/ingot/iron
+	melting_material = /datum/material/iron
+	melt_amount = 100
 	sellprice = VALUE_IRON_ARMOR
 
 	armor_type = /datum/armor/plate/bad
@@ -82,7 +83,8 @@
 	desc = "Very simple and crude protection for the chest. Ancient fighters once used similar gear, with better quality..."
 	icon_state = "copperchest"
 	item_state = "copperchest"
-	smeltresult = /obj/item/ingot/copper
+	melting_material = /datum/material/copper
+	melt_amount = 100
 	sellprice = VALUE_DIRT_CHEAP
 
 	armor_class = AC_LIGHT
@@ -129,7 +131,8 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/watchmen_onmob.dmi'// TODO: DUMP INTO APPROPRIATE FILE IF PR WILL BE APROVED
 	icon = 'icons/roguetown/clothing/watchmen_item.dmi' // TODO: DUMP INTO APPROPRIATE FILE IF PR WILL BE APROVED
 
-	smeltresult = /obj/item/ingot/iron
+	melting_material = /datum/material/iron
+	melt_amount = 100
 	sellprice = VALUE_IRON_ARMOR
 	armor_type = /datum/armor/plate/bad
 	max_integrity = INTEGRITY_OLD_STRONG
