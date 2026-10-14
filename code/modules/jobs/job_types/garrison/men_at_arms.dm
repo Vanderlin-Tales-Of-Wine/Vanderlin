@@ -1,12 +1,7 @@
 /datum/job/men_at_arms
 	title = JOB_MAN_AT_ARMS
-	tutorial = "Chosen by the Captain and King, you're not like those shit stinking City Watchmen. \
-	Like a hound on a leash, you stand vigilant for your masters. \
-	You live better than the rest of the taffers in this kingdom-- \
-	infact, you take shifts manning the gate with your brethren, assuming the gatemaster isn't there, \
-	keeping the savages out, keeping the shit-covered knaves away from your foppish superiors. \
-	It will be a cold day in hell when you and your compatriots are slain, and nobody in this town will care. \
-	The nobility needs good men, and they only come in a pair of pairs."
+	tutorial = "You are the crown's finest, trained, equipped, and educated to serve as the backbone of your lord's army. \
+	When the knights are too few, and the watch is too feeble, it is the Men-at-Arms whose blades execute the will of the throne."
 	department_flag = GARRISON
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_MENATARMS
@@ -88,10 +83,10 @@
 
 /datum/job/advclass/menatarms/watchman_footman
 	title = "Footman Men-At-Arms"
-	tutorial = "You once warded the town, beating the poor and killing the senseless. \
-	Now you get to stare at them in the eyes, watching as they bleed, \
-	exanguinated personally by one of the Monarch's best. \
-	You are poor, and your belly is yet full."
+	tutorial = "You make up the bread and butter of the Crown’s forces, \
+	while not as specialised as the others in the Crown’s employ, \
+	you make up for it with a wider array of equipment at your disposal. \
+	Nobody wins wars without people like you."
 	outfit = /datum/outfit/watchman/footman
 	category_tags = list(CTAG_MENATARMS)
 	attribute_sheet = /datum/attribute_holder/sheet/job/menatarms/footman
@@ -176,9 +171,9 @@
 
 /datum/job/advclass/menatarms/watchman_ranger
 	title = "Archer Men-At-Arms"
-	tutorial = "You once warded the town, beating the poor and killing the senseless. \
-	Now you stare at them from above, raining hell down upon the knaves and the curs that see you a traitor. \
-	You are poor, and your belly is yet full."
+	tutorial = "While the others charge into the fray hacking at anything they see, \
+	you’re behind them, taking precise shots with bolts and arrows. \
+	You are the bane of any would-be sieger, and your weapon is your life."
 	outfit = /datum/outfit/watchman/ranger
 	category_tags = list(CTAG_MENATARMS)
 	attribute_sheet = /datum/attribute_holder/sheet/job/menatarms/ranger
@@ -242,6 +237,9 @@
 
 /datum/job/advclass/menatarms/watchman_hospitaller
 	title = "Hospitaller Men-At-Arms"
+	tutorial = "You never had the raw capacity of violence like the rest of them, \
+	nor the surgical talent of the feldsher, but what you do have is the best of both worlds, \
+	you keep them fighting, alive, and grateful for your help when you crack the skull of the bastard trying to twist the knife."
 	outfit = /datum/outfit/watchman/hospitaller
 	category_tags = list(CTAG_MENATARMS)
 	total_positions = 1
@@ -308,6 +306,10 @@
 
 /datum/job/advclass/menatarms/watchman_cavalry
 	title = "Cavalry Men-At-Arms"
+	tutorial = "You can hold yourself high above the rest. \
+	you’re quicker than any ne’er do well that dares to attack your city with your mount \
+	and you’re no slouch when it comes to running them through with a sabre while you’re at it. \
+	Treat your Saiga well, and they’ll take care of you."
 	outfit = /datum/outfit/watchman/cavalry
 	category_tags = list(CTAG_MENATARMS)
 	total_positions = 2
@@ -397,6 +399,9 @@
 
 /datum/job/advclass/menatarms/watchman_sergeant
 	title = "Serjeant-At-Arms"
+	tutorial = "Those rabble need someone to lead them, The Captain gives orders, but you make sure they’re followed. \
+	Knighthood might have led to a different life, but they need someone to really listen to; \
+	and when the going gets tough you’ll be there with them, charging into the fray."
 	outfit = /datum/outfit/watchman/sergeant
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	total_positions = 1
