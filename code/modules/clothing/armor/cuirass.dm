@@ -48,7 +48,7 @@
 	desc = "Many cooking pots ended their daes on the anvil to form this protective plate."
 	icon_state = "ibreastplate"
 	item_state = "ibreastplate"
-	melt_material = /datum/material/iron
+	melting_material = /datum/material/iron
 	melt_amount = 100
 	sellprice = VALUE_IRON_ARMOR
 
@@ -130,8 +130,7 @@
 	icon_state = "flutedcuirass_iron"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/watchmen_onmob.dmi'// TODO: DUMP INTO APPROPRIATE FILE IF PR WILL BE APROVED
 	icon = 'icons/roguetown/clothing/watchmen_item.dmi' // TODO: DUMP INTO APPROPRIATE FILE IF PR WILL BE APROVED
-
-	melt_material = /datum/material/iron
+	melting_material = /datum/material/iron
 	melt_amount = 100
 	sellprice = VALUE_IRON_ARMOR
 	armor_type = /datum/armor/plate/bad
