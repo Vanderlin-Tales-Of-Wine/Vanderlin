@@ -4708,6 +4708,7 @@
 #include "code\native_say\say_channels\ooc.dm"
 #include "code\native_say\say_channels\say.dm"
 #include "code\ze_genesis_call\genesis_call.dm"
+#include "code\zze_rmd\rmd.dm"
 #include "interface\interface.dm"
 #include "interface\menu.dm"
 #include "interface\stylesheet.dm"
