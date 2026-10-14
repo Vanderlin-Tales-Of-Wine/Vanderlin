@@ -174,7 +174,6 @@
 	armor_penetration = BOLT_PENETRATION - 10
 	embedchance = 95
 	ammo_type = /obj/item/ammo_casing/caseless/bolt/bonesinew
-	speed = 1.1
 
 /obj/projectile/bullet/reusable/bolt/broadhead
 	name = "broadhead bolt"

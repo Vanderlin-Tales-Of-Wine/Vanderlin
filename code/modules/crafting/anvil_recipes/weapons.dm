@@ -208,6 +208,11 @@
 	additional_items = list(/obj/item/grown/log/tree/stick = 1)
 	created_item = /obj/item/weapon/axe/iron
 
+/datum/anvil_recipe/weapons/iron/hatchet
+	name = "Iron Hatchet"
+	additional_items = list(/obj/item/grown/log/tree/stick = 1)
+	created_item = /obj/item/weapon/axe/hatchet
+
 /datum/anvil_recipe/weapons/iron/nsapo
 	name = "Iron Kasuyu"
 	additional_items = list(/obj/item/grown/log/tree/stick = 1)

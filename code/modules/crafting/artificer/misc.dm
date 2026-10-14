@@ -151,6 +151,14 @@
 	hammers_per_item = 7
 	craftdiff = 4
 
+/datum/artificer_recipe/weapons/hunting_crossbow
+	name = "Hunting Crossbow (+1 Iron) (+2 Sinew Finers)"
+	required_item = /obj/item/natural/wood/plank
+	created_item = /obj/item/gun/ballistic/bow/cross/hunt
+	additional_items = list(/obj/item/ingot/iron = 1, /obj/item/natural/fibers/sinew = 2)
+	hammers_per_item = 7
+	craftdiff = 3
+
 /datum/artificer_recipe/weapons/harpoon_gun
 	name = "Harpoon Gun (+1 Chain) (+2 Metal Gear) (+2 Bronze)"
 	required_item = /obj/item/ingot/steel
