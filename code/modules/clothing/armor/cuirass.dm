@@ -4,7 +4,7 @@
 	desc = "A cuirass of steel. Lightweight and highly durable."
 	icon_state = "cuirass"
 	item_state = "cuirass"
-	melt_material = /obj/item/ingot/steel
+	melting_material = /obj/item/ingot/steel
 	melt_amount = 100
 	boobed = FALSE
 	sellprice = VALUE_STEEL_ARMOR
@@ -83,7 +83,7 @@
 	desc = "Very simple and crude protection for the chest. Ancient fighters once used similar gear, with better quality..."
 	icon_state = "copperchest"
 	item_state = "copperchest"
-	melt_material = /datum/material/copper
+	melting_material = /datum/material/copper
 	melt_amount = 100
 	sellprice = VALUE_DIRT_CHEAP
 
@@ -151,7 +151,7 @@
 	desc = "A resplendant cuirass of pure gold, fitted with tassets for additional coverage. It is dressed atop a besilked arming jacket to ensure the absolute comfort of its wearer, and the holy sigil has been meticulously formed from its slanted plates."
 	armor_class = AC_HEAVY
 	anvilrepair = null
-	melt_material = /datum/material/gold
+	melting_material = /datum/material/gold
 	melt_amount = 100
 	grid_height = 96
 	grid_width = 96
