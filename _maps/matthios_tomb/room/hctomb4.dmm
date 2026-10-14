@@ -420,15 +420,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/kitchen,
 /area/under/tomb/indoors)
-"oi" = (
-/obj/structure/table/wood/counter/end{
-	dir = 9
-	},
-/obj/structure/table/wood/counter/end{
-	dir = 5
-	},
-/turf/open/floor/carpet/green,
-/area/under/tomb/indoors)
 "ol" = (
 /obj/structure/window/openclose{
 	dir = 4;
@@ -1857,7 +1848,7 @@ sF
 dn
 IE
 nx
-oi
+CJ
 RM
 RM
 SW
