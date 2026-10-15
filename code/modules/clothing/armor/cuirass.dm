@@ -109,7 +109,9 @@
 /obj/item/clothing/armor/cuirass/psydon
 	name = "psydonian chestplate"
 	desc = "An expertly smithed form-fitting steel cuirass that is much lighter and agile, but breaks with much more ease. It's thinner, but backed with silk and leather."
-	melt_amount = 75
+desc = "An expertly smithed form-fitting steel cuirass that is much lighter and agile, but breaks with much more ease. It's thinner, but backed with silk and leather."
+melting_material = /datum/material/silver
+melt_amount = 100
 	icon_state = "ornatechestplate"
 	item_state = "ornatechestplate"
 
