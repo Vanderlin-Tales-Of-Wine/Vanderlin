@@ -25,7 +25,7 @@
 	item_state = "grenzelcuirass"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 	boobed = TRUE
-
+	melting_material = /datum/material/blacksteel
 	armor_type = /datum/armor/plate/good
 	item_weight = 5 KILOGRAMS
 
@@ -145,6 +145,7 @@
 	name = "psydonian cuirass"
 	icon_state = "ornatecuirass"
 	desc = "An ornate steel cuirass with tassets, favored by both the Oratorium Throni Vacui and the Order of the Silver Psycross. \
+	melting_material = /datum/material/silver
 			Made to endure."
 
 /obj/item/clothing/armor/cuirass/fluted/gold
