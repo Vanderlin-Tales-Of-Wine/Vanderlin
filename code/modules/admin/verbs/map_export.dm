@@ -346,8 +346,6 @@ GLOBAL_LIST_EMPTY(save_whitelist)
 								continue
 							else if(!(save_flag & SAVE_ITEMS))
 								continue
-							if(thing.get_real_price() > 30)
-								continue
 							if(isclothing(thing))
 								var/obj/item/clothing/cloth = thing
 								if(cloth.armor_class != ARMOR_CLASS_NONE)

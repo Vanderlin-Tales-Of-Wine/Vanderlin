@@ -118,6 +118,8 @@ SUBSYSTEM_DEF(housing)
 				if(door.lock)
 					QDEL_NULL(door.lock)
 				door.lock = new /datum/lock/key(door, lock_list)
+		for(var/obj/item/saved_item in T.contents)
+			saved_item.sellprice = 0
 
 	return TRUE
 
