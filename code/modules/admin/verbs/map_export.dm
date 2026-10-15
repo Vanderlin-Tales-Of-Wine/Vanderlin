@@ -222,8 +222,19 @@ GLOBAL_LIST_EMPTY(save_whitelist)
 
 /proc/build_whitelist()
 	var/list/list = list()
+	//General household items, if you want to add items without any children (or explicitly without them), put them into the list at the bottom
 	list += typesof(/obj/item/bedsheet)
 	list += typesof(/obj/item/kitchen)
+	list += typesof(/obj/item/cooking/pan)
+	list += typesof(/obj/item/reagent_containers/glass)
+	list += typesof(/obj/item/candle)
+	list += list(/obj/item/storage/sack, /obj/item/broom)
+	//Knives
+	list += typesof(/obj/item/weapon/knife)
+	list -= typesof(/obj/item/weapon/knife/dagger)
+	list -= typesof(/obj/item/weapon/knife/throwingknife)
+	//Clothing, there is a check to not allow armor further down in the code
+	list += typesof(/obj/item/clothing)
 	return list
 
 /**
@@ -335,6 +346,13 @@ GLOBAL_LIST_EMPTY(save_whitelist)
 								continue
 							else if(!(save_flag & SAVE_ITEMS))
 								continue
+							if(thing.get_real_price() > 30)
+								continue
+							if(isclothing(thing))
+								var/obj/item/clothing/cloth = thing
+								if(cloth.armor_class != ARMOR_CLASS_NONE)
+									continue
+
 						if(thing.type in obj_blacklist)
 							continue
 
