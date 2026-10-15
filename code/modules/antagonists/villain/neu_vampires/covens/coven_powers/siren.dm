@@ -40,7 +40,7 @@
 
 	var/static/list/bannedwords = list("zizo", "graggar", "matthios", "baotha", "inhumen", "heresy", "abraxas", "abaddon", "mephistopheles", "leviathan")
 	for(var/T in bannedwords)  //astrata smites naughty xylixans
-		if(findtext(message, T))
+		if(findtext(new_say, T))
 			to_chat(owner, span_warning("You cannot force someone to speak heresy!"))
 			return
 
