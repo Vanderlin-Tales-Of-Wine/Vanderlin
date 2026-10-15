@@ -4,7 +4,8 @@
 	desc = "A cuirass of steel. Lightweight and highly durable."
 	icon_state = "cuirass"
 	item_state = "cuirass"
-	melting_material = /obj/item/ingot/steel
+	anvilrepair = /datum/attribute/skill/craft/armor_repair
+	melting_material = /obj/item/material/steel
 	melt_amount = 100
 	boobed = FALSE
 	sellprice = VALUE_STEEL_ARMOR
@@ -48,6 +49,7 @@
 	desc = "Many cooking pots ended their daes on the anvil to form this protective plate."
 	icon_state = "ibreastplate"
 	item_state = "ibreastplate"
+	anvilrepair = /datum/attribute/skill/craft/armor_repair
 	melting_material = /datum/material/iron
 	melt_amount = 100
 	sellprice = VALUE_IRON_ARMOR
@@ -83,6 +85,7 @@
 	desc = "Very simple and crude protection for the chest. Ancient fighters once used similar gear, with better quality..."
 	icon_state = "copperchest"
 	item_state = "copperchest"
+	anvilrepair = /datum/attribute/skill/craft/armor_repair
 	melting_material = /datum/material/copper
 	melt_amount = 100
 	sellprice = VALUE_DIRT_CHEAP
