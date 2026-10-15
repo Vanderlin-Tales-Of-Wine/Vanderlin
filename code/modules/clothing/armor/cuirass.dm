@@ -109,9 +109,9 @@
 /obj/item/clothing/armor/cuirass/psydon
 	name = "psydonian chestplate"
 	desc = "An expertly smithed form-fitting steel cuirass that is much lighter and agile, but breaks with much more ease. It's thinner, but backed with silk and leather."
-desc = "An expertly smithed form-fitting steel cuirass that is much lighter and agile, but breaks with much more ease. It's thinner, but backed with silk and leather."
-melting_material = /datum/material/silver
-melt_amount = 100
+	desc = "An expertly smithed form-fitting steel cuirass that is much lighter and agile, but breaks with much more ease. It's thinner, but backed with silk and leather."
+	melting_material = /datum/material/silver
+	melt_amount = 100
 	icon_state = "ornatechestplate"
 	item_state = "ornatechestplate"
 
@@ -146,9 +146,9 @@ melt_amount = 100
 /obj/item/clothing/armor/cuirass/ornate
 	name = "psydonian cuirass"
 	icon_state = "ornatecuirass"
-	desc = "An ornate steel cuirass with tassets, favored by both the Oratorium Throni Vacui and the Order of the Silver Psycross. \
+	desc = "An ornate steel cuirass with tassets, favored by both the Oratorium Throni Vacui and the Order of the Silver Psycross. Made to endure."
 	melting_material = /datum/material/silver
-			Made to endure."
+	melt_amount = 100
 
 /obj/item/clothing/armor/cuirass/fluted/gold
 	name = "golden cuirass"
