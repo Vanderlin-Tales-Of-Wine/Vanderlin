@@ -160,7 +160,7 @@ SUBSYSTEM_DEF(housing)
 	var/maxy = miny + property.template_y - 1
 	var/maxz = minz + property.template_z - 1
 
-	var/save_flags = SAVE_OBJECTS | SAVE_TURFS | SAVE_AREAS | SAVE_OBJECT_PROPERTIES | SAVE_UUID_STASIS | SAVE_WHITELIST
+	var/save_flags = SAVE_OBJECTS | SAVE_TURFS | SAVE_AREAS | SAVE_OBJECT_PROPERTIES | SAVE_UUID_STASIS | SAVE_ITEMS | SAVE_WHITELIST
 	var/map_data = write_map(minx, miny, minz, maxx, maxy, maxz, save_flags, SAVE_SHUTTLEAREA_DONTCARE, property_noop = property.save_id)
 
 	if(!map_data)
