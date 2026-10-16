@@ -8434,9 +8434,8 @@
 /turf/open/floor/cobble,
 /area/indoors/town/keep/basement)
 "dhO" = (
-/obj/structure/fluff/nest,
 /obj/structure/fluff/railing/wood{
-	dir = 8
+	dir = 4
 	},
 /turf/open/floor/blocks/newstone/alt,
 /area/indoors/town)
@@ -12514,7 +12513,7 @@
 "ePc" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/table/wood/fancy/purple,
-/turf/open/floor/ruinedwood/turned/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/indoors/town)
 "ePk" = (
 /obj/structure/closet/crate/chest/old_crate,
@@ -13307,7 +13306,7 @@
 /obj/structure/table/wood/fancy/purple,
 /obj/structure/carpet/purple,
 /obj/item/bouquet/rosa,
-/turf/open/floor/ruinedwood/turned/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/indoors/town)
 "ffl" = (
 /obj/structure/chair/bench/couch/right,
@@ -17010,7 +17009,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/rack/shelf,
 /obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/ruinedwood/turned/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/indoors/town)
 "gFK" = (
 /obj/structure/flora/grass,
@@ -20221,12 +20220,6 @@
 "hUF" = (
 /turf/closed/mineral/random/high,
 /area/under/cave)
-"hUI" = (
-/obj/structure/fluff/railing/wood{
-	dir = 8
-	},
-/turf/open/floor/blocks/newstone/alt,
-/area/indoors/town)
 "hUO" = (
 /obj/structure/table/wood{
 	dir = 10;
@@ -22993,7 +22986,7 @@
 	pixel_y = 18;
 	density = 0
 	},
-/turf/open/floor/ruinedwood/turned/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/indoors/town)
 "jaq" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -24977,6 +24970,7 @@
 	pixel_y = 10;
 	name = "Lipstick"
 	},
+/obj/item/lipstick,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town)
 "jLu" = (
@@ -30678,7 +30672,7 @@
 	pixel_x = -5;
 	pixel_y = 2
 	},
-/turf/open/floor/ruinedwood/turned/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/indoors/town)
 "lZJ" = (
 /obj/structure/rack,
@@ -32756,7 +32750,7 @@
 	pixel_y = 18;
 	density = 0
 	},
-/turf/open/floor/ruinedwood/turned/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/indoors/town)
 "mPp" = (
 /obj/structure/fluff/walldeco/church/line{
@@ -33657,8 +33651,9 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/garrison)
 "nhY" = (
-/obj/machinery/light/fueled/wallfire/candle/l,
-/turf/open/floor/ruinedwood/turned/darker,
+/obj/structure/closet/crate/crafted_closet,
+/obj/item/broom,
+/turf/open/floor/ruinedwood/spiral,
 /area/indoors/town)
 "nhZ" = (
 /obj/structure/flora/tree/burnt,
@@ -33901,7 +33896,11 @@
 /area/indoors/town/keep/basement/bath)
 "nng" = (
 /obj/structure/fluff/sellsign{
-	desc = "Beespider Farm"
+	desc = "Beespider Farm";
+	pixel_x = -4
+	},
+/obj/structure/fluff/railing/wood{
+	dir = 4
 	},
 /turf/open/floor/blocks/newstone/alt,
 /area/indoors/town)
@@ -34084,7 +34083,7 @@
 /obj/effect/landmark/start/tailor{
 	dir = 4
 	},
-/turf/open/floor/ruinedwood/turned/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/indoors/town)
 "nqQ" = (
 /obj/structure/fluff/walldeco/customflag{
@@ -36000,7 +35999,7 @@
 /obj/structure/chair/wood/alt/chair_noble/purple{
 	dir = 8
 	},
-/turf/open/floor/ruinedwood/turned/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/indoors/town)
 "ogb" = (
 /turf/open/floor/concrete,
@@ -37251,7 +37250,7 @@
 /obj/item/candle/yellow,
 /obj/item/candle/yellow,
 /obj/item/candle/yellow,
-/turf/open/floor/ruinedwood/turned/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/indoors/town)
 "oFd" = (
 /turf/open/floor/herringbone,
@@ -40104,6 +40103,9 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
 /turf/open/floor/blocks/newstone/alt,
 /area/indoors/town)
 "pKz" = (
@@ -42466,9 +42468,6 @@
 "qDX" = (
 /mob/living/simple_animal/hostile/retaliate/spider{
 	name = "Spindly"
-	},
-/obj/structure/fluff/railing/wood{
-	dir = 8
 	},
 /turf/open/floor/blocks/newstone/alt,
 /area/indoors/town)
@@ -46064,7 +46063,7 @@
 /area/indoors/town/keep/basement/wine)
 "rWu" = (
 /obj/structure/carpet/purple,
-/turf/open/floor/ruinedwood/turned/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/indoors/town)
 "rWz" = (
 /obj/item/natural/worms/leech/abyssoid{
@@ -51788,7 +51787,13 @@
 	dir = 1
 	},
 /obj/structure/table/wood/fancy/purple,
-/obj/item/recipe_book/sewing,
+/obj/item/recipe_book/sewing{
+	pixel_y = 5
+	},
+/obj/item/recipe_book/leatherworking{
+	pixel_x = -22;
+	pixel_y = 4
+	},
 /turf/open/floor/tile/diamond/purple,
 /area/indoors/town)
 "unl" = (
@@ -164823,7 +164828,7 @@ vHN
 vHN
 eIF
 oFb
-lmd
+nhY
 pwZ
 pwZ
 bYD
@@ -165024,8 +165029,8 @@ wnt
 tHJ
 pWA
 pWw
-sSY
-sSY
+uHo
+uHo
 lZI
 eIF
 bYD
@@ -165227,7 +165232,7 @@ vHN
 vHN
 noR
 gFH
-sSY
+uHo
 ePc
 noR
 bYD
@@ -165429,7 +165434,7 @@ eeE
 pwZ
 pwZ
 mWr
-sSY
+uHo
 eeE
 pwZ
 erX
@@ -165630,8 +165635,8 @@ vrO
 oOg
 eIF
 jao
-nhY
-sSY
+nBS
+uHo
 nqu
 eIF
 mVa
@@ -165831,8 +165836,8 @@ pXW
 mVa
 oOg
 fIs
-jfy
-jfy
+uOO
+uOO
 rWu
 ffh
 qZj
@@ -165844,7 +165849,7 @@ qXw
 qXw
 qXw
 nng
-ebv
+dhO
 pKx
 wSI
 pwZ
@@ -166034,8 +166039,8 @@ lXk
 oOg
 noR
 mPf
-sSY
-jfy
+uHo
+uOO
 ofN
 noR
 bYD
@@ -166046,8 +166051,8 @@ qXw
 qXw
 qXw
 qDX
-hUI
-dhO
+ebv
+qIw
 eIF
 mxi
 mVa
