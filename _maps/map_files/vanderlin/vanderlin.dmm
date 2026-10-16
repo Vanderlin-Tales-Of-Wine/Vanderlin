@@ -2240,7 +2240,7 @@
 /area/outdoors/exposed/church)
 "aLw" = (
 /obj/item/natural/stone,
-/turf/open/floor/dirt/road,
+/turf/open/floor/twig,
 /area/outdoors/farm)
 "aLD" = (
 /obj/machinery/light/fueled/torchholder/hotspring/standing,
@@ -3498,7 +3498,7 @@
 /turf/open/floor/herringbone,
 /area/indoors/town/train_station)
 "bkF" = (
-/obj/structure/fluff/statue/scare,
+/obj/structure/dryclothes,
 /turf/open/floor/grass,
 /area/outdoors/farm)
 "bkG" = (
@@ -15652,8 +15652,10 @@
 /turf/open/floor/tile/kitchen,
 /area/indoors/town/tavern)
 "gbi" = (
-/obj/structure/apiary/starter,
-/turf/open/floor/dirt/road,
+/obj/structure/closet/crate/chest/wicker/random_bee_keeping,
+/turf/open/floor/twig{
+	dir = 4
+	},
 /area/outdoors/farm)
 "gbl" = (
 /obj/structure/fluff/wallclock,
@@ -18224,6 +18226,7 @@
 "hhg" = (
 /obj/effect/decal/cobblerockedge,
 /obj/machinery/light/fueled/wallfire/candle/r,
+/obj/structure/fake_machine/stockpile,
 /turf/open/floor/twig,
 /area/indoors/soilsons)
 "hhj" = (
@@ -19705,10 +19708,10 @@
 /turf/open/floor/dirt,
 /area/outdoors/town/keep)
 "hHH" = (
-/obj/machinery/tanningrack,
-/obj/item/needle/thorn,
-/obj/item/needle/thorn,
-/turf/open/floor/twig,
+/obj/structure/rack/shelf/biggest,
+/turf/open/floor/twig{
+	dir = 4
+	},
 /area/outdoors/farm)
 "hHM" = (
 /turf/closed/wall/mineral/stonebrick,
@@ -19838,8 +19841,8 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/orphanage)
 "hLR" = (
-/obj/structure/apiary/starter,
-/turf/open/floor/grass,
+/obj/structure/closet/crate/chest/wicker,
+/turf/open/floor/twig,
 /area/outdoors/farm)
 "hLT" = (
 /obj/structure/fluff/walldeco/church/line{
@@ -20976,6 +20979,10 @@
 /obj/item/ore/copper,
 /turf/open/floor/cobblerock,
 /area/under/town/sewer)
+"ilE" = (
+/obj/structure/dryclothes,
+/turf/open/floor/dirt/road,
+/area/outdoors/farm)
 "ilM" = (
 /obj/structure/table/wood/plain_alt,
 /turf/open/floor/cobblerock,
@@ -24375,6 +24382,10 @@
 	},
 /turf/open/floor/churchmarble,
 /area/indoors/town/church)
+"jzR" = (
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/dirt/road,
+/area/outdoors/farm)
 "jzT" = (
 /obj/structure/bars/pipe{
 	dir = 9
@@ -25494,6 +25505,10 @@
 /obj/item/natural/poo,
 /turf/open/floor/dirt,
 /area/indoors/town/tavern)
+"jXb" = (
+/obj/structure/fluff/statue/scare,
+/turf/open/floor/dirt,
+/area/outdoors/farm)
 "jXo" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/cobble,
@@ -27141,8 +27156,8 @@
 /turf/open/floor/wood,
 /area/indoors/town/church/chapel)
 "kGs" = (
-/obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/food/snacks/spiderhoney/honey,
+/obj/machinery/tanningrack,
+/obj/item/needle/thorn,
 /turf/open/floor/twig,
 /area/outdoors/farm)
 "kGt" = (
@@ -32090,6 +32105,12 @@
 	},
 /turf/open/floor/hexstone,
 /area/indoors/town/keep/captain)
+"mBN" = (
+/obj/structure/flora/grass{
+	icon_state = "grass3"
+	},
+/turf/open/floor/cobble/mossy,
+/area/outdoors/farm)
 "mBP" = (
 /obj/structure/table/wood{
 	icon_state = "longtable"
@@ -35728,8 +35749,11 @@
 /turf/open/floor/cobble,
 /area/indoors/town/church)
 "oar" = (
-/obj/structure/closet/crate/chest/wicker/random_bee_keeping,
-/turf/open/floor/twig,
+/obj/structure/closet/crate/chest/wicker,
+/obj/item/reagent_containers/food/snacks/spiderhoney/honey,
+/turf/open/floor/twig{
+	dir = 4
+	},
 /area/outdoors/farm)
 "oat" = (
 /obj/structure/chair/bench/church/smallbench{
@@ -37087,6 +37111,10 @@
 /obj/structure/door/swing,
 /turf/open/floor/dirt,
 /area/under/cave)
+"oCm" = (
+/obj/structure/apiary/starter,
+/turf/open/floor/dirt,
+/area/outdoors/farm)
 "oCz" = (
 /turf/closed/wall/mineral/pipe,
 /area/indoors/town/bath)
@@ -40801,7 +40829,7 @@
 /turf/closed/wall/mineral/stone,
 /area/indoors/town)
 "pVm" = (
-/obj/structure/dryclothes,
+/obj/structure/rack/shelf/biggest,
 /turf/open/floor/cobble/mossy,
 /area/outdoors/farm)
 "pVt" = (
@@ -50070,15 +50098,8 @@
 /turf/open/floor/grass,
 /area/outdoors/town/keep)
 "tBB" = (
-/obj/structure/bars{
-	icon_state = "barsbent";
-	layer = 2.81
-	},
-/obj/structure/table/wood,
-/obj/structure/fake_machine/vendor/soilson{
-	pixel_y = -33
-	},
-/turf/open/floor/grass,
+/obj/structure/fake_machine/vendor/soilson,
+/turf/closed/wall/mineral/wood/window,
 /area/outdoors/farm)
 "tBC" = (
 /obj/effect/landmark/backup_join,
@@ -53453,7 +53474,7 @@
 /turf/open/floor/blocks/newstone,
 /area/indoors/town/keep/courtagent)
 "uRj" = (
-/obj/structure/handcart,
+/obj/structure/closet/crate/chest/wicker,
 /turf/open/floor/twig{
 	dir = 4
 	},
@@ -61408,6 +61429,11 @@
 "xLs" = (
 /obj/structure/rack/shelf/biggest,
 /obj/machinery/light/fueled/wallfire/candle/l,
+/obj/item/flashlight/flare/torch/lantern,
+/obj/item/flashlight/flare/torch/lantern,
+/obj/item/flashlight/flare/torch/lantern,
+/obj/item/flashlight/flare/torch/lantern,
+/obj/item/flashlight/flare/torch/lantern,
 /turf/open/floor/twig,
 /area/indoors/soilsons)
 "xLG" = (
@@ -61832,6 +61858,10 @@
 "xVB" = (
 /turf/closed/mineral/moss,
 /area/under/cavelava)
+"xVG" = (
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/twig,
+/area/outdoors/farm)
 "xVI" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -124681,8 +124711,8 @@ vDN
 phx
 twO
 fau
+fau
 tBB
-phx
 nHs
 nHs
 khW
@@ -125486,7 +125516,7 @@ pDN
 fDP
 fDP
 gdc
-bkF
+gdc
 blx
 blx
 voQ
@@ -125685,10 +125715,10 @@ obk
 obk
 obk
 pDN
-hHH
+waP
 xDd
-vqO
-blx
+gdc
+jzR
 blx
 voQ
 voQ
@@ -125887,9 +125917,9 @@ obk
 obk
 obk
 pDN
-uJz
+hLR
 sjo
-blx
+sjo
 blx
 voQ
 voQ
@@ -126091,7 +126121,7 @@ obk
 pDN
 uRj
 sjo
-blx
+sjo
 voQ
 voQ
 voQ
@@ -126291,11 +126321,11 @@ obk
 obk
 obk
 pDN
-sjo
+gbi
 xDd
-blx
+sjo
 voQ
-voQ
+oCm
 voQ
 voQ
 voQ
@@ -126493,9 +126523,9 @@ obk
 obk
 obk
 pDN
-fDP
-fDP
-voQ
+oar
+sjo
+ixB
 voQ
 voQ
 voQ
@@ -126695,11 +126725,11 @@ obk
 obk
 obk
 pDN
-fUr
-hmV
+hHH
+xDd
 voQ
 voQ
-voQ
+jXb
 voQ
 voQ
 voQ
@@ -127103,7 +127133,7 @@ fUr
 gdc
 voQ
 voQ
-voQ
+oCm
 voQ
 voQ
 voQ
@@ -129119,7 +129149,7 @@ obk
 obk
 obk
 pDN
-pVm
+fDP
 fDP
 gdc
 wvm
@@ -129321,7 +129351,7 @@ obk
 obk
 obk
 ybL
-nfW
+xVG
 gdc
 eVP
 gdc
@@ -129522,13 +129552,13 @@ obk
 obk
 obk
 pDN
-sjo
-fDP
-gdc
+uJz
+xDd
+xDd
 wvm
 gdc
-hLR
 gdc
+bkF
 hZM
 blx
 bwl
@@ -129724,9 +129754,9 @@ obk
 obk
 obk
 pDN
-oar
+uJz
 aLw
-eVP
+mBN
 gdc
 gdc
 blx
@@ -129927,10 +129957,10 @@ obk
 obk
 pDN
 kGs
+xDd
 gdc
 gdc
-gdc
-blx
+ilE
 obm
 blx
 blx
@@ -130128,10 +130158,10 @@ obk
 obk
 obk
 pDN
-sjo
-waP
+pVm
+xDd
 gdc
-gbi
+blx
 blx
 blx
 blx
