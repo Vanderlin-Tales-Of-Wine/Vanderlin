@@ -7264,10 +7264,6 @@
 	dir = 8;
 	icon_state = "largetable"
 	},
-/obj/structure/table/wood{
-	dir = 8;
-	icon_state = "largetable"
-	},
 /obj/item/reagent_containers/glass/cup/silver{
 	pixel_x = 10;
 	pixel_y = 10
