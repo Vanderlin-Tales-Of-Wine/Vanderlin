@@ -22,7 +22,7 @@
 /datum/species/halforc
 	name = "Half-Orc"
 	id = SPEC_ID_HALF_ORC
-	accents_list = list(
+	selectable_accents = list(
 		ACCENT_HORC,
 		ACCENT_OSSLAND
 	)

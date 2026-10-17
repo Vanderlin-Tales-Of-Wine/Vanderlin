@@ -1,7 +1,7 @@
 /datum/species/human
 	name = "Humanb"
 	id = SPEC_ID_HUMEN
-	accents_list = list(
+	selectable_accents = list(
 		ACCENT_NONE,
 		ACCENT_OSSLAND,
 		ACCENT_GRENZ,

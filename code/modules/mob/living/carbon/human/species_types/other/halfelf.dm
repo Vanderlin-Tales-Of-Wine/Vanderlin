@@ -17,7 +17,7 @@
 /datum/species/human/halfelf
 	name = "Half-Elf"
 	id = SPEC_ID_HALF_ELF
-	accents_list = list(
+	selectable_accents = list(
 		ACCENT_NONE,
 		ACCENT_ELF,
 		ACCENT_WINTERMARE,

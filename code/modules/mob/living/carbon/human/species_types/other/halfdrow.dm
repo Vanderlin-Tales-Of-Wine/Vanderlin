@@ -17,7 +17,7 @@
 /datum/species/human/halfdrow
 	name = "Half-Drow"
 	id = SPEC_ID_HALF_DROW
-	accents_list = list(
+	selectable_accents = list(
 		ACCENT_NONE,
 		ACCENT_DELF
 	)
@@ -40,8 +40,6 @@
 	possible_ages = NORMAL_AGES_LIST_CHILD
 
 	changesource_flags = WABBAJACK
-
-	default_
 
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mm.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/fm.dmi'

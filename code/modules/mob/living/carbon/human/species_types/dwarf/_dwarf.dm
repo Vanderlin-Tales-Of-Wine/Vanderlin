@@ -4,13 +4,12 @@
 /datum/species/dwarf
 	name = "Dwarfb"
 	id = SPEC_ID_DWARF
-	accents_list = list(
+	selectable_accents = list(
 		ACCENT_DWARF,
 		ACCENT_OSSLAND,
 		ACCENT_GRENZ,
 		ACCENT_NONE
 	)
-
 	default_accent = ACCENT_DWARF
 	changesource_flags = WABBAJACK
 	exotic_bloodtype = /datum/blood_type/human/dwarf

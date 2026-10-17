@@ -45,7 +45,7 @@
 	disliked_food = NONE
 	liked_food = NONE
 	possible_ages = NORMAL_AGES_LIST_CHILD
-	accents_list = list(
+	selectable_accents = list(
 		ACCENT_ELF,
 		ACCENT_DELF,
 		ACCENT_NONE

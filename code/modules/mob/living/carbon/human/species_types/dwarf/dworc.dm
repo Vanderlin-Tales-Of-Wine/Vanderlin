@@ -22,7 +22,7 @@
 /datum/species/dwarf/dworc
 	name = "Dwarven Half-Orc"
 	id = SPEC_ID_DWARF_ORC
-	accents_list = list(
+	selectable_accents = list(
 		ACCENT_HORC,
 		ACCENT_DWARF,
 		ACCENT_OSSLAND

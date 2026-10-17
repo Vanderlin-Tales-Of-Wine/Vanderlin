@@ -19,7 +19,7 @@
 /datum/species/human/northern
 	name = "Humen"
 	id = SPEC_ID_HUMEN
-	accents_list = list(
+	selectable_accents = list(
 		ACCENT_NONE,
 		ACCENT_GRENZ,
 		ACCENT_OSSLAND

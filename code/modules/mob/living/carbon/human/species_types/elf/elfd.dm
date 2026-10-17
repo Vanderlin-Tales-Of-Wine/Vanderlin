@@ -54,7 +54,7 @@
 	possible_ages = NORMAL_AGES_LIST_CHILD
 	changesource_flags = WABBAJACK
 	default_accent = ACCENT_DELF
-	accents_list = list(
+	selectable_accents = list(
 		ACCENT_DELF,
 		ACCENT_ELF,
 		ACCENT_NONE

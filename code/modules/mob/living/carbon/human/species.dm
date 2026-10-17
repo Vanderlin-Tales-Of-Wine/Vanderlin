@@ -296,10 +296,10 @@
 	/// Accent that will allways be applied (even on top of other accent)
 	var/forced_native_accent
 
-	/// default accent that applies if person's accent variable is default or null.
+	/// Default accent applied, should be present in the selectable_accents list
 	var/default_accent
-	/// list of accents for this species
-	var/accents_list
+	/// List of preference accessible languages for this species
+	var/list/selectable_accents
 
 ///////////
 // PROCS //

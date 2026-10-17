@@ -4,7 +4,7 @@
 /datum/species/elf
 	name = "Elfb"
 	id = SPEC_ID_ELF
-	accents_list = list(
+	selectable_accents = list(
 		ACCENT_ELF,
 		ACCENT_WINTERMARE,
 		ACCENT_OSSLAND,
