@@ -9,6 +9,7 @@
 		TAG_CORRUPTION
 	)
 	roundstart = TRUE
+	allow_preference_switching = TRUE
 	antag_flag = ROLE_BLOOD_HERALD
 	shared_occurence_type = SHARED_HIGH_THREAT
 
