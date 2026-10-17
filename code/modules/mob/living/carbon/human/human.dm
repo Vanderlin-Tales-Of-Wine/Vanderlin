@@ -154,11 +154,12 @@
 
 /mob/living/carbon/human/get_status_tab_items()
 	. = ..()
-	if(clan)
+	if(HAS_TRAIT(src, TRAIT_VITAE_USER) || HAS_TRAIT(src, TRAIT_BLOOD_SENSE))
 		. += "VITAE: [round(bloodpool)]/[maxbloodpool]"
+	if(clan)
 		. += "DETECTIONS: [detections]"
 	if(cleric)
-		. += "Devotion: [round(cleric.devotion)]/[cleric.max_devotion]"
+		. += "[cleric.devotion_title]: [round(cleric.devotion)]/[cleric.max_devotion]"
 
 /mob/living/carbon/human/show_inv(mob/user)
 	user.set_machine(src)
@@ -1099,6 +1100,7 @@
 		return
 
 	message_admins("[ADMIN_LOOKUPFLW_PP(src)] is a [mind.assigned_role.get_informed_title(src)] and has been disconnected for more than 30 seconds!")
+	log_admin("[key_name(src)] is a [mind.assigned_role.get_informed_title(src)] and has been disconnected for more than 30 seconds.")
 
 /mob/living/carbon/human/nobles_seen_servant_work()
 	if(!is_servant_job(mind.assigned_role))
