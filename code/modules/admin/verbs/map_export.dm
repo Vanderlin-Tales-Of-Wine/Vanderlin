@@ -228,13 +228,16 @@ GLOBAL_LIST_EMPTY(save_whitelist)
 	list += typesof(/obj/item/cooking/pan)
 	list += typesof(/obj/item/reagent_containers/glass)
 	list += typesof(/obj/item/candle)
-	list += list(/obj/item/storage/sack, /obj/item/broom)
+	list += list(/obj/item/storage/sack, /obj/item/broom, /obj/item/dmusicbox)
+	list += typesof(/obj/item/instrument)
 	//Knives
 	list += typesof(/obj/item/weapon/knife)
 	list -= typesof(/obj/item/weapon/knife/dagger)
 	list -= typesof(/obj/item/weapon/knife/throwingknife)
 	//Clothing, there is a check to not allow armor further down in the code
 	list += typesof(/obj/item/clothing)
+	list -= typesof(/obj/item/clothing/head/helmet)
+	list -= list(/obj/item/clothing/head/crown/serpcrown)
 	return list
 
 /**
