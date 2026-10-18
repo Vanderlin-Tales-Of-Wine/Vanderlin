@@ -351,8 +351,10 @@ GLOBAL_LIST_EMPTY(save_whitelist)
 								continue
 							if(isclothing(thing))
 								var/obj/item/clothing/cloth = thing
-								if(cloth.armor_class != ARMOR_CLASS_NONE)
+								if(cloth.armor_class != ARMOR_CLASS_NONE && !(save_flag & SAVE_ITEMS_ARMOR))
 									continue
+							if(isweapon(thing) && !(save_flag & SAVE_ITEMS_WEAPON || (thing.type in GLOB.save_whitelist)))
+								continue
 
 						if(thing.type in obj_blacklist)
 							continue

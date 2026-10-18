@@ -118,12 +118,10 @@ SUBSYSTEM_DEF(housing)
 				if(door.lock)
 					QDEL_NULL(door.lock)
 				door.lock = new /datum/lock/key(door, lock_list)
-		for(var/obj/item/saved_item in T.contents)
-			saved_item.sellprice = 0
 
 	return TRUE
 
-/datum/controller/subsystem/housing/proc/load_property(obj/effect/landmark/house_spot/property, ckey, slot)
+/datum/controller/subsystem/housing/proc/load_property(obj/effect/landmark/house_spot/property, ckey, slot, load_flags)
 	var/property_file = "data/properties/[ckey]_[property.save_id]_[slot].dmm"
 
 	if(fexists(property_file))
@@ -143,7 +141,8 @@ SUBSYSTEM_DEF(housing)
 					if(door.lock)
 						QDEL_NULL(door.lock)
 					door.lock = new /datum/lock/key(door, lock_list)
-
+				for(var/obj/item/saved_item in T.contents)
+					saved_item.sellprice = 0
 			return TRUE
 	return load_default_template(property, TRUE)
 
