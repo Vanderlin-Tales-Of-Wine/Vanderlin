@@ -227,6 +227,7 @@ GLOBAL_LIST_EMPTY(save_whitelist)
 	list += typesof(/obj/item/kitchen)
 	list += typesof(/obj/item/cooking/pan)
 	list += typesof(/obj/item/reagent_containers/glass)
+	list -= typesof(/obj/item/reagent_containers/glass/bottle) //potions etc.
 	list += typesof(/obj/item/candle)
 	list += list(/obj/item/storage/sack, /obj/item/broom, /obj/item/dmusicbox)
 	list += typesof(/obj/item/instrument)
@@ -236,8 +237,7 @@ GLOBAL_LIST_EMPTY(save_whitelist)
 	list -= typesof(/obj/item/weapon/knife/throwingknife)
 	//Clothing, there is a check to not allow armor further down in the code
 	list += typesof(/obj/item/clothing)
-	list -= typesof(/obj/item/clothing/head/helmet)
-	list -= list(/obj/item/clothing/head/crown/serpcrown)
+	list -= typesof(/obj/item/clothing/head/helmet) //due to most of them lacking armor class
 	return list
 
 /**
@@ -271,6 +271,7 @@ GLOBAL_LIST_EMPTY(save_whitelist)
 	obj_blacklist -= typesof(/obj/effect/landmark) // most landmarks get deleted except for latejoin arrivals shuttle
 	obj_blacklist += /obj/effect/landmark/house_spot
 	obj_blacklist += /obj/structure/sign/property_sign
+	obj_blacklist += /obj/item/clothing/head/crown/serpcrown
 	if(save_flag & SAVE_WHITELIST)
 		obj_blacklist += typesof(/obj/effect/landmark/start)
 
@@ -353,7 +354,7 @@ GLOBAL_LIST_EMPTY(save_whitelist)
 								var/obj/item/clothing/cloth = thing
 								if(cloth.armor_class != ARMOR_CLASS_NONE && !(save_flag & SAVE_ITEMS_ARMOR))
 									continue
-							if(isweapon(thing) && !(save_flag & SAVE_ITEMS_WEAPON || (thing.type in GLOB.save_whitelist)))
+							if(isweapon(thing) && !(save_flag & SAVE_ITEMS_WEAPON || (thing.type in GLOB.save_whitelist))) //still allows cooking knives
 								continue
 
 						if(thing.type in obj_blacklist)

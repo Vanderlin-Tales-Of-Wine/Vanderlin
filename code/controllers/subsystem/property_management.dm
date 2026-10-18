@@ -121,7 +121,7 @@ SUBSYSTEM_DEF(housing)
 
 	return TRUE
 
-/datum/controller/subsystem/housing/proc/load_property(obj/effect/landmark/house_spot/property, ckey, slot, load_flags)
+/datum/controller/subsystem/housing/proc/load_property(obj/effect/landmark/house_spot/property, ckey, slot)
 	var/property_file = "data/properties/[ckey]_[property.save_id]_[slot].dmm"
 
 	if(fexists(property_file))
