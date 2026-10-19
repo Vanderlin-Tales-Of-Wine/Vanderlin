@@ -17,6 +17,7 @@
 	charge_time = 2 SECONDS
 	cooldown_time = 3 MINUTES
 	spell_cost = 35
+	initial_charges = 6
 	var/duration = 2 MINUTES
 	var/obj/effect/silence_dome/dome
 	var/datum/proximity_monitor/advanced/silence_field/zone

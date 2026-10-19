@@ -140,3 +140,4 @@
 
 	need_cross = FALSE
 	breaks_blood_curse = FALSE
+	initial_charges = 4

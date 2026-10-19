@@ -48,3 +48,4 @@
 	associated_skill = /datum/attribute/skill/magic/arcane/life
 	required_technique = TECHNIQUE_RESTORATION
 	required_level = 6
+	initial_charges = 6

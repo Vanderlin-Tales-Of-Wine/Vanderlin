@@ -52,6 +52,7 @@
 	button_icon_state = "fireball_greater"
 
 	required_level = 8
+	initial_charges = 6
 
 	charge_time = 4 SECONDS
 	charge_drain = 2

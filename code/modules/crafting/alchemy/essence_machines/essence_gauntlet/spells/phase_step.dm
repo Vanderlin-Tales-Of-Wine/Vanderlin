@@ -45,4 +45,5 @@
 	required_form = FORM_ARCANE
 	associated_skill = /datum/attribute/skill/magic/arcane/arcyne
 	required_technique = TECHNIQUE_ILLUSION
-	required_level = 10
+	required_level = 8
+	initial_charges = 5
