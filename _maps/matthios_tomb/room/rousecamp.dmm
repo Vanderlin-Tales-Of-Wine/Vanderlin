@@ -1,4 +1,29 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/open/water/acid,
+/area/under/tomb/cave/lava)
+"ab" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/turf/open/water/acid,
+/area/under/tomb/cave/lava)
+"ac" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/water/acid,
+/area/under/tomb/cave/lava)
+"ad" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/open/water/acid,
+/area/under/tomb/cave/lava)
+"ae" = (
+/obj/structure/fluff/railing/border,
+/turf/open/water/acid,
+/area/under/tomb/cave/lava)
 "an" = (
 /obj/structure/flora/newtree/scorched,
 /turf/open/floor/dirt,
@@ -22,24 +47,12 @@
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/dirt/road,
 /area/under/tomb/cave/lava)
-"dY" = (
-/obj/structure/fluff/railing/border{
-	dir = 4
-	},
-/turf/open/lava/acid,
-/area/under/tomb/cave/lava)
 "eK" = (
 /turf/open/floor/cobblerock/alt,
 /area/under/tomb/cave/lava)
 "fK" = (
 /obj/structure/flora/newtree/scorched,
 /turf/open/openspace,
-/area/under/tomb/cave/lava)
-"hC" = (
-/obj/structure/fluff/railing/border{
-	dir = 8
-	},
-/turf/open/lava/acid,
 /area/under/tomb/cave/lava)
 "hE" = (
 /turf/open/floor/dirt,
@@ -205,9 +218,6 @@
 "Ce" = (
 /turf/closed/mineral/bedrock,
 /area/under/tomb/cave/lava)
-"Cj" = (
-/turf/open/lava/acid,
-/area/under/tomb/cave/lava)
 "Dw" = (
 /obj/structure/flora/newtree/scorched,
 /turf/open/floor/naturalstone,
@@ -299,16 +309,6 @@
 /area/under/tomb/cave/lava)
 "RM" = (
 /turf/open/water/swamp,
-/area/under/tomb/cave/lava)
-"RN" = (
-/obj/structure/fluff/railing/border,
-/turf/open/lava/acid,
-/area/under/tomb/cave/lava)
-"SW" = (
-/obj/structure/fluff/railing/border{
-	dir = 1
-	},
-/turf/open/lava/acid,
 /area/under/tomb/cave/lava)
 "To" = (
 /obj/machinery/light/fueled/firebowl/stump,
@@ -423,12 +423,12 @@ mE
 mE
 mV
 Gf
-dY
-dY
-dY
-dY
-dY
-dY
+ab
+ab
+ab
+ab
+ab
+ab
 kG
 Ce
 Ce
@@ -551,11 +551,11 @@ jO
 mE
 WC
 Ul
-hC
-hC
-hC
-hC
-hC
+ac
+ac
+ac
+ac
+ac
 Ul
 qZ
 mE
@@ -584,11 +584,11 @@ Ie
 jO
 jO
 jO
-Cj
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
+aa
 jO
 IU
 mE
@@ -616,11 +616,11 @@ oW
 jO
 jO
 jO
-Cj
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
+aa
 jO
 jO
 jO
@@ -649,11 +649,11 @@ mE
 mE
 jO
 jO
-Cj
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
+aa
 jO
 jO
 jO
@@ -682,11 +682,11 @@ mE
 IU
 jO
 jO
-Cj
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
+aa
 jO
 mE
 Ce
@@ -713,12 +713,12 @@ mE
 mE
 mE
 jO
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
+aa
+aa
 jO
 mE
 Ce
@@ -738,18 +738,18 @@ jO
 jO
 jO
 jO
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
 jO
 jO
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
+aa
+aa
 jO
 jO
 jO
@@ -768,19 +768,19 @@ oW
 oW
 VO
 jO
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 jO
 jO
 jO
@@ -799,18 +799,18 @@ jO
 oW
 oW
 jO
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
 oW
 oW
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
+aa
+aa
 oW
 oW
 jO
@@ -830,19 +830,19 @@ mE
 jO
 jO
 jO
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 oW
 jO
 jO
@@ -862,18 +862,18 @@ mE
 mE
 jO
 jO
-Cj
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
+aa
 jO
 jO
 jO
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
 jO
 jO
 sp
@@ -894,10 +894,10 @@ mE
 mE
 kG
 jO
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
 jO
 jO
 mE
@@ -926,9 +926,9 @@ WS
 HQ
 ih
 jO
-Cj
-Cj
-Cj
+aa
+aa
+aa
 jO
 jO
 mE
@@ -950,17 +950,17 @@ sp
 "}
 (19,1,1) = {"
 Ce
-Cj
-Cj
+aa
+aa
 lt
 HQ
 WS
 HQ
 ih
 jO
-Cj
-Cj
-Cj
+aa
+aa
+aa
 jO
 jO
 jO
@@ -982,17 +982,17 @@ Ce
 "}
 (20,1,1) = {"
 Ce
-Cj
-Cj
-RN
+aa
+aa
+ae
 HQ
 WS
 HQ
 ih
-Cj
-Cj
-Cj
-Cj
+aa
+aa
+aa
+aa
 jO
 jO
 oW
@@ -1014,17 +1014,17 @@ Ce
 "}
 (21,1,1) = {"
 Ce
-Cj
-Cj
-RN
+aa
+aa
+ae
 HQ
 WS
 HQ
-SW
-Cj
-Cj
-Cj
-Cj
+ad
+aa
+aa
+aa
+aa
 jO
 jO
 oW
@@ -1046,16 +1046,16 @@ Ce
 "}
 (22,1,1) = {"
 Ce
-Cj
-Cj
-RN
+aa
+aa
+ae
 HQ
 uw
 HQ
-SW
-Cj
-Cj
-Cj
+ad
+aa
+aa
+aa
 jO
 jO
 jO
@@ -1078,14 +1078,14 @@ Ce
 "}
 (23,1,1) = {"
 Ce
-Cj
-Cj
-RN
+aa
+aa
+ae
 HQ
 WS
 HQ
-SW
-Cj
+ad
+aa
 jO
 jO
 jO
@@ -1110,9 +1110,9 @@ Ce
 "}
 (24,1,1) = {"
 Ce
-Cj
-Cj
-RN
+aa
+aa
+ae
 HQ
 WS
 HQ
@@ -1142,9 +1142,9 @@ Ce
 "}
 (25,1,1) = {"
 Ce
-Cj
-Cj
-RN
+aa
+aa
+ae
 HQ
 WS
 HQ
@@ -1174,7 +1174,7 @@ Ce
 "}
 (26,1,1) = {"
 Ce
-Cj
+aa
 jO
 lt
 HQ
