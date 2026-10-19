@@ -135,13 +135,11 @@
 /obj/effect/spawner/map_spawner/loot/Initialize(mapload)
 	. = ..()
 	if(loot_table_type)
-		var/datum/loot_table/table = new loot_table_type()
-		// Spawn loot at this location without a specific looter
-		var/list/weighted_list = table.return_list()
+		var/datum/loot_table/table = get_loot_table(loot_table_type)
 		var/spawn_count = rand(table.base_min, table.base_max)
-		for(var/i = 1 to spawn_count)
-			var/atom/spawn_path = pickweight(weighted_list)
-			new spawn_path(get_turf(src))
+		var/turf/spawn_turf = get_turf(src)
+		for(var/spawn_path in table.roll_table(null, spawn_count))
+			new spawn_path(spawn_turf)
 		qdel(src)
 
 /obj/effect/spawner/map_spawner/loot/common

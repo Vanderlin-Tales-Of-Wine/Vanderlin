@@ -1,30 +1,46 @@
+#define LOOT_MAX_DEPTH 6
+
 /datum/loot_table
 	var/name = "generic table"
-	///okay this is quite the different thing, essentially this works with 2 things, either a an assoc list of stat or skill
-	///to list of items with weights. Or Just raw list with weights, these then get added in with bonuses based on their skills based on a minimum
-	///you can set the minimum value in the second list or leave it default which is 0
-	///if a number is in the list ie item_path = 5, 12 if you aren't higher then that level it just ends there
-	///this does mean that you should structure it lowest to highest or you will run into issues
+
+	/// Weighted: path = weight. Cascading: ordered path = chance (rarest first).
 	var/list/loot_table = list()
+	/// TRUE = roll entries top to bottom as percentage chances instead of pickweight.
+	var/cascading = FALSE
+	/// Cascading only: percentage points added to every chance below 100 per level of fortune.
+	var/luck_chance_bonus = 0
 
-	///this is our minimum skill list
-	var/list/minimum_skill_list = list()
-	///our growth factor for each skill
-	var/list/growth_factor_list = list(
-		STAT_FORTUNE = 0.99
-	)
+	// These only matter if you use it as a sub table.
+	/// Stats (STAT_*) and/or skill paths. The looter's HIGHEST level among these is used,
+	/// so listing several keys means "any of these".
+	var/list/req_keys = list()
+	/// Minimum level in req_keys needed for this sub-table to be in play at all.
+	var/min_level = 0
+	/// Growth per level above min_level. Leave null for defaults
+	/// (fortune 0.99, other stats 1.02, skills 1.05).
+	var/growth_factor = null
+	/// How many picks are made on this table when a parent cascades into it.
+	var/rolls = 1
 
-	///this is at bare minimum spawn at base
+	/// Bare minimum spawn count.
 	var/base_min = 1
-	///this is at bare minimum our maximum spawn count. Luck and the scaling factor is added to this
+	/// Bare maximum spawn count. Luck * scaling_factor is added to min and max.
 	var/base_max = 3
-	///how much each point of luck affects the max and minimum
+	/// How much each point of fortune affects the min and max.
 	var/scaling_factor = 0.4
 
-/datum/loot_table/proc/spawn_loot(mob/living/looter = null)
-	var/list/weighted_list = return_list(looter)
-	var/mob_stat_level = 0
+/// Returns a shared instance of a loot table type.
+/proc/get_loot_table(table_path)
+	var/static/list/table_cache = list()
+	var/datum/loot_table/table = table_cache[table_path]
+	if(!table)
+		table = new table_path()
+		table_cache[table_path] = table
+	return table
 
+/// Rolls the table and spawns the results. Returns the list of spawned things.
+/datum/loot_table/proc/spawn_loot(mob/living/looter = null)
+	var/mob_stat_level = 0
 	if(istype(looter))
 		mob_stat_level = looter.get_stat_level(STAT_FORTUNE)
 
@@ -37,92 +53,116 @@
 	var/turf/spawn_location = looter ? get_turf(looter) : null
 
 	var/list/loot = list()
-	for(var/i = 1 to spawn_count)
-		var/atom/spawn_path = pickweight(weighted_list)
+	for(var/spawn_path in roll_table(looter, spawn_count))
 		var/atom/movable/new_spawn = new spawn_path(spawn_location)
-		if(spawn_location)
-			if(istype(looter))
-				looter.put_in_active_hand(new_spawn)
+		if(spawn_location && istype(looter))
+			looter.put_in_active_hand(new_spawn)
 		loot += new_spawn
 	return loot
 
-/datum/loot_table/proc/return_list(mob/looter = null)
-	var/list/weighted_list = list()
+/// Makes `picks` picks on this table. Returns a list of item PATHS.
+/datum/loot_table/proc/roll_table(mob/living/looter = null, picks = 1, depth = 0)
+	var/list/results = list()
+	if(depth > LOOT_MAX_DEPTH)
+		CRASH("Loot table [type] cascaded deeper than [LOOT_MAX_DEPTH] levels, check for a loop.")
 
+	if(cascading)
+		for(var/i in 1 to picks)
+			results += roll_cascade(looter, depth)
+		return results
+
+	var/list/pool = build_pool(looter)
+	if(!length(pool))
+		return results
+
+	for(var/i in 1 to picks)
+		var/choice = pickweight(pool)
+		if(!choice)
+			continue
+		results += resolve_entry(choice, looter, depth)
+	return results
+
+/// Cascading pick: walk the list top to bottom, first successful chance roll wins.
+/datum/loot_table/proc/roll_cascade(mob/living/looter, depth)
+	var/fortune = 0
+	if(istype(looter))
+		fortune = looter.get_stat_level(STAT_FORTUNE)
+
+	for(var/entry in loot_table)
+		var/chance = loot_table[entry]
+		if(ispath(entry, /datum/loot_table))
+			var/datum/loot_table/sub_table = get_loot_table(entry)
+			chance = sub_table.scale_weight(chance, looter)
+			if(chance <= 0)
+				continue // gated out, fall through to the next tier
+		if(chance < 100)
+			chance = min(100, chance + fortune * luck_chance_bonus)
+		if(!prob(chance))
+			continue
+		return resolve_entry(entry, looter, depth)
+	return list()
+
+/// Turns a chosen entry into item paths, descending if it is a sub-table.
+/datum/loot_table/proc/resolve_entry(entry, mob/living/looter, depth)
+	if(ispath(entry, /datum/loot_table))
+		var/datum/loot_table/sub_table = get_loot_table(entry)
+		return sub_table.roll_table(looter, sub_table.rolls, depth + 1)
+	return list(entry)
+
+/// Weighted mode: builds the pool, dropping sub-tables the looter doesn't qualify for.
+/datum/loot_table/proc/build_pool(mob/living/looter = null)
+	var/list/pool = list()
+	for(var/entry in loot_table)
+		var/weight = loot_table[entry]
+		if(ispath(entry, /datum/loot_table))
+			var/datum/loot_table/sub_table = get_loot_table(entry)
+			weight = sub_table.scale_weight(weight, looter)
+		else
+			weight = max(0.01, weight)
+		if(weight <= 0)
+			continue
+		pool[entry] = weight
+	return pool
+
+/// Applies this table's gate to its weight/chance in the parent. 0 = excluded.
+/datum/loot_table/proc/scale_weight(base_value, mob/living/looter = null)
+	if(!length(req_keys))
+		return max(0.01, base_value)
 	if(!istype(looter))
-		for(var/thing in loot_table)
-			if(islist(thing))
-				weighted_list |= clean_weight_list(thing)
-		return weighted_list
+		return 0
 
-	for(var/thing in loot_table)
-		if(islist(thing))
-			weighted_list |= clean_weight_list(thing)
-		if(thing in MOBSTATS)
-			weighted_list |= return_stat_weight(thing, looter)
-		if(ispath(thing, /datum/attribute/skill))
-			weighted_list |= return_skill_weight(thing, looter)
-	return weighted_list
+	var/best_level = -1
+	var/best_key = null
+	for(var/key in req_keys)
+		var/level = get_key_level(key, looter)
+		if(level > best_level)
+			best_level = level
+			best_key = key
 
-/// Copies a weighted list, dropping numeric delimiters and enforcing a minimum weight
-/datum/loot_table/proc/clean_weight_list(list/input_list)
-	var/list/cleaned_list = list()
-	for(var/item in input_list)
-		if(isnum(item)) // Skip numeric delimiters
-			continue
-		cleaned_list[item] = max(0.01, input_list[item]) // Ensure minimum weight
-	return cleaned_list
+	if(best_level < min_level)
+		return 0
 
-/datum/loot_table/proc/return_stat_weight(stat_key, mob/living/looter)
-	var/list/weighted_list = list()
-	var/list/pre_weight_list = loot_table[stat_key]
+	var/levels_over = best_level - min_level
+	if(levels_over <= 0)
+		return max(0.01, base_value)
 
-	var/mob_stat_level = looter?.get_stat_level(stat_key)
-	var/minimum_stat_level = 0
-	var/growth_factor = 1.02
-	if(stat_key in growth_factor_list)
-		growth_factor = growth_factor_list[stat_key]
-	if(stat_key in minimum_skill_list)
-		minimum_stat_level = minimum_skill_list[stat_key]
-	mob_stat_level -= minimum_stat_level
+	var/growth = get_growth(best_key)
+	return max(0.01, base_value * (1 + growth ** levels_over))
 
-	for(var/item in pre_weight_list)
-		if(isnum(item))
-			if(item > mob_stat_level)
-				break
-			continue
-		var/base_weight = pre_weight_list[item]
-		var/scaled_weight = base_weight * (1 + growth_factor ** mob_stat_level)
-		if(mob_stat_level == 0)
-			scaled_weight = base_weight
-		weighted_list |= item
-		weighted_list[item] = max(0.01, scaled_weight)
+/datum/loot_table/proc/get_key_level(key, mob/living/looter)
+	if(ispath(key, /datum/attribute/skill))
+		return GET_MOB_SKILL_VALUE_OLD(looter, key)
+	if(key in MOBSTATS)
+		return looter.get_stat_level(key)
+	return 0
 
-	return weighted_list
+/datum/loot_table/proc/get_growth(key)
+	if(!isnull(growth_factor))
+		return growth_factor
+	if(key == STAT_FORTUNE)
+		return 0.99
+	if(ispath(key, /datum/attribute/skill))
+		return 1.05
+	return 1.02
 
-/datum/loot_table/proc/return_skill_weight(datum/attribute/skill/skill_type, mob/living/looter)
-	var/list/weighted_list = list()
-	var/list/pre_weight_list = loot_table[skill_type]
-
-	var/mob_skill_level = GET_MOB_SKILL_VALUE_OLD(looter, skill_type)
-	var/minimum_skill_level = 0
-	var/growth_factor = 1.05
-	if(skill_type in growth_factor_list)
-		growth_factor = growth_factor_list[skill_type]
-	if(skill_type in minimum_skill_list)
-		minimum_skill_level = minimum_skill_list[skill_type]
-	mob_skill_level -= minimum_skill_level
-
-	for(var/item in pre_weight_list)
-		if(isnum(item))
-			if(item > mob_skill_level)
-				break
-			continue
-		var/base_weight = pre_weight_list[item]
-		var/scaled_weight = base_weight * (1 + growth_factor ** mob_skill_level)
-		if(mob_skill_level == 0)
-			scaled_weight = base_weight
-		weighted_list |= item
-		weighted_list[item] = max(0.01, scaled_weight)
-
-	return weighted_list
+#undef LOOT_MAX_DEPTH
