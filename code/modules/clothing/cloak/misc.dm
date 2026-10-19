@@ -215,7 +215,6 @@
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 	//dropshrink = 0.75
-	has_storage = FALSE
 	resistance_flags = FIRE_PROOF
 	sellprice = 666
 	static_price = TRUE
