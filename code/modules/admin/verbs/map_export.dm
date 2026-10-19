@@ -272,6 +272,7 @@ GLOBAL_LIST_EMPTY(save_whitelist)
 	obj_blacklist += /obj/effect/landmark/house_spot
 	obj_blacklist += /obj/structure/sign/property_sign
 	obj_blacklist += /obj/item/clothing/head/crown/serpcrown
+	obj_blacklist += /obj/structure/fake_machine/merchantvend
 	if(save_flag & SAVE_WHITELIST)
 		obj_blacklist += typesof(/obj/effect/landmark/start)
 
