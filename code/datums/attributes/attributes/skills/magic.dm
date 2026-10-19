@@ -40,7 +40,7 @@
 	desc = "Represents your character's ability to perform Arcyne Magic. The higher your skill the more powerful your Arcyne Magic will be."
 	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
-		/datum/attribute/skill/magic/arcane = -4
+		/datum/attribute/skill/magic/arcane = -10
 	)
 	shared_xp_percent = 0.5
 
@@ -49,7 +49,7 @@
 	desc = "Represents your character's ability to perform Fire Magic. The higher your skill the more powerful your Fire Magic will be."
 	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
-		/datum/attribute/skill/magic/arcane = -4
+		/datum/attribute/skill/magic/arcane = -10
 	)
 	shared_xp_percent = 0.5
 
@@ -58,7 +58,7 @@
 	desc = "Represents your character's ability to perform Water Magic. The higher your skill the more powerful your Water Magic will be."
 	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
-		/datum/attribute/skill/magic/arcane = -4
+		/datum/attribute/skill/magic/arcane = -10
 	)
 	shared_xp_percent = 0.5
 
@@ -67,7 +67,7 @@
 	desc = "Represents your character's ability to perform Ice Magic. The higher your skill the more powerful your Ice Magic will be."
 	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
-		/datum/attribute/skill/magic/arcane = -4
+		/datum/attribute/skill/magic/arcane = -10
 	)
 	shared_xp_percent = 0.5
 
@@ -76,7 +76,7 @@
 	desc = "Represents your character's ability to perform Earth Magic. The higher your skill the more powerful your Earth Magic will be."
 	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
-		/datum/attribute/skill/magic/arcane = -4
+		/datum/attribute/skill/magic/arcane = -10
 	)
 	shared_xp_percent = 0.5
 
@@ -85,7 +85,7 @@
 	desc = "Represents your character's ability to perform Air Magic. The higher your skill the more powerful your Air Magic will be."
 	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
-		/datum/attribute/skill/magic/arcane = -4
+		/datum/attribute/skill/magic/arcane = -10
 	)
 	shared_xp_percent = 0.5
 
@@ -94,7 +94,7 @@
 	desc = "Represents your character's ability to perform Lightning Magic. The higher your skill the more powerful your Lightning Magic will be."
 	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
-		/datum/attribute/skill/magic/arcane = -4
+		/datum/attribute/skill/magic/arcane = -10
 	)
 	shared_xp_percent = 0.5
 
@@ -103,7 +103,7 @@
 	desc = "Represents your character's ability to perform Life Magic. The higher your skill the more powerful your Life Magic will be."
 	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
-		/datum/attribute/skill/magic/arcane = -4
+		/datum/attribute/skill/magic/arcane = -10
 	)
 	shared_xp_percent = 0.5
 
@@ -112,7 +112,7 @@
 	desc = "Represents your character's ability to perform Death Magic. The higher your skill the more powerful your Death Magic will be."
 	governing_attribute = STAT_INTELLIGENCE
 	default_attributes = list(
-		/datum/attribute/skill/magic/arcane = -4
+		/datum/attribute/skill/magic/arcane = -10
 	)
 	shared_xp_percent = 0.5
 
