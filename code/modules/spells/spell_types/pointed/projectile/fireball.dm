@@ -19,6 +19,7 @@
 	projectile_type = /obj/projectile/magic/aoe/fireball/rogue
 
 	required_form = FORM_FIRE
+	associated_skill = /datum/attribute/skill/magic/arcane/fire
 	required_technique = TECHNIQUE_DESTRUCTION
 	shared_cooldown = FIREBALL_SHARED_COOLDOWN
 

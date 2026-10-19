@@ -21,10 +21,10 @@
 	name = "Invisibility"
 	spell_type = SPELL_MANA
 	antimagic_flags = MAGIC_RESISTANCE
-	associated_skill = /datum/attribute/skill/magic/arcane
 	required_items = list()
 
 	required_form = FORM_ARCANE
+	associated_skill = /datum/attribute/skill/magic/arcane/arcyne
 	required_technique = TECHNIQUE_ILLUSION
 	required_level = 4
 	learnable = FALSE

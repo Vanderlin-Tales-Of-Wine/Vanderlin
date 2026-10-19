@@ -6,6 +6,7 @@
 	click_to_activate = FALSE
 
 	required_form = FORM_AIR
+	associated_skill = /datum/attribute/skill/magic/arcane/air
 	required_technique = TECHNIQUE_ILLUSION
 	required_level = 6
 

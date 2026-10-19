@@ -13,6 +13,7 @@
 	invocation_type = INVOCATION_SHOUT
 
 	required_form = FORM_WATER
+	associated_skill = /datum/attribute/skill/magic/arcane/water
 	required_technique = TECHNIQUE_ALTERATION
 	required_level = 4
 

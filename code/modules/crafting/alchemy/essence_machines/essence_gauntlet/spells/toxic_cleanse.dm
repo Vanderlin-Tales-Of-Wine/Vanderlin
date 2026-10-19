@@ -45,5 +45,6 @@
 	spell_type = SPELL_MANA
 
 	required_form = FORM_LIFE
+	associated_skill = /datum/attribute/skill/magic/arcane/life
 	required_technique = TECHNIQUE_RESTORATION
 	required_level = 6

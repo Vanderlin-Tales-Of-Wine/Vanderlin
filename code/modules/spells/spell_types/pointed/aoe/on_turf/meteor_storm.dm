@@ -6,6 +6,7 @@
 	sound = 'sound/magic/meteorstorm.ogg'
 
 	required_form = FORM_FIRE
+	associated_skill = /datum/attribute/skill/magic/arcane/fire
 	required_technique = TECHNIQUE_DESTRUCTION
 	required_level = 6
 
