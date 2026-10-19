@@ -76,6 +76,15 @@
 	icon_state = "bone_amulet"
 	desc = "An amulet made of parched bones and animal sinews, a common representation of faith used in Ossland."
 	sellprice = 30
+	examine_highlight_type = /datum/examine_highlight/heresy_odd/great_hunt
+
+/obj/item/clothing/neck/psycross/great_hunt/divine_link
+	name = "blessed bone amulet"
+	misc_flags = CRAFTING_TEST_EXCLUDE
+
+/obj/item/clothing/neck/psycross/great_hunt/divine_link/Initialize(mapload)
+	. = ..()
+	enchant(/datum/enchantment/divine_link/wilds)
 
 // INHUMEN PSYCROSSES
 
@@ -86,6 +95,7 @@
 	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_HIP|ITEM_SLOT_WRISTS
 	sellprice = 0
 	experimental_onhip = TRUE
+	examine_highlight_type = /datum/examine_highlight/heresy_suspicious/zizo
 
 /obj/item/clothing/neck/psycross/zizo/wood
 	name = "wooden amulet of Zizo"
@@ -98,6 +108,7 @@
 	resistance_flags = FIRE_PROOF
 	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_HIP|ITEM_SLOT_WRISTS
 	smeltresult = null
+	examine_highlight_type = /datum/examine_highlight/heresy_suspicious/matthios
 
 /obj/item/clothing/neck/psycross/matthios/wood
 	name = "wooden amulet of Matthios"
@@ -109,6 +120,7 @@
 	icon_state = "graggar"
 	resistance_flags = FIRE_PROOF
 	smeltresult = null
+	examine_highlight_type = /datum/examine_highlight/heresy_suspicious/graggar
 
 /obj/item/clothing/neck/psycross/graggar/wood
 	name = "wooden amulet of Graggar"
@@ -121,6 +133,7 @@
 	resistance_flags = FIRE_PROOF
 	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_HIP|ITEM_SLOT_WRISTS
 	smeltresult = null
+	examine_highlight_type = /datum/examine_highlight/heresy_suspicious/baotha
 
 /obj/item/clothing/neck/psycross/baotha/wood
 	name = "wooden amulet of Baotha"

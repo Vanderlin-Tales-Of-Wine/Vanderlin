@@ -254,6 +254,7 @@
 	bloody_icon_state = "helmetblood_big"
 	worn_x_dimension = 64
 	worn_y_dimension = 64
+	examine_highlight_type = /datum/examine_highlight/heresy_alarming/matthios
 
 //............... Graggar Helmet ............... //
 
@@ -263,6 +264,7 @@
 	icon_state = "graggarplatehelm"
 	flags_cover = HEADCOVERSEYES
 	item_weight = 4.5 KILOGRAMS
+	examine_highlight_type = /datum/examine_highlight/heresy_alarming/graggar
 
 /obj/item/clothing/head/helmet/heavy/inhumen/graggar/skull
 	name = "vicious skullhelm"
@@ -289,13 +291,15 @@
 	bloody_icon_state = "helmetblood_big"
 	item_weight = 4.5 KILOGRAMS
 	smeltresult = /obj/item/ingot/component/baotha
+	examine_highlight_type = /datum/examine_highlight/heresy_alarming/baotha
 
 /obj/item/clothing/head/helmet/heavy/inhumen/baotha_alt
 	name = "saccharine sallet"
-	desc = "Behold the spider of addiction..."
+	desc = "Surrender to the Queen of Temptation..."
 	icon_state = "baothahelm"
 	item_weight = 4.5 KILOGRAMS
 	smeltresult = /obj/item/ingot/component/baotha
+	examine_highlight_type = /datum/examine_highlight/heresy_alarming/baotha
 
 //............... Spangenhelm ............... //
 /obj/item/clothing/head/helmet/heavy/viking
@@ -481,6 +485,8 @@
 	if(!picked)
 		var/list/icons = HELMET_KNIGHT_DECORATIONS
 		var/choice = tgui_input_list(user, "Choose a crest.", "Knightly crests", icons)
+		if(!choice)
+			return
 		var/playerchoice = icons[choice]
 		picked = TRUE
 		icon_state = playerchoice
@@ -509,6 +515,8 @@
 	if(!picked)
 		var/list/icons = HELMET_HOUNSKULL_DECORATIONS
 		var/choice = tgui_input_list(user, "Choose a crest.", "Knightly crests", icons)
+		if(!choice)
+			return
 		var/playerchoice = icons[choice]
 		picked = TRUE
 		icon_state = playerchoice
@@ -534,6 +542,8 @@
 	if(!picked)
 		var/list/icons = HELMET_BUCKET_DECORATIONS
 		var/choice = tgui_input_list(user, "Choose a crest.", "Knightly crests", icons)
+		if(!choice)
+			return
 		var/playerchoice = icons[choice]
 		picked = TRUE
 		icon_state = playerchoice
@@ -559,6 +569,8 @@
 	if(!picked)
 		var/list/icons = HELMET_GOLD_DECORATIONS
 		var/choice = tgui_input_list(user, "Choose a crest.", "Knightly crests", icons)
+		if(!choice)
+			return
 		var/playerchoice = icons[choice]
 		picked = TRUE
 		icon_state = playerchoice
@@ -589,6 +601,8 @@
 	if(!picked)
 		var/list/icons = BASCINET_DECORATIONS
 		var/choice = tgui_input_list(user, "Choose a crest.", "Knightly crests", icons)
+		if(!choice)
+			return
 		var/playerchoice = icons[choice]
 		picked = TRUE
 		icon_state = playerchoice
