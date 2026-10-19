@@ -208,7 +208,6 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/test_movable_UI,
 	/client/proc/test_snap_UI,
 	/client/proc/check_bomb_impacts,
-	/client/proc/debug_loot_tables,
 	/client/proc/debug_influences,
 	/client/proc/get_dynex_power,		//*debug verbs for dynex explosions.
 	/client/proc/get_dynex_range,		//*debug verbs for dynex explosions.
