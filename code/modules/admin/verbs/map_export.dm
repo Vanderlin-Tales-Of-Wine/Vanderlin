@@ -229,7 +229,7 @@ GLOBAL_LIST_EMPTY(save_whitelist)
 	list += typesof(/obj/item/reagent_containers/glass)
 	list -= typesof(/obj/item/reagent_containers/glass/bottle) //potions etc.
 	list += typesof(/obj/item/candle)
-	list += list(/obj/item/storage/sack, /obj/item/broom, /obj/item/dmusicbox)
+	list += list(/obj/item/storage/sack, /obj/item/broom, /obj/item/dmusicbox, /obj/item/pestle)
 	list += typesof(/obj/item/instrument)
 	//Knives
 	list += typesof(/obj/item/weapon/knife)
