@@ -16,8 +16,8 @@
 	raw_attribute_list = list(
 		STAT_STRENGTH = 1,
 		STAT_INTELLIGENCE = 1,
-		/datum/attribute/skill/combat/unarmed = 10,
-		/datum/attribute/skill/combat/knives = 10,
+		/datum/attribute/skill/combat/knives = 15,
+		/datum/attribute/skill/combat/unarmed = 15,
 	)
 	clamped_adjustment = list(
 		/datum/attribute/skill/combat/crossbows = list(10, 40)
@@ -28,6 +28,7 @@
 		STAT_PERCEPTION = 1,
 		STAT_INTELLIGENCE = 1,
 		/datum/attribute/skill/combat/knives = 15,
+		/datum/attribute/skill/misc/athletics = 10,
 	)
 	clamped_adjustment = list(
 		/datum/attribute/skill/combat/bows = list(10, 40)
@@ -38,7 +39,7 @@
 		STAT_PERCEPTION = 1,
 		STAT_ENDURANCE = 1,
 		/datum/attribute/skill/combat/axesmaces = 25,
-		/datum/attribute/skill/combat/unarmed = 15,
+		/datum/attribute/skill/misc/athletics = 10,
 	)
 	clamped_adjustment = list(
 		/datum/attribute/skill/combat/bows = list(10, 40)

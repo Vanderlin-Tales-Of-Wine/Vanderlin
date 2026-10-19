@@ -402,11 +402,11 @@
 	name = "wilderness hatchet"
 	desc = "A simple iron handaxe with a hammer bit, a tool often used by those who trek for long into the wild."
 	icon_state = "hatchet"
-	force = DAMAGE_AXE
+	force = DAMAGE_AXE + 4
 	force_wielded = 0
 	gripped_intents = null
 	alt_intents = list(MACE_STRIKE, MACE_SMASH)//Has a hammer on the back of it, can be used to smash things
-	throwforce = DAMAGE_AXE_WIELD
+	throwforce = DAMAGE_AXE_WIELD + 4
 	wbalance = HARD_TO_DODGE
 	wlength = WLENGTH_SHORT
 	wdefense = AVERAGE_PARRY
@@ -491,7 +491,7 @@
 
 /obj/item/weapon/axe/trollboneaxe
 	name = "troll-horn bone axe"
-	desc = "A rough axe made of bones, strengthed with a troll's horn."
+	desc = "A rough axe made of bones, strengthened with a troll's horn."
 	icon_state = "boneaxe"
 	force = DAMAGE_BAD_AXE + 3
 	force_wielded =	DAMAGE_BAD_AXE_WIELD + 3
