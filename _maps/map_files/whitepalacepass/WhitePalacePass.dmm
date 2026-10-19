@@ -585,9 +585,79 @@
 	dir = 8
 	},
 /area/outdoors/basin)
+"abw" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/blocks,
+/area/under/town/basement)
+"abx" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/cobble,
+/area/indoors/villagegarrison)
+"aby" = (
+/obj/effect/decal/cleanable/blood/old,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/blocks,
+/area/under/town/basement)
+"abz" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/cobblerock,
+/area/under/town/basement)
 "abA" = (
 /turf/open/floor/tile/kitchen,
 /area/indoors/villagegarrison)
+"abB" = (
+/obj/structure/fluff/railing/wood,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/cobblerock,
+/area/under/town/basement)
+"abC" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/naturalstone,
+/area/under/cavewet)
+"abD" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/naturalstone,
+/area/under/cave)
+"abE" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/grass/cold,
+/area/outdoors/town)
+"abF" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/cobblerock,
+/area/outdoors/town)
+"abG" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/ruinedwood,
+/area/outdoors/river)
+"abH" = (
+/obj/machinery/light/fueled/wallfire/candle,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/ruinedwood,
+/area/indoors/town)
+"abI" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/ruinedwood,
+/area/indoors/town)
+"abJ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/generic,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/ruinedwood,
+/area/indoors/town)
+"abK" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/dirt/road,
+/area/indoors/town)
+"abL" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/cobble,
+/area/indoors/town/keep/magician)
+"abM" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/grass/cold,
+/area/under/cave)
 "abS" = (
 /obj/structure/chair/stool/crafted,
 /turf/open/floor/dirt,
@@ -50395,7 +50465,7 @@ nJJ
 fvp
 fvp
 fgs
-dRO
+abz
 ofo
 dRO
 gNZ
@@ -53833,7 +53903,7 @@ bfB
 awv
 awv
 awv
-bfB
+abC
 bfB
 bfB
 nJJ
@@ -56055,7 +56125,7 @@ nwh
 odW
 vPv
 neP
-neP
+abD
 neP
 vPv
 vPv
@@ -57266,7 +57336,7 @@ cRZ
 odW
 vPv
 vPv
-neP
+abD
 nJJ
 nJJ
 nJJ
@@ -59376,7 +59446,7 @@ oAJ
 oAJ
 hQw
 mwg
-mwg
+abx
 mwg
 wxZ
 mwg
@@ -60716,7 +60786,7 @@ fvp
 fvp
 fpL
 dRO
-kKP
+abB
 nel
 ljj
 nel
@@ -67245,7 +67315,7 @@ nJJ
 fvp
 nuv
 oBd
-oBd
+abw
 oBd
 fvp
 oBd
@@ -67868,7 +67938,7 @@ oBd
 oBd
 ofo
 nQj
-oBd
+abw
 dZa
 fvp
 nJJ
@@ -68663,7 +68733,7 @@ nJJ
 fvp
 fvp
 wUw
-rPX
+aby
 aPM
 fvp
 fvp
@@ -71228,7 +71298,7 @@ kRZ
 rkh
 ofo
 ofo
-dRO
+abz
 dRO
 aHf
 aHf
@@ -71833,7 +71903,7 @@ kRZ
 qtQ
 omh
 ofo
-dRO
+abz
 dRO
 ofo
 dRO
@@ -95873,7 +95943,7 @@ nyI
 rjK
 wfn
 kKb
-bwY
+abF
 jvF
 jvF
 bwY
@@ -104161,7 +104231,7 @@ rjc
 kKb
 kKb
 kKb
-kKb
+abE
 kKb
 bwY
 kKb
@@ -106343,7 +106413,7 @@ veW
 kFS
 ngT
 mzz
-pQv
+abJ
 wrz
 veW
 nJJ
@@ -108381,7 +108451,7 @@ pXj
 uvK
 uvK
 pXj
-ooo
+abH
 bEf
 bEf
 pXj
@@ -108964,7 +109034,7 @@ qnk
 wrz
 bEf
 veW
-dtH
+abK
 dtH
 dtH
 dtH
@@ -109982,7 +110052,7 @@ veW
 rzi
 bXI
 bhE
-rzi
+abI
 veW
 nJJ
 nJJ
@@ -112628,7 +112698,7 @@ lnt
 lnt
 lnt
 lnt
-lnt
+abG
 lnt
 lnt
 gGi
@@ -147531,7 +147601,7 @@ nJJ
 nJJ
 nJJ
 cGQ
-cGQ
+abM
 phR
 nJJ
 nJJ
@@ -149366,7 +149436,7 @@ iMj
 xry
 jNJ
 xry
-xry
+abL
 jNJ
 yhG
 iMj
