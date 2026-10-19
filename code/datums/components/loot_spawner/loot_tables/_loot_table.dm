@@ -1,29 +1,3 @@
-/*
-HOW THE SCALING WORKS:
-
-1. DELVE LEVEL SCALING:
-- Quantity: Higher delves spawn more items (base_min/max * delve_quantity_scaling^(delve_level-1))
-- Quality: Rare items (low base weight) get exponentially better odds at higher delves
-- Items with weight 1 become much more common at delve 5 vs delve 1
-- Items with weight 50 see minimal change between delve levels
-
-2. ITEM RARITY MULTIPLIER:
-- Multiplicative with all other scaling
-- item_rarity = 2.0 doubles all drop chances
-- item_rarity = 0.5 halves all drop chances
-- Works independently of delve scaling
-
-3. COMBINED EFFECT:
-- A rare item (weight 1) at delve 5 with 2.0 item rarity will be MUCH more common
-- A common item (weight 100) sees less dramatic changes
-- The system naturally creates better loot at higher delves while respecting player modifiers
-
-CONFIGURATION:
-- delve_quantity_scaling: How much more loot spawns per delve level (1.5 = 50% more per level)
-- delve_rarity_scaling: How much rare items benefit from higher delves (1.3 = 30% bonus per level)
-- min_delve_level/max_delve_level: Valid delve range for this table
-*/
-
 /datum/loot_table
 	var/name = "generic table"
 	///okay this is quite the different thing, essentially this works with 2 things, either a an assoc list of stat or skill
@@ -47,31 +21,15 @@ CONFIGURATION:
 	///how much each point of luck affects the max and minimum
 	var/scaling_factor = 0.4
 
-	///delve level scaling for loot quantity (multiplier per delve level)
-	var/delve_quantity_scaling = 1.1
-	///delve level scaling for rare loot weights (multiplier per delve level)
-	var/delve_rarity_scaling = 1.3
-	///minimum delve level for this loot table (1-5)
-	var/min_delve_level = 1
-	///maximum delve level for this loot table (1-5)
-	var/max_delve_level = 5
-
-/datum/loot_table/proc/spawn_loot(mob/living/looter = null, delve_level = 1, item_rarity = 1.0)
-	var/list/weighted_list = return_list(looter, delve_level, item_rarity)
+/datum/loot_table/proc/spawn_loot(mob/living/looter = null)
+	var/list/weighted_list = return_list(looter)
 	var/mob_stat_level = 0
 
 	if(istype(looter))
 		mob_stat_level = looter.get_stat_level(STAT_FORTUNE)
 
-	// Apply delve level scaling to spawn counts
-	var/delve_multiplier = delve_level >= min_delve_level ? (delve_quantity_scaling ** (delve_level - 1)) : 1
-
 	var/adjusted_min = base_min + round(mob_stat_level * scaling_factor, 1)
 	var/adjusted_max = base_max + round(mob_stat_level * scaling_factor, 1)
-
-	// Scale by delve level - higher delves = more loot
-	adjusted_min = round(adjusted_min * delve_multiplier, 1)
-	adjusted_max = round(adjusted_max * delve_multiplier, 1)
 
 	adjusted_min = min(adjusted_min, adjusted_max)
 	var/spawn_count = rand(adjusted_min, adjusted_max)
@@ -88,60 +46,32 @@ CONFIGURATION:
 		loot += new_spawn
 	return loot
 
-/datum/loot_table/proc/return_list(mob/looter = null, delve_level = 1, item_rarity = 1.0)
+/datum/loot_table/proc/return_list(mob/looter = null)
 	var/list/weighted_list = list()
 
 	if(!istype(looter))
 		for(var/thing in loot_table)
 			if(islist(thing))
-				var/list/temp_list = apply_delve_and_rarity_scaling(thing, delve_level, item_rarity)
-				weighted_list |= temp_list
+				weighted_list |= clean_weight_list(thing)
 		return weighted_list
 
 	for(var/thing in loot_table)
 		if(islist(thing))
-			var/list/temp_list = apply_delve_and_rarity_scaling(thing, delve_level, item_rarity)
-			weighted_list |= temp_list
+			weighted_list |= clean_weight_list(thing)
 		if(thing in MOBSTATS)
-			var/list/stat_list = return_stat_weight(thing, looter)
-			var/list/scaled_stat_list = apply_delve_and_rarity_scaling(stat_list, delve_level, item_rarity)
-			weighted_list |= scaled_stat_list
+			weighted_list |= return_stat_weight(thing, looter)
 		if(ispath(thing, /datum/attribute/skill))
-			var/list/skill_list = return_skill_weight(thing, looter)
-			var/list/scaled_skill_list = apply_delve_and_rarity_scaling(skill_list, delve_level, item_rarity)
-			weighted_list |= scaled_skill_list
+			weighted_list |= return_skill_weight(thing, looter)
 	return weighted_list
 
-/datum/loot_table/proc/apply_delve_and_rarity_scaling(list/input_list, delve_level = 1, item_rarity = 1.0)
-	var/list/scaled_list = list()
-
-	// Clamp delve level to valid range
-	delve_level = max(min_delve_level, min(delve_level, max_delve_level))
-
-	// Calculate delve scaling factor for rare items
-	var/delve_rare_multiplier = delve_level >= min_delve_level ? (delve_rarity_scaling ** (delve_level - 1)) : 1
-
+/// Copies a weighted list, dropping numeric delimiters and enforcing a minimum weight
+/datum/loot_table/proc/clean_weight_list(list/input_list)
+	var/list/cleaned_list = list()
 	for(var/item in input_list)
 		if(isnum(item)) // Skip numeric delimiters
 			continue
-
-		var/base_weight = input_list[item]
-		var/final_weight = base_weight
-
-		// Apply delve level scaling (higher delves favor rarer items)
-		// Items with lower base weights (rarer) get more benefit from higher delves
-		if(base_weight > 0)
-			// Rare items (low weight) benefit more from delve scaling
-			var/rarity_factor = max(0.1, 1.0 / base_weight) // Lower weight = higher rarity factor
-			var/delve_bonus = (delve_rare_multiplier - 1) * min(rarity_factor, 10) // Cap the bonus
-			final_weight = base_weight * (1 + delve_bonus)
-
-		// Apply item rarity multiplier (multiplicative)
-		final_weight = final_weight * item_rarity
-
-		scaled_list[item] = max(0.01, final_weight) // Ensure minimum weight
-
-	return scaled_list
+		cleaned_list[item] = max(0.01, input_list[item]) // Ensure minimum weight
+	return cleaned_list
 
 /datum/loot_table/proc/return_stat_weight(stat_key, mob/living/looter)
 	var/list/weighted_list = list()
@@ -166,7 +96,7 @@ CONFIGURATION:
 		if(mob_stat_level == 0)
 			scaled_weight = base_weight
 		weighted_list |= item
-		weighted_list[item] = scaled_weight
+		weighted_list[item] = max(0.01, scaled_weight)
 
 	return weighted_list
 
@@ -193,6 +123,6 @@ CONFIGURATION:
 		if(mob_skill_level == 0)
 			scaled_weight = base_weight
 		weighted_list |= item
-		weighted_list[item] = scaled_weight
+		weighted_list[item] = max(0.01, scaled_weight)
 
 	return weighted_list
