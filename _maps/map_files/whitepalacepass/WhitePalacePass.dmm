@@ -1,4 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/structure/fake_machine/stockpile,
+/turf/open/floor/dirt/road,
+/area/outdoors/basin)
 "aab" = (
 /turf/open/floor/cobble,
 /area/outdoors/basin)
@@ -105886,7 +105890,7 @@ tkL
 xmB
 oIv
 bqh
-qJy
+aaa
 gvO
 lQI
 mXF
