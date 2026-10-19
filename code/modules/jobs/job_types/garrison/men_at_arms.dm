@@ -61,7 +61,7 @@
 	exp_type = list(EXP_TYPE_GARRISON, EXP_TYPE_COMBAT)
 	exp_types_granted = list(EXP_TYPE_GARRISON, EXP_TYPE_COMBAT)
 	factions = list(FACTION_TOWN, SUB_FACTION_KEEP)
-	mind_traits = list(TRAIT_KNOWBANDITS, TRAIT_STEELHEARTED)
+	mind_traits = list(TRAIT_KNOWBANDITS)
 
 /datum/attribute_holder/sheet/job/menatarms/footman
 	raw_attribute_list = list(
@@ -91,7 +91,8 @@
 	category_tags = list(CTAG_MENATARMS)
 	attribute_sheet = /datum/attribute_holder/sheet/job/menatarms/footman
 	traits = list(
-		TRAIT_MEDIUMARMOR
+		TRAIT_MEDIUMARMOR,
+		TRAIT_STEELHEARTED
 	)
 
 /datum/outfit/watchman/footman
@@ -106,7 +107,7 @@
 	var/static/list/weapons = list(
 		"Iron Warhammer & Shield" = list(/obj/item/weapon/mace/warhammer, /obj/item/weapon/shield/tower/buckleriron),
 		"Steel Shortsword & Shield" = list(/obj/item/weapon/sword/short, /obj/item/weapon/shield/tower/buckleriron),
-		"Billhook & Iron Shortsword" = list(/obj/item/weapon/polearm/spear/billhook, /obj/item/weapon/sword/short/iron),
+		"Billhook & Steel Shortsword" = list(/obj/item/weapon/polearm/spear/billhook, /obj/item/weapon/sword/short),
 		"Halberd" = /obj/item/weapon/polearm/halberd,
 		"Greataxe" = /obj/item/weapon/greataxe/steel,
 		"Eagle's Beak" = /obj/item/weapon/polearm/eaglebeak,
@@ -115,11 +116,11 @@
 
 	var/weapon_choice = spawned.select_equippable(player_client, weapons, message = "CHOOSE YOUR WEAPON.", title = "TAKE UP ARMS.")
 
-	if(weapon_choice == "Steel Shortsword & Shield" || weapon_choice == "Billhook & Iron Shortsword" || weapon_choice == "Longsword")
+	if(weapon_choice == "Steel Shortsword & Shield" || weapon_choice == "Billhook & Steel Shortsword" || weapon_choice == "Longsword")
 		spawned.clamped_adjust_skill_level(/datum/attribute/skill/combat/swords, 33, 33)
 	if(weapon_choice == "Iron Warhammer & Shield" || weapon_choice == "Greataxe")
 		spawned.clamped_adjust_skill_level(/datum/attribute/skill/combat/axesmaces, 33, 33)
-	if(weapon_choice == "Billhook & Iron Shortsword" || weapon_choice == "Halberd" || weapon_choice == "Eagle's Beak")
+	if(weapon_choice == "Billhook & Steel Shortsword" || weapon_choice == "Halberd" || weapon_choice == "Eagle's Beak")
 		spawned.clamped_adjust_skill_level(/datum/attribute/skill/combat/polearms, 33, 33)
 	if(weapon_choice == "Iron Warhammer & Shield" || weapon_choice == "Steel Shortsword & Shield")
 		spawned.clamped_adjust_skill_level(/datum/attribute/skill/combat/shields, 33, 33)
@@ -178,7 +179,8 @@
 	category_tags = list(CTAG_MENATARMS)
 	attribute_sheet = /datum/attribute_holder/sheet/job/menatarms/ranger
 	traits = list(
-		TRAIT_DODGEEXPERT
+		TRAIT_DODGEEXPERT,
+		TRAIT_STEELHEARTED
 	)
 
 /datum/outfit/watchman/ranger
@@ -245,7 +247,8 @@
 	total_positions = 1
 	attribute_sheet = /datum/attribute_holder/sheet/job/menatarms/hospitaller
 	traits = list(
-		TRAIT_MEDIUMARMOR
+		TRAIT_MEDIUMARMOR,
+		TRAIT_STEELHEARTED
 	)
 	spells = list(
 		/datum/action/cooldown/spell/diagnose
@@ -315,7 +318,8 @@
 	total_positions = 2
 	attribute_sheet = /datum/attribute_holder/sheet/job/menatarms/cavalry
 	traits = list(
-		TRAIT_MEDIUMARMOR
+		TRAIT_MEDIUMARMOR,
+		TRAIT_STEELHEARTED
 	)
 
 /datum/outfit/watchman/cavalry
@@ -403,14 +407,14 @@
 	Knighthood might have led to a different life, but they need someone to really listen to; \
 	and when the going gets tough you’ll be there with them, charging into the fray."
 	outfit = /datum/outfit/watchman/sergeant
-	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	total_positions = 1
 	category_tags = list(CTAG_MENATARMS)
 	honorary = "Serjeant"
 	attribute_sheet = /datum/attribute_holder/sheet/job/menatarms/sergeant
 	traits = list(
 		TRAIT_MEDIUMARMOR,
-		TRAIT_HEAVYARMOR
+		TRAIT_HEAVYARMOR,
+		TRAIT_STEELHEARTED
 	)
 
 /datum/outfit/watchman/sergeant
@@ -431,7 +435,7 @@
 	var/static/list/weapons = list(
 		"Iron Warhammer & Shield" = list(/obj/item/weapon/mace/warhammer, /obj/item/weapon/shield/tower/buckleriron),
 		"Steel Shortsword & Shield" = list(/obj/item/weapon/sword/short, /obj/item/weapon/shield/tower/buckleriron),
-		"Billhook & Iron Shortsword" = list(/obj/item/weapon/polearm/spear/billhook, /obj/item/weapon/sword/short/iron),
+		"Billhook & Steel Shortsword" = list(/obj/item/weapon/polearm/spear/billhook, /obj/item/weapon/sword/short),
 		"Halberd" = /obj/item/weapon/polearm/halberd,
 		"Greataxe" = /obj/item/weapon/greataxe/steel,
 		"Eagle's Beak" = /obj/item/weapon/polearm/eaglebeak,
@@ -440,11 +444,11 @@
 
 	var/weapon_choice = spawned.select_equippable(player_client, weapons, message = "CHOOSE YOUR WEAPON.", title = "TAKE UP ARMS.")
 
-	if(weapon_choice == "Steel Shortsword & Shield" || weapon_choice == "Billhook & Iron Shortsword" || weapon_choice == "Longsword")
+	if(weapon_choice == "Steel Shortsword & Shield" || weapon_choice == "Billhook & Steel Shortsword" || weapon_choice == "Longsword")
 		spawned.clamped_adjust_skill_level(/datum/attribute/skill/combat/swords, 35, 35)
 	if(weapon_choice == "Iron Warhammer & Shield" || weapon_choice == "Greataxe")
 		spawned.clamped_adjust_skill_level(/datum/attribute/skill/combat/axesmaces, 35, 35)
-	if(weapon_choice == "Billhook & Iron Shortsword" || weapon_choice == "Halberd" || weapon_choice == "Eagle's Beak")
+	if(weapon_choice == "Billhook & Steel Shortsword" || weapon_choice == "Halberd" || weapon_choice == "Eagle's Beak")
 		spawned.clamped_adjust_skill_level(/datum/attribute/skill/combat/polearms, 35, 35)
 	if(weapon_choice == "Iron Warhammer & Shield" || weapon_choice == "Steel Shortsword & Shield")
 		spawned.clamped_adjust_skill_level(/datum/attribute/skill/combat/shields, 35, 35)
