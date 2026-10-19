@@ -20,6 +20,7 @@
 		/obj/item/ore/tin = 10,
 		/obj/item/ore/cinnabar = 5
 	)
+	cascading = FALSE
 
 /datum/loot_table/mining_cache/skilled
 	req_keys = list(/datum/attribute/skill/labor/mining)
@@ -27,11 +28,13 @@
 		/obj/item/gem = 5,
 		/obj/item/ore/silver = 8
 	)
+	cascading = FALSE
 
 /// Needs level 3 mining
 /datum/loot_table/mining_cache/gold
 	req_keys = list(/datum/attribute/skill/labor/mining)
-	min_level = 3
+	min_level = 30
 	loot_table = list(
 		/obj/item/ore/gold = 1
 	)
+	cascading = FALSE

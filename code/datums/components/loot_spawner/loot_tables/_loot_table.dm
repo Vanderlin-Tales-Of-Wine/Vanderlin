@@ -129,7 +129,7 @@
 	if(!length(req_keys))
 		return max(0.01, base_value)
 	if(!istype(looter))
-		return 0
+		return base_value
 
 	var/best_level = -1
 	var/best_key = null
@@ -151,7 +151,7 @@
 
 /datum/loot_table/proc/get_key_level(key, mob/living/looter)
 	if(ispath(key, /datum/attribute/skill))
-		return GET_MOB_SKILL_VALUE_OLD(looter, key)
+		return GET_MOB_SKILL_VALUE(looter, key)
 	if(key in MOBSTATS)
 		return looter.get_stat_level(key)
 	return 0

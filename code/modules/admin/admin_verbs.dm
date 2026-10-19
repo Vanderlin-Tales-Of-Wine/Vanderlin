@@ -140,6 +140,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/ShowAllFamilies,
 	/client/proc/send_bird_letter,
 	/client/proc/grant_ticket_to,
+	/client/proc/loot_table_editor,
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/role_ban_panel, /client/proc/check_pq, /client/proc/adjust_pq, /client/proc/getcurrentlogs, /client/proc/getserverlogs))
 GLOBAL_PROTECT(admin_verbs_ban)

@@ -25,6 +25,7 @@
 		/obj/item/reagent_containers/food/snacks/biscuit = 25,
 		/obj/item/reagent_containers/food/snacks/breadslice/toast = 10
 	)
+	cascading = FALSE
 
 /datum/loot_table/debug/fortune
 	req_keys = list(STAT_FORTUNE)
@@ -32,6 +33,7 @@
 		/obj/item/coin/gold = 5,
 		/obj/item/coin/silver = 10
 	)
+	cascading = FALSE
 
 /datum/loot_table/debug/fortune_high
 	req_keys = list(STAT_FORTUNE)
@@ -39,6 +41,7 @@
 	loot_table = list(
 		/obj/item/coin/copper = 25
 	)
+	cascading = FALSE
 
 /datum/loot_table/debug/stealing
 	req_keys = list(/datum/attribute/skill/misc/stealing)
@@ -47,3 +50,4 @@
 		/obj/item/gem/blue = 10,
 		/obj/item/lockpick = 25
 	)
+	cascading = FALSE

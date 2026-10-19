@@ -22,6 +22,7 @@
 		/obj/item/natural/infernalash = 5,
 		/obj/item/natural/fairydust = 5
 	)
+	cascading = FALSE
 
 /datum/loot_table/magic_cache/arcane
 	req_keys = list(/datum/attribute/skill/magic/arcane)
@@ -29,11 +30,13 @@
 		/obj/item/chalk = 8,
 		/obj/item/reagent_containers/glass/bottle/manapot = 5
 	)
+	cascading = FALSE
 
 /// Needs level 4 arcane
 /datum/loot_table/magic_cache/arcane_focus
 	req_keys = list(/datum/attribute/skill/magic/arcane)
-	min_level = 4
+	min_level = 40
 	loot_table = list(
 		/obj/item/mana_battery/mana_crystal/small/focus = 1
 	)
+	cascading = FALSE

@@ -20,18 +20,18 @@
 		/obj/item/reagent_containers/powder/manabloom = 2
 	)
 
-/// Level 4 in stealing OR alchemy
+/// Level 40 in stealing OR alchemy
 /datum/loot_table/powder_sack/ozium
 	req_keys = list(/datum/attribute/skill/misc/stealing, /datum/attribute/skill/craft/alchemy)
-	min_level = 4
+	min_level = 40
 	loot_table = list(
 		/obj/item/reagent_containers/powder/ozium = 1
 	)
 
-/// Level 5 in stealing OR alchemy
+/// Level 50 in stealing OR alchemy
 /datum/loot_table/powder_sack/spice_and_dust
 	req_keys = list(/datum/attribute/skill/misc/stealing, /datum/attribute/skill/craft/alchemy)
-	min_level = 5
+	min_level = 50
 	loot_table = list(
 		/obj/item/reagent_containers/powder/spice = 10,
 		/obj/item/reagent_containers/powder/moondust = 10
