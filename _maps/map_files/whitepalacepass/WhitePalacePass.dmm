@@ -74,16 +74,6 @@
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/outdoors/basin)
-"aan" = (
-/obj/structure/fluff/railing/border{
-	dir = 1
-	},
-/turf/closed/wall/mineral/decowood,
-/area/outdoors/basin,
-/obj/structure/fake_machine/stockpile{
-	pixel_y = 0;
-	pixel_x = 0
-	})
 "aao" = (
 /obj/structure/stairs{
 	dir = 8
@@ -157,14 +147,6 @@
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/outdoors/basin)
-"aaz" = (
-/obj/structure/meathook,
-/obj/item/reagent_containers/glass/bucket/wooden,
-/obj/effect/decal/cleanable/blood/gibs/limb,
-/obj/machinery/light/fueled/wallfire/candle,
-/obj/machinery/light/fueled/wallfire/candle/l,
-/turf/open/floor/tile/kitchen,
-/area/outdoors/basin)
 "aaA" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/rack/shelf/biggest,
@@ -204,33 +186,17 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/darker,
 /area/outdoors/basin)
-"aaF" = (
-/obj/structure/table/wood/counter/end{
-	dir = 1
-	},
-/obj/item/needle/thorn,
-/obj/item/weapon/knife/hunting{
-	pixel_x = 10;
-	pixel_y = 1
-	},
-/obj/item/candle/skull/lit{
-	pixel_x = -13;
-	pixel_y = 13
-	},
-/obj/machinery/light/fueled/wallfire/candle,
-/obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/ruinedwood/darker,
-/area/outdoors/basin)
 "aaG" = (
 /obj/structure/curtain/bounty/dir,
 /turf/closed/wall/mineral/wooddark/window,
 /area/outdoors/basin)
 "aaH" = (
-/turf/closed/wall/mineral/decowood,
-/area/outdoors/basin,
-/obj/structure/fluff/walldeco/sign/trophy{
-	pixel_y = 0
-	})
+/obj/structure/fake_machine/stockpile{
+	pixel_y = 0;
+	pixel_x = 32
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/outdoors/basin)
 "aaI" = (
 /obj/structure/door/red{
 	name = "Hunter's cabin"
@@ -239,12 +205,6 @@
 /obj/effect/mapping_helpers/access/keyset/town/hunter,
 /turf/open/floor/ruinedwood/darker,
 /area/outdoors/basin)
-"aaJ" = (
-/turf/closed/wall/mineral/wooddark/slitted,
-/area/outdoors/basin,
-/obj/structure/fluff/walldeco/wantedposter{
-	pixel_y = 0
-	})
 "aaK" = (
 /obj/structure/well/climb_down,
 /turf/open/floor/cobble,
@@ -659,18 +619,11 @@
 /turf/open/floor/grass/cold,
 /area/under/cave)
 "abN" = (
-/obj/structure/rack,
-/obj/item/weapon/polearm/spear/billhook{
-	pixel_x = -20;
-	pixel_y = -12
+/obj/structure/fluff/railing/border{
+	dir = 1
 	},
-/obj/item/weapon/polearm/spear/steel,
-/obj/item/weapon/mace/cudgel{
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/turf/open/floor/blocks,
-/area/indoors/town/keep/garrison)
+/turf/closed/wall/mineral/decowood,
+/area/outdoors/basin)
 "abO" = (
 /obj/structure/rack,
 /obj/item/weapon/greataxe/steel{
@@ -697,41 +650,23 @@
 	},
 /turf/open/floor/cobble,
 /area/indoors/town/keep/garrison)
-"abS" = (
-/obj/structure/chair/stool/crafted,
-/turf/open/floor/dirt,
-/area/outdoors/basin)
-"abT" = (
-/obj/structure/closet/keyrack{
-	pixel_y = 0;
-	pixel_x = -32
+"abQ" = (
+/obj/structure/rack,
+/obj/item/weapon/polearm/spear/billhook{
+	pixel_x = -20;
+	pixel_y = -12
 	},
-/obj/effect/mapping_helpers/access/keyset/manor/atarms,
-/obj/effect/mapping_helpers/access/locker,
-/obj/item/key/atarms,
-/obj/item/key/atarms,
-/obj/item/key/atarms,
-/obj/item/key/atarms,
-/obj/item/key/gatehouse,
-/obj/item/key/gatehouse,
-/obj/item/key/gatehouse,
-/obj/item/key/gatehouse,
-/turf/open/floor/cobble,
-/area/indoors/town/keep/garrison)
-"abW" = (
-/obj/structure/fluff/psycross,
-/turf/open/floor/cobblerock,
-/area/outdoors/town)
-"abY" = (
-/obj/structure/stairs{
-	dir = 4
+/obj/item/weapon/polearm/spear/steel,
+/obj/item/weapon/mace/cudgel{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
 	},
 /turf/open/floor/blocks,
-/area/indoors/town/clocktower)
-"acb" = (
-/turf/closed/wall/mineral/stone,
-/area/indoors/town/noble_manor/yellow)
-"acc" = (
+/area/indoors/town/keep/garrison)
+"abR" = (
 /obj/structure/rack,
 /obj/item/flashlight/flare/torch/lantern{
 	pixel_x = -9;
@@ -757,8 +692,87 @@
 	pixel_x = 15;
 	pixel_y = 6
 	},
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
 /turf/open/floor/cobble,
 /area/indoors/town/keep/garrison)
+"abS" = (
+/obj/structure/chair/stool/crafted,
+/turf/open/floor/dirt,
+/area/outdoors/basin)
+"abT" = (
+/obj/structure/closet/keyrack{
+	pixel_y = 0;
+	pixel_x = -32
+	},
+/obj/effect/mapping_helpers/access/keyset/manor/atarms,
+/obj/effect/mapping_helpers/access/locker,
+/obj/item/key/atarms,
+/obj/item/key/atarms,
+/obj/item/key/atarms,
+/obj/item/key/atarms,
+/obj/item/key/gatehouse,
+/obj/item/key/gatehouse,
+/obj/item/key/gatehouse,
+/obj/item/key/gatehouse,
+/turf/open/floor/cobble,
+/area/indoors/town/keep/garrison)
+"abU" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/structure/mannequin/male,
+/obj/item/clothing/pants/trou/leather/splint,
+/obj/item/clothing/armor/gambeson/heavy,
+/obj/item/clothing/head/helmet/skullcap,
+/turf/open/floor/cobble,
+/area/indoors/town/keep/garrison)
+"abV" = (
+/obj/structure/meathook,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/tile/kitchen,
+/area/outdoors/basin)
+"abW" = (
+/obj/structure/fluff/psycross,
+/turf/open/floor/cobblerock,
+/area/outdoors/town)
+"abX" = (
+/obj/structure/table/wood/counter/end{
+	dir = 1
+	},
+/obj/item/needle/thorn,
+/obj/item/weapon/knife/hunting{
+	pixel_x = 10;
+	pixel_y = 1
+	},
+/obj/item/candle/skull/lit{
+	pixel_x = -13;
+	pixel_y = 13
+	},
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/ruinedwood/darker,
+/area/outdoors/basin)
+"abY" = (
+/obj/structure/stairs{
+	dir = 4
+	},
+/turf/open/floor/blocks,
+/area/indoors/town/clocktower)
+"abZ" = (
+/obj/structure/fluff/walldeco/wantedposter{
+	pixel_y = 0;
+	pixel_x = -32
+	},
+/turf/open/floor/dirt,
+/area/outdoors/basin)
+"acb" = (
+/turf/closed/wall/mineral/stone,
+/area/indoors/town/noble_manor/yellow)
 "acd" = (
 /obj/structure/rack,
 /obj/item/gun/ballistic/bow/cross,
@@ -867,18 +881,6 @@
 /obj/item/clothing/pants/trou/leather/splint,
 /obj/item/clothing/armor/leather/splint,
 /obj/item/clothing/head/helmet/kettle,
-/turf/open/floor/cobble,
-/area/indoors/town/keep/garrison)
-"acl" = (
-/obj/machinery/light/fueled/wallfire/candle{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/obj/structure/mannequin/male,
-/obj/item/clothing/pants/trou/leather/splint,
-/obj/item/clothing/armor/gambeson/heavy,
-/obj/item/clothing/neck/coif/cloth,
-/obj/item/clothing/head/helmet/skullcap,
 /turf/open/floor/cobble,
 /area/indoors/town/keep/garrison)
 "acu" = (
@@ -102107,7 +102109,7 @@ qJy
 qJy
 qJy
 aae
-aaz
+abV
 aav
 aJQ
 aak
@@ -102510,7 +102512,7 @@ qJy
 qJy
 qJy
 rGJ
-aaH
+aae
 aaB
 mAw
 mAw
@@ -102716,7 +102718,7 @@ aaI
 aaC
 mAw
 mAw
-mAw
+aaH
 aaf
 gvO
 gvO
@@ -102914,11 +102916,11 @@ qJy
 qJy
 qJy
 rGJ
-aaH
+aae
 aaD
 mAw
 mAw
-aan
+abN
 aae
 uMr
 uMr
@@ -103319,7 +103321,7 @@ qJy
 uMr
 gvO
 aae
-aaF
+abX
 mAw
 aau
 aap
@@ -103520,7 +103522,7 @@ qJy
 qJy
 gvO
 uMr
-aaJ
+gSr
 aae
 aae
 aae
@@ -103722,7 +103724,7 @@ qJy
 uMr
 uMr
 tiU
-uMr
+abZ
 uMr
 aad
 uMr
@@ -142195,7 +142197,7 @@ abT
 vzs
 qXi
 qXi
-abN
+abQ
 vmV
 nJJ
 nJJ
@@ -142795,13 +142797,13 @@ nJJ
 nJJ
 nJJ
 vmV
-acl
+abU
 qXi
 vzs
 vzs
 vzs
 vzs
-acc
+abR
 vmV
 nJJ
 nJJ
