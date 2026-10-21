@@ -1,4 +1,26 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/stairs{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/under/tomb/wilds)
+"ab" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/obj/structure/fluff/railing/wood{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/under/tomb/indoors)
+"ac" = (
+/obj/structure/stairs{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/under/tomb/wilds)
 "aC" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/item/bodypart/head/goblin,
@@ -104,13 +126,6 @@
 "fO" = (
 /obj/structure/flora/grass/bush,
 /turf/open/floor/grass/yel,
-/area/under/tomb/wilds)
-"ga" = (
-/obj/effect/decal/cleanable/blood/tracks{
-	dir = 9
-	},
-/obj/effect/decal/cleanable/blood/drip,
-/turf/open/floor/woodturned,
 /area/under/tomb/wilds)
 "gL" = (
 /obj/item/grown/log/tree,
@@ -231,10 +246,6 @@
 "ra" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/dirt/road,
-/area/under/tomb/wilds)
-"rg" = (
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/grass/yel,
 /area/under/tomb/wilds)
 "rm" = (
 /obj/structure/fluff/railing/wood{
@@ -471,13 +482,6 @@
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/dirt/road,
 /area/under/tomb/wilds)
-"EA" = (
-/obj/structure/stairs{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/open/openspace,
-/area/under/tomb/wilds)
 "ED" = (
 /turf/closed/mineral/bedrock,
 /area)
@@ -577,13 +581,6 @@
 /obj/structure/fluff/walldeco/wantedposter,
 /turf/open/floor/grass/yel,
 /area/under/tomb/wilds)
-"JD" = (
-/obj/effect/decal/cleanable/blood/tracks{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood/gibs/limb,
-/turf/open/floor/wood,
-/area/under/tomb/indoors)
 "JI" = (
 /obj/structure/flora/grass/thorn_bush,
 /turf/open/floor/grass/yel,
@@ -805,13 +802,6 @@
 /obj/structure/handcart,
 /turf/open/floor/grass/yel,
 /area/under/tomb/wilds)
-"Vu" = (
-/obj/structure/stairs{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/grass/yel,
-/area/under/tomb/wilds)
 "VJ" = (
 /obj/structure/flora/grass/bush/wall/tall,
 /turf/open/floor/dirt,
@@ -915,8 +905,8 @@ Ou
 NP
 eS
 eS
-Vu
-rg
+eS
+eS
 rW
 tu
 Ro
@@ -1589,8 +1579,8 @@ ED
 YB
 YB
 YB
-ga
-EA
+YB
+YB
 YB
 YB
 YB
@@ -1599,7 +1589,7 @@ OO
 wx
 OO
 AF
-AF
+aa
 eS
 eS
 YB
@@ -1616,7 +1606,7 @@ ED
 YB
 xH
 xH
-JD
+ab
 vP
 rm
 xH
@@ -1829,7 +1819,7 @@ Fp
 "}
 (11,1,2) = {"
 kA
-AF
+ac
 YB
 YB
 YB
