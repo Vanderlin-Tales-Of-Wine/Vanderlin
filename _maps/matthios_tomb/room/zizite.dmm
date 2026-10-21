@@ -1,4 +1,34 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/item/clothing/neck/psycross/silver/divine/noc,
+/turf/open/floor/church/gold,
+/area/under/tomb/indoors/church)
+"ab" = (
+/obj/structure/closet/crate/crafted_closet/steward,
+/obj/effect/dungeon_loot_spawner/low,
+/obj/item/statue/silver/urn{
+	name = "tarnished silver urn";
+	sellprice = 10
+	},
+/turf/open/floor/churchrough,
+/area/under/tomb/indoors/magic)
+"ac" = (
+/obj/structure/closet/crate/crafted_closet/steward,
+/obj/effect/dungeon_loot_spawner/low,
+/obj/item/carvedgem/amber/urn{
+	name = "cracked petriamber urn";
+	sellprice = 10
+	},
+/obj/item/carvedgem/amber/urn{
+	name = "cracked petriamber urn";
+	sellprice = 10
+	},
+/obj/item/carvedgem/amber/duck{
+	sellprice = 5;
+	name = "old toy duck"
+	},
+/turf/open/floor/churchrough,
+/area/under/tomb/indoors/magic)
 "aj" = (
 /mob/living/carbon/human/species/demihuman/base/skilled/light_gear,
 /turf/open/floor/carpet/lord/left,
@@ -399,10 +429,6 @@
 /obj/effect/decal/cleanable/sigil/SE,
 /turf/open/floor/carpet/lord/center,
 /area/under/tomb/indoors/church)
-"zB" = (
-/obj/effect/mapping_helpers/structure/breaker,
-/turf/closed/wall/window/stained/yellow,
-/area/under/tomb/indoors/church)
 "zM" = (
 /obj/structure/closet/crate/crafted_closet/steward,
 /obj/effect/dungeon_loot_spawner/medium,
@@ -439,11 +465,6 @@
 "BF" = (
 /obj/structure/table/stone_small,
 /obj/effect/dungeon_loot_spawner/high,
-/turf/open/floor/churchrough,
-/area/under/tomb/indoors/magic)
-"BP" = (
-/obj/structure/closet/crate/crafted_closet/steward,
-/obj/effect/dungeon_loot_spawner/low,
 /turf/open/floor/churchrough,
 /area/under/tomb/indoors/magic)
 "Cc" = (
@@ -1760,7 +1781,7 @@ Hw
 Hw
 Sm
 PB
-BP
+ab
 PB
 il
 PB
@@ -1776,7 +1797,7 @@ zf
 Mw
 VC
 tg
-eo
+aa
 FL
 sR
 gW
@@ -1807,7 +1828,7 @@ AX
 eo
 FL
 Td
-zB
+Wp
 Uq
 "}
 (13,1,2) = {"
@@ -1861,14 +1882,14 @@ xC
 qS
 mg
 eo
-zB
+Wp
 Uq
 "}
 (15,1,2) = {"
 Hw
 Sm
 PB
-BP
+ac
 PB
 zM
 PB
