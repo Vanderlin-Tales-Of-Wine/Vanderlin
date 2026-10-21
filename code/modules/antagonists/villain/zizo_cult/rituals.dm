@@ -640,3 +640,4 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 		else
 			V.add_stress(/datum/stress_event/hatezizo)
 	SSgamemode.roundvoteend = TRUE
+	SSgamemode.round_ends_at = world.time - SSticker.round_start_time + 15 MINUTES
