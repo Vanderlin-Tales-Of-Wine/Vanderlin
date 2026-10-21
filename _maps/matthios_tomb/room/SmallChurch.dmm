@@ -1090,12 +1090,6 @@
 	},
 /turf/open/floor/churchmarble,
 /area/under/tomb/indoors/church)
-"Hb" = (
-/obj/structure/closet/dirthole/closed,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/obj/effect/mapping_helpers/structure/grave_spawner/_tennite,
-/turf/open/floor/grass/mixyel,
-/area/outdoors/exposed/church)
 "Hh" = (
 /turf/open/floor/church,
 /area/under/tomb/indoors/church)
@@ -3523,7 +3517,7 @@ AY
 cI
 uK
 hd
-Hb
+hd
 hd
 qr
 UZ
