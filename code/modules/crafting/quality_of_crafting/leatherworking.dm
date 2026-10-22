@@ -862,6 +862,7 @@
 	)
 	output = /obj/item/clothing/head/helmet/leather/tricorn
 	craftdiff = 2
+	category = "Hat"
 
 /datum/repeatable_crafting_recipe/leather/headscarf
 	name = "headscarf"
