@@ -1,35 +1,30 @@
-GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
-
-/proc/build_zizo_rituals()
-	. = list()
-	for(var/datum/arcyne_crafting_recipe/ritual/ritual as anything in subtypesof(/datum/arcyne_crafting_recipe/ritual))
-		if(IS_ABSTRACT(ritual))
-			continue
-		.[ritual.name] = new ritual
-
 // RITUAL DATUMS
-/datum/arcyne_crafting_recipe/ritual
-	abstract_type = /datum/arcyne_crafting_recipe/ritual
-	name = "DVRK AND EVIL RITVAL"
+/datum/ritual
+	abstract_type = /datum/ritual
+	var/name = "DVRK AND EVIL RITVAL"
+	// Special thing needed for the ritual, such as an sacrifical lamb or a piece of paper
 	var/special_requiment
-	ingredients = list()
+	var/descrequiment
+	var/list/ingredients = list()
+	var/atom/output
 	/// If zizo followers can't perform this
 	var/is_cultist_ritual = FALSE
 	var/description
-	abstract_type = /datum/arcyne_crafting_recipe/ritual
+	var/hides_from_books = TRUE
+	abstract_type = /datum/ritual
 
-/datum/arcyne_crafting_recipe/ritual/proc/invoke(mob/living/user, turf/center)
+/datum/ritual/proc/invoke(mob/living/user, turf/center)
 	if(description)
 		to_chat(user, SPAN_GOD_ZIZO(description))
 	return
 
-/datum/arcyne_crafting_recipe/ritual/convert
+/datum/ritual/convert
 	name = "Convert"
 	special_requiment = /mob/living/carbon/human
 
 	is_cultist_ritual = TRUE
 
-/datum/arcyne_crafting_recipe/ritual/convert/invoke(mob/living/user, turf/center)
+/datum/ritual/convert/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
 	if(!target)
 		return
@@ -58,7 +53,7 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 		if(target.electrocute_act(10))
 			target.emote("painscream")
 
-/datum/arcyne_crafting_recipe/ritual/skeletaljaunt
+/datum/ritual/skeletaljaunt
 	name = "Skeletal Jaunt"
 	special_requiment = /mob/living/carbon/human
 
@@ -66,7 +61,7 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 
 	is_cultist_ritual = TRUE
 
-/datum/arcyne_crafting_recipe/ritual/skeletaljaunt/invoke(mob/living/user, turf/center)
+/datum/ritual/skeletaljaunt/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = user
 	if(!target)
 		return
@@ -80,13 +75,13 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 	to_chat(target, span_userdanger("I am returned to serve. I will obey, so that I may return to rest."))
 	to_chat(target, span_userdanger("My master is [user]."))
 
-/datum/arcyne_crafting_recipe/ritual/falseappearance
+/datum/ritual/falseappearance
 	name = "Falsified Appearance"
 	special_requiment = /mob/living/carbon/human
 
 	ingredients = list(/obj/item/bodypart/head, /obj/item/natural/glass/shard, /obj/item/natural/glass/shard, /obj/item/natural/glass/shard)
 
-/datum/arcyne_crafting_recipe/ritual/falseappearance/invoke(mob/living/user, turf/center)
+/datum/ritual/falseappearance/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
 	if(!target)
 		return
@@ -97,7 +92,7 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 	target.regenerate_clothes()
 	target.update_body()
 
-/datum/arcyne_crafting_recipe/ritual/heartache
+/datum/ritual/heartache
 	name = "Heartaches"
 	ingredients = list(/obj/item/natural/worms/leech, /obj/item/organ/heart)
 	output = /obj/item/corruptedheart
@@ -133,12 +128,13 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 
 	qdel(src)
 
-/datum/arcyne_crafting_recipe/ritual/darksunmark
+/datum/ritual/darksunmark
 	name = "Dark Sun's Mark"
-	special_requiment = /obj/item/paper/ // Has to be written like
+	special_requiment = /obj/item/paper/ // We must read the name off something
+	descrequiment = "A piece of parchment with victim's name."
 	ingredients = list(/obj/item/weapon/knife/dagger)
 
-/datum/arcyne_crafting_recipe/ritual/darksunmark/invoke(mob/living/user, turf/center)
+/datum/ritual/darksunmark/invoke(mob/living/user, turf/center)
 	var/obj/item/paper/P = locate() in center.contents
 	if(!P)
 		to_chat(user, span_warning("The ritual requires a parchment with a name."))
@@ -176,43 +172,51 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 	qdel(P)
 	target.playsound_local(target, 'sound/magic/marked.ogg', 100)
 
-// TRANSMUTATION
+// Item focused rituals
 
-/datum/arcyne_crafting_recipe/ritual/allseeingeye
+/datum/ritual/tutorialbook
+	name = "Tome of Knowledge"
+	description = "A gift to all who seek to change the world."
+	ingredients = list(/obj/item/book)
+	output = /obj/item/recipe_book/zizo_cult
+
+/datum/ritual/allseeingeye
 	name = "All-seeing Eye"
 	description = "The All-seeing Eye. To see beyond sight."
 	ingredients = list(/obj/item/organ/eyes)
 	output = /obj/item/scrying/eye
 
-/datum/arcyne_crafting_recipe/ritual/cross
+/datum/ritual/cross
 	name = "Summon Amulet of Zizo"
 	description = "The Gods of old are casted away into the cold darkness. What they call profanation is our defiance."
 	output = /obj/item/clothing/neck/psycross/zizo
 	ingredients = list(/obj/item/clothing/neck/psycross)
 
-/datum/arcyne_crafting_recipe/ritual/propaganda
+/datum/ritual/propaganda
 	name = "Propaganda"
 	description = "A leech to make their minds wrangled. They'll be in bad spirits."
 	ingredients = list(/obj/item/natural/worms/leech, /obj/item/paper, /obj/item/natural/feather)
 	output = /obj/item/natural/worms/leech/propaganda
 
-/datum/arcyne_crafting_recipe/ritual/invademind
+/datum/ritual/invademind
 	name = "Invade Mind"
 	description = "Seep into their thoughts. Some ideas cannot be conveyed through words, but the power of the mind limitless."
 	ingredients = list(/obj/item/natural/feather, /obj/item/paper)
 
-/datum/arcyne_crafting_recipe/ritual/invademind/invoke(mob/living/user, turf/center)
+/datum/ritual/invademind/invoke(mob/living/user, turf/center)
 	user.add_spell(/datum/action/cooldown/spell/undirected/message)
 	user.add_spell(/datum/action/cooldown/spell/undirected/list_target/encode_thoughts)
 
-/datum/arcyne_crafting_recipe/ritual/summonneant
+/datum/ritual/summonneant
 	name = "Summon Neant"
 	special_requiment = /mob/living/carbon/human
+	descrequiment = "A blue-blooded sacrifice."
 	ingredients = list(/obj/item/reagent_containers/lux, /obj/item/ingot/steel)
+	output = /obj/item/weapon/polearm/neant
 
 	is_cultist_ritual = TRUE
 
-/datum/arcyne_crafting_recipe/ritual/summonneant/invoke(mob/living/user, turf/center)
+/datum/ritual/summonneant/invoke(mob/living/user, turf/center)
 	output = null
 	var/mob/living/carbon/human/noble = locate() in center.contents
 	if(!(noble.is_noble()))
@@ -226,14 +230,14 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 
 	playsound(center, pick('sound/items/bsmith1.ogg','sound/items/bsmith2.ogg','sound/items/bsmith3.ogg','sound/items/bsmith4.ogg'), 100, FALSE)
 
-/datum/arcyne_crafting_recipe/ritual/summonarmor
+/datum/ritual/summonarmor
 	name = "Summon Darksteel Armor"
 	special_requiment = /mob/living/carbon/human
 	ingredients = list(/obj/item/ingot/steel, /obj/item/ingot/steel)
 
 	is_cultist_ritual = TRUE
 
-/datum/arcyne_crafting_recipe/ritual/summonarmor/invoke(mob/living/user, turf/center)
+/datum/ritual/summonarmor/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
 	if(!target)
 		return
@@ -255,13 +259,13 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 
 	playsound(center, pick('sound/items/bsmith1.ogg','sound/items/bsmith2.ogg','sound/items/bsmith3.ogg','sound/items/bsmith4.ogg'), 100, FALSE)
 
-/datum/arcyne_crafting_recipe/ritual/summonweapon
+/datum/ritual/summonweapon
 	name = "Summon Weapons"
 	ingredients = list(/obj/item/ingot/steel)
 
 	is_cultist_ritual = TRUE
 
-/datum/arcyne_crafting_recipe/ritual/summonweapon/invoke(mob/living/user, turf/center)
+/datum/ritual/summonweapon/invoke(mob/living/user, turf/center)
 	var/datum/effect_system/spark_spread/S = new(center)
 	S.set_up(1, 1, center)
 	S.start()
@@ -276,14 +280,15 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 
 // FLESH CRAFTING
 
-/datum/arcyne_crafting_recipe/ritual/bunnylegs
+/datum/ritual/bunnylegs
 	name = "Saliendo Pedes"
 	special_requiment = /mob/living/carbon/human
+	descrequiment = "Ambitious cultist soon to jump over the moon."
 	ingredients = list(/obj/item/bodypart/l_leg, /obj/item/bodypart/r_leg, /obj/item/reagent_containers/food/snacks/meat)
 
 	is_cultist_ritual = TRUE
 
-/datum/arcyne_crafting_recipe/ritual/bunnylegs/invoke(mob/living/user, turf/center)
+/datum/ritual/bunnylegs/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
 	if(!target)
 		return
@@ -291,19 +296,20 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 	to_chat(target, span_notice("I feel like my legs have become stronger."))
 
 
-/datum/arcyne_crafting_recipe/ritual/fleshmend
+/datum/ritual/fleshmend
 	name = "Fleshmend"
 	special_requiment = /mob/living/carbon/human
+	descrequiment = "Wounded individual, seeking Her aid."
 	var/heal_tick = 3
 	ingredients = list(/obj/item/reagent_containers/food/snacks/meat, /obj/item/reagent_containers/food/snacks/meat)
 
-/datum/arcyne_crafting_recipe/ritual/fleshmend/greater
+/datum/ritual/fleshmend/greater
 	name = "Greater Fleshmend"
 	is_cultist_ritual = TRUE
 	heal_tick = 10
 	ingredients = list(/obj/item/reagent_containers/food/snacks/meat, /obj/item/reagent_containers/food/snacks/meat)
 
-/datum/arcyne_crafting_recipe/ritual/fleshmend/invoke(mob/living/user, turf/center)
+/datum/ritual/fleshmend/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
 	if(!target)
 		return
@@ -330,29 +336,29 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 /obj/effect/temp_visual/heal_rogue/fleshmend
 	icon_state = "heal_psycross_invert"
 
-/datum/arcyne_crafting_recipe/ritual/darkeyes
+/datum/ritual/darkeyes
 	name = "Darkened Eyes"
 	description = "I no longer fear what hides in darkness."
 	special_requiment = /mob/living/carbon/human
+	descrequiment = "Subject wishing to defy nature."
 	ingredients = list(/obj/item/organ/eyes, /obj/item/organ/eyes, /obj/item/reagent_containers/food/snacks/meat)
 
-/datum/arcyne_crafting_recipe/ritual/darkeyes/invoke(mob/living/user, turf/center)
+/datum/ritual/darkeyes/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
 	if(!target)
 		return
 	target.grant_undead_eyes()
 
-/datum/arcyne_crafting_recipe/ritual/undead
+/datum/ritual/undead
 	name = "Dominate Undead"
 	description = "The undead bow down to my will."
-	special_requiment = /mob/living/carbon/human
 	ingredients = list(/obj/item/organ/brain, /obj/item/organ/brain, /obj/item/reagent_containers/food/snacks/rotten/meat)
 
 	is_cultist_ritual = TRUE
 
-/datum/arcyne_crafting_recipe/ritual/undead/invoke(mob/living/user, turf/center)
+/datum/ritual/undead/invoke(mob/living/user, turf/center)
 	..()
-	var/mob/living/carbon/human/target = locate() in center.contents
+	var/mob/living/carbon/human/target = user
 	if(!target)
 		return
 	target.set_faction(list(FACTION_UNDEAD))
@@ -360,14 +366,15 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 	target.add_spell(/datum/action/cooldown/spell/control_undead, mastery_spell = TRUE)
 	target.add_spell(/datum/action/cooldown/spell/decompose, mastery_spell = TRUE)
 
-/datum/arcyne_crafting_recipe/ritual/arcane
+/datum/ritual/arcane
 	name = "Siphon Arcane"
 	description = "Stolen Arcane prowess floods my mind, ZIZO empowers me."
 	special_requiment = /mob/living/carbon/human
+	descrequiment = "Captured or slayed mage, who no longer has use for his arcyne powers."
 
 	is_cultist_ritual = TRUE
 
-/datum/arcyne_crafting_recipe/ritual/arcane/invoke(mob/living/user, turf/center)
+/datum/ritual/arcane/invoke(mob/living/user, turf/center)
 	..()
 	var/mob/living/carbon/human/cultist = user
 	var/mob/living/carbon/human/mage = locate() in center.contents
@@ -380,7 +387,7 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 	cultist.adjust_technique_mastery_points(5)
 	cultist.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 
-/datum/arcyne_crafting_recipe/ritual/nopain
+/datum/ritual/nopain
 	name = "Painless Battle"
 	description = "I no longer feel pain, but it has come at a terrible cost."
 	ingredients = list(/obj/item/organ/heart, /obj/item/organ/brain, /obj/item/reagent_containers/food/snacks/meat)
@@ -391,7 +398,7 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 		STAT_CONSTITUTION = -3,
 	)
 
-/datum/arcyne_crafting_recipe/ritual/nopain/invoke(mob/living/user, turf/center)
+/datum/ritual/nopain/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = user
 	if(!target)
 		return
@@ -399,7 +406,7 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 
 	target.attributes?.add_sheet(/datum/attribute_holder/sheet/job/nopain)
 
-/datum/arcyne_crafting_recipe/ritual/immortality
+/datum/ritual/immortality
 	name = "Flawed Immortality"
 	special_requiment = /mob/living/carbon/human
 
@@ -410,7 +417,7 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 		STAT_ENDURANCE = -4,
 	)
 
-/datum/arcyne_crafting_recipe/ritual/immortality/invoke(mob/living/user, turf/center)
+/datum/ritual/immortality/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/victim = locate() in center.contents
 	var/mob/living/carbon/human/target = locate() in user
 	if(!(is_species(victim, /datum/species/aasimar)))
@@ -436,14 +443,15 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 	target.emote("agony", forced = TRUE)
 	target.add_spell(/datum/action/cooldown/spell/undirected/regenerate)
 
-/datum/arcyne_crafting_recipe/ritual/fleshform
+/datum/ritual/fleshform
 	name = "Stronger Form"
 	special_requiment = /mob/living/carbon/human
+	descrequiment = "Victim to be turned into a beast."
 
 	ingredients = list(/obj/item/organ/guts, /obj/item/organ/guts, /obj/item/reagent_containers/food/snacks/meat, /obj/item/reagent_containers/food/snacks/meat)
 	is_cultist_ritual = TRUE
 
-/datum/arcyne_crafting_recipe/ritual/fleshform/invoke(mob/living/user, turf/center)
+/datum/ritual/fleshform/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
 	if(!target)
 		return
@@ -456,7 +464,7 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 	to_chat(target, span_warning("SOON I WILL BECOME A HIGHER FORM!"))
 	addtimer(CALLBACK(src, PROC_REF(flesh_convert), target, center), 5 SECONDS)
 
-/datum/arcyne_crafting_recipe/ritual/fleshform/proc/flesh_convert(mob/living/victim, turf/place)
+/datum/ritual/fleshform/proc/flesh_convert(mob/living/victim, turf/place)
 	if(QDELETED(victim))
 		return
 	if(place != get_turf(victim))
@@ -467,11 +475,11 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 	victim.mind.transfer_to(trl)
 	victim.gib()
 
-/datum/arcyne_crafting_recipe/ritual/gutted
+/datum/ritual/gutted
 	name = "Gutted Fish"
 	special_requiment = /mob/living/carbon/human // One to be gutted.human
 
-/datum/arcyne_crafting_recipe/ritual/gutted/invoke(mob/living/user, turf/center)
+/datum/ritual/gutted/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
 	if(!target)
 		return
@@ -490,12 +498,12 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 	for(var/obj/item/bodypart/part as anything in target.bodyparts)
 		part.drop_limb()
 
-/datum/arcyne_crafting_recipe/ritual/badomen
+/datum/ritual/badomen
 	name = "Bad Omen"
 	special_requiment = /mob/living/carbon/human
 	is_cultist_ritual = TRUE
 
-/datum/arcyne_crafting_recipe/ritual/badomen/invoke(mob/living/user, turf/center)
+/datum/ritual/badomen/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
 	if(!target)
 		return
@@ -503,15 +511,16 @@ GLOBAL_LIST_INIT(ritualslist, build_zizo_rituals())
 		target.gib(FALSE, FALSE, FALSE)
 		addomen(OMEN_ROUNDSTART)
 
-/datum/arcyne_crafting_recipe/ritual/ascend
+/datum/ritual/ascend
 	name = "ASCEND!"
 	special_requiment = /mob/living/carbon/human // virgin
+	descrequiment = "A pure-hearted virgin."
 
 	ingredients = list(/obj/item/clothing/head/crown/serpcrown)
 
 	is_cultist_ritual = TRUE
 
-/datum/arcyne_crafting_recipe/ritual/ascend/invoke(mob/living/user, turf/center)
+/datum/ritual/ascend/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/cultist = user
 	if(!cultist || cultist != user)
 		return

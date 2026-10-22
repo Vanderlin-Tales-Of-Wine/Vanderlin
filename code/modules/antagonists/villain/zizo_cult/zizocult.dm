@@ -272,18 +272,14 @@
 	for(var/datum/crafting_slot/S in slots)
 		staged_types += S.item.type
 
-	for(var/recipe_type in subtypesof(/datum/arcyne_crafting_recipe/ritual))
-		var/datum/arcyne_crafting_recipe/ritual/R = new recipe_type
+	for(var/recipe_type in subtypesof(/datum/ritual))
+		var/datum/ritual/R = new recipe_type
 		var/list/needed = R.ingredients.Copy()
 		if(length(needed) != length(slots))
 			continue
 		// Try to match each staged item against the needed list.
 		var/list/remaining = needed.Copy()
 		var/matched = TRUE
-		if(R.special_requiment)
-			var/needed_thing = locate(R.special_requiment) in get_turf(src)
-			if(!needed_thing)
-				continue
 		for(var/datum/crafting_slot/S in slots)
 			var/found = FALSE
 			for(var/req_type in remaining)
@@ -325,12 +321,16 @@
 		user.electrocute_act(10, src)
 		to_chat(user, SPAN_GOD_ZIZO("You shouldn't meddle in what you can't comprehend."))
 		return
-
-	var/datum/arcyne_crafting_recipe/ritual/r = matched_recipe
-
+	var/datum/ritual/r = matched_recipe
 	if(r.is_cultist_ritual && !user.mind.has_antag_datum(/datum/antagonist/zizocultist))
 		to_chat(user, span_notice("No... It doesn't make any sense! I don't have enough INSIGHT."))
 		return
+
+	if(r.special_requiment)
+		var/needed_thing = locate(r.special_requiment) in get_turf(src)
+		if(!needed_thing)
+			to_chat(user, span_notice("The ritual lacks [r.descrequiment] on top of the sigil!"))
+			return
 
 	if(rune_in_use)
 		to_chat(user, span_notice("The rune is already active."))
@@ -338,14 +338,12 @@
 	rune_in_use = TRUE
 	animating = TRUE
 
-	user.mana_pool.adjust_mana(-matched_recipe.mana_cost)
-
 	user.whisper(invocation, language = /datum/language/undead, ignore_spam = TRUE, forced = "cult invocation")
 	playsound(src, 'sound/magic/cosmic_expansion.ogg', 60, TRUE)
 	SpinAnimation(
 		speed = 1.5 SECONDS,
 		loops = 1,
-		clockwise = TRUE,
+		clockwise = FALSE,
 		segments = 6, // smoother than default 3
 		parallel = TRUE
 	)
@@ -373,7 +371,7 @@
 
 	sleep(0.2 SECONDS)
 	//spawn output invisible and floating, then fade it in.
-	var/datum/arcyne_crafting_recipe/ritual/r = matched_recipe
+	var/datum/ritual/r = matched_recipe
 	r.invoke(user, get_turf(src))
 	if(r.output)
 		var/obj/item/result = new r.output(center)
@@ -397,7 +395,7 @@
 	animating = FALSE
 	rune_in_use = FALSE
 
-	user.mind.add_sleep_experience(/datum/attribute/skill/magic/arcane, (GET_MOB_ATTRIBUTE_VALUE(user, STAT_INTELLIGENCE) * 2) + matched_recipe.required_skill, FALSE)
+	user.mind.add_sleep_experience(/datum/attribute/skill/magic/arcane, (GET_MOB_ATTRIBUTE_VALUE(user, STAT_INTELLIGENCE) * 2) + 10, FALSE)
 
 	matched_recipe = null
 	do_invoke_glow()
