@@ -13,7 +13,7 @@
 	salvage_result = /obj/item/alch/herb/rosa
 	sewrepair = /datum/attribute/skill/misc/sewing/mending
 	salvage_amount = 3
-	fiber_salvage_amount = 1
+	fiber_salvage = TRUE
 
 /obj/item/bouquet/rosa
 	name = "rosa bouquet"
