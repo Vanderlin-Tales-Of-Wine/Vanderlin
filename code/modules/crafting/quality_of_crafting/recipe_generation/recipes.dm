@@ -876,7 +876,7 @@
 	var/list/data = list()
 	data["type"] = "zizo_ritual"
 	data["name"] = name
-	data["category"] = is_cultist_ritual ? "Zizo's Chosen pact" : "Magick forbidden to us"
+	data["category"] = is_cultist_ritual ? "Zizo's Chosen" : "Magick Forbidden"
 	data["description"] = description
 	data["is_cultist_ritual"] = is_cultist_ritual
 	data["descrequiment"] = descrequiment

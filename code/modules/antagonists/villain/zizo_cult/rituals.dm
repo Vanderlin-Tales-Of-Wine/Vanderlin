@@ -9,39 +9,51 @@
 	var/atom/output
 	/// If zizo followers can't perform this
 	var/is_cultist_ritual = FALSE
+	var/success_message
 	var/description
-	var/hides_from_books = TRUE
 	abstract_type = /datum/ritual
 
 /datum/ritual/proc/invoke(mob/living/user, turf/center)
-	if(description)
-		to_chat(user, SPAN_GOD_ZIZO(description))
+	if(success_message)
+		to_chat(user, SPAN_GOD_ZIZO(success_message))
 	return
+
+/datum/ritual/proc/invoke_requiments(mob/living/user, turf/center)
+	return TRUE
 
 /datum/ritual/convert
 	name = "Convert"
+	description = "A way for a herald to grant insight to their followers. Requires a source of knowledge - A brain, Trying to force somebody into accepting it is a waste of time and resources."
 	special_requiment = /mob/living/carbon/human
+	descrequiment = "An open-minded person, willing to embrace the future."
+	ingredients = list(/obj/item/organ/brain)
 
 	is_cultist_ritual = TRUE
+
+/datum/ritual/convert/invoke_requiments(mob/living/user, turf/center)
+	var/mob/living/carbon/human/target = locate() in center.contents
+	if(!target)
+		return FALSE
+	if(target == user)
+		return FALSE
+	if(is_zizocultist(target.mind) || is_zizolackey(target.mind))
+		return
+	if(!target.client)
+		return FALSE
+	if(is_antag_banned(target.ckey, ROLE_ZIZOIDCULTIST))
+		to_chat(user, span_danger("This one is unworthy of her aiding her ascension."))
+		return FALSE
+	if(istype(target.wear_neck, /obj/item/clothing/neck/psycross/silver) || istype(target.wear_wrists, /obj/item/clothing/neck/psycross/silver) )
+		to_chat(user, span_danger("They are wearing silver, it resists the dark magick!"))
+		return FALSE
+	return TRUE
 
 /datum/ritual/convert/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
 	if(!target)
 		return
-	if(target == user)
-		return
-	if(is_zizocultist(target.mind) || is_zizolackey(target.mind))
-		return
-	if(!target.client)
-		return
-	if(is_antag_banned(target.ckey, ROLE_ZIZOIDCULTIST))
-		to_chat(user, span_danger("This one is unworthy of her aiding her ascension."))
-		return
-	if(istype(target.wear_neck, /obj/item/clothing/neck/psycross/silver) || istype(target.wear_wrists, /obj/item/clothing/neck/psycross/silver) )
-		to_chat(user, span_danger("They are wearing silver, it resists the dark magick!"))
-		return
 	var/datum/antagonist/zizocultist/PR = user.mind.has_antag_datum(/datum/antagonist/zizocultist)
-	var/alert = tgui_alert(target, "YOU WILL BE SHOWN THE TRUTH. DO YOU RESIST?", "???", list("Yield", "Resist"))
+	var/alert = tgui_alert(target, "YOU WILL BE SHOWN THE TRUTH. DO YOU ACCEPT IT?", "???", list("Yield", "Resist"))
 	target.Immobilize(3 SECONDS)
 	if(alert == "Yield")
 		to_chat(target, span_notice("I see the truth now! It all makes so much sense! They aren't HERETICS! They want the BEST FOR US!"))
@@ -49,20 +61,29 @@
 		target.praise()
 	else
 		target.visible_message(span_danger("[target] thrashes around, unyielding!"))
-		to_chat(target, span_danger("Yield."))
+		to_chat(target, SPAN_GOD_ZIZO("You are unworthy of my gifts."))
 		if(target.electrocute_act(10))
 			target.emote("painscream")
 
 /datum/ritual/skeletaljaunt
 	name = "Skeletal Jaunt"
+	description = "Abandon your flesh for higher durability. Only cultists might g through this rite"
 	special_requiment = /mob/living/carbon/human
+	descrequiment = "Cultist wishing to shed his flesh."
 
 	ingredients = list(/obj/item/organ/heart)
 
 	is_cultist_ritual = TRUE
 
+/datum/ritual/skeletaljaunt/invoke_requiments(mob/living/user, turf/center)
+	var/mob/living/carbon/human/target = locate() in center.contents
+	if(!target.mind?.has_antag_datum(/datum/antagonist/zizocultist))
+		to_chat(user, SPAN_GOD_ZIZO("ONLY THOSE WHO EMBRACED HER MIGHT SHED THEIR SKIN WILLINGLY."))
+		return FALSE
+	return TRUE
+
 /datum/ritual/skeletaljaunt/invoke(mob/living/user, turf/center)
-	var/mob/living/carbon/human/target = user
+	var/mob/living/carbon/human/target = locate() in center.contents
 	if(!target)
 		return
 
@@ -72,12 +93,12 @@
 	summon_job.after_spawn(target, target.client)
 	ADD_TRAIT(target, TRAIT_CABAL, TRAIT_GENERIC)
 
-	to_chat(target, span_userdanger("I am returned to serve. I will obey, so that I may return to rest."))
-	to_chat(target, span_userdanger("My master is [user]."))
+	to_chat(target, SPAN_GOD_ZIZO("I am returned to serve. I will obey, so that I may return to rest."))
 
 /datum/ritual/falseappearance
 	name = "Falsified Appearance"
 	special_requiment = /mob/living/carbon/human
+	description = "You won't recognise your own reflection. There's no way to reverse it."
 
 	ingredients = list(/obj/item/bodypart/head, /obj/item/natural/glass/shard, /obj/item/natural/glass/shard, /obj/item/natural/glass/shard)
 
@@ -94,6 +115,7 @@
 
 /datum/ritual/heartache
 	name = "Heartaches"
+	description = "A pounding heart that temporarily stops a living one from beating, or fills one of Her follower's with blood."
 	ingredients = list(/obj/item/natural/worms/leech, /obj/item/organ/heart)
 	output = /obj/item/corruptedheart
 
@@ -130,15 +152,19 @@
 
 /datum/ritual/darksunmark
 	name = "Dark Sun's Mark"
-	special_requiment = /obj/item/paper/ // We must read the name off something
+	description = "The Sinistar's men lust for blood. Point them to whoever might have wronged you."
+	special_requiment = /obj/item/paper // We must read the name off something
 	descrequiment = "A piece of parchment with victim's name."
 	ingredients = list(/obj/item/weapon/knife/dagger)
 
-/datum/ritual/darksunmark/invoke(mob/living/user, turf/center)
+/datum/ritual/darksunmark/invoke_requiments(mob/living/user, turf/center)
 	var/obj/item/paper/P = locate() in center.contents
 	if(!P)
-		to_chat(user, span_warning("The ritual requires a parchment with a name."))
-		return
+		to_chat(user, SPAN_GOD_ZIZO("The ritual requires a parchment with a name."))
+		return FALSE
+	return TRUE
+/datum/ritual/darksunmark/invoke(mob/living/user, turf/center)
+	var/obj/item/paper/P = locate() in center.contents
 	var/paper_name = STRIP_HTML_FULL(P.info, MAX_NAME_LEN)
 	if(!user.mind || !user.mind.do_i_know(name = paper_name))
 		to_chat(user, span_warning("I don't know anyone by that name."))
@@ -177,30 +203,35 @@
 /datum/ritual/tutorialbook
 	name = "Tome of Knowledge"
 	description = "A gift to all who seek to change the world."
+	success_message = "A gift to all who seek to change the world."
 	ingredients = list(/obj/item/book)
 	output = /obj/item/recipe_book/zizo_cult
 
 /datum/ritual/allseeingeye
 	name = "All-seeing Eye"
 	description = "The All-seeing Eye. To see beyond sight."
+	success_message = "The All-seeing Eye. To see beyond sight."
 	ingredients = list(/obj/item/organ/eyes)
 	output = /obj/item/scrying/eye
 
 /datum/ritual/cross
 	name = "Summon Amulet of Zizo"
 	description = "The Gods of old are casted away into the cold darkness. What they call profanation is our defiance."
+	success_message = "The Gods of old are casted away into the cold darkness. What they call profanation is our defiance."
 	output = /obj/item/clothing/neck/psycross/zizo
 	ingredients = list(/obj/item/clothing/neck/psycross)
 
 /datum/ritual/propaganda
 	name = "Propaganda"
 	description = "A leech to make their minds wrangled. They'll be in bad spirits."
+	success_message = "A leech to make their minds wrangled. They'll be in bad spirits."
 	ingredients = list(/obj/item/natural/worms/leech, /obj/item/paper, /obj/item/natural/feather)
 	output = /obj/item/natural/worms/leech/propaganda
 
 /datum/ritual/invademind
 	name = "Invade Mind"
-	description = "Seep into their thoughts. Some ideas cannot be conveyed through words, but the power of the mind limitless."
+	description = "Seep into their thoughts. The power of the mind is infinite."
+	success_message = "I feel like my mind is no longer bound to my body's confines. I can force my will onto others."
 	ingredients = list(/obj/item/natural/feather, /obj/item/paper)
 
 /datum/ritual/invademind/invoke(mob/living/user, turf/center)
@@ -210,6 +241,7 @@
 /datum/ritual/summonneant
 	name = "Summon Neant"
 	special_requiment = /mob/living/carbon/human
+	description = "Lay down a living nobleman in the middle, make sure he is ALIVE! When the words are spoken from his ribs a powerful weapon shall emerge."
 	descrequiment = "A blue-blooded sacrifice."
 	ingredients = list(/obj/item/reagent_containers/lux, /obj/item/ingot/steel)
 	output = /obj/item/weapon/polearm/neant
@@ -219,7 +251,7 @@
 /datum/ritual/summonneant/invoke(mob/living/user, turf/center)
 	output = null
 	var/mob/living/carbon/human/noble = locate() in center.contents
-	if(!(noble.is_noble()))
+	if(!(noble.is_noble()) && noble.stat == DEAD)
 		return
 	noble.gib()
 	var/datum/effect_system/spark_spread/S = new(center)
@@ -233,6 +265,8 @@
 /datum/ritual/summonarmor
 	name = "Summon Darksteel Armor"
 	special_requiment = /mob/living/carbon/human
+	description = "Place a body in the middle. Your enemies shall fear armor made from DARKSTEEL."
+	descrequiment = "A humanoid carcass."
 	ingredients = list(/obj/item/ingot/steel, /obj/item/ingot/steel)
 
 	is_cultist_ritual = TRUE
@@ -261,6 +295,7 @@
 
 /datum/ritual/summonweapon
 	name = "Summon Weapons"
+	description = "Darksteel weaponry, enough to arm three seekers."
 	ingredients = list(/obj/item/ingot/steel)
 
 	is_cultist_ritual = TRUE
@@ -283,8 +318,10 @@
 /datum/ritual/bunnylegs
 	name = "Saliendo Pedes"
 	special_requiment = /mob/living/carbon/human
+	description = "Powerful upgrade to your own body. Allows you to cross between floor levels with a single jump."
 	descrequiment = "Ambitious cultist soon to jump over the moon."
 	ingredients = list(/obj/item/bodypart/l_leg, /obj/item/bodypart/r_leg, /obj/item/reagent_containers/food/snacks/meat)
+	success_message = "I feel like my legs have become stronger. I can jump onto higher levels!"
 
 	is_cultist_ritual = TRUE
 
@@ -293,21 +330,24 @@
 	if(!target)
 		return
 	ADD_TRAIT(target, TRAIT_ZJUMP, TRAIT_GENERIC)
-	to_chat(target, span_notice("I feel like my legs have become stronger."))
-
 
 /datum/ritual/fleshmend
 	name = "Fleshmend"
 	special_requiment = /mob/living/carbon/human
+	description = "Replace rotten and dead tissue with fresh meat. The more meat you use, the stronger it is."
 	descrequiment = "Wounded individual, seeking Her aid."
-	var/heal_tick = 3
+	success_message = "Zizo empowers me."
+	var/heal_tick = 5
 	ingredients = list(/obj/item/reagent_containers/food/snacks/meat, /obj/item/reagent_containers/food/snacks/meat)
 
 /datum/ritual/fleshmend/greater
-	name = "Greater Fleshmend"
-	is_cultist_ritual = TRUE
-	heal_tick = 10
-	ingredients = list(/obj/item/reagent_containers/food/snacks/meat, /obj/item/reagent_containers/food/snacks/meat)
+	name = "Fleshmend (T2)"
+	heal_tick = 15
+	ingredients = list(/obj/item/reagent_containers/food/snacks/meat, /obj/item/reagent_containers/food/snacks/meat, /obj/item/reagent_containers/food/snacks/meat)
+/datum/ritual/fleshmend/greatest
+	name = "Fleshmend (T3)"
+	heal_tick = 30
+	ingredients = list(/obj/item/reagent_containers/food/snacks/meat, /obj/item/reagent_containers/food/snacks/meat, /obj/item/reagent_containers/food/snacks/meat, /obj/item/reagent_containers/food/snacks/meat)
 
 /datum/ritual/fleshmend/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
@@ -315,7 +355,6 @@
 		return
 	target.playsound_local(target, 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
 	target.apply_status_effect(/datum/status_effect/buff/healing/fleshmend, null, heal_tick)
-	to_chat(target, span_red("Zizo empowers me."))
 
 /datum/status_effect/buff/healing/fleshmend
 	id = "fleshmend"
@@ -338,9 +377,10 @@
 
 /datum/ritual/darkeyes
 	name = "Darkened Eyes"
-	description = "I no longer fear what hides in darkness."
+	description = "Eyes of a true predator, they will have trouble hitting you in the dark."
 	special_requiment = /mob/living/carbon/human
 	descrequiment = "Subject wishing to defy nature."
+	success_message = "I no longer fear what hides in darkness."
 	ingredients = list(/obj/item/organ/eyes, /obj/item/organ/eyes, /obj/item/reagent_containers/food/snacks/meat)
 
 /datum/ritual/darkeyes/invoke(mob/living/user, turf/center)
@@ -368,9 +408,11 @@
 
 /datum/ritual/arcane
 	name = "Siphon Arcane"
-	description = "Stolen Arcane prowess floods my mind, ZIZO empowers me."
+	description = "The Mages of Noc waste their own potential. Take their prowess for yourself, exploding their head through the process and leaving you with innate magic."
 	special_requiment = /mob/living/carbon/human
-	descrequiment = "Captured or slayed mage, who no longer has use for his arcyne powers."
+	success_message = "Stolen Arcane prowess floods my mind, ZIZO empowers me."
+	descrequiment = "Mage which no longer has use for his arcyne powers."
+	ingredients = list(/obj/item/spellbook)
 
 	is_cultist_ritual = TRUE
 
@@ -389,7 +431,10 @@
 
 /datum/ritual/nopain
 	name = "Painless Battle"
-	description = "I no longer feel pain, but it has come at a terrible cost."
+	description = "A person standing on the sigil shall no longer have their mind clouded with pain, yet the rites leave the body frail."
+	special_requiment = /mob/living/carbon/human
+	descrequiment = "Whoever rejects the weakness of our bodies - Pain."
+	success_message = "I no longer feel pain, but it has come at a terrible cost."
 	ingredients = list(/obj/item/organ/heart, /obj/item/organ/brain, /obj/item/reagent_containers/food/snacks/meat)
 
 /datum/attribute_holder/sheet/job/nopain
@@ -399,7 +444,7 @@
 	)
 
 /datum/ritual/nopain/invoke(mob/living/user, turf/center)
-	var/mob/living/carbon/human/target = user
+	var/mob/living/carbon/human/target = locate() in center.contents
 	if(!target)
 		return
 	ADD_TRAIT(user, TRAIT_NOPAIN, TRAIT_GENERIC)
@@ -408,7 +453,11 @@
 
 /datum/ritual/immortality
 	name = "Flawed Immortality"
+	description = "Transform the caster into a figure of stone, turning them completly invicible but trapped in their own body."
 	special_requiment = /mob/living/carbon/human
+	ingredients = list(/obj/item/natural/stone, /obj/item/natural/stone, /obj/item/natural/stone)
+	descrequiment = "A construct of the Gods, a body of an Aasimar."
+	success_message = "ZIZO EMPOWERS ME!! SOMETHING HAS GONE WRONG, THE RITUAL FAILED BUT WHAT IT LEFT ME WITH IS STILL POWER!!"
 
 /datum/attribute_holder/sheet/job/immortality
 	raw_attribute_list = list(
@@ -417,11 +466,17 @@
 		STAT_ENDURANCE = -4,
 	)
 
+/datum/ritual/immortality/invoke_requiments(mob/living/user, turf/center)
+	var/mob/living/carbon/human/victim = locate() in center.contents
+	if(!(is_species(victim, /datum/species/aasimar)))
+		to_chat(user, SPAN_GOD_ZIZO("ONLY AN AASIMAR CAN BE USED AS A CATALYST."))
+		return FALSE
+	return TRUE
+
 /datum/ritual/immortality/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/victim = locate() in center.contents
-	var/mob/living/carbon/human/target = locate() in user
-	if(!(is_species(victim, /datum/species/aasimar)))
-		return
+	var/mob/living/carbon/human/target = user
+
 	victim.gib()
 	ADD_TRAIT(user, TRAIT_NOPAIN, TRAIT_GENERIC)
 	ADD_TRAIT(user, TRAIT_NOLIMBDISABLE, TRAIT_GENERIC)
@@ -437,7 +492,7 @@
 	ADD_TRAIT(user, TRAIT_ABOMINATION, TRAIT_GENERIC)
 	ADD_TRAIT(user, TRAIT_NOHARDCRIT, TRAIT_GENERIC)
 	ADD_TRAIT(user, TRAIT_NOSOFTCRIT, TRAIT_GENERIC)
-	to_chat(target, span_notice("ZIZO EMPOWERS ME!! SOMETHING HAS GONE WRONG, THE RITUAL FAILED BUT WHAT IT LEFT ME WITH IS STILL POWER!!"))
+
 	target.attributes?.add_sheet(/datum/attribute_holder/sheet/job/immortality)
 	target.Knockdown(5 SECONDS)
 	target.emote("agony", forced = TRUE)
@@ -445,8 +500,9 @@
 
 /datum/ritual/fleshform
 	name = "Stronger Form"
+	description = "A punishment for peasants that defied The Arch-lich was having their bodies mutiliated, and the guts reanimated to terrorise."
 	special_requiment = /mob/living/carbon/human
-	descrequiment = "Victim to be turned into a beast."
+	descrequiment = "Victim to be turned into a beast, alive or not."
 
 	ingredients = list(/obj/item/organ/guts, /obj/item/organ/guts, /obj/item/reagent_containers/food/snacks/meat, /obj/item/reagent_containers/food/snacks/meat)
 	is_cultist_ritual = TRUE
@@ -461,7 +517,7 @@
 	if(!target.mind)
 		to_chat(target, span_warning("A mindless beast will not serve our cause."))
 		return
-	to_chat(target, span_warning("SOON I WILL BECOME A HIGHER FORM!"))
+	to_chat(target, SPAN_GOD_ZIZO("SOON I WILL BECOME A HIGHER FORM!"))
 	addtimer(CALLBACK(src, PROC_REF(flesh_convert), target, center), 5 SECONDS)
 
 /datum/ritual/fleshform/proc/flesh_convert(mob/living/victim, turf/place)
@@ -477,7 +533,11 @@
 
 /datum/ritual/gutted
 	name = "Gutted Fish"
+	description = "Acquisition of organs and flesh required for the ritual was a tedious work at the beginning. Now all it takes is a shard of glass to dance, cutting each new body the same exact way."
 	special_requiment = /mob/living/carbon/human // One to be gutted.human
+	descrequiment = "Dead humanoid body, that still has something inside that can be released. "
+	ingredients = list(/obj/item/natural/glass/shard)
+	output = /obj/item/natural/glass/shard
 
 /datum/ritual/gutted/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
@@ -486,7 +546,7 @@
 	if(target.stat != DEAD)
 		return
 	target.take_overall_damage(500, damage_type = BCLASS_PIERCE)
-	center.visible_message(span_danger("[target] is lifted up into the air and multiple scratches, incisions and deep cuts start etching themselves into their skin as all of their internal organs spill on the floor below!"))
+	center.visible_message(span_danger("[target] is lifted up into the air and the shard starts precisely making incisions and cuts into their skin as all of their internal organs spill on the floor below!"))
 	var/atom/drop_location = target.drop_location()
 	for(var/obj/item/organ/organ as anything in target.internal_organs)
 		organ.Remove(target)
@@ -500,14 +560,18 @@
 
 /datum/ritual/badomen
 	name = "Bad Omen"
+	description = "A beacon into the skies above, invisible to naked eye it calls the attention of The Profanator. Lit few candles in a dark room and lay them opposite to themselves on the sigil. Now a victim must be brought, force it to lay still on the circle. Ritually execute it through a throat slice, and mutter the words only when they lose conciousness, but their heart still clings to life. "
 	special_requiment = /mob/living/carbon/human
+	descrequiment = "A sacrifical lamb. Not yet dead, but barely alive."
 	is_cultist_ritual = TRUE
+	success_message = "I can feel Her gaze on me. Soon this place shall begin to twist and distrort."
+	ingredients = list(/obj/item/candle, /obj/item/candle)
 
 /datum/ritual/badomen/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
 	if(!target)
 		return
-	if(target.stat == DEAD)
+	if(target.stat != DEAD && target.stat != CONSCIOUS)
 		target.gib(FALSE, FALSE, FALSE)
 		addomen(OMEN_ROUNDSTART)
 
@@ -515,6 +579,7 @@
 	name = "ASCEND!"
 	special_requiment = /mob/living/carbon/human // virgin
 	descrequiment = "A pure-hearted virgin."
+	success_message = "I HAVE DONE IT! I HAVE REACHED A HIGHER FORM! ZIZO SMILES UPON ME WITH MALICE IN HER EYES TOWARD THE ONES WHO LACK KNOWLEDGE AND UNDERSTANDING!"
 
 	ingredients = list(/obj/item/clothing/head/crown/serpcrown)
 
@@ -522,17 +587,10 @@
 
 /datum/ritual/ascend/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/cultist = user
-	if(!cultist || cultist != user)
-		return
-	if(!is_zizocultist(cultist.mind))
-		return
 	var/mob/living/carbon/human/virgin = locate() in center.contents
-	if(!HAS_TRAIT(virgin, TRAIT_VIRGIN) || virgin.stat != DEAD)
-		return
 	virgin.gib()
 	SSmapping.retainer.cult_ascended = TRUE
 	addomen(OMEN_ASCEND)
-	to_chat(cultist, span_userdanger("I HAVE DONE IT! I HAVE REACHED A HIGHER FORM! ZIZO SMILES UPON ME WITH MALICE IN HER EYES TOWARD THE ONES WHO LACK KNOWLEDGE AND UNDERSTANDING!"))
 	var/mob/living/trl = new /mob/living/simple_animal/hostile/retaliate/blood/ascended(center)
 	cultist.mind?.transfer_to(trl)
 	cultist.gib()
@@ -544,3 +602,14 @@
 			V.add_stress(/datum/stress_event/hatezizo)
 	SSgamemode.roundvoteend = TRUE
 	SSgamemode.round_ends_at = world.time - SSticker.round_start_time + 15 MINUTES
+
+// To avoid the crown being deleted
+/datum/ritual/ascend/invoke_requiments(mob/living/user, turf/center)
+	if(!is_zizocultist(user.mind))
+		to_chat(user, SPAN_GOD_ZIZO("YOU WERE NOT CHOSEN. THIS RITUAL IS NOT FOR YOU TO PERFORM."))
+		return FALSE
+	var/mob/living/carbon/human/virgin = locate() in center.contents
+	if(!HAS_TRAIT(virgin, TRAIT_VIRGIN))
+		to_chat(user, SPAN_GOD_ZIZO("THE SIGILS DO NOT REACT TO THE BLOOD. THE SACRIFICE IS NOT A VIRGIN!"))
+		return FALSE
+	return TRUE

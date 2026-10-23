@@ -229,7 +229,7 @@
 	var/speak = input("What do you speak of?", "ZIZO") as text|null
 	if(!speak)
 		return
-	whisper("O schlet'a ty'schkotot ty'skvoro...")
+	whisper(message = "O schlet'a ty'schkotot ty'skvoro...", language = /datum/language/undead)
 	sleep(5)
 	if(stat >= UNCONSCIOUS || !can_speak_vocal())
 		return
@@ -329,8 +329,14 @@
 	if(r.special_requiment)
 		var/needed_thing = locate(r.special_requiment) in get_turf(src)
 		if(!needed_thing)
-			to_chat(user, span_notice("The ritual lacks [r.descrequiment] on top of the sigil!"))
+			if(ispath(r.special_requiment, /mob/living/carbon/human))
+				to_chat(user, span_notice("The ritual lacks a person on top of the sigil!"))
+			if(ispath(needed_thing, /obj/item))
+				to_chat(user, span_notice("The ritual lacks an item on top of the sigil!"))
 			return
+
+	if(!r.invoke_requiments(user, get_turf(src)))
+		return
 
 	if(rune_in_use)
 		to_chat(user, span_notice("The rune is already active."))
@@ -339,6 +345,7 @@
 	animating = TRUE
 
 	user.whisper(invocation, language = /datum/language/undead, ignore_spam = TRUE, forced = "cult invocation")
+	user.playsound_local(user, 'sound/vo/cult/tesa.ogg', 25)
 	playsound(src, 'sound/magic/cosmic_expansion.ogg', 60, TRUE)
 	SpinAnimation(
 		speed = 1.5 SECONDS,
@@ -390,7 +397,7 @@
 		animate(result, pixel_y = 0, time = 0.3 SECONDS, flags = ANIMATION_END_NOW)
 		sleep(0.3 SECONDS)
 
-	playsound(src, 'sound/magic/blink.ogg', 80, TRUE)
+	playsound(src, 'sound/foley/flesh_rem2.ogg', 80)
 
 	animating = FALSE
 	rune_in_use = FALSE
