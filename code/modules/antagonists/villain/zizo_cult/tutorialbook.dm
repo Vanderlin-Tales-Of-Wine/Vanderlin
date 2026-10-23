@@ -149,9 +149,9 @@
 
 		<div>
 		<h2> How to perform a ritual </h2>
-		Set your eyes on a target, on other pages you will find ingredients needed for the rituals.<br>
-		Put them on the sigil, if the ritual does not require a specific object or person, the ingredients shall transmute into a reward.<br>
-		But if one needs it, then it shall be laid down in the middle of the circle.<br>
+		1. Look onto other pages to find an intriguing ritual. You will need the required items, alongside a special requiment is it's mentioned.<br>
+		2. Put them on the sigil, if the ritual does not require a specific object or person, the ingredients shall transmute into an item.<br>
+		3. If it does need it, make sure it's in the middle of the circle before invoking it.<br>
 		<br>
 		The rituals' steps ought to be followed to the letter, lest the fragile magick shatter and destroy the materials.
 		If you are certain you have properly connected the pieces, chant the words of power 'O'vena tesa', and you shall reap what you sow.
@@ -167,6 +167,6 @@
 		Only those with their minds open might join you in this crusade.<br>
 		<br>
 		<br>
-		<i>-Herald Krarrukko, written in 2105</i>
+		<i>-Herald Krarrukko, written in 2106</i>
 		</div>
 	"}
