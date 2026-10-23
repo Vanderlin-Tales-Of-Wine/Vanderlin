@@ -149,22 +149,22 @@
 
 		<div>
 		<h2> How to perform a ritual </h2>
-		Set your eyes on a target, on other pages you will find ingridients needed for the rituals.<br>
-		Put them on the sigil, if the ritual does not require a specific object or person, the ingridients shall transmute into a reward.<br>
+		Set your eyes on a target, on other pages you will find ingredients needed for the rituals.<br>
+		Put them on the sigil, if the ritual does not require a specific object or person, the ingredients shall transmute into a reward.<br>
 		But if one needs it, then it shall be laid down in the middle of the circle.<br>
 		<br>
-		The rituals steps ought to be followed to the letter, lest the fragile magick might shatter and destroy the materials.
+		The rituals' steps ought to be followed to the letter, lest the fragile magick shatter and destroy the materials.
 		If you are certain you have properly connected the pieces, chant the words of power 'O'vena tesa', and you shall reap what you sow.
-		Yet some might require more insight, a lone person wouldn't have time to learn them from the ground-up, but for that seek her heralds.<br>
+		Yet some might require more insight, a lone person wouldn't have time to learn them from the ground-up, but for that seek Her heralds.<br>
 		</div>
 		<br>
 
 		<div>
 		<h2> Her heralds of ascension </h2>
 		Throughout the lands you shall be shunned, for the fools keeping us down react with anger onto what they cannot comprehend.<br>
-		But even though She is gone from this mortal world, the Pale Lady left us Her heralds, who shall guide her followers.<br>
+		But even though She is gone from this mortal world, the Pale Lady left us Her heralds, who shall guide Her followers.<br>
 		Seek them out, for they shall grant you knowledge of rites mortals weren't made to learn.<br>
-		Only those with their minds open might join you onto this crusade.<br>
+		Only those with their minds open might join you in this crusade.<br>
 		<br>
 		<br>
 		<i>-Herald Krarrukko, written in 2105</i>
