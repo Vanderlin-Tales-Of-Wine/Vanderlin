@@ -11,6 +11,7 @@
 	var/is_cultist_ritual = FALSE
 	var/success_message
 	var/description
+	var/hides_from_books = FALSE
 	abstract_type = /datum/ritual
 
 /datum/ritual/proc/invoke(mob/living/user, turf/center)
@@ -206,6 +207,10 @@
 	success_message = "A gift to all who seek to change the world."
 	ingredients = list(/obj/item/book)
 	output = /obj/item/recipe_book/zizo_cult
+
+/datum/ritual/tutorialbook/alternativerecipe
+	ingredients = list(/obj/item/recipe_book)
+	hides_from_books = TRUE
 
 /datum/ritual/allseeingeye
 	name = "All-seeing Eye"
