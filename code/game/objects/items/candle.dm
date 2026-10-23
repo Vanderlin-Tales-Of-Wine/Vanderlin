@@ -135,7 +135,7 @@
 /obj/item/candle/eora
 	icon = 'icons/roguetown/items/lighting.dmi'
 	name = "eora's candle"
-	desc = "A candle blessed by the Eoran love, it burns with a beautiful pink flame and has a flowery odor."
+	desc = "A heart shaped candle blessed by the Eoran love, it burns with a beautiful pink flame and has a flowery odor."
 	light_color = "#ff13d8ff"
 	icon_state = "candle_eora"
 	infinite = TRUE
