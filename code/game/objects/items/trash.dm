@@ -22,7 +22,7 @@
 
 /obj/item/trash/candle
 	name = "melted candle"
-	icon = 'icons/obj/candle.dmi'
+	icon = 'icons/roguetown/items/lighting.dmi'
 	icon_state = "candle4"
 	item_weight = 23 GRAMS
 
