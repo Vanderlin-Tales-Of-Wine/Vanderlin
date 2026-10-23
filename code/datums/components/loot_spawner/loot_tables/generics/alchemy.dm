@@ -1,27 +1,23 @@
 /datum/loot_table/potion_vitals
 	name = "generic vital potions"
 	loot_table = list(
-		list(
-			/obj/item/reagent_containers/glass/bottle/healthpot = 10,
-			/obj/item/reagent_containers/glass/bottle/stronghealthpot = 5,
-			/obj/item/reagent_containers/glass/bottle/manapot = 10,
-			/obj/item/reagent_containers/glass/bottle/strongmanapot = 5,
-			/obj/item/reagent_containers/glass/bottle/stampot = 10,
-			/obj/item/reagent_containers/glass/bottle/strongstampot = 5
-		)
+		/obj/item/reagent_containers/glass/bottle/healthpot = 10,
+		/obj/item/reagent_containers/glass/bottle/stronghealthpot = 5,
+		/obj/item/reagent_containers/glass/bottle/manapot = 10,
+		/obj/item/reagent_containers/glass/bottle/strongmanapot = 5,
+		/obj/item/reagent_containers/glass/bottle/stampot = 10,
+		/obj/item/reagent_containers/glass/bottle/strongstampot = 5
 	)
 
 /datum/loot_table/potion_poisons
 	name = "generic poisons"
 	loot_table = list(
-		list(
-			/obj/item/reagent_containers/glass/bottle/poison = 10,
-			/obj/item/reagent_containers/glass/bottle/strongpoison = 5,
-			/obj/item/reagent_containers/glass/bottle/stampoison = 10,
-			/obj/item/reagent_containers/glass/bottle/strongstampoison = 5,
-			/obj/item/reagent_containers/glass/bottle/stampot = 10,
-			/obj/item/reagent_containers/glass/bottle/strongstampot = 5
-		)
+		/obj/item/reagent_containers/glass/bottle/poison = 10,
+		/obj/item/reagent_containers/glass/bottle/strongpoison = 5,
+		/obj/item/reagent_containers/glass/bottle/stampoison = 10,
+		/obj/item/reagent_containers/glass/bottle/strongstampoison = 5,
+		/obj/item/reagent_containers/glass/bottle/stampot = 10,
+		/obj/item/reagent_containers/glass/bottle/strongstampot = 5
 	)
 
 /datum/loot_table/potion_ingredient
@@ -35,36 +31,33 @@
 		var/list/ingredient_list = list()
 		for(var/ingredient in all_potion_ings)
 			ingredient_list[ingredient] = 1
-		loot_table = list(ingredient_list)
+		loot_table = ingredient_list
 	..()
 
 /datum/loot_table/potion_ingredient/herb
 	name = "generic herbs"
 	loot_table = list(
-		list(
-			/obj/item/alch/herb/atropa = 5,
-			/obj/item/alch/herb/matricaria = 5,
-			/obj/item/alch/herb/symphitum = 5,
-			/obj/item/alch/herb/taraxacum = 5,
-			/obj/item/alch/herb/euphrasia = 5,
-			/obj/item/alch/herb/paris = 5,
-			/obj/item/alch/herb/calendula = 5,
-			/obj/item/alch/herb/mentha = 5,
-			/obj/item/alch/herb/urtica = 5,
-			/obj/item/alch/herb/salvia = 5,
-			/obj/item/alch/herb/hypericum = 5,
-			/obj/item/alch/herb/benedictus = 5,
-			/obj/item/alch/herb/valeriana = 5,
-			/obj/item/alch/herb/artemisia = 5,
-			/obj/item/alch/herb/rosa = 5,
-			/obj/item/alch/herb/euphorbia = 5
-		)
+		/obj/item/alch/herb/atropa = 5,
+		/obj/item/alch/herb/matricaria = 5,
+		/obj/item/alch/herb/symphitum = 5,
+		/obj/item/alch/herb/taraxacum = 5,
+		/obj/item/alch/herb/euphrasia = 5,
+		/obj/item/alch/herb/paris = 5,
+		/obj/item/alch/herb/calendula = 5,
+		/obj/item/alch/herb/mentha = 5,
+		/obj/item/alch/herb/urtica = 5,
+		/obj/item/alch/herb/salvia = 5,
+		/obj/item/alch/herb/hypericum = 5,
+		/obj/item/alch/herb/benedictus = 5,
+		/obj/item/alch/herb/valeriana = 5,
+		/obj/item/alch/herb/artemisia = 5,
+		/obj/item/alch/herb/rosa = 5,
+		/obj/item/alch/herb/euphorbia = 5
 	)
 
 /datum/loot_table/potion_stats
 	name = "generic stat potions"
 	loot_table = list(
-		list(
 			/obj/item/reagent_containers/glass/bottle/vial/strpot = 10,
 			/obj/item/reagent_containers/glass/bottle/vial/perpot = 10,
 			/obj/item/reagent_containers/glass/bottle/vial/endpot = 10,
@@ -72,13 +65,11 @@
 			/obj/item/reagent_containers/glass/bottle/vial/intpot = 10,
 			/obj/item/reagent_containers/glass/bottle/vial/spdpot = 10,
 			/obj/item/reagent_containers/glass/bottle/vial/lucpot = 10
-		)
 	)
 
 /datum/loot_table/potion_skills
 	name = "skill elixirs"
 	loot_table = list(
-		list(
 			/obj/item/reagent_containers/glass/bottle/vial/bladeart = 10,
 			/obj/item/reagent_containers/glass/bottle/vial/heavy_arms = 10,
 			/obj/item/reagent_containers/glass/bottle/vial/whip_hand = 10,
@@ -109,5 +100,4 @@
 			/obj/item/reagent_containers/glass/bottle/vial/athletes_brine = 10,
 			/obj/item/reagent_containers/glass/bottle/vial/shadow_tonic = 10,
 			/obj/item/reagent_containers/glass/bottle/vial/scholars_ink = 10
-		)
 	)
