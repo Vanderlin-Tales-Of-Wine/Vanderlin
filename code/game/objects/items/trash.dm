@@ -21,10 +21,14 @@
 	return ..()
 
 /obj/item/trash/candle
-	name = "candle"
+	name = "melted candle"
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle4"
 	item_weight = 23 GRAMS
+
+/obj/item/trash/candle
+	name = "melted eora's candle"
+	icon_statee = "candle_eora_melted"
 
 /obj/item/trash/attack(mob/M, mob/living/user, list/modifiers)
 	return
