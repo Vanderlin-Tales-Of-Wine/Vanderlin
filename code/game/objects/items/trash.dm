@@ -28,7 +28,7 @@
 
 /obj/item/trash/candle
 	name = "melted eora's candle"
-	icon_statee = "candle_eora_melted"
+	icon_state = "candle_eora_melted"
 
 /obj/item/trash/attack(mob/M, mob/living/user, list/modifiers)
 	return
