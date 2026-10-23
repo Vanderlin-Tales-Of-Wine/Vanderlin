@@ -26,7 +26,7 @@
 	icon_state = "candle4"
 	item_weight = 23 GRAMS
 
-/obj/item/trash/candle
+/obj/item/trash/candle/eora
 	name = "melted eora's candle"
 	icon_state = "candle_eora_melted"
 

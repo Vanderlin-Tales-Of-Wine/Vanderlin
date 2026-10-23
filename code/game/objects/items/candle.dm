@@ -137,8 +137,10 @@
 	name = "eora's candle"
 	desc = "A candle blessed by the Eoran love, it burns with a beautiful pink flame and has a flowery odor."
 	light_color = "#ff13d8ff"
+	icon_state = "candle_eora"
 	infinite = TRUE
 	base_icon_state = "candle_eora"
+	melted_item = /obj/item/trash/candle/eora
 
 /obj/item/candle/eora/lit
 	start_lit = TRUE
