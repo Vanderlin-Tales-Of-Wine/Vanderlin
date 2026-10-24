@@ -121,7 +121,7 @@
 	var/succumbed = FALSE
 
 	var/fullcrit = InFullCritical()
-	if((in_crit && !fullcrit) || message_mods[WHISPER_MODE] == MODE_WHISPER)
+	if((in_crit && !fullcrit) || message_mods[WHISPER_MODE] == MODE_WHISPER || isshade(src))
 		message_range = 1
 		message_mods[WHISPER_MODE] = MODE_WHISPER
 		src.log_talk("whispered: [message]", LOG_WHISPER)
