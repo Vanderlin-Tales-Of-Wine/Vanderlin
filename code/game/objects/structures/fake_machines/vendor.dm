@@ -280,7 +280,7 @@
 		held_items[I] = list()
 		held_items[I]["NAME"] = I.name
 		held_items[I]["PRICE"] = 40
-	for(varX in list(/obj/item/key/roomhunt))
+	for(var/X in list(/obj/item/key/roomhunt))
 		var/obj/I = new X(src)
 		held_items[I] = list()
 		held_items[I]["NAME"] = I.name
