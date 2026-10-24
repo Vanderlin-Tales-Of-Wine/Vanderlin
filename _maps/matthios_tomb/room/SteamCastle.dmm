@@ -1,11 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/obj/structure/gate/bars{
-	redstone_id = Firegate1;
-	name = "Hell gate"
-	},
-/turf/open/floor/cobble,
-/area/under/tomb)
 "ab" = (
 /obj/structure/rack/shelf/biggest,
 /obj/effect/dungeon_loot_spawner/medium,
@@ -184,6 +177,13 @@
 /obj/item/weapon/shield/tower/buckleriron,
 /turf/open/floor/churchmarble,
 /area/under/tomb/indoors/royal)
+"aC" = (
+/obj/structure/gate/bars{
+	redstone_id = FireGate1;
+	name = "Hell gate"
+	},
+/turf/open/floor/cobble,
+/area/under/tomb)
 "aD" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
 	base_strength = 15;
@@ -1386,11 +1386,6 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/churchmarble,
 /area/under/tomb/indoors/royal)
-"lo" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/weapon/knife/dagger/silver,
-/turf/open/floor/cobble,
-/area/under/tomb/indoors)
 "lv" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -3075,11 +3070,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
 /area/under/tomb/indoors)
-"Gs" = (
-/obj/structure/closet/crate/chest/crate,
-/obj/item/ingot/silver,
-/turf/open/floor/cobble,
-/area/under/tomb/indoors)
 "Gt" = (
 /obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/ruinedwood/darker,
@@ -4470,11 +4460,6 @@
 /mob/living/simple_animal/hostile/retaliate/saiga,
 /turf/open/floor/dirt,
 /area/under/tomb/wilds)
-"Yo" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/statue/silver,
-/turf/open/floor/cobble,
-/area/under/tomb/indoors)
 "Yv" = (
 /obj/structure/door/stone,
 /turf/open/floor/ruinedwood/chevron,
@@ -5915,7 +5900,7 @@ rk
 rk
 Qv
 Qv
-Yo
+ab
 Qv
 wn
 Cb
@@ -6059,7 +6044,7 @@ wn
 wn
 gr
 Ai
-Gs
+Ai
 QY
 gv
 Hb
@@ -6201,8 +6186,8 @@ Mg
 oQ
 UM
 wn
-lo
 jc
+ab
 Qv
 Qv
 Cb
@@ -6423,7 +6408,7 @@ pz
 Xb
 Yw
 Zb
-aa
+aC
 Gx
 Vs
 eG
